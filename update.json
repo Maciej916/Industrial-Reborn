@@ -2,10 +2,11 @@
   "homepage": "https://www.curseforge.com/minecraft/mc-mods/industrial-reborn",
   "changelog": "https://www.curseforge.com/minecraft/mc-mods/industrial-reborn/files",
   "1.15.2": {
+    "0.2.1": "https://www.curseforge.com/minecraft/mc-mods/industrial-reborn/files/2873707",
     "0.2.0": "https://www.curseforge.com/minecraft/mc-mods/industrial-reborn/files/2873368"
   },
   "promos": {
-    "1.15.2-latest": "0.2.0",
-    "1.15.2-recommended": "0.2.0"
+    "1.15.2-latest": "0.2.1",
+    "1.15.2-recommended": "0.2.1"
   }
 }
