@@ -16,9 +16,9 @@
     "0.2.0": "https://www.curseforge.com/minecraft/mc-mods/industrial-reborn/files/2873368"
   },
   "promos": {
-    "1.16.1-latest": "0.6.0",
-    "1.16.1-recommended": "0.6.0",
-    "1.15.2-latest": "0.4.0",
-    "1.15.2-recommended": "0.4.0"
+    "1.16.1-latest": "1.16.1-0.6.0",
+    "1.16.1-recommended": "1.16.1-0.6.0",
+    "1.15.2-latest": "1.15.2-0.4.0",
+    "1.15.2-recommended": "1.15.2-0.4.0"
   }
 }
