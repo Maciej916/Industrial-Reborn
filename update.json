@@ -1,6 +1,9 @@
 {
   "homepage": "https://www.curseforge.com/minecraft/mc-mods/industrial-reborn",
   "changelog": "https://www.curseforge.com/minecraft/mc-mods/industrial-reborn/files",
+  "1.16.3": {
+    "0.9.0": "https://www.curseforge.com/minecraft/mc-mods/industrial-reborn/files/3063950"
+  },
   "1.16.1": {
     "0.8.2": "https://www.curseforge.com/minecraft/mc-mods/industrial-reborn/files/3038356",
     "0.8.1": "https://www.curseforge.com/minecraft/mc-mods/industrial-reborn/files/3002863",
@@ -22,6 +25,8 @@
     "0.2.0": "https://www.curseforge.com/minecraft/mc-mods/industrial-reborn/files/2873368"
   },
   "promos": {
+    "1.16.3-latest": "1.16.3-0.9.0",
+    "1.16.3-recommended": "1.16.3-0.9.0",
     "1.16.1-latest": "1.16.1-0.8.2",
     "1.16.1-recommended": "1.16.1-0.8.2",
     "1.15.2-latest": "1.15.2-0.4.0",
