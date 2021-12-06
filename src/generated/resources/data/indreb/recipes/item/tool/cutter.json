@@ -8,7 +8,7 @@
   ],
   "key": {
     "i": {
-      "tag": "forge:ingots/iron"
+      "item": "indreb:iron_rod"
     },
     "p": {
       "tag": "forge:plates/iron"

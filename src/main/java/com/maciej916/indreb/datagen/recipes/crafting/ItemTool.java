@@ -62,10 +62,10 @@ public class ItemTool extends RecipeProvider {
                 .pattern("p p")
                 .pattern(" p ")
                 .pattern("i i")
-                .define('i', ItemTags.bind("forge:ingots/iron"))
+                .define('i', ModItems.IRON_ROD)
                 .define('p', ItemTags.bind("forge:plates/iron"))
                 .group(MODID)
-                .unlockedBy("item", InventoryChangeTrigger.TriggerInstance.hasItems(Items.IRON_INGOT))
+                .unlockedBy("item", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.IRON_ROD))
                 .save(consumer, saveResource("cutter"));
 
 

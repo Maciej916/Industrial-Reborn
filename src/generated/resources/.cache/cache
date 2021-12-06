@@ -144,7 +144,7 @@ a8c5f62aee1b22c5b7273a238319d4e0236ca8b0 data/indreb/advancements/recipes/indreb
 c7eb7eb3b8c8cdc48ab0c33fc5dd1005941d3f4f data/indreb/advancements/recipes/indreb/item/tool/bronze_pickaxe.json
 6b86ee302d95c4ac3c72a739a01f8a6b4c83d79f data/indreb/advancements/recipes/indreb/item/tool/bronze_shovel.json
 6b55e608950f011d125de76965b97f8ebee5f942 data/indreb/advancements/recipes/indreb/item/tool/bronze_sword.json
-1a612e1282abc331f93082117e0437d82dc6b519 data/indreb/advancements/recipes/indreb/item/tool/cutter.json
+878f540f37d90382943dfeefdc8b35ad6deeaac5 data/indreb/advancements/recipes/indreb/item/tool/cutter.json
 cc2023077ce30497962becfe85b3ca868da30d58 data/indreb/advancements/recipes/indreb/item/tool/hammer.json
 9fcaa24a43b68160feb70cf55b7990a5f784f2a2 data/indreb/advancements/recipes/indreb/item/tool/treetap.json
 ae13a531ac5d52a39b6e2379dece438bee041c25 data/indreb/advancements/recipes/indreb/item/tool/wrench.json
@@ -379,7 +379,7 @@ f420b752741c062c9c8622d2bc0682f6046ae695 data/indreb/recipes/item/tool/bronze_ho
 f0f9697c21a7664ccbccbca8ba80ac3f72be5740 data/indreb/recipes/item/tool/bronze_pickaxe.json
 011a1b2028f607500e2b220c9364a6ecdec28af7 data/indreb/recipes/item/tool/bronze_shovel.json
 5bc670c0da9e15acd560822be4745c0810e2dea2 data/indreb/recipes/item/tool/bronze_sword.json
-2bd05e39ef4e8a4757897eb375c799feee6c99a2 data/indreb/recipes/item/tool/cutter.json
+85bbbf91595691ece521a3848f810494bdb41264 data/indreb/recipes/item/tool/cutter.json
 50f6eafccc15bc2ce44cc2352d09697265a7b896 data/indreb/recipes/item/tool/hammer.json
 664873c27d240becac70b5369152aa9249ab308c data/indreb/recipes/item/tool/treetap.json
 431207b5d9547f36e98d4f4d3f0f6aed8c4cb6a8 data/indreb/recipes/item/tool/wrench.json
