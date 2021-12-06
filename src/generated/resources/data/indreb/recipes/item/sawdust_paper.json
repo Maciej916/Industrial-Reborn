@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "indreb",
+  "pattern": [
+    "SSS"
+  ],
+  "key": {
+    "S": {
+      "item": "indreb:sawdust"
+    }
+  },
+  "result": {
+    "item": "minecraft:paper",
+    "count": 6
+  }
+}

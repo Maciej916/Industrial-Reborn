@@ -1,0 +1,13 @@
+{
+  "type": "indreb:compressing",
+  "ingredient": {
+    "tag": "forge:ingots/gold",
+    "count": 9
+  },
+  "result": {
+    "item": "minecraft:gold_block"
+  },
+  "experience": 0.4,
+  "duration": 180,
+  "power_cost": 8
+}

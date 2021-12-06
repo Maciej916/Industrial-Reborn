@@ -1,0 +1,7 @@
+{
+    "variants": {
+        "axis=y": { "model": "indreb:block/rubber_wood/rubber_wood" },
+        "axis=z": { "model": "indreb:block/rubber_wood/rubber_wood", "x": 90 },
+        "axis=x": { "model": "indreb:block/rubber_wood/rubber_wood", "x": 90, "y": 90 }
+    }
+}

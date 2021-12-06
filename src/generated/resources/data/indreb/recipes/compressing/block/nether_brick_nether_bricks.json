@@ -1,0 +1,13 @@
+{
+  "type": "indreb:compressing",
+  "ingredient": {
+    "item": "minecraft:nether_brick",
+    "count": 4
+  },
+  "result": {
+    "item": "minecraft:nether_bricks"
+  },
+  "experience": 0.0,
+  "duration": 180,
+  "power_cost": 8
+}

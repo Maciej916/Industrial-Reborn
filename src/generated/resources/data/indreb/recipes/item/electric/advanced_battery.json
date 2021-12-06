@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "indreb",
+  "pattern": [
+    "iri",
+    "pbp",
+    "iri"
+  ],
+  "key": {
+    "i": {
+      "item": "indreb:copper_cable_insulated"
+    },
+    "r": {
+      "item": "minecraft:redstone"
+    },
+    "b": {
+      "item": "indreb:battery"
+    },
+    "p": {
+      "tag": "forge:plates/copper"
+    }
+  },
+  "result": {
+    "item": "indreb:advanced_battery"
+  }
+}

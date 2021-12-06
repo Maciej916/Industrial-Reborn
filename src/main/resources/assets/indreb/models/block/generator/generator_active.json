@@ -1,0 +1,9 @@
+{
+	"parent": "block/orientable",
+	"textures": {
+		"front": "indreb:block/generator/generator_front_active",
+		"top": "indreb:block/generator/generator_top",
+		"bottom": "indreb:block/generator/generator_bottom",
+		"side": "indreb:block/generator/generator_side"
+	}
+}

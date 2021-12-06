@@ -1,0 +1,13 @@
+{
+  "type": "indreb:compressing",
+  "ingredient": {
+    "item": "indreb:mixed_metal_ingot",
+    "count": 1
+  },
+  "result": {
+    "item": "indreb:advanced_alloy"
+  },
+  "experience": 0.0,
+  "duration": 180,
+  "power_cost": 8
+}

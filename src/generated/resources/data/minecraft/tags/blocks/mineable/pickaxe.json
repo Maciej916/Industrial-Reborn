@@ -1,0 +1,33 @@
+{
+  "replace": false,
+  "values": [
+    "indreb:generator",
+    "indreb:solar_generator",
+    "indreb:geo_generator",
+    "indreb:cesu",
+    "indreb:mfe",
+    "indreb:mfsu",
+    "indreb:iron_furnace",
+    "indreb:electric_furnace",
+    "indreb:crusher",
+    "indreb:compressor",
+    "indreb:extractor",
+    "indreb:sawmill",
+    "indreb:extruder",
+    "indreb:alloy_smelter",
+    "indreb:copper_cable",
+    "indreb:copper_cable_insulated",
+    "indreb:tin_cable",
+    "indreb:tin_cable_insulated",
+    "indreb:gold_cable_insulated",
+    "indreb:hv_cable",
+    "indreb:hv_cable_insulated",
+    "indreb:glass_fibre_cable",
+    "indreb:tin_ore",
+    "indreb:tin_block",
+    "indreb:silver_block",
+    "indreb:bronze_block",
+    "indreb:basic_machine_casing",
+    "indreb:advanced_machine_casing"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+	"variants": {
+		"facing=north,active=false":	{ "model": "indreb:block/machines/compressor" },
+		"facing=south,active=false":	{ "model": "indreb:block/machines/compressor", "y": 180 },
+		"facing=west,active=false":	{ "model": "indreb:block/machines/compressor", "y": 270 },
+		"facing=east,active=false":	{ "model": "indreb:block/machines/compressor", "y": 90 },
+		"facing=north,active=true":	{ "model": "indreb:block/machines/compressor_active" },
+		"facing=south,active=true":	{ "model": "indreb:block/machines/compressor_active", "y": 180 },
+		"facing=west,active=true":		{ "model": "indreb:block/machines/compressor_active", "y": 270 },
+		"facing=east,active=true":		{ "model": "indreb:block/machines/compressor_active", "y": 90 }
+	}
+}

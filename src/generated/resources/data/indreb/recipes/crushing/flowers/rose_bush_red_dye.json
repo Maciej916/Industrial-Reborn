@@ -1,0 +1,19 @@
+{
+  "type": "indreb:crushing",
+  "ingredient": {
+    "item": "minecraft:rose_bush",
+    "count": 1
+  },
+  "result": {
+    "item": "minecraft:red_dye",
+    "count": 2
+  },
+  "bonus_result": {
+    "item": "minecraft:red_dye",
+    "count": 1,
+    "chance": 50.0
+  },
+  "experience": 0.1,
+  "duration": 180,
+  "power_cost": 8
+}

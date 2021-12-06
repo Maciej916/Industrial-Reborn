@@ -1,0 +1,13 @@
+{
+  "type": "indreb:compressing",
+  "ingredient": {
+    "item": "minecraft:ice",
+    "count": 2
+  },
+  "result": {
+    "item": "minecraft:packed_ice"
+  },
+  "experience": 0.0,
+  "duration": 180,
+  "power_cost": 8
+}

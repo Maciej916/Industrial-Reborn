@@ -1,0 +1,13 @@
+{
+  "type": "indreb:compressing",
+  "ingredient": {
+    "tag": "forge:ingots/copper",
+    "count": 9
+  },
+  "result": {
+    "item": "minecraft:copper_block"
+  },
+  "experience": 0.3,
+  "duration": 180,
+  "power_cost": 8
+}

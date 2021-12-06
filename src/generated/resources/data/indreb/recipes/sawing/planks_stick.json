@@ -1,0 +1,19 @@
+{
+  "type": "indreb:sawing",
+  "ingredient": {
+    "tag": "minecraft:planks",
+    "count": 1
+  },
+  "result": {
+    "item": "minecraft:stick",
+    "count": 6
+  },
+  "bonus_result": {
+    "item": "indreb:sawdust",
+    "count": 1,
+    "chance": 25.0
+  },
+  "experience": 0.0,
+  "duration": 180,
+  "power_cost": 8
+}

@@ -1,0 +1,47 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "indreb:cables/glass_fibre_cable"
+    ]
+  },
+  "criteria": {
+    "energium": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:energium_dust"
+            ]
+          }
+        ]
+      }
+    },
+    "silver_dust": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:silver_dust"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "indreb:cables/glass_fibre_cable"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "energium",
+      "silver_dust",
+      "has_the_recipe"
+    ]
+  ]
+}

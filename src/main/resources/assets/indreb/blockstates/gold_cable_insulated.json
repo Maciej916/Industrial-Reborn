@@ -1,0 +1,136 @@
+{
+  "multipart": [
+    {
+      "when": {
+        "OR": [
+			{ "up": "false", "down": "false", "north": "false", "east": "false", "south": "false", "west": "false" },
+			{ "up": "false", "down": "false", "north": "true", "east": "true", "south": "true", "west": "true" },
+			{ "up": "true", "down": "false", "north": "false", "east": "false", "south": "false", "west": "false" },
+			{ "up": "false", "down": "true", "north": "false", "east": "false", "south": "false", "west": "false" },
+
+			{ "up": "true", "down": "false", "north": "true", "east": "true", "south": "true", "west": "true" },
+			{ "up": "false", "down": "true", "north": "true", "east": "true", "south": "true", "west": "true" },
+
+
+			{ "up": "true", "down": "false", "north": "false", "east": "true", "south": "true", "west": "true" },
+			{ "up": "true", "down": "false", "north": "true", "east": "false", "south": "true", "west": "true" },
+			{ "up": "true", "down": "false", "north": "true", "east": "true", "south": "false", "west": "true" },
+			{ "up": "true", "down": "false", "north": "true", "east": "true", "south": "true", "west": "false" },
+
+			{ "up": "true", "down": "false", "north": "true", "east": "false", "south": "false", "west": "false" },
+			{ "up": "true", "down": "false", "north": "false", "east": "true", "south": "false", "west": "false" },
+			{ "up": "true", "down": "false", "north": "false", "east": "false", "south": "true", "west": "false" },
+			{ "up": "true", "down": "false", "north": "false", "east": "false", "south": "false", "west": "true" },
+
+			{ "up": "true", "down": "false", "north": "true", "east": "true", "south": "false", "west": "false" },
+			{ "up": "true", "down": "false", "north": "false", "east": "false", "south": "true", "west": "true" },
+			{ "up": "true", "down": "false", "north": "false", "east": "true", "south": "true", "west": "false" },
+			{ "up": "true", "down": "false", "north": "true", "east": "false", "south": "false", "west": "true" },
+
+
+
+			{ "up": "false", "down": "true", "north": "false", "east": "true", "south": "true", "west": "true" },
+			{ "up": "false", "down": "true", "north": "true", "east": "false", "south": "true", "west": "true" },
+			{ "up": "false", "down": "true", "north": "true", "east": "true", "south": "false", "west": "true" },
+			{ "up": "false", "down": "true", "north": "true", "east": "true", "south": "true", "west": "false" },
+
+			{ "up": "false", "down": "true", "north": "true", "east": "false", "south": "false", "west": "false" },
+			{ "up": "false", "down": "true", "north": "false", "east": "true", "south": "false", "west": "false" },
+			{ "up": "false", "down": "true", "north": "false", "east": "false", "south": "true", "west": "false" },
+			{ "up": "false", "down": "true", "north": "false", "east": "false", "south": "false", "west": "true" },
+
+			{ "up": "false", "down": "true", "north": "true", "east": "true", "south": "false", "west": "false" },
+			{ "up": "false", "down": "true", "north": "false", "east": "false", "south": "true", "west": "true" },
+			{ "up": "false", "down": "true", "north": "false", "east": "true", "south": "true", "west": "false" },
+			{ "up": "false", "down": "true", "north": "true", "east": "false", "south": "false", "west": "true" },
+	
+
+
+			{ "up": "false", "down": "false", "north": "false", "east": "true", "south": "true", "west": "true" },
+			{ "up": "false", "down": "false", "north": "true", "east": "false", "south": "true", "west": "true" },
+			{ "up": "false", "down": "false", "north": "true", "east": "true", "south": "false", "west": "true" },
+			{ "up": "false", "down": "false", "north": "true", "east": "true", "south": "true", "west": "false" },
+
+			{ "up": "false", "down": "false", "north": "true", "east": "false", "south": "false", "west": "false" },
+			{ "up": "false", "down": "false", "north": "false", "east": "true", "south": "false", "west": "false" },
+			{ "up": "false", "down": "false", "north": "false", "east": "false", "south": "true", "west": "false" },
+			{ "up": "false", "down": "false", "north": "false", "east": "false", "south": "false", "west": "true" },
+
+			{ "up": "false", "down": "false", "north": "true", "east": "true", "south": "false", "west": "false" },
+			{ "up": "false", "down": "false", "north": "false", "east": "false", "south": "true", "west": "true" },
+			{ "up": "false", "down": "false", "north": "false", "east": "true", "south": "true", "west": "false" },
+			{ "up": "false", "down": "false", "north": "true", "east": "false", "south": "false", "west": "true" },
+
+
+
+			{ "up": "true", "down": "true", "north": "false", "east": "true", "south": "true", "west": "true" },
+			{ "up": "true", "down": "true", "north": "true", "east": "false", "south": "true", "west": "true" },
+			{ "up": "true", "down": "true", "north": "true", "east": "true", "south": "false", "west": "true" },
+			{ "up": "true", "down": "true", "north": "true", "east": "true", "south": "true", "west": "false" },
+
+			{ "up": "true", "down": "true", "north": "true", "east": "false", "south": "false", "west": "false" },
+			{ "up": "true", "down": "true", "north": "false", "east": "true", "south": "false", "west": "false" },
+			{ "up": "true", "down": "true", "north": "false", "east": "false", "south": "true", "west": "false" },
+			{ "up": "true", "down": "true", "north": "false", "east": "false", "south": "false", "west": "true" },
+
+			{ "up": "true", "down": "true", "north": "true", "east": "true", "south": "false", "west": "false" },
+			{ "up": "true", "down": "true", "north": "false", "east": "false", "south": "true", "west": "true" },
+			{ "up": "true", "down": "true", "north": "false", "east": "true", "south": "true", "west": "false" },
+			{ "up": "true", "down": "true", "north": "true", "east": "false", "south": "false", "west": "true" },
+
+
+
+			{ "up": "true", "down": "false", "north": "true", "east": "false", "south": "true", "west": "false" },
+			{ "up": "false", "down": "true", "north": "true", "east": "false", "south": "true", "west": "false" },
+			{ "up": "true", "down": "false", "north": "false", "east": "true", "south": "false", "west": "true" },
+			{ "up": "false", "down": "true", "north": "false", "east": "true", "south": "false", "west": "true" },
+
+
+
+			{ "up": "true", "down": "true", "north": "true", "east": "false", "south": "true", "west": "false" },
+			{ "up": "true", "down": "true", "north": "true", "east": "false", "south": "true", "west": "false" },
+			{ "up": "true", "down": "true", "north": "false", "east": "true", "south": "false", "west": "true" },
+			{ "up": "true", "down": "true", "north": "false", "east": "true", "south": "false", "west": "true" }
+
+        ]
+      },
+      "apply": {
+        "model": "indreb:block/cable/gold_cable_insulated"
+      }
+    },
+	{   
+		"when": { "up": "true" },
+		"apply": { "model": "indreb:block/cable/gold_cable_insulated_side", "x": -90, "uvlock": true }
+	},
+
+	{
+		"when": { "down": "true" },
+		"apply": { "model": "indreb:block/cable/gold_cable_insulated_side", "x": 90, "uvlock": true }
+	},
+
+	{
+		"when": { "north": "true" },
+		"apply": { "model": "indreb:block/cable/gold_cable_insulated_side", "uvlock": true }
+	},
+	{
+		"when": { "east": "true" },
+		"apply": { "model": "indreb:block/cable/gold_cable_insulated_side", "y": 90, "uvlock": true }
+	},
+	{
+		"when": { "south": "true" },
+		"apply": { "model": "indreb:block/cable/gold_cable_insulated_side", "y": 180, "uvlock": true }
+	},
+	{
+		"when": { "west": "true" },
+		"apply": { "model": "indreb:block/cable/gold_cable_insulated_side", "y": 270, "uvlock": true }
+	},
+	{   
+		"when": { "OR": [
+			{ "up": "false", "down": "false", "north": "false", "east": "true", "south": "false", "west": "true" },
+			{ "up": "false", "down": "false", "north": "true", "east": "false", "south": "true", "west": "false" },
+			{ "up": "true", "down": "true", "north": "false", "east": "false", "south": "false", "west": "false" }
+		]},
+		"apply": { "model": "indreb:block/cable/gold_cable_insulated_connected" }
+	}
+  ]
+}

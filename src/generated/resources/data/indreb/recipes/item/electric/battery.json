@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "indreb",
+  "pattern": [
+    " C ",
+    "TrT",
+    "TrT"
+  ],
+  "key": {
+    "C": {
+      "item": "indreb:copper_cable_insulated"
+    },
+    "r": {
+      "item": "minecraft:redstone"
+    },
+    "T": {
+      "tag": "forge:plates/tin"
+    }
+  },
+  "result": {
+    "item": "indreb:battery"
+  }
+}

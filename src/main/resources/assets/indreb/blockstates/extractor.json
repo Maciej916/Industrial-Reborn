@@ -1,0 +1,12 @@
+{
+	"variants": {
+		"facing=north,active=false":	{ "model": "indreb:block/machines/extractor" },
+		"facing=south,active=false":	{ "model": "indreb:block/machines/extractor", "y": 180 },
+		"facing=west,active=false":	{ "model": "indreb:block/machines/extractor", "y": 270 },
+		"facing=east,active=false":	{ "model": "indreb:block/machines/extractor", "y": 90 },
+		"facing=north,active=true":	{ "model": "indreb:block/machines/extractor_active" },
+		"facing=south,active=true":	{ "model": "indreb:block/machines/extractor_active", "y": 180 },
+		"facing=west,active=true":		{ "model": "indreb:block/machines/extractor_active", "y": 270 },
+		"facing=east,active=true":		{ "model": "indreb:block/machines/extractor_active", "y": 90 }
+	}
+}

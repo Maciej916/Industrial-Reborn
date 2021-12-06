@@ -1,0 +1,21 @@
+{
+	"parent": "indreb:block/base/cable/insulated_cable",
+	"elements": [
+		{   "from": [ 3, 3, 3 ],
+			"to": [ 13, 13, 13 ],
+			"faces": {
+				"down":  { "texture": "#wall" },
+				"up":    { "texture": "#wall" },
+				"north": { "texture": "#wall" },
+				"south": { "texture": "#wall" },
+				"west":  { "texture": "#wall" },
+				"east":  { "texture": "#wall" }
+			},
+			"__comment": "Center post"
+		}
+	],
+	"textures": {
+		"wall": "indreb:block/cable/hv_cable_insulated_side",
+		"particle": "#wall"
+	}
+}

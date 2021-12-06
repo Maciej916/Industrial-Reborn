@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "indreb",
+  "pattern": [
+    "fff",
+    "cCc",
+    " x "
+  ],
+  "key": {
+    "f": {
+      "item": "minecraft:flint"
+    },
+    "C": {
+      "item": "indreb:basic_machine_casing"
+    },
+    "c": {
+      "item": "minecraft:cobblestone"
+    },
+    "x": {
+      "item": "indreb:electronic_circuit"
+    }
+  },
+  "result": {
+    "item": "indreb:crusher"
+  }
+}

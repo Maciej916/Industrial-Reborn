@@ -1,0 +1,9 @@
+{
+	"parent": "block/orientable",
+	"textures": {
+		"front": "indreb:block/machines/extruder_front",
+		"top": "indreb:block/machines/extruder_top",
+		"bottom": "indreb:block/machines/extruder_bottom",
+		"side": "indreb:block/machines/extruder_side"
+	}
+}

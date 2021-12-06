@@ -1,0 +1,10 @@
+{
+	"variants": {
+		"facing=north":	{ "model": "indreb:block/energy_converter/wooden_energy_converter" },
+		"facing=south":	{ "model": "indreb:block/energy_converter/wooden_energy_converter", "y": 180 },
+		"facing=west":	{ "model": "indreb:block/energy_converter/wooden_energy_converter", "y": 270 },
+		"facing=east":	{ "model": "indreb:block/energy_converter/wooden_energy_converter", "y": 90 },
+		"facing=up":	{ "model": "indreb:block/energy_converter/wooden_energy_converter", "x": -90 },
+		"facing=down":	{ "model": "indreb:block/energy_converter/wooden_energy_converter", "x": 90 }
+	}
+}

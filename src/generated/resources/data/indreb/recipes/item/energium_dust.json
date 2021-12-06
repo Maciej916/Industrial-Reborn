@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "indreb",
+  "pattern": [
+    "rdr",
+    "drd",
+    "rdr"
+  ],
+  "key": {
+    "r": {
+      "item": "minecraft:redstone"
+    },
+    "d": {
+      "item": "indreb:diamond_dust"
+    }
+  },
+  "result": {
+    "item": "indreb:energium_dust",
+    "count": 9
+  }
+}

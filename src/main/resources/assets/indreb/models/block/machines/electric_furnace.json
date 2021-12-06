@@ -1,0 +1,9 @@
+{
+	"parent": "block/orientable",
+	"textures": {
+		"front": "indreb:block/machines/electric_furnace_front",
+		"top": "indreb:block/machines/electric_furnace_top",
+		"bottom": "indreb:block/machines/electric_furnace_bottom",
+		"side": "indreb:block/machines/electric_furnace_side"
+	}
+}

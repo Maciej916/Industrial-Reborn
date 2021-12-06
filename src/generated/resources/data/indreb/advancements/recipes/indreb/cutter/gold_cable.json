@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "indreb:cutter/gold_cable"
+    ]
+  },
+  "criteria": {
+    "gold": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:gold_plate"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "indreb:cutter/gold_cable"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "gold",
+      "has_the_recipe"
+    ]
+  ]
+}

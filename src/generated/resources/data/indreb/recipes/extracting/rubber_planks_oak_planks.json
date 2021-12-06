@@ -1,0 +1,18 @@
+{
+  "type": "indreb:extracting",
+  "ingredient": {
+    "item": "indreb:rubber_planks",
+    "count": 1
+  },
+  "result": {
+    "item": "minecraft:oak_planks"
+  },
+  "bonus_result": {
+    "item": "indreb:rubber",
+    "count": 1,
+    "chance": 10.0
+  },
+  "experience": 0.0,
+  "duration": 180,
+  "power_cost": 8
+}

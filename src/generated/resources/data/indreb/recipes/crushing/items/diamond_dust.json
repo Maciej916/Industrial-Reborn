@@ -1,0 +1,13 @@
+{
+  "type": "indreb:crushing",
+  "ingredient": {
+    "item": "minecraft:diamond",
+    "count": 1
+  },
+  "result": {
+    "item": "indreb:diamond_dust"
+  },
+  "experience": 2.0,
+  "duration": 180,
+  "power_cost": 8
+}

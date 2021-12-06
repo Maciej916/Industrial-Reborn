@@ -1,0 +1,13 @@
+{
+  "type": "indreb:compressing",
+  "ingredient": {
+    "item": "minecraft:redstone",
+    "count": 9
+  },
+  "result": {
+    "item": "minecraft:redstone_block"
+  },
+  "experience": 0.1,
+  "duration": 180,
+  "power_cost": 8
+}

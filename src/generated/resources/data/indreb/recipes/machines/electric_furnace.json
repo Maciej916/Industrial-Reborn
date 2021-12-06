@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "indreb",
+  "pattern": [
+    " c ",
+    "rIr",
+    "   "
+  ],
+  "key": {
+    "I": {
+      "item": "indreb:iron_furnace"
+    },
+    "c": {
+      "item": "indreb:electronic_circuit"
+    },
+    "r": {
+      "item": "minecraft:redstone"
+    }
+  },
+  "result": {
+    "item": "indreb:electric_furnace"
+  }
+}

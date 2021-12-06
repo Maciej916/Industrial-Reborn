@@ -1,0 +1,13 @@
+{
+  "type": "indreb:compressing",
+  "ingredient": {
+    "item": "minecraft:clay_ball",
+    "count": 4
+  },
+  "result": {
+    "item": "minecraft:clay"
+  },
+  "experience": 0.0,
+  "duration": 180,
+  "power_cost": 8
+}

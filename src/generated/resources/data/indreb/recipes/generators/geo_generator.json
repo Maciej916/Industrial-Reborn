@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "indreb",
+  "pattern": [
+    "gCg",
+    "gCg",
+    "PGP"
+  ],
+  "key": {
+    "g": {
+      "item": "minecraft:glass"
+    },
+    "C": {
+      "item": "indreb:empty_fluid_cell"
+    },
+    "P": {
+      "item": "indreb:iron_plate"
+    },
+    "G": {
+      "item": "indreb:generator"
+    }
+  },
+  "result": {
+    "item": "indreb:geo_generator"
+  }
+}

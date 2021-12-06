@@ -1,0 +1,13 @@
+{
+  "type": "indreb:crushing",
+  "ingredient": {
+    "item": "minecraft:flint",
+    "count": 1
+  },
+  "result": {
+    "item": "minecraft:gunpowder"
+  },
+  "experience": 0.1,
+  "duration": 180,
+  "power_cost": 8
+}

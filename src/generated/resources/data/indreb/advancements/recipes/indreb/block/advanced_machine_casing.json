@@ -1,0 +1,73 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "indreb:block/advanced_machine_casing"
+    ]
+  },
+  "criteria": {
+    "steel_plate": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:steel_plate"
+            ]
+          }
+        ]
+      }
+    },
+    "carbon_plate": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:carbon_plate"
+            ]
+          }
+        ]
+      }
+    },
+    "advanced_alloy": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:advanced_alloy"
+            ]
+          }
+        ]
+      }
+    },
+    "basic_machine": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:basic_machine_casing"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "indreb:block/advanced_machine_casing"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "steel_plate",
+      "carbon_plate",
+      "advanced_alloy",
+      "basic_machine",
+      "has_the_recipe"
+    ]
+  ]
+}

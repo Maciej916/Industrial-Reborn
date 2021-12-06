@@ -1,0 +1,18 @@
+{
+  "type": "indreb:compressing",
+  "ingredient": {
+    "item": "minecraft:water_bucket",
+    "count": 1
+  },
+  "result": {
+    "item": "minecraft:snow_block"
+  },
+  "bonus_result": {
+    "item": "minecraft:bucket",
+    "count": 1,
+    "chance": 100.0
+  },
+  "experience": 0.0,
+  "duration": 180,
+  "power_cost": 8
+}

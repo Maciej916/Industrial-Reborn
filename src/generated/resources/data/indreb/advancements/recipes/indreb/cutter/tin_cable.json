@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "indreb:cutter/tin_cable"
+    ]
+  },
+  "criteria": {
+    "tin": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:tin_plate"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "indreb:cutter/tin_cable"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "tin",
+      "has_the_recipe"
+    ]
+  ]
+}

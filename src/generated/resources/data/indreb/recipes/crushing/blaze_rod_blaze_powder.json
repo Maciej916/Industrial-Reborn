@@ -1,0 +1,14 @@
+{
+  "type": "indreb:crushing",
+  "ingredient": {
+    "item": "minecraft:blaze_rod",
+    "count": 1
+  },
+  "result": {
+    "item": "minecraft:blaze_powder",
+    "count": 5
+  },
+  "experience": 0.1,
+  "duration": 180,
+  "power_cost": 8
+}

@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "indreb",
+  "ingredients": [
+    {
+      "item": "indreb:cutter"
+    },
+    {
+      "tag": "forge:plates/tin"
+    }
+  ],
+  "result": {
+    "item": "indreb:tin_cable",
+    "count": 3
+  }
+}

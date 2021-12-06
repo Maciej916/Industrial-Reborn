@@ -1,0 +1,47 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "indreb:cables/gold_cable_insulated"
+    ]
+  },
+  "criteria": {
+    "rubber": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:rubber"
+            ]
+          }
+        ]
+      }
+    },
+    "gold_cable": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:gold_cable"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "indreb:cables/gold_cable_insulated"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "rubber",
+      "gold_cable",
+      "has_the_recipe"
+    ]
+  ]
+}

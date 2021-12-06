@@ -1,0 +1,19 @@
+{
+  "type": "indreb:crushing",
+  "ingredient": {
+    "tag": "forge:ores/emerald",
+    "count": 1
+  },
+  "result": {
+    "item": "minecraft:emerald",
+    "count": 2
+  },
+  "bonus_result": {
+    "item": "minecraft:cobblestone",
+    "count": 1,
+    "chance": 50.0
+  },
+  "experience": 0.2,
+  "duration": 180,
+  "power_cost": 8
+}

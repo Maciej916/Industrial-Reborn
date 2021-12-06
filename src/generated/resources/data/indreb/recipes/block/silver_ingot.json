@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "indreb",
+  "pattern": [
+    "x  "
+  ],
+  "key": {
+    "x": {
+      "item": "indreb:silver_block"
+    }
+  },
+  "result": {
+    "item": "indreb:silver_ingot",
+    "count": 9
+  }
+}

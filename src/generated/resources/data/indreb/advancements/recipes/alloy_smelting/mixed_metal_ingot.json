@@ -1,0 +1,60 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "indreb:alloy_smelting/mixed_metal_ingot"
+    ]
+  },
+  "criteria": {
+    "bronze_plate": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:bronze_plate"
+            ]
+          }
+        ]
+      }
+    },
+    "iron_plate": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:iron_plate"
+            ]
+          }
+        ]
+      }
+    },
+    "tin_plate": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:tin_plate"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "indreb:alloy_smelting/mixed_metal_ingot"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "bronze_plate",
+      "iron_plate",
+      "tin_plate",
+      "has_the_recipe"
+    ]
+  ]
+}

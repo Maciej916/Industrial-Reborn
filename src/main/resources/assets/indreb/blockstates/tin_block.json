@@ -1,0 +1,5 @@
+{
+	"variants": {
+		"": { "model": "indreb:block/tin_block" }
+	}
+}

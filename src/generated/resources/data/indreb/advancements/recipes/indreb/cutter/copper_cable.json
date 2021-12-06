@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "indreb:cutter/copper_cable"
+    ]
+  },
+  "criteria": {
+    "copper": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:copper_plate"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "indreb:cutter/copper_cable"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "copper",
+      "has_the_recipe"
+    ]
+  ]
+}

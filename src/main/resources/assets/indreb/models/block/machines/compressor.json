@@ -1,0 +1,9 @@
+{
+	"parent": "block/orientable",
+	"textures": {
+		"front": "indreb:block/machines/compressor_front",
+		"top": "indreb:block/machines/compressor_top",
+		"bottom": "indreb:block/machines/compressor_bottom",
+		"side": "indreb:block/machines/compressor_side"
+	}
+}

@@ -1,0 +1,14 @@
+{
+  "type": "indreb:crushing",
+  "ingredient": {
+    "item": "minecraft:ancient_debris",
+    "count": 1
+  },
+  "result": {
+    "item": "minecraft:netherite_scrap",
+    "count": 2
+  },
+  "experience": 2.0,
+  "duration": 180,
+  "power_cost": 8
+}

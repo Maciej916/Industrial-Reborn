@@ -1,0 +1,9 @@
+{
+	"parent": "block/orientable",
+	"textures": {
+		"front": "indreb:block/generator/geo_generator_front_active",
+		"top": "indreb:block/generator/geo_generator_top",
+		"bottom": "indreb:block/generator/geo_generator_bottom",
+		"side": "indreb:block/generator/geo_generator_side"
+	}
+}

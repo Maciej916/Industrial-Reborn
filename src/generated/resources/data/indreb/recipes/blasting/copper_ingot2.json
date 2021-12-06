@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:blasting",
+  "ingredient": {
+    "item": "indreb:crushed_copper"
+  },
+  "result": "minecraft:copper_ingot",
+  "experience": 0.6,
+  "cookingtime": 160
+}

@@ -1,0 +1,13 @@
+{
+  "type": "indreb:compressing",
+  "ingredient": {
+    "item": "minecraft:netherite_ingot",
+    "count": 9
+  },
+  "result": {
+    "item": "minecraft:nether_brick"
+  },
+  "experience": 0.5,
+  "duration": 180,
+  "power_cost": 8
+}

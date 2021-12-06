@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "indreb",
+  "pattern": [
+    "lal",
+    "lml",
+    "lcl"
+  ],
+  "key": {
+    "l": {
+      "item": "indreb:lapotron_crystal"
+    },
+    "a": {
+      "item": "indreb:advanced_circuit"
+    },
+    "m": {
+      "item": "indreb:mfe"
+    },
+    "c": {
+      "item": "indreb:advanced_machine_casing"
+    }
+  },
+  "result": {
+    "item": "indreb:mfsu"
+  }
+}

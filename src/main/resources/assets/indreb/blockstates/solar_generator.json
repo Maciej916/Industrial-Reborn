@@ -1,0 +1,6 @@
+{
+	"variants": {
+		"active=false":	{ "model": "indreb:block/generator/solar_generator" },
+		"active=true": { "model": "indreb:block/generator/solar_generator_active" }
+	}
+}

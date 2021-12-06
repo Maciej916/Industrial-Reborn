@@ -1,0 +1,12 @@
+{
+	"variants": {
+		"facing=north,active=false":	{ "model": "indreb:block/generator/geo_generator" },
+		"facing=south,active=false":	{ "model": "indreb:block/generator/geo_generator", "y": 180 },
+		"facing=west,active=false":	{ "model": "indreb:block/generator/geo_generator", "y": 270 },
+		"facing=east,active=false":	{ "model": "indreb:block/generator/geo_generator", "y": 90 },
+		"facing=north,active=true":	{ "model": "indreb:block/generator/geo_generator_active" },
+		"facing=south,active=true":	{ "model": "indreb:block/generator/geo_generator_active", "y": 180 },
+		"facing=west,active=true":		{ "model": "indreb:block/generator/geo_generator_active", "y": 270 },
+		"facing=east,active=true":		{ "model": "indreb:block/generator/geo_generator_active", "y": 90 }
+	}
+}

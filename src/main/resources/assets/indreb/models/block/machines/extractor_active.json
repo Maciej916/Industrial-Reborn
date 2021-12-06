@@ -1,0 +1,12 @@
+{
+	"parent": "block/cube",
+	"textures": {
+		"down": "indreb:block/machines/extractor_bottom",
+		"up": "indreb:block/machines/extractor_top",
+		"north": "indreb:block/machines/extractor_front_active",
+		"east": "indreb:block/machines/extractor_leftright_active",
+		"south": "indreb:block/machines/extractor_back",
+		"west": "indreb:block/machines/extractor_leftright_active",
+		"particle": "indreb:block/machines/extractor_leftright_active"
+	}
+}

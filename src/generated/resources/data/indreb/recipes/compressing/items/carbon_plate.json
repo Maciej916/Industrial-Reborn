@@ -1,0 +1,13 @@
+{
+  "type": "indreb:compressing",
+  "ingredient": {
+    "item": "indreb:combined_carbon_fibers",
+    "count": 1
+  },
+  "result": {
+    "item": "indreb:carbon_plate"
+  },
+  "experience": 0.0,
+  "duration": 180,
+  "power_cost": 8
+}

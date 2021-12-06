@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "indreb",
+  "pattern": [
+    "xxx",
+    "xxx",
+    "xxx"
+  ],
+  "key": {
+    "x": {
+      "item": "indreb:bronze_ingot"
+    }
+  },
+  "result": {
+    "item": "indreb:bronze_block"
+  }
+}

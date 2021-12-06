@@ -1,0 +1,13 @@
+{
+  "type": "indreb:compressing",
+  "ingredient": {
+    "item": "indreb:energium_dust",
+    "count": 9
+  },
+  "result": {
+    "item": "indreb:energy_crystal"
+  },
+  "experience": 5.0,
+  "duration": 180,
+  "power_cost": 8
+}

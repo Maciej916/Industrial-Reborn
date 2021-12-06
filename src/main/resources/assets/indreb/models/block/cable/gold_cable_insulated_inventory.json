@@ -1,0 +1,7 @@
+{
+	"parent": "indreb:block/base/cable/insulated_cable_inventory",
+	"textures": {
+		"wall": "indreb:block/cable/gold_cable_insulated",
+		"side": "indreb:block/cable/gold_cable_insulated_side"
+	}
+}

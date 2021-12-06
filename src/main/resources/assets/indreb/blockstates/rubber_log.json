@@ -1,0 +1,19 @@
+{
+    "variants": {
+        "axis=y,wet=false,dry=false":  { "model": "indreb:block/rubber_wood/rubber_log" },
+        "axis=z,wet=false,dry=false":   { "model": "indreb:block/rubber_wood/rubber_log", "x": 90 },
+        "axis=x,wet=false,dry=false":   { "model": "indreb:block/rubber_wood/rubber_log", "x": 90, "y": 90 },
+        "dry=false,wet=true": [
+            { "model": "indreb:block/rubber_wood/rubber_log_wet" },
+            { "model": "indreb:block/rubber_wood/rubber_log_wet", "y": 90 },
+            { "model": "indreb:block/rubber_wood/rubber_log_wet", "y": 180 },
+            { "model": "indreb:block/rubber_wood/rubber_log_wet", "y": 270 }
+        ],
+        "dry=true,wet=false": [
+            { "model": "indreb:block/rubber_wood/rubber_log_dry" },
+            { "model": "indreb:block/rubber_wood/rubber_log_dry", "y": 90 },
+            { "model": "indreb:block/rubber_wood/rubber_log_dry", "y": 180 },
+            { "model": "indreb:block/rubber_wood/rubber_log_dry", "y": 270 }
+        ]
+    }
+}

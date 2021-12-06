@@ -1,0 +1,13 @@
+{
+  "replace": false,
+  "values": [
+    "indreb:wooden_battery_box",
+    "indreb:rubber_log",
+    "indreb:rubber_wood",
+    "indreb:rubber_sapling",
+    "indreb:rubber_planks",
+    "indreb:rubber_stairs",
+    "indreb:rubber_stairs",
+    "indreb:rubber_slab"
+  ]
+}

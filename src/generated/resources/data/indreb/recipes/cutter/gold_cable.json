@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "indreb",
+  "ingredients": [
+    {
+      "item": "indreb:cutter"
+    },
+    {
+      "tag": "forge:plates/gold"
+    }
+  ],
+  "result": {
+    "item": "indreb:gold_cable",
+    "count": 3
+  }
+}

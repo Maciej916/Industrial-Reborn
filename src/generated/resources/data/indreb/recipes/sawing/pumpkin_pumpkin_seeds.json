@@ -1,0 +1,14 @@
+{
+  "type": "indreb:sawing",
+  "ingredient": {
+    "item": "minecraft:pumpkin",
+    "count": 1
+  },
+  "result": {
+    "item": "minecraft:pumpkin_seeds",
+    "count": 6
+  },
+  "experience": 0.1,
+  "duration": 180,
+  "power_cost": 8
+}

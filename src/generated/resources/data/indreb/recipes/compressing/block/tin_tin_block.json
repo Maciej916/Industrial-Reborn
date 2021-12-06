@@ -1,0 +1,13 @@
+{
+  "type": "indreb:compressing",
+  "ingredient": {
+    "tag": "forge:ingots/tin",
+    "count": 9
+  },
+  "result": {
+    "item": "indreb:tin_block"
+  },
+  "experience": 0.3,
+  "duration": 180,
+  "power_cost": 8
+}

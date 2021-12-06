@@ -1,0 +1,12 @@
+{
+	"parent": "block/cube",
+	"textures": {
+		"down": "indreb:block/battery_box/mfsu_bottom",
+		"up": "indreb:block/battery_box/mfsu_top",
+		"north": "indreb:block/battery_box/mfsu_front",
+		"east": "indreb:block/battery_box/mfsu_leftright",
+		"south": "indreb:block/battery_box/mfsu_back",
+		"west": "indreb:block/battery_box/mfsu_leftright",
+		"particle": "indreb:block/battery_box/mfsu_leftright"
+	}
+}

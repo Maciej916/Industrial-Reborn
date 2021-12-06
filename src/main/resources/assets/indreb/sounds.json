@@ -1,0 +1,73 @@
+{
+  "tile.generator": {
+    "sounds": [
+      {
+        "name": "indreb:generator"
+      }
+    ]
+  },
+
+  "tile.geo_generator": {
+    "sounds": [
+      {
+        "name": "indreb:geo_generator"
+      }
+    ]
+  },
+
+  "tile.solar_generator": {
+    "sounds": [
+      {
+        "name": "indreb:solar_generator"
+      }
+    ]
+  },
+
+  "tile.crusher": {
+    "sounds": [
+      {
+        "name": "indreb:crusher"
+      }
+    ]
+  },
+
+  "tile.compressor": {
+    "sounds": [
+      {
+        "name": "indreb:compressor"
+      }
+    ]
+  },
+
+  "tile.extractor": {
+    "sounds": [
+      {
+        "name": "indreb:extractor"
+      }
+    ]
+  },
+
+  "tile.sawmill": {
+    "sounds": [
+      {
+        "name": "indreb:sawmill"
+      }
+    ]
+  },
+
+  "item.treetap": {
+    "sounds": [
+      {
+        "name": "indreb:treetap"
+      }
+    ]
+  },
+
+  "item.wrench": {
+    "sounds": [
+      {
+        "name": "indreb:wrench"
+      }
+    ]
+  }
+}

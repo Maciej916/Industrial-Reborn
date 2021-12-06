@@ -1,0 +1,14 @@
+{
+  "type": "indreb:extracting",
+  "ingredient": {
+    "item": "minecraft:bricks",
+    "count": 1
+  },
+  "result": {
+    "item": "minecraft:brick",
+    "count": 4
+  },
+  "experience": 0.1,
+  "duration": 180,
+  "power_cost": 8
+}

@@ -1,0 +1,9 @@
+{
+	"parent": "block/orientable",
+	"textures": {
+		"front": "indreb:block/machines/sawmill_front",
+		"top": "indreb:block/machines/sawmill_top",
+		"bottom": "indreb:block/machines/sawmill_bottom",
+		"side": "indreb:block/machines/sawmill_side"
+	}
+}

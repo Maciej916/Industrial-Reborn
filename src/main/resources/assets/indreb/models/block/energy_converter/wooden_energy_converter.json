@@ -1,0 +1,12 @@
+{
+	"parent": "block/cube",
+	"textures": {
+		"down": "indreb:block/energy_converter/wooden_energy_converter_side",
+		"up": "indreb:block/energy_converter/wooden_energy_converter_side",
+		"north": "indreb:block/energy_converter/wooden_energy_converter_front",
+		"east": "indreb:block/energy_converter/wooden_energy_converter_side",
+		"south": "indreb:block/energy_converter/wooden_energy_converter_side",
+		"west": "indreb:block/energy_converter/wooden_energy_converter_side",
+		"particle": "indreb:block/energy_converter/wooden_energy_converter_side"
+	}
+}

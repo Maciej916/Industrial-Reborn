@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "indreb",
+  "pattern": [
+    "x  "
+  ],
+  "key": {
+    "x": {
+      "item": "indreb:tin_block"
+    }
+  },
+  "result": {
+    "item": "indreb:tin_ingot",
+    "count": 9
+  }
+}

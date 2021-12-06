@@ -1,0 +1,13 @@
+{
+  "type": "indreb:crushing",
+  "ingredient": {
+    "item": "minecraft:cobblestone",
+    "count": 1
+  },
+  "result": {
+    "item": "minecraft:gravel"
+  },
+  "experience": 0.0,
+  "duration": 180,
+  "power_cost": 8
+}

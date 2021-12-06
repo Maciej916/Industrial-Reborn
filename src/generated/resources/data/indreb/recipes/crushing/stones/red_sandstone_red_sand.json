@@ -1,0 +1,14 @@
+{
+  "type": "indreb:crushing",
+  "ingredient": {
+    "item": "minecraft:red_sandstone",
+    "count": 1
+  },
+  "result": {
+    "item": "minecraft:red_sand",
+    "count": 2
+  },
+  "experience": 0.0,
+  "duration": 180,
+  "power_cost": 8
+}

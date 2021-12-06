@@ -1,0 +1,9 @@
+{
+	"parent": "block/orientable",
+	"textures": {
+		"front": "indreb:block/machines/alloy_smelter_front",
+		"top": "indreb:block/machines/alloy_smelter_top",
+		"bottom": "indreb:block/machines/alloy_smelter_bottom",
+		"side": "indreb:block/machines/alloy_smelter_side"
+	}
+}

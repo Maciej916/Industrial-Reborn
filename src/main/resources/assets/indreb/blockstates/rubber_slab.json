@@ -1,0 +1,7 @@
+{
+    "variants": {
+        "type=bottom": { "model": "indreb:block/rubber_wood/rubber_slab" },
+        "type=top": { "model": "indreb:block/rubber_wood/rubber_slab_top" },
+        "type=double": { "model": "indreb:block/rubber_wood/rubber_planks" }
+    }
+}

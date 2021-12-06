@@ -1,0 +1,10 @@
+{
+	"variants": {
+		"facing=north":	{ "model": "indreb:block/battery_box/mfe" },
+		"facing=south":	{ "model": "indreb:block/battery_box/mfe", "y": 180 },
+		"facing=west":	{ "model": "indreb:block/battery_box/mfe", "y": 270 },
+		"facing=east":	{ "model": "indreb:block/battery_box/mfe", "y": 90 },
+		"facing=up":	{ "model": "indreb:block/battery_box/mfe", "x": -90 },
+		"facing=down":	{ "model": "indreb:block/battery_box/mfe", "x": 90 }
+	}
+}

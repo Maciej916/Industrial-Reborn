@@ -1,0 +1,7 @@
+{
+	"parent": "indreb:block/base/cable/cable_side",
+	"textures": {
+		"wall": "indreb:block/cable/copper_cable",
+		"particle": "#wall"
+	}
+}

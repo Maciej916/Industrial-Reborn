@@ -1,0 +1,47 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "indreb:item/electric/advanced_battery"
+    ]
+  },
+  "criteria": {
+    "battery": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:battery"
+            ]
+          }
+        ]
+      }
+    },
+    "copper_cable": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:copper_cable_insulated"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "indreb:item/electric/advanced_battery"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "battery",
+      "copper_cable",
+      "has_the_recipe"
+    ]
+  ]
+}

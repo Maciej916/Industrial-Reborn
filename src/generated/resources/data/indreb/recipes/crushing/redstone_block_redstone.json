@@ -1,0 +1,14 @@
+{
+  "type": "indreb:crushing",
+  "ingredient": {
+    "item": "minecraft:redstone_block",
+    "count": 1
+  },
+  "result": {
+    "item": "minecraft:redstone",
+    "count": 9
+  },
+  "experience": 0.0,
+  "duration": 180,
+  "power_cost": 8
+}

@@ -1,0 +1,13 @@
+{
+  "type": "indreb:compressing",
+  "ingredient": {
+    "item": "minecraft:bone_meal",
+    "count": 9
+  },
+  "result": {
+    "item": "minecraft:bone_block"
+  },
+  "experience": 0.0,
+  "duration": 180,
+  "power_cost": 8
+}

@@ -1,0 +1,24 @@
+{
+  "type": "indreb:alloy_smelting",
+  "ingredients": [
+    {
+      "tag": "forge:ingots/iron",
+      "count": 3
+    },
+    {
+      "tag": "forge:alloys/bronze",
+      "count": 3
+    },
+    {
+      "tag": "forge:ingots/tin",
+      "count": 3
+    }
+  ],
+  "result": {
+    "item": "indreb:mixed_metal_ingot",
+    "count": 2
+  },
+  "experience": 0.5,
+  "duration": 280,
+  "power_cost": 16
+}

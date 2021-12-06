@@ -1,0 +1,13 @@
+{
+  "type": "indreb:compressing",
+  "ingredient": {
+    "item": "minecraft:snow_block",
+    "count": 1
+  },
+  "result": {
+    "item": "minecraft:ice"
+  },
+  "experience": 0.0,
+  "duration": 180,
+  "power_cost": 8
+}

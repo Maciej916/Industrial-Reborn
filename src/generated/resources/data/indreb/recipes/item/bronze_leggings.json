@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "indreb",
+  "pattern": [
+    "bbb",
+    "b b",
+    "b b"
+  ],
+  "key": {
+    "b": {
+      "item": "indreb:bronze_ingot"
+    }
+  },
+  "result": {
+    "item": "indreb:bronze_leggings"
+  }
+}

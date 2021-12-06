@@ -1,0 +1,14 @@
+{
+  "type": "indreb:crushing",
+  "ingredient": {
+    "item": "minecraft:stone_bricks",
+    "count": 1
+  },
+  "result": {
+    "item": "minecraft:stone",
+    "count": 4
+  },
+  "experience": 0.0,
+  "duration": 180,
+  "power_cost": 8
+}

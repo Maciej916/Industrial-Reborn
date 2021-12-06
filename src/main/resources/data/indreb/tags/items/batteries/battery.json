@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "indreb:battery",
+    "indreb:advanced_battery",
+    "indreb:energy_crystal",
+    "indreb:lapotron_crystal"
+  ]
+}

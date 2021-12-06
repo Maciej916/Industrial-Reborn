@@ -1,0 +1,13 @@
+{
+  "type": "indreb:crushing",
+  "ingredient": {
+    "item": "minecraft:coal",
+    "count": 1
+  },
+  "result": {
+    "item": "indreb:coal_dust"
+  },
+  "experience": 0.1,
+  "duration": 180,
+  "power_cost": 8
+}

@@ -1,0 +1,9 @@
+{
+	"parent": "block/orientable",
+	"textures": {
+		"front": "indreb:block/machines/crusher_front",
+		"top": "indreb:block/machines/crusher_top",
+		"bottom": "indreb:block/machines/crusher_bottom",
+		"side": "indreb:block/machines/crusher_side"
+	}
+}

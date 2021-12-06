@@ -1,0 +1,13 @@
+{
+  "type": "indreb:compressing",
+  "ingredient": {
+    "tag": "forge:ingots/steel",
+    "count": 9
+  },
+  "result": {
+    "item": "indreb:steel_block"
+  },
+  "experience": 0.3,
+  "duration": 180,
+  "power_cost": 8
+}

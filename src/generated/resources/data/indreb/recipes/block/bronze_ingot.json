@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "indreb",
+  "pattern": [
+    "x  "
+  ],
+  "key": {
+    "x": {
+      "item": "indreb:bronze_block"
+    }
+  },
+  "result": {
+    "item": "indreb:bronze_ingot",
+    "count": 9
+  }
+}

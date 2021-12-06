@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "indreb",
+  "pattern": [
+    " R ",
+    "PPP",
+    " F "
+  ],
+  "key": {
+    "F": {
+      "item": "indreb:iron_furnace"
+    },
+    "P": {
+      "item": "indreb:iron_plate"
+    },
+    "R": {
+      "item": "indreb:battery"
+    }
+  },
+  "result": {
+    "item": "indreb:generator"
+  }
+}

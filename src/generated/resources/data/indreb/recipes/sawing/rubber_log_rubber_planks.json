@@ -1,0 +1,19 @@
+{
+  "type": "indreb:sawing",
+  "ingredient": {
+    "item": "indreb:rubber_log",
+    "count": 1
+  },
+  "result": {
+    "item": "indreb:rubber_planks",
+    "count": 5
+  },
+  "bonus_result": {
+    "item": "indreb:sticky_resin",
+    "count": 1,
+    "chance": 50.0
+  },
+  "experience": 0.2,
+  "duration": 180,
+  "power_cost": 8
+}

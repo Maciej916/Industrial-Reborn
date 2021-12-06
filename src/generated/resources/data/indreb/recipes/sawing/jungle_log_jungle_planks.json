@@ -1,0 +1,19 @@
+{
+  "type": "indreb:sawing",
+  "ingredient": {
+    "tag": "minecraft:jungle_logs",
+    "count": 1
+  },
+  "result": {
+    "item": "minecraft:jungle_planks",
+    "count": 6
+  },
+  "bonus_result": {
+    "item": "indreb:sawdust",
+    "count": 1,
+    "chance": 25.0
+  },
+  "experience": 0.2,
+  "duration": 180,
+  "power_cost": 8
+}

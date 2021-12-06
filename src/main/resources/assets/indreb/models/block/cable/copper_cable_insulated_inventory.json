@@ -1,0 +1,21 @@
+{
+	"parent": "indreb:block/base/cable/insulated_cable_inventory",
+	"elements": [
+		{   "from": [ 0, 4, 4 ],
+			"to": [ 16, 12, 12 ],
+			"faces": {
+				"down":  { "uv": [ 0, 4, 16, 12 ], "texture": "#side" },
+				"up":    { "uv": [ 0, 4, 16, 12 ], "texture": "#side" },
+				"north": { "uv": [ 0, 4, 16, 12 ], "texture": "#side" },
+				"south": { "uv": [ 0, 4, 16, 12 ], "texture": "#side" },
+				"west":  { "uv": [ 4, 4, 12, 12 ], "texture": "#wall" },
+				"east":  { "uv": [ 4, 4, 12, 12 ], "texture": "#wall" }
+			},
+			"__comment": "Full wall"
+		}
+	],
+	"textures": {
+		"wall": "indreb:block/cable/copper_cable_insulated",
+		"side": "indreb:block/cable/copper_cable_insulated_side"
+	}
+}

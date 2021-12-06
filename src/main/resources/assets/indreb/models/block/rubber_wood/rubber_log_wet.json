@@ -1,0 +1,12 @@
+{
+    "parent": "block/cube",
+    "textures": {
+        "up": "indreb:block/rubber_wood/rubber_log_top",
+        "down": "indreb:block/rubber_wood/rubber_log_top",
+        "south": "indreb:block/rubber_wood/rubber_log",
+        "north": "indreb:block/rubber_wood/rubber_log",
+        "west": "indreb:block/rubber_wood/rubber_log",
+        "east": "indreb:block/rubber_wood/rubber_log_wet",
+        "particle": "indreb:block/rubber_wood/rubber_log"
+    }
+}

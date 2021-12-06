@@ -1,0 +1,7 @@
+{
+    "parent": "block/cube_column",
+    "textures": {
+        "end": "indreb:block/rubber_wood/rubber_log",
+        "side": "indreb:block/rubber_wood/rubber_log"
+    }
+}

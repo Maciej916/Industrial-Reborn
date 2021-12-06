@@ -1,0 +1,18 @@
+{
+  "type": "indreb:crushing",
+  "ingredient": {
+    "item": "minecraft:mossy_cobblestone",
+    "count": 1
+  },
+  "result": {
+    "item": "minecraft:cobblestone"
+  },
+  "bonus_result": {
+    "item": "minecraft:vine",
+    "count": 1,
+    "chance": 80.0
+  },
+  "experience": 0.0,
+  "duration": 180,
+  "power_cost": 8
+}

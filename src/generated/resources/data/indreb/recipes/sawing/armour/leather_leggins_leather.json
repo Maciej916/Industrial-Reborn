@@ -1,0 +1,14 @@
+{
+  "type": "indreb:sawing",
+  "ingredient": {
+    "item": "minecraft:leather_leggings",
+    "count": 1
+  },
+  "result": {
+    "item": "minecraft:leather",
+    "count": 3
+  },
+  "experience": 0.5,
+  "duration": 180,
+  "power_cost": 8
+}

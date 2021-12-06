@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "indreb",
+  "pattern": [
+    "CgC",
+    "glg",
+    "EGE"
+  ],
+  "key": {
+    "C": {
+      "item": "indreb:coal_dust"
+    },
+    "l": {
+      "item": "minecraft:lapis_lazuli"
+    },
+    "g": {
+      "item": "minecraft:glass"
+    },
+    "E": {
+      "item": "indreb:electronic_circuit"
+    },
+    "G": {
+      "item": "indreb:generator"
+    }
+  },
+  "result": {
+    "item": "indreb:solar_generator",
+    "count": 2
+  }
+}

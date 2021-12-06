@@ -1,0 +1,198 @@
+{
+  "_comment": "Global",
+  "itemGroup.indreb": "Industrial Reborn",
+
+  "indreb.generic": "%s",
+
+  "_comment": "Energy",
+  "energy.indreb.power": "%s IE",
+  "energy.indreb.power_tick": "%s IE/t",
+
+  "_comment": "Tier",
+  "tier.indreb.basic": "Basic",
+  "tier.indreb.standard": "Standard",
+  "tier.indreb.advanced": "Advanced",
+  "tier.indreb.super": "Super",
+  "tier.indreb.ultra": "Ultra",
+  "tier.indreb.creative": "Creative",
+
+  "_comment": "GUI",
+  "gui.indreb.energy": "%s / %s IE",
+  "gui.indreb.fluid": "%s: %s/%s mB",
+  "gui.indreb.fluid_empty": "Empty",
+
+  "gui.indreb.progress": "Progress %s/%s",
+  "gui.indreb.fuelBurnTimeProgress": "Fuel burn time %s/%s",
+  "gui.indreb.heat": "Heat: %s",
+  "gui.indreb.armour": "Armour",
+
+
+  "gui.indreb.can_operate_in": "Can operate in %ss",
+  "gui.indreb.can_operate": "This machine is ready!",
+
+  "_comment": "Block",
+  "block.indreb.generator": "Generator",
+  "block.indreb.geo_generator": "Geothermal Generator",
+  "block.indreb.solar_generator": "Solar Generator",
+
+  "block.indreb.iron_furnace": "Iron Furnace",
+  "block.indreb.electric_furnace": "Electric Furnace",
+  "block.indreb.crusher": "Crusher",
+  "block.indreb.compressor": "Compressor",
+  "block.indreb.extractor": "Extractor",
+  "block.indreb.extruder": "Extruder",
+  "block.indreb.sawmill": "Sawmill",
+
+  "block.indreb.alloy_smelter": "Alloy Smelter",
+
+  "block.indreb.tin_ore": "Tin Ore",
+  "block.indreb.copper_block": "Copper Block",
+  "block.indreb.tin_block": "Tin Block",
+  "block.indreb.bronze_block": "Bronze Block",
+  "block.indreb.silver_block": "Silver Block",
+  "block.indreb.steel_block": "Steel Block",
+
+  "block.indreb.basic_machine_casing": "Basic Machine Casing",
+  "block.indreb.advanced_machine_casing": "Advanced Machine Casing",
+
+  "block.indreb.blue_redstone": "Blue Redstone",
+  "block.indreb.resin_sheet": "Resin Sheet",
+
+  "_comment": "Rubber Wood",
+  "block.indreb.rubber_sapling": "Rubber Sapling",
+  "block.indreb.rubber_planks": "Rubber Planks",
+  "block.indreb.rubber_leaves": "Rubber Leaves",
+  "block.indreb.rubber_wood": "Rubber Wood",
+  "block.indreb.rubber_log": "Rubber Log",
+  "block.indreb.rubber_stairs": "Rubber Stairs",
+  "block.indreb.rubber_slab": "Rubber Slab",
+
+
+  "_comment": "Cable",
+  "block.indreb.tin_cable": "Tin Cable",
+  "block.indreb.tin_cable_insulated": "Insulated Tin Cable",
+  "block.indreb.copper_cable": "Copper Cable",
+  "block.indreb.copper_cable_insulated": "Insulated Copper Cable",
+  "block.indreb.gold_cable": "Gold Cable",
+  "block.indreb.gold_cable_insulated": "Insulated Gold Cable",
+  "block.indreb.hv_cable": "HV Cable",
+  "block.indreb.hv_cable_insulated": "Insulated HV Cable",
+  "block.indreb.glass_fibre_cable": "Glass Fibre Cable",
+
+  "_comment": "Item",
+  "item.indreb.sticky_resin": "Sticky Resin",
+  "item.indreb.rubber": "Rubber",
+  "item.indreb.sawdust": "Sawdust",
+
+  "item.indreb.tin_ingot": "Tin Ingot",
+  "item.indreb.bronze_ingot": "Bronze Ingot",
+  "item.indreb.silver_ingot": "Silver Ingot",
+  "item.indreb.steel_ingot": "Steel Ingot",
+  "item.indreb.mixed_metal_ingot": "Mixed Metal Ingot",
+
+  "item.indreb.crushed_tin": "Crushed Tin",
+  "item.indreb.crushed_copper": "Crushed Copper",
+  "item.indreb.crushed_gold": "Crushed Gold",
+  "item.indreb.crushed_iron": "Crushed Iron",
+
+  "item.indreb.copper_plate": "Copper Plate",
+  "item.indreb.tin_plate": "Tin Plate",
+  "item.indreb.iron_plate": "Iron Plate",
+  "item.indreb.gold_plate": "Gold Plate",
+  "item.indreb.bronze_plate": "Bronze Plate",
+  "item.indreb.steel_plate": "Steel Plate",
+
+  "item.indreb.coal_dust": "Coal Dust",
+  "item.indreb.diamond_dust": "Diamond Dust",
+  "item.indreb.silver_dust": "Silver Dust",
+
+  "item.indreb.iron_rod": "Iron Rod",
+
+  "item.indreb.electronic_circuit": "Electronic Circuit",
+  "item.indreb.advanced_circuit": "Advanced Circuit",
+
+  "item.indreb.carbon_fibers": "Carbon Fibers",
+  "item.indreb.combined_carbon_fibers": "Combined Carbon Fibers",
+  "item.indreb.carbon_plate": "Carbon Plate",
+
+  "item.indreb.advanced_alloy": "Advanced Alloy",
+
+  "item.indreb.nightvision_goggles": "Night Vision Goggles",
+  "item.indreb.rubber_boots": "Rubber Boots",
+
+  "item.indreb.bronze_helmet": "Bronze Helmet",
+  "item.indreb.bronze_chestplate": "Bronze Chestplate",
+  "item.indreb.bronze_leggings": "Bronze Leggings",
+  "item.indreb.bronze_boots": "Bronze Boots",
+
+  "item.indreb.bronze_sword": "Bronze Sword",
+  "item.indreb.bronze_pickaxe": "Bronze Pickaxe",
+  "item.indreb.bronze_axe": "Bronze Axe",
+  "item.indreb.bronze_shovel": "Bronze Shovel",
+  "item.indreb.bronze_hoe": "Bronze Hoe",
+
+  "item.indreb.nano_helmet": "Nano Helmet",
+  "item.indreb.nano_chestplate": "Nano Chestplate",
+  "item.indreb.nano_leggings": "Nano Leggings",
+  "item.indreb.nano_boots": "Nano Boots",
+  "item.indreb.nano_saber": "Nano Saber",
+
+  "item.indreb.energium_dust": "Energium Dust",
+
+  "item.indreb.battery": "Battery",
+  "item.indreb.advanced_battery": "Advanced Battery",
+  "item.indreb.energy_crystal": "Energy Crystal",
+  "item.indreb.lapotron_crystal": "Lapotron Crystal",
+
+  "item.indreb.empty_fluid_cell": "Empty Fluid Cell",
+  "item.indreb.lava_cell": "Lava Cell",
+
+  "item.indreb.treetap": "Treetap",
+  "item.indreb.wrench": "Wrench",
+  "item.indreb.hammer": "Hammer",
+  "item.indreb.cutter": "Cutter",
+
+  "_comment": "Battery Box",
+  "block.indreb.wooden_battery_box": "Wooden Battery Box",
+  "block.indreb.cesu": "CESU",
+  "block.indreb.mfe": "MFE",
+  "block.indreb.mfsu": "MFSU",
+
+  "_comment": "Energy Converter",
+  "block.indreb.wooden_energy_converter": "Wooden Energy Converter",
+
+  "_comment": "JEI",
+  "jei.indreb.crushing": "Crushing",
+  "jei.indreb.compressing": "Compressing",
+  "jei.indreb.extracting": "Extracting",
+  "jei.indreb.sawing": "Sawing",
+  "jei.indreb.extruding": "Extruding",
+  "jei.indreb.alloy_smelting": "Alloy Smelting",
+
+  "jei.indreb.chance": "Chance: %s",
+
+  "_comment": "GUI",
+  "gui.indreb.collect_exp": "Collect Exp",
+
+  "_comment": "Tooltip",
+  "tooltip.indreb.wip": "Work in Progress!",
+
+  "tooltip.indreb.power_tier": "Power tier: %s",
+  "tooltip.indreb.generate": "Generates: %s",
+  "tooltip.indreb.output": "Output: %s",
+  "tooltip.indreb.transfer": "Transfer: %s",
+  "tooltip.indreb.capacity": "Capacity: %s",
+  "tooltip.indreb.output_capacity": "Output: %s Capacity: %s",
+  "tooltip.indreb.accept_capacity": "Accept: %s Capacity: %s",
+  "tooltip.indreb.accept": "Accept: %s",
+  "tooltip.indreb.accept_output": "Accept: %s Output: %s",
+  "tooltip.indreb.stored": "Stored: %s",
+  "tooltip.indreb.stored_capacity": "Stored: %s Capacity: %s",
+
+  "tooltip.indreb.cable_unisolated": "This cable can electrocute you!",
+
+
+
+
+  "test.indreb.test": "%s"
+}

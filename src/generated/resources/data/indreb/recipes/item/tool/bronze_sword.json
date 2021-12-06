@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "indreb",
+  "pattern": [
+    "b",
+    "b",
+    "s"
+  ],
+  "key": {
+    "b": {
+      "item": "indreb:bronze_ingot"
+    },
+    "s": {
+      "tag": "forge:rods/wooden"
+    }
+  },
+  "result": {
+    "item": "indreb:bronze_sword"
+  }
+}

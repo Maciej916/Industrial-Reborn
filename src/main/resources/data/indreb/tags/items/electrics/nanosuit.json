@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "indreb:nano_helmet",
+    "indreb:nano_chestplate",
+    "indreb:nano_leggings",
+    "indreb:nano_boots",
+    "indreb:nano_saber"
+  ]
+}
