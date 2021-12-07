@@ -406,17 +406,16 @@ public class IndRebBlockEntity extends BlockEntity implements IHasSlot {
     }
 
     public void onBreak() {
-        if (getLevel() == null) return;
         NonNullList<ItemStack> stacks = NonNullList.create();
 
         if (hasInventory) {
-            for (int slot = 0; slot < stackHandler.getSlots(); ++slot) {
+            for (int slot = 0; slot < stackHandler.getSlots(); slot++) {
                 stacks.add(stackHandler.getStackInSlot(slot));
             }
         }
 
         if (hasBattery) {
-            for (int slot = 0; slot < batteryHandler.getSlots(); ++slot) {
+            for (int slot = 0; slot < batteryHandler.getSlots(); slot++) {
                 stacks.add(batteryHandler.getStackInSlot(slot));
             }
         }
@@ -472,22 +471,13 @@ public class IndRebBlockEntity extends BlockEntity implements IHasSlot {
     @Nullable
     @Override
     public ClientboundBlockEntityDataPacket getUpdatePacket() {
-        return new ClientboundBlockEntityDataPacket(this.worldPosition, -1, save(new CompoundTag()));
+        return ClientboundBlockEntityDataPacket.create(this);
     }
 
     @Override
     public void onDataPacket(Connection net, ClientboundBlockEntityDataPacket pkt) {
         load(pkt.getTag());
     }
-
-
-
-
-
-
-
-
-
 
     @Override
     public void load(CompoundTag tag) {
@@ -549,7 +539,7 @@ public class IndRebBlockEntity extends BlockEntity implements IHasSlot {
             }
         }
 
-
-        return super.save(tag);
+        return tag;
     }
+
 }

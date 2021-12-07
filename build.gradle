@@ -12,14 +12,14 @@ buildscript {
 }
 
 apply plugin: 'net.minecraftforge.gradle'
-apply plugin: 'org.parchmentmc.librarian.forgegradle'
+//apply plugin: 'org.parchmentmc.librarian.forgegradle'
 
 group = 'com.maciej916'
 version = minecraftRelease + '-' + modVersion
 
 java {
     archivesBaseName = 'indreb'
-    toolchain.languageVersion = JavaLanguageVersion.of(16)
+    toolchain.languageVersion = JavaLanguageVersion.of(17)
 }
 
 minecraft {
@@ -34,8 +34,8 @@ minecraft {
     //
     // Use non-default mappings at your own risk. They may not always work.
     // Simply re-run your setup task after changing the mappings to update your workspace.
-//    mappings channel: 'official', version: '1.18'
-    mappings channel: 'parchment', version: '2021.08.15-1.17.1'
+    mappings channel: 'official', version: '1.18'
+//    mappings channel: 'parchment', version: '2021.08.15-1.17.1'
 
     // accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
 
@@ -146,11 +146,15 @@ dependencies {
     // Specify the version of Minecraft to use. If this is any group other than 'net.minecraft' it is assumed
     // that the dep is a ForgeGradle 'patcher' dependency, and its patches will be applied.
     // The userdev artifact is a special name and will get all sorts of transformations applied to it.
-    minecraft 'net.minecraftforge:forge:1.17.1-37.0.126'
-//    minecraft 'net.minecraftforge:forge:1.18-38.0.14'
+//    minecraft 'net.minecraftforge:forge:1.17.1-37.0.126'
+    minecraft "net.minecraftforge:forge:${forgeVersion}"
 
-    compileOnly "mezz.jei:jei-1.17.1:8.2.0.36:api"
-    runtimeOnly fg.deobf("mezz.jei:jei-1.17.1:8.2.0.36")
+    compileOnly fg.deobf("mezz.jei:jei-${minecraftRelease}:${jeiVersion}:api")
+    runtimeOnly fg.deobf("mezz.jei:jei-${minecraftRelease}:${jeiVersion}")
+
+
+//    compileOnly "mezz.jei:jei-1.17.1:8.2.0.36:api"
+//    runtimeOnly fg.deobf("mezz.jei:jei-1.17.1:8.2.0.36")
 
 //    compileOnly "mezz.jei:jei-1.18-9.0.0.40:api"
 //    runtimeOnly fg.deobf("mezz.jei:jei-1.18-9.0.0.40")

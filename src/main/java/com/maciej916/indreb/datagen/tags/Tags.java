@@ -16,7 +16,7 @@ public class Tags extends BlockTagsProvider {
     @Override
     protected void addTags() {
         tag(BlockTags.MINEABLE_WITH_AXE)
-                .add(ModBlocks.WOODEN_BATTERY_BOX)
+                .add(ModBlocks.BATTERY_BOX)
 
                 .add(ModBlocks.RUBBER_LOG)
                 .add(ModBlocks.RUBBER_WOOD)
@@ -56,6 +56,7 @@ public class Tags extends BlockTagsProvider {
                 .add(ModBlocks.GLASS_FIBRE_CABLE)
 
                 .add(ModBlocks.TIN_ORE)
+                .add(ModBlocks.DEEPSLATE_TIN_ORE)
 
                 .add(ModBlocks.TIN_BLOCK)
                 .add(ModBlocks.SILVER_BLOCK)

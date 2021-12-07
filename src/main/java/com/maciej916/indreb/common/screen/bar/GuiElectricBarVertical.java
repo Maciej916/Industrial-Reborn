@@ -25,7 +25,7 @@ public class GuiElectricBarVertical extends GuiProgress {
     @Override
     public void renderToolTip(PoseStack pPoseStack, int pMouseX, int pMouseY) {
 
-        if (isHovered()) {
+        if (isHoveredOrFocused()) {
             Minecraft.getInstance().screen.renderTooltip(pPoseStack, new TranslatableComponent("gui." + IndReb.MODID + ".energy", TextComponentUtil.getFormattedEnergyUnit(getProgress().getProgress()), TextComponentUtil.getFormattedEnergyUnit(getProgress().getProgressMax())), pMouseX, pMouseY);
         }
 

@@ -30,7 +30,7 @@ public class GuiFluidBarVertical extends GuiElement {
     @Override
     public void renderToolTip(PoseStack pPoseStack, int pMouseX, int pMouseY) {
 
-        if (isHovered()) {
+        if (isHoveredOrFocused()) {
             if (fluidStorage.getFluid().getFluid() != Fluids.EMPTY) {
                 Minecraft.getInstance().screen.renderTooltip(pPoseStack, new TranslatableComponent("gui." + IndReb.MODID + ".fluid", fluidStorage.getFluid().getDisplayName().getString(), TextComponentUtil.getFormattedEnergyUnit(fluidStorage.getFluidAmount()), TextComponentUtil.getFormattedEnergyUnit(fluidStorage.getCapacity())), pMouseX, pMouseY);
             } else {

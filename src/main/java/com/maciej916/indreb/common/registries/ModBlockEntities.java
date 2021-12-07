@@ -62,7 +62,7 @@ public final class ModBlockEntities {
         ALLOY_SMELTER = registerTileEntity("alloy_smelter", BlockEntityType.Builder.of(BlockEntityAlloySmelter::new, ModBlocks.ALLOY_SMELTER).build(null));
 
         CABLE = registerTileEntity("cable", BlockEntityType.Builder.of(BlockEntityCable::new, ModBlocks.TIN_CABLE, ModBlocks.TIN_CABLE_INSULATED, ModBlocks.COPPER_CABLE, ModBlocks.COPPER_CABLE_INSULATED).build(null));
-        BATTERY_BOX = registerTileEntity("battery_box", BlockEntityType.Builder.of(BlockEntityBatteryBox::new, ModBlocks.WOODEN_BATTERY_BOX, ModBlocks.CESU, ModBlocks.MFE, ModBlocks.MFSU).build(null));
+        BATTERY_BOX = registerTileEntity("battery_box", BlockEntityType.Builder.of(BlockEntityBatteryBox::new, ModBlocks.BATTERY_BOX, ModBlocks.CESU, ModBlocks.MFE, ModBlocks.MFSU).build(null));
 
 
 

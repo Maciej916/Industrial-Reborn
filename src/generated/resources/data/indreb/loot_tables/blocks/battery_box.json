@@ -2,7 +2,7 @@
   "type": "minecraft:block",
   "pools": [
     {
-      "name": "wooden_battery_box",
+      "name": "battery_box",
       "rolls": 1.0,
       "bonus_rolls": 0.0,
       "entries": [
@@ -31,6 +31,7 @@
             },
             {
               "function": "minecraft:set_contents",
+              "type": "indreb:battery_box",
               "entries": [
                 {
                   "type": "minecraft:dynamic",
@@ -39,7 +40,7 @@
               ]
             }
           ],
-          "name": "indreb:wooden_battery_box"
+          "name": "indreb:battery_box"
         }
       ]
     }

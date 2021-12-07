@@ -29,7 +29,7 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.phys.BlockHitResult;
-import net.minecraftforge.fmllegacy.network.NetworkHooks;
+import net.minecraftforge.network.NetworkHooks;
 
 import javax.annotation.Nullable;
 
@@ -111,10 +111,10 @@ public class IndRebBlock extends Block {
     }
 
 
+
     @Override
     public void onRemove(BlockState pState, Level pLevel, BlockPos pPos, BlockState pNewState, boolean pIsMoving) {
-
-        if (pState.getBlock() != pState.getBlock() && pState.hasBlockEntity()) {
+        if (pState.getBlock() != pNewState.getBlock() && pState.hasBlockEntity()) {
             BlockEntity be = pLevel.getBlockEntity(pPos);
             if (be instanceof IndRebBlockEntity ibe) {
                 ibe.onBreak();

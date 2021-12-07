@@ -109,7 +109,7 @@ public class BlockCable extends VoxelBlock implements SimpleWaterloggedBlock {
     @Deprecated
     public BlockState updateShape(BlockState state, Direction facing, BlockState facingState, LevelAccessor level, BlockPos pos, BlockPos facingPos) {
         if (state.getValue(BlockStateHelper.waterlogged)) {
-            level.getLiquidTicks().scheduleTick(pos, Fluids.WATER, Fluids.WATER.getTickDelay(level));
+            level.scheduleTick(pos, Fluids.WATER, Fluids.WATER.getTickDelay(level));
         }
 
         for (Direction direction : Constants.DIRECTIONS) {

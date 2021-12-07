@@ -9,7 +9,6 @@ import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.ItemTags;
-import net.minecraft.world.item.Items;
 
 import java.util.function.Consumer;
 
@@ -29,7 +28,7 @@ public class BatteryBox extends RecipeProvider {
     protected void buildCraftingRecipes(Consumer<FinishedRecipe> consumer) {
 
 
-        ShapedRecipeBuilder.shaped(ModBlocks.WOODEN_BATTERY_BOX)
+        ShapedRecipeBuilder.shaped(ModBlocks.BATTERY_BOX)
                 .pattern("pCp")
                 .pattern("BBB")
                 .pattern("ppp")

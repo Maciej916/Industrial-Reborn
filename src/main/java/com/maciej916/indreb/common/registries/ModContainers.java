@@ -14,7 +14,7 @@ import com.maciej916.indreb.common.block.impl.machines.iron_furnace.ContainerIro
 import com.maciej916.indreb.common.block.impl.machines.sawmill.ContainerSawmill;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.MenuType;
-import net.minecraftforge.common.extensions.IForgeContainerType;
+import net.minecraftforge.common.extensions.IForgeMenuType;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -44,21 +44,21 @@ public final class ModContainers {
     @SubscribeEvent
     public static void registerContainers(RegistryEvent.Register<MenuType<?>> event) {
 
-        GENERATOR = registerContainer("generator", IForgeContainerType.create(ContainerGenerator::new));
-        SOLAR_GENERATOR = registerContainer("solar_generator", IForgeContainerType.create(ContainerSolarGenerator::new));
-        GEO_GENERATOR = registerContainer("geo_generator", IForgeContainerType.create(ContainerGeoGenerator::new));
+        GENERATOR = registerContainer("generator", IForgeMenuType.create(ContainerGenerator::new));
+        SOLAR_GENERATOR = registerContainer("solar_generator", IForgeMenuType.create(ContainerSolarGenerator::new));
+        GEO_GENERATOR = registerContainer("geo_generator", IForgeMenuType.create(ContainerGeoGenerator::new));
 
-        BATTERY_BOX = registerContainer("battery_box", IForgeContainerType.create(ContainerBatteryBox::new));
+        BATTERY_BOX = registerContainer("battery_box", IForgeMenuType.create(ContainerBatteryBox::new));
 
-        IRON_FURNACE = registerContainer("iron_furnace", IForgeContainerType.create(ContainerIronFurnace::new));
-        ELECTRIC_FURNACE = registerContainer("electric_furnace", IForgeContainerType.create(ContainerElectricFurnace::new));
+        IRON_FURNACE = registerContainer("iron_furnace", IForgeMenuType.create(ContainerIronFurnace::new));
+        ELECTRIC_FURNACE = registerContainer("electric_furnace", IForgeMenuType.create(ContainerElectricFurnace::new));
 
-        CRUSHER = registerContainer("crusher", IForgeContainerType.create(ContainerCrusher::new));
-        COMPRESSOR = registerContainer("compressor", IForgeContainerType.create(ContainerCompressor::new));
-        EXTRACTOR = registerContainer("extractor", IForgeContainerType.create(ContainerExtractor::new));
-        SAWMILL = registerContainer("sawmill", IForgeContainerType.create(ContainerSawmill::new));
-        EXTRUDER = registerContainer("extruder", IForgeContainerType.create(ContainerExtruder::new));
-        ALLOY_SMELTER = registerContainer("alloy_smelter", IForgeContainerType.create(ContainerAlloySmelter::new));
+        CRUSHER = registerContainer("crusher", IForgeMenuType.create(ContainerCrusher::new));
+        COMPRESSOR = registerContainer("compressor", IForgeMenuType.create(ContainerCompressor::new));
+        EXTRACTOR = registerContainer("extractor", IForgeMenuType.create(ContainerExtractor::new));
+        SAWMILL = registerContainer("sawmill", IForgeMenuType.create(ContainerSawmill::new));
+        EXTRUDER = registerContainer("extruder", IForgeMenuType.create(ContainerExtruder::new));
+        ALLOY_SMELTER = registerContainer("alloy_smelter", IForgeMenuType.create(ContainerAlloySmelter::new));
 
 
 

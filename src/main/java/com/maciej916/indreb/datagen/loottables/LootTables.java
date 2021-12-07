@@ -4,6 +4,7 @@ import com.google.common.collect.ImmutableSet;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.maciej916.indreb.IndReb;
+import com.maciej916.indreb.common.registries.ModBlockEntities;
 import com.maciej916.indreb.common.registries.ModBlocks;
 import net.minecraft.advancements.critereon.EnchantmentPredicate;
 import net.minecraft.advancements.critereon.ItemPredicate;
@@ -11,7 +12,6 @@ import net.minecraft.advancements.critereon.MinMaxBounds;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.DataProvider;
 import net.minecraft.data.HashCache;
-import net.minecraft.data.loot.BlockLoot;
 import net.minecraft.data.loot.LootTableProvider;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
@@ -20,6 +20,7 @@ import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.entries.DynamicLoot;
@@ -71,6 +72,7 @@ public class LootTables extends LootTableProvider {
         tables.put(ModBlocks.RUBBER_SLAB.getLootTable(), createStandardTable("rubber_slab", ModBlocks.RUBBER_SLAB).setParamSet(LootContextParamSets.BLOCK).build());
 
         tables.put(ModBlocks.TIN_ORE.getLootTable(), createStandardTable("tin_ore", ModBlocks.TIN_ORE).setParamSet(LootContextParamSets.BLOCK).build());
+        tables.put(ModBlocks.DEEPSLATE_TIN_ORE.getLootTable(), createStandardTable("deepslate_tin_ore", ModBlocks.DEEPSLATE_TIN_ORE).setParamSet(LootContextParamSets.BLOCK).build());
 
         tables.put(ModBlocks.TIN_BLOCK.getLootTable(), createStandardTable("tin_block", ModBlocks.TIN_BLOCK).setParamSet(LootContextParamSets.BLOCK).build());
         tables.put(ModBlocks.SILVER_BLOCK.getLootTable(), createStandardTable("silver_block", ModBlocks.SILVER_BLOCK).setParamSet(LootContextParamSets.BLOCK).build());
@@ -79,34 +81,34 @@ public class LootTables extends LootTableProvider {
         tables.put(ModBlocks.BASIC_MACHINE_CASING.getLootTable(), createStandardTable("basic_machine_casing", ModBlocks.BASIC_MACHINE_CASING).setParamSet(LootContextParamSets.BLOCK).build());
         tables.put(ModBlocks.ADVANCED_MACHINE_CASING.getLootTable(), createStandardTable("advanced_machine_casing", ModBlocks.ADVANCED_MACHINE_CASING).setParamSet(LootContextParamSets.BLOCK).build());
 
-        tables.put(ModBlocks.IRON_FURNACE.getLootTable(), createStandardTable("iron_furnace", ModBlocks.IRON_FURNACE).setParamSet(LootContextParamSets.BLOCK).build());
+        tables.put(ModBlocks.IRON_FURNACE.getLootTable(), createBlockEntityTable("iron_furnace", ModBlocks.IRON_FURNACE, ModBlockEntities.IRON_FURNACE).setParamSet(LootContextParamSets.BLOCK).build());
 
-        tables.put(ModBlocks.COPPER_CABLE.getLootTable(), createStandardTable("copper_cable", ModBlocks.COPPER_CABLE).setParamSet(LootContextParamSets.BLOCK).build());
-        tables.put(ModBlocks.COPPER_CABLE_INSULATED.getLootTable(), createStandardTable("copper_cable_insulated", ModBlocks.COPPER_CABLE_INSULATED).setParamSet(LootContextParamSets.BLOCK).build());
-        tables.put(ModBlocks.TIN_CABLE.getLootTable(), createStandardTable("tin_cable", ModBlocks.TIN_CABLE).setParamSet(LootContextParamSets.BLOCK).build());
-        tables.put(ModBlocks.TIN_CABLE_INSULATED.getLootTable(), createStandardTable("tin_cable_insulated", ModBlocks.TIN_CABLE_INSULATED).setParamSet(LootContextParamSets.BLOCK).build());
-        tables.put(ModBlocks.GOLD_CABLE.getLootTable(), createStandardTable("gold_cable", ModBlocks.GOLD_CABLE).setParamSet(LootContextParamSets.BLOCK).build());
-        tables.put(ModBlocks.GOLD_CABLE_INSULATED.getLootTable(), createStandardTable("gold_cable_insulated", ModBlocks.GOLD_CABLE_INSULATED).setParamSet(LootContextParamSets.BLOCK).build());
-        tables.put(ModBlocks.HV_CABLE.getLootTable(), createStandardTable("hv_cable", ModBlocks.HV_CABLE).setParamSet(LootContextParamSets.BLOCK).build());
-        tables.put(ModBlocks.HV_CABLE_INSULATED.getLootTable(), createStandardTable("hv_cable_insulated", ModBlocks.HV_CABLE_INSULATED).setParamSet(LootContextParamSets.BLOCK).build());
-        tables.put(ModBlocks.GLASS_FIBRE_CABLE.getLootTable(), createStandardTable("glass_fibre_cable", ModBlocks.GLASS_FIBRE_CABLE).setParamSet(LootContextParamSets.BLOCK).build());
+        tables.put(ModBlocks.COPPER_CABLE.getLootTable(), createBlockEntityTable("copper_cable", ModBlocks.COPPER_CABLE, ModBlockEntities.CABLE).setParamSet(LootContextParamSets.BLOCK).build());
+        tables.put(ModBlocks.COPPER_CABLE_INSULATED.getLootTable(), createBlockEntityTable("copper_cable_insulated", ModBlocks.COPPER_CABLE_INSULATED, ModBlockEntities.CABLE).setParamSet(LootContextParamSets.BLOCK).build());
+        tables.put(ModBlocks.TIN_CABLE.getLootTable(), createBlockEntityTable("tin_cable", ModBlocks.TIN_CABLE, ModBlockEntities.CABLE).setParamSet(LootContextParamSets.BLOCK).build());
+        tables.put(ModBlocks.TIN_CABLE_INSULATED.getLootTable(), createBlockEntityTable("tin_cable_insulated", ModBlocks.TIN_CABLE_INSULATED, ModBlockEntities.CABLE).setParamSet(LootContextParamSets.BLOCK).build());
+        tables.put(ModBlocks.GOLD_CABLE.getLootTable(), createBlockEntityTable("gold_cable", ModBlocks.GOLD_CABLE, ModBlockEntities.CABLE).setParamSet(LootContextParamSets.BLOCK).build());
+        tables.put(ModBlocks.GOLD_CABLE_INSULATED.getLootTable(), createBlockEntityTable("gold_cable_insulated", ModBlocks.GOLD_CABLE_INSULATED, ModBlockEntities.CABLE).setParamSet(LootContextParamSets.BLOCK).build());
+        tables.put(ModBlocks.HV_CABLE.getLootTable(), createBlockEntityTable("hv_cable", ModBlocks.HV_CABLE, ModBlockEntities.CABLE).setParamSet(LootContextParamSets.BLOCK).build());
+        tables.put(ModBlocks.HV_CABLE_INSULATED.getLootTable(), createBlockEntityTable("hv_cable_insulated", ModBlocks.HV_CABLE_INSULATED, ModBlockEntities.CABLE).setParamSet(LootContextParamSets.BLOCK).build());
+        tables.put(ModBlocks.GLASS_FIBRE_CABLE.getLootTable(), createBlockEntityTable("glass_fibre_cable", ModBlocks.GLASS_FIBRE_CABLE, ModBlockEntities.CABLE).setParamSet(LootContextParamSets.BLOCK).build());
 
-        tables.put(ModBlocks.GENERATOR.getLootTable(), createStandardTable("generator", ModBlocks.GENERATOR).setParamSet(LootContextParamSets.BLOCK).build());
-        tables.put(ModBlocks.GEO_GENERATOR.getLootTable(), createStandardTable("geothermal_generator", ModBlocks.GEO_GENERATOR).setParamSet(LootContextParamSets.BLOCK).build());
-        tables.put(ModBlocks.SOLAR_GENERATOR.getLootTable(), createStandardTable("solar_generator", ModBlocks.SOLAR_GENERATOR).setParamSet(LootContextParamSets.BLOCK).build());
+        tables.put(ModBlocks.GENERATOR.getLootTable(), createBlockEntityTable("generator", ModBlocks.GENERATOR, ModBlockEntities.GENERATOR).setParamSet(LootContextParamSets.BLOCK).build());
+        tables.put(ModBlocks.GEO_GENERATOR.getLootTable(), createBlockEntityTable("geothermal_generator", ModBlocks.GEO_GENERATOR, ModBlockEntities.GEO_GENERATOR).setParamSet(LootContextParamSets.BLOCK).build());
+        tables.put(ModBlocks.SOLAR_GENERATOR.getLootTable(), createBlockEntityTable("solar_generator", ModBlocks.SOLAR_GENERATOR, ModBlockEntities.SOLAR_GENERATOR).setParamSet(LootContextParamSets.BLOCK).build());
 
-        tables.put(ModBlocks.ELECTRIC_FURNACE.getLootTable(), createStandardTable("electric_furnace", ModBlocks.ELECTRIC_FURNACE).setParamSet(LootContextParamSets.BLOCK).build());
-        tables.put(ModBlocks.CRUSHER.getLootTable(), createStandardTable("crusher", ModBlocks.CRUSHER).setParamSet(LootContextParamSets.BLOCK).build());
-        tables.put(ModBlocks.COMPRESSOR.getLootTable(), createStandardTable("compressor", ModBlocks.COMPRESSOR).setParamSet(LootContextParamSets.BLOCK).build());
-        tables.put(ModBlocks.EXTRACTOR.getLootTable(), createStandardTable("extractor", ModBlocks.EXTRACTOR).setParamSet(LootContextParamSets.BLOCK).build());
-        tables.put(ModBlocks.EXTRUDER.getLootTable(), createStandardTable("extruder", ModBlocks.EXTRUDER).setParamSet(LootContextParamSets.BLOCK).build());
-        tables.put(ModBlocks.SAWMILL.getLootTable(), createStandardTable("sawmill", ModBlocks.SAWMILL).setParamSet(LootContextParamSets.BLOCK).build());
-        tables.put(ModBlocks.ALLOY_SMELTER.getLootTable(), createStandardTable("alloy_smelter", ModBlocks.ALLOY_SMELTER).setParamSet(LootContextParamSets.BLOCK).build());
+        tables.put(ModBlocks.ELECTRIC_FURNACE.getLootTable(), createBlockEntityTable("electric_furnace", ModBlocks.ELECTRIC_FURNACE, ModBlockEntities.ELECTRIC_FURNACE).setParamSet(LootContextParamSets.BLOCK).build());
+        tables.put(ModBlocks.CRUSHER.getLootTable(), createBlockEntityTable("crusher", ModBlocks.CRUSHER, ModBlockEntities.CRUSHER).setParamSet(LootContextParamSets.BLOCK).build());
+        tables.put(ModBlocks.COMPRESSOR.getLootTable(), createBlockEntityTable("compressor", ModBlocks.COMPRESSOR, ModBlockEntities.COMPRESSOR).setParamSet(LootContextParamSets.BLOCK).build());
+        tables.put(ModBlocks.EXTRACTOR.getLootTable(), createBlockEntityTable("extractor", ModBlocks.EXTRACTOR, ModBlockEntities.EXTRACTOR).setParamSet(LootContextParamSets.BLOCK).build());
+        tables.put(ModBlocks.EXTRUDER.getLootTable(), createBlockEntityTable("extruder", ModBlocks.EXTRUDER, ModBlockEntities.EXTRUDER).setParamSet(LootContextParamSets.BLOCK).build());
+        tables.put(ModBlocks.SAWMILL.getLootTable(), createBlockEntityTable("sawmill", ModBlocks.SAWMILL, ModBlockEntities.SAWMILL).setParamSet(LootContextParamSets.BLOCK).build());
+        tables.put(ModBlocks.ALLOY_SMELTER.getLootTable(), createBlockEntityTable("alloy_smelter", ModBlocks.ALLOY_SMELTER, ModBlockEntities.ALLOY_SMELTER).setParamSet(LootContextParamSets.BLOCK).build());
 
-        tables.put(ModBlocks.WOODEN_BATTERY_BOX.getLootTable(), createStandardTable("wooden_battery_box", ModBlocks.WOODEN_BATTERY_BOX).setParamSet(LootContextParamSets.BLOCK).build());
-        tables.put(ModBlocks.CESU.getLootTable(), createStandardTable("cesu", ModBlocks.CESU).setParamSet(LootContextParamSets.BLOCK).build());
-        tables.put(ModBlocks.MFE.getLootTable(), createStandardTable("mfe", ModBlocks.CESU).setParamSet(LootContextParamSets.BLOCK).build());
-        tables.put(ModBlocks.MFSU.getLootTable(), createStandardTable("mfsu", ModBlocks.CESU).setParamSet(LootContextParamSets.BLOCK).build());
+        tables.put(ModBlocks.BATTERY_BOX.getLootTable(), createBlockEntityTable("battery_box", ModBlocks.BATTERY_BOX, ModBlockEntities.BATTERY_BOX).setParamSet(LootContextParamSets.BLOCK).build());
+        tables.put(ModBlocks.CESU.getLootTable(), createBlockEntityTable("cesu", ModBlocks.CESU, ModBlockEntities.BATTERY_BOX).setParamSet(LootContextParamSets.BLOCK).build());
+        tables.put(ModBlocks.MFE.getLootTable(), createBlockEntityTable("mfe", ModBlocks.MFE, ModBlockEntities.BATTERY_BOX).setParamSet(LootContextParamSets.BLOCK).build());
+        tables.put(ModBlocks.MFSU.getLootTable(), createBlockEntityTable("mfsu", ModBlocks.MFSU, ModBlockEntities.BATTERY_BOX).setParamSet(LootContextParamSets.BLOCK).build());
 
         tables.put(ModBlocks.RESIN_SHEET.getLootTable(), createStandardTable("resin_sheet", ModBlocks.RESIN_SHEET).setParamSet(LootContextParamSets.BLOCK).build());
 
@@ -124,11 +126,20 @@ public class LootTables extends LootTableProvider {
                 .name(name)
                 .setRolls(ConstantValue.exactly(1))
                 .add(LootItem.lootTableItem(block)
+                );
+        return LootTable.lootTable().withPool(builder);
+    }
+
+    protected LootTable.Builder createBlockEntityTable(String name, Block block, BlockEntityType<?> type) {
+        LootPool.Builder builder = LootPool.lootPool()
+                .name(name)
+                .setRolls(ConstantValue.exactly(1))
+                .add(LootItem.lootTableItem(block)
                         .apply(CopyNameFunction.copyName(CopyNameFunction.NameSource.BLOCK_ENTITY))
                         .apply(CopyNbtFunction.copyData(ContextNbtProvider.BLOCK_ENTITY)
                                 .copy("inv", "BlockEntityTag.inv", CopyNbtFunction.MergeStrategy.REPLACE)
                                 .copy("energy", "BlockEntityTag.energy", CopyNbtFunction.MergeStrategy.REPLACE))
-                        .apply(SetContainerContents.setContents()
+                        .apply(SetContainerContents.setContents(type)
                                 .withEntry(DynamicLoot.dynamicEntry(new ResourceLocation("minecraft", "contents"))))
                 );
         return LootTable.lootTable().withPool(builder);

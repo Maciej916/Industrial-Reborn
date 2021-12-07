@@ -1,0 +1,12 @@
+{
+	"parent": "block/cube",
+	"textures": {
+		"down": "indreb:block/battery_box/battery_box_bottom",
+		"up": "indreb:block/battery_box/battery_box_top",
+		"north": "indreb:block/battery_box/battery_box_front",
+		"east": "indreb:block/battery_box/battery_box_leftright",
+		"south": "indreb:block/battery_box/battery_box_back",
+		"west": "indreb:block/battery_box/battery_box_leftright",
+		"particle": "indreb:block/battery_box/battery_box_leftright"
+	}
+}

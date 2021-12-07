@@ -184,6 +184,57 @@ public class Crushing extends RecipeProvider {
                 .addCriterion("item", InventoryChangeTrigger.TriggerInstance.hasItems(Items.IRON_ORE))
                 .save(consumer, "iron_ore_crushed_iron");
 
+        // Deepslate Ores
+
+        RecipeBuilderCrushing.builder(ModItems.CRUSHED_COPPER,2)
+                .setIngredient(Ingredient.of(Items.DEEPSLATE_COPPER_ORE), 1)
+                .setExperience(0.2F)
+                .setBonus(Items.DEEPSLATE, 1, 50)
+                .setGroup("crushing/ores")
+                .addCriterion("item", InventoryChangeTrigger.TriggerInstance.hasItems(Items.DEEPSLATE_COPPER_ORE.asItem()))
+                .save(consumer, "deepslate_copper_ore_crushed_copper");
+
+        RecipeBuilderCrushing.builder(ModItems.CRUSHED_TIN,2)
+                .setIngredient(Ingredient.of(ModBlocks.DEEPSLATE_TIN_ORE), 1)
+                .setExperience(0.2F)
+                .setBonus(Items.DEEPSLATE, 1, 50)
+                .setGroup("crushing/ores")
+                .addCriterion("item", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.DEEPSLATE_TIN_ORE.asItem()))
+                .save(consumer, "deepslate_tin_ore_crushed_tin");
+
+        RecipeBuilderCrushing.builder(Items.DIAMOND,2)
+                .setIngredient(Ingredient.of(Items.DEEPSLATE_DIAMOND_ORE), 1)
+                .setExperience(0.2F)
+                .setBonus(Items.DEEPSLATE, 1, 50)
+                .setGroup("crushing/ores")
+                .addCriterion("item", InventoryChangeTrigger.TriggerInstance.hasItems(Items.DEEPSLATE_DIAMOND_ORE))
+                .save(consumer,"deepslate_diamond_ore_diamond");
+
+        RecipeBuilderCrushing.builder(Items.EMERALD,2)
+                .setIngredient(Ingredient.of(Items.DEEPSLATE_EMERALD_ORE), 1)
+                .setExperience(0.2F)
+                .setBonus(Items.DEEPSLATE, 1, 50)
+                .setGroup("crushing/ores")
+                .addCriterion("item", InventoryChangeTrigger.TriggerInstance.hasItems(Items.DEEPSLATE_EMERALD_ORE))
+                .save(consumer, "deepslate_emerald_ore_emerald");
+
+        RecipeBuilderCrushing.builder(ModItems.CRUSHED_GOLD,2)
+                .setIngredient(Ingredient.of(Items.DEEPSLATE_GOLD_ORE), 1)
+                .setExperience(0.2F)
+                .setBonus(Items.DEEPSLATE, 1, 50)
+                .setGroup("crushing/ores")
+                .addCriterion("item", InventoryChangeTrigger.TriggerInstance.hasItems(Items.DEEPSLATE_GOLD_ORE))
+                .save(consumer, "deepslate_gold_ore_crushed_gold");
+
+        RecipeBuilderCrushing.builder(ModItems.CRUSHED_IRON,2)
+                .setIngredient(Ingredient.of(Items.DEEPSLATE_IRON_ORE), 1)
+                .setExperience(0.2F)
+                .setBonus(Items.DEEPSLATE, 1, 50)
+                .setGroup("crushing/ores")
+                .addCriterion("item", InventoryChangeTrigger.TriggerInstance.hasItems(Items.DEEPSLATE_IRON_ORE))
+                .save(consumer, "deepslate_iron_ore_crushed_iron");
+
+
         // Flowers
 
         RecipeBuilderCrushing.builder(Items.MAGENTA_DYE,1)

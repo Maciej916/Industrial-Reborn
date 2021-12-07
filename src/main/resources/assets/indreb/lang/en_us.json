@@ -46,6 +46,7 @@
   "block.indreb.alloy_smelter": "Alloy Smelter",
 
   "block.indreb.tin_ore": "Tin Ore",
+  "block.indreb.deepslate_tin_ore": "Deepslate Tin Ore",
   "block.indreb.copper_block": "Copper Block",
   "block.indreb.tin_block": "Tin Block",
   "block.indreb.bronze_block": "Bronze Block",
@@ -153,7 +154,7 @@
   "item.indreb.cutter": "Cutter",
 
   "_comment": "Battery Box",
-  "block.indreb.wooden_battery_box": "Wooden Battery Box",
+  "block.indreb.battery_box": "Battery Box",
   "block.indreb.cesu": "CESU",
   "block.indreb.mfe": "MFE",
   "block.indreb.mfsu": "MFSU",

@@ -31,13 +31,13 @@ public class SoundHandler {
     @SubscribeEvent
     public static void onSoundEngineSetup(SoundSetupEvent event) {
         if (soundEngine == null) {
-            soundEngine = event.getManager();
+            soundEngine = event.getEngine();
         }
     }
 
     @SubscribeEvent(priority = EventPriority.LOWEST)
     public static void onTilePlaySound(PlaySoundEvent event) {
-        SoundInstance resultSound = event.getResultSound();
+        SoundInstance resultSound = event.getSound();
         if (resultSound == null) {
             return;
         }

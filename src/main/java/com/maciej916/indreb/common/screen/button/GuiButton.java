@@ -67,7 +67,7 @@ public class GuiButton extends GuiElement {
     @Override
     protected void renderBg(PoseStack pPoseStack, Minecraft pMinecraft, int pMouseX, int pMouseY) {
         RenderSystem.setShaderTexture(0, getResourceLocation());
-        if (isHovered()) {
+        if (isHoveredOrFocused()) {
             blit(pPoseStack, getLeftOffset(), getTopOffset(), buttonSprite.getActiveOffsetLeft(), buttonSprite.getActiveOffsetTop(), buttonSprite.getActiveWidth(), buttonSprite.getActiveHeight());
         } else {
             blit(pPoseStack, getLeftOffset(), getTopOffset(), buttonSprite.getOffsetLeft(), buttonSprite.getOffsetTop(), buttonSprite.getWidth(), buttonSprite.getHeight());

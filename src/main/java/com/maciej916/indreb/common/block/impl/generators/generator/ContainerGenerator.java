@@ -18,4 +18,6 @@ public class ContainerGenerator extends IndRebContainer {
         super(ModContainers.GENERATOR, windowId, world, pos, playerInventory, player);
 
     }
+
+
 }

@@ -55,6 +55,7 @@ public class BlockEntityGenerator extends IndRebBlockEntity implements ICooldown
         return super.addInventorySlot(slots);
     }
 
+
     @Override
     public void tickServer(BlockState state) {
         progressBurn.clearChanged();

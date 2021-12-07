@@ -3,8 +3,8 @@ package com.maciej916.indreb.common.network;
 import com.maciej916.indreb.common.network.packet.PacketExperience;
 import com.maciej916.indreb.common.network.packet.PacketExtruderRecipe;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraftforge.fmllegacy.network.NetworkRegistry;
-import net.minecraftforge.fmllegacy.network.simple.SimpleChannel;
+import net.minecraftforge.network.NetworkRegistry;
+import net.minecraftforge.network.simple.SimpleChannel;
 
 import static com.maciej916.indreb.IndReb.MODID;
 

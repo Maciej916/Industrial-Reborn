@@ -1,0 +1,19 @@
+{
+  "type": "indreb:crushing",
+  "ingredient": {
+    "item": "minecraft:deepslate_iron_ore",
+    "count": 1
+  },
+  "result": {
+    "item": "indreb:crushed_iron",
+    "count": 2
+  },
+  "bonus_result": {
+    "item": "minecraft:deepslate",
+    "count": 1,
+    "chance": 50.0
+  },
+  "experience": 0.2,
+  "duration": 180,
+  "power_cost": 8
+}

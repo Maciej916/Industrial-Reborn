@@ -23,9 +23,7 @@ import com.maciej916.indreb.common.tier.CableTier;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.SaplingBlock;
 import net.minecraft.world.level.block.SoundType;
-import net.minecraft.world.level.block.grower.OakTreeGrower;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.Material;
 import net.minecraftforge.event.RegistryEvent;
@@ -40,7 +38,7 @@ public final class ModBlocks {
     public static Block SOLAR_GENERATOR;
     public static Block GEO_GENERATOR;
 
-    public static Block WOODEN_BATTERY_BOX;
+    public static Block BATTERY_BOX;
     public static Block CESU;
     public static Block MFE;
     public static Block MFSU;
@@ -74,6 +72,7 @@ public final class ModBlocks {
     public static Block RUBBER_SLAB;
 
     public static Block TIN_ORE;
+    public static Block DEEPSLATE_TIN_ORE;
 
     public static Block TIN_BLOCK;
     public static Block SILVER_BLOCK;
@@ -94,7 +93,7 @@ public final class ModBlocks {
         SOLAR_GENERATOR = registerBlock(new BlockSolarGenerator(), "solar_generator");
         GEO_GENERATOR = registerBlock(new BlockGeoGenerator(), "geo_generator");
 
-        WOODEN_BATTERY_BOX = registerBlock(new BlockBatteryBox(BatteryBoxTier.BASIC, BlockBehaviour.Properties.of(Material.WOOD).strength(1f, 3f).sound(SoundType.WOOD)), "wooden_battery_box");
+        BATTERY_BOX = registerBlock(new BlockBatteryBox(BatteryBoxTier.BASIC, BlockBehaviour.Properties.of(Material.WOOD).strength(1f, 3f).sound(SoundType.WOOD)), "battery_box");
         CESU = registerBlock(new BlockBatteryBox(BatteryBoxTier.STANDARD, BlockBehaviour.Properties.of(Material.METAL).strength(1f, 3f).sound(SoundType.METAL)), "cesu");
         MFE = registerBlock(new BlockBatteryBox(BatteryBoxTier.ADVANCED, BlockBehaviour.Properties.of(Material.METAL).strength(1f, 3f).sound(SoundType.METAL)), "mfe");
         MFSU = registerBlock(new BlockBatteryBox(BatteryBoxTier.SUPER, BlockBehaviour.Properties.of(Material.METAL).strength(1f, 3f).sound(SoundType.METAL)), "mfsu");
@@ -128,6 +127,7 @@ public final class ModBlocks {
         RUBBER_SLAB = registerBlock(new BlockSlab(), "rubber_slab");
 
         TIN_ORE = registerBlock(new BlockOre(), "tin_ore");
+        DEEPSLATE_TIN_ORE = registerBlock(new BlockOre(), "deepslate_tin_ore");
 
         TIN_BLOCK = registerBlock(new BlockResource(1f, 3f), "tin_block");
         SILVER_BLOCK = registerBlock(new BlockResource(1f, 3f), "silver_block");
