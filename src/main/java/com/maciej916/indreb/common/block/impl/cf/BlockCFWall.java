@@ -24,11 +24,8 @@ import static com.maciej916.indreb.common.util.GuiUtil.*;
 
 public class BlockCFWall extends Block {
 
-    MaterialColor color;
-
     public BlockCFWall(MaterialColor color) {
         super(Block.Properties.of(Material.STONE, color).strength(5.0F, 60.0F).sound(SoundType.STONE));
-        this.color = color;
     }
 
     @Override
@@ -41,8 +38,7 @@ public class BlockCFWall extends Block {
                 BlockPos dropPos = blockPos.relative(blockHitResult.getDirection());
                 Random random = new Random();
                 Direction dir = blockHitResult.getDirection();
-                MaterialColor blockColor = ((BlockCFWall) painter.getState().getBlock()).color;
-                int rgbColor = blockColor.calculateRGBColor(MaterialColor.Brightness.NORMAL);
+                int rgbColor = painter.getColor().calculateRGBColor(MaterialColor.Brightness.NORMAL);
                 Vector3f COLOR = new Vector3f(getBlue(rgbColor), getGreen(rgbColor), getRed(rgbColor));
                 for(int i = 0; i < 5; i++) {
                     double x,y,z;

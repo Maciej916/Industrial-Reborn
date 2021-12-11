@@ -182,7 +182,7 @@ public final class ModBlocks {
         CONSTRUCTION_FOAM = registerBlock(new BlockCF(), "construction_foam");
         REINFORCED_CONSTRUCTION_FOAM = registerBlock(new BlockReinforcedCF(), "reinforced_construction_foam");
 
-        CONSTRUCTION_FOAM_WALL_WHITE = registerBlock(new BlockCFWall(MaterialColor.WOOD), "construction_foam_wall_white");
+        CONSTRUCTION_FOAM_WALL_WHITE = registerBlock(new BlockCFWall(MaterialColor.WOOL), "construction_foam_wall_white");
         CONSTRUCTION_FOAM_WALL_RED = registerBlock(new BlockCFWall(MaterialColor.COLOR_RED), "construction_foam_wall_red");
         CONSTRUCTION_FOAM_WALL_ORANGE = registerBlock(new BlockCFWall(MaterialColor.COLOR_ORANGE), "construction_foam_wall_orange");
         CONSTRUCTION_FOAM_WALL_PINK = registerBlock(new BlockCFWall(MaterialColor.COLOR_PINK), "construction_foam_wall_pink");

@@ -8,6 +8,7 @@ import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Tiers;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.material.MaterialColor;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -188,22 +189,22 @@ public final class ModItems {
 
 //        FOAM_SPRAYER = registerItem(new ItemWIP(), "foam_sprayer");
         PAINTER = registerItem(new ItemTool(1), "painter");
-        PAINTER_WHITE = registerItem(new ItemPainter(ModBlocks.CONSTRUCTION_FOAM_WALL_WHITE.defaultBlockState()), "painter_white");
-        PAINTER_RED = registerItem(new ItemPainter(ModBlocks.CONSTRUCTION_FOAM_WALL_RED.defaultBlockState()), "painter_red");
-        PAINTER_ORANGE = registerItem(new ItemPainter(ModBlocks.CONSTRUCTION_FOAM_WALL_ORANGE.defaultBlockState()), "painter_orange");
-        PAINTER_PINK = registerItem(new ItemPainter(ModBlocks.CONSTRUCTION_FOAM_WALL_PINK.defaultBlockState()), "painter_pink");
-        PAINTER_YELLOW = registerItem(new ItemPainter(ModBlocks.CONSTRUCTION_FOAM_WALL_YELLOW.defaultBlockState()), "painter_yellow");
-        PAINTER_LIME = registerItem(new ItemPainter(ModBlocks.CONSTRUCTION_FOAM_WALL_LIME.defaultBlockState()), "painter_lime");
-        PAINTER_GREEN = registerItem(new ItemPainter(ModBlocks.CONSTRUCTION_FOAM_WALL_GREEN.defaultBlockState()), "painter_green");
-        PAINTER_LIGHT_BLUE = registerItem(new ItemPainter(ModBlocks.CONSTRUCTION_FOAM_WALL_LIGHT_BLUE.defaultBlockState()), "painter_light_blue");
-        PAINTER_CYAN = registerItem(new ItemPainter(ModBlocks.CONSTRUCTION_FOAM_WALL_CYAN.defaultBlockState()), "painter_cyan");
-        PAINTER_BLUE = registerItem(new ItemPainter(ModBlocks.CONSTRUCTION_FOAM_WALL_BLUE.defaultBlockState()), "painter_blue");
-        PAINTER_MAGENTA = registerItem(new ItemPainter(ModBlocks.CONSTRUCTION_FOAM_WALL_MAGENTA.defaultBlockState()), "painter_magenta");
-        PAINTER_PURPLE = registerItem(new ItemPainter(ModBlocks.CONSTRUCTION_FOAM_WALL_PURPLE.defaultBlockState()), "painter_purple");
-        PAINTER_BROWN = registerItem(new ItemPainter(ModBlocks.CONSTRUCTION_FOAM_WALL_BROWN.defaultBlockState()), "painter_brown");
-        PAINTER_GRAY = registerItem(new ItemPainter(ModBlocks.CONSTRUCTION_FOAM_WALL_GRAY.defaultBlockState()), "painter_gray");
-        PAINTER_LIGHT_GRAY = registerItem(new ItemPainter(ModBlocks.CONSTRUCTION_FOAM_WALL_LIGHT_GRAY.defaultBlockState()), "painter_light_gray");
-        PAINTER_BLACK = registerItem(new ItemPainter(ModBlocks.CONSTRUCTION_FOAM_WALL_BLACK.defaultBlockState()), "painter_black");
+        PAINTER_WHITE = registerItem(new ItemPainter(MaterialColor.WOOL), "painter_white");
+        PAINTER_RED = registerItem(new ItemPainter(MaterialColor.COLOR_RED), "painter_red");
+        PAINTER_ORANGE = registerItem(new ItemPainter(MaterialColor.COLOR_ORANGE), "painter_orange");
+        PAINTER_PINK = registerItem(new ItemPainter(MaterialColor.COLOR_PINK), "painter_pink");
+        PAINTER_YELLOW = registerItem(new ItemPainter(MaterialColor.COLOR_YELLOW), "painter_yellow");
+        PAINTER_LIME = registerItem(new ItemPainter(MaterialColor.COLOR_LIGHT_GREEN), "painter_lime");
+        PAINTER_GREEN = registerItem(new ItemPainter(MaterialColor.COLOR_GREEN), "painter_green");
+        PAINTER_LIGHT_BLUE = registerItem(new ItemPainter(MaterialColor.COLOR_LIGHT_BLUE), "painter_light_blue");
+        PAINTER_CYAN = registerItem(new ItemPainter(MaterialColor.COLOR_CYAN), "painter_cyan");
+        PAINTER_BLUE = registerItem(new ItemPainter(MaterialColor.COLOR_BLUE), "painter_blue");
+        PAINTER_MAGENTA = registerItem(new ItemPainter(MaterialColor.COLOR_MAGENTA), "painter_magenta");
+        PAINTER_PURPLE = registerItem(new ItemPainter(MaterialColor.COLOR_PURPLE), "painter_purple");
+        PAINTER_BROWN = registerItem(new ItemPainter(MaterialColor.COLOR_BROWN), "painter_brown");
+        PAINTER_GRAY = registerItem(new ItemPainter(MaterialColor.COLOR_GRAY), "painter_gray");
+        PAINTER_LIGHT_GRAY = registerItem(new ItemPainter(MaterialColor.COLOR_LIGHT_GRAY), "painter_light_gray");
+        PAINTER_BLACK = registerItem(new ItemPainter(MaterialColor.COLOR_BLACK), "painter_black");
 
 
 
