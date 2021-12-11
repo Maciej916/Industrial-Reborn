@@ -2,8 +2,11 @@
   "replace": false,
   "values": [
     "indreb:generator",
-    "indreb:solar_generator",
     "indreb:geo_generator",
+    "indreb:solar_generator",
+    "indreb:advanced_solar_generator",
+    "indreb:hybrid_solar_generator",
+    "indreb:quantum_solar_generator",
     "indreb:cesu",
     "indreb:mfe",
     "indreb:mfsu",
@@ -29,6 +32,13 @@
     "indreb:silver_block",
     "indreb:bronze_block",
     "indreb:basic_machine_casing",
-    "indreb:advanced_machine_casing"
+    "indreb:advanced_machine_casing",
+    "indreb:reinforced_glass",
+    "indreb:reinforced_stone",
+    "indreb:reinforced_stone_slab",
+    "indreb:reinforced_stone_stairs",
+    "indreb:iron_scaffolding",
+    "indreb:iron_fence",
+    "indreb:luminator"
   ]
 }

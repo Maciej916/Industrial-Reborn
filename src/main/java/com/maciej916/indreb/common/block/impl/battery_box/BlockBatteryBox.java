@@ -57,8 +57,6 @@ public class BlockBatteryBox extends IndRebEntityBlock implements IStateFacing, 
         return new ContainerBatteryBox(windowId, level, pos, playerInventory, playerEntity);
     }
 
-
-
     @Override
     public void appendHoverText(ItemStack pStack, @Nullable BlockGetter pLevel, List<Component> pTooltip, TooltipFlag pFlag) {
         pTooltip.add(TextComponentUtil.build(

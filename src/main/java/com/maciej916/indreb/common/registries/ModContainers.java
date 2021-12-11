@@ -1,9 +1,10 @@
 package com.maciej916.indreb.common.registries;
 
 import com.maciej916.indreb.common.block.impl.battery_box.ContainerBatteryBox;
+import com.maciej916.indreb.common.block.impl.generators.crystalline_generator.ContainerCrystallineGenerator;
 import com.maciej916.indreb.common.block.impl.generators.generator.ContainerGenerator;
 import com.maciej916.indreb.common.block.impl.generators.geo_generator.ContainerGeoGenerator;
-import com.maciej916.indreb.common.block.impl.generators.solar_generator.ContainerSolarGenerator;
+import com.maciej916.indreb.common.block.impl.generators.solar_panels.ContainerSolarGenerator;
 import com.maciej916.indreb.common.block.impl.machines.alloy_smelter.ContainerAlloySmelter;
 import com.maciej916.indreb.common.block.impl.machines.compressor.ContainerCompressor;
 import com.maciej916.indreb.common.block.impl.machines.crusher.ContainerCrusher;
@@ -26,6 +27,7 @@ public final class ModContainers {
     public static MenuType<ContainerGenerator> GENERATOR;
     public static MenuType<ContainerSolarGenerator> SOLAR_GENERATOR;
     public static MenuType<ContainerGeoGenerator> GEO_GENERATOR;
+    public static MenuType<ContainerCrystallineGenerator> CRYSTALLINE_GENERATOR;
 
     public static MenuType<ContainerBatteryBox> BATTERY_BOX;
 
@@ -47,6 +49,7 @@ public final class ModContainers {
         GENERATOR = registerContainer("generator", IForgeMenuType.create(ContainerGenerator::new));
         SOLAR_GENERATOR = registerContainer("solar_generator", IForgeMenuType.create(ContainerSolarGenerator::new));
         GEO_GENERATOR = registerContainer("geo_generator", IForgeMenuType.create(ContainerGeoGenerator::new));
+//        CRYSTALLINE_GENERATOR = registerContainer("crystalline_generator", IForgeMenuType.create(ContainerCrystallineGenerator::new));
 
         BATTERY_BOX = registerContainer("battery_box", IForgeMenuType.create(ContainerBatteryBox::new));
 

@@ -21,8 +21,7 @@ import net.minecraftforge.fml.common.Mod;
 @Mod.EventBusSubscriber(modid = IndReb.MODID, bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class PlayerTickEvent {
 
-    private static int tick = 0;
-    public static final DamageSource ELECTRICITY = (new DamageSource("electricity"));
+    public static final DamageSource ELECTRICITY = new DamageSource("electricity");
 
     @SubscribeEvent
     public static void event(TickEvent.PlayerTickEvent event) {
@@ -30,7 +29,7 @@ public class PlayerTickEvent {
         Level level = event.player.level;
 
         if (!level.isClientSide()) {
-            if (++tick == 20) {
+            if (level.getGameTime() % 20 == 0) {
                 BlockPos pos = player.blockPosition();
                 for (int i = 0; i < 3; i++) {
                     BlockPos offsetPos = pos.offset(0, i, 0);
@@ -47,7 +46,6 @@ public class PlayerTickEvent {
                         }
                     }
                 }
-                tick = 0;
             }
         }
     }

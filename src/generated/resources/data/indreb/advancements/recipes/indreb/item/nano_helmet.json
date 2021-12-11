@@ -1,0 +1,60 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "indreb:item/nano_helmet"
+    ]
+  },
+  "criteria": {
+    "carbon_plate": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:carbon_plate"
+            ]
+          }
+        ]
+      }
+    },
+    "energy_crystal": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:energy_crystal"
+            ]
+          }
+        ]
+      }
+    },
+    "nightvision_goggles": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:nightvision_goggles"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "indreb:item/nano_helmet"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "carbon_plate",
+      "energy_crystal",
+      "nightvision_goggles",
+      "has_the_recipe"
+    ]
+  ]
+}

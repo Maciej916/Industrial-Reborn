@@ -136,6 +136,9 @@ public abstract class IndRebContainer extends AbstractContainerMenu {
     @Override
     public ItemStack quickMoveStack(Player playerIn, int index) {
         ItemStack itemstack = ItemStack.EMPTY;
+
+        int totalContainerSlots = blockEntity.getItemHandlers().size() + blockEntity.getBatteryHandlers().size();
+
         Slot slot = this.slots.get(index);
         if (slot != null && slot.hasItem()) {
             ItemStack stack = slot.getItem();
@@ -146,15 +149,16 @@ public abstract class IndRebContainer extends AbstractContainerMenu {
                 }
                 slot.onQuickCraft(stack, itemstack);
             } else {
-                if (ForgeHooks.getBurnTime(stack, RecipeType.SMELTING) > 0) {
-                    if (!this.moveItemStackTo(stack, 0, 1, false)) {
-                        return ItemStack.EMPTY;
-                    }
-                } else if (index < 28) {
+//                if (ForgeHooks.getBurnTime(stack, RecipeType.SMELTING) > 0) {
+//                    if (!this.moveItemStackTo(stack, 0, 1, false)) {
+//                        return ItemStack.EMPTY;
+//                    }
+//                } else if (index < 28) {
+                if (index < 28 + totalContainerSlots) {
                     if (!this.moveItemStackTo(stack, 28, 37, false)) {
                         return ItemStack.EMPTY;
                     }
-                } else if (index < 37 && !this.moveItemStackTo(stack, 1, 28, false)) {
+                } else if (index < 37 + totalContainerSlots && !this.moveItemStackTo(stack, 1, 28, false)) {
                     return ItemStack.EMPTY;
                 }
             }

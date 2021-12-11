@@ -16,6 +16,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 public final class ModItems {
 
+    public static Item RAW_TIN;
     public static Item TIN_INGOT;
     public static Item SILVER_INGOT;
     public static Item BRONZE_INGOT;
@@ -31,6 +32,8 @@ public final class ModItems {
     public static Item DIAMOND_DUST;
     public static Item ENERGIUM_DUST;
     public static Item SILVER_DUST;
+    public static Item STONE_DUST;
+    public static Item DEEPSLATE_DUST;
 
     public static Item STICKY_RESIN;
     public static Item RUBBER;
@@ -43,8 +46,7 @@ public final class ModItems {
     public static Item ENERGY_CRYSTAL;
     public static Item LAPOTRON_CRYSTAL;
 
-    public static Item EMPTY_FLUID_CELL;
-    public static Item LAVA_CELL;
+    public static Item FLUID_CELL;
 
     public static Item SAWDUST;
     public static Item IRON_ROD;
@@ -55,6 +57,7 @@ public final class ModItems {
     public static Item GOLD_PLATE;
     public static Item BRONZE_PLATE;
     public static Item STEEL_PLATE;
+    public static Item IRIDIUM_PLATE;
 
     public static Item CARBON_FIBERS;
     public static Item COMBINED_CARBON_FIBERS;
@@ -87,9 +90,29 @@ public final class ModItems {
     public static Item HAMMER;
     public static Item CUTTER;
 
+    public static Item FOAM_SPRAYER;
+    public static Item PAINTER;
+    public static Item PAINTER_WHITE;
+    public static Item PAINTER_RED;
+    public static Item PAINTER_ORANGE;
+    public static Item PAINTER_PINK;
+    public static Item PAINTER_YELLOW;
+    public static Item PAINTER_LIME;
+    public static Item PAINTER_GREEN;
+    public static Item PAINTER_LIGHT_BLUE;
+    public static Item PAINTER_CYAN;
+    public static Item PAINTER_BLUE;
+    public static Item PAINTER_MAGENTA;
+    public static Item PAINTER_PURPLE;
+    public static Item PAINTER_BROWN;
+    public static Item PAINTER_GRAY;
+    public static Item PAINTER_LIGHT_GRAY;
+    public static Item PAINTER_BLACK;
+
     @SubscribeEvent
     public static void registerBlocks(RegistryEvent.Register<Block> event) {
 
+        RAW_TIN = registerItem(new ItemBasic(), "raw_tin");
         TIN_INGOT = registerItem(new ItemBasic(), "tin_ingot");
         BRONZE_INGOT = registerItem(new ItemBasic(), "bronze_ingot");
         STEEL_INGOT = registerItem(new ItemBasic(), "steel_ingot");
@@ -105,6 +128,8 @@ public final class ModItems {
         DIAMOND_DUST = registerItem(new ItemBasic(), "diamond_dust");
         ENERGIUM_DUST = registerItem(new ItemBasic(), "energium_dust");
         SILVER_DUST = registerItem(new ItemBasic(), "silver_dust");
+        STONE_DUST = registerItem(new ItemBasic(), "stone_dust");
+        DEEPSLATE_DUST = registerItem(new ItemBasic(), "deepslate_dust");
 
         STICKY_RESIN = registerItem(new ItemBasic(), "sticky_resin");
         RUBBER = registerItem(new ItemBasic(), "rubber");
@@ -117,8 +142,7 @@ public final class ModItems {
         ENERGY_CRYSTAL = registerItem(new ItemEnergy(0, 100000, EnumEnergyType.BOTH, EnergyTier.ADVANCED), "energy_crystal");
         LAPOTRON_CRYSTAL = registerItem(new ItemEnergy(0, 1000000, EnumEnergyType.BOTH, EnergyTier.SUPER), "lapotron_crystal");
 
-        EMPTY_FLUID_CELL = registerItem(new ItemCell(), "empty_fluid_cell");
-        LAVA_CELL = registerItem(new ItemCell(), "lava_cell");
+        FLUID_CELL = registerItem(new ItemCell(), "fluid_cell");
 
         SAWDUST = registerItem(new ItemBasic(), "sawdust");
         IRON_ROD = registerItem(new ItemBasic(), "iron_rod");
@@ -129,6 +153,7 @@ public final class ModItems {
         GOLD_PLATE = registerItem(new ItemBasic(), "gold_plate");
         BRONZE_PLATE = registerItem(new ItemBasic(), "bronze_plate");
         STEEL_PLATE = registerItem(new ItemBasic(), "steel_plate");
+        IRIDIUM_PLATE = registerItem(new ItemBasic(), "iridium_plate");
 
         CARBON_FIBERS = registerItem(new ItemBasic(), "carbon_fibers");
         COMBINED_CARBON_FIBERS = registerItem(new ItemBasic(), "combined_carbon_fibers");
@@ -136,8 +161,8 @@ public final class ModItems {
 
         ADVANCED_ALLOY = registerItem(new ItemBasic(), "advanced_alloy");
 
-        NIGHTVISION_GOGGLES = registerItem(new ItemWIP(), "nightvision_goggles");
-        RUBBER_BOOTS = registerItem(new ItemWIP(), "rubber_boots");
+        NIGHTVISION_GOGGLES = registerItem(new IndRebArmour(ModArmorMaterials.NIGHTVISION, EquipmentSlot.HEAD), "nightvision_goggles");
+        RUBBER_BOOTS = registerItem(new IndRebArmour(ModArmorMaterials.RUBBER, EquipmentSlot.FEET), "rubber_boots");
 
         BRONZE_HELMET = registerItem(new IndRebArmour(ModArmorMaterials.BRONZE, EquipmentSlot.HEAD), "bronze_helmet");
         BRONZE_CHESTPLATE = registerItem(new IndRebArmour(ModArmorMaterials.BRONZE, EquipmentSlot.CHEST), "bronze_chestplate");
@@ -154,12 +179,34 @@ public final class ModItems {
         NANO_CHESTPLATE = registerItem(new ItemNanoArmour(EquipmentSlot.CHEST, 0, 1000000, EnumEnergyType.RECEIVE, EnergyTier.ADVANCED), "nano_chestplate");
         NANO_LEGGINGS = registerItem(new ItemNanoArmour(EquipmentSlot.LEGS, 0, 1000000, EnumEnergyType.RECEIVE, EnergyTier.ADVANCED), "nano_leggings");
         NANO_BOOTS = registerItem(new ItemNanoArmour(EquipmentSlot.FEET, 0, 1000000, EnumEnergyType.RECEIVE, EnergyTier.ADVANCED), "nano_boots");
-        NANO_SABER = registerItem(new ItemNanosaber(3, -2.4F, 0, 1000000, EnumEnergyType.RECEIVE, EnergyTier.ADVANCED), "nano_saber");
+        NANO_SABER = registerItem(new ItemNanosaber(1, -3F, 0, 160000, EnumEnergyType.RECEIVE, EnergyTier.ADVANCED), "nano_saber");
 
         TREETAP = registerItem(new ItemTreetap(20), "treetap");
         WRENCH = registerItem(new ItemWrench(120), "wrench");
         HAMMER = registerItem(new ItemTool(80), "hammer");
         CUTTER = registerItem(new ItemTool(60), "cutter");
+
+//        FOAM_SPRAYER = registerItem(new ItemWIP(), "foam_sprayer");
+        PAINTER = registerItem(new ItemTool(1), "painter");
+        PAINTER_WHITE = registerItem(new ItemPainter(ModBlocks.CONSTRUCTION_FOAM_WALL_WHITE.defaultBlockState()), "painter_white");
+        PAINTER_RED = registerItem(new ItemPainter(ModBlocks.CONSTRUCTION_FOAM_WALL_RED.defaultBlockState()), "painter_red");
+        PAINTER_ORANGE = registerItem(new ItemPainter(ModBlocks.CONSTRUCTION_FOAM_WALL_ORANGE.defaultBlockState()), "painter_orange");
+        PAINTER_PINK = registerItem(new ItemPainter(ModBlocks.CONSTRUCTION_FOAM_WALL_PINK.defaultBlockState()), "painter_pink");
+        PAINTER_YELLOW = registerItem(new ItemPainter(ModBlocks.CONSTRUCTION_FOAM_WALL_YELLOW.defaultBlockState()), "painter_yellow");
+        PAINTER_LIME = registerItem(new ItemPainter(ModBlocks.CONSTRUCTION_FOAM_WALL_LIME.defaultBlockState()), "painter_lime");
+        PAINTER_GREEN = registerItem(new ItemPainter(ModBlocks.CONSTRUCTION_FOAM_WALL_GREEN.defaultBlockState()), "painter_green");
+        PAINTER_LIGHT_BLUE = registerItem(new ItemPainter(ModBlocks.CONSTRUCTION_FOAM_WALL_LIGHT_BLUE.defaultBlockState()), "painter_light_blue");
+        PAINTER_CYAN = registerItem(new ItemPainter(ModBlocks.CONSTRUCTION_FOAM_WALL_CYAN.defaultBlockState()), "painter_cyan");
+        PAINTER_BLUE = registerItem(new ItemPainter(ModBlocks.CONSTRUCTION_FOAM_WALL_BLUE.defaultBlockState()), "painter_blue");
+        PAINTER_MAGENTA = registerItem(new ItemPainter(ModBlocks.CONSTRUCTION_FOAM_WALL_MAGENTA.defaultBlockState()), "painter_magenta");
+        PAINTER_PURPLE = registerItem(new ItemPainter(ModBlocks.CONSTRUCTION_FOAM_WALL_PURPLE.defaultBlockState()), "painter_purple");
+        PAINTER_BROWN = registerItem(new ItemPainter(ModBlocks.CONSTRUCTION_FOAM_WALL_BROWN.defaultBlockState()), "painter_brown");
+        PAINTER_GRAY = registerItem(new ItemPainter(ModBlocks.CONSTRUCTION_FOAM_WALL_GRAY.defaultBlockState()), "painter_gray");
+        PAINTER_LIGHT_GRAY = registerItem(new ItemPainter(ModBlocks.CONSTRUCTION_FOAM_WALL_LIGHT_GRAY.defaultBlockState()), "painter_light_gray");
+        PAINTER_BLACK = registerItem(new ItemPainter(ModBlocks.CONSTRUCTION_FOAM_WALL_BLACK.defaultBlockState()), "painter_black");
+
+
+
     }
 
     public static Item registerItem(Item item, String name) {

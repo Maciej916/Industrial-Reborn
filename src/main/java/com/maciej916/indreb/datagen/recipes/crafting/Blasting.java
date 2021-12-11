@@ -29,31 +29,35 @@ public class Blasting extends RecipeProvider {
     @Override
     protected void buildCraftingRecipes(Consumer<FinishedRecipe> consumer) {
 
-        SimpleCookingRecipeBuilder.blasting(Ingredient.of(ModItems.STICKY_RESIN), ModItems.RUBBER, 0.1f, 160)
+        SimpleCookingRecipeBuilder.blasting(Ingredient.of(ModItems.STICKY_RESIN), ModItems.RUBBER, 0.1f, 140)
                 .unlockedBy("item", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.RUBBER_LOG))
                 .save(consumer, saveResource("rubber"));
         
-        SimpleCookingRecipeBuilder.blasting(Ingredient.of(ModBlocks.TIN_ORE), ModItems.TIN_INGOT, 0.8f, 160)
+        SimpleCookingRecipeBuilder.blasting(Ingredient.of(ModItems.RAW_TIN), ModItems.TIN_INGOT, 0.8f, 140)
+                .unlockedBy("item", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.TIN_ORE))
+                .save(consumer, saveResource("raw_tin"));
+
+        SimpleCookingRecipeBuilder.blasting(Ingredient.of(ModBlocks.TIN_ORE), ModItems.TIN_INGOT, 0.8f, 140)
                 .unlockedBy("item", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.TIN_ORE))
                 .save(consumer, saveResource("tin_ingot"));
 
-        SimpleCookingRecipeBuilder.blasting(Ingredient.of(ModBlocks.DEEPSLATE_TIN_ORE), ModItems.TIN_INGOT, 0.8f, 160)
+        SimpleCookingRecipeBuilder.blasting(Ingredient.of(ModBlocks.DEEPSLATE_TIN_ORE), ModItems.TIN_INGOT, 0.8f, 140)
                 .unlockedBy("item", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.DEEPSLATE_TIN_ORE))
                 .save(consumer, saveResource("deepslate_tin_ingot"));
 
-        SimpleCookingRecipeBuilder.blasting(Ingredient.of(ModItems.CRUSHED_COPPER), Items.COPPER_INGOT, 0.6f, 160)
+        SimpleCookingRecipeBuilder.blasting(Ingredient.of(ModItems.CRUSHED_COPPER), Items.COPPER_INGOT, 0.6f, 140)
                 .unlockedBy("item", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.CRUSHED_COPPER))
                 .save(consumer, saveResource("copper_ingot2"));
 
-        SimpleCookingRecipeBuilder.blasting(Ingredient.of(ModItems.CRUSHED_TIN), ModItems.TIN_INGOT, 0.8f, 160)
+        SimpleCookingRecipeBuilder.blasting(Ingredient.of(ModItems.CRUSHED_TIN), ModItems.TIN_INGOT, 0.8f, 140)
                 .unlockedBy("item", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.CRUSHED_TIN))
                 .save(consumer, saveResource("tin_ingot2"));
 
-        SimpleCookingRecipeBuilder.blasting(Ingredient.of(ModItems.CRUSHED_GOLD), Items.GOLD_INGOT, 0.8f, 160)
+        SimpleCookingRecipeBuilder.blasting(Ingredient.of(ModItems.CRUSHED_GOLD), Items.GOLD_INGOT, 0.8f, 140)
                 .unlockedBy("item", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.CRUSHED_GOLD))
                 .save(consumer, saveResource("gold_ingot"));
 
-        SimpleCookingRecipeBuilder.blasting(Ingredient.of(ModItems.CRUSHED_IRON), Items.IRON_INGOT, 0.8f, 160)
+        SimpleCookingRecipeBuilder.blasting(Ingredient.of(ModItems.CRUSHED_IRON), Items.IRON_INGOT, 0.8f, 140)
                 .unlockedBy("item", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.CRUSHED_IRON))
                 .save(consumer, saveResource("iron_ingot"));
 

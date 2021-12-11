@@ -57,6 +57,11 @@ public class ItemEnergy extends Item implements IElectricItem {
     }
 
     @Override
+    public IEnergy getEnergy(ItemStack stack) {
+        return CapabilityUtil.getCapabilityHelper(stack, ModCapabilities.ENERGY).getValue();
+    }
+
+    @Override
     public boolean isRepairable(ItemStack stack) {
         return false;
     }

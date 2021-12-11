@@ -1,5 +1,7 @@
 package com.maciej916.indreb.common.item;
 
+import com.google.common.collect.HashMultimap;
+import com.google.common.collect.Multimap;
 import com.maciej916.indreb.common.energy.impl.CapEnergyStorage;
 import com.maciej916.indreb.common.energy.interfaces.IEnergy;
 import com.maciej916.indreb.common.enums.EnergyTier;
@@ -17,15 +19,24 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TextComponent;
 import net.minecraft.network.chat.TranslatableComponent;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.entity.ai.attributes.Attribute;
+import net.minecraft.world.entity.ai.attributes.AttributeModifier;
+import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
+import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.common.capabilities.ICapabilityProvider;
 
 import javax.annotation.Nullable;
 import java.util.List;
+import java.util.UUID;
 
 public class ItemNanoArmour extends IndRebArmour implements IElectricItem {
+
+    private static final UUID[] ARMOR_MODIFIER_UUID_PER_SLOT = new UUID[]{UUID.fromString("845DB27C-C624-495F-8C9F-6020A9A58B6B"), UUID.fromString("D8499B04-0E66-4726-AB29-64469D734E0D"), UUID.fromString("9F3D476D-C118-4544-8365-64846904B48E"), UUID.fromString("2AD3F246-FEE1-4E67-B886-69FD380BB150")};
 
     private final int energyStored;
     private final int maxEnergy;
@@ -48,6 +59,11 @@ public class ItemNanoArmour extends IndRebArmour implements IElectricItem {
 
     public EnumEnergyType getEnergyType() {
         return energyType;
+    }
+
+    @Override
+    public IEnergy getEnergy(ItemStack stack) {
+        return CapabilityUtil.getCapabilityHelper(stack, ModCapabilities.ENERGY).getValue();
     }
 
     @Override
@@ -112,5 +128,72 @@ public class ItemNanoArmour extends IndRebArmour implements IElectricItem {
     @Override
     public boolean isValidRepairItem(ItemStack pToRepair, ItemStack pRepair) {
         return false;
+    }
+
+    @Override
+    public boolean canApplyAtEnchantingTable(ItemStack stack, Enchantment enchantment) {
+        return false;
+    }
+
+    @Override
+    public boolean isBookEnchantable(ItemStack stack, ItemStack book) {
+        return false;
+    }
+
+    @Override
+    public boolean shouldCauseReequipAnimation(ItemStack oldStack, ItemStack newStack, boolean slotChanged) {
+        return false;
+    }
+
+    @Override
+    public boolean isDamageable(ItemStack stack) {
+        return false;
+    }
+
+    @Override
+    public Multimap<Attribute, AttributeModifier> getAttributeModifiers(EquipmentSlot slot, ItemStack stack) {
+        if (stack.getItem().equals(this)) {
+            if (slot == getSlot()) {
+                CompoundTag tag = stack.getTag();
+                boolean active = false;
+
+                if (tag != null && tag.getAllKeys().contains("active")) {
+                    active = tag.getBoolean("active");
+                } else {
+                    IEnergy energy = getEnergy(stack);
+                    if (energy != null) {
+                        active = energy.energyStored() > 0;
+                    }
+                }
+
+                Multimap<Attribute, AttributeModifier> modifiers = HashMultimap.create();
+                modifiers.putAll(super.getAttributeModifiers(slot, stack));
+
+                modifiers.removeAll(Attributes.ARMOR);
+                UUID uuid = ARMOR_MODIFIER_UUID_PER_SLOT[slot.getIndex()];
+
+                if (active) {
+                    modifiers.put(Attributes.ARMOR, new AttributeModifier(uuid, "Armor modifier", getDefense(), AttributeModifier.Operation.ADDITION));
+                } else {
+                    modifiers.put(Attributes.ARMOR, new AttributeModifier(uuid, "Armor modifier", 0, AttributeModifier.Operation.ADDITION));
+                }
+
+                return modifiers;
+            }
+        }
+        return super.getAttributeModifiers(slot, stack);
+    }
+
+    @Override
+    public void inventoryTick(ItemStack stack, Level level, Entity entity, int p_41407_, boolean p_41408_) {
+        if (!level.isClientSide()) {
+            if (level.getGameTime() % 20 == 0) {
+                IEnergy energy = getEnergy(stack);
+                if (energy != null) {
+                    CompoundTag tag = stack.getOrCreateTag();
+                    tag.putBoolean("active", energy.energyStored() > 0);
+                }
+            }
+        }
     }
 }

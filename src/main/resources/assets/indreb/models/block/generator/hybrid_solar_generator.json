@@ -1,0 +1,22 @@
+{
+    "parent": "block/slab",
+	"elements": [
+		{   "from": [ 0, 0, 0 ],
+			"to": [ 16, 12, 16 ],
+			"faces": {
+				"down":  { "texture": "#bottom" },
+				"up":    { "texture": "#top" },
+				"north": { "texture": "#side" },
+				"south": { "texture": "#side" },
+				"west":  { "texture": "#side" },
+				"east":  { "texture": "#side" }
+			},
+			"__comment": "Center post"
+		}
+	],
+	"textures": {
+		"top": "indreb:block/generator/hybrid_solar_generator_top",
+		"bottom": "indreb:block/generator/hybrid_solar_generator_bottom",
+		"side": "indreb:block/generator/hybrid_solar_generator_side"
+	}
+}

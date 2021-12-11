@@ -34,6 +34,10 @@
   "block.indreb.generator": "Generator",
   "block.indreb.geo_generator": "Geothermal Generator",
   "block.indreb.solar_generator": "Solar Generator",
+  "block.indreb.advanced_solar_generator": "Advanced Solar Panel",
+  "block.indreb.hybrid_solar_generator": "Hybrid Solar Panel",
+  "block.indreb.quantum_solar_generator": "Quantum Solar Panel",
+  "block.indreb.crystalline_generator": "Crystalline Generator",
 
   "block.indreb.iron_furnace": "Iron Furnace",
   "block.indreb.electric_furnace": "Electric Furnace",
@@ -42,12 +46,11 @@
   "block.indreb.extractor": "Extractor",
   "block.indreb.extruder": "Extruder",
   "block.indreb.sawmill": "Sawmill",
-
   "block.indreb.alloy_smelter": "Alloy Smelter",
 
   "block.indreb.tin_ore": "Tin Ore",
   "block.indreb.deepslate_tin_ore": "Deepslate Tin Ore",
-  "block.indreb.copper_block": "Copper Block",
+
   "block.indreb.tin_block": "Tin Block",
   "block.indreb.bronze_block": "Bronze Block",
   "block.indreb.silver_block": "Silver Block",
@@ -56,8 +59,38 @@
   "block.indreb.basic_machine_casing": "Basic Machine Casing",
   "block.indreb.advanced_machine_casing": "Advanced Machine Casing",
 
-  "block.indreb.blue_redstone": "Blue Redstone",
   "block.indreb.resin_sheet": "Resin Sheet",
+  "block.indreb.rubber_sheet": "Rubber Sheet",
+
+  "block.indreb.construction_foam": "Construction Foam",
+  "block.indreb.reinforced_construction_foam": "Reinforced Construction Foam",
+
+  "block.indreb.construction_foam_wall_white": "Construction Foam Wall (White)",
+  "block.indreb.construction_foam_wall_red": "Construction Foam Wall (Red)",
+  "block.indreb.construction_foam_wall_orange": "Construction Foam Wall (Orange)",
+  "block.indreb.construction_foam_wall_pink": "Construction Foam Wall (Pink)",
+  "block.indreb.construction_foam_wall_yellow": "Construction Foam Wall (Yellow)",
+  "block.indreb.construction_foam_wall_lime": "Construction Foam Wall (Lime)",
+  "block.indreb.construction_foam_wall_green": "Construction Foam Wall (Green)",
+  "block.indreb.construction_foam_wall_light_blue": "Construction Foam Wall (Light Blue)",
+  "block.indreb.construction_foam_wall_cyan": "Construction Foam Wall (Cyan)",
+  "block.indreb.construction_foam_wall_blue": "Construction Foam Wall (Blue)",
+  "block.indreb.construction_foam_wall_magenta": "Construction Foam Wall (Magenta)",
+  "block.indreb.construction_foam_wall_purple": "Construction Foam Wall (Purple)",
+  "block.indreb.construction_foam_wall_brown": "Construction Foam Wall (Brown)",
+  "block.indreb.construction_foam_wall_gray": "Construction Foam Wall (Gray)",
+  "block.indreb.construction_foam_wall_light_gray": "Construction Foam Wall (Light Gray)",
+  "block.indreb.construction_foam_wall_black": "Construction Foam Wall (Black)",
+
+  "block.indreb.reinforced_glass": "Reinforced Glass",
+  "block.indreb.reinforced_stone": "Reinforced Stone",
+  "block.indreb.reinforced_stone_slab": "Reinforced Stone Slab",
+  "block.indreb.reinforced_stone_stairs": "Reinforced Stone Stairs",
+
+  "block.indreb.iron_scaffolding": "Iron Scaffolding",
+  "block.indreb.iron_fence": "Iron Fence",
+
+  "block.indreb.luminator": "Luminator",
 
   "_comment": "Rubber Wood",
   "block.indreb.rubber_sapling": "Rubber Sapling",
@@ -85,6 +118,7 @@
   "item.indreb.rubber": "Rubber",
   "item.indreb.sawdust": "Sawdust",
 
+  "item.indreb.raw_tin": "Raw Tin",
   "item.indreb.tin_ingot": "Tin Ingot",
   "item.indreb.bronze_ingot": "Bronze Ingot",
   "item.indreb.silver_ingot": "Silver Ingot",
@@ -102,10 +136,13 @@
   "item.indreb.gold_plate": "Gold Plate",
   "item.indreb.bronze_plate": "Bronze Plate",
   "item.indreb.steel_plate": "Steel Plate",
+  "item.indreb.iridium_plate": "Iridium Plate",
 
   "item.indreb.coal_dust": "Coal Dust",
   "item.indreb.diamond_dust": "Diamond Dust",
   "item.indreb.silver_dust": "Silver Dust",
+  "item.indreb.stone_dust": "Stone Dust",
+  "item.indreb.deepslate_dust": "Deepslate Dust",
 
   "item.indreb.iron_rod": "Iron Rod",
 
@@ -145,11 +182,29 @@
   "item.indreb.energy_crystal": "Energy Crystal",
   "item.indreb.lapotron_crystal": "Lapotron Crystal",
 
-  "item.indreb.empty_fluid_cell": "Empty Fluid Cell",
-  "item.indreb.lava_cell": "Lava Cell",
+  "item.indreb.fluid_cell": "Fluid Cell",
+
+  "item.indreb.painter": "Painter",
+  "item.indreb.painter_white": "Painter (White)",
+  "item.indreb.painter_red": "Painter (Red)",
+  "item.indreb.painter_orange": "Painter (Orange)",
+  "item.indreb.painter_pink": "Painter (Pink)",
+  "item.indreb.painter_yellow": "Painter (Yellow)",
+  "item.indreb.painter_lime": "Painter (Lime)",
+  "item.indreb.painter_green": "Painter (Green)",
+  "item.indreb.painter_light_blue": "Painter (Light Blue)",
+  "item.indreb.painter_cyan": "Painter (Cyan)",
+  "item.indreb.painter_blue": "Painter (Blue)",
+  "item.indreb.painter_magenta": "Painter (Magenta)",
+  "item.indreb.painter_purple": "Painter (Purple)",
+  "item.indreb.painter_brown": "Painter (Brown)",
+  "item.indreb.painter_gray": "Painter (Gray)",
+  "item.indreb.painter_light_gray": "Painter (Light Gray)",
+  "item.indreb.painter_black": "Painter (Black)",
 
   "item.indreb.treetap": "Treetap",
   "item.indreb.wrench": "Wrench",
+  "item.indreb.hammer": "Hammer",
   "item.indreb.hammer": "Hammer",
   "item.indreb.cutter": "Cutter",
 

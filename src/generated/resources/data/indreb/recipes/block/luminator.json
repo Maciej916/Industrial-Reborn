@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "indreb",
+  "pattern": [
+    "pcp",
+    "gug",
+    "ggg"
+  ],
+  "key": {
+    "p": {
+      "item": "indreb:tin_plate"
+    },
+    "c": {
+      "item": "indreb:tin_cable_insulated"
+    },
+    "u": {
+      "item": "indreb:tin_cable"
+    },
+    "g": {
+      "item": "minecraft:glass"
+    }
+  },
+  "result": {
+    "item": "indreb:luminator",
+    "count": 8
+  }
+}

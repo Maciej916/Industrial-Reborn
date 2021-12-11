@@ -2,9 +2,10 @@ package com.maciej916.indreb.common.client;
 
 import com.maciej916.indreb.IndReb;
 import com.maciej916.indreb.common.block.impl.battery_box.ScreenBatteryBox;
+import com.maciej916.indreb.common.block.impl.generators.crystalline_generator.ScreenCrystallineGenerator;
 import com.maciej916.indreb.common.block.impl.generators.generator.ScreenGenerator;
 import com.maciej916.indreb.common.block.impl.generators.geo_generator.ScreenGeoGenerator;
-import com.maciej916.indreb.common.block.impl.generators.solar_generator.ScreenSolarGenerator;
+import com.maciej916.indreb.common.block.impl.generators.solar_panels.ScreenSolarGenerator;
 import com.maciej916.indreb.common.block.impl.machines.alloy_smelter.ScreenAlloySmelter;
 import com.maciej916.indreb.common.block.impl.machines.compressor.ScreenCompressor;
 import com.maciej916.indreb.common.block.impl.machines.crusher.ScreenCrusher;
@@ -14,6 +15,7 @@ import com.maciej916.indreb.common.block.impl.machines.extruder.ScreenExtruder;
 import com.maciej916.indreb.common.block.impl.machines.iron_furnace.ScreenIronFurnace;
 import com.maciej916.indreb.common.block.impl.machines.sawmill.ScreenSawmill;
 import com.maciej916.indreb.common.item.ItemEnergy;
+import com.maciej916.indreb.common.item.ItemNanosaber;
 import com.maciej916.indreb.common.registries.ModBlocks;
 import com.maciej916.indreb.common.registries.ModContainers;
 import com.maciej916.indreb.common.registries.ModItems;
@@ -23,7 +25,6 @@ import net.minecraft.client.color.item.ItemColors;
 import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.client.renderer.BiomeColors;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
-import net.minecraft.client.renderer.ItemModelShaper;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.resources.ResourceLocation;
@@ -31,7 +32,6 @@ import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.level.FoliageColor;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.client.model.generators.ItemModelBuilder;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
@@ -46,6 +46,7 @@ public final class ClientModEventSubscriber {
 			MenuScreens.register(ModContainers.GENERATOR, ScreenGenerator::new);
 			MenuScreens.register(ModContainers.SOLAR_GENERATOR, ScreenSolarGenerator::new);
 			MenuScreens.register(ModContainers.GEO_GENERATOR, ScreenGeoGenerator::new);
+//			MenuScreens.register(ModContainers.CRYSTALLINE_GENERATOR, ScreenCrystallineGenerator::new);
 
 			MenuScreens.register(ModContainers.BATTERY_BOX, ScreenBatteryBox::new);
 
@@ -62,6 +63,9 @@ public final class ClientModEventSubscriber {
 
 			ItemBlockRenderTypes.setRenderLayer(ModBlocks.GLASS_FIBRE_CABLE, RenderType.translucent());
 			ItemBlockRenderTypes.setRenderLayer(ModBlocks.RUBBER_SAPLING, RenderType.cutout());
+			ItemBlockRenderTypes.setRenderLayer(ModBlocks.CONSTRUCTION_FOAM, RenderType.cutout());
+			ItemBlockRenderTypes.setRenderLayer(ModBlocks.REINFORCED_CONSTRUCTION_FOAM, RenderType.cutout());
+			ItemBlockRenderTypes.setRenderLayer(ModBlocks.REINFORCED_GLASS, RenderType.cutout());
 
 			BlockColors blockColors = Minecraft.getInstance().getBlockColors();
 			blockColors.register((state, world, pos, tintIndex) -> world != null && pos != null ? BiomeColors.getAverageFoliageColor(world, pos) - 1000: FoliageColor.getEvergreenColor(), ModBlocks.RUBBER_LEAVES);
@@ -77,7 +81,7 @@ public final class ClientModEventSubscriber {
 			ItemProperties.register(ModItems.ADVANCED_BATTERY, new ResourceLocation(IndReb.MODID, "charge_ratio"), (stack, level, living, id) -> ItemEnergy.getChargeRatioModel(stack));
 			ItemProperties.register(ModItems.ENERGY_CRYSTAL, new ResourceLocation(IndReb.MODID, "charge_ratio"), (stack, level, living, id) -> ItemEnergy.getChargeRatioModel(stack));
 			ItemProperties.register(ModItems.LAPOTRON_CRYSTAL, new ResourceLocation(IndReb.MODID, "charge_ratio"), (stack, level, living, id) -> ItemEnergy.getChargeRatioModel(stack));
-			ItemProperties.register(ModItems.NANO_SABER, new ResourceLocation(IndReb.MODID, "nano_active"), (stack, level, living, id) -> 0);
+			ItemProperties.register(ModItems.NANO_SABER, new ResourceLocation(IndReb.MODID, "nano_active"), (stack, level, living, id) -> ItemNanosaber.isActivated(stack));
 
 
 		});

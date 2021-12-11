@@ -1,0 +1,14 @@
+{
+  "type": "indreb:crushing",
+  "ingredient": {
+    "item": "minecraft:raw_iron",
+    "count": 1
+  },
+  "result": {
+    "item": "indreb:crushed_iron",
+    "count": 2
+  },
+  "experience": 0.2,
+  "duration": 180,
+  "power_cost": 8
+}

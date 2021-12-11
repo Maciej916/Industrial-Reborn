@@ -1,0 +1,47 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "indreb:block/iron_fence"
+    ]
+  },
+  "criteria": {
+    "iron_ore": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:iron_ore"
+            ]
+          }
+        ]
+      }
+    },
+    "iron_rod": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:iron_rod"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "indreb:block/iron_fence"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "iron_ore",
+      "iron_rod",
+      "has_the_recipe"
+    ]
+  ]
+}

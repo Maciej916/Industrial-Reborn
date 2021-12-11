@@ -1,0 +1,99 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "indreb:generators/hybrid_solar_generator"
+    ]
+  },
+  "criteria": {
+    "carbon_plate": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:carbon_plate"
+            ]
+          }
+        ]
+      }
+    },
+    "lapis_block": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:lapis_block"
+            ]
+          }
+        ]
+      }
+    },
+    "advanced_solar_generator": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:advanced_solar_generator"
+            ]
+          }
+        ]
+      }
+    },
+    "iridium_plate": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:iridium_plate"
+            ]
+          }
+        ]
+      }
+    },
+    "advanced_circuit": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:advanced_circuit"
+            ]
+          }
+        ]
+      }
+    },
+    "energy_crystal": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:energy_crystal"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "indreb:generators/hybrid_solar_generator"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "carbon_plate",
+      "lapis_block",
+      "advanced_solar_generator",
+      "iridium_plate",
+      "advanced_circuit",
+      "energy_crystal",
+      "has_the_recipe"
+    ]
+  ]
+}

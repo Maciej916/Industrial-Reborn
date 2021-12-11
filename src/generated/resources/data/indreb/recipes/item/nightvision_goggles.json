@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "indreb",
+  "pattern": [
+    " b ",
+    "lgl",
+    "rar"
+  ],
+  "key": {
+    "b": {
+      "item": "indreb:advanced_battery"
+    },
+    "l": {
+      "item": "indreb:luminator"
+    },
+    "g": {
+      "item": "indreb:reinforced_glass"
+    },
+    "r": {
+      "item": "indreb:rubber"
+    },
+    "a": {
+      "item": "indreb:advanced_circuit"
+    }
+  },
+  "result": {
+    "item": "indreb:nightvision_goggles"
+  }
+}

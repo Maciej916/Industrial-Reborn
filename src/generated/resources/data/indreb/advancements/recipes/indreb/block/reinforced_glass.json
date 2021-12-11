@@ -1,0 +1,47 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "indreb:block/reinforced_glass"
+    ]
+  },
+  "criteria": {
+    "advanced_alloy": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:advanced_alloy"
+            ]
+          }
+        ]
+      }
+    },
+    "glass": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:glass"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "indreb:block/reinforced_glass"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "advanced_alloy",
+      "glass",
+      "has_the_recipe"
+    ]
+  ]
+}

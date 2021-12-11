@@ -9,7 +9,7 @@
     "count": 2
   },
   "bonus_result": {
-    "item": "minecraft:cobblestone",
+    "item": "indreb:stone_dust",
     "count": 1,
     "chance": 50.0
   },

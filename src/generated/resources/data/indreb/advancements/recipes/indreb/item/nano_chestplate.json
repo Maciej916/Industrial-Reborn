@@ -1,0 +1,47 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "indreb:item/nano_chestplate"
+    ]
+  },
+  "criteria": {
+    "carbon_plate": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:carbon_plate"
+            ]
+          }
+        ]
+      }
+    },
+    "energy_crystal": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:energy_crystal"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "indreb:item/nano_chestplate"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "carbon_plate",
+      "energy_crystal",
+      "has_the_recipe"
+    ]
+  ]
+}

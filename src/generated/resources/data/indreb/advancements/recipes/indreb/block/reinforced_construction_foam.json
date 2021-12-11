@@ -1,0 +1,60 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "indreb:block/reinforced_construction_foam"
+    ]
+  },
+  "criteria": {
+    "deepslate_dust": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:deepslate_dust"
+            ]
+          }
+        ]
+      }
+    },
+    "sand": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:sand"
+            ]
+          }
+        ]
+      }
+    },
+    "clay": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:clay"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "indreb:block/reinforced_construction_foam"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "deepslate_dust",
+      "sand",
+      "clay",
+      "has_the_recipe"
+    ]
+  ]
+}

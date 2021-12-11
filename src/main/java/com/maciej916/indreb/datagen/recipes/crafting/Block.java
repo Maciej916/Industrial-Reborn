@@ -11,6 +11,7 @@ import net.minecraft.data.recipes.ShapelessRecipeBuilder;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.crafting.Ingredient;
 
 import java.util.function.Consumer;
 
@@ -62,13 +63,20 @@ public class Block extends RecipeProvider {
 
 
         ShapedRecipeBuilder.shaped(ModBlocks.RESIN_SHEET, 3)
-                .pattern("   ")
                 .pattern("SSS")
                 .pattern("SSS")
                 .define('S', ModItems.STICKY_RESIN)
                 .group(MODID)
                 .unlockedBy("item", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.STICKY_RESIN))
                 .save(consumer, saveResource("resin_sheet"));
+
+        ShapedRecipeBuilder.shaped(ModBlocks.RUBBER_SHEET, 3)
+                .pattern("SSS")
+                .pattern("SSS")
+                .define('S', ModItems.RUBBER)
+                .group(MODID)
+                .unlockedBy("item", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.RUBBER))
+                .save(consumer, saveResource("rubber_sheet"));
 
 
         ShapedRecipeBuilder.shaped(ModBlocks.TIN_BLOCK)
@@ -142,6 +150,86 @@ public class Block extends RecipeProvider {
                 .unlockedBy("item", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.STEEL_BLOCK))
                 .save(consumer, saveResource("steel_ingot"));
 
+
+        ShapedRecipeBuilder.shaped(ModBlocks.REINFORCED_GLASS, 7)
+                .pattern("ggg")
+                .pattern("aga")
+                .pattern("ggg")
+                .define('a', ModItems.ADVANCED_ALLOY)
+                .define('g', Items.GLASS)
+                .group(MODID)
+                .unlockedBy("advanced_alloy", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.ADVANCED_ALLOY))
+                .unlockedBy("glass", InventoryChangeTrigger.TriggerInstance.hasItems(Items.GLASS))
+                .save(consumer, saveResource("reinforced_glass"));
+
+
+        ShapedRecipeBuilder.shaped(ModBlocks.CONSTRUCTION_FOAM, 9)
+                .pattern("dsd")
+                .pattern("dcd")
+                .pattern("dsd")
+                .define('d', ModItems.STONE_DUST)
+                .define('s', Items.SAND)
+                .define('c', Items.CLAY_BALL)
+                .group(MODID)
+                .unlockedBy("stone_dust", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.STONE_DUST))
+                .unlockedBy("sand", InventoryChangeTrigger.TriggerInstance.hasItems(Items.SAND))
+                .unlockedBy("clay", InventoryChangeTrigger.TriggerInstance.hasItems(Items.CLAY))
+                .save(consumer, saveResource("construction_foam"));
+
+
+        ShapedRecipeBuilder.shaped(ModBlocks.REINFORCED_CONSTRUCTION_FOAM, 9)
+                .pattern("dsd")
+                .pattern("dcd")
+                .pattern("dsd")
+                .define('d', ModItems.DEEPSLATE_DUST)
+                .define('s', Items.SAND)
+                .define('c', Items.CLAY_BALL)
+                .group(MODID)
+                .unlockedBy("deepslate_dust", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.DEEPSLATE_DUST))
+                .unlockedBy("sand", InventoryChangeTrigger.TriggerInstance.hasItems(Items.SAND))
+                .unlockedBy("clay", InventoryChangeTrigger.TriggerInstance.hasItems(Items.CLAY))
+                .save(consumer, saveResource("reinforced_construction_foam"));
+
+
+        ShapedRecipeBuilder.shaped(ModBlocks.LUMINATOR, 8)
+                .pattern("pcp")
+                .pattern("gug")
+                .pattern("ggg")
+                .define('p', ModItems.TIN_PLATE)
+                .define('c', ModBlocks.TIN_CABLE_INSULATED)
+                .define('u', ModBlocks.TIN_CABLE)
+                .define('g', Items.GLASS)
+                .group(MODID)
+                .unlockedBy("tin_plate", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.TIN_PLATE))
+                .unlockedBy("tin_cable_insulated", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.TIN_CABLE_INSULATED))
+                .unlockedBy("tin_cable", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.TIN_CABLE))
+                .unlockedBy("glass", InventoryChangeTrigger.TriggerInstance.hasItems(Items.GLASS))
+                .save(consumer, saveResource("luminator"));
+
+
+        ShapedRecipeBuilder.shaped(ModBlocks.IRON_FENCE, 8)
+                .pattern("iri")
+                .pattern("iri")
+                .define('i', Ingredient.of(ItemTags.bind("forge:ingots/iron")))
+                .define('r', ModItems.IRON_ROD)
+                .group(MODID)
+                .unlockedBy("iron_ore", InventoryChangeTrigger.TriggerInstance.hasItems(Items.IRON_ORE))
+                .unlockedBy("iron_rod", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.IRON_ROD))
+                .save(consumer, saveResource("iron_fence"));
+
+
+        ShapedRecipeBuilder.shaped(ModBlocks.IRON_SCAFFOLDING, 6)
+                .pattern("ppp")
+                .pattern("ftf")
+                .pattern("ppp")
+                .define('p', ModItems.IRON_PLATE)
+                .define('t', ModItems.IRON_ROD)
+                .define('f', ModBlocks.IRON_FENCE)
+                .group(MODID)
+                .unlockedBy("iron_plate", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.IRON_PLATE))
+                .unlockedBy("iron_rod", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.IRON_ROD))
+                .unlockedBy("iron_fence", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.IRON_FENCE))
+                .save(consumer, saveResource("iron_scaffolding"));
 
 
     }

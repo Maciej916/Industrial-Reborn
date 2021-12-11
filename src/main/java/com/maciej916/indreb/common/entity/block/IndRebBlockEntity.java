@@ -410,7 +410,9 @@ public class IndRebBlockEntity extends BlockEntity implements IHasSlot {
 
         if (hasInventory) {
             for (int slot = 0; slot < stackHandler.getSlots(); slot++) {
-                stacks.add(stackHandler.getStackInSlot(slot));
+                if (slots.get(slot).getInventorySlotType() != InventorySlotType.DISABLED) {
+                    stacks.add(stackHandler.getStackInSlot(slot));
+                }
             }
         }
 
@@ -542,4 +544,8 @@ public class IndRebBlockEntity extends BlockEntity implements IHasSlot {
         return tag;
     }
 
+    @Override
+    protected void saveAdditional(CompoundTag tag) {
+        save(tag);
+    }
 }

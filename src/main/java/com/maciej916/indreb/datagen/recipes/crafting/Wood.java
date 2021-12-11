@@ -44,7 +44,14 @@ public class Wood extends RecipeProvider {
                 .unlockedBy("item", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.RUBBER_PLANKS))
                 .save(consumer, saveResource("rubber_planks_rubber_slab"));
 
-        
+        ShapedRecipeBuilder.shaped(ModBlocks.RUBBER_WOOD, 3)
+                .pattern("ww ")
+                .pattern("ww ")
+                .define('w', ModBlocks.RUBBER_LOG)
+                .group(MODID)
+                .unlockedBy("item", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.RUBBER_LOG))
+                .save(consumer, saveResource("rubber_wood"));
+
     }
 
 }

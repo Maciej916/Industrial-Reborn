@@ -1,5 +1,7 @@
 package com.maciej916.indreb.datagen;
 
+import com.maciej916.indreb.datagen.client.BlockStates;
+import com.maciej916.indreb.datagen.client.Items;
 import com.maciej916.indreb.datagen.loottables.LootTables;
 import com.maciej916.indreb.datagen.recipes.crafting.*;
 import com.maciej916.indreb.datagen.recipes.machines.*;
@@ -28,6 +30,7 @@ public class DataGenerators {
             generator.addProvider(new Item(generator));
             generator.addProvider(new ItemElectric(generator));
             generator.addProvider(new ItemTool(generator));
+            generator.addProvider(new ItemPainter(generator));
             generator.addProvider(new Wood(generator));
             generator.addProvider(new Armour(generator));
             generator.addProvider(new Machines(generator));
@@ -44,8 +47,8 @@ public class DataGenerators {
         }
 
         if (event.includeClient()) {
-//            generator.addProvider(new BlockStates(generator, event.getExistingFileHelper()));
-//            generator.addProvider(new Items(generator, event.getExistingFileHelper()));
+            generator.addProvider(new BlockStates(generator, event.getExistingFileHelper()));
+            generator.addProvider(new Items(generator, event.getExistingFileHelper()));
         }
     }
 

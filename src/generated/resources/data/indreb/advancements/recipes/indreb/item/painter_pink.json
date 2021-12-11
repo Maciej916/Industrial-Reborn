@@ -1,0 +1,47 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "indreb:item/painter_pink"
+    ]
+  },
+  "criteria": {
+    "painter": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:painter"
+            ]
+          }
+        ]
+      }
+    },
+    "pink_dye": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:pink_dye"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "indreb:item/painter_pink"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "painter",
+      "pink_dye",
+      "has_the_recipe"
+    ]
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "indreb:item/rubber_boots"
+    ]
+  },
+  "criteria": {
+    "rubber": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:rubber"
+            ]
+          }
+        ]
+      }
+    },
+    "white_wool": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:white_wool"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "indreb:item/rubber_boots"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "rubber",
+      "white_wool",
+      "has_the_recipe"
+    ]
+  ]
+}

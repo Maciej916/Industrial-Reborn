@@ -6,6 +6,7 @@
     "#forge:plates/copper",
     "#forge:plates/gold",
     "#forge:plates/bronze",
-    "#forge:plates/steel"
+    "#forge:plates/steel",
+    "#forge:plates/iridium"
   ]
 }

@@ -2,9 +2,10 @@ package com.maciej916.indreb.common.registries;
 
 import com.maciej916.indreb.common.block.impl.battery_box.BlockEntityBatteryBox;
 import com.maciej916.indreb.common.block.impl.cable.BlockEntityCable;
+import com.maciej916.indreb.common.block.impl.generators.crystalline_generator.BlockEntityCrystallineGenerator;
 import com.maciej916.indreb.common.block.impl.generators.generator.BlockEntityGenerator;
 import com.maciej916.indreb.common.block.impl.generators.geo_generator.BlockEntityGeoGenerator;
-import com.maciej916.indreb.common.block.impl.generators.solar_generator.BlockEntitySolarGenerator;
+import com.maciej916.indreb.common.block.impl.generators.solar_panels.BlockEntitySolarGenerator;
 import com.maciej916.indreb.common.block.impl.machines.alloy_smelter.BlockEntityAlloySmelter;
 import com.maciej916.indreb.common.block.impl.machines.compressor.BlockEntityCompressor;
 import com.maciej916.indreb.common.block.impl.machines.crusher.BlockEntityCrusher;
@@ -26,6 +27,7 @@ public final class ModBlockEntities {
     public static BlockEntityType<BlockEntityGenerator> GENERATOR;
     public static BlockEntityType<BlockEntitySolarGenerator> SOLAR_GENERATOR;
     public static BlockEntityType<BlockEntityGeoGenerator> GEO_GENERATOR;
+    public static BlockEntityType<BlockEntityCrystallineGenerator> CRYSTALLINE_GENERATOR;
 
 //    public static BlockEntityType<BlockEntityWoodenBatteryBox> WOODEN_BATTERY_BOX;
 
@@ -46,8 +48,9 @@ public final class ModBlockEntities {
     public static void registerTileEntities(RegistryEvent.Register<BlockEntityType<?>> event) {
 
         GENERATOR = registerTileEntity("generator", BlockEntityType.Builder.of(BlockEntityGenerator::new, ModBlocks.GENERATOR).build(null));
-        SOLAR_GENERATOR = registerTileEntity("solar_generator", BlockEntityType.Builder.of(BlockEntitySolarGenerator::new, ModBlocks.SOLAR_GENERATOR).build(null));
+        SOLAR_GENERATOR = registerTileEntity("solar_generator", BlockEntityType.Builder.of(BlockEntitySolarGenerator::new, ModBlocks.SOLAR_GENERATOR, ModBlocks.ADVANCED_SOLAR_GENERATOR, ModBlocks.HYBRID_SOLAR_GENERATOR, ModBlocks.QUANTUM_SOLAR_GENERATOR).build(null));
         GEO_GENERATOR = registerTileEntity("geo_generator", BlockEntityType.Builder.of(BlockEntityGeoGenerator::new, ModBlocks.GEO_GENERATOR).build(null));
+//        CRYSTALLINE_GENERATOR = registerTileEntity("crystalline_generator", BlockEntityType.Builder.of(BlockEntityCrystallineGenerator::new, ModBlocks.CRYSTALLINE_GENERATOR).build(null));
 
 //        WOODEN_BATTERY_BOX = registerTileEntity("wooden_battery_box", BlockEntityType.Builder.of(BlockEntityWoodenBatteryBox::new, ModBlocks.WOODEN_BATTERY_BOX).build(null));
 

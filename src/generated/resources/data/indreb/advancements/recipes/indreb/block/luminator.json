@@ -1,0 +1,73 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "indreb:block/luminator"
+    ]
+  },
+  "criteria": {
+    "tin_plate": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:tin_plate"
+            ]
+          }
+        ]
+      }
+    },
+    "tin_cable_insulated": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:tin_cable_insulated"
+            ]
+          }
+        ]
+      }
+    },
+    "tin_cable": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:tin_cable"
+            ]
+          }
+        ]
+      }
+    },
+    "glass": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:glass"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "indreb:block/luminator"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "tin_plate",
+      "tin_cable_insulated",
+      "tin_cable",
+      "glass",
+      "has_the_recipe"
+    ]
+  ]
+}

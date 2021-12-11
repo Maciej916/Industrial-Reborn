@@ -232,6 +232,18 @@ public class Compressing extends RecipeProvider {
                 .setGroup("compressing/dust")
                 .save(consumer,"energium_dust");
 
+        RecipeBuilderCompressing.builder(Items.STONE, 1)
+                .setIngredient(Ingredient.of(ModItems.STONE_DUST), 4)
+                .addCriterion("stone", InventoryChangeTrigger.TriggerInstance.hasItems(Items.STONE))
+                .setGroup("compressing/dust")
+                .save(consumer,"stone");
+
+        RecipeBuilderCompressing.builder(Items.DEEPSLATE, 1)
+                .setIngredient(Ingredient.of(ModItems.DEEPSLATE_DUST), 4)
+                .addCriterion("deepslate", InventoryChangeTrigger.TriggerInstance.hasItems(Items.DEEPSLATE))
+                .setGroup("compressing/dust")
+                .save(consumer,"deepslate");
+
     }
 
 }

@@ -32,6 +32,10 @@ public class Smelting extends RecipeProvider {
                 .unlockedBy("item", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.RUBBER_LOG))
                 .save(consumer, saveResource("rubber"));
         
+        SimpleCookingRecipeBuilder.smelting(Ingredient.of(ModItems.RAW_TIN), ModItems.TIN_INGOT, 0.8f, 160)
+                .unlockedBy("item", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.TIN_ORE))
+                .save(consumer, saveResource("raw_tin"));
+
         SimpleCookingRecipeBuilder.smelting(Ingredient.of(ModBlocks.TIN_ORE), ModItems.TIN_INGOT, 0.8f, 160)
                 .unlockedBy("item", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.TIN_ORE))
                 .save(consumer, saveResource("tin_ingot"));

@@ -55,7 +55,7 @@ public class Item extends RecipeProvider {
                 .save(consumer, saveResource("advanced_circuit"));
 
 
-        ShapedRecipeBuilder.shaped(ModItems.EMPTY_FLUID_CELL, 8)
+        ShapedRecipeBuilder.shaped(ModItems.FLUID_CELL, 4)
                 .pattern(" t ")
                 .pattern("tgt")
                 .pattern(" t ")
@@ -63,7 +63,7 @@ public class Item extends RecipeProvider {
                 .define('g', Items.GLASS_PANE)
                 .group(MODID)
                 .unlockedBy("item", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.TIN_INGOT))
-                .save(consumer, saveResource("empty_fluid_cell"));
+                .save(consumer, saveResource("fluid_cell"));
 
 
         ShapedRecipeBuilder.shaped(Items.PAPER, 6)

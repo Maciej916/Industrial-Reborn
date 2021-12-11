@@ -29,8 +29,11 @@ public class Tags extends BlockTagsProvider {
 
         tag(BlockTags.MINEABLE_WITH_PICKAXE)
                 .add(ModBlocks.GENERATOR)
-                .add(ModBlocks.SOLAR_GENERATOR)
                 .add(ModBlocks.GEO_GENERATOR)
+                .add(ModBlocks.SOLAR_GENERATOR)
+                .add(ModBlocks.ADVANCED_SOLAR_GENERATOR)
+                .add(ModBlocks.HYBRID_SOLAR_GENERATOR)
+                .add(ModBlocks.QUANTUM_SOLAR_GENERATOR)
 
                 .add(ModBlocks.CESU)
                 .add(ModBlocks.MFE)
@@ -64,6 +67,15 @@ public class Tags extends BlockTagsProvider {
 
                 .add(ModBlocks.BASIC_MACHINE_CASING)
                 .add(ModBlocks.ADVANCED_MACHINE_CASING)
+
+                .add(ModBlocks.REINFORCED_GLASS)
+                .add(ModBlocks.REINFORCED_STONE)
+                .add(ModBlocks.REINFORCED_STONE_SLAB)
+                .add(ModBlocks.REINFORCED_STONE_STAIRS)
+
+                .add(ModBlocks.IRON_SCAFFOLDING)
+                .add(ModBlocks.IRON_FENCE)
+                .add(ModBlocks.LUMINATOR)
         ;
 
         tag(BlockTags.NEEDS_STONE_TOOL)
@@ -102,6 +114,9 @@ public class Tags extends BlockTagsProvider {
 
                 .add(ModBlocks.BASIC_MACHINE_CASING)
                 .add(ModBlocks.ADVANCED_MACHINE_CASING)
+
+                .add(ModBlocks.RESIN_SHEET)
+                .add(ModBlocks.RUBBER_SHEET)
         ;
     }
 

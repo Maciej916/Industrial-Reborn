@@ -11,7 +11,7 @@
       "item": "minecraft:glass"
     },
     "C": {
-      "item": "indreb:empty_fluid_cell"
+      "item": "indreb:fluid_cell"
     },
     "P": {
       "item": "indreb:iron_plate"

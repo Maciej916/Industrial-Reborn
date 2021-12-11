@@ -65,6 +65,20 @@ public class ItemElectric extends RecipeProvider {
                 .unlockedBy("circuit", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.ADVANCED_CIRCUIT))
                 .save(consumer, saveResource("lapotron_crystal"));
 
+        ShapedRecipeBuilder.shaped(ModItems.NANO_SABER)
+                .pattern("ga ")
+                .pattern("ga ")
+                .pattern("cec")
+                .define('c', ModItems.CARBON_PLATE)
+                .define('e', ModItems.ENERGY_CRYSTAL)
+                .define('g', Items.GLOWSTONE_DUST)
+                .define('a', ModItems.ADVANCED_ALLOY)
+                .group(MODID)
+                .unlockedBy("carbon_plate", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.CARBON_PLATE))
+                .unlockedBy("energy_crystal", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.ENERGY_CRYSTAL))
+                .unlockedBy("glowstone_dust", InventoryChangeTrigger.TriggerInstance.hasItems(Items.GLOWSTONE_DUST))
+                .unlockedBy("advanced_alloy", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.ADVANCED_ALLOY))
+                .save(consumer, saveResource("nano_saber"));
 
 
 

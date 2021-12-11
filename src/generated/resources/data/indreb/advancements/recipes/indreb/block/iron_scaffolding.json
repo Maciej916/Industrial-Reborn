@@ -1,0 +1,60 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "indreb:block/iron_scaffolding"
+    ]
+  },
+  "criteria": {
+    "iron_plate": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:iron_plate"
+            ]
+          }
+        ]
+      }
+    },
+    "iron_rod": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:iron_rod"
+            ]
+          }
+        ]
+      }
+    },
+    "iron_fence": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:iron_fence"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "indreb:block/iron_scaffolding"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "iron_plate",
+      "iron_rod",
+      "iron_fence",
+      "has_the_recipe"
+    ]
+  ]
+}

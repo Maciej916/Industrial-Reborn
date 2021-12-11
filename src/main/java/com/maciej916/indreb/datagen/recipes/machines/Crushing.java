@@ -147,7 +147,7 @@ public class Crushing extends RecipeProvider {
         RecipeBuilderCrushing.builder(ModItems.CRUSHED_TIN,2)
                 .setIngredient(Ingredient.of(ItemTags.bind("forge:ores/tin")), 1)
                 .setExperience(0.2F)
-                .setBonus(Items.COBBLESTONE, 1, 50)
+                .setBonus(ModItems.STONE_DUST, 1, 50)
                 .setGroup("crushing/ores")
                 .addCriterion("item", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.TIN_ORE.asItem()))
                 .save(consumer, "tin_ore_crushed_tin");
@@ -155,7 +155,7 @@ public class Crushing extends RecipeProvider {
         RecipeBuilderCrushing.builder(Items.DIAMOND,2)
                 .setIngredient(Ingredient.of(ItemTags.bind("forge:ores/diamond")), 1)
                 .setExperience(0.2F)
-                .setBonus(Items.COBBLESTONE, 1, 50)
+                .setBonus(ModItems.STONE_DUST, 1, 50)
                 .setGroup("crushing/ores")
                 .addCriterion("item", InventoryChangeTrigger.TriggerInstance.hasItems(Items.DIAMOND))
                 .save(consumer,"diamond_ore_diamond");
@@ -163,7 +163,7 @@ public class Crushing extends RecipeProvider {
         RecipeBuilderCrushing.builder(Items.EMERALD,2)
                 .setIngredient(Ingredient.of(ItemTags.bind("forge:ores/emerald")), 1)
                 .setExperience(0.2F)
-                .setBonus(Items.COBBLESTONE, 1, 50)
+                .setBonus(ModItems.STONE_DUST, 1, 50)
                 .setGroup("crushing/ores")
                 .addCriterion("item", InventoryChangeTrigger.TriggerInstance.hasItems(Items.EMERALD))
                 .save(consumer, "emerald_ore_emerald");
@@ -171,7 +171,7 @@ public class Crushing extends RecipeProvider {
         RecipeBuilderCrushing.builder(ModItems.CRUSHED_GOLD,2)
                 .setIngredient(Ingredient.of(ItemTags.bind("forge:ores/gold")), 1)
                 .setExperience(0.2F)
-                .setBonus(Items.COBBLESTONE, 1, 50)
+                .setBonus(ModItems.STONE_DUST, 1, 50)
                 .setGroup("crushing/ores")
                 .addCriterion("item", InventoryChangeTrigger.TriggerInstance.hasItems(Items.GOLD_ORE))
                 .save(consumer, "gold_ore_crushed_gold");
@@ -179,7 +179,7 @@ public class Crushing extends RecipeProvider {
         RecipeBuilderCrushing.builder(ModItems.CRUSHED_IRON,2)
                 .setIngredient(Ingredient.of(ItemTags.bind("forge:ores/iron")), 1)
                 .setExperience(0.2F)
-                .setBonus(Items.COBBLESTONE, 1, 50)
+                .setBonus(ModItems.STONE_DUST, 1, 50)
                 .setGroup("crushing/ores")
                 .addCriterion("item", InventoryChangeTrigger.TriggerInstance.hasItems(Items.IRON_ORE))
                 .save(consumer, "iron_ore_crushed_iron");
@@ -189,7 +189,7 @@ public class Crushing extends RecipeProvider {
         RecipeBuilderCrushing.builder(ModItems.CRUSHED_COPPER,2)
                 .setIngredient(Ingredient.of(Items.DEEPSLATE_COPPER_ORE), 1)
                 .setExperience(0.2F)
-                .setBonus(Items.DEEPSLATE, 1, 50)
+                .setBonus(ModItems.DEEPSLATE_DUST, 1, 50)
                 .setGroup("crushing/ores")
                 .addCriterion("item", InventoryChangeTrigger.TriggerInstance.hasItems(Items.DEEPSLATE_COPPER_ORE.asItem()))
                 .save(consumer, "deepslate_copper_ore_crushed_copper");
@@ -197,7 +197,7 @@ public class Crushing extends RecipeProvider {
         RecipeBuilderCrushing.builder(ModItems.CRUSHED_TIN,2)
                 .setIngredient(Ingredient.of(ModBlocks.DEEPSLATE_TIN_ORE), 1)
                 .setExperience(0.2F)
-                .setBonus(Items.DEEPSLATE, 1, 50)
+                .setBonus(ModItems.DEEPSLATE_DUST, 1, 50)
                 .setGroup("crushing/ores")
                 .addCriterion("item", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.DEEPSLATE_TIN_ORE.asItem()))
                 .save(consumer, "deepslate_tin_ore_crushed_tin");
@@ -205,7 +205,7 @@ public class Crushing extends RecipeProvider {
         RecipeBuilderCrushing.builder(Items.DIAMOND,2)
                 .setIngredient(Ingredient.of(Items.DEEPSLATE_DIAMOND_ORE), 1)
                 .setExperience(0.2F)
-                .setBonus(Items.DEEPSLATE, 1, 50)
+                .setBonus(ModItems.DEEPSLATE_DUST, 1, 50)
                 .setGroup("crushing/ores")
                 .addCriterion("item", InventoryChangeTrigger.TriggerInstance.hasItems(Items.DEEPSLATE_DIAMOND_ORE))
                 .save(consumer,"deepslate_diamond_ore_diamond");
@@ -213,7 +213,7 @@ public class Crushing extends RecipeProvider {
         RecipeBuilderCrushing.builder(Items.EMERALD,2)
                 .setIngredient(Ingredient.of(Items.DEEPSLATE_EMERALD_ORE), 1)
                 .setExperience(0.2F)
-                .setBonus(Items.DEEPSLATE, 1, 50)
+                .setBonus(ModItems.DEEPSLATE_DUST, 1, 50)
                 .setGroup("crushing/ores")
                 .addCriterion("item", InventoryChangeTrigger.TriggerInstance.hasItems(Items.DEEPSLATE_EMERALD_ORE))
                 .save(consumer, "deepslate_emerald_ore_emerald");
@@ -221,7 +221,7 @@ public class Crushing extends RecipeProvider {
         RecipeBuilderCrushing.builder(ModItems.CRUSHED_GOLD,2)
                 .setIngredient(Ingredient.of(Items.DEEPSLATE_GOLD_ORE), 1)
                 .setExperience(0.2F)
-                .setBonus(Items.DEEPSLATE, 1, 50)
+                .setBonus(ModItems.DEEPSLATE_DUST, 1, 50)
                 .setGroup("crushing/ores")
                 .addCriterion("item", InventoryChangeTrigger.TriggerInstance.hasItems(Items.DEEPSLATE_GOLD_ORE))
                 .save(consumer, "deepslate_gold_ore_crushed_gold");
@@ -229,7 +229,7 @@ public class Crushing extends RecipeProvider {
         RecipeBuilderCrushing.builder(ModItems.CRUSHED_IRON,2)
                 .setIngredient(Ingredient.of(Items.DEEPSLATE_IRON_ORE), 1)
                 .setExperience(0.2F)
-                .setBonus(Items.DEEPSLATE, 1, 50)
+                .setBonus(ModItems.DEEPSLATE_DUST, 1, 50)
                 .setGroup("crushing/ores")
                 .addCriterion("item", InventoryChangeTrigger.TriggerInstance.hasItems(Items.DEEPSLATE_IRON_ORE))
                 .save(consumer, "deepslate_iron_ore_crushed_iron");
@@ -403,6 +403,38 @@ public class Crushing extends RecipeProvider {
                 .setGroup("crushing/items")
                 .addCriterion("item", InventoryChangeTrigger.TriggerInstance.hasItems(Items.DIAMOND))
                 .save(consumer, "diamond_dust");
+
+
+        RecipeBuilderCrushing.builder(ModItems.CRUSHED_IRON,2)
+                .setIngredient(Ingredient.of(Items.RAW_IRON), 1)
+                .setExperience(0.2F)
+                .setGroup("crushing/items")
+                .addCriterion("item", InventoryChangeTrigger.TriggerInstance.hasItems(Items.RAW_IRON))
+                .save(consumer, "raw_iron");
+
+
+        RecipeBuilderCrushing.builder(ModItems.CRUSHED_COPPER,2)
+                .setIngredient(Ingredient.of(Items.RAW_COPPER), 1)
+                .setExperience(0.2F)
+                .setGroup("crushing/items")
+                .addCriterion("item", InventoryChangeTrigger.TriggerInstance.hasItems(Items.RAW_COPPER))
+                .save(consumer, "raw_copper");
+
+
+        RecipeBuilderCrushing.builder(ModItems.CRUSHED_GOLD,2)
+                .setIngredient(Ingredient.of(Items.RAW_GOLD), 1)
+                .setExperience(0.2F)
+                .setGroup("crushing/items")
+                .addCriterion("item", InventoryChangeTrigger.TriggerInstance.hasItems(Items.RAW_GOLD))
+                .save(consumer, "raw_gold");
+
+
+        RecipeBuilderCrushing.builder(ModItems.CRUSHED_TIN,2)
+                .setIngredient(Ingredient.of(ModItems.RAW_TIN), 1)
+                .setExperience(0.2F)
+                .setGroup("crushing/items")
+                .addCriterion("item", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.RAW_TIN))
+                .save(consumer, "raw_tin");
 
 
     }

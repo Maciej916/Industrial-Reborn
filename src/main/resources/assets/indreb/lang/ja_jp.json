@@ -1,0 +1,245 @@
+{
+  "_comment": "Global",
+  "itemGroup.indreb": "Industrial Reborn",
+
+
+  "indreb.generic": "%s",
+
+  "_comment": "Energy",
+  "energy.indreb.power": "%s IE",
+  "energy.indreb.power_tick": "%s IE/t",
+
+  "_comment": "Tier",
+  "tier.indreb.basic": "低圧",
+  "tier.indreb.standard": "中圧",
+  "tier.indreb.advanced": "高圧",
+  "tier.indreb.super": "超高圧",
+  "tier.indreb.ultra": "最上",
+  "tier.indreb.creative": "クリエイティブ",
+
+  "_comment": "GUI",
+  "gui.indreb.energy": "%s / %s IE",
+  "gui.indreb.fluid": "%s: %s/%s mB",
+  "gui.indreb.fluid_empty": "空",
+
+  "gui.indreb.progress": "進行： %s/%s",
+  "gui.indreb.fuelBurnTimeProgress": "燃焼進度： %s/%s",
+  "gui.indreb.heat": "熱量： %s",
+  "gui.indreb.armour": "防具",
+
+
+  "gui.indreb.can_operate_in": "残り時間： %ss",
+  "gui.indreb.can_operate": "準備完了",
+
+  "_comment": "Block",
+  "block.indreb.generator": "火力発電機",
+  "block.indreb.geo_generator": "地熱発電記r",
+  "block.indreb.solar_generator": "太陽光発電機",
+
+  "block.indreb.iron_furnace": "鉄かまど",
+  "block.indreb.electric_furnace": "電気かまど",
+  "block.indreb.crusher": "粉砕機",
+  "block.indreb.compressor": "圧縮機",
+  "block.indreb.extractor": "抽出機",
+  "block.indreb.extruder": "押出機",
+  "block.indreb.sawmill": "製材機",
+  "block.indreb.alloy_smelter": "溶鉱炉",
+
+  "block.indreb.tin_ore": "スズ鉱石",
+  "block.indreb.deepslate_tin_ore": "深層スズ鉱石",
+
+  "block.indreb.tin_block": "スズブロック",
+  "block.indreb.bronze_block": "青銅ブロック",
+  "block.indreb.silver_block": "銀ブロック",
+  "block.indreb.steel_block": "鋼鉄ブロック",
+
+  "block.indreb.basic_machine_casing": "基礎筐体",
+  "block.indreb.advanced_machine_casing": "発展筐体",
+
+  "block.indreb.resin_sheet": "樹脂シート",
+  "block.indreb.rubber_sheet": "ゴムシート",
+
+  "block.indreb.construction_foam": "建材泡",
+  "block.indreb.reinforced_construction_foam": "強化建材泡",
+
+  "block.indreb.construction_foam_wall_white": "建材泡 Wall (白)",
+  "block.indreb.construction_foam_wall_red": "建材泡 Wall (赤)",
+  "block.indreb.construction_foam_wall_orange": "建材泡 Wall (橙)",
+  "block.indreb.construction_foam_wall_pink": "建材泡 Wall (桃)",
+  "block.indreb.construction_foam_wall_yellow": "建材泡 Wall (黄)",
+  "block.indreb.construction_foam_wall_lime": "建材泡 Wall (黄緑)",
+  "block.indreb.construction_foam_wall_green": "建材泡 Wall (緑)",
+  "block.indreb.construction_foam_wall_light_blue": "建材泡 Wall (水色)",
+  "block.indreb.construction_foam_wall_cyan": "建材泡 Wall (紺)",
+  "block.indreb.construction_foam_wall_blue": "建材泡 Wall (青)",
+  "block.indreb.construction_foam_wall_magenta": "建材泡 Wall (赤紫)",
+  "block.indreb.construction_foam_wall_purple": "建材泡 Wall (紫)",
+  "block.indreb.construction_foam_wall_brown": "建材泡 Wall (茶)",
+  "block.indreb.construction_foam_wall_gray": "建材泡 Wall (灰色)",
+  "block.indreb.construction_foam_wall_light_gray": "建材泡 Wall (Light 灰色)",
+  "block.indreb.construction_foam_wall_black": "建材泡 Wall (黒)",
+
+  "block.indreb.reinforced_glass": "強化ガラス",
+  "block.indreb.reinforced_stone": "強化石材",
+  "block.indreb.reinforced_stone_slab": "強化石材のハーフブロック",
+  "block.indreb.reinforced_stone_stairs": "強化石材の階段",
+
+  "block.indreb.iron_scaffolding": "鉄の足場",
+  "block.indreb.iron_fence": "鉄のフェンス",
+
+  "block.indreb.luminator": "ルミネーター",
+
+  "_comment": "Rubber Wood",
+  "block.indreb.rubber_sapling": "ゴムの苗木",
+  "block.indreb.rubber_planks": "ゴムの木材",
+  "block.indreb.rubber_leaves": "ゴムの葉",
+  "block.indreb.rubber_wood": "ゴムの木",
+  "block.indreb.rubber_log": "ゴムの原木",
+  "block.indreb.rubber_stairs": "ゴムの階段",
+  "block.indreb.rubber_slab": "ゴムのハーフブロック",
+
+
+  "_comment": "Cable",
+  "block.indreb.tin_cable": "スズのケーブル",
+  "block.indreb.tin_cable_insulated": "被覆されたスズのケーブル",
+  "block.indreb.copper_cable": "銅のケーブル",
+  "block.indreb.copper_cable_insulated": "被覆された銅のケーブル",
+  "block.indreb.gold_cable": "金のケーブル",
+  "block.indreb.gold_cable_insulated": "被覆された金のケーブル",
+  "block.indreb.hv_cable": "鉄のケーブル",
+  "block.indreb.hv_cable_insulated": "被覆された鉄のケーブル",
+  "block.indreb.glass_fibre_cable": "グラスファイバー",
+
+  "_comment": "Item",
+  "item.indreb.sticky_resin": "生ゴム",
+  "item.indreb.rubber": "ゴム",
+  "item.indreb.sawdust": "木粉",
+
+  "item.indreb.tin_ingot": "スズインゴット",
+  "item.indreb.bronze_ingot": "青銅インゴット",
+  "item.indreb.silver_ingot": "銀インゴット",
+  "item.indreb.steel_ingot": "鋼鉄インゴット",
+  "item.indreb.mixed_metal_ingot": "合金インゴット",
+
+  "item.indreb.crushed_tin": "粉砕スズ鉱石",
+  "item.indreb.crushed_copper": "粉砕銅鉱石",
+  "item.indreb.crushed_gold": "粉砕金鉱石",
+  "item.indreb.crushed_iron": "粉砕鉄鉱石",
+
+  "item.indreb.copper_plate": "銅板",
+  "item.indreb.tin_plate": "スズ板",
+  "item.indreb.iron_plate": "鉄板",
+  "item.indreb.gold_plate": "金板",
+  "item.indreb.bronze_plate": "青銅板",
+  "item.indreb.steel_plate": "鋼鉄板",
+
+  "item.indreb.coal_dust": "石炭粉末",
+  "item.indreb.diamond_dust": "ダイヤモンド粉末",
+  "item.indreb.silver_dust": "銀粉末",
+  "item.indreb.stone_dust": "石粉末",
+  "item.indreb.deepslate_dust": "深層岩粉末",
+
+  "item.indreb.iron_rod": "鉄棒",
+
+  "item.indreb.electronic_circuit": "電子回路",
+  "item.indreb.advanced_circuit": "発展回路",
+
+  "item.indreb.carbon_fibers": "炭素繊維",
+  "item.indreb.combined_carbon_fibers": "圧縮炭素繊維",
+  "item.indreb.carbon_plate": "炭素板",
+
+  "item.indreb.advanced_alloy": "合金板",
+
+  "item.indreb.nightvision_goggles": "暗視ゴーグル",
+  "item.indreb.rubber_boots": "ゴムのブーツ",
+
+  "item.indreb.bronze_helmet": "青銅のヘルメット",
+  "item.indreb.bronze_chestplate": "青銅のチェストプレート",
+  "item.indreb.bronze_leggings": "青銅のレギンス",
+  "item.indreb.bronze_boots": "青銅のブーツ",
+
+  "item.indreb.bronze_sword": "青銅の剣",
+  "item.indreb.bronze_pickaxe": "青銅のツルハシ",
+  "item.indreb.bronze_axe": "青銅の斧",
+  "item.indreb.bronze_shovel": "青銅のシャベル",
+  "item.indreb.bronze_hoe": "青銅のクワ",
+
+  "item.indreb.nano_helmet": "ナノヘルメット",
+  "item.indreb.nano_chestplate": "ナノチェストプレート",
+  "item.indreb.nano_leggings": "ナノレギンス",
+  "item.indreb.nano_boots": "ナノブーツ",
+  "item.indreb.nano_saber": "ナノセイバー",
+
+  "item.indreb.energium_dust": "エネルギウム粉末",
+
+  "item.indreb.battery": "電池",
+  "item.indreb.advanced_battery": "発展電池",
+  "item.indreb.energy_crystal": "エナジークリスタル",
+  "item.indreb.lapotron_crystal": "ラポトロン結晶",
+
+  "item.indreb.fluid_cell": "液体セル",
+
+  "item.indreb.painter": "ペインター",
+  "item.indreb.painter_white": "ペインター (白)",
+  "item.indreb.painter_red": "ペインター (赤)",
+  "item.indreb.painter_orange": "ペインター (橙)",
+  "item.indreb.painter_pink": "ペインター (桃)",
+  "item.indreb.painter_yellow": "ペインター (黄)",
+  "item.indreb.painter_lime": "ペインター (黄緑)",
+  "item.indreb.painter_green": "ペインター (緑)",
+  "item.indreb.painter_light_blue": "ペインター (水色)",
+  "item.indreb.painter_cyan": "ペインター (紺)",
+  "item.indreb.painter_blue": "ペインター (青)",
+  "item.indreb.painter_magenta": "ペインター (赤紫)",
+  "item.indreb.painter_purple": "ペインター (紫)",
+  "item.indreb.painter_brown": "ペインター (茶)",
+  "item.indreb.painter_gray": "ペインター (灰色)",
+  "item.indreb.painter_light_gray": "ペインター (明灰色)",
+  "item.indreb.painter_black": "ペインター (黒)",
+
+  "item.indreb.treetap": "ツリータップ",
+  "item.indreb.wrench": "レンチ",
+  "item.indreb.hammer": "ハンマー",
+  "item.indreb.cutter": "カッター",
+
+  "_comment": "Battery Box",
+  "block.indreb.battery_box": "低圧蓄電器",
+  "block.indreb.cesu": "中圧蓄電器",
+  "block.indreb.mfe": "高圧蓄電器",
+  "block.indreb.mfsu": "超高圧蓄電器",
+
+  "_comment": "Energy Converter",
+  "block.indreb.wooden_energy_converter": "低圧変圧器",
+
+  "_comment": "JEI",
+  "jei.indreb.crushing": "粉砕",
+  "jei.indreb.compressing": "圧縮",
+  "jei.indreb.extracting": "抽出",
+  "jei.indreb.sawing": "製剤",
+  "jei.indreb.extruding": "押出",
+  "jei.indreb.alloy_smelting": "溶鉱",
+
+  "jei.indreb.chance": "確率：: %s",
+
+  "_comment": "GUI",
+  "gui.indreb.collect_exp": "収集済み経験値",
+
+  "_comment": "Tooltip",
+  "tooltip.indreb.wip": "開発中：使用非推奨",
+
+  "tooltip.indreb.power_tier": "電圧： %s",
+  "tooltip.indreb.generate": "生成： %s",
+  "tooltip.indreb.output": "出力： %s",
+  "tooltip.indreb.transfer": "速度： %s",
+  "tooltip.indreb.capacity": "容量： %s",
+  "tooltip.indreb.output_capacity": "出力： %s 容量： %s",
+  "tooltip.indreb.accept_capacity": "入力： %s 容量： %s",
+  "tooltip.indreb.accept": "入力： %s",
+  "tooltip.indreb.accept_output": "入力： %s 出力： %s",
+  "tooltip.indreb.stored": "蓄積： %s",
+  "tooltip.indreb.stored_capacity": "蓄積： %s 容量： %s",
+
+  "tooltip.indreb.cable_unisolated": "接触により感電の恐れあり：危険",
+
+  "test.indreb.test": "%s"
+}

@@ -4,6 +4,7 @@ public enum InventorySlotType {
     INPUT("input"),
     NORMAL("normal"),
     OUTPUT("output"),
+    ELECTRIC("electric"),
     BATTERY("battery"),
     HELMET("helmet"),
     CHESTPLATE("chestplate"),

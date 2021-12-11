@@ -1,6 +1,7 @@
 package com.maciej916.indreb.common.entity.block;
 
 import com.maciej916.indreb.common.enums.EnergyTier;
+import com.maciej916.indreb.common.enums.EnumEnergyType;
 import com.maciej916.indreb.common.enums.InventorySlotType;
 import com.maciej916.indreb.common.interfaces.item.IElectricItem;
 import com.maciej916.indreb.common.registries.ModTags;
@@ -29,12 +30,13 @@ public class ElectricSlotHandler extends SlotItemHandler {
     public boolean mayPlace(@Nonnull ItemStack stack) {
 
         if (stack.getItem() instanceof IElectricItem est) {
-            if (!energyTier.contains(est.getEnergyTier())) {
+            if (!energyTier.contains(est.getEnergyTier()) || (est.getEnergyType() == EnumEnergyType.RECEIVE && !charging) || (est.getEnergyType() == EnumEnergyType.EXTRACT && charging)) {
                 return false;
             }
         }
 
         return switch (inventorySlotType) {
+            case ELECTRIC -> stack.getItem().getTags().contains(ModTags.ELECTRICS) || stack.getItem().getTags().contains(ModTags.BATTERIES);
             case BATTERY -> stack.getItem().getTags().contains(ModTags.BATTERIES);
             case HELMET -> stack.getItem().getTags().contains(ModTags.HELMET);
             case CHESTPLATE -> stack.getItem().getTags().contains(ModTags.CHESTPLATE);

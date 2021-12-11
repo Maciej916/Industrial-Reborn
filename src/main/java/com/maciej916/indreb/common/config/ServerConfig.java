@@ -24,7 +24,23 @@ public final class ServerConfig {
 	public static ForgeConfigSpec.IntValue geo_generator_tick_generate;
 
 	public static ForgeConfigSpec.IntValue solar_generator_energy_capacity;
-	public static ForgeConfigSpec.IntValue solar_generator_tick_generate;
+	public static ForgeConfigSpec.IntValue solar_generator_day_tick_generate;
+	public static ForgeConfigSpec.IntValue solar_generator_night_tick_generate;
+
+	public static ForgeConfigSpec.IntValue advanced_solar_generator_energy_capacity;
+	public static ForgeConfigSpec.IntValue advanced_solar_generator_day_tick_generate;
+	public static ForgeConfigSpec.IntValue advanced_solar_generator_night_tick_generate;
+
+	public static ForgeConfigSpec.IntValue hybrid_solar_generator_energy_capacity;
+	public static ForgeConfigSpec.IntValue hybrid_solar_generator_day_tick_generate;
+	public static ForgeConfigSpec.IntValue hybrid_solar_generator_night_tick_generate;
+
+	public static ForgeConfigSpec.IntValue quantum_solar_generator_energy_capacity;
+	public static ForgeConfigSpec.IntValue quantum_solar_generator_day_tick_generate;
+	public static ForgeConfigSpec.IntValue quantum_solar_generator_night_tick_generate;
+
+	public static ForgeConfigSpec.IntValue crystalline_generator_energy_capacity;
+	public static ForgeConfigSpec.IntValue crystalline_generator_tick_generate;
 
 	public static ForgeConfigSpec.IntValue electric_furnace_energy_capacity;
 	public static ForgeConfigSpec.IntValue electric_furnace_tick_usage;
@@ -77,8 +93,26 @@ public final class ServerConfig {
 		builder.pop();
 
 		builder.push("solar_generator");
-		solar_generator_energy_capacity = builder.defineInRange("solar_generator_energy_capacity", 1, 1, Integer.MAX_VALUE);
-		solar_generator_tick_generate = builder.defineInRange("solar_generator_tick_generate", 1, 1, Integer.MAX_VALUE);
+		solar_generator_energy_capacity = builder.defineInRange("solar_generator_energy_capacity", 1200, 1, Integer.MAX_VALUE);
+		solar_generator_day_tick_generate = builder.defineInRange("solar_generator_day_tick_generate", 1, 0, Integer.MAX_VALUE);
+		solar_generator_night_tick_generate = builder.defineInRange("solar_generator_night_tick_generate", 0, 0, Integer.MAX_VALUE);
+
+		advanced_solar_generator_energy_capacity = builder.defineInRange("advanced_solar_generator_energy_capacity", 2400, 1, Integer.MAX_VALUE);
+		advanced_solar_generator_day_tick_generate = builder.defineInRange("advanced_solar_generator_day_tick_generate", 8, 0, Integer.MAX_VALUE);
+		advanced_solar_generator_night_tick_generate = builder.defineInRange("advanced_solar_generator_night_tick_generate", 1, 0, Integer.MAX_VALUE);
+
+		hybrid_solar_generator_energy_capacity = builder.defineInRange("hybrid_solar_generator_energy_capacity", 4800, 1, Integer.MAX_VALUE);
+		hybrid_solar_generator_day_tick_generate = builder.defineInRange("hybrid_solar_generator_day_tick_generate", 64, 0, Integer.MAX_VALUE);
+		hybrid_solar_generator_night_tick_generate = builder.defineInRange("hybrid_solar_generator_night_tick_generate", 8, 0, Integer.MAX_VALUE);
+
+		quantum_solar_generator_energy_capacity = builder.defineInRange("quantum_solar_generator_energy_capacity", 9600, 1, Integer.MAX_VALUE);
+		quantum_solar_generator_day_tick_generate = builder.defineInRange("quantum_solar_generator_day_tick_generate", 512, 0, Integer.MAX_VALUE);
+		quantum_solar_generator_night_tick_generate = builder.defineInRange("quantum_solar_generator_night_tick_generate", 64, 0, Integer.MAX_VALUE);
+		builder.pop();
+
+		builder.push("crystalline_generator");
+		crystalline_generator_energy_capacity = builder.defineInRange("crystalline_generator_energy_capacity", 9600, 1, Integer.MAX_VALUE);
+		crystalline_generator_tick_generate = builder.defineInRange("crystalline_generator_tick_generate", 30, 1, Integer.MAX_VALUE);
 		builder.pop();
 
 		builder.push("electric_furnace");

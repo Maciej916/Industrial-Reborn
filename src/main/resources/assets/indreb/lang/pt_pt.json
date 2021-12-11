@@ -1,0 +1,247 @@
+{
+  "_comment": "Global",
+  "itemGroup.indreb": "Industrial Reborn",
+
+  "indreb.generic": "%s",
+
+  "_comment": "Energy",
+  "energy.indreb.power": "%s IE",
+  "energy.indreb.power_tick": "%s IE/t",
+
+  "_comment": "Tier",
+  "tier.indreb.basic": "Básico",
+  "tier.indreb.standard": "Comum",
+  "tier.indreb.advanced": "Avançado",
+  "tier.indreb.super": "Super",
+  "tier.indreb.ultra": "Ultra",
+  "tier.indreb.creative": "Criativo",
+
+  "_comment": "GUI",
+  "gui.indreb.energy": "%s / %s IE",
+  "gui.indreb.fluid": "%s: %s/%s mB",
+  "gui.indreb.fluid_empty": "Vazio",
+
+  "gui.indreb.progress": "Progresso %s/%s",
+  "gui.indreb.fuelBurnTimeProgress": "Tempo de queima do combustível %s/%s",
+  "gui.indreb.heat": "Heat: %s",
+  "gui.indreb.armour": "Armadura",
+
+
+  "gui.indreb.can_operate_in": "Pode produzir em %ss",
+  "gui.indreb.can_operate": "Essa máquina esta pronta!",
+
+  "_comment": "Block",
+  "block.indreb.generator": "Gerador",
+  "block.indreb.geo_generator": "Gerador geotérmico",
+  "block.indreb.solar_generator": "Generador solar",
+
+  "block.indreb.iron_furnace": "Fornalha de ferro",
+  "block.indreb.electric_furnace": "Fornalha elétrica",
+  "block.indreb.crusher": "Macerador",
+  "block.indreb.compressor": "Compressor",
+  "block.indreb.extractor": "Extrator",
+  "block.indreb.extruder": "Extrudora",
+  "block.indreb.sawmill": "Serraria",
+  "block.indreb.alloy_smelter": "Forno de fundição",
+
+  "block.indreb.tin_ore": "Minério de estanho",
+  "block.indreb.deepslate_tin_ore": "Minério de estanho de ardósia",
+
+  "block.indreb.tin_block": "Bloco de estanho",
+  "block.indreb.bronze_block": "Bloco de bronze",
+  "block.indreb.silver_block": "Bloco de prata",
+  "block.indreb.steel_block": "Bloco de aço",
+
+  "block.indreb.basic_machine_casing": "Revestimento de máquina básico",
+  "block.indreb.advanced_machine_casing": "Revestimento de máquina avançado",
+
+  "block.indreb.resin_sheet": "Folha de resina",
+  "block.indreb.rubber_sheet": "Folha de borracha",
+
+  "block.indreb.construction_foam": "Espuma de construção",
+  "block.indreb.reinforced_construction_foam": "Espuma de construção reforçada",
+
+  "block.indreb.construction_foam_wall_white": "Parede de espuma de construção (Branca)",
+  "block.indreb.construction_foam_wall_red": "Parede de espuma de construção (Vermelha)",
+  "block.indreb.construction_foam_wall_orange": "Parede de espuma de construção (Laranja)",
+  "block.indreb.construction_foam_wall_pink": "Parede de espuma de construção (Rosa)",
+  "block.indreb.construction_foam_wall_yellow": "Parede de espuma de construção (Amarelo)",
+  "block.indreb.construction_foam_wall_lime": "Parede de espuma de construção (Verde-limão)",
+  "block.indreb.construction_foam_wall_green": "Parede de espuma de construção (Verde)",
+  "block.indreb.construction_foam_wall_light_blue": "Parede de espuma de construção (Azul claro)",
+  "block.indreb.construction_foam_wall_cyan": "Parede de espuma de construção (Ciano)",
+  "block.indreb.construction_foam_wall_blue": "Parede de espuma de construção (Azul)",
+  "block.indreb.construction_foam_wall_magenta": "Parede de espuma de construção (Magenta)",
+  "block.indreb.construction_foam_wall_purple": "Parede de espuma de construção (Roxo)",
+  "block.indreb.construction_foam_wall_brown": "Parede de espuma de construção (Marrom)",
+  "block.indreb.construction_foam_wall_gray": "Parede de espuma de construção (Cinza)",
+  "block.indreb.construction_foam_wall_light_gray": "Parede de espuma de construção (Cinza claro)",
+  "block.indreb.construction_foam_wall_black": "Parede de espuma de construção (Preto)",
+
+  "block.indreb.reinforced_glass": "Vidro reforçado",
+  "block.indreb.reinforced_stone": "Pedra reforçada",
+  "block.indreb.reinforced_stone_slab": "Laje de pedra reforçada",
+  "block.indreb.reinforced_stone_stairs": "Escada de pedra reforçada",
+
+  "block.indreb.iron_scaffolding": "Andaime de ferro,
+  "block.indreb.iron_fence": "Cerca de ferro",
+
+  "block.indreb.luminator": "Iluminária",
+
+  "_comment": "Rubber Wood",
+  "block.indreb.rubber_sapling": "Muda de seringueira",
+  "block.indreb.rubber_planks": "Tábuas de seringueira",
+  "block.indreb.rubber_leaves": "Folhas de seringueira",
+  "block.indreb.rubber_wood": "Madeira de seringueira",
+  "block.indreb.rubber_log": "Tronco de seringueira",
+  "block.indreb.rubber_stairs": "Escada de seringueira",
+  "block.indreb.rubber_slab": "Laje de seringueira",
+
+
+  "_comment": "Cabo",
+  "block.indreb.tin_cable": "Cabo de estanho",
+  "block.indreb.tin_cable_insulated": "Cabo de estanho isolado",
+  "block.indreb.copper_cable": "Cabo de cobre",
+  "block.indreb.copper_cable_insulated": "Cabo de cobre isolado",
+  "block.indreb.gold_cable": "Cabo de ouro",
+  "block.indreb.gold_cable_insulated": "Cabo de ouro isolado",
+  "block.indreb.hv_cable": "Cabo AT",
+  "block.indreb.hv_cable_insulated": "Cabo AT isolado",
+  "block.indreb.glass_fibre_cable": "Cabo de fibra de vidro",
+
+  "_comment": "Item",
+  "item.indreb.sticky_resin": "Resina pegajosa",
+  "item.indreb.rubber": "Borracha",
+  "item.indreb.sawdust": "Serraria",
+
+  "item.indreb.tin_ingot": "Barra de estanho",
+  "item.indreb.bronze_ingot": "Barra de bronze",
+  "item.indreb.silver_ingot": "Barra de prata",
+  "item.indreb.steel_ingot": "Barra de aço",
+  "item.indreb.mixed_metal_ingot": "Liga de metais",
+
+  "item.indreb.crushed_tin": "Estranho triturado",
+  "item.indreb.crushed_copper": "Cobre triturado",
+  "item.indreb.crushed_gold": "Ouro triturado",
+  "item.indreb.crushed_iron": "Ferro triturado",
+
+  "item.indreb.copper_plate": "Placa de cobre",
+  "item.indreb.tin_plate": "Placa de estanho",
+  "item.indreb.iron_plate": "Placa de ferro",
+  "item.indreb.gold_plate": "Placa de ouro",
+  "item.indreb.bronze_plate": "Placa de bronze",
+  "item.indreb.steel_plate": "Placa de aço",
+
+  "item.indreb.coal_dust": "Pó de carvão",
+  "item.indreb.diamond_dust": "Pó de diamante",
+  "item.indreb.silver_dust": "Pó de prata",
+  "item.indreb.stone_dust": "Pó de pedra",
+  "item.indreb.deepslate_dust": "Pó de ardósia",
+
+  "item.indreb.iron_rod": "Vara de ferro",
+
+  "item.indreb.electronic_circuit": "Circuito eletrônico",
+  "item.indreb.advanced_circuit": "Circuito eletrônico avançado",
+
+  "item.indreb.carbon_fibers": "Fibras de carbono",
+  "item.indreb.combined_carbon_fibers": "Liga de fibras de carbono",
+  "item.indreb.carbon_plate": "Placa de carbono",
+
+  "item.indreb.advanced_alloy": "Liga avançada",
+
+  "item.indreb.nightvision_goggles": "Óculos de visão norturna",
+  "item.indreb.rubber_boots": "Botas de borracha",
+
+  "item.indreb.bronze_helmet": "Capacete de bronze",
+  "item.indreb.bronze_chestplate": "Peitoral de bronze",
+  "item.indreb.bronze_leggings": "Calça de bronze",
+  "item.indreb.bronze_boots": "Botas de bronze",
+
+  "item.indreb.bronze_sword": "Espada de bronze",
+  "item.indreb.bronze_pickaxe": "Picareta de bronze",
+  "item.indreb.bronze_axe": "Machado de bronze",
+  "item.indreb.bronze_shovel": "Pá de bronze",
+  "item.indreb.bronze_hoe": "Enxada de Bronze",
+
+  "item.indreb.nano_helmet": "Capacete Nano",
+  "item.indreb.nano_chestplate": "Peitoral Nano",
+  "item.indreb.nano_leggings": "Calças Nano",
+  "item.indreb.nano_boots": "Botas Nano",
+  "item.indreb.nano_saber": "Sabre Nano",
+
+  "item.indreb.energium_dust": "Pó energético",
+
+  "item.indreb.battery": "Bateria",
+  "item.indreb.advanced_battery": "Bateria avançada",
+  "item.indreb.energy_crystal": "Cristal de energia",
+  "item.indreb.lapotron_crystal": "Cristal lapotron",
+
+  "item.indreb.fluid_cell": "Célula de fluído",
+
+  "item.indreb.painter": "Rolo de tinta",
+  "item.indreb.painter_white": "Rolo de pintura branca",
+  "item.indreb.painter_red": "Rolo de pintura vermelha",
+  "item.indreb.painter_orange": "Rolo de pintura laranja",
+  "item.indreb.painter_pink": "Rolo de pintura rosa",
+  "item.indreb.painter_yellow": "Rolo de pintura amarela",
+  "item.indreb.painter_lime": "Rolo de pintura verde-limão",
+  "item.indreb.painter_green": "Rolo de pintura verde",
+  "item.indreb.painter_light_blue": "Rolo de pintura azul clara",
+  "item.indreb.painter_cyan": "Rolo de pintura ciana",
+  "item.indreb.painter_blue": "Rolo de pintura azul",
+  "item.indreb.painter_magenta": "Rolo de pintura magenta",
+  "item.indreb.painter_purple": "Rolo de pintura roxa",
+  "item.indreb.painter_brown": "Rolo de pintura marrom",
+  "item.indreb.painter_gray": "Rolo de pintura cinza",
+  "item.indreb.painter_light_gray": "Rolo de pintura cinza claro",
+  "item.indreb.painter_black": "Rolo de pintura preta",
+
+  "item.indreb.treetap": "Treetap",
+  "item.indreb.wrench": "Chave inglesa",
+  "item.indreb.hammer": "Martelo",
+  "item.indreb.cutter": "Alicate",
+
+  "_comment": "Battery Box",
+  "block.indreb.battery_box": "Caixa de baterias",
+  "block.indreb.cesu": "CESU",
+  "block.indreb.mfe": "MFE",
+  "block.indreb.mfsu": "MFSU",
+
+  "_comment": "Energy Converter",
+  "block.indreb.wooden_energy_converter": "Conversor de energia de madeira",
+
+  "_comment": "JEI",
+  "jei.indreb.crushing": "Maceração",
+  "jei.indreb.compressing": "Compressão",
+  "jei.indreb.extracting": "Extração",
+  "jei.indreb.sawing": "Serração",
+  "jei.indreb.extruding": "Extrusão",
+  "jei.indreb.alloy_smelting": "Fundição",
+
+  "jei.indreb.chance": "Chance: %s",
+
+  "_comment": "GUI",
+  "gui.indreb.collect_exp": "Coletar XP",
+
+  "_comment": "Tooltip",
+  "tooltip.indreb.wip": "Trabalho em progresso!",
+
+  "tooltip.indreb.power_tier": "Nível energético: %s",
+  "tooltip.indreb.generate": "Gera: %s",
+  "tooltip.indreb.output": "Saída: %s",
+  "tooltip.indreb.transfer": "Transferência: %s",
+  "tooltip.indreb.capacity": "Capacidade: %s",
+  "tooltip.indreb.output_capacity": "Saída: %s Capacidade: %s",
+  "tooltip.indreb.accept_capacity": "Aceita: %s Capacidade: %s",
+  "tooltip.indreb.accept": "Accept: %s",
+  "tooltip.indreb.accept_output": "Aceita: %s Saída: %s",
+  "tooltip.indreb.stored": "Armazenado: %s",
+  "tooltip.indreb.stored_capacity": "Armazenado: %s Capacidade: %s",
+
+  "tooltip.indreb.cable_unisolated": "Esse cabo pode te eletrocutar!",
+
+
+
+
+  "test.indreb.test": "%s"
+}

@@ -11,7 +11,7 @@
       "item": "minecraft:piston"
     },
     "c": {
-      "item": "indreb:empty_fluid_cell"
+      "item": "indreb:fluid_cell"
     },
     "e": {
       "item": "indreb:electronic_circuit"

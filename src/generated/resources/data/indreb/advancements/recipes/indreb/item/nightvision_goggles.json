@@ -1,0 +1,86 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "indreb:item/nightvision_goggles"
+    ]
+  },
+  "criteria": {
+    "advanced_battery": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:advanced_battery"
+            ]
+          }
+        ]
+      }
+    },
+    "luminator": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:luminator"
+            ]
+          }
+        ]
+      }
+    },
+    "reinforced_glass": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:reinforced_glass"
+            ]
+          }
+        ]
+      }
+    },
+    "rubber": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:rubber"
+            ]
+          }
+        ]
+      }
+    },
+    "advanced_circuit": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:advanced_circuit"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "indreb:item/nightvision_goggles"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "advanced_battery",
+      "luminator",
+      "reinforced_glass",
+      "rubber",
+      "advanced_circuit",
+      "has_the_recipe"
+    ]
+  ]
+}

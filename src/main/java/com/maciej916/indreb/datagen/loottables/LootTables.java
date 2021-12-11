@@ -6,6 +6,7 @@ import com.google.gson.GsonBuilder;
 import com.maciej916.indreb.IndReb;
 import com.maciej916.indreb.common.registries.ModBlockEntities;
 import com.maciej916.indreb.common.registries.ModBlocks;
+import com.maciej916.indreb.common.registries.ModItems;
 import net.minecraft.advancements.critereon.EnchantmentPredicate;
 import net.minecraft.advancements.critereon.ItemPredicate;
 import net.minecraft.advancements.critereon.MinMaxBounds;
@@ -71,8 +72,8 @@ public class LootTables extends LootTableProvider {
         tables.put(ModBlocks.RUBBER_STAIRS.getLootTable(), createStandardTable("rubber_stairs", ModBlocks.RUBBER_STAIRS).setParamSet(LootContextParamSets.BLOCK).build());
         tables.put(ModBlocks.RUBBER_SLAB.getLootTable(), createStandardTable("rubber_slab", ModBlocks.RUBBER_SLAB).setParamSet(LootContextParamSets.BLOCK).build());
 
-        tables.put(ModBlocks.TIN_ORE.getLootTable(), createStandardTable("tin_ore", ModBlocks.TIN_ORE).setParamSet(LootContextParamSets.BLOCK).build());
-        tables.put(ModBlocks.DEEPSLATE_TIN_ORE.getLootTable(), createStandardTable("deepslate_tin_ore", ModBlocks.DEEPSLATE_TIN_ORE).setParamSet(LootContextParamSets.BLOCK).build());
+        tables.put(ModBlocks.TIN_ORE.getLootTable(), createOreDrop(ModBlocks.TIN_ORE, ModItems.RAW_TIN).setParamSet(LootContextParamSets.BLOCK).build());
+        tables.put(ModBlocks.DEEPSLATE_TIN_ORE.getLootTable(), createOreDrop(ModBlocks.DEEPSLATE_TIN_ORE, ModItems.RAW_TIN).setParamSet(LootContextParamSets.BLOCK).build());
 
         tables.put(ModBlocks.TIN_BLOCK.getLootTable(), createStandardTable("tin_block", ModBlocks.TIN_BLOCK).setParamSet(LootContextParamSets.BLOCK).build());
         tables.put(ModBlocks.SILVER_BLOCK.getLootTable(), createStandardTable("silver_block", ModBlocks.SILVER_BLOCK).setParamSet(LootContextParamSets.BLOCK).build());
@@ -96,6 +97,9 @@ public class LootTables extends LootTableProvider {
         tables.put(ModBlocks.GENERATOR.getLootTable(), createBlockEntityTable("generator", ModBlocks.GENERATOR, ModBlockEntities.GENERATOR).setParamSet(LootContextParamSets.BLOCK).build());
         tables.put(ModBlocks.GEO_GENERATOR.getLootTable(), createBlockEntityTable("geothermal_generator", ModBlocks.GEO_GENERATOR, ModBlockEntities.GEO_GENERATOR).setParamSet(LootContextParamSets.BLOCK).build());
         tables.put(ModBlocks.SOLAR_GENERATOR.getLootTable(), createBlockEntityTable("solar_generator", ModBlocks.SOLAR_GENERATOR, ModBlockEntities.SOLAR_GENERATOR).setParamSet(LootContextParamSets.BLOCK).build());
+        tables.put(ModBlocks.ADVANCED_SOLAR_GENERATOR.getLootTable(), createBlockEntityTable("advanced_solar_generator", ModBlocks.ADVANCED_SOLAR_GENERATOR, ModBlockEntities.SOLAR_GENERATOR).setParamSet(LootContextParamSets.BLOCK).build());
+        tables.put(ModBlocks.HYBRID_SOLAR_GENERATOR.getLootTable(), createBlockEntityTable("hybrid_solar_generator", ModBlocks.HYBRID_SOLAR_GENERATOR, ModBlockEntities.SOLAR_GENERATOR).setParamSet(LootContextParamSets.BLOCK).build());
+        tables.put(ModBlocks.QUANTUM_SOLAR_GENERATOR.getLootTable(), createBlockEntityTable("quantum_solar_generator", ModBlocks.QUANTUM_SOLAR_GENERATOR, ModBlockEntities.SOLAR_GENERATOR).setParamSet(LootContextParamSets.BLOCK).build());
 
         tables.put(ModBlocks.ELECTRIC_FURNACE.getLootTable(), createBlockEntityTable("electric_furnace", ModBlocks.ELECTRIC_FURNACE, ModBlockEntities.ELECTRIC_FURNACE).setParamSet(LootContextParamSets.BLOCK).build());
         tables.put(ModBlocks.CRUSHER.getLootTable(), createBlockEntityTable("crusher", ModBlocks.CRUSHER, ModBlockEntities.CRUSHER).setParamSet(LootContextParamSets.BLOCK).build());
@@ -111,6 +115,16 @@ public class LootTables extends LootTableProvider {
         tables.put(ModBlocks.MFSU.getLootTable(), createBlockEntityTable("mfsu", ModBlocks.MFSU, ModBlockEntities.BATTERY_BOX).setParamSet(LootContextParamSets.BLOCK).build());
 
         tables.put(ModBlocks.RESIN_SHEET.getLootTable(), createStandardTable("resin_sheet", ModBlocks.RESIN_SHEET).setParamSet(LootContextParamSets.BLOCK).build());
+        tables.put(ModBlocks.RUBBER_SHEET.getLootTable(), createStandardTable("rubber_sheet", ModBlocks.RUBBER_SHEET).setParamSet(LootContextParamSets.BLOCK).build());
+
+        tables.put(ModBlocks.REINFORCED_GLASS.getLootTable(), createStandardTable("reinforced_glass", ModBlocks.REINFORCED_GLASS).setParamSet(LootContextParamSets.BLOCK).build());
+        tables.put(ModBlocks.REINFORCED_STONE.getLootTable(), createStandardTable("reinforced_stone", ModBlocks.REINFORCED_STONE).setParamSet(LootContextParamSets.BLOCK).build());
+        tables.put(ModBlocks.REINFORCED_STONE_SLAB.getLootTable(), createStandardTable("reinforced_stone_slab", ModBlocks.REINFORCED_STONE_SLAB).setParamSet(LootContextParamSets.BLOCK).build());
+        tables.put(ModBlocks.REINFORCED_STONE_STAIRS.getLootTable(), createStandardTable("reinforced_stone_stairs", ModBlocks.REINFORCED_STONE_STAIRS).setParamSet(LootContextParamSets.BLOCK).build());
+
+        tables.put(ModBlocks.IRON_SCAFFOLDING.getLootTable(), createStandardTable("IRON_SCAFFOLDING", ModBlocks.IRON_SCAFFOLDING).setParamSet(LootContextParamSets.BLOCK).build());
+        tables.put(ModBlocks.IRON_FENCE.getLootTable(), createStandardTable("IRON_FENCE", ModBlocks.IRON_FENCE).setParamSet(LootContextParamSets.BLOCK).build());
+        tables.put(ModBlocks.LUMINATOR.getLootTable(), createStandardTable("luminator", ModBlocks.LUMINATOR).setParamSet(LootContextParamSets.BLOCK).build());
 
 
 
@@ -144,6 +158,16 @@ public class LootTables extends LootTableProvider {
                 );
         return LootTable.lootTable().withPool(builder);
     }
+
+
+    protected static LootTable.Builder createOreDrop(Block p_124140_, Item p_124141_) {
+        return createSilkTouchDispatchTable(p_124140_, applyExplosionDecay(p_124140_, LootItem.lootTableItem(p_124141_).apply(ApplyBonusCount.addOreBonusCount(Enchantments.BLOCK_FORTUNE))));
+    }
+
+    protected static LootTable.Builder createSilkTouchDispatchTable(Block p_124169_, LootPoolEntryContainer.Builder<?> p_124170_) {
+        return createSelfDropDispatchTable(p_124169_, HAS_SILK_TOUCH, p_124170_);
+    }
+
 
     protected static LootTable.Builder createOakLeavesDrops(Block pOakLeavesBlock, Block pSaplingBlock, float... pChances) {
         return createLeavesDrops(pOakLeavesBlock, pSaplingBlock, pChances).withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F)).when(HAS_NO_SHEARS_OR_SILK_TOUCH).add(applyExplosionCondition(pOakLeavesBlock, LootItem.lootTableItem(Items.APPLE)).when(BonusLevelTableCondition.bonusLevelFlatChance(Enchantments.BLOCK_FORTUNE, 0.005F, 0.0055555557F, 0.00625F, 0.008333334F, 0.025F))));

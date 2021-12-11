@@ -1,13 +1,13 @@
 package com.maciej916.indreb.common.registries;
 
-import com.maciej916.indreb.common.block.BlockOre;
-import com.maciej916.indreb.common.block.BlockResource;
-import com.maciej916.indreb.common.block.impl.BlockResinSheet;
+import com.maciej916.indreb.common.block.*;
 import com.maciej916.indreb.common.block.impl.battery_box.BlockBatteryBox;
 import com.maciej916.indreb.common.block.impl.cable.BlockCable;
+import com.maciej916.indreb.common.block.impl.cf.*;
+import com.maciej916.indreb.common.block.impl.generators.crystalline_generator.BlockCrystallineGenerator;
 import com.maciej916.indreb.common.block.impl.generators.generator.BlockGenerator;
 import com.maciej916.indreb.common.block.impl.generators.geo_generator.BlockGeoGenerator;
-import com.maciej916.indreb.common.block.impl.generators.solar_generator.BlockSolarGenerator;
+import com.maciej916.indreb.common.block.impl.generators.solar_panels.BlockSolarGenerator;
 import com.maciej916.indreb.common.block.impl.machines.alloy_smelter.BlockAlloySmelter;
 import com.maciej916.indreb.common.block.impl.machines.compressor.BlockCompressor;
 import com.maciej916.indreb.common.block.impl.machines.crusher.BlockCrusher;
@@ -20,12 +20,14 @@ import com.maciej916.indreb.common.block.impl.rubber_wood.*;
 import com.maciej916.indreb.common.generation.RubberTree;
 import com.maciej916.indreb.common.tier.BatteryBoxTier;
 import com.maciej916.indreb.common.tier.CableTier;
+import com.maciej916.indreb.common.tier.SolarGeneratorTier;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.Material;
+import net.minecraft.world.level.material.MaterialColor;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -36,7 +38,11 @@ public final class ModBlocks {
 
     public static Block GENERATOR;
     public static Block SOLAR_GENERATOR;
+    public static Block ADVANCED_SOLAR_GENERATOR;
+    public static Block HYBRID_SOLAR_GENERATOR;
+    public static Block QUANTUM_SOLAR_GENERATOR;
     public static Block GEO_GENERATOR;
+    public static Block CRYSTALLINE_GENERATOR;
 
     public static Block BATTERY_BOX;
     public static Block CESU;
@@ -81,17 +87,51 @@ public final class ModBlocks {
 
     public static Block BASIC_MACHINE_CASING;
     public static Block ADVANCED_MACHINE_CASING;
-    public static Block RESIN_SHEET;
 
-    public static Block WOODEN_ENERGY_CONVERTER;
+    public static Block RESIN_SHEET;
+    public static Block RUBBER_SHEET;
+
+    public static Block CONSTRUCTION_FOAM;
+    public static Block REINFORCED_CONSTRUCTION_FOAM;
+
+    public static Block CONSTRUCTION_FOAM_WALL_WHITE;
+    public static Block CONSTRUCTION_FOAM_WALL_RED;
+    public static Block CONSTRUCTION_FOAM_WALL_ORANGE;
+    public static Block CONSTRUCTION_FOAM_WALL_PINK;
+    public static Block CONSTRUCTION_FOAM_WALL_YELLOW;
+    public static Block CONSTRUCTION_FOAM_WALL_LIME;
+    public static Block CONSTRUCTION_FOAM_WALL_GREEN;
+    public static Block CONSTRUCTION_FOAM_WALL_LIGHT_BLUE;
+    public static Block CONSTRUCTION_FOAM_WALL_CYAN;
+    public static Block CONSTRUCTION_FOAM_WALL_BLUE;
+    public static Block CONSTRUCTION_FOAM_WALL_MAGENTA;
+    public static Block CONSTRUCTION_FOAM_WALL_PURPLE;
+    public static Block CONSTRUCTION_FOAM_WALL_BROWN;
+    public static Block CONSTRUCTION_FOAM_WALL_GRAY;
+    public static Block CONSTRUCTION_FOAM_WALL_LIGHT_GRAY;
+    public static Block CONSTRUCTION_FOAM_WALL_BLACK;
+
+    public static Block REINFORCED_GLASS;
+    public static Block REINFORCED_STONE;
+    public static Block REINFORCED_STONE_SLAB;
+    public static Block REINFORCED_STONE_STAIRS;
+
+    public static Block IRON_SCAFFOLDING;
+    public static Block IRON_FENCE;
+
+    public static Block LUMINATOR;
 
 
     @SubscribeEvent
     public static void registerBlocks(RegistryEvent.Register<Block> event) {
 
         GENERATOR = registerBlock(new BlockGenerator(), "generator");
-        SOLAR_GENERATOR = registerBlock(new BlockSolarGenerator(), "solar_generator");
+        SOLAR_GENERATOR = registerBlock(new BlockSolarGenerator(SolarGeneratorTier.BASIC), "solar_generator");
+        ADVANCED_SOLAR_GENERATOR = registerBlock(new BlockSolarGenerator(SolarGeneratorTier.ADVANCED), "advanced_solar_generator");
+        HYBRID_SOLAR_GENERATOR = registerBlock(new BlockSolarGenerator(SolarGeneratorTier.HYBRID), "hybrid_solar_generator");
+        QUANTUM_SOLAR_GENERATOR = registerBlock(new BlockSolarGenerator(SolarGeneratorTier.QUANTUM), "quantum_solar_generator");
         GEO_GENERATOR = registerBlock(new BlockGeoGenerator(), "geo_generator");
+//        CRYSTALLINE_GENERATOR = registerBlock(new BlockCrystallineGenerator(), "crystalline_generator");
 
         BATTERY_BOX = registerBlock(new BlockBatteryBox(BatteryBoxTier.BASIC, BlockBehaviour.Properties.of(Material.WOOD).strength(1f, 3f).sound(SoundType.WOOD)), "battery_box");
         CESU = registerBlock(new BlockBatteryBox(BatteryBoxTier.STANDARD, BlockBehaviour.Properties.of(Material.METAL).strength(1f, 3f).sound(SoundType.METAL)), "cesu");
@@ -118,13 +158,13 @@ public final class ModBlocks {
         HV_CABLE_INSULATED = registerBlock(new BlockCable(0.313F, CableTier.HV_CABLE_INSULATED), "hv_cable_insulated");
         GLASS_FIBRE_CABLE = registerBlock(new BlockCable(0.127F, CableTier.GLASS_FIBRE_CABLE), "glass_fibre_cable");
 
-        RUBBER_LOG = registerBlock(new BlockRubberLog(), "rubber_log");
-        RUBBER_WOOD = registerBlock(new BlockWood(), "rubber_wood");
-        RUBBER_LEAVES = registerBlock(new BlockLeaves(), "rubber_leaves");
-        RUBBER_PLANKS = registerBlock(new BlockPlanks(), "rubber_planks");
-        RUBBER_SAPLING = registerBlock(new BlockSapling(new RubberTree()), "rubber_sapling");
-        RUBBER_STAIRS = registerBlock(new BlockStairs(), "rubber_stairs");
-        RUBBER_SLAB = registerBlock(new BlockSlab(), "rubber_slab");
+        RUBBER_LOG = registerBlock(new RubberLog(), "rubber_log");
+        RUBBER_WOOD = registerBlock(new RubberWood(), "rubber_wood");
+        RUBBER_LEAVES = registerBlock(new RubberLeaves(), "rubber_leaves");
+        RUBBER_PLANKS = registerBlock(new RybberPlanks(), "rubber_planks");
+        RUBBER_SAPLING = registerBlock(new RubberSapling(new RubberTree()), "rubber_sapling");
+        RUBBER_STAIRS = registerBlock(new RubberStairs(), "rubber_stairs");
+        RUBBER_SLAB = registerBlock(new RubberSlab(), "rubber_slab");
 
         TIN_ORE = registerBlock(new BlockOre(), "tin_ore");
         DEEPSLATE_TIN_ORE = registerBlock(new BlockOre(), "deepslate_tin_ore");
@@ -136,7 +176,40 @@ public final class ModBlocks {
 
         BASIC_MACHINE_CASING = registerBlock(new BlockResource(1f, 3f), "basic_machine_casing");
         ADVANCED_MACHINE_CASING = registerBlock(new BlockResource(1f, 3f), "advanced_machine_casing");
-        RESIN_SHEET = registerBlock(new BlockResinSheet(), "resin_sheet");
+        RESIN_SHEET = registerBlock(new BlockSheet(0.7F), "resin_sheet");
+        RUBBER_SHEET = registerBlock(new BlockSheet(1.1F), "rubber_sheet");
+
+        CONSTRUCTION_FOAM = registerBlock(new BlockCF(), "construction_foam");
+        REINFORCED_CONSTRUCTION_FOAM = registerBlock(new BlockReinforcedCF(), "reinforced_construction_foam");
+
+        CONSTRUCTION_FOAM_WALL_WHITE = registerBlock(new BlockCFWall(MaterialColor.WOOD), "construction_foam_wall_white");
+        CONSTRUCTION_FOAM_WALL_RED = registerBlock(new BlockCFWall(MaterialColor.COLOR_RED), "construction_foam_wall_red");
+        CONSTRUCTION_FOAM_WALL_ORANGE = registerBlock(new BlockCFWall(MaterialColor.COLOR_ORANGE), "construction_foam_wall_orange");
+        CONSTRUCTION_FOAM_WALL_PINK = registerBlock(new BlockCFWall(MaterialColor.COLOR_PINK), "construction_foam_wall_pink");
+        CONSTRUCTION_FOAM_WALL_YELLOW = registerBlock(new BlockCFWall(MaterialColor.COLOR_YELLOW), "construction_foam_wall_yellow");
+        CONSTRUCTION_FOAM_WALL_LIME = registerBlock(new BlockCFWall(MaterialColor.COLOR_LIGHT_GREEN), "construction_foam_wall_lime");
+        CONSTRUCTION_FOAM_WALL_GREEN = registerBlock(new BlockCFWall(MaterialColor.COLOR_GREEN), "construction_foam_wall_green");
+        CONSTRUCTION_FOAM_WALL_LIGHT_BLUE = registerBlock(new BlockCFWall(MaterialColor.COLOR_LIGHT_BLUE), "construction_foam_wall_light_blue");
+        CONSTRUCTION_FOAM_WALL_CYAN = registerBlock(new BlockCFWall(MaterialColor.COLOR_CYAN), "construction_foam_wall_cyan");
+        CONSTRUCTION_FOAM_WALL_BLUE = registerBlock(new BlockCFWall(MaterialColor.COLOR_BLUE), "construction_foam_wall_blue");
+        CONSTRUCTION_FOAM_WALL_MAGENTA = registerBlock(new BlockCFWall(MaterialColor.COLOR_MAGENTA), "construction_foam_wall_magenta");
+        CONSTRUCTION_FOAM_WALL_PURPLE = registerBlock(new BlockCFWall(MaterialColor.COLOR_PURPLE), "construction_foam_wall_purple");
+        CONSTRUCTION_FOAM_WALL_BROWN = registerBlock(new BlockCFWall(MaterialColor.COLOR_BROWN), "construction_foam_wall_brown");
+        CONSTRUCTION_FOAM_WALL_GRAY = registerBlock(new BlockCFWall(MaterialColor.COLOR_GRAY), "construction_foam_wall_gray");
+        CONSTRUCTION_FOAM_WALL_LIGHT_GRAY = registerBlock(new BlockCFWall(MaterialColor.COLOR_LIGHT_GRAY), "construction_foam_wall_light_gray");
+        CONSTRUCTION_FOAM_WALL_BLACK = registerBlock(new BlockCFWall(MaterialColor.COLOR_BLACK), "construction_foam_wall_black");
+
+        REINFORCED_GLASS = registerBlock(new BlockReinforcedGlass(), "reinforced_glass");
+        REINFORCED_STONE = registerBlock(new BlockReinforcedStone(), "reinforced_stone");
+        REINFORCED_STONE_SLAB = registerBlock(new BlockReinforcedStoneSlab(), "reinforced_stone_slab");
+        REINFORCED_STONE_STAIRS = registerBlock(new BlockReinforcedStoneStairs(), "reinforced_stone_stairs");
+
+        IRON_SCAFFOLDING = registerBlock(new BlockWIP(), "iron_scaffolding");
+        IRON_FENCE = registerBlock(new BlockWIP(), "iron_fence");
+
+        LUMINATOR = registerBlock(new BlockWIP(), "luminator");
+
+
 
     }
 

@@ -1,0 +1,47 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "indreb:item/painter"
+    ]
+  },
+  "criteria": {
+    "iron_rod": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:iron_rod"
+            ]
+          }
+        ]
+      }
+    },
+    "white_wool": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:white_wool"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "indreb:item/painter"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "iron_rod",
+      "white_wool",
+      "has_the_recipe"
+    ]
+  ]
+}

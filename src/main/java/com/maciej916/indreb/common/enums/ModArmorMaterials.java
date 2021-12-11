@@ -17,11 +17,11 @@ public enum ModArmorMaterials implements ArmorMaterial {
         return Ingredient.of(ModItems.BRONZE_INGOT);
     }),
 
-    RUBBER("rubber", 15, new int[]{2, 5, 6, 2}, 9, SoundEvents.ARMOR_EQUIP_IRON, 0.0F, 0.0F, () -> {
+    RUBBER("rubber", 15, new int[]{0, 0, 0, 3}, 9, SoundEvents.ARMOR_EQUIP_IRON, 2.0F, 0.0F, () -> {
         return Ingredient.of(ModItems.BRONZE_INGOT);
     }),
 
-    NIGHTVISION("nightvision", 15, new int[]{2, 5, 6, 2}, 9, SoundEvents.ARMOR_EQUIP_IRON, 0.0F, 0.0F, () -> {
+    NIGHTVISION("nightvision", 15, new int[]{3, 0, 0, 0}, 9, SoundEvents.ARMOR_EQUIP_IRON, 2.0F, 0.0F, () -> {
         return Ingredient.of(ItemStack.EMPTY);
     }),
 

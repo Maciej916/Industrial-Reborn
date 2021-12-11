@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "indreb",
+  "pattern": [
+    "ppp",
+    "ftf",
+    "ppp"
+  ],
+  "key": {
+    "p": {
+      "item": "indreb:iron_plate"
+    },
+    "t": {
+      "item": "indreb:iron_rod"
+    },
+    "f": {
+      "item": "indreb:iron_fence"
+    }
+  },
+  "result": {
+    "item": "indreb:iron_scaffolding",
+    "count": 6
+  }
+}

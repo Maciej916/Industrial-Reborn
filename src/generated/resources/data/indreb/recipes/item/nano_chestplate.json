@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "indreb",
+  "pattern": [
+    "c c",
+    "cec",
+    "ccc"
+  ],
+  "key": {
+    "c": {
+      "item": "indreb:carbon_plate"
+    },
+    "e": {
+      "item": "indreb:energy_crystal"
+    }
+  },
+  "result": {
+    "item": "indreb:nano_chestplate"
+  }
+}

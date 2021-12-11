@@ -1,0 +1,47 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "indreb:item/painter_lime"
+    ]
+  },
+  "criteria": {
+    "painter": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:painter"
+            ]
+          }
+        ]
+      }
+    },
+    "lime_dye": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:lime_dye"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "indreb:item/painter_lime"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "painter",
+      "lime_dye",
+      "has_the_recipe"
+    ]
+  ]
+}

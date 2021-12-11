@@ -36,7 +36,7 @@ public class Extruding extends RecipeProvider {
         RecipeBuilderExtruding.builder(Blocks.OBSIDIAN, 1)
                 .setWaterCost(1000)
                 .setLavaCost(1000)
-                .setExperience(0.5F)
+                .setExperience(3F)
                 .addCriterion("item", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.EXTRUDER))
                 .setGroup("extruding")
                 .save(consumer,"obsidian");

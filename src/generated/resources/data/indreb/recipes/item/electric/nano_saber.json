@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "indreb",
+  "pattern": [
+    "ga ",
+    "ga ",
+    "cec"
+  ],
+  "key": {
+    "c": {
+      "item": "indreb:carbon_plate"
+    },
+    "e": {
+      "item": "indreb:energy_crystal"
+    },
+    "g": {
+      "item": "minecraft:glowstone_dust"
+    },
+    "a": {
+      "item": "indreb:advanced_alloy"
+    }
+  },
+  "result": {
+    "item": "indreb:nano_saber"
+  }
+}

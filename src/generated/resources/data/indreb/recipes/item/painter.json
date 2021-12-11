@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "indreb",
+  "pattern": [
+    "www",
+    "  i",
+    " i "
+  ],
+  "key": {
+    "i": {
+      "item": "indreb:iron_rod"
+    },
+    "w": {
+      "item": "minecraft:white_wool"
+    }
+  },
+  "result": {
+    "item": "indreb:painter"
+  }
+}

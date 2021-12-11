@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "indreb",
+  "pattern": [
+    "ww ",
+    "ww "
+  ],
+  "key": {
+    "w": {
+      "item": "indreb:rubber_log"
+    }
+  },
+  "result": {
+    "item": "indreb:rubber_wood",
+    "count": 3
+  }
+}

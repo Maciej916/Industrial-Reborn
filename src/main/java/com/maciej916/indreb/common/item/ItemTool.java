@@ -9,7 +9,7 @@ import net.minecraft.world.item.ItemStack;
 public class ItemTool extends Item {
 
     public ItemTool(int maxDamage) {
-        super(new Properties().tab(ModItemGroups.MAIN_ITEM_GROUP).stacksTo(1).durability(maxDamage));
+        super(new Properties().tab(ModItemGroups.MAIN_ITEM_GROUP).stacksTo(1).durability(maxDamage).setNoRepair());
     }
 
     @Override
@@ -31,4 +31,16 @@ public class ItemTool extends Item {
         if (pCategory == CreativeModeTab.TAB_TOOLS) pItems.add(new ItemStack(this));
         super.fillItemCategory(pCategory, pItems);
     }
+
+    @Override
+    public boolean isEnchantable(ItemStack p_41456_) {
+        return false;
+    }
+
+    @Override
+    public boolean isBookEnchantable(ItemStack stack, ItemStack book) {
+        return false;
+    }
+
+
 }

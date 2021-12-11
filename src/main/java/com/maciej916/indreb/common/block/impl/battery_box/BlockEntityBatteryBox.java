@@ -36,8 +36,11 @@ public class BlockEntityBatteryBox extends IndRebBlockEntity implements IEnergyB
         BatteryBoxTier batteryBoxTier = ((BlockBatteryBox) getBlock()).getBatteryBoxTier();
         EnergyTier energyTier = batteryBoxTier.getEnergyTier();
 
-        slots.add(new SlotBattery(0, 62, 52, false, EnergyTier.getTierWithAbove(energyTier)));
-        slots.add(new SlotBattery(1, 62, 20, true, EnergyTier.getTierWithAbove(energyTier)));
+//        slots.add(new SlotBattery(0, 62, 52, false, EnergyTier.getTierWithAbove(energyTier)));
+//        slots.add(new SlotBattery(1, 62, 20, true, EnergyTier.getTierWithAbove(energyTier)));
+
+        slots.add(new SlotElectric(0, 62, 52, InventorySlotType.ELECTRIC, GuiSlotType.NORMAL, false, EnergyTier.getTierWithAbove(energyTier)));
+        slots.add(new SlotElectric(1, 62, 20, InventorySlotType.ELECTRIC, GuiSlotType.NORMAL, true, EnergyTier.getTierWithAbove(energyTier)));
 
         slots.add(new SlotElectric(2, 8, 84, InventorySlotType.HELMET, GuiSlotType.HELMET, true, EnergyTier.getTierWithAbove(energyTier)));
         slots.add(new SlotElectric(3, 26, 84, InventorySlotType.CHESTPLATE, GuiSlotType.CHESTPLATE, true, EnergyTier.getTierWithAbove(energyTier)));

@@ -57,7 +57,7 @@ public class Generators extends RecipeProvider {
                 .pattern("gCg")
                 .pattern("PGP")
                 .define('g', Blocks.GLASS)
-                .define('C', ModItems.EMPTY_FLUID_CELL)
+                .define('C', ModItems.FLUID_CELL)
                 .define('P', ModItems.IRON_PLATE)
                 .define('G', ModBlocks.GENERATOR)
                 .group(MODID)
@@ -76,6 +76,44 @@ public class Generators extends RecipeProvider {
                 .group(MODID)
                 .unlockedBy("item", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.GENERATOR))
                 .save(consumer, saveResource("solar_generator"));
+
+
+        ShapedRecipeBuilder.shaped(ModBlocks.ADVANCED_SOLAR_GENERATOR, 1)
+                .pattern("ggg")
+                .pattern("asa")
+                .pattern("cmc")
+                .define('g', ModBlocks.REINFORCED_GLASS)
+                .define('a', ModItems.ADVANCED_ALLOY)
+                .define('s', ModBlocks.SOLAR_GENERATOR)
+                .define('c', ModItems.ADVANCED_CIRCUIT)
+                .define('m', ModBlocks.ADVANCED_MACHINE_CASING)
+                .group(MODID)
+                .unlockedBy("reinforced_glass", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.REINFORCED_GLASS))
+                .unlockedBy("advanced_alloy", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.ADVANCED_ALLOY))
+                .unlockedBy("solar_generator", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.SOLAR_GENERATOR))
+                .unlockedBy("advanced_circuit", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.ADVANCED_CIRCUIT))
+                .unlockedBy("advanced_machine_casing", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.ADVANCED_MACHINE_CASING))
+                .save(consumer, saveResource("advanced_solar_generator"));
+
+
+        ShapedRecipeBuilder.shaped(ModBlocks.HYBRID_SOLAR_GENERATOR, 1)
+                .pattern("ala")
+                .pattern("psp")
+                .pattern("cec")
+                .define('a', ModItems.CARBON_PLATE)
+                .define('l', Items.LAPIS_BLOCK)
+                .define('s', ModBlocks.ADVANCED_SOLAR_GENERATOR)
+                .define('p', ModItems.IRIDIUM_PLATE)
+                .define('c', ModItems.ADVANCED_CIRCUIT)
+                .define('e', ModItems.ENERGY_CRYSTAL)
+                .group(MODID)
+                .unlockedBy("carbon_plate", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.CARBON_PLATE))
+                .unlockedBy("lapis_block", InventoryChangeTrigger.TriggerInstance.hasItems(Items.LAPIS_BLOCK))
+                .unlockedBy("advanced_solar_generator", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.ADVANCED_SOLAR_GENERATOR))
+                .unlockedBy("iridium_plate", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.IRIDIUM_PLATE))
+                .unlockedBy("advanced_circuit", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.ADVANCED_CIRCUIT))
+                .unlockedBy("energy_crystal", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.ENERGY_CRYSTAL))
+                .save(consumer, saveResource("hybrid_solar_generator"));
 
     }
 

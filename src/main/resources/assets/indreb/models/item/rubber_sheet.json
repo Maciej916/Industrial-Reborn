@@ -1,0 +1,33 @@
+{   "parent": "block/block",
+    "display": {
+        "gui": {
+            "rotation": [ 30, 135, 0 ],
+            "translation": [ 0, 0, 0],
+            "scale":[ 0.625, 0.625, 0.625 ]
+        },
+        "fixed": {
+            "rotation": [ 0, 90, 0 ],
+            "translation": [ 0, 0, 0 ],
+            "scale": [ 0.5, 0.5, 0.5 ]
+        }
+    },
+    "ambientocclusion": false,
+    "textures": {
+        "all" : "indreb:block/rubber_sheet",
+        "particle": "#all"
+    },
+    "elements": [
+        {   "from": [ 0, 0, 0 ],
+            "to": [ 16, 2, 16 ],
+            "faces": {
+                "down":  { "uv": [ 0, 0, 16, 16 ], "texture": "#all" },
+                "up":    { "uv": [ 0, 0, 16, 16 ], "texture": "#all" },
+                "north": { "uv": [ 0, 0, 16, 2 ], "texture": "#all" },
+                "south": { "uv": [ 0, 0, 16, 2 ], "texture": "#all" },
+                "west":  { "uv": [ 0, 0, 16, 2 ], "texture": "#all" },
+                "east":  { "uv": [ 0, 0, 16, 2 ], "texture": "#all" }
+            },
+            "__comment": "Full wall"
+        }
+    ]
+}

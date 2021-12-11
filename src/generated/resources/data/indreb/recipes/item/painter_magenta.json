@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "indreb",
+  "ingredients": [
+    {
+      "item": "indreb:painter"
+    },
+    {
+      "item": "minecraft:magenta_dye"
+    }
+  ],
+  "result": {
+    "item": "indreb:painter_magenta"
+  }
+}
