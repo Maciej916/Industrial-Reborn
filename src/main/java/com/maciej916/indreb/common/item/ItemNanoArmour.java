@@ -196,4 +196,23 @@ public class ItemNanoArmour extends IndRebArmour implements IElectricItem {
             }
         }
     }
+
+    @org.jetbrains.annotations.Nullable
+    @Override
+    public CompoundTag getShareTag(ItemStack stack) {
+        CompoundTag nbt = stack.getOrCreateTag();
+        int energyStored = CapabilityUtil.getCapabilityHelper(stack, ModCapabilities.ENERGY).getIfPresentElse(IEnergy::energyStored, 0);
+        nbt.putInt("energyStored", energyStored);
+        return nbt;
+    }
+
+    @Override
+    public void readShareTag(ItemStack stack, @org.jetbrains.annotations.Nullable CompoundTag nbt) {
+        if (nbt != null) {
+            CapabilityUtil.getCapabilityHelper(stack, ModCapabilities.ENERGY).ifPresent(iEnergy -> {
+                iEnergy.setEnergy(nbt.getInt("energyStored"));
+            });
+        }
+        super.readShareTag(stack, nbt);
+    }
 }

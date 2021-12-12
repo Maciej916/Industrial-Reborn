@@ -3,6 +3,7 @@ package com.maciej916.indreb.common.block.impl.generators.geo_generator;
 import com.maciej916.indreb.common.block.BlockElectricMachine;
 import com.maciej916.indreb.common.block.impl.machines.extruder.BlockEntityExtruder;
 import com.maciej916.indreb.common.config.ServerConfig;
+import com.maciej916.indreb.common.enums.EnergyTier;
 import com.maciej916.indreb.common.enums.EnumLang;
 import com.maciej916.indreb.common.interfaces.block.IHasContainer;
 import com.maciej916.indreb.common.interfaces.block.IStateActive;
@@ -37,7 +38,7 @@ import java.util.List;
 public class BlockGeoGenerator extends BlockElectricMachine implements IStateFacing, IHasContainer, IStateActive {
 
     public BlockGeoGenerator() {
-        super(12, 0);
+        super(EnergyTier.BASIC,12, 0);
     }
 
     @Nullable
@@ -52,22 +53,19 @@ public class BlockGeoGenerator extends BlockElectricMachine implements IStateFac
 
     @Override
     public void appendHoverText(ItemStack pStack, @Nullable BlockGetter pLevel, List<Component> pTooltip, TooltipFlag pFlag) {
-        pTooltip.add(TextComponentUtil.build(
-                new TranslatableComponent(EnumLang.POWER_TIER.getTranslationKey()).withStyle(ChatFormatting.GRAY),
-                new TranslatableComponent(EnumLang.TIER_BASIC.getTranslationKey()).withStyle(ChatFormatting.GREEN)
-        ));
+        super.appendHoverText(pStack, pLevel, pTooltip, pFlag);
 
         pTooltip.add(TextComponentUtil.build(
                 new TranslatableComponent(EnumLang.GENERATE.getTranslationKey()).withStyle(ChatFormatting.GRAY),
-                new TranslatableComponent(EnumLang.POWER_TICK.getTranslationKey(), TextComponentUtil.getFormattedEnergyUnit(ServerConfig.geo_generator_tick_generate.get())).withStyle(ChatFormatting.GREEN)
+                new TranslatableComponent(EnumLang.POWER_TICK.getTranslationKey(), TextComponentUtil.getFormattedEnergyUnit(ServerConfig.geo_generator_tick_generate.get())).withStyle(getEnergyTier().getColor())
         ));
 
         pTooltip.add(TextComponentUtil.build(
                 new TranslatableComponent(EnumLang.OUTPUT.getTranslationKey()).withStyle(ChatFormatting.GRAY),
-                new TranslatableComponent(EnumLang.POWER_TICK.getTranslationKey(), TextComponentUtil.getFormattedEnergyUnit(ServerConfig.basic_tier_transfer.get())).withStyle(ChatFormatting.GREEN),
+                new TranslatableComponent(EnumLang.POWER_TICK.getTranslationKey(), TextComponentUtil.getFormattedEnergyUnit(ServerConfig.basic_tier_transfer.get())).withStyle(getEnergyTier().getColor()),
                 new TextComponent(" "),
                 new TranslatableComponent(EnumLang.CAPACITY.getTranslationKey()).withStyle(ChatFormatting.GRAY),
-                new TranslatableComponent(EnumLang.POWER.getTranslationKey(), TextComponentUtil.getFormattedEnergyUnit(ServerConfig.geo_generator_energy_capacity.get())).withStyle(ChatFormatting.GREEN)
+                new TranslatableComponent(EnumLang.POWER.getTranslationKey(), TextComponentUtil.getFormattedEnergyUnit(ServerConfig.geo_generator_energy_capacity.get())).withStyle(getEnergyTier().getColor())
         ));
     }
 

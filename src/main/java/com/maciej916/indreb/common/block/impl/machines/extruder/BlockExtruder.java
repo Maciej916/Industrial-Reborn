@@ -37,7 +37,7 @@ public class BlockExtruder extends BlockElectricMachine implements IStateFacing,
 
 
     public BlockExtruder() {
-        super(12, 0);
+        super(EnergyTier.BASIC,12, 0);
     }
 
     @Override
@@ -94,19 +94,16 @@ public class BlockExtruder extends BlockElectricMachine implements IStateFacing,
 
     @Override
     public void appendHoverText(ItemStack pStack, @Nullable BlockGetter pLevel, List<Component> pTooltip, TooltipFlag pFlag) {
-        pTooltip.add(TextComponentUtil.build(
-                new TranslatableComponent(EnumLang.POWER_TIER.getTranslationKey()).withStyle(ChatFormatting.GRAY),
-                new TranslatableComponent(EnumLang.TIER_BASIC.getTranslationKey()).withStyle(EnergyTier.BASIC.getColor())
-        ));
+        super.appendHoverText(pStack, pLevel, pTooltip, pFlag);
 
         pTooltip.add(TextComponentUtil.build(
                 new TranslatableComponent(EnumLang.ACCEPT.getTranslationKey()).withStyle(ChatFormatting.GRAY),
-                new TranslatableComponent(EnumLang.POWER_TICK.getTranslationKey(), TextComponentUtil.getFormattedEnergyUnit(ServerConfig.basic_tier_transfer.get())).withStyle(EnergyTier.BASIC.getColor())
+                new TranslatableComponent(EnumLang.POWER_TICK.getTranslationKey(), TextComponentUtil.getFormattedEnergyUnit(ServerConfig.basic_tier_transfer.get())).withStyle(getEnergyTier().getColor())
         ));
 
         pTooltip.add(TextComponentUtil.build(
                 new TranslatableComponent(EnumLang.CAPACITY.getTranslationKey()).withStyle(ChatFormatting.GRAY),
-                new TranslatableComponent(EnumLang.POWER.getTranslationKey(), TextComponentUtil.getFormattedEnergyUnit(ServerConfig.extruder_energy_capacity.get())).withStyle(EnergyTier.BASIC.getColor())
+                new TranslatableComponent(EnumLang.POWER.getTranslationKey(), TextComponentUtil.getFormattedEnergyUnit(ServerConfig.extruder_energy_capacity.get())).withStyle(getEnergyTier().getColor())
         ));
     }
 }

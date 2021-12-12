@@ -1,0 +1,243 @@
+{
+  "_comment": "Tooltip",
+  "itemGroup.indreb": "Industrial Reborn",
+
+  "indreb.generic": "%s",
+
+  "energy.indreb.power": "%s IE",
+  "energy.indreb.power_tick": "%s IE/t",
+
+  "tier.indreb.basic": "Базовый",
+  "tier.indreb.standard": "Стандарт",
+  "tier.indreb.advanced": "Расширенный",
+  "tier.indreb.super": "Супер",
+  "tier.indreb.ultra": "Ультра",
+  "tier.indreb.creative": "Творческий",
+
+  "gui.indreb.energy": "%s / %s IE",
+  "gui.indreb.fluid": "%s: %s/%s mB",
+  "gui.indreb.fluid_empty": "Пусто",
+
+  "gui.indreb.progress": "Прогресс %s/%s",
+  "gui.indreb.fuelBurnTimeProgress": "Время сжигания топлива %s/%s",
+  "gui.indreb.heat": "Нагрев: %s",
+  "gui.indreb.armour": "Броня",
+
+
+  "gui.indreb.can_operate_in": "Может работать через %sс",
+  "gui.indreb.can_operate": "Эта машина готова!",
+
+  "block.indreb.generator": "Генератор",
+  "block.indreb.geo_generator": "Геотермальный генератор",
+  "block.indreb.solar_generator": "Солнечная панель",
+  "block.indreb.advanced_solar_generator": "Расширенная солнечная панель",
+  "block.indreb.hybrid_solar_generator": "Гибридная солнечная панель",
+  "block.indreb.quantum_solar_generator": "Квантовая солнечная панель",
+  "block.indreb.crystalline_generator": "Кристаллический генератор",
+
+  "block.indreb.iron_furnace": "Железная печь",
+  "block.indreb.electric_furnace": "Электрическая печь",
+  "block.indreb.crusher": "Дробилка",
+  "block.indreb.compressor": "Компрессор",
+  "block.indreb.extractor": "Экстрактор",
+  "block.indreb.extruder": "Экструдер",
+  "block.indreb.sawmill": "Лесопильный завод",
+  "block.indreb.canning_machine": "Canning Machine",
+  "block.indreb.fluid_enricher": "Fluid Enricher",
+  "block.indreb.alloy_smelter": "Плавильный завод",
+
+  "block.indreb.tin_ore": "Оловянная руда",
+  "block.indreb.deepslate_tin_ore": "Оловоносный глубокий сланец",
+
+  "block.indreb.tin_block": "Оловянный блок",
+  "block.indreb.bronze_block": "Бронзовый блок",
+  "block.indreb.silver_block": "Серебряный блок",
+  "block.indreb.steel_block": "Стальной блок",
+
+  "block.indreb.basic_machine_casing": "Базовый корпус машины",
+  "block.indreb.advanced_machine_casing": "Улучшенный корпус машины",
+
+  "block.indreb.resin_sheet": "Латексный лист",
+  "block.indreb.rubber_sheet": "Резиновый лист",
+
+  "block.indreb.construction_foam": "Жидкая строительная пена",
+  "block.indreb.reinforced_construction_foam": "Укреплённая строительная пена",
+
+  "block.indreb.construction_foam_wall_white": "Белый пенобетон",
+  "block.indreb.construction_foam_wall_red": "Красный пенобетон",
+  "block.indreb.construction_foam_wall_orange": "Оранжевый пенобетон",
+  "block.indreb.construction_foam_wall_pink": "Розовый пенобетон",
+  "block.indreb.construction_foam_wall_yellow": "Жёлтый пенобетон",
+  "block.indreb.construction_foam_wall_lime": "Лаймовый пенобетон",
+  "block.indreb.construction_foam_wall_green": "Зелёный пенобетон",
+  "block.indreb.construction_foam_wall_light_blue": "Голубой пенобетон",
+  "block.indreb.construction_foam_wall_cyan": "Бирюзовый пенобетон",
+  "block.indreb.construction_foam_wall_blue": "Синий пенобетон",
+  "block.indreb.construction_foam_wall_magenta": "Сиреневый пенобетон",
+  "block.indreb.construction_foam_wall_purple": "Фиолетовый пенобетон",
+  "block.indreb.construction_foam_wall_brown": "Коричневый пенобетон",
+  "block.indreb.construction_foam_wall_gray": "Серый пенобетон",
+  "block.indreb.construction_foam_wall_light_gray": "Светло-серый пенобетон",
+  "block.indreb.construction_foam_wall_black": "Чёрный пенобетон",
+
+  "block.indreb.reinforced_glass": "Укреплённое стекло",
+  "block.indreb.reinforced_stone": "Укреплённый камень",
+  "block.indreb.reinforced_stone_slab": "Укреплённая каменная плита",
+  "block.indreb.reinforced_stone_stairs": "Укреплённая каменная ступенька",
+
+  "block.indreb.iron_scaffolding": "Железные леса",
+  "block.indreb.iron_fence": "Железный забор",
+
+  "block.indreb.luminator": "Электролампа",
+
+  "block.indreb.rubber_sapling": "Саженец гевеи",
+  "block.indreb.rubber_planks": "Доски гевеи",
+  "block.indreb.rubber_leaves": "Листва гевеи",
+  "block.indreb.rubber_wood": "Гевея",
+  "block.indreb.rubber_log": "Бревно гевеи",
+  "block.indreb.rubber_stairs": "Ступеньки гевеи",
+  "block.indreb.rubber_slab": "Плита гевеи",
+
+
+  "block.indreb.tin_cable": "Оловянный провод",
+  "block.indreb.tin_cable_insulated": "Изолированный оловянный провод",
+  "block.indreb.copper_cable": "Медный провод",
+  "block.indreb.copper_cable_insulated": "Изолированный медный провод",
+  "block.indreb.gold_cable": "Золотой провод",
+  "block.indreb.gold_cable_insulated": "Изолированный золотой провод",
+  "block.indreb.hv_cable": "Высоковольтный кабель",
+  "block.indreb.hv_cable_insulated": "Изолированный высоковольтный кабель",
+  "block.indreb.glass_fibre_cable": "Стекловолоконный провод",
+
+  "item.indreb.sticky_resin": "Латексный лист",
+  "item.indreb.rubber": "Резина",
+  "item.indreb.sawdust": "Опилки",
+
+  "item.indreb.raw_tin": "Сырая олово",
+  "item.indreb.tin_ingot": "Оловянный слиток",
+  "item.indreb.bronze_ingot": "Бронзовый слиток",
+  "item.indreb.silver_ingot": "Серебряный слиток",
+  "item.indreb.steel_ingot": "Стальной слиток",
+  "item.indreb.mixed_metal_ingot": "Композитный слиток",
+
+  "item.indreb.crushed_tin": "Измельчённая оловянная руда",
+  "item.indreb.crushed_copper": "Измельчённая медная руда",
+  "item.indreb.crushed_gold": "Измельчённая золотая руда",
+  "item.indreb.crushed_iron": "Измельчённая железная руда",
+
+  "item.indreb.copper_plate": "Медная пластина",
+  "item.indreb.tin_plate": "Оловянная пластина",
+  "item.indreb.iron_plate": "Железная пластина",
+  "item.indreb.gold_plate": "Золотая пластина",
+  "item.indreb.bronze_plate": "Бронзовая пластина",
+  "item.indreb.steel_plate": "Стальная пластина",
+  "item.indreb.iridium_plate": "Иридиевая пластина",
+
+  "item.indreb.coal_dust": "Угольная пыль",
+  "item.indreb.diamond_dust": "Алмазная пыль",
+  "item.indreb.silver_dust": "Серебряная пыль",
+  "item.indreb.stone_dust": "Каменная пыль",
+  "item.indreb.deepslate_dust": "Глубокая сланцевая пыль",
+
+  "item.indreb.iron_rod": "Железный стержень",
+
+  "item.indreb.electronic_circuit": "Электросхема",
+  "item.indreb.advanced_circuit": "Улучшенная электросхема",
+
+  "item.indreb.carbon_fibers": "Углеволокно",
+  "item.indreb.combined_carbon_fibers": "Углеткань",
+  "item.indreb.carbon_plate": "Углепластик",
+
+  "item.indreb.advanced_alloy": "Композит",
+
+  "item.indreb.nightvision_goggles": "Прибор ночного видения",
+  "item.indreb.rubber_boots": "Резиновые ботинки",
+
+  "item.indreb.bronze_helmet": "Бронзовый шлем",
+  "item.indreb.bronze_chestplate": "Бронзовый нагрудник",
+  "item.indreb.bronze_leggings": "Бронзовые поножи",
+  "item.indreb.bronze_boots": "Бронзовые ботинки",
+
+  "item.indreb.bronze_sword": "Бронзовый меч",
+  "item.indreb.bronze_pickaxe": "Бронзовая кирка",
+  "item.indreb.bronze_axe": "Бронзовый топор",
+  "item.indreb.bronze_shovel": "Бронзовая лопата",
+  "item.indreb.bronze_hoe": "Бронзовая мотыга",
+
+  "item.indreb.nano_helmet": "Нановолоконный шлем",
+  "item.indreb.nano_chestplate": "Нановолоконный жилет",
+  "item.indreb.nano_leggings": "Нановолоконные поножи",
+  "item.indreb.nano_boots": "Нановолоконные ботинки",
+  "item.indreb.nano_saber": "Наносабля",
+
+  "item.indreb.energium_dust": "Энергетическая пыль",
+
+  "item.indreb.battery": "Аккумулятор",
+  "item.indreb.advanced_battery": "Улучшенный аккумулятор",
+  "item.indreb.energy_crystal": "Энергетический кристалл",
+  "item.indreb.lapotron_crystal": "Лазуротроновый кристалл",
+
+  "item.indreb.fluid_cell": "Универсальная жидкостная капсула",
+
+  "item.indreb.painter": "Валик",
+  "item.indreb.painter_white": "Белый валик",
+  "item.indreb.painter_red": "Красный валик",
+  "item.indreb.painter_orange": "Оранжевый валик",
+  "item.indreb.painter_pink": "Розовый валик",
+  "item.indreb.painter_yellow": "Жёлтый валик",
+  "item.indreb.painter_lime": "Лаймовый валик",
+  "item.indreb.painter_green": "Зелёный валик",
+  "item.indreb.painter_light_blue": "Голубой валик",
+  "item.indreb.painter_cyan": "Бирюзовый валик",
+  "item.indreb.painter_blue": "Синий валик",
+  "item.indreb.painter_magenta": "Сиреневый валик",
+  "item.indreb.painter_purple": "Фиолетовый валик",
+  "item.indreb.painter_brown": "Коричневый валик",
+  "item.indreb.painter_gray": "Тёмно-серый валик",
+  "item.indreb.painter_light_gray": "Светло-серый валик",
+  "item.indreb.painter_black": "Чёрный валик",
+
+  "item.indreb.treetap": "Краник",
+  "item.indreb.wrench": "Электроключ",
+  "item.indreb.hammer": "Кузнечный молот",
+  "item.indreb.cutter": "Кусачки",
+
+  "block.indreb.battery_box": "Энергохранилище",
+  "block.indreb.cesu": "МЭСН",
+  "block.indreb.mfe": "МФЭ",
+  "block.indreb.mfsu": "МФСУ",
+
+  "block.indreb.wooden_energy_converter": "Преобразователь энергии из дерева",
+
+  "jei.indreb.crushing": "Дробление",
+  "jei.indreb.compressing": "Сжатие",
+  "jei.indreb.extracting": "Извлечение",
+  "jei.indreb.sawing": "Распиловка",
+  "jei.indreb.extruding": "Экструдирование",
+  "jei.indreb.alloy_smelting": "Плавка сплавов",
+
+  "jei.indreb.chance": "Шанс: %s",
+
+  "gui.indreb.collect_exp": "Собрать опыт",
+
+  "tooltip.indreb.wip": "Работа в процессе!",
+
+  "tooltip.indreb.power_tier": "Энергоуровень: %s",
+  "tooltip.indreb.generate": "Производить: %s",
+  "tooltip.indreb.output": "Выход: %s",
+  "tooltip.indreb.transfer": "вход/выход: %s",
+  "tooltip.indreb.capacity": "Емкость: %s",
+  "tooltip.indreb.output_capacity": "Выход: %s Емкость: %s",
+  "tooltip.indreb.accept_capacity": "Вход: %s Емкость: %s",
+  "tooltip.indreb.accept": "Вход: %s",
+  "tooltip.indreb.accept_output": "Вход: %s Output: %s",
+  "tooltip.indreb.stored": "Хранится: %s",
+  "tooltip.indreb.stored_capacity": "Хранится: %s Емкость: %s",
+
+  "tooltip.indreb.cable_unisolated": "Этот кабель может убить вас электрическим током!",
+
+
+
+
+  "test.indreb.test": "%s"
+}

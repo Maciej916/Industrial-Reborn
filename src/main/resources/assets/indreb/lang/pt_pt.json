@@ -1,14 +1,12 @@
 {
-  "_comment": "Global",
+  "_comment": "Tooltip",
   "itemGroup.indreb": "Industrial Reborn",
 
   "indreb.generic": "%s",
 
-  "_comment": "Energy",
   "energy.indreb.power": "%s IE",
   "energy.indreb.power_tick": "%s IE/t",
 
-  "_comment": "Tier",
   "tier.indreb.basic": "Básico",
   "tier.indreb.standard": "Comum",
   "tier.indreb.advanced": "Avançado",
@@ -16,24 +14,26 @@
   "tier.indreb.ultra": "Ultra",
   "tier.indreb.creative": "Criativo",
 
-  "_comment": "GUI",
   "gui.indreb.energy": "%s / %s IE",
   "gui.indreb.fluid": "%s: %s/%s mB",
   "gui.indreb.fluid_empty": "Vazio",
 
   "gui.indreb.progress": "Progresso %s/%s",
   "gui.indreb.fuelBurnTimeProgress": "Tempo de queima do combustível %s/%s",
-  "gui.indreb.heat": "Heat: %s",
+  "gui.indreb.heat": "Calor: %s",
   "gui.indreb.armour": "Armadura",
 
 
   "gui.indreb.can_operate_in": "Pode produzir em %ss",
   "gui.indreb.can_operate": "Essa máquina esta pronta!",
 
-  "_comment": "Block",
   "block.indreb.generator": "Gerador",
   "block.indreb.geo_generator": "Gerador geotérmico",
   "block.indreb.solar_generator": "Generador solar",
+  "block.indreb.advanced_solar_generator": "Painel solar avançado",
+  "block.indreb.hybrid_solar_generator": "Painel solar híbrido",
+  "block.indreb.quantum_solar_generator": "Painel solar quântico",
+  "block.indreb.crystalline_generator": "Gerador cristalino",
 
   "block.indreb.iron_furnace": "Fornalha de ferro",
   "block.indreb.electric_furnace": "Fornalha elétrica",
@@ -42,6 +42,8 @@
   "block.indreb.extractor": "Extrator",
   "block.indreb.extruder": "Extrudora",
   "block.indreb.sawmill": "Serraria",
+  "block.indreb.canning_machine": "Canning Machine",
+  "block.indreb.fluid_enricher": "Fluid Enricher",
   "block.indreb.alloy_smelter": "Forno de fundição",
 
   "block.indreb.tin_ore": "Minério de estanho",
@@ -83,12 +85,11 @@
   "block.indreb.reinforced_stone_slab": "Laje de pedra reforçada",
   "block.indreb.reinforced_stone_stairs": "Escada de pedra reforçada",
 
-  "block.indreb.iron_scaffolding": "Andaime de ferro,
+  "block.indreb.iron_scaffolding": "Andaime de ferro",
   "block.indreb.iron_fence": "Cerca de ferro",
 
-  "block.indreb.luminator": "Iluminária",
+  "block.indreb.luminator": "Luminária",
 
-  "_comment": "Rubber Wood",
   "block.indreb.rubber_sapling": "Muda de seringueira",
   "block.indreb.rubber_planks": "Tábuas de seringueira",
   "block.indreb.rubber_leaves": "Folhas de seringueira",
@@ -98,7 +99,6 @@
   "block.indreb.rubber_slab": "Laje de seringueira",
 
 
-  "_comment": "Cabo",
   "block.indreb.tin_cable": "Cabo de estanho",
   "block.indreb.tin_cable_insulated": "Cabo de estanho isolado",
   "block.indreb.copper_cable": "Cabo de cobre",
@@ -109,18 +109,18 @@
   "block.indreb.hv_cable_insulated": "Cabo AT isolado",
   "block.indreb.glass_fibre_cable": "Cabo de fibra de vidro",
 
-  "_comment": "Item",
   "item.indreb.sticky_resin": "Resina pegajosa",
   "item.indreb.rubber": "Borracha",
-  "item.indreb.sawdust": "Serraria",
+  "item.indreb.sawdust": "Serragem",
 
+  "item.indreb.raw_tin": "Estanho bruto",
   "item.indreb.tin_ingot": "Barra de estanho",
   "item.indreb.bronze_ingot": "Barra de bronze",
   "item.indreb.silver_ingot": "Barra de prata",
   "item.indreb.steel_ingot": "Barra de aço",
   "item.indreb.mixed_metal_ingot": "Liga de metais",
 
-  "item.indreb.crushed_tin": "Estranho triturado",
+  "item.indreb.crushed_tin": "Estanho triturado",
   "item.indreb.crushed_copper": "Cobre triturado",
   "item.indreb.crushed_gold": "Ouro triturado",
   "item.indreb.crushed_iron": "Ferro triturado",
@@ -130,7 +130,8 @@
   "item.indreb.iron_plate": "Placa de ferro",
   "item.indreb.gold_plate": "Placa de ouro",
   "item.indreb.bronze_plate": "Placa de bronze",
-  "item.indreb.steel_plate": "Placa de aço",
+  "item.indreb.steel_plate": "Placa de irídio",
+  "item.indreb.iridium_plate": "Iridium Plate",
 
   "item.indreb.coal_dust": "Pó de carvão",
   "item.indreb.diamond_dust": "Pó de diamante",
@@ -174,7 +175,7 @@
   "item.indreb.battery": "Bateria",
   "item.indreb.advanced_battery": "Bateria avançada",
   "item.indreb.energy_crystal": "Cristal de energia",
-  "item.indreb.lapotron_crystal": "Cristal lapotron",
+  "item.indreb.lapotron_crystal": "Cristal lapotrônico",
 
   "item.indreb.fluid_cell": "Célula de fluído",
 
@@ -201,16 +202,13 @@
   "item.indreb.hammer": "Martelo",
   "item.indreb.cutter": "Alicate",
 
-  "_comment": "Battery Box",
   "block.indreb.battery_box": "Caixa de baterias",
   "block.indreb.cesu": "CESU",
   "block.indreb.mfe": "MFE",
   "block.indreb.mfsu": "MFSU",
 
-  "_comment": "Energy Converter",
   "block.indreb.wooden_energy_converter": "Conversor de energia de madeira",
 
-  "_comment": "JEI",
   "jei.indreb.crushing": "Maceração",
   "jei.indreb.compressing": "Compressão",
   "jei.indreb.extracting": "Extração",
@@ -220,10 +218,8 @@
 
   "jei.indreb.chance": "Chance: %s",
 
-  "_comment": "GUI",
   "gui.indreb.collect_exp": "Coletar XP",
 
-  "_comment": "Tooltip",
   "tooltip.indreb.wip": "Trabalho em progresso!",
 
   "tooltip.indreb.power_tier": "Nível energético: %s",
@@ -233,7 +229,7 @@
   "tooltip.indreb.capacity": "Capacidade: %s",
   "tooltip.indreb.output_capacity": "Saída: %s Capacidade: %s",
   "tooltip.indreb.accept_capacity": "Aceita: %s Capacidade: %s",
-  "tooltip.indreb.accept": "Accept: %s",
+  "tooltip.indreb.accept": "Aceita: %s",
   "tooltip.indreb.accept_output": "Aceita: %s Saída: %s",
   "tooltip.indreb.stored": "Armazenado: %s",
   "tooltip.indreb.stored_capacity": "Armazenado: %s Capacidade: %s",

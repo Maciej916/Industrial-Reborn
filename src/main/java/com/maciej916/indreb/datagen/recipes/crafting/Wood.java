@@ -52,6 +52,8 @@ public class Wood extends RecipeProvider {
                 .unlockedBy("item", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.RUBBER_LOG))
                 .save(consumer, saveResource("rubber_wood"));
 
+
+
     }
 
 }

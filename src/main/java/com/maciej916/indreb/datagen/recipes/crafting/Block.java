@@ -232,6 +232,24 @@ public class Block extends RecipeProvider {
                 .save(consumer, saveResource("iron_scaffolding"));
 
 
+        ShapedRecipeBuilder.shaped(ModBlocks.REINFORCED_STONE_SLAB, 6)
+                .pattern("rrr")
+                .define('r', ModBlocks.REINFORCED_STONE)
+                .group(MODID)
+                .unlockedBy("reinforced_stone", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.REINFORCED_STONE))
+                .save(consumer, saveResource("reinforced_stone_slab"));
+
+
+        ShapedRecipeBuilder.shaped(ModBlocks.REINFORCED_STONE_STAIRS, 4)
+                .pattern("r  ")
+                .pattern("rr ")
+                .pattern("rrr")
+                .define('r', ModBlocks.REINFORCED_STONE)
+                .group(MODID)
+                .unlockedBy("reinforced_stone", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.REINFORCED_STONE))
+                .save(consumer, saveResource("reinforced_stone_stairs"));
+
+
     }
 
 }

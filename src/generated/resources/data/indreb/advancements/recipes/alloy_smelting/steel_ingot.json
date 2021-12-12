@@ -1,0 +1,47 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "indreb:alloy_smelting/steel_ingot"
+    ]
+  },
+  "criteria": {
+    "coal_dust": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:coal_dust"
+            ]
+          }
+        ]
+      }
+    },
+    "iron_ingot": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:iron_ingot"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "indreb:alloy_smelting/steel_ingot"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "coal_dust",
+      "iron_ingot",
+      "has_the_recipe"
+    ]
+  ]
+}

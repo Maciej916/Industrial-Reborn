@@ -2,17 +2,22 @@ package com.maciej916.indreb.common.block.impl.generators.generator;
 
 import com.maciej916.indreb.common.block.BlockElectricMachine;
 import com.maciej916.indreb.common.config.ServerConfig;
+import com.maciej916.indreb.common.energy.interfaces.IEnergy;
+import com.maciej916.indreb.common.enums.EnergyTier;
 import com.maciej916.indreb.common.enums.EnumLang;
 import com.maciej916.indreb.common.interfaces.block.IHasContainer;
 import com.maciej916.indreb.common.interfaces.block.IStateActive;
 import com.maciej916.indreb.common.interfaces.block.IStateFacing;
 import com.maciej916.indreb.common.registries.Config;
+import com.maciej916.indreb.common.registries.ModCapabilities;
 import com.maciej916.indreb.common.util.BlockStateHelper;
+import com.maciej916.indreb.common.util.CapabilityUtil;
 import com.maciej916.indreb.common.util.TextComponentUtil;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TextComponent;
 import net.minecraft.network.chat.TranslatableComponent;
@@ -34,7 +39,7 @@ import java.util.Random;
 public class BlockGenerator extends BlockElectricMachine implements IStateFacing, IHasContainer, IStateActive {
 
     public BlockGenerator() {
-        super(12, 0);
+        super(EnergyTier.BASIC, 12, 0);
     }
 
     @Nullable
@@ -68,22 +73,20 @@ public class BlockGenerator extends BlockElectricMachine implements IStateFacing
 
     @Override
     public void appendHoverText(ItemStack pStack, @Nullable BlockGetter pLevel, List<Component> pTooltip, TooltipFlag pFlag) {
-        pTooltip.add(TextComponentUtil.build(
-            new TranslatableComponent(EnumLang.POWER_TIER.getTranslationKey()).withStyle(ChatFormatting.GRAY),
-            new TranslatableComponent(EnumLang.TIER_BASIC.getTranslationKey()).withStyle(ChatFormatting.GREEN)
-        ));
+        super.appendHoverText(pStack, pLevel, pTooltip, pFlag);
 
         pTooltip.add(TextComponentUtil.build(
             new TranslatableComponent(EnumLang.GENERATE.getTranslationKey()).withStyle(ChatFormatting.GRAY),
-            new TranslatableComponent(EnumLang.POWER_TICK.getTranslationKey(), TextComponentUtil.getFormattedEnergyUnit(ServerConfig.generator_tick_generate.get())).withStyle(ChatFormatting.GREEN)
+            new TranslatableComponent(EnumLang.POWER_TICK.getTranslationKey(), TextComponentUtil.getFormattedEnergyUnit(ServerConfig.generator_tick_generate.get())).withStyle(getEnergyTier().getColor())
         ));
 
         pTooltip.add(TextComponentUtil.build(
             new TranslatableComponent(EnumLang.OUTPUT.getTranslationKey()).withStyle(ChatFormatting.GRAY),
-            new TranslatableComponent(EnumLang.POWER_TICK.getTranslationKey(), TextComponentUtil.getFormattedEnergyUnit(ServerConfig.basic_tier_transfer.get())).withStyle(ChatFormatting.GREEN),
+            new TranslatableComponent(EnumLang.POWER_TICK.getTranslationKey(), TextComponentUtil.getFormattedEnergyUnit(ServerConfig.basic_tier_transfer.get())).withStyle(getEnergyTier().getColor()),
             new TextComponent(" "),
             new TranslatableComponent(EnumLang.CAPACITY.getTranslationKey()).withStyle(ChatFormatting.GRAY),
-            new TranslatableComponent(EnumLang.POWER.getTranslationKey(), TextComponentUtil.getFormattedEnergyUnit(ServerConfig.generator_energy_capacity.get())).withStyle(ChatFormatting.GREEN)
+            new TranslatableComponent(EnumLang.POWER.getTranslationKey(), TextComponentUtil.getFormattedEnergyUnit(ServerConfig.generator_energy_capacity.get())).withStyle(getEnergyTier().getColor())
         ));
+
     }
 }

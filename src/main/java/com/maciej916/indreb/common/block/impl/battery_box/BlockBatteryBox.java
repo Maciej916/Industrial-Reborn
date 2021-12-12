@@ -1,6 +1,5 @@
 package com.maciej916.indreb.common.block.impl.battery_box;
 
-import com.maciej916.indreb.common.block.IndRebBlock;
 import com.maciej916.indreb.common.block.IndRebEntityBlock;
 import com.maciej916.indreb.common.enums.EnumLang;
 import com.maciej916.indreb.common.interfaces.block.IHasContainer;

@@ -249,7 +249,7 @@ public class IndRebBlockEntity extends BlockEntity implements IHasSlot {
         this.batteryHandler = new ItemStackHandler(slots.size()) {
             @Override
             public boolean isItemValid(final int slot, @Nonnull final ItemStack stack) {
-                return stack.getItem().getTags().contains(ELECTRICS);
+                return stack.getItem().getTags().contains(ELECTRICS_RES);
             }
 
             @Override

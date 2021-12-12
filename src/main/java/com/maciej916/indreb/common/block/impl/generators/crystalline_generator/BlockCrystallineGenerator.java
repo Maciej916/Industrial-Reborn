@@ -2,6 +2,7 @@ package com.maciej916.indreb.common.block.impl.generators.crystalline_generator;
 
 import com.maciej916.indreb.common.block.BlockElectricMachine;
 import com.maciej916.indreb.common.config.ServerConfig;
+import com.maciej916.indreb.common.enums.EnergyTier;
 import com.maciej916.indreb.common.enums.EnumLang;
 import com.maciej916.indreb.common.interfaces.block.IHasContainer;
 import com.maciej916.indreb.common.interfaces.block.IStateActive;
@@ -33,7 +34,7 @@ import java.util.Random;
 public class BlockCrystallineGenerator extends BlockElectricMachine implements IStateFacing, IHasContainer, IStateActive {
 
     public BlockCrystallineGenerator() {
-        super(12, 0);
+        super(EnergyTier.STANDARD, 12, 0);
     }
 
     @Nullable
@@ -48,22 +49,22 @@ public class BlockCrystallineGenerator extends BlockElectricMachine implements I
 
     @Override
     public void appendHoverText(ItemStack pStack, @Nullable BlockGetter pLevel, List<Component> pTooltip, TooltipFlag pFlag) {
-        pTooltip.add(TextComponentUtil.build(
-            new TranslatableComponent(EnumLang.POWER_TIER.getTranslationKey()).withStyle(ChatFormatting.GRAY),
-            new TranslatableComponent(EnumLang.TIER_STANDARD.getTranslationKey()).withStyle(ChatFormatting.YELLOW)
-        ));
+        super.appendHoverText(pStack, pLevel, pTooltip, pFlag);
 
         pTooltip.add(TextComponentUtil.build(
             new TranslatableComponent(EnumLang.GENERATE.getTranslationKey()).withStyle(ChatFormatting.GRAY),
-            new TranslatableComponent(EnumLang.POWER_TICK.getTranslationKey(), TextComponentUtil.getFormattedEnergyUnit(ServerConfig.crystalline_generator_tick_generate.get())).withStyle(ChatFormatting.YELLOW)
+            new TranslatableComponent(EnumLang.POWER_TICK.getTranslationKey(), TextComponentUtil.getFormattedEnergyUnit(ServerConfig.crystalline_generator_tick_generate.get())).withStyle(getEnergyTier().getColor())
         ));
 
         pTooltip.add(TextComponentUtil.build(
             new TranslatableComponent(EnumLang.OUTPUT.getTranslationKey()).withStyle(ChatFormatting.GRAY),
-            new TranslatableComponent(EnumLang.POWER_TICK.getTranslationKey(), TextComponentUtil.getFormattedEnergyUnit(ServerConfig.standard_tier_transfer.get())).withStyle(ChatFormatting.YELLOW),
+            new TranslatableComponent(EnumLang.POWER_TICK.getTranslationKey(), TextComponentUtil.getFormattedEnergyUnit(ServerConfig.standard_tier_transfer.get())).withStyle(getEnergyTier().getColor()),
             new TextComponent(" "),
             new TranslatableComponent(EnumLang.CAPACITY.getTranslationKey()).withStyle(ChatFormatting.GRAY),
-            new TranslatableComponent(EnumLang.POWER.getTranslationKey(), TextComponentUtil.getFormattedEnergyUnit(ServerConfig.crystalline_generator_energy_capacity.get())).withStyle(ChatFormatting.YELLOW)
+            new TranslatableComponent(EnumLang.POWER.getTranslationKey(), TextComponentUtil.getFormattedEnergyUnit(ServerConfig.crystalline_generator_energy_capacity.get())).withStyle(getEnergyTier().getColor())
         ));
+
+        pTooltip.add(new TranslatableComponent(EnumLang.WIP.getTranslationKey()).withStyle(ChatFormatting.RED));
+
     }
 }

@@ -46,6 +46,8 @@
   "block.indreb.extractor": "Extractor",
   "block.indreb.extruder": "Extruder",
   "block.indreb.sawmill": "Sawmill",
+  "block.indreb.canning_machine": "Canning Machine",
+  "block.indreb.fluid_enricher": "Fluid Enricher",
   "block.indreb.alloy_smelter": "Alloy Smelter",
 
   "block.indreb.tin_ore": "Tin Ore",

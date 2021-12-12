@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "indreb",
+  "pattern": [
+    "rrr"
+  ],
+  "key": {
+    "r": {
+      "item": "indreb:reinforced_stone"
+    }
+  },
+  "result": {
+    "item": "indreb:reinforced_stone_slab",
+    "count": 6
+  }
+}

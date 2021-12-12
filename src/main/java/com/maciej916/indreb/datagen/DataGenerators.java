@@ -6,7 +6,9 @@ import com.maciej916.indreb.datagen.loottables.LootTables;
 import com.maciej916.indreb.datagen.recipes.crafting.*;
 import com.maciej916.indreb.datagen.recipes.machines.*;
 import com.maciej916.indreb.datagen.tags.Tags;
+import com.maciej916.indreb.datagen.tags.TagsItem;
 import net.minecraft.data.DataGenerator;
+import net.minecraftforge.common.data.ForgeBlockTagsProvider;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.forge.event.lifecycle.GatherDataEvent;
@@ -42,8 +44,12 @@ public class DataGenerators {
             generator.addProvider(new Extruding(generator));
             generator.addProvider(new AlloySmelting(generator));
 
+
             generator.addProvider(new LootTables(generator));
-            generator.addProvider(new Tags(generator, event.getExistingFileHelper()));
+
+            Tags blockTags = new Tags(generator, event.getExistingFileHelper());
+            generator.addProvider(blockTags);
+            generator.addProvider(new TagsItem(generator, blockTags, event.getExistingFileHelper()));
         }
 
         if (event.includeClient()) {

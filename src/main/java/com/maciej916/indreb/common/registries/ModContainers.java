@@ -6,11 +6,13 @@ import com.maciej916.indreb.common.block.impl.generators.generator.ContainerGene
 import com.maciej916.indreb.common.block.impl.generators.geo_generator.ContainerGeoGenerator;
 import com.maciej916.indreb.common.block.impl.generators.solar_panels.ContainerSolarGenerator;
 import com.maciej916.indreb.common.block.impl.machines.alloy_smelter.ContainerAlloySmelter;
+import com.maciej916.indreb.common.block.impl.machines.canning_machine.ContainerCanningMachine;
 import com.maciej916.indreb.common.block.impl.machines.compressor.ContainerCompressor;
 import com.maciej916.indreb.common.block.impl.machines.crusher.ContainerCrusher;
 import com.maciej916.indreb.common.block.impl.machines.electric_furnace.ContainerElectricFurnace;
 import com.maciej916.indreb.common.block.impl.machines.extractor.ContainerExtractor;
 import com.maciej916.indreb.common.block.impl.machines.extruder.ContainerExtruder;
+import com.maciej916.indreb.common.block.impl.machines.fluid_enricher.ContainerFluidEnricher;
 import com.maciej916.indreb.common.block.impl.machines.iron_furnace.ContainerIronFurnace;
 import com.maciej916.indreb.common.block.impl.machines.sawmill.ContainerSawmill;
 import net.minecraft.world.inventory.AbstractContainerMenu;
@@ -39,6 +41,9 @@ public final class ModContainers {
     public static MenuType<ContainerExtractor> EXTRACTOR;
     public static MenuType<ContainerSawmill> SAWMILL;
     public static MenuType<ContainerExtruder> EXTRUDER;
+    public static MenuType<ContainerCanningMachine> CANNING_MACHINE;
+    public static MenuType<ContainerFluidEnricher> FLUID_ENRICHER;
+
     public static MenuType<ContainerAlloySmelter> ALLOY_SMELTER;
 
 
@@ -61,6 +66,9 @@ public final class ModContainers {
         EXTRACTOR = registerContainer("extractor", IForgeMenuType.create(ContainerExtractor::new));
         SAWMILL = registerContainer("sawmill", IForgeMenuType.create(ContainerSawmill::new));
         EXTRUDER = registerContainer("extruder", IForgeMenuType.create(ContainerExtruder::new));
+        CANNING_MACHINE = registerContainer("canning_machine", IForgeMenuType.create(ContainerCanningMachine::new));
+        FLUID_ENRICHER = registerContainer("fluid_enricher", IForgeMenuType.create(ContainerFluidEnricher::new));
+
         ALLOY_SMELTER = registerContainer("alloy_smelter", IForgeMenuType.create(ContainerAlloySmelter::new));
 
 

@@ -36,12 +36,12 @@ public class ElectricSlotHandler extends SlotItemHandler {
         }
 
         return switch (inventorySlotType) {
-            case ELECTRIC -> stack.getItem().getTags().contains(ModTags.ELECTRICS) || stack.getItem().getTags().contains(ModTags.BATTERIES);
-            case BATTERY -> stack.getItem().getTags().contains(ModTags.BATTERIES);
-            case HELMET -> stack.getItem().getTags().contains(ModTags.HELMET);
-            case CHESTPLATE -> stack.getItem().getTags().contains(ModTags.CHESTPLATE);
-            case LEGGINGS -> stack.getItem().getTags().contains(ModTags.LEGGINGS);
-            case BOOTS -> stack.getItem().getTags().contains(ModTags.BOOTS);
+            case ELECTRIC -> stack.getItem().getTags().contains(ModTags.ELECTRICS_RES) || stack.getItem().getTags().contains(ModTags.BATTERIES_RES);
+            case BATTERY -> stack.getItem().getTags().contains(ModTags.BATTERIES_RES);
+            case HELMET -> stack.getItem().getTags().contains(ModTags.HELMET_RES);
+            case CHESTPLATE -> stack.getItem().getTags().contains(ModTags.CHESTPLATE_RES);
+            case LEGGINGS -> stack.getItem().getTags().contains(ModTags.LEGGINGS_RES);
+            case BOOTS -> stack.getItem().getTags().contains(ModTags.BOOTS_RES);
             default -> false;
         };
     }

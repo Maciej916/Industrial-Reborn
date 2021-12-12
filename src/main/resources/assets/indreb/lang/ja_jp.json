@@ -1,15 +1,12 @@
 {
-  "_comment": "Global",
+  "_comment": "Tooltip",
   "itemGroup.indreb": "Industrial Reborn",
-
 
   "indreb.generic": "%s",
 
-  "_comment": "Energy",
   "energy.indreb.power": "%s IE",
   "energy.indreb.power_tick": "%s IE/t",
 
-  "_comment": "Tier",
   "tier.indreb.basic": "低圧",
   "tier.indreb.standard": "中圧",
   "tier.indreb.advanced": "高圧",
@@ -17,7 +14,6 @@
   "tier.indreb.ultra": "最上",
   "tier.indreb.creative": "クリエイティブ",
 
-  "_comment": "GUI",
   "gui.indreb.energy": "%s / %s IE",
   "gui.indreb.fluid": "%s: %s/%s mB",
   "gui.indreb.fluid_empty": "空",
@@ -31,10 +27,13 @@
   "gui.indreb.can_operate_in": "残り時間： %ss",
   "gui.indreb.can_operate": "準備完了",
 
-  "_comment": "Block",
   "block.indreb.generator": "火力発電機",
   "block.indreb.geo_generator": "地熱発電記r",
   "block.indreb.solar_generator": "太陽光発電機",
+  "block.indreb.advanced_solar_generator": "Advanced Solar Panel",
+  "block.indreb.hybrid_solar_generator": "Hybrid Solar Panel",
+  "block.indreb.quantum_solar_generator": "Quantum Solar Panel",
+  "block.indreb.crystalline_generator": "Crystalline Generator",
 
   "block.indreb.iron_furnace": "鉄かまど",
   "block.indreb.electric_furnace": "電気かまど",
@@ -43,6 +42,8 @@
   "block.indreb.extractor": "抽出機",
   "block.indreb.extruder": "押出機",
   "block.indreb.sawmill": "製材機",
+  "block.indreb.canning_machine": "Canning Machine",
+  "block.indreb.fluid_enricher": "Fluid Enricher",
   "block.indreb.alloy_smelter": "溶鉱炉",
 
   "block.indreb.tin_ore": "スズ鉱石",
@@ -89,7 +90,6 @@
 
   "block.indreb.luminator": "ルミネーター",
 
-  "_comment": "Rubber Wood",
   "block.indreb.rubber_sapling": "ゴムの苗木",
   "block.indreb.rubber_planks": "ゴムの木材",
   "block.indreb.rubber_leaves": "ゴムの葉",
@@ -99,7 +99,6 @@
   "block.indreb.rubber_slab": "ゴムのハーフブロック",
 
 
-  "_comment": "Cable",
   "block.indreb.tin_cable": "スズのケーブル",
   "block.indreb.tin_cable_insulated": "被覆されたスズのケーブル",
   "block.indreb.copper_cable": "銅のケーブル",
@@ -110,11 +109,11 @@
   "block.indreb.hv_cable_insulated": "被覆された鉄のケーブル",
   "block.indreb.glass_fibre_cable": "グラスファイバー",
 
-  "_comment": "Item",
   "item.indreb.sticky_resin": "生ゴム",
   "item.indreb.rubber": "ゴム",
   "item.indreb.sawdust": "木粉",
 
+  "item.indreb.raw_tin": "Raw Tin",
   "item.indreb.tin_ingot": "スズインゴット",
   "item.indreb.bronze_ingot": "青銅インゴット",
   "item.indreb.silver_ingot": "銀インゴット",
@@ -132,6 +131,7 @@
   "item.indreb.gold_plate": "金板",
   "item.indreb.bronze_plate": "青銅板",
   "item.indreb.steel_plate": "鋼鉄板",
+  "item.indreb.iridium_plate": "Iridium Plate",
 
   "item.indreb.coal_dust": "石炭粉末",
   "item.indreb.diamond_dust": "ダイヤモンド粉末",
@@ -202,16 +202,13 @@
   "item.indreb.hammer": "ハンマー",
   "item.indreb.cutter": "カッター",
 
-  "_comment": "Battery Box",
   "block.indreb.battery_box": "低圧蓄電器",
   "block.indreb.cesu": "中圧蓄電器",
   "block.indreb.mfe": "高圧蓄電器",
   "block.indreb.mfsu": "超高圧蓄電器",
 
-  "_comment": "Energy Converter",
   "block.indreb.wooden_energy_converter": "低圧変圧器",
 
-  "_comment": "JEI",
   "jei.indreb.crushing": "粉砕",
   "jei.indreb.compressing": "圧縮",
   "jei.indreb.extracting": "抽出",
@@ -221,10 +218,8 @@
 
   "jei.indreb.chance": "確率：: %s",
 
-  "_comment": "GUI",
   "gui.indreb.collect_exp": "収集済み経験値",
 
-  "_comment": "Tooltip",
   "tooltip.indreb.wip": "開発中：使用非推奨",
 
   "tooltip.indreb.power_tier": "電圧： %s",
@@ -240,6 +235,9 @@
   "tooltip.indreb.stored_capacity": "蓄積： %s 容量： %s",
 
   "tooltip.indreb.cable_unisolated": "接触により感電の恐れあり：危険",
+
+
+
 
   "test.indreb.test": "%s"
 }

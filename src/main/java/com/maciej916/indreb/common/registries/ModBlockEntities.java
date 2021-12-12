@@ -7,11 +7,13 @@ import com.maciej916.indreb.common.block.impl.generators.generator.BlockEntityGe
 import com.maciej916.indreb.common.block.impl.generators.geo_generator.BlockEntityGeoGenerator;
 import com.maciej916.indreb.common.block.impl.generators.solar_panels.BlockEntitySolarGenerator;
 import com.maciej916.indreb.common.block.impl.machines.alloy_smelter.BlockEntityAlloySmelter;
+import com.maciej916.indreb.common.block.impl.machines.canning_machine.BlockEntityCanningMachine;
 import com.maciej916.indreb.common.block.impl.machines.compressor.BlockEntityCompressor;
 import com.maciej916.indreb.common.block.impl.machines.crusher.BlockEntityCrusher;
 import com.maciej916.indreb.common.block.impl.machines.electric_furnace.BlockEntityElectricFurnace;
 import com.maciej916.indreb.common.block.impl.machines.extractor.BlockEntityExtractor;
 import com.maciej916.indreb.common.block.impl.machines.extruder.BlockEntityExtruder;
+import com.maciej916.indreb.common.block.impl.machines.fluid_enricher.BlockEntityFluidEnricher;
 import com.maciej916.indreb.common.block.impl.machines.iron_furnace.BlockEntityIronFurnace;
 import com.maciej916.indreb.common.block.impl.machines.sawmill.BlockEntitySawmill;
 import net.minecraft.world.level.block.entity.BlockEntity;
@@ -29,8 +31,6 @@ public final class ModBlockEntities {
     public static BlockEntityType<BlockEntityGeoGenerator> GEO_GENERATOR;
     public static BlockEntityType<BlockEntityCrystallineGenerator> CRYSTALLINE_GENERATOR;
 
-//    public static BlockEntityType<BlockEntityWoodenBatteryBox> WOODEN_BATTERY_BOX;
-
     public static BlockEntityType<BlockEntityIronFurnace> IRON_FURNACE;
     public static BlockEntityType<BlockEntityElectricFurnace> ELECTRIC_FURNACE;
 
@@ -39,7 +39,12 @@ public final class ModBlockEntities {
     public static BlockEntityType<BlockEntityExtractor> EXTRACTOR;
     public static BlockEntityType<BlockEntitySawmill> SAWMILL;
     public static BlockEntityType<BlockEntityExtruder> EXTRUDER;
+    public static BlockEntityType<BlockEntityCanningMachine> CANNING_MACHINE;
+    public static BlockEntityType<BlockEntityFluidEnricher> FLUID_ENRICHER;
+
     public static BlockEntityType<BlockEntityAlloySmelter> ALLOY_SMELTER;
+
+
 
     public static BlockEntityType<BlockEntityCable> CABLE;
     public static BlockEntityType<BlockEntityBatteryBox> BATTERY_BOX;
@@ -50,9 +55,7 @@ public final class ModBlockEntities {
         GENERATOR = registerTileEntity("generator", BlockEntityType.Builder.of(BlockEntityGenerator::new, ModBlocks.GENERATOR).build(null));
         SOLAR_GENERATOR = registerTileEntity("solar_generator", BlockEntityType.Builder.of(BlockEntitySolarGenerator::new, ModBlocks.SOLAR_GENERATOR, ModBlocks.ADVANCED_SOLAR_GENERATOR, ModBlocks.HYBRID_SOLAR_GENERATOR, ModBlocks.QUANTUM_SOLAR_GENERATOR).build(null));
         GEO_GENERATOR = registerTileEntity("geo_generator", BlockEntityType.Builder.of(BlockEntityGeoGenerator::new, ModBlocks.GEO_GENERATOR).build(null));
-//        CRYSTALLINE_GENERATOR = registerTileEntity("crystalline_generator", BlockEntityType.Builder.of(BlockEntityCrystallineGenerator::new, ModBlocks.CRYSTALLINE_GENERATOR).build(null));
-
-//        WOODEN_BATTERY_BOX = registerTileEntity("wooden_battery_box", BlockEntityType.Builder.of(BlockEntityWoodenBatteryBox::new, ModBlocks.WOODEN_BATTERY_BOX).build(null));
+        CRYSTALLINE_GENERATOR = registerTileEntity("crystalline_generator", BlockEntityType.Builder.of(BlockEntityCrystallineGenerator::new, ModBlocks.CRYSTALLINE_GENERATOR).build(null));
 
         IRON_FURNACE = registerTileEntity("iron_furnace", BlockEntityType.Builder.of(BlockEntityIronFurnace::new, ModBlocks.IRON_FURNACE).build(null));
         ELECTRIC_FURNACE = registerTileEntity("electric_furnace", BlockEntityType.Builder.of(BlockEntityElectricFurnace::new, ModBlocks.ELECTRIC_FURNACE).build(null));
@@ -62,6 +65,9 @@ public final class ModBlockEntities {
         EXTRACTOR = registerTileEntity("extractor", BlockEntityType.Builder.of(BlockEntityExtractor::new, ModBlocks.EXTRACTOR).build(null));
         SAWMILL = registerTileEntity("sawmill", BlockEntityType.Builder.of(BlockEntitySawmill::new, ModBlocks.SAWMILL).build(null));
         EXTRUDER = registerTileEntity("extruder", BlockEntityType.Builder.of(BlockEntityExtruder::new, ModBlocks.EXTRUDER).build(null));
+        CANNING_MACHINE = registerTileEntity("canning_machine", BlockEntityType.Builder.of(BlockEntityCanningMachine::new, ModBlocks.CANNING_MACHINE).build(null));
+        FLUID_ENRICHER = registerTileEntity("fluid_enricher", BlockEntityType.Builder.of(BlockEntityFluidEnricher::new, ModBlocks.FLUID_ENRICHER).build(null));
+
         ALLOY_SMELTER = registerTileEntity("alloy_smelter", BlockEntityType.Builder.of(BlockEntityAlloySmelter::new, ModBlocks.ALLOY_SMELTER).build(null));
 
         CABLE = registerTileEntity("cable", BlockEntityType.Builder.of(BlockEntityCable::new, ModBlocks.TIN_CABLE, ModBlocks.TIN_CABLE_INSULATED, ModBlocks.COPPER_CABLE, ModBlocks.COPPER_CABLE_INSULATED).build(null));

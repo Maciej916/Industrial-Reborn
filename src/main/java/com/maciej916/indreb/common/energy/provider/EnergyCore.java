@@ -31,7 +31,9 @@ public class EnergyCore extends CapabilityFluidHandler implements IEnergyCore, I
 
     private final Level world;
     public EnergyNetworks networks;
-    private final HashSet<BlockPos> energyBlocks = new HashSet<>();
+    private HashSet<BlockPos> energyBlocks = new HashSet<>();
+    private final LazyOptional<IEnergyCore> energyCoreLazyOptional = LazyOptional.of(() -> this);
+
 
     public EnergyCore(Level world) {
         this.world = world;
@@ -155,6 +157,9 @@ public class EnergyCore extends CapabilityFluidHandler implements IEnergyCore, I
                 addEnergyExtractedBlock(pos, distributed);
                 en.getEnergy().receiveEnergy(distributed, false);
 
+                CompoundTag tag = en.getStack().getOrCreateTag();
+                tag.putInt("energyStored", en.getEnergy().energyStored());
+
                 chargeLeft -= distributed;
                 if (chargeLeft > 0 && --size > 0) {
                     chargeSplit = chargeLeft / size;
@@ -183,6 +188,9 @@ public class EnergyCore extends CapabilityFluidHandler implements IEnergyCore, I
                 int maxEnergy = Math.min(distributeSplit, en.getEnergy().maxExtract());
                 int distributed = en.getEnergy().extractEnergy(maxEnergy, false);
                 energyTo.receiveEnergy(distributed, false);
+
+                CompoundTag tag = en.getStack().getOrCreateTag();
+                tag.putInt("energyStored", en.getEnergy().energyStored());
 
                 addEnergyReceivedBlock(pos, distributed);
                 distributeLeft -= distributed;
@@ -220,12 +228,12 @@ public class EnergyCore extends CapabilityFluidHandler implements IEnergyCore, I
                                     if (isCharging) {
                                         if (e.canReceiveEnergy() && energyStorage.canExtractEnergy() && energyStorage.maxExtract() > 0) {
                                             chargeMax.addAndGet(e.maxReceive());
-                                            transferCharge.add(new EnergyReceiveComparator(e));
+                                            transferCharge.add(new EnergyReceiveComparator(e, stack));
                                         }
                                     } else {
                                         if (e.canExtractEnergy() && energyStorage.canReceiveEnergy() && energyStorage.maxReceive() > 0) {
                                             dischargeMax.addAndGet(e.maxExtract());
-                                            transferDischarge.add(new EnergyExtractComparator(e));
+                                            transferDischarge.add(new EnergyExtractComparator(e , stack));
                                         }
                                     }
                                 });
@@ -715,7 +723,7 @@ public class EnergyCore extends CapabilityFluidHandler implements IEnergyCore, I
         transferTouching();
 
         // Bad?
-        transferTransmitter();
+//        transferTransmitter();
 
         // Good?
         transferFromCables();
@@ -731,17 +739,19 @@ public class EnergyCore extends CapabilityFluidHandler implements IEnergyCore, I
     @Nonnull
     @Override
     public <T> LazyOptional<T> getCapability(@Nonnull Capability<T> cap, @Nullable Direction side) {
-        return ModCapabilities.ENERGY_CORE.orEmpty(cap, LazyOptional.of(() -> this));
+        if (cap == ModCapabilities.ENERGY_CORE) {
+            return energyCoreLazyOptional.cast();
+        }
+        return LazyOptional.empty();
     }
 
     @Override
     public CompoundTag serializeNBT() {
         CompoundTag nbt = new CompoundTag();
 
-        int i = 0;
-        for (BlockPos pos : this.energyBlocks) {
-            nbt.putLong(String.valueOf(++i), pos.asLong());
-        }
+        List<Long> blocks = new ArrayList<>();
+        this.energyBlocks.forEach(pos -> blocks.add(pos.asLong()));
+        nbt.putLongArray("energyBlocks", blocks);
 
         nbt.put("networks", networks.serializeNBT());
         return nbt;
@@ -749,10 +759,18 @@ public class EnergyCore extends CapabilityFluidHandler implements IEnergyCore, I
 
     @Override
     public void deserializeNBT(CompoundTag nbt) {
-        for (String key : nbt.getAllKeys()) {
-            BlockPos pos = BlockPos.of(nbt.getLong(key));
-            energyBlocks.add(pos);
+
+        HashSet<BlockPos> nbtConnections = new HashSet<>();
+        for (long longPos : nbt.getLongArray("energyBlocks")) {
+            BlockPos pos = BlockPos.of(longPos);
+            nbtConnections.add(pos);
         }
+        this.energyBlocks = nbtConnections;
+
+//        for (String key : nbt.getAllKeys()) {
+//            BlockPos pos = BlockPos.of(nbt.getLong(key));
+//            energyBlocks.add(pos);
+//        }
 
         this.networks.deserializeNBT(nbt.getCompound("networks"));
     }

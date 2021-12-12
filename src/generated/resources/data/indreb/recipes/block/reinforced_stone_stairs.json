@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "indreb",
+  "pattern": [
+    "r  ",
+    "rr ",
+    "rrr"
+  ],
+  "key": {
+    "r": {
+      "item": "indreb:reinforced_stone"
+    }
+  },
+  "result": {
+    "item": "indreb:reinforced_stone_stairs",
+    "count": 4
+  }
+}

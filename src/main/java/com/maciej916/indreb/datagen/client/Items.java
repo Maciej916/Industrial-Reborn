@@ -5,6 +5,8 @@ import com.maciej916.indreb.common.registries.ModBlocks;
 import com.maciej916.indreb.common.registries.ModItems;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.level.block.Block;
 import net.minecraftforge.client.model.generators.ItemModelBuilder;
 import net.minecraftforge.client.model.generators.ItemModelProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
@@ -17,100 +19,288 @@ public class Items extends ItemModelProvider {
 
     @Override
     protected void registerModels() {
-
-        singleTexture(ModItems.STONE_DUST.getRegistryName().getPath(),
-                new ResourceLocation("item/generated"),"layer0",
-                new ResourceLocation(IndReb.MODID, "item/dust/stone"));
-
-        singleTexture(ModItems.DEEPSLATE_DUST.getRegistryName().getPath(),
-                new ResourceLocation("item/generated"),"layer0",
-                new ResourceLocation(IndReb.MODID, "item/dust/deepslate"));
-
-
-
-
-        // Example generation for a simple textured item:
-        //        singleTexture(
-        //                Registration.TESTITEM.get().getRegistryName().getPath(),
-        //                new ResourceLocation("item/handheld"),
-        //                "layer0",
-        //                new ResourceLocation(Tutorial.MODID, "item/firstitem"));
-
-//        getBuilder(Registration.TESTITEM.get().getRegistryName().getPath())
-//                .parent(getExistingFile(mcLoc("item/handheld")))
-//                .texture("layer0", "item/firstitem0")
-//                .override().predicate(DISTANCE_PROPERTY, 0).model(createTestModel(0)).end()
-//                .override().predicate(DISTANCE_PROPERTY, 1).model(createTestModel(1)).end()
-//                .override().predicate(DISTANCE_PROPERTY, 2).model(createTestModel(2)).end()
-//                .override().predicate(DISTANCE_PROPERTY, 3).model(createTestModel(3)).end();
-
-//        withExistingParent(ModBlocks.RUBBER_SHEET.getRegistryName().getPath(), new ResourceLocation(IndReb.MODID, "block/rubber_sheet"));
-
-
+        registerOres();
+        registerRaw();
+        registerIngots();
+        registerRods();
+        registerCrushed();
+        registerPlates();
+        registerDusts();
         registerPainter();
         registerConstructionFoam();
+        registerTools();
+        registerElectricTools();
+        registerBatteries();
+        registerArmour();
+        registerBlocks();
+        registerRubber();
+        registerGenerators();
+        registerMachines();
+        registerBatteryBox();
+        registerCraftng();
+        registerCables();
 
+        createGeneratedTexture(ModItems.FLUID_CELL, "fluid_cell");
 
-        withExistingParent(ModBlocks.REINFORCED_GLASS.getRegistryName().getPath(), new ResourceLocation(IndReb.MODID, "block/reinforced_glass"));
-        withExistingParent(ModBlocks.REINFORCED_STONE.getRegistryName().getPath(), new ResourceLocation(IndReb.MODID, "block/reinforced_stone"));
-        withExistingParent(ModBlocks.REINFORCED_STONE_SLAB.getRegistryName().getPath(), new ResourceLocation(IndReb.MODID, "block/reinforced_stone_slab"));
-        withExistingParent(ModBlocks.REINFORCED_STONE_STAIRS.getRegistryName().getPath(), new ResourceLocation(IndReb.MODID, "block/reinforced_stone_stairs"));
+        createWithBlock(ModBlocks.BASIC_MACHINE_CASING, "basic_machine_casing");
+        createWithBlock(ModBlocks.ADVANCED_MACHINE_CASING, "advanced_machine_casing");
 
-        withExistingParent(ModBlocks.IRON_SCAFFOLDING.getRegistryName().getPath(), new ResourceLocation(IndReb.MODID, "block/iron_scaffolding"));
-        withExistingParent(ModBlocks.IRON_FENCE.getRegistryName().getPath(), new ResourceLocation(IndReb.MODID, "block/iron_fence"));
+        createWithBlock(ModBlocks.REINFORCED_GLASS, "reinforced_glass");
+        createWithBlock(ModBlocks.REINFORCED_STONE, "reinforced_stone");
+        createWithBlock(ModBlocks.REINFORCED_STONE_SLAB, "reinforced_stone_slab");
+        createWithBlock(ModBlocks.REINFORCED_STONE_STAIRS, "reinforced_stone_stairs");
 
-        withExistingParent(ModBlocks.LUMINATOR.getRegistryName().getPath(), new ResourceLocation(IndReb.MODID, "block/luminator"));
+        createWithBlock(ModBlocks.IRON_SCAFFOLDING, "iron_scaffolding");
+        createWithBlock(ModBlocks.IRON_FENCE, "iron_fence");
 
-
-
-
+        createWithBlock(ModBlocks.LUMINATOR, "luminator");
     }
 
+    protected void registerOres() {
+        createWithBlock(ModBlocks.TIN_ORE, "tin_ore");
+        createWithBlock(ModBlocks.DEEPSLATE_TIN_ORE, "deepslate_tin_ore");
+    }
+
+    protected void registerRaw() {
+        createGeneratedTexture(ModItems.RAW_TIN, "raw/tin");
+    }
+
+    protected void registerIngots() {
+        createGeneratedTexture(ModItems.TIN_INGOT, "ingot/tin");
+        createGeneratedTexture(ModItems.BRONZE_INGOT, "ingot/bronze");
+        createGeneratedTexture(ModItems.MIXED_METAL_INGOT, "ingot/mixed_metal");
+        createGeneratedTexture(ModItems.SILVER_INGOT, "ingot/silver");
+        createGeneratedTexture(ModItems.STEEL_INGOT, "ingot/steel");
+    }
+
+    protected void registerRods() {
+        createGeneratedTexture(ModItems.IRON_ROD, "rod/iron");
+    }
+
+    protected void registerCrushed() {
+        createGeneratedTexture(ModItems.CRUSHED_TIN, "crushed/tin");
+        createGeneratedTexture(ModItems.CRUSHED_COPPER, "crushed/copper");
+        createGeneratedTexture(ModItems.CRUSHED_GOLD, "crushed/gold");
+        createGeneratedTexture(ModItems.CRUSHED_IRON, "crushed/iron");
+    }
+
+    protected void registerPlates() {
+        createGeneratedTexture(ModItems.BRONZE_PLATE, "plate/bronze");
+        createGeneratedTexture(ModItems.GOLD_PLATE, "plate/gold");
+        createGeneratedTexture(ModItems.IRON_PLATE, "plate/iron");
+        createGeneratedTexture(ModItems.IRIDIUM_PLATE, "plate/iridium");
+        createGeneratedTexture(ModItems.TIN_PLATE, "plate/tin");
+        createGeneratedTexture(ModItems.STEEL_PLATE, "plate/steel");
+        createGeneratedTexture(ModItems.COPPER_PLATE, "plate/copper");
+    }
+
+    protected void registerDusts() {
+        createGeneratedTexture(ModItems.STONE_DUST, "dust/stone");
+        createGeneratedTexture(ModItems.DEEPSLATE_DUST, "dust/deepslate");
+        createGeneratedTexture(ModItems.COAL_DUST, "dust/coal");
+        createGeneratedTexture(ModItems.DIAMOND_DUST, "dust/diamond");
+        createGeneratedTexture(ModItems.ENERGIUM_DUST, "dust/energium");
+        createGeneratedTexture(ModItems.SILVER_DUST, "dust/silver");
+        createGeneratedTexture(ModItems.SAWDUST, "dust/sawdust");
+   }
+
     protected void registerPainter() {
-        singleTexture(ModItems.PAINTER.getRegistryName().getPath(), new ResourceLocation("item/handheld"),"layer0", new ResourceLocation(IndReb.MODID, "item/tool/painter/painter"));
-        singleTexture(ModItems.PAINTER_WHITE.getRegistryName().getPath(), new ResourceLocation("item/handheld"),"layer0", new ResourceLocation(IndReb.MODID, "item/tool/painter/painter_white"));
-        singleTexture(ModItems.PAINTER_RED.getRegistryName().getPath(), new ResourceLocation("item/handheld"),"layer0", new ResourceLocation(IndReb.MODID, "item/tool/painter/painter_red"));
-        singleTexture(ModItems.PAINTER_ORANGE.getRegistryName().getPath(), new ResourceLocation("item/handheld"),"layer0", new ResourceLocation(IndReb.MODID, "item/tool/painter/painter_orange"));
-        singleTexture(ModItems.PAINTER_PINK.getRegistryName().getPath(), new ResourceLocation("item/handheld"),"layer0", new ResourceLocation(IndReb.MODID, "item/tool/painter/painter_pink"));
-        singleTexture(ModItems.PAINTER_YELLOW.getRegistryName().getPath(), new ResourceLocation("item/handheld"),"layer0", new ResourceLocation(IndReb.MODID, "item/tool/painter/painter_yellow"));
-        singleTexture(ModItems.PAINTER_LIME.getRegistryName().getPath(), new ResourceLocation("item/handheld"),"layer0", new ResourceLocation(IndReb.MODID, "item/tool/painter/painter_lime"));
-        singleTexture(ModItems.PAINTER_GREEN.getRegistryName().getPath(), new ResourceLocation("item/handheld"),"layer0", new ResourceLocation(IndReb.MODID, "item/tool/painter/painter_green"));
-        singleTexture(ModItems.PAINTER_LIGHT_BLUE.getRegistryName().getPath(), new ResourceLocation("item/handheld"),"layer0", new ResourceLocation(IndReb.MODID, "item/tool/painter/painter_light_blue"));
-        singleTexture(ModItems.PAINTER_CYAN.getRegistryName().getPath(), new ResourceLocation("item/handheld"),"layer0", new ResourceLocation(IndReb.MODID, "item/tool/painter/painter_cyan"));
-        singleTexture(ModItems.PAINTER_BLUE.getRegistryName().getPath(), new ResourceLocation("item/handheld"),"layer0", new ResourceLocation(IndReb.MODID, "item/tool/painter/painter_blue"));
-        singleTexture(ModItems.PAINTER_MAGENTA.getRegistryName().getPath(), new ResourceLocation("item/handheld"),"layer0", new ResourceLocation(IndReb.MODID, "item/tool/painter/painter_magenta"));
-        singleTexture(ModItems.PAINTER_PURPLE.getRegistryName().getPath(), new ResourceLocation("item/handheld"),"layer0", new ResourceLocation(IndReb.MODID, "item/tool/painter/painter_purple"));
-        singleTexture(ModItems.PAINTER_BROWN.getRegistryName().getPath(), new ResourceLocation("item/handheld"),"layer0", new ResourceLocation(IndReb.MODID, "item/tool/painter/painter_brown"));
-        singleTexture(ModItems.PAINTER_GRAY.getRegistryName().getPath(), new ResourceLocation("item/handheld"),"layer0", new ResourceLocation(IndReb.MODID, "item/tool/painter/painter_gray"));
-        singleTexture(ModItems.PAINTER_LIGHT_GRAY.getRegistryName().getPath(), new ResourceLocation("item/handheld"),"layer0", new ResourceLocation(IndReb.MODID, "item/tool/painter/painter_light_gray"));
-        singleTexture(ModItems.PAINTER_BLACK.getRegistryName().getPath(), new ResourceLocation("item/handheld"),"layer0", new ResourceLocation(IndReb.MODID, "item/tool/painter/painter_black"));
+        createHandheldTexture(ModItems.PAINTER, "tool/painter/painter");
+        createHandheldTexture(ModItems.PAINTER_WHITE, "tool/painter/painter_white");
+        createHandheldTexture(ModItems.PAINTER_RED, "tool/painter/painter_red");
+        createHandheldTexture(ModItems.PAINTER_ORANGE, "tool/painter/painter_orange");
+        createHandheldTexture(ModItems.PAINTER_PINK, "tool/painter/painter_pink");
+        createHandheldTexture(ModItems.PAINTER_YELLOW, "tool/painter/painter_yellow");
+        createHandheldTexture(ModItems.PAINTER_LIME, "tool/painter/painter_lime");
+        createHandheldTexture(ModItems.PAINTER_GREEN, "tool/painter/painter_green");
+        createHandheldTexture(ModItems.PAINTER_LIGHT_BLUE, "tool/painter/painter_light_blue");
+        createHandheldTexture(ModItems.PAINTER_CYAN, "tool/painter/painter_cyan");
+        createHandheldTexture(ModItems.PAINTER_BLUE, "tool/painter/painter_blue");
+        createHandheldTexture(ModItems.PAINTER_MAGENTA, "tool/painter/painter_magenta");
+        createHandheldTexture(ModItems.PAINTER_PURPLE, "tool/painter/painter_purple");
+        createHandheldTexture(ModItems.PAINTER_BROWN, "tool/painter/painter_brown");
+        createHandheldTexture(ModItems.PAINTER_GRAY, "tool/painter/painter_gray");
+        createHandheldTexture(ModItems.PAINTER_LIGHT_GRAY, "tool/painter/painter_light_gray");
+        createHandheldTexture(ModItems.PAINTER_BLACK, "tool/painter/painter_black");
     }
 
     protected void registerConstructionFoam() {
-        withExistingParent(ModBlocks.CONSTRUCTION_FOAM.getRegistryName().getPath(), new ResourceLocation(IndReb.MODID, "block/construction_foam"));
-        withExistingParent(ModBlocks.REINFORCED_CONSTRUCTION_FOAM.getRegistryName().getPath(), new ResourceLocation(IndReb.MODID, "block/reinforced_construction_foam"));
+        createWithBlock(ModBlocks.CONSTRUCTION_FOAM, "construction_foam");
+        createWithBlock(ModBlocks.REINFORCED_CONSTRUCTION_FOAM, "reinforced_construction_foam");
 
-        withExistingParent(ModBlocks.CONSTRUCTION_FOAM_WALL_WHITE.getRegistryName().getPath(), new ResourceLocation(IndReb.MODID, "block/construction_foam_wall_white"));
-        withExistingParent(ModBlocks.CONSTRUCTION_FOAM_WALL_RED.getRegistryName().getPath(), new ResourceLocation(IndReb.MODID, "block/construction_foam_wall_red"));
-        withExistingParent(ModBlocks.CONSTRUCTION_FOAM_WALL_ORANGE.getRegistryName().getPath(), new ResourceLocation(IndReb.MODID, "block/construction_foam_wall_orange"));
-        withExistingParent(ModBlocks.CONSTRUCTION_FOAM_WALL_PINK.getRegistryName().getPath(), new ResourceLocation(IndReb.MODID, "block/construction_foam_wall_pink"));
-        withExistingParent(ModBlocks.CONSTRUCTION_FOAM_WALL_YELLOW.getRegistryName().getPath(), new ResourceLocation(IndReb.MODID, "block/construction_foam_wall_yellow"));
-        withExistingParent(ModBlocks.CONSTRUCTION_FOAM_WALL_LIME.getRegistryName().getPath(), new ResourceLocation(IndReb.MODID, "block/construction_foam_wall_lime"));
-        withExistingParent(ModBlocks.CONSTRUCTION_FOAM_WALL_GREEN.getRegistryName().getPath(), new ResourceLocation(IndReb.MODID, "block/construction_foam_wall_green"));
-        withExistingParent(ModBlocks.CONSTRUCTION_FOAM_WALL_LIGHT_BLUE.getRegistryName().getPath(), new ResourceLocation(IndReb.MODID, "block/construction_foam_wall_light_blue"));
-        withExistingParent(ModBlocks.CONSTRUCTION_FOAM_WALL_CYAN.getRegistryName().getPath(), new ResourceLocation(IndReb.MODID, "block/construction_foam_wall_cyan"));
-        withExistingParent(ModBlocks.CONSTRUCTION_FOAM_WALL_BLUE.getRegistryName().getPath(), new ResourceLocation(IndReb.MODID, "block/construction_foam_wall_blue"));
-        withExistingParent(ModBlocks.CONSTRUCTION_FOAM_WALL_MAGENTA.getRegistryName().getPath(), new ResourceLocation(IndReb.MODID, "block/construction_foam_wall_magenta"));
-        withExistingParent(ModBlocks.CONSTRUCTION_FOAM_WALL_PURPLE.getRegistryName().getPath(), new ResourceLocation(IndReb.MODID, "block/construction_foam_wall_purple"));
-        withExistingParent(ModBlocks.CONSTRUCTION_FOAM_WALL_BROWN.getRegistryName().getPath(), new ResourceLocation(IndReb.MODID, "block/construction_foam_wall_brown"));
-        withExistingParent(ModBlocks.CONSTRUCTION_FOAM_WALL_GRAY.getRegistryName().getPath(), new ResourceLocation(IndReb.MODID, "block/construction_foam_wall_gray"));
-        withExistingParent(ModBlocks.CONSTRUCTION_FOAM_WALL_LIGHT_GRAY.getRegistryName().getPath(), new ResourceLocation(IndReb.MODID, "block/construction_foam_wall_light_gray"));
-        withExistingParent(ModBlocks.CONSTRUCTION_FOAM_WALL_BLACK.getRegistryName().getPath(), new ResourceLocation(IndReb.MODID, "block/construction_foam_wall_black"));
+        createWithBlock(ModBlocks.CONSTRUCTION_FOAM_WALL_WHITE, "construction_foam_wall_white");
+        createWithBlock(ModBlocks.CONSTRUCTION_FOAM_WALL_RED, "construction_foam_wall_red");
+        createWithBlock(ModBlocks.CONSTRUCTION_FOAM_WALL_ORANGE, "construction_foam_wall_orange");
+        createWithBlock(ModBlocks.CONSTRUCTION_FOAM_WALL_PINK, "construction_foam_wall_pink");
+        createWithBlock(ModBlocks.CONSTRUCTION_FOAM_WALL_YELLOW, "construction_foam_wall_yellow");
+        createWithBlock(ModBlocks.CONSTRUCTION_FOAM_WALL_LIME, "construction_foam_wall_lime");
+        createWithBlock(ModBlocks.CONSTRUCTION_FOAM_WALL_GREEN, "construction_foam_wall_green");
+        createWithBlock(ModBlocks.CONSTRUCTION_FOAM_WALL_LIGHT_BLUE, "construction_foam_wall_light_blue");
+        createWithBlock(ModBlocks.CONSTRUCTION_FOAM_WALL_CYAN, "construction_foam_wall_cyan");
+        createWithBlock(ModBlocks.CONSTRUCTION_FOAM_WALL_BLUE, "construction_foam_wall_blue");
+        createWithBlock(ModBlocks.CONSTRUCTION_FOAM_WALL_MAGENTA, "construction_foam_wall_magenta");
+        createWithBlock(ModBlocks.CONSTRUCTION_FOAM_WALL_PURPLE, "construction_foam_wall_purple");
+        createWithBlock(ModBlocks.CONSTRUCTION_FOAM_WALL_BROWN, "construction_foam_wall_brown");
+        createWithBlock(ModBlocks.CONSTRUCTION_FOAM_WALL_GRAY, "construction_foam_wall_gray");
+        createWithBlock(ModBlocks.CONSTRUCTION_FOAM_WALL_LIGHT_GRAY, "construction_foam_wall_light_gray");
+        createWithBlock(ModBlocks.CONSTRUCTION_FOAM_WALL_BLACK, "construction_foam_wall_black");
     }
 
-    private ItemModelBuilder createTestModel(int suffix) {
-        return getBuilder("testitem" + suffix).parent(getExistingFile(mcLoc("item/handheld")))
-                .texture("layer0", "item/firstitem" + suffix);
+    protected void registerTools() {
+        createGeneratedTexture(ModItems.BRONZE_AXE, "tool/bronze_axe");
+        createGeneratedTexture(ModItems.BRONZE_HOE, "tool/bronze_hoe");
+        createGeneratedTexture(ModItems.BRONZE_PICKAXE, "tool/bronze_pickaxe");
+        createGeneratedTexture(ModItems.BRONZE_SHOVEL, "tool/bronze_shovel");
+        createGeneratedTexture(ModItems.BRONZE_SWORD, "tool/bronze_sword");
+
+        createGeneratedTexture(ModItems.CUTTER, "tool/cutter");
+        createGeneratedTexture(ModItems.WRENCH, "tool/wrench");
+        createGeneratedTexture(ModItems.HAMMER, "tool/hammer");
+        createGeneratedTexture(ModItems.TREETAP, "tool/treetap");
+    }
+
+    protected void registerElectricTools() {
+        createWithActive(ModItems.NANO_SABER,"tool/electric/nano_saber");
+    }
+
+    protected void registerBatteries() {
+        createWithChargeRatio(ModItems.BATTERY,"battery/battery");
+        createWithChargeRatio(ModItems.ADVANCED_BATTERY,"battery/advanced_battery");
+        createWithChargeRatio(ModItems.ENERGY_CRYSTAL,"battery/energy_crystal");
+        createWithChargeRatio(ModItems.LAPOTRON_CRYSTAL,"battery/lapotron_crystal");
+    }
+
+    protected void registerArmour() {
+        createGeneratedTexture(ModItems.BRONZE_HELMET, "armor/bronze_helmet");
+        createGeneratedTexture(ModItems.BRONZE_CHESTPLATE, "armor/bronze_chestplate");
+        createGeneratedTexture(ModItems.BRONZE_LEGGINGS, "armor/bronze_leggings");
+        createGeneratedTexture(ModItems.BRONZE_BOOTS, "armor/bronze_boots");
+
+        createGeneratedTexture(ModItems.NANO_HELMET, "armor/nano_helmet");
+        createGeneratedTexture(ModItems.NANO_CHESTPLATE, "armor/nano_chestplate");
+        createGeneratedTexture(ModItems.NANO_LEGGINGS, "armor/nano_leggings");
+        createGeneratedTexture(ModItems.NANO_BOOTS, "armor/nano_boots");
+
+        createGeneratedTexture(ModItems.NIGHTVISION_GOGGLES, "armor/nightvision_goggles");
+        createGeneratedTexture(ModItems.RUBBER_BOOTS, "armor/rubber_boots");
+    }
+
+    protected void registerBlocks() {
+        createWithBlock(ModBlocks.BRONZE_BLOCK, "bronze_block");
+        createWithBlock(ModBlocks.SILVER_BLOCK, "silver_block");
+        createWithBlock(ModBlocks.STEEL_BLOCK, "steel_block");
+        createWithBlock(ModBlocks.TIN_BLOCK, "tin_block");
+    }
+
+    protected void registerRubber() {
+        createWithBlock(ModBlocks.RUBBER_WOOD, "rubber_wood/rubber_wood");
+        createWithBlock(ModBlocks.RUBBER_LOG, "rubber_wood/rubber_log");
+        createWithBlock(ModBlocks.RUBBER_WOOD, "rubber_wood/rubber_wood");
+        createWithBlock(ModBlocks.RUBBER_LEAVES, "rubber_wood/rubber_leaves");
+        createWithBlock(ModBlocks.RUBBER_STAIRS, "reinforced_stone");
+        createWithBlock(ModBlocks.RUBBER_SLAB, "rubber_wood/rubber_slab");
+        createWithBlock(ModBlocks.RUBBER_PLANKS, "rubber_wood/rubber_planks");
+
+//        createWithBlock(ModBlocks.RUBBER_SHEET, "rubber_sheet");
+//        createWithBlock(ModBlocks.RESIN_SHEET, "resin_sheet");
+
+        createGeneratedTexture(ModBlocks.RUBBER_SAPLING, "rubber_wood/rubber_sapling");
+        createGeneratedTexture(ModItems.STICKY_RESIN, "resource/sticky_resin");
+        createGeneratedTexture(ModItems.RUBBER, "resource/rubber");
+    }
+
+    protected void registerGenerators() {
+        createWithBlock(ModBlocks.GENERATOR, "generator/generator");
+        createWithBlock(ModBlocks.GEO_GENERATOR, "generator/geo_generator");
+        createWithBlock(ModBlocks.SOLAR_GENERATOR, "generator/solar_generator");
+        createWithBlock(ModBlocks.ADVANCED_SOLAR_GENERATOR, "generator/advanced_solar_generator");
+        createWithBlock(ModBlocks.HYBRID_SOLAR_GENERATOR, "generator/hybrid_solar_generator");
+        createWithBlock(ModBlocks.QUANTUM_SOLAR_GENERATOR, "generator/quantum_solar_generator");
+//        createWithBlock(ModBlocks.CRYSTALLINE_GENERATOR, "generator/crystalline_generator");
+    }
+
+    protected void registerMachines() {
+        createWithBlock(ModBlocks.IRON_FURNACE, "machines/iron_furnace");
+        createWithBlock(ModBlocks.ELECTRIC_FURNACE, "machines/electric_furnace");
+
+        createWithBlock(ModBlocks.CRUSHER, "machines/crusher");
+        createWithBlock(ModBlocks.COMPRESSOR, "machines/compressor");
+        createWithBlock(ModBlocks.EXTRACTOR, "machines/extractor");
+        createWithBlock(ModBlocks.SAWMILL, "machines/sawmill");
+        createWithBlock(ModBlocks.EXTRUDER, "machines/extruder");
+
+//        createWithBlock(ModBlocks.CANNING_MACHINE, "machines/canning_machine");
+//        createWithBlock(ModBlocks.FLUID_ENRICHER, "machines/fluid_enricher");
+
+        createWithBlock(ModBlocks.ALLOY_SMELTER, "machines/alloy_smelter");
+    }
+
+    protected void registerBatteryBox() {
+        createWithBlock(ModBlocks.BATTERY_BOX, "battery_box/battery_box");
+        createWithBlock(ModBlocks.CESU, "battery_box/cesu");
+        createWithBlock(ModBlocks.MFE, "battery_box/mfe");
+        createWithBlock(ModBlocks.MFSU, "battery_box/mfsu");
+    }
+
+    protected void registerCraftng() {
+        createGeneratedTexture(ModItems.CARBON_FIBERS, "crafting/carbon_fibers");
+        createGeneratedTexture(ModItems.COMBINED_CARBON_FIBERS, "crafting/combined_carbon_fibers");
+        createGeneratedTexture(ModItems.CARBON_PLATE, "crafting/carbon_plate");
+        createGeneratedTexture(ModItems.ADVANCED_ALLOY, "crafting/advanced_alloy");
+        createGeneratedTexture(ModItems.ELECTRONIC_CIRCUIT, "crafting/electronic_circuit");
+        createGeneratedTexture(ModItems.ADVANCED_CIRCUIT, "crafting/advanced_circuit");
+    }
+
+    protected void registerCables() {
+        createWithBlock(ModBlocks.TIN_CABLE, "cable/tin_cable_inventory");
+        createWithBlock(ModBlocks.TIN_CABLE_INSULATED, "cable/tin_cable_insulated_inventory");
+        createWithBlock(ModBlocks.COPPER_CABLE, "cable/copper_cable_inventory");
+        createWithBlock(ModBlocks.COPPER_CABLE_INSULATED, "cable/copper_cable_insulated_inventory");
+        createWithBlock(ModBlocks.GOLD_CABLE, "cable/gold_cable_inventory");
+        createWithBlock(ModBlocks.GOLD_CABLE_INSULATED, "cable/gold_cable_insulated_inventory");
+        createWithBlock(ModBlocks.HV_CABLE, "cable/hv_cable_inventory");
+        createWithBlock(ModBlocks.HV_CABLE_INSULATED, "cable/hv_cable_insulated_inventory");
+        createWithBlock(ModBlocks.GLASS_FIBRE_CABLE, "cable/glass_fibre_cable_inventory");
+    }
+
+    private ItemModelBuilder createGeneratedTexture(Item item, String path) {
+        return singleTexture(item.getRegistryName().getPath(), new ResourceLocation("item/generated"),"layer0",new ResourceLocation(IndReb.MODID, "item/" + path));
+    }
+
+    private ItemModelBuilder createGeneratedTexture(Block block, String path) {
+        return singleTexture(block.getRegistryName().getPath(), new ResourceLocation("item/generated"),"layer0",new ResourceLocation(IndReb.MODID, "block/" + path));
+    }
+
+    private ItemModelBuilder createHandheldTexture(Item item, String path) {
+        return singleTexture(item.getRegistryName().getPath(), new ResourceLocation("item/handheld"),"layer0",new ResourceLocation(IndReb.MODID, "item/" + path));
+    }
+
+    private ItemModelBuilder createWithBlock(Block block, String path) {
+        return withExistingParent(block.getRegistryName().getPath(), new ResourceLocation(IndReb.MODID, "block/" + path));
+    }
+
+    private ItemModelBuilder createWithActive(Item item, String path) {
+        return getBuilder(item.getRegistryName().getPath())
+                .parent(getExistingFile(mcLoc("item/handheld")))
+                .texture("layer0", "item/" + path)
+                .override().predicate(new ResourceLocation(IndReb.MODID, "active"), 0).model(createTestModel("handheld", path, "")).end()
+                .override().predicate(new ResourceLocation(IndReb.MODID, "active"), 1).model(createTestModel("handheld", path, "_active")).end();
+    }
+
+    private ItemModelBuilder createWithChargeRatio(Item item, String path) {
+        return getBuilder(item.getRegistryName().getPath())
+                .parent(getExistingFile(mcLoc("item/generated")))
+                .texture("layer0", "item/" + path + "_0")
+                .override().predicate(new ResourceLocation(IndReb.MODID, "charge_ratio"), 0).model(createTestModel("generated", path, "_0")).end()
+                .override().predicate(new ResourceLocation(IndReb.MODID, "charge_ratio"), 1).model(createTestModel("generated", path, "_1")).end()
+                .override().predicate(new ResourceLocation(IndReb.MODID, "charge_ratio"), 2).model(createTestModel("generated", path, "_2")).end()
+                .override().predicate(new ResourceLocation(IndReb.MODID, "charge_ratio"), 3).model(createTestModel("generated", path, "_3")).end()
+                .override().predicate(new ResourceLocation(IndReb.MODID, "charge_ratio"), 4).model(createTestModel("generated", path, "_4")).end();
+    }
+
+    private ItemModelBuilder createTestModel(String type, String path, String suffix) {
+        return getBuilder("item/" + path + suffix).parent(getExistingFile(mcLoc("item/" + type)))
+                .texture("layer0", "item/" + path + suffix);
     }
 
 }

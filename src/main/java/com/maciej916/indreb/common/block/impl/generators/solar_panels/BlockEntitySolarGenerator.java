@@ -18,7 +18,7 @@ import static com.maciej916.indreb.common.enums.EnumEnergyType.EXTRACT;
 
 public class BlockEntitySolarGenerator extends IndRebBlockEntity implements IEnergyBlock, ITileSound {
 
-    private SolarGeneratorTier tier;
+    private final SolarGeneratorTier tier;
     private boolean active = false;
     private int lastAmount = 0;
     public int amount = 0;

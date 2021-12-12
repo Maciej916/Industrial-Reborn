@@ -16,12 +16,10 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
-import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.SimpleWaterloggedBlock;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
@@ -33,11 +31,11 @@ import java.util.List;
 
 public class BlockCable extends VoxelBlock implements SimpleWaterloggedBlock {
 
-    private CableTier tier;
+    private final CableTier cableTier;
 
     public BlockCable(float apothem, CableTier tier) {
         super(tier.getProperties(), apothem);
-        this.tier = tier;
+        this.cableTier = tier;
         WrenchHelper.registerAction(this).add(WrenchHelper.energyNetworkInfo()).add(WrenchHelper.dropAction());
     }
 
@@ -45,15 +43,15 @@ public class BlockCable extends VoxelBlock implements SimpleWaterloggedBlock {
     public void appendHoverText(ItemStack pStack, @Nullable BlockGetter pLevel, List<Component> pTooltip, TooltipFlag pFlag) {
         pTooltip.add(TextComponentUtil.build(
                 new TranslatableComponent(EnumLang.POWER_TIER.getTranslationKey()).withStyle(ChatFormatting.GRAY),
-                new TranslatableComponent(tier.getEnergyTier().getLang().getTranslationKey()).withStyle(tier.getEnergyTier().getColor())
+                new TranslatableComponent(cableTier.getEnergyTier().getLang().getTranslationKey()).withStyle(cableTier.getEnergyTier().getColor())
         ));
 
         pTooltip.add(TextComponentUtil.build(
                 new TranslatableComponent(EnumLang.TRANSFER.getTranslationKey()).withStyle(ChatFormatting.GRAY),
-                new TranslatableComponent(EnumLang.POWER_TICK.getTranslationKey(), TextComponentUtil.getFormattedEnergyUnit(tier.getEnergyTier().getBasicTransfer())).withStyle(tier.getEnergyTier().getColor())
+                new TranslatableComponent(EnumLang.POWER_TICK.getTranslationKey(), TextComponentUtil.getFormattedEnergyUnit(cableTier.getEnergyTier().getBasicTransfer())).withStyle(cableTier.getEnergyTier().getColor())
         ));
 
-       if (!tier.isInsulated()) {
+       if (!cableTier.isInsulated()) {
             pTooltip.add(TextComponentUtil.build(
                     new TranslatableComponent(EnumLang.CABLE_UNISOLATED.getTranslationKey()).withStyle(ChatFormatting.RED)
             ));
@@ -61,7 +59,7 @@ public class BlockCable extends VoxelBlock implements SimpleWaterloggedBlock {
     }
 
     public CableTier getCableTier() {
-        return tier;
+        return cableTier;
     }
 
     @Override
@@ -70,7 +68,7 @@ public class BlockCable extends VoxelBlock implements SimpleWaterloggedBlock {
         BlockState state = world.getBlockState(pos);
 
         if (state.getBlock() instanceof BlockCable bc) {
-            return bc.getCableTier().getEnergyTier() == tier.getEnergyTier();
+            return bc.getCableTier().getEnergyTier() == cableTier.getEnergyTier();
         }
 
         return CapabilityUtil.getCapabilityHelper(be, ModCapabilities.ENERGY, direction).getIfPresentElse(e -> e.canExtractEnergy(direction.getOpposite()) || e.canReceiveEnergy(direction.getOpposite()), false);
@@ -79,7 +77,7 @@ public class BlockCable extends VoxelBlock implements SimpleWaterloggedBlock {
     @Override
     public void onPlace(BlockState pState, Level pLevel, BlockPos pPos, BlockState pOldState, boolean pIsMoving) {
         if (pLevel.isClientSide()) return;
-        CapabilityUtil.getCapabilityHelper(pLevel, ModCapabilities.ENERGY_CORE).ifPresent(e -> e.getNetworks().onPlaced(pPos, pState, tier.getEnergyTier().getBasicTransfer()));
+        CapabilityUtil.getCapabilityHelper(pLevel, ModCapabilities.ENERGY_CORE).ifPresent(e -> e.getNetworks().onPlaced(pPos, pState, cableTier.getEnergyTier().getBasicTransfer()));
         super.onPlace(pState, pLevel, pPos, pOldState, pIsMoving);
     }
 

@@ -20,12 +20,11 @@ public class IndReb
 
     public IndReb() {
         final ModLoadingContext modLoadingContext = ModLoadingContext.get();
-        final IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
+        final IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
         modEventBus.addListener(this::onCommonSetup);
 
         Config.init();
-
     }
 
     private void onCommonSetup(final FMLCommonSetupEvent event) {

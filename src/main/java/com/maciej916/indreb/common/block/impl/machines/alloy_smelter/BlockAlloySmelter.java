@@ -28,7 +28,7 @@ import java.util.List;
 public class BlockAlloySmelter extends BlockElectricMachine implements IStateFacing, IHasContainer, IStateActive {
 
     public BlockAlloySmelter() {
-        super(12, 0);
+        super(EnergyTier.STANDARD, 12, 0);
     }
 
     @Override
@@ -44,19 +44,16 @@ public class BlockAlloySmelter extends BlockElectricMachine implements IStateFac
 
     @Override
     public void appendHoverText(ItemStack pStack, @Nullable BlockGetter pLevel, List<Component> pTooltip, TooltipFlag pFlag) {
-        pTooltip.add(TextComponentUtil.build(
-            new TranslatableComponent(EnumLang.POWER_TIER.getTranslationKey()).withStyle(ChatFormatting.GRAY),
-            new TranslatableComponent(EnumLang.TIER_STANDARD.getTranslationKey()).withStyle(EnergyTier.STANDARD.getColor())
-        ));
+        super.appendHoverText(pStack, pLevel, pTooltip, pFlag);
 
         pTooltip.add(TextComponentUtil.build(
             new TranslatableComponent(EnumLang.ACCEPT.getTranslationKey()).withStyle(ChatFormatting.GRAY),
-            new TranslatableComponent(EnumLang.POWER_TICK.getTranslationKey(), TextComponentUtil.getFormattedEnergyUnit(ServerConfig.standard_tier_transfer.get())).withStyle(EnergyTier.STANDARD.getColor())
+            new TranslatableComponent(EnumLang.POWER_TICK.getTranslationKey(), TextComponentUtil.getFormattedEnergyUnit(ServerConfig.standard_tier_transfer.get())).withStyle(getEnergyTier().getColor())
         ));
 
         pTooltip.add(TextComponentUtil.build(
             new TranslatableComponent(EnumLang.CAPACITY.getTranslationKey()).withStyle(ChatFormatting.GRAY),
-            new TranslatableComponent(EnumLang.POWER.getTranslationKey(), TextComponentUtil.getFormattedEnergyUnit(ServerConfig.alloy_smelter_energy_capacity.get())).withStyle(EnergyTier.STANDARD.getColor())
+            new TranslatableComponent(EnumLang.POWER.getTranslationKey(), TextComponentUtil.getFormattedEnergyUnit(ServerConfig.alloy_smelter_energy_capacity.get())).withStyle(getEnergyTier().getColor())
         ));
     }
 

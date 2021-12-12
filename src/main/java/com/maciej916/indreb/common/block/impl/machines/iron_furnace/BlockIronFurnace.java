@@ -1,6 +1,6 @@
 package com.maciej916.indreb.common.block.impl.machines.iron_furnace;
 
-import com.maciej916.indreb.common.block.BlockElectricMachine;
+import com.maciej916.indreb.common.block.BlockMachine;
 import com.maciej916.indreb.common.interfaces.block.IHasContainer;
 import com.maciej916.indreb.common.interfaces.block.IStateActive;
 import com.maciej916.indreb.common.interfaces.block.IStateFacing;
@@ -21,7 +21,7 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 import javax.annotation.Nullable;
 import java.util.Random;
 
-public class BlockIronFurnace extends BlockElectricMachine implements IStateFacing, IHasContainer, IStateActive {
+public class BlockIronFurnace extends BlockMachine implements IStateFacing, IHasContainer, IStateActive {
 
     public BlockIronFurnace() {
         super(12, 0);

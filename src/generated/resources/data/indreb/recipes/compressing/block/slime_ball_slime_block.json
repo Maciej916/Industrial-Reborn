@@ -2,7 +2,7 @@
   "type": "indreb:compressing",
   "ingredient": {
     "item": "minecraft:slime_ball",
-    "count": 4
+    "count": 9
   },
   "result": {
     "item": "minecraft:slime_block"

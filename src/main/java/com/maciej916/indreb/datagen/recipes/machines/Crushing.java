@@ -137,7 +137,7 @@ public class Crushing extends RecipeProvider {
         // Ores
 
         RecipeBuilderCrushing.builder(ModItems.CRUSHED_COPPER,2)
-                .setIngredient(Ingredient.of(ItemTags.bind("forge:ores/copper")), 1)
+                .setIngredient(Ingredient.of(Items.COPPER_ORE), 1)
                 .setExperience(0.2F)
                 .setBonus(Items.COBBLESTONE, 1, 50)
                 .setGroup("crushing/ores")

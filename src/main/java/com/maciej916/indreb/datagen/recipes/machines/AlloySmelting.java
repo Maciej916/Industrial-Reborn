@@ -43,6 +43,15 @@ public class AlloySmelting extends RecipeProvider {
                 .build(consumer,"mixed_metal_ingot");
 
 
+        RecipeBuilderAlloySmelting.builder(ModItems.STEEL_INGOT, 1)
+                .addIngredient(Ingredient.of(ItemTags.bind("forge:ingots/iron")), 1)
+                .addIngredient(Ingredient.of(ItemTags.bind("forge:dusts/coal")), 3)
+                .setExperience(0.5F)
+                .addCriterion("coal_dust", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.COAL_DUST))
+                .addCriterion("iron_ingot", InventoryChangeTrigger.TriggerInstance.hasItems(Items.IRON_INGOT))
+                .setGroup("alloy_smelting")
+                .build(consumer,"steel_ingot");
+
 
 
     }

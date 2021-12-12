@@ -27,13 +27,13 @@ import java.util.List;
 
 public class BlockSolarGenerator extends BlockElectricMachine implements IHasContainer, IStateActive {
 
-    private SolarGeneratorTier tier;
+    private final SolarGeneratorTier solarTier;
     protected final VoxelShape SHAPE;
 
     public BlockSolarGenerator(SolarGeneratorTier tier) {
-        super(0, 0);
-        SHAPE = Block.box(0.0D, 0.0D, 0.0D, 16.0D, tier.getHeight(), 16.0D);
-        this.tier = tier;
+        super(tier.getEnergyTier(),0, 0);
+        this.SHAPE = Block.box(0.0D, 0.0D, 0.0D, 16.0D, tier.getHeight(), 16.0D);
+        this.solarTier = tier;
     }
 
     @Nullable
@@ -58,18 +58,15 @@ public class BlockSolarGenerator extends BlockElectricMachine implements IHasCon
 
     @Override
     public void appendHoverText(ItemStack pStack, @Nullable BlockGetter pLevel, List<Component> pTooltip, TooltipFlag pFlag) {
-        pTooltip.add(TextComponentUtil.build(
-                new TranslatableComponent(EnumLang.POWER_TIER.getTranslationKey()).withStyle(ChatFormatting.GRAY),
-                new TranslatableComponent(tier.getEnergyTier().getLang().getTranslationKey()).withStyle(tier.getEnergyTier().getColor())
-        ));
+        super.appendHoverText(pStack, pLevel, pTooltip, pFlag);
 
         pTooltip.add(TextComponentUtil.build(
                 new TranslatableComponent(EnumLang.GENERATE.getTranslationKey()).withStyle(ChatFormatting.GRAY),
-                new TranslatableComponent(EnumLang.POWER_TICK.getTranslationKey(), TextComponentUtil.getFormattedEnergyUnit(tier.getDayGenerate())).withStyle(tier.getEnergyTier().getColor())
+                new TranslatableComponent(EnumLang.POWER_TICK.getTranslationKey(), TextComponentUtil.getFormattedEnergyUnit(solarTier.getDayGenerate())).withStyle(getEnergyTier().getColor())
         ));
     }
 
     public SolarGeneratorTier getSolarGeneratorTier() {
-        return tier;
+        return solarTier;
     }
 }

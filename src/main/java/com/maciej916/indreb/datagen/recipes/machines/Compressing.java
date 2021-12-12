@@ -150,7 +150,7 @@ public class Compressing extends RecipeProvider {
                 .save(consumer,"honeycomb_honey_block");
 
         RecipeBuilderCompressing.builder(Items.SLIME_BLOCK, 1)
-                .setIngredient(Ingredient.of(Items.SLIME_BALL), 4)
+                .setIngredient(Ingredient.of(Items.SLIME_BALL), 9)
                 .addCriterion("item", InventoryChangeTrigger.TriggerInstance.hasItems(Items.SLIME_BALL))
                 .setGroup("compressing/block")
                 .save(consumer,"slime_ball_slime_block");

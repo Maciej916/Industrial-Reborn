@@ -35,6 +35,7 @@ public final class ModItems {
     public static Item SILVER_DUST;
     public static Item STONE_DUST;
     public static Item DEEPSLATE_DUST;
+    public static Item SAWDUST;
 
     public static Item STICKY_RESIN;
     public static Item RUBBER;
@@ -49,7 +50,6 @@ public final class ModItems {
 
     public static Item FLUID_CELL;
 
-    public static Item SAWDUST;
     public static Item IRON_ROD;
 
     public static Item COPPER_PLATE;
@@ -131,6 +131,7 @@ public final class ModItems {
         SILVER_DUST = registerItem(new ItemBasic(), "silver_dust");
         STONE_DUST = registerItem(new ItemBasic(), "stone_dust");
         DEEPSLATE_DUST = registerItem(new ItemBasic(), "deepslate_dust");
+        SAWDUST = registerItem(new ItemBasic(), "sawdust");
 
         STICKY_RESIN = registerItem(new ItemBasic(), "sticky_resin");
         RUBBER = registerItem(new ItemBasic(), "rubber");
@@ -145,7 +146,6 @@ public final class ModItems {
 
         FLUID_CELL = registerItem(new ItemCell(), "fluid_cell");
 
-        SAWDUST = registerItem(new ItemBasic(), "sawdust");
         IRON_ROD = registerItem(new ItemBasic(), "iron_rod");
 
         COPPER_PLATE = registerItem(new ItemBasic(), "copper_plate");

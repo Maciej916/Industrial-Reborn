@@ -1,7 +1,7 @@
 {
   "type": "indreb:crushing",
   "ingredient": {
-    "tag": "forge:ores/copper",
+    "item": "minecraft:copper_ore",
     "count": 1
   },
   "result": {

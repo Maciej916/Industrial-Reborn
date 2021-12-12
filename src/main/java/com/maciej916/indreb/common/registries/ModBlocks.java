@@ -9,11 +9,13 @@ import com.maciej916.indreb.common.block.impl.generators.generator.BlockGenerato
 import com.maciej916.indreb.common.block.impl.generators.geo_generator.BlockGeoGenerator;
 import com.maciej916.indreb.common.block.impl.generators.solar_panels.BlockSolarGenerator;
 import com.maciej916.indreb.common.block.impl.machines.alloy_smelter.BlockAlloySmelter;
+import com.maciej916.indreb.common.block.impl.machines.canning_machine.BlockCanningMachine;
 import com.maciej916.indreb.common.block.impl.machines.compressor.BlockCompressor;
 import com.maciej916.indreb.common.block.impl.machines.crusher.BlockCrusher;
 import com.maciej916.indreb.common.block.impl.machines.electric_furnace.BlockElectricFurnace;
 import com.maciej916.indreb.common.block.impl.machines.extractor.BlockExtractor;
 import com.maciej916.indreb.common.block.impl.machines.extruder.BlockExtruder;
+import com.maciej916.indreb.common.block.impl.machines.fluid_enricher.BlockFluidEnricher;
 import com.maciej916.indreb.common.block.impl.machines.iron_furnace.BlockIronFurnace;
 import com.maciej916.indreb.common.block.impl.machines.sawmill.BlockSawmill;
 import com.maciej916.indreb.common.block.impl.rubber_wood.*;
@@ -57,6 +59,9 @@ public final class ModBlocks {
     public static Block EXTRACTOR;
     public static Block SAWMILL;
     public static Block EXTRUDER;
+    public static Block CANNING_MACHINE;
+    public static Block FLUID_ENRICHER;
+
     public static Block ALLOY_SMELTER;
 
     public static Block COPPER_CABLE;
@@ -131,7 +136,7 @@ public final class ModBlocks {
         HYBRID_SOLAR_GENERATOR = registerBlock(new BlockSolarGenerator(SolarGeneratorTier.HYBRID), "hybrid_solar_generator");
         QUANTUM_SOLAR_GENERATOR = registerBlock(new BlockSolarGenerator(SolarGeneratorTier.QUANTUM), "quantum_solar_generator");
         GEO_GENERATOR = registerBlock(new BlockGeoGenerator(), "geo_generator");
-//        CRYSTALLINE_GENERATOR = registerBlock(new BlockCrystallineGenerator(), "crystalline_generator");
+        CRYSTALLINE_GENERATOR = registerBlock(new BlockCrystallineGenerator(), "crystalline_generator");
 
         BATTERY_BOX = registerBlock(new BlockBatteryBox(BatteryBoxTier.BASIC, BlockBehaviour.Properties.of(Material.WOOD).strength(1f, 3f).sound(SoundType.WOOD)), "battery_box");
         CESU = registerBlock(new BlockBatteryBox(BatteryBoxTier.STANDARD, BlockBehaviour.Properties.of(Material.METAL).strength(1f, 3f).sound(SoundType.METAL)), "cesu");
@@ -146,6 +151,9 @@ public final class ModBlocks {
         EXTRACTOR = registerBlock(new BlockExtractor(), "extractor");
         SAWMILL = registerBlock(new BlockSawmill(), "sawmill");
         EXTRUDER = registerBlock(new BlockExtruder(), "extruder");
+        CANNING_MACHINE = registerBlock(new BlockCanningMachine(), "canning_machine");
+        FLUID_ENRICHER = registerBlock(new BlockFluidEnricher(), "fluid_enricher");
+
         ALLOY_SMELTER = registerBlock(new BlockAlloySmelter(), "alloy_smelter");
 
         TIN_CABLE = registerBlock(new BlockCable(0.127F, CableTier.TIN_CABLE), "tin_cable");

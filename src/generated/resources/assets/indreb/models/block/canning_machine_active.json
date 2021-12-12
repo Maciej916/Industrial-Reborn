@@ -1,0 +1,9 @@
+{
+  "parent": "minecraft:block/orientable_with_bottom",
+  "textures": {
+    "side": "indreb:block/generator/generator_side",
+    "front": "indreb:block/generator/generator_front_active",
+    "bottom": "indreb:block/generator/generator_bottom",
+    "top": "indreb:block/generator/generator_top"
+  }
+}

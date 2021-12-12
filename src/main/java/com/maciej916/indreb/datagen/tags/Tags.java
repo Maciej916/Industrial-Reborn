@@ -2,6 +2,7 @@ package com.maciej916.indreb.datagen.tags;
 
 import com.maciej916.indreb.IndReb;
 import com.maciej916.indreb.common.registries.ModBlocks;
+import com.maciej916.indreb.common.registries.ModTags;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.tags.BlockTagsProvider;
 import net.minecraft.tags.BlockTags;

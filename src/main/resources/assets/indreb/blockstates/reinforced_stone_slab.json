@@ -1,0 +1,7 @@
+{
+    "variants": {
+        "type=bottom": { "model": "indreb:block/reinforced_stone_slab" },
+        "type=top": { "model": "indreb:block/reinforced_stone_slab_top" },
+        "type=double": { "model": "indreb:block/reinforced_stone" }
+    }
+}

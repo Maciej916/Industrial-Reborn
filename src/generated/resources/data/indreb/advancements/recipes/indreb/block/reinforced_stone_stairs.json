@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "indreb:block/reinforced_stone_stairs"
+    ]
+  },
+  "criteria": {
+    "reinforced_stone": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:reinforced_stone"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "indreb:block/reinforced_stone_stairs"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "reinforced_stone",
+      "has_the_recipe"
+    ]
+  ]
+}

@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/slab",
-  "textures": {
-    "side": "indreb:block/reinforced_stone",
-    "bottom": "indreb:block/reinforced_stone",
-    "top": "indreb:block/reinforced_stone"
-  }
-}

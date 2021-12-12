@@ -1,7 +1,6 @@
 package com.maciej916.indreb.common.item;
 
 import com.maciej916.indreb.common.registries.ModBlocks;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.MaterialColor;
 
@@ -54,18 +53,6 @@ public class ItemPainter extends ItemTool {
         }
 
         return ModBlocks.CONSTRUCTION_FOAM_WALL_RED.defaultBlockState();
-    }
-
-    @Override
-    public ItemStack getContainerItem(ItemStack itemStack) {
-        ItemStack result = itemStack.copy();
-        result.setDamageValue(itemStack.getDamageValue() + 1);
-        return result.getDamageValue() >= result.getMaxDamage() ? ItemStack.EMPTY : result;
-    }
-
-    @Override
-    public boolean hasContainerItem(ItemStack stack) {
-        return true;
     }
 
 }

@@ -1,0 +1,8 @@
+{
+    "parent": "block/slab_top",
+    "textures": {
+        "bottom": "indreb:block/reinforced_stone",
+        "top": "indreb:block/reinforced_stone",
+        "side": "indreb:block/reinforced_stone"
+    }
+}
