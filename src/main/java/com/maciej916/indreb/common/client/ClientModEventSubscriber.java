@@ -66,15 +66,15 @@ public final class ClientModEventSubscriber {
 			MenuScreens.register(ModContainers.ALLOY_SMELTER, ScreenAlloySmelter::new);
 
 
-			ItemBlockRenderTypes.setRenderLayer(ModBlocks.GLASS_FIBRE_CABLE, RenderType.translucent());
-			ItemBlockRenderTypes.setRenderLayer(ModBlocks.RUBBER_SAPLING, RenderType.cutout());
-			ItemBlockRenderTypes.setRenderLayer(ModBlocks.CONSTRUCTION_FOAM, RenderType.cutout());
-			ItemBlockRenderTypes.setRenderLayer(ModBlocks.REINFORCED_CONSTRUCTION_FOAM, RenderType.cutout());
-			ItemBlockRenderTypes.setRenderLayer(ModBlocks.REINFORCED_GLASS, RenderType.cutout());
-			ItemBlockRenderTypes.setRenderLayer(ModBlocks.IRON_SCAFFOLDING, RenderType.cutout());
+			ItemBlockRenderTypes.setRenderLayer(ModBlocks.GLASS_FIBRE_CABLE.getBlock(), RenderType.translucent());
+			ItemBlockRenderTypes.setRenderLayer(ModBlocks.RUBBER_SAPLING.getBlock(), RenderType.cutout());
+			ItemBlockRenderTypes.setRenderLayer(ModBlocks.CONSTRUCTION_FOAM.getBlock(), RenderType.cutout());
+			ItemBlockRenderTypes.setRenderLayer(ModBlocks.REINFORCED_CONSTRUCTION_FOAM.getBlock(), RenderType.cutout());
+			ItemBlockRenderTypes.setRenderLayer(ModBlocks.REINFORCED_GLASS.getBlock(), RenderType.cutout());
+			ItemBlockRenderTypes.setRenderLayer(ModBlocks.IRON_SCAFFOLDING.getBlock(), RenderType.cutout());
 
 			BlockColors blockColors = Minecraft.getInstance().getBlockColors();
-			blockColors.register((state, world, pos, tintIndex) -> world != null && pos != null ? BiomeColors.getAverageFoliageColor(world, pos) - 1000: FoliageColor.getEvergreenColor(), ModBlocks.RUBBER_LEAVES);
+			blockColors.register((state, world, pos, tintIndex) -> world != null && pos != null ? BiomeColors.getAverageFoliageColor(world, pos) - 1000: FoliageColor.getEvergreenColor(), ModBlocks.RUBBER_LEAVES.getBlock());
 			ItemColors itemColors = Minecraft.getInstance().getItemColors();
 			itemColors.register((stack, tintIndex) -> {
 				BlockState BlockState = ((BlockItem)stack.getItem()).getBlock().defaultBlockState();

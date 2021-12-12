@@ -42,23 +42,23 @@ public class Items extends ItemModelProvider {
 
         createGeneratedTexture(ModItems.FLUID_CELL, "fluid_cell");
 
-        createWithBlock(ModBlocks.BASIC_MACHINE_CASING, "basic_machine_casing");
-        createWithBlock(ModBlocks.ADVANCED_MACHINE_CASING, "advanced_machine_casing");
+        createWithBlock(ModBlocks.BASIC_MACHINE_CASING.getBlock(), "basic_machine_casing");
+        createWithBlock(ModBlocks.ADVANCED_MACHINE_CASING.getBlock(), "advanced_machine_casing");
 
-        createWithBlock(ModBlocks.REINFORCED_GLASS, "reinforced_glass");
-        createWithBlock(ModBlocks.REINFORCED_STONE, "reinforced_stone");
-        createWithBlock(ModBlocks.REINFORCED_STONE_SLAB, "reinforced_stone_slab");
-        createWithBlock(ModBlocks.REINFORCED_STONE_STAIRS, "reinforced_stone_stairs");
+        createWithBlock(ModBlocks.REINFORCED_GLASS.getBlock(), "reinforced_glass");
+        createWithBlock(ModBlocks.REINFORCED_STONE.getBlock(), "reinforced_stone");
+        createWithBlock(ModBlocks.REINFORCED_STONE_SLAB.getBlock(), "reinforced_stone_slab");
+        createWithBlock(ModBlocks.REINFORCED_STONE_STAIRS.getBlock(), "reinforced_stone_stairs");
 
-        createWithBlock(ModBlocks.IRON_SCAFFOLDING, "iron_scaffolding");
-        createWithBlock(ModBlocks.IRON_FENCE, "iron_fence");
+        createWithBlock(ModBlocks.IRON_SCAFFOLDING.getBlock(), "iron_scaffolding");
+        createWithBlock(ModBlocks.IRON_FENCE.getBlock(), "iron_fence_side");
 
-        createWithBlock(ModBlocks.LUMINATOR, "luminator");
+        createWithBlock(ModBlocks.LUMINATOR.getBlock(), "luminator");
     }
 
     protected void registerOres() {
-        createWithBlock(ModBlocks.TIN_ORE, "tin_ore");
-        createWithBlock(ModBlocks.DEEPSLATE_TIN_ORE, "deepslate_tin_ore");
+        createWithBlock(ModBlocks.TIN_ORE.getBlock(), "tin_ore");
+        createWithBlock(ModBlocks.DEEPSLATE_TIN_ORE.getBlock(), "deepslate_tin_ore");
     }
 
     protected void registerRaw() {
@@ -125,25 +125,25 @@ public class Items extends ItemModelProvider {
     }
 
     protected void registerConstructionFoam() {
-        createWithBlock(ModBlocks.CONSTRUCTION_FOAM, "construction_foam");
-        createWithBlock(ModBlocks.REINFORCED_CONSTRUCTION_FOAM, "reinforced_construction_foam");
+        createWithBlock(ModBlocks.CONSTRUCTION_FOAM.getBlock(), "construction_foam");
+        createWithBlock(ModBlocks.REINFORCED_CONSTRUCTION_FOAM.getBlock(), "reinforced_construction_foam");
 
-        createWithBlock(ModBlocks.CONSTRUCTION_FOAM_WALL_WHITE, "construction_foam_wall_white");
-        createWithBlock(ModBlocks.CONSTRUCTION_FOAM_WALL_RED, "construction_foam_wall_red");
-        createWithBlock(ModBlocks.CONSTRUCTION_FOAM_WALL_ORANGE, "construction_foam_wall_orange");
-        createWithBlock(ModBlocks.CONSTRUCTION_FOAM_WALL_PINK, "construction_foam_wall_pink");
-        createWithBlock(ModBlocks.CONSTRUCTION_FOAM_WALL_YELLOW, "construction_foam_wall_yellow");
-        createWithBlock(ModBlocks.CONSTRUCTION_FOAM_WALL_LIME, "construction_foam_wall_lime");
-        createWithBlock(ModBlocks.CONSTRUCTION_FOAM_WALL_GREEN, "construction_foam_wall_green");
-        createWithBlock(ModBlocks.CONSTRUCTION_FOAM_WALL_LIGHT_BLUE, "construction_foam_wall_light_blue");
-        createWithBlock(ModBlocks.CONSTRUCTION_FOAM_WALL_CYAN, "construction_foam_wall_cyan");
-        createWithBlock(ModBlocks.CONSTRUCTION_FOAM_WALL_BLUE, "construction_foam_wall_blue");
-        createWithBlock(ModBlocks.CONSTRUCTION_FOAM_WALL_MAGENTA, "construction_foam_wall_magenta");
-        createWithBlock(ModBlocks.CONSTRUCTION_FOAM_WALL_PURPLE, "construction_foam_wall_purple");
-        createWithBlock(ModBlocks.CONSTRUCTION_FOAM_WALL_BROWN, "construction_foam_wall_brown");
-        createWithBlock(ModBlocks.CONSTRUCTION_FOAM_WALL_GRAY, "construction_foam_wall_gray");
-        createWithBlock(ModBlocks.CONSTRUCTION_FOAM_WALL_LIGHT_GRAY, "construction_foam_wall_light_gray");
-        createWithBlock(ModBlocks.CONSTRUCTION_FOAM_WALL_BLACK, "construction_foam_wall_black");
+        createWithBlock(ModBlocks.CONSTRUCTION_FOAM_WALL_WHITE.getBlock(), "construction_foam_wall_white");
+        createWithBlock(ModBlocks.CONSTRUCTION_FOAM_WALL_RED.getBlock(), "construction_foam_wall_red");
+        createWithBlock(ModBlocks.CONSTRUCTION_FOAM_WALL_ORANGE.getBlock(), "construction_foam_wall_orange");
+        createWithBlock(ModBlocks.CONSTRUCTION_FOAM_WALL_PINK.getBlock(), "construction_foam_wall_pink");
+        createWithBlock(ModBlocks.CONSTRUCTION_FOAM_WALL_YELLOW.getBlock(), "construction_foam_wall_yellow");
+        createWithBlock(ModBlocks.CONSTRUCTION_FOAM_WALL_LIME.getBlock(), "construction_foam_wall_lime");
+        createWithBlock(ModBlocks.CONSTRUCTION_FOAM_WALL_GREEN.getBlock(), "construction_foam_wall_green");
+        createWithBlock(ModBlocks.CONSTRUCTION_FOAM_WALL_LIGHT_BLUE.getBlock(), "construction_foam_wall_light_blue");
+        createWithBlock(ModBlocks.CONSTRUCTION_FOAM_WALL_CYAN.getBlock(), "construction_foam_wall_cyan");
+        createWithBlock(ModBlocks.CONSTRUCTION_FOAM_WALL_BLUE.getBlock(), "construction_foam_wall_blue");
+        createWithBlock(ModBlocks.CONSTRUCTION_FOAM_WALL_MAGENTA.getBlock(), "construction_foam_wall_magenta");
+        createWithBlock(ModBlocks.CONSTRUCTION_FOAM_WALL_PURPLE.getBlock(), "construction_foam_wall_purple");
+        createWithBlock(ModBlocks.CONSTRUCTION_FOAM_WALL_BROWN.getBlock(), "construction_foam_wall_brown");
+        createWithBlock(ModBlocks.CONSTRUCTION_FOAM_WALL_GRAY.getBlock(), "construction_foam_wall_gray");
+        createWithBlock(ModBlocks.CONSTRUCTION_FOAM_WALL_LIGHT_GRAY.getBlock(), "construction_foam_wall_light_gray");
+        createWithBlock(ModBlocks.CONSTRUCTION_FOAM_WALL_BLACK.getBlock(), "construction_foam_wall_black");
     }
 
     protected void registerTools() {
@@ -186,20 +186,19 @@ public class Items extends ItemModelProvider {
     }
 
     protected void registerBlocks() {
-        createWithBlock(ModBlocks.BRONZE_BLOCK, "bronze_block");
-        createWithBlock(ModBlocks.SILVER_BLOCK, "silver_block");
-        createWithBlock(ModBlocks.STEEL_BLOCK, "steel_block");
-        createWithBlock(ModBlocks.TIN_BLOCK, "tin_block");
+        createWithBlock(ModBlocks.BRONZE_BLOCK.getBlock(), "bronze_block");
+        createWithBlock(ModBlocks.SILVER_BLOCK.getBlock(), "silver_block");
+        createWithBlock(ModBlocks.STEEL_BLOCK.getBlock(), "steel_block");
+        createWithBlock(ModBlocks.TIN_BLOCK.getBlock(), "tin_block");
     }
 
     protected void registerRubber() {
-        createWithBlock(ModBlocks.RUBBER_WOOD, "rubber_wood/rubber_wood");
-        createWithBlock(ModBlocks.RUBBER_LOG, "rubber_wood/rubber_log");
-        createWithBlock(ModBlocks.RUBBER_WOOD, "rubber_wood/rubber_wood");
-        createWithBlock(ModBlocks.RUBBER_LEAVES, "rubber_wood/rubber_leaves");
-        createWithBlock(ModBlocks.RUBBER_STAIRS, "reinforced_stone");
-        createWithBlock(ModBlocks.RUBBER_SLAB, "rubber_wood/rubber_slab");
-        createWithBlock(ModBlocks.RUBBER_PLANKS, "rubber_wood/rubber_planks");
+        createWithBlock(ModBlocks.RUBBER_WOOD.getBlock(), "rubber_wood/rubber_wood");
+        createWithBlock(ModBlocks.RUBBER_LOG.getBlock(), "rubber_wood/rubber_log");
+        createWithBlock(ModBlocks.RUBBER_LEAVES.getBlock(), "rubber_wood/rubber_leaves");
+        createWithBlock(ModBlocks.RUBBER_STAIRS.getBlock(), "reinforced_stone");
+        createWithBlock(ModBlocks.RUBBER_SLAB.getBlock(), "rubber_wood/rubber_slab");
+        createWithBlock(ModBlocks.RUBBER_PLANKS.getBlock(), "rubber_wood/rubber_planks");
 
 //        createWithBlock(ModBlocks.RUBBER_SHEET, "rubber_sheet");
 //        createWithBlock(ModBlocks.RESIN_SHEET, "resin_sheet");
@@ -210,36 +209,36 @@ public class Items extends ItemModelProvider {
     }
 
     protected void registerGenerators() {
-        createWithBlock(ModBlocks.GENERATOR, "generator/generator");
-        createWithBlock(ModBlocks.GEO_GENERATOR, "generator/geo_generator");
-        createWithBlock(ModBlocks.SOLAR_GENERATOR, "generator/solar_generator");
-        createWithBlock(ModBlocks.ADVANCED_SOLAR_GENERATOR, "generator/advanced_solar_generator");
-        createWithBlock(ModBlocks.HYBRID_SOLAR_GENERATOR, "generator/hybrid_solar_generator");
-        createWithBlock(ModBlocks.QUANTUM_SOLAR_GENERATOR, "generator/quantum_solar_generator");
-//        createWithBlock(ModBlocks.CRYSTALLINE_GENERATOR, "generator/crystalline_generator");
+        createWithBlock(ModBlocks.GENERATOR.getBlock(), "generator/generator");
+        createWithBlock(ModBlocks.GEO_GENERATOR.getBlock(), "generator/geo_generator");
+        createWithBlock(ModBlocks.SOLAR_GENERATOR.getBlock(), "generator/solar_generator");
+        createWithBlock(ModBlocks.ADVANCED_SOLAR_GENERATOR.getBlock(), "generator/advanced_solar_generator");
+        createWithBlock(ModBlocks.HYBRID_SOLAR_GENERATOR.getBlock(), "generator/hybrid_solar_generator");
+        createWithBlock(ModBlocks.QUANTUM_SOLAR_GENERATOR.getBlock(), "generator/quantum_solar_generator");
+//        createWithBlock(ModBlocks.CRYSTALLINE_GENERATOR.getBlock(), "generator/crystalline_generator");
     }
 
     protected void registerMachines() {
-        createWithBlock(ModBlocks.IRON_FURNACE, "machines/iron_furnace");
-        createWithBlock(ModBlocks.ELECTRIC_FURNACE, "machines/electric_furnace");
+        createWithBlock(ModBlocks.IRON_FURNACE.getBlock(), "machines/iron_furnace");
+        createWithBlock(ModBlocks.ELECTRIC_FURNACE.getBlock(), "machines/electric_furnace");
 
-        createWithBlock(ModBlocks.CRUSHER, "machines/crusher");
-        createWithBlock(ModBlocks.COMPRESSOR, "machines/compressor");
-        createWithBlock(ModBlocks.EXTRACTOR, "machines/extractor");
-        createWithBlock(ModBlocks.SAWMILL, "machines/sawmill");
-        createWithBlock(ModBlocks.EXTRUDER, "machines/extruder");
+        createWithBlock(ModBlocks.CRUSHER.getBlock(), "machines/crusher");
+        createWithBlock(ModBlocks.COMPRESSOR.getBlock(), "machines/compressor");
+        createWithBlock(ModBlocks.EXTRACTOR.getBlock(), "machines/extractor");
+        createWithBlock(ModBlocks.SAWMILL.getBlock(), "machines/sawmill");
+        createWithBlock(ModBlocks.EXTRUDER.getBlock(), "machines/extruder");
 
-//        createWithBlock(ModBlocks.CANNING_MACHINE, "machines/canning_machine");
-//        createWithBlock(ModBlocks.FLUID_ENRICHER, "machines/fluid_enricher");
+//        createWithBlock(ModBlocks.CANNING_MACHINE.getBlock(), "machines/canning_machine");
+//        createWithBlock(ModBlocks.FLUID_ENRICHER.getBlock(), "machines/fluid_enricher");
 
-        createWithBlock(ModBlocks.ALLOY_SMELTER, "machines/alloy_smelter");
+        createWithBlock(ModBlocks.ALLOY_SMELTER.getBlock(), "machines/alloy_smelter");
     }
 
     protected void registerBatteryBox() {
-        createWithBlock(ModBlocks.BATTERY_BOX, "battery_box/battery_box");
-        createWithBlock(ModBlocks.CESU, "battery_box/cesu");
-        createWithBlock(ModBlocks.MFE, "battery_box/mfe");
-        createWithBlock(ModBlocks.MFSU, "battery_box/mfsu");
+        createWithBlock(ModBlocks.BATTERY_BOX.getBlock(), "battery_box/battery_box");
+        createWithBlock(ModBlocks.CESU.getBlock(), "battery_box/cesu");
+        createWithBlock(ModBlocks.MFE.getBlock(), "battery_box/mfe");
+        createWithBlock(ModBlocks.MFSU.getBlock(), "battery_box/mfsu");
     }
 
     protected void registerCraftng() {
@@ -252,15 +251,15 @@ public class Items extends ItemModelProvider {
     }
 
     protected void registerCables() {
-        createWithBlock(ModBlocks.TIN_CABLE, "cable/tin_cable_inventory");
-        createWithBlock(ModBlocks.TIN_CABLE_INSULATED, "cable/tin_cable_insulated_inventory");
-        createWithBlock(ModBlocks.COPPER_CABLE, "cable/copper_cable_inventory");
-        createWithBlock(ModBlocks.COPPER_CABLE_INSULATED, "cable/copper_cable_insulated_inventory");
-        createWithBlock(ModBlocks.GOLD_CABLE, "cable/gold_cable_inventory");
-        createWithBlock(ModBlocks.GOLD_CABLE_INSULATED, "cable/gold_cable_insulated_inventory");
-        createWithBlock(ModBlocks.HV_CABLE, "cable/hv_cable_inventory");
-        createWithBlock(ModBlocks.HV_CABLE_INSULATED, "cable/hv_cable_insulated_inventory");
-        createWithBlock(ModBlocks.GLASS_FIBRE_CABLE, "cable/glass_fibre_cable_inventory");
+        createWithBlock(ModBlocks.TIN_CABLE.getBlock(), "cable/tin_cable_inventory");
+        createWithBlock(ModBlocks.TIN_CABLE_INSULATED.getBlock(), "cable/tin_cable_insulated_inventory");
+        createWithBlock(ModBlocks.COPPER_CABLE.getBlock(), "cable/copper_cable_inventory");
+        createWithBlock(ModBlocks.COPPER_CABLE_INSULATED.getBlock(), "cable/copper_cable_insulated_inventory");
+        createWithBlock(ModBlocks.GOLD_CABLE.getBlock(), "cable/gold_cable_inventory");
+        createWithBlock(ModBlocks.GOLD_CABLE_INSULATED.getBlock(), "cable/gold_cable_insulated_inventory");
+        createWithBlock(ModBlocks.HV_CABLE.getBlock(), "cable/hv_cable_inventory");
+        createWithBlock(ModBlocks.HV_CABLE_INSULATED.getBlock(), "cable/hv_cable_insulated_inventory");
+        createWithBlock(ModBlocks.GLASS_FIBRE_CABLE.getBlock(), "cable/glass_fibre_cable_inventory");
     }
 
     private ItemModelBuilder createGeneratedTexture(Item item, String path) {

@@ -32,7 +32,7 @@ public class BlockReinforcedCF extends AbstractGlassBlock {
 
         int count = ThreadLocalRandom.current().nextInt(0, 3);
         if (count == 0) {
-            pLevel.setBlock(pPos, ModBlocks.REINFORCED_STONE.defaultBlockState(), 2);
+            pLevel.setBlock(pPos, ModBlocks.REINFORCED_STONE.getBlock().defaultBlockState(), 2);
         }
 
         super.tick(pState, pLevel, pPos, pRandom);

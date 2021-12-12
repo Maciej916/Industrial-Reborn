@@ -24,7 +24,7 @@ public class RubberTreeBlockStateProvider extends SimpleStateProvider {
             } else {
                 dry = true;
             }
-            return ModBlocks.RUBBER_LOG.defaultBlockState().setValue(BlockStateHelper.wetProperty, wet).setValue(BlockStateHelper.dryProperty, dry);
+            return ModBlocks.RUBBER_LOG.getBlock().defaultBlockState().setValue(BlockStateHelper.wetProperty, wet).setValue(BlockStateHelper.dryProperty, dry);
         }
 
         return super.getState(pRandom, pBlockPos);

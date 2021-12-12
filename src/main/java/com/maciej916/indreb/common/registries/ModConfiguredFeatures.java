@@ -19,7 +19,7 @@ import net.minecraft.world.level.levelgen.feature.trunkplacers.StraightTrunkPlac
 import java.util.List;
 
 public class ModConfiguredFeatures {
-    public static final List<OreConfiguration.TargetBlockState> ORE_TIN_TARGET_LIST = List.of(OreConfiguration.target(OreFeatures.STONE_ORE_REPLACEABLES, ModBlocks.TIN_ORE.defaultBlockState()), OreConfiguration.target(OreFeatures.DEEPSLATE_ORE_REPLACEABLES, ModBlocks.DEEPSLATE_TIN_ORE.defaultBlockState()));
+    public static final List<OreConfiguration.TargetBlockState> ORE_TIN_TARGET_LIST = List.of(OreConfiguration.target(OreFeatures.STONE_ORE_REPLACEABLES, ModBlocks.TIN_ORE.getBlock().defaultBlockState()), OreConfiguration.target(OreFeatures.DEEPSLATE_ORE_REPLACEABLES, ModBlocks.DEEPSLATE_TIN_ORE.getBlock().defaultBlockState()));
 
     public static ConfiguredFeature<TreeConfiguration, ?> RUBBER_TREE;
     public static ConfiguredFeature<OreConfiguration, ?> ORE_TIN_SMALL;
@@ -28,9 +28,9 @@ public class ModConfiguredFeatures {
     public static void init() {
         RUBBER_TREE = register("rubber_tree", Feature.TREE.configured((
                         new TreeConfiguration.TreeConfigurationBuilder(
-                                new RubberTreeBlockStateProvider(ModBlocks.RUBBER_LOG.defaultBlockState()),
+                                new RubberTreeBlockStateProvider(ModBlocks.RUBBER_LOG.getBlock().defaultBlockState()),
                                 new StraightTrunkPlacer(4, 2, 0),
-                                SimpleStateProvider.simple(ModBlocks.RUBBER_LEAVES.defaultBlockState()),
+                                SimpleStateProvider.simple(ModBlocks.RUBBER_LEAVES.getBlock().defaultBlockState()),
                                 new RubberFoliagePlacer(ConstantInt.of(2), ConstantInt.of(0), 2),
                                 new TwoLayersFeatureSize(1, 0, 1)
                         )

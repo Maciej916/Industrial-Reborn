@@ -10,7 +10,7 @@ import net.minecraft.world.level.material.MaterialColor;
 public class BlockReinforcedStoneStairs extends StairBlock {
 
     public BlockReinforcedStoneStairs() {
-        super(ModBlocks.REINFORCED_STONE.defaultBlockState(), Properties.of(Material.STONE, MaterialColor.STONE).strength(10.0F, 10000000000F).sound(SoundType.STONE));
+        super(ModBlocks.REINFORCED_STONE.getBlock().defaultBlockState(), Properties.of(Material.STONE, MaterialColor.STONE).strength(10.0F, 10000000000F).sound(SoundType.STONE));
     }
 
 }

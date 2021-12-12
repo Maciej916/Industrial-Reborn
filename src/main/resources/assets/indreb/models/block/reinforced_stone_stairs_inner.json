@@ -1,8 +1,0 @@
-{
-    "parent": "block/inner_stairs",
-    "textures": {
-        "bottom": "indreb:block/reinforced_stone",
-        "top": "indreb:block/reinforced_stone",
-        "side": "indreb:block/reinforced_stone"
-    }
-}

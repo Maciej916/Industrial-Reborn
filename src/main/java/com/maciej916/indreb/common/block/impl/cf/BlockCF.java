@@ -36,7 +36,7 @@ public class BlockCF extends AbstractGlassBlock {
 
         int count = ThreadLocalRandom.current().nextInt(0, 3);
         if (count == 0) {
-            pLevel.setBlock(pPos, ModBlocks.CONSTRUCTION_FOAM_WALL_LIGHT_GRAY.defaultBlockState(), 2);
+            pLevel.setBlock(pPos, ModBlocks.CONSTRUCTION_FOAM_WALL_LIGHT_GRAY.getBlock().defaultBlockState(), 2);
         }
 
         super.tick(pState, pLevel, pPos, pRandom);

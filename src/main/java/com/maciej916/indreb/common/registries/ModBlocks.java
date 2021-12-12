@@ -1,6 +1,8 @@
 package com.maciej916.indreb.common.registries;
 
 import com.maciej916.indreb.common.block.*;
+import com.maciej916.indreb.common.block.impl.BlockIronFence;
+import com.maciej916.indreb.common.block.impl.BlockIronScaffolding;
 import com.maciej916.indreb.common.block.impl.battery_box.BlockBatteryBox;
 import com.maciej916.indreb.common.block.impl.cable.BlockCable;
 import com.maciej916.indreb.common.block.impl.cf.*;
@@ -20,6 +22,7 @@ import com.maciej916.indreb.common.block.impl.machines.iron_furnace.BlockIronFur
 import com.maciej916.indreb.common.block.impl.machines.sawmill.BlockSawmill;
 import com.maciej916.indreb.common.block.impl.rubber_wood.*;
 import com.maciej916.indreb.common.generation.RubberTree;
+import com.maciej916.indreb.common.item.ItemIronScaffolding;
 import com.maciej916.indreb.common.tier.BatteryBoxTier;
 import com.maciej916.indreb.common.tier.CableTier;
 import com.maciej916.indreb.common.tier.SolarGeneratorTier;
@@ -38,93 +41,93 @@ import net.minecraftforge.registries.ForgeRegistries;
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 public final class ModBlocks {
 
-    public static Block GENERATOR;
-    public static Block SOLAR_GENERATOR;
-    public static Block ADVANCED_SOLAR_GENERATOR;
-    public static Block HYBRID_SOLAR_GENERATOR;
-    public static Block QUANTUM_SOLAR_GENERATOR;
-    public static Block GEO_GENERATOR;
-    public static Block CRYSTALLINE_GENERATOR;
+    public static BlockItem GENERATOR;
+    public static BlockItem SOLAR_GENERATOR;
+    public static BlockItem ADVANCED_SOLAR_GENERATOR;
+    public static BlockItem HYBRID_SOLAR_GENERATOR;
+    public static BlockItem QUANTUM_SOLAR_GENERATOR;
+    public static BlockItem GEO_GENERATOR;
+    public static BlockItem CRYSTALLINE_GENERATOR;
 
-    public static Block BATTERY_BOX;
-    public static Block CESU;
-    public static Block MFE;
-    public static Block MFSU;
+    public static BlockItem BATTERY_BOX;
+    public static BlockItem CESU;
+    public static BlockItem MFE;
+    public static BlockItem MFSU;
 
-    public static Block IRON_FURNACE;
-    public static Block ELECTRIC_FURNACE;
+    public static BlockItem IRON_FURNACE;
+    public static BlockItem ELECTRIC_FURNACE;
 
-    public static Block CRUSHER;
-    public static Block COMPRESSOR;
-    public static Block EXTRACTOR;
-    public static Block SAWMILL;
-    public static Block EXTRUDER;
-    public static Block CANNING_MACHINE;
-    public static Block FLUID_ENRICHER;
+    public static BlockItem CRUSHER;
+    public static BlockItem COMPRESSOR;
+    public static BlockItem EXTRACTOR;
+    public static BlockItem SAWMILL;
+    public static BlockItem EXTRUDER;
+    public static BlockItem CANNING_MACHINE;
+    public static BlockItem FLUID_ENRICHER;
 
-    public static Block ALLOY_SMELTER;
+    public static BlockItem ALLOY_SMELTER;
 
-    public static Block COPPER_CABLE;
-    public static Block COPPER_CABLE_INSULATED;
-    public static Block TIN_CABLE;
-    public static Block TIN_CABLE_INSULATED;
-    public static Block GOLD_CABLE;
-    public static Block GOLD_CABLE_INSULATED;
-    public static Block HV_CABLE;
-    public static Block HV_CABLE_INSULATED;
-    public static Block GLASS_FIBRE_CABLE;
+    public static BlockItem COPPER_CABLE;
+    public static BlockItem COPPER_CABLE_INSULATED;
+    public static BlockItem TIN_CABLE;
+    public static BlockItem TIN_CABLE_INSULATED;
+    public static BlockItem GOLD_CABLE;
+    public static BlockItem GOLD_CABLE_INSULATED;
+    public static BlockItem HV_CABLE;
+    public static BlockItem HV_CABLE_INSULATED;
+    public static BlockItem GLASS_FIBRE_CABLE;
 
-    public static Block RUBBER_LOG;
-    public static Block RUBBER_WOOD;
-    public static Block RUBBER_LEAVES;
-    public static Block RUBBER_SAPLING;
-    public static Block RUBBER_PLANKS;
-    public static Block RUBBER_STAIRS;
-    public static Block RUBBER_SLAB;
+    public static BlockItem RUBBER_LOG;
+    public static BlockItem RUBBER_WOOD;
+    public static BlockItem RUBBER_LEAVES;
+    public static BlockItem RUBBER_SAPLING;
+    public static BlockItem RUBBER_PLANKS;
+    public static BlockItem RUBBER_STAIRS;
+    public static BlockItem RUBBER_SLAB;
 
-    public static Block TIN_ORE;
-    public static Block DEEPSLATE_TIN_ORE;
+    public static BlockItem TIN_ORE;
+    public static BlockItem DEEPSLATE_TIN_ORE;
 
-    public static Block TIN_BLOCK;
-    public static Block SILVER_BLOCK;
-    public static Block STEEL_BLOCK;
-    public static Block BRONZE_BLOCK;
+    public static BlockItem TIN_BLOCK;
+    public static BlockItem SILVER_BLOCK;
+    public static BlockItem STEEL_BLOCK;
+    public static BlockItem BRONZE_BLOCK;
 
-    public static Block BASIC_MACHINE_CASING;
-    public static Block ADVANCED_MACHINE_CASING;
+    public static BlockItem BASIC_MACHINE_CASING;
+    public static BlockItem ADVANCED_MACHINE_CASING;
 
-    public static Block RESIN_SHEET;
-    public static Block RUBBER_SHEET;
+    public static BlockItem RESIN_SHEET;
+    public static BlockItem RUBBER_SHEET;
 
-    public static Block CONSTRUCTION_FOAM;
-    public static Block REINFORCED_CONSTRUCTION_FOAM;
+    public static BlockItem CONSTRUCTION_FOAM;
+    public static BlockItem REINFORCED_CONSTRUCTION_FOAM;
 
-    public static Block CONSTRUCTION_FOAM_WALL_WHITE;
-    public static Block CONSTRUCTION_FOAM_WALL_RED;
-    public static Block CONSTRUCTION_FOAM_WALL_ORANGE;
-    public static Block CONSTRUCTION_FOAM_WALL_PINK;
-    public static Block CONSTRUCTION_FOAM_WALL_YELLOW;
-    public static Block CONSTRUCTION_FOAM_WALL_LIME;
-    public static Block CONSTRUCTION_FOAM_WALL_GREEN;
-    public static Block CONSTRUCTION_FOAM_WALL_LIGHT_BLUE;
-    public static Block CONSTRUCTION_FOAM_WALL_CYAN;
-    public static Block CONSTRUCTION_FOAM_WALL_BLUE;
-    public static Block CONSTRUCTION_FOAM_WALL_MAGENTA;
-    public static Block CONSTRUCTION_FOAM_WALL_PURPLE;
-    public static Block CONSTRUCTION_FOAM_WALL_BROWN;
-    public static Block CONSTRUCTION_FOAM_WALL_GRAY;
-    public static Block CONSTRUCTION_FOAM_WALL_LIGHT_GRAY;
-    public static Block CONSTRUCTION_FOAM_WALL_BLACK;
+    public static BlockItem CONSTRUCTION_FOAM_WALL_WHITE;
+    public static BlockItem CONSTRUCTION_FOAM_WALL_RED;
+    public static BlockItem CONSTRUCTION_FOAM_WALL_ORANGE;
+    public static BlockItem CONSTRUCTION_FOAM_WALL_PINK;
+    public static BlockItem CONSTRUCTION_FOAM_WALL_YELLOW;
+    public static BlockItem CONSTRUCTION_FOAM_WALL_LIME;
+    public static BlockItem CONSTRUCTION_FOAM_WALL_GREEN;
+    public static BlockItem CONSTRUCTION_FOAM_WALL_LIGHT_BLUE;
+    public static BlockItem CONSTRUCTION_FOAM_WALL_CYAN;
+    public static BlockItem CONSTRUCTION_FOAM_WALL_BLUE;
+    public static BlockItem CONSTRUCTION_FOAM_WALL_MAGENTA;
+    public static BlockItem CONSTRUCTION_FOAM_WALL_PURPLE;
+    public static BlockItem CONSTRUCTION_FOAM_WALL_BROWN;
+    public static BlockItem CONSTRUCTION_FOAM_WALL_GRAY;
+    public static BlockItem CONSTRUCTION_FOAM_WALL_LIGHT_GRAY;
+    public static BlockItem CONSTRUCTION_FOAM_WALL_BLACK;
 
-    public static Block REINFORCED_GLASS;
-    public static Block REINFORCED_STONE;
-    public static Block REINFORCED_STONE_SLAB;
-    public static Block REINFORCED_STONE_STAIRS;
+    public static BlockItem REINFORCED_GLASS;
+    public static BlockItem REINFORCED_STONE;
+    public static BlockItem REINFORCED_STONE_SLAB;
+    public static BlockItem REINFORCED_STONE_STAIRS;
 
-    public static Block IRON_SCAFFOLDING;
-    public static Block IRON_FENCE;
+    public static BlockItem IRON_SCAFFOLDING;
+    public static BlockItem IRON_FENCE;
 
-    public static Block LUMINATOR;
+    public static BlockItem LUMINATOR;
 
 
     @SubscribeEvent
@@ -212,23 +215,29 @@ public final class ModBlocks {
         REINFORCED_STONE_SLAB = registerBlock(new BlockReinforcedStoneSlab(), "reinforced_stone_slab");
         REINFORCED_STONE_STAIRS = registerBlock(new BlockReinforcedStoneStairs(), "reinforced_stone_stairs");
 
-        IRON_SCAFFOLDING = registerBlock(new BlockWIP(), "iron_scaffolding");
-        IRON_FENCE = registerBlock(new BlockWIP(), "iron_fence");
+        IRON_SCAFFOLDING = registerBlock(new ItemIronScaffolding(new BlockIronScaffolding(), new Item.Properties().tab(ModItemGroups.MAIN_ITEM_GROUP)), "iron_scaffolding");
+        IRON_FENCE = registerBlock(new BlockIronFence(), "iron_fence");
 
         LUMINATOR = registerBlock(new BlockWIP(), "luminator");
 
 
-
     }
 
 
-    public static Block registerBlock(Block block, String name) {
-        BlockItem itemBlock = new BlockItem(block, new Item.Properties().tab(ModItemGroups.MAIN_ITEM_GROUP));
+
+    public static BlockItem registerBlock(BlockItem blockItem, String name) {
+        return registerBlock(blockItem.getBlock(), blockItem, name);
+    }
+
+    public static BlockItem registerBlock(Block block, String name) {
+        return registerBlock(block, new BlockItem(block, new Item.Properties().tab(ModItemGroups.MAIN_ITEM_GROUP)), name);
+    }
+
+    public static BlockItem registerBlock(Block block, BlockItem blockItem, String name) {
         block.setRegistryName(name);
-        itemBlock.setRegistryName(name);
+        blockItem.setRegistryName(name);
         ForgeRegistries.BLOCKS.register(block);
-        ForgeRegistries.ITEMS.register(itemBlock);
-        return block;
+        ForgeRegistries.ITEMS.register(blockItem);
+        return blockItem;
     }
-
 }

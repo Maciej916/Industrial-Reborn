@@ -52,26 +52,26 @@ public final class ModBlockEntities {
     @SubscribeEvent
     public static void registerTileEntities(RegistryEvent.Register<BlockEntityType<?>> event) {
 
-        GENERATOR = registerTileEntity("generator", BlockEntityType.Builder.of(BlockEntityGenerator::new, ModBlocks.GENERATOR).build(null));
-        SOLAR_GENERATOR = registerTileEntity("solar_generator", BlockEntityType.Builder.of(BlockEntitySolarGenerator::new, ModBlocks.SOLAR_GENERATOR, ModBlocks.ADVANCED_SOLAR_GENERATOR, ModBlocks.HYBRID_SOLAR_GENERATOR, ModBlocks.QUANTUM_SOLAR_GENERATOR).build(null));
-        GEO_GENERATOR = registerTileEntity("geo_generator", BlockEntityType.Builder.of(BlockEntityGeoGenerator::new, ModBlocks.GEO_GENERATOR).build(null));
-        CRYSTALLINE_GENERATOR = registerTileEntity("crystalline_generator", BlockEntityType.Builder.of(BlockEntityCrystallineGenerator::new, ModBlocks.CRYSTALLINE_GENERATOR).build(null));
+        GENERATOR = registerTileEntity("generator", BlockEntityType.Builder.of(BlockEntityGenerator::new, ModBlocks.GENERATOR.getBlock()).build(null));
+        SOLAR_GENERATOR = registerTileEntity("solar_generator", BlockEntityType.Builder.of(BlockEntitySolarGenerator::new, ModBlocks.SOLAR_GENERATOR.getBlock(), ModBlocks.ADVANCED_SOLAR_GENERATOR.getBlock(), ModBlocks.HYBRID_SOLAR_GENERATOR.getBlock(), ModBlocks.QUANTUM_SOLAR_GENERATOR.getBlock()).build(null));
+        GEO_GENERATOR = registerTileEntity("geo_generator", BlockEntityType.Builder.of(BlockEntityGeoGenerator::new, ModBlocks.GEO_GENERATOR.getBlock()).build(null));
+        CRYSTALLINE_GENERATOR = registerTileEntity("crystalline_generator", BlockEntityType.Builder.of(BlockEntityCrystallineGenerator::new, ModBlocks.CRYSTALLINE_GENERATOR.getBlock()).build(null));
 
-        IRON_FURNACE = registerTileEntity("iron_furnace", BlockEntityType.Builder.of(BlockEntityIronFurnace::new, ModBlocks.IRON_FURNACE).build(null));
-        ELECTRIC_FURNACE = registerTileEntity("electric_furnace", BlockEntityType.Builder.of(BlockEntityElectricFurnace::new, ModBlocks.ELECTRIC_FURNACE).build(null));
+        IRON_FURNACE = registerTileEntity("iron_furnace", BlockEntityType.Builder.of(BlockEntityIronFurnace::new, ModBlocks.IRON_FURNACE.getBlock()).build(null));
+        ELECTRIC_FURNACE = registerTileEntity("electric_furnace", BlockEntityType.Builder.of(BlockEntityElectricFurnace::new, ModBlocks.ELECTRIC_FURNACE.getBlock()).build(null));
 
-        CRUSHER = registerTileEntity("crusher", BlockEntityType.Builder.of(BlockEntityCrusher::new, ModBlocks.CRUSHER).build(null));
-        COMPRESSOR = registerTileEntity("compressor", BlockEntityType.Builder.of(BlockEntityCompressor::new, ModBlocks.COMPRESSOR).build(null));
-        EXTRACTOR = registerTileEntity("extractor", BlockEntityType.Builder.of(BlockEntityExtractor::new, ModBlocks.EXTRACTOR).build(null));
-        SAWMILL = registerTileEntity("sawmill", BlockEntityType.Builder.of(BlockEntitySawmill::new, ModBlocks.SAWMILL).build(null));
-        EXTRUDER = registerTileEntity("extruder", BlockEntityType.Builder.of(BlockEntityExtruder::new, ModBlocks.EXTRUDER).build(null));
-        CANNING_MACHINE = registerTileEntity("canning_machine", BlockEntityType.Builder.of(BlockEntityCanningMachine::new, ModBlocks.CANNING_MACHINE).build(null));
-        FLUID_ENRICHER = registerTileEntity("fluid_enricher", BlockEntityType.Builder.of(BlockEntityFluidEnricher::new, ModBlocks.FLUID_ENRICHER).build(null));
+        CRUSHER = registerTileEntity("crusher", BlockEntityType.Builder.of(BlockEntityCrusher::new, ModBlocks.CRUSHER.getBlock()).build(null));
+        COMPRESSOR = registerTileEntity("compressor", BlockEntityType.Builder.of(BlockEntityCompressor::new, ModBlocks.COMPRESSOR.getBlock()).build(null));
+        EXTRACTOR = registerTileEntity("extractor", BlockEntityType.Builder.of(BlockEntityExtractor::new, ModBlocks.EXTRACTOR.getBlock()).build(null));
+        SAWMILL = registerTileEntity("sawmill", BlockEntityType.Builder.of(BlockEntitySawmill::new, ModBlocks.SAWMILL.getBlock()).build(null));
+        EXTRUDER = registerTileEntity("extruder", BlockEntityType.Builder.of(BlockEntityExtruder::new, ModBlocks.EXTRUDER.getBlock()).build(null));
+        CANNING_MACHINE = registerTileEntity("canning_machine", BlockEntityType.Builder.of(BlockEntityCanningMachine::new, ModBlocks.CANNING_MACHINE.getBlock()).build(null));
+        FLUID_ENRICHER = registerTileEntity("fluid_enricher", BlockEntityType.Builder.of(BlockEntityFluidEnricher::new, ModBlocks.FLUID_ENRICHER.getBlock()).build(null));
 
-        ALLOY_SMELTER = registerTileEntity("alloy_smelter", BlockEntityType.Builder.of(BlockEntityAlloySmelter::new, ModBlocks.ALLOY_SMELTER).build(null));
+        ALLOY_SMELTER = registerTileEntity("alloy_smelter", BlockEntityType.Builder.of(BlockEntityAlloySmelter::new, ModBlocks.ALLOY_SMELTER.getBlock()).build(null));
 
-        CABLE = registerTileEntity("cable", BlockEntityType.Builder.of(BlockEntityCable::new, ModBlocks.TIN_CABLE, ModBlocks.TIN_CABLE_INSULATED, ModBlocks.COPPER_CABLE, ModBlocks.COPPER_CABLE_INSULATED).build(null));
-        BATTERY_BOX = registerTileEntity("battery_box", BlockEntityType.Builder.of(BlockEntityBatteryBox::new, ModBlocks.BATTERY_BOX, ModBlocks.CESU, ModBlocks.MFE, ModBlocks.MFSU).build(null));
+        CABLE = registerTileEntity("cable", BlockEntityType.Builder.of(BlockEntityCable::new, ModBlocks.TIN_CABLE.getBlock(), ModBlocks.TIN_CABLE_INSULATED.getBlock(), ModBlocks.COPPER_CABLE.getBlock(), ModBlocks.COPPER_CABLE_INSULATED.getBlock()).build(null));
+        BATTERY_BOX = registerTileEntity("battery_box", BlockEntityType.Builder.of(BlockEntityBatteryBox::new, ModBlocks.BATTERY_BOX.getBlock(), ModBlocks.CESU.getBlock(), ModBlocks.MFE.getBlock(), ModBlocks.MFSU.getBlock()).build(null));
 
 
 
