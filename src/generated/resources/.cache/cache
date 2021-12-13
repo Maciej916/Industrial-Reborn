@@ -25,6 +25,7 @@ cb04834c1aabbddf5c3cb67c9f17f6a1383574bb assets/indreb/blockstates/iron_fence.js
 cb0d5abecc1b2036160d9f18f02737026540a6f3 assets/indreb/blockstates/reinforced_stone.json
 b0ba37c944a10d1314d9b3e1440a497584069dc3 assets/indreb/blockstates/reinforced_stone_slab.json
 418903bcbc7f124f07dcd417b78d7370a0e99f29 assets/indreb/blockstates/reinforced_stone_stairs.json
+dd7b41b7f797df198d5eab3e78eee297ecaebf90 assets/indreb/blockstates/rubber_sapling.json
 00400eae36495ef14deab19a555df009d9d2d8cd assets/indreb/blockstates/tin_ore.json
 0b4a28d533623880079e4a7017e21b1d659ce700 assets/indreb/models/block/canning_machine.json
 4dec036e073534fac860f542e5d83c73824dc796 assets/indreb/models/block/canning_machine_active.json
@@ -59,6 +60,7 @@ b775566b1f55012b15be6b8664de1bd3057eacb3 assets/indreb/models/block/reinforced_s
 c53d1ad642bb3ba350b1a20b3752a8cdb4982fbc assets/indreb/models/block/reinforced_stone_stairs.json
 46f3271da80fb76dcc14bae584e20026beb55d06 assets/indreb/models/block/reinforced_stone_stairs_inner.json
 70ee4af89458e2f5470a2e0afee5bb5c6e706c77 assets/indreb/models/block/reinforced_stone_stairs_outer.json
+cc853edc5c1ccc7c39370f4e5e916858006ac894 assets/indreb/models/block/rubber_sapling.json
 eff9f0827c52efed0bdbce5f2c843506cf6d8a0d assets/indreb/models/block/tin_ore.json
 fa39bb634cb816f3929053f889d559ec70424471 assets/indreb/models/item/advanced_alloy.json
 3f889c59de7f9c1b0fbfa896ba914a77f6455c71 assets/indreb/models/item/advanced_battery.json
@@ -104,6 +106,7 @@ baabbaf51ee32f47faa22787092e3f668ee826a3 assets/indreb/models/item/bronze_pickax
 d137ceafd195e75a5d90b0efc7d366635cec7f5f assets/indreb/models/item/carbon_fibers.json
 e35848db065cc2faa3ff18d2561c8daec7592f18 assets/indreb/models/item/carbon_plate.json
 b4ff64ef1725d585b9d58df558fdde2b7088e49f assets/indreb/models/item/cesu.json
+6b3c28ddc36d78e8e83dd357c55e1ded6a8c094a assets/indreb/models/item/chainsaw.json
 6b81bad4b522c9b5a718d6712b477ddd0bd00d09 assets/indreb/models/item/coal_dust.json
 9c827ec98fbcfccbe7d47ca1b3a8b38c5376fcaa assets/indreb/models/item/combined_carbon_fibers.json
 cee46eeb27d8c733ecd21d64d27b4c507d5d44a4 assets/indreb/models/item/compressor.json
@@ -135,14 +138,20 @@ c00749901e0bb2bcd809b49e05f3836e6b8dd989 assets/indreb/models/item/crusher.json
 7414151153958d1a8f7c06585157f8062562374f assets/indreb/models/item/cutter.json
 fbdfea9ec47411d92206d855bf6a073e86958dbe assets/indreb/models/item/deepslate_dust.json
 7ffd1250848b562bb9cfd7046df07cc568130be9 assets/indreb/models/item/deepslate_tin_ore.json
+797e75026fc73f16a4f94e0d8833ccaf5512f692 assets/indreb/models/item/diamond_chainsaw.json
+7a8b591d1507c856634915697a15044cb7eebaf3 assets/indreb/models/item/diamond_drill.json
 93d7bf73d1482603d7db42b11168cd4452020e05 assets/indreb/models/item/diamond_dust.json
 544109f5c167e927f74b0ca420798b59232861ec assets/indreb/models/item/electric_furnace.json
+7f559e2a554e9b8b85011d338c668af4544bfc75 assets/indreb/models/item/electric_hoe.json
+7d077b2686af666e9f0a1c051048b477d4e2626e assets/indreb/models/item/electric_treetap.json
+a5c7d83926b8192700e69579d1fd73a780cbfb76 assets/indreb/models/item/electric_wrench.json
 f98e12da513ec3943d759ac99103e6c0ec33ae63 assets/indreb/models/item/electronic_circuit.json
 3ecca95c162c93a1674779b555d011e23f0ee2a5 assets/indreb/models/item/energium_dust.json
 bbf4dbd12100ef56bb127de10e69a79d428eb59a assets/indreb/models/item/energy_crystal.json
 f5141954c4bf0d1a3ac80e97616b6b93d4c59665 assets/indreb/models/item/extractor.json
 e25391c41005b2bfd39c5fa79f3aa4b0cd136d19 assets/indreb/models/item/extruder.json
 529e215dd41db16e97ecf98f1de6c5fbe345cf57 assets/indreb/models/item/fluid_cell.json
+d4ad7a71bd3d615b327e02edebeb0635f7357aa6 assets/indreb/models/item/foam_sprayer.json
 6677d0806fd993ff9a11108ea8052e57dfabc976 assets/indreb/models/item/generator.json
 1cb7cd73a433f09180f8bedbbb9af20b1e3571f5 assets/indreb/models/item/geo_generator.json
 584ab9c7ee234d670ee0ff01a4ed01a81bc33a60 assets/indreb/models/item/glass_fibre_cable.json
@@ -153,7 +162,11 @@ f3e9d0686265f23014f1544a08a69ad08507d826 assets/indreb/models/item/hammer.json
 191e1d31966c29a41bcf8a303624748f69f1c8ed assets/indreb/models/item/hv_cable.json
 bf92be09e63738dd15bfdbe3e80e79b1dcb2e5d1 assets/indreb/models/item/hv_cable_insulated.json
 b01b6acb86e7466ceaa0e17af780cd3efbc01a84 assets/indreb/models/item/hybrid_solar_generator.json
+6593cc2d4d1cb6a5777006510a05221042ca2c9c assets/indreb/models/item/ie_meter.json
+9db3d9f9e7999a17377d5ce078e40b41585d549e assets/indreb/models/item/iridium.json
+b35a4b8f0eca285d75b0b3dadb8d72b38ce67a19 assets/indreb/models/item/iridium_drill.json
 62b40010e0ad262f1e191d2c8245f052fb025133 assets/indreb/models/item/iridium_plate.json
+ad6cf34e9331cec52cbe27c06d7519a35c200b4e assets/indreb/models/item/iridium_shard.json
 66a436d58b782d035e865239b0d7ec48cad36d8c assets/indreb/models/item/iron_fence.json
 e8781f40fc399f26ea8335e2b350d75f900a6cfa assets/indreb/models/item/iron_furnace.json
 165ba824c7f795a690a5c82164655d791d28e0a3 assets/indreb/models/item/iron_plate.json
@@ -163,6 +176,7 @@ ce12808a47870812f4346549af535a922489fe07 assets/indreb/models/item/lapotron_crys
 c8afe05fe6018adabf9d13d5609744663f7cee56 assets/indreb/models/item/luminator.json
 4fa96a60088e2a427b60a3385389d1dfe44dcd0b assets/indreb/models/item/mfe.json
 7a9e81c27ad49957aad05d06dfdc2a6f1ae88fb8 assets/indreb/models/item/mfsu.json
+ee02f076e2fbd03b2d03d3c6009ed42b28b4d35c assets/indreb/models/item/mining_drill.json
 0fa7546cefe04448a3f5d260c41e3b519d70404f assets/indreb/models/item/mixed_metal_ingot.json
 da6f59d605bd323c3a04e41e665ce54dde26138c assets/indreb/models/item/nano_boots.json
 c077438f8ef3df8f8db747a9029a5a9da0d9cf60 assets/indreb/models/item/nano_chestplate.json
@@ -187,6 +201,7 @@ a7dd7fb7aeb5f14600bd90df9b524cf101b67f92 assets/indreb/models/item/painter_purpl
 eb27e73128f4f637088e67852b7cfa3294e46c9d assets/indreb/models/item/painter_red.json
 f1647d95aadb38df9b918535087a857d14493e2e assets/indreb/models/item/painter_white.json
 dbaceb4214b724a3138514d84a693dec473de0a1 assets/indreb/models/item/painter_yellow.json
+6efadc95d45053208c1f90fc90d5f8cb8f3bd9be assets/indreb/models/item/power_unit.json
 32136ca99c7d1b7c9ccfb83196077bd66d5975d4 assets/indreb/models/item/quantum_solar_generator.json
 b01d18782dd5e3460ae21079e8be93494da33707 assets/indreb/models/item/raw_tin.json
 c971653ffdf1bc870cb75fd5c056e39038f04e9d assets/indreb/models/item/reinforced_construction_foam.json
@@ -208,6 +223,7 @@ aeead984a1b485f3f35a4d7c6ae1b8ae5d323930 assets/indreb/models/item/sawdust.json
 5041b2afcc25e57d95500206ef1df7244e0db9cc assets/indreb/models/item/silver_block.json
 72ad447cc3f7ee9f6c40205d90f7eda4b6b3184c assets/indreb/models/item/silver_dust.json
 492aa6635d9857c1252e14ccd0a3edfcf62ffa0d assets/indreb/models/item/silver_ingot.json
+b97bb6fcc7448793577935c933ed6882dd1796b2 assets/indreb/models/item/small_power_unit.json
 c5b53bd2556062f2bf06c0faacd87baeaf0bb7ef assets/indreb/models/item/solar_generator.json
 fa5a9f737e5c4ca32fe7a5675d2d950bfbb6401e assets/indreb/models/item/steel_block.json
 a4a4f9946a774ec4c805318f2f518015d0408462 assets/indreb/models/item/steel_ingot.json
@@ -223,7 +239,9 @@ b94385c9ddbba5aa84e6e0bf8a5a1df010b6a3e8 assets/indreb/models/item/tin_plate.jso
 870b7fd8c1085a456b6cef535e1e5f788cf3edf0 assets/indreb/models/item/tool/electric/nano_saber.json
 2dae51261d38e9c2e7d5d79b8d405138102e3d7e assets/indreb/models/item/tool/electric/nano_saber_active.json
 87fa46e89e131e5247221cb79b9aa1c2e345397c assets/indreb/models/item/treetap.json
+c2fd9c9d01713e61595a0bfe36e748e6ecb1f190 assets/indreb/models/item/wind_meter.json
 9391fc9d6bce1613156edf03cf40a322117f69ab assets/indreb/models/item/wrench.json
+9143903d57da5deca360592f47f56f123a8bd0d6 data/forge/loot_modifiers/global_loot_modifiers.json
 980748a3e5f831618f5930f514abe16d6031fb53 data/indreb/advancements/recipes/alloy_smelting/bronze_ingot.json
 aa899181a6c2e820d7b1f9e8324d296aaa873037 data/indreb/advancements/recipes/alloy_smelting/mixed_metal_ingot.json
 47d6b08dc9089855de99dd2e1057e4265712cded data/indreb/advancements/recipes/alloy_smelting/steel_ingot.json
@@ -470,6 +488,7 @@ d92837206e08d0b8cd8c1f7e254c32e046e9ef5b data/indreb/advancements/recipes/sawing
 c83db4a9f4ebaeaf71d90b3ea736f71632396d1a data/indreb/advancements/recipes/sawing/saddle_leather.json
 e17938cce44cf0b55382602dfd810a9972c22918 data/indreb/advancements/recipes/sawing/spruce_log_spruce_planks.json
 ba8c315937fa00337015c9721b1ee000be0741b9 data/indreb/advancements/recipes/sawing/stick_sawdust.json
+6d4ed344a7b9f05add1813566097590d54858257 data/indreb/loot_modifiers/dungeon_loot.json
 e7fb8e0f0b956279d4bb689557910c0cebafa46f data/indreb/loot_tables/blocks/advanced_machine_casing.json
 6553ac3217b602277457ed728e13b641471c0076 data/indreb/loot_tables/blocks/advanced_solar_generator.json
 c6f04736762760c7486b35f468da4edcd2976943 data/indreb/loot_tables/blocks/alloy_smelter.json
@@ -767,5 +786,5 @@ ba64f697f650829a9b6945d469d198acd74a179d data/indreb/recipes/wood/item/rubber_pl
 2b825b2eb70fe034285853125e12702bb2cd43cc data/indreb/recipes/wood/rubber_planks_rubber_slab.json
 bf13e2058d606c49ff16db61e5d244636d684fcb data/indreb/recipes/wood/rubber_wood.json
 8245f5e6b8c61211de60c1ae4121504189a9028e data/minecraft/tags/blocks/mineable/axe.json
-7ca590284c3033ed477d789063b54a13f766cc6c data/minecraft/tags/blocks/mineable/pickaxe.json
-e4e82ba9bf45f83d944f7d0b5b8d85d647af5d5e data/minecraft/tags/blocks/needs_stone_tool.json
+88e8c50cdbcdf1466264f0647fd0a741840982ac data/minecraft/tags/blocks/mineable/pickaxe.json
+915c70540d0fed1d5f3e19d7eea007553945267d data/minecraft/tags/blocks/needs_stone_tool.json

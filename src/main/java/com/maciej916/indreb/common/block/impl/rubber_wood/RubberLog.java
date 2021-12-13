@@ -1,8 +1,10 @@
 package com.maciej916.indreb.common.block.impl.rubber_wood;
 
 import com.maciej916.indreb.common.block.IndRebBlock;
+import com.maciej916.indreb.common.energy.interfaces.IEnergy;
 import com.maciej916.indreb.common.interfaces.block.IStateAxis;
 import com.maciej916.indreb.common.interfaces.block.IStateRubberLog;
+import com.maciej916.indreb.common.item.base.ElectricItem;
 import com.maciej916.indreb.common.registries.ModItems;
 import com.maciej916.indreb.common.registries.ModSounds;
 import com.maciej916.indreb.common.registries.ModTags;
@@ -72,9 +74,16 @@ public class RubberLog extends IndRebBlock implements IStateRubberLog, IStateAxi
     private InteractionResult dropRubber(Player player, ItemStack itemStack, BlockState state, Level level, BlockPos pos, BlockHitResult trace) {
        if (level.isClientSide()) return InteractionResult.PASS;
         Random random = new Random();
-        itemStack.hurtAndBreak(1, player, (i) -> level.playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.ITEM_BREAK, SoundSource.BLOCKS, 0.5F, 0.4F / (random.nextFloat() * 0.4F + 0.8F)));
-        int dropCount = 0;
 
+        if (itemStack.getItem() instanceof ElectricItem electricItem) {
+            IEnergy energy = electricItem.getEnergy(itemStack);
+            if (energy.energyStored() == 0) return InteractionResult.PASS;
+            energy.consumeEnergy(50, false);
+        } else {
+            itemStack.hurtAndBreak(1, player, (i) -> level.playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.ITEM_BREAK, SoundSource.BLOCKS, 0.5F, 0.4F / (random.nextFloat() * 0.4F + 0.8F)));
+        }
+
+        int dropCount = 0;
         if (isWet(state)) {
             dropCount = ThreadLocalRandom.current().nextInt(1, 3 + 1);
             BlockPos dropPos = pos.relative(trace.getDirection());

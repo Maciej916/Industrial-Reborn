@@ -37,7 +37,7 @@ public class Items extends ItemModelProvider {
         registerGenerators();
         registerMachines();
         registerBatteryBox();
-        registerCraftng();
+        registerCrafting();
         registerCables();
 
         createGeneratedTexture(ModItems.FLUID_CELL, "fluid_cell");
@@ -54,6 +54,9 @@ public class Items extends ItemModelProvider {
         createWithBlock(ModBlocks.IRON_FENCE.getBlock(), "iron_fence_side");
 
         createWithBlock(ModBlocks.LUMINATOR.getBlock(), "luminator");
+
+        createGeneratedTexture(ModItems.IRIDIUM_SHARD, "resource/iridium_shard");
+        createGeneratedTexture(ModItems.IRIDIUM, "resource/iridium");
     }
 
     protected void registerOres() {
@@ -157,10 +160,21 @@ public class Items extends ItemModelProvider {
         createGeneratedTexture(ModItems.WRENCH, "tool/wrench");
         createGeneratedTexture(ModItems.HAMMER, "tool/hammer");
         createGeneratedTexture(ModItems.TREETAP, "tool/treetap");
+        createGeneratedTexture(ModItems.FOAM_SPRAYER, "tool/foam_sprayer");
     }
 
     protected void registerElectricTools() {
         createWithActive(ModItems.NANO_SABER,"tool/electric/nano_saber");
+        createHandheldTexture(ModItems.ELECTRIC_TREETAP, "tool/electric/electric_treetap");
+        createHandheldTexture(ModItems.ELECTRIC_WRENCH, "tool/electric/electric_wrench");
+        createHandheldTexture(ModItems.CHAINSAW, "tool/electric/chainsaw");
+        createHandheldTexture(ModItems.DIAMOND_CHAINSAW, "tool/electric/diamond_chainsaw");
+        createHandheldTexture(ModItems.MINING_DRILL, "tool/electric/mining_drill");
+        createHandheldTexture(ModItems.DIAMOND_DRILL, "tool/electric/diamond_drill");
+        createHandheldTexture(ModItems.IRIDIUM_DRILL, "tool/electric/iridium_drill");
+        createHandheldTexture(ModItems.WIND_METER, "tool/electric/wind_meter");
+        createHandheldTexture(ModItems.IE_METER, "tool/electric/ie_meter");
+        createHandheldTexture(ModItems.ELECTRIC_HOE, "tool/electric/electric_hoe");
     }
 
     protected void registerBatteries() {
@@ -203,7 +217,7 @@ public class Items extends ItemModelProvider {
 //        createWithBlock(ModBlocks.RUBBER_SHEET, "rubber_sheet");
 //        createWithBlock(ModBlocks.RESIN_SHEET, "resin_sheet");
 
-        createGeneratedTexture(ModBlocks.RUBBER_SAPLING, "rubber_wood/rubber_sapling");
+        createGeneratedBlockTexture(ModBlocks.RUBBER_SAPLING.getBlock(), "rubber_wood/rubber_sapling");
         createGeneratedTexture(ModItems.STICKY_RESIN, "resource/sticky_resin");
         createGeneratedTexture(ModItems.RUBBER, "resource/rubber");
     }
@@ -241,13 +255,15 @@ public class Items extends ItemModelProvider {
         createWithBlock(ModBlocks.MFSU.getBlock(), "battery_box/mfsu");
     }
 
-    protected void registerCraftng() {
+    protected void registerCrafting() {
         createGeneratedTexture(ModItems.CARBON_FIBERS, "crafting/carbon_fibers");
         createGeneratedTexture(ModItems.COMBINED_CARBON_FIBERS, "crafting/combined_carbon_fibers");
         createGeneratedTexture(ModItems.CARBON_PLATE, "crafting/carbon_plate");
         createGeneratedTexture(ModItems.ADVANCED_ALLOY, "crafting/advanced_alloy");
         createGeneratedTexture(ModItems.ELECTRONIC_CIRCUIT, "crafting/electronic_circuit");
         createGeneratedTexture(ModItems.ADVANCED_CIRCUIT, "crafting/advanced_circuit");
+        createGeneratedTexture(ModItems.SMALL_POWER_UNIT, "crafting/small_power_unit");
+        createGeneratedTexture(ModItems.POWER_UNIT, "crafting/power_unit");
     }
 
     protected void registerCables() {
@@ -266,7 +282,7 @@ public class Items extends ItemModelProvider {
         return singleTexture(item.getRegistryName().getPath(), new ResourceLocation("item/generated"),"layer0",new ResourceLocation(IndReb.MODID, "item/" + path));
     }
 
-    private ItemModelBuilder createGeneratedTexture(Block block, String path) {
+    private ItemModelBuilder createGeneratedBlockTexture(Block block, String path) {
         return singleTexture(block.getRegistryName().getPath(), new ResourceLocation("item/generated"),"layer0",new ResourceLocation(IndReb.MODID, "block/" + path));
     }
 

@@ -3,7 +3,7 @@ package com.maciej916.indreb;
 import com.maciej916.indreb.common.network.ModNetworking;
 import com.maciej916.indreb.common.registries.Config;
 import com.maciej916.indreb.common.registries.ModGeneration;
-import net.minecraft.core.Registry;
+import com.maciej916.indreb.datagen.DataGenerators;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
@@ -23,6 +23,7 @@ public class IndReb
 
         final IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
         modEventBus.addListener(this::onCommonSetup);
+        DataGenerators.GLM.register(modEventBus);
 
         Config.init();
     }

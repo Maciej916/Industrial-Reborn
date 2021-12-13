@@ -1,23 +1,19 @@
-package com.maciej916.indreb.common.item;
+package com.maciej916.indreb.common.item.block;
 
-import com.maciej916.indreb.common.enums.EnumLang;
-import com.maciej916.indreb.common.registries.ModBlocks;
 import com.maciej916.indreb.common.registries.ModItemGroups;
 import net.minecraft.ChatFormatting;
 import net.minecraft.Util;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.NonNullList;
 import net.minecraft.network.chat.ChatType;
-import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.world.InteractionHand;
-import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
@@ -25,13 +21,19 @@ import net.minecraft.world.level.block.ScaffoldingBlock;
 import net.minecraft.world.level.block.state.BlockState;
 
 import javax.annotation.Nullable;
-import java.util.List;
 
 public class ItemIronScaffolding extends BlockItem {
 
-    public ItemIronScaffolding(Block p_40565_, Properties p_40566_) {
-        super(p_40565_, p_40566_);
+    public ItemIronScaffolding(Block block) {
+        super(block, new Item.Properties().tab(ModItemGroups.MAIN_ITEM_GROUP));
     }
+
+    @Override
+    public void fillItemCategory(CreativeModeTab pCategory, NonNullList<ItemStack> pItems) {
+        if (pCategory == CreativeModeTab.TAB_DECORATIONS) pItems.add(new ItemStack(this));
+        super.fillItemCategory(pCategory, pItems);
+    }
+
 
     @Nullable
     public BlockPlaceContext updatePlacementContext(BlockPlaceContext p_43063_) {

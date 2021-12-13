@@ -22,7 +22,8 @@ import com.maciej916.indreb.common.block.impl.machines.iron_furnace.BlockIronFur
 import com.maciej916.indreb.common.block.impl.machines.sawmill.BlockSawmill;
 import com.maciej916.indreb.common.block.impl.rubber_wood.*;
 import com.maciej916.indreb.common.generation.RubberTree;
-import com.maciej916.indreb.common.item.ItemIronScaffolding;
+import com.maciej916.indreb.common.item.block.BlockItemElectric;
+import com.maciej916.indreb.common.item.block.ItemIronScaffolding;
 import com.maciej916.indreb.common.tier.BatteryBoxTier;
 import com.maciej916.indreb.common.tier.CableTier;
 import com.maciej916.indreb.common.tier.SolarGeneratorTier;
@@ -133,31 +134,31 @@ public final class ModBlocks {
     @SubscribeEvent
     public static void registerBlocks(RegistryEvent.Register<Block> event) {
 
-        GENERATOR = registerBlock(new BlockGenerator(), "generator");
+        GENERATOR = registerBlock(new BlockItemElectric(new BlockGenerator()), "generator");
         SOLAR_GENERATOR = registerBlock(new BlockSolarGenerator(SolarGeneratorTier.BASIC), "solar_generator");
         ADVANCED_SOLAR_GENERATOR = registerBlock(new BlockSolarGenerator(SolarGeneratorTier.ADVANCED), "advanced_solar_generator");
         HYBRID_SOLAR_GENERATOR = registerBlock(new BlockSolarGenerator(SolarGeneratorTier.HYBRID), "hybrid_solar_generator");
         QUANTUM_SOLAR_GENERATOR = registerBlock(new BlockSolarGenerator(SolarGeneratorTier.QUANTUM), "quantum_solar_generator");
-        GEO_GENERATOR = registerBlock(new BlockGeoGenerator(), "geo_generator");
-        CRYSTALLINE_GENERATOR = registerBlock(new BlockCrystallineGenerator(), "crystalline_generator");
+        GEO_GENERATOR = registerBlock(new BlockItemElectric(new BlockGeoGenerator()), "geo_generator");
+        CRYSTALLINE_GENERATOR = registerBlock(new BlockItemElectric(new BlockCrystallineGenerator()), "crystalline_generator");
 
-        BATTERY_BOX = registerBlock(new BlockBatteryBox(BatteryBoxTier.BASIC, BlockBehaviour.Properties.of(Material.WOOD).strength(1f, 3f).sound(SoundType.WOOD)), "battery_box");
-        CESU = registerBlock(new BlockBatteryBox(BatteryBoxTier.STANDARD, BlockBehaviour.Properties.of(Material.METAL).strength(1f, 3f).sound(SoundType.METAL)), "cesu");
-        MFE = registerBlock(new BlockBatteryBox(BatteryBoxTier.ADVANCED, BlockBehaviour.Properties.of(Material.METAL).strength(1f, 3f).sound(SoundType.METAL)), "mfe");
-        MFSU = registerBlock(new BlockBatteryBox(BatteryBoxTier.SUPER, BlockBehaviour.Properties.of(Material.METAL).strength(1f, 3f).sound(SoundType.METAL)), "mfsu");
+        BATTERY_BOX = registerBlock(new BlockItemElectric(new BlockBatteryBox(BatteryBoxTier.BASIC, BlockBehaviour.Properties.of(Material.WOOD).strength(1f, 3f).sound(SoundType.WOOD))), "battery_box");
+        CESU = registerBlock(new BlockItemElectric(new BlockBatteryBox(BatteryBoxTier.STANDARD, BlockBehaviour.Properties.of(Material.METAL).strength(1f, 3f).sound(SoundType.METAL))), "cesu");
+        MFE = registerBlock(new BlockItemElectric(new BlockBatteryBox(BatteryBoxTier.ADVANCED, BlockBehaviour.Properties.of(Material.METAL).strength(1f, 3f).sound(SoundType.METAL))), "mfe");
+        MFSU = registerBlock(new BlockItemElectric(new BlockBatteryBox(BatteryBoxTier.SUPER, BlockBehaviour.Properties.of(Material.METAL).strength(1f, 3f).sound(SoundType.METAL))), "mfsu");
 
         IRON_FURNACE = registerBlock(new BlockIronFurnace(), "iron_furnace");
-        ELECTRIC_FURNACE = registerBlock(new BlockElectricFurnace(), "electric_furnace");
+        ELECTRIC_FURNACE = registerBlock(new BlockItemElectric(new BlockElectricFurnace()), "electric_furnace");
 
-        CRUSHER = registerBlock(new BlockCrusher(), "crusher");
-        COMPRESSOR = registerBlock(new BlockCompressor(), "compressor");
-        EXTRACTOR = registerBlock(new BlockExtractor(), "extractor");
-        SAWMILL = registerBlock(new BlockSawmill(), "sawmill");
-        EXTRUDER = registerBlock(new BlockExtruder(), "extruder");
-        CANNING_MACHINE = registerBlock(new BlockCanningMachine(), "canning_machine");
-        FLUID_ENRICHER = registerBlock(new BlockFluidEnricher(), "fluid_enricher");
+        CRUSHER = registerBlock(new BlockItemElectric(new BlockCrusher()), "crusher");
+        COMPRESSOR = registerBlock(new BlockItemElectric(new BlockCompressor()), "compressor");
+        EXTRACTOR = registerBlock(new BlockItemElectric(new BlockExtractor()), "extractor");
+        SAWMILL = registerBlock(new BlockItemElectric(new BlockSawmill()), "sawmill");
+        EXTRUDER = registerBlock(new BlockItemElectric(new BlockExtruder()), "extruder");
+        CANNING_MACHINE = registerBlock(new BlockItemElectric(new BlockCanningMachine()), "canning_machine");
+        FLUID_ENRICHER = registerBlock(new BlockItemElectric(new BlockFluidEnricher()), "fluid_enricher");
 
-        ALLOY_SMELTER = registerBlock(new BlockAlloySmelter(), "alloy_smelter");
+        ALLOY_SMELTER = registerBlock(new BlockItemElectric(new BlockAlloySmelter()), "alloy_smelter");
 
         TIN_CABLE = registerBlock(new BlockCable(0.127F, CableTier.TIN_CABLE), "tin_cable");
         TIN_CABLE_INSULATED = registerBlock(new BlockCable(0.189F, CableTier.TIN_CABLE_INSULATED), "tin_cable_insulated");
@@ -215,7 +216,7 @@ public final class ModBlocks {
         REINFORCED_STONE_SLAB = registerBlock(new BlockReinforcedStoneSlab(), "reinforced_stone_slab");
         REINFORCED_STONE_STAIRS = registerBlock(new BlockReinforcedStoneStairs(), "reinforced_stone_stairs");
 
-        IRON_SCAFFOLDING = registerBlock(new ItemIronScaffolding(new BlockIronScaffolding(), new Item.Properties().tab(ModItemGroups.MAIN_ITEM_GROUP)), "iron_scaffolding");
+        IRON_SCAFFOLDING = registerBlock(new ItemIronScaffolding(new BlockIronScaffolding()), "iron_scaffolding");
         IRON_FENCE = registerBlock(new BlockIronFence(), "iron_fence");
 
         LUMINATOR = registerBlock(new BlockWIP(), "luminator");

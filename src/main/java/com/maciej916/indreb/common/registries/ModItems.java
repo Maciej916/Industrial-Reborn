@@ -4,7 +4,14 @@ import com.maciej916.indreb.common.enums.EnergyTier;
 import com.maciej916.indreb.common.enums.EnumEnergyType;
 import com.maciej916.indreb.common.enums.ModArmorMaterials;
 import com.maciej916.indreb.common.item.*;
+import com.maciej916.indreb.common.item.base.DummyItem;
+import com.maciej916.indreb.common.item.impl.tools.*;
+import com.maciej916.indreb.common.item.impl.treetap.ElectricTreetap;
+import com.maciej916.indreb.common.item.impl.treetap.Treetap;
+import com.maciej916.indreb.common.item.impl.wrench.ElectricWrench;
+import com.maciej916.indreb.common.item.impl.wrench.Wrench;
 import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Tiers;
 import net.minecraft.world.level.block.Block;
@@ -52,6 +59,9 @@ public final class ModItems {
 
     public static Item IRON_ROD;
 
+    public static Item IRIDIUM_SHARD;
+    public static Item IRIDIUM;
+
     public static Item COPPER_PLATE;
     public static Item TIN_PLATE;
     public static Item IRON_PLATE;
@@ -86,10 +96,29 @@ public final class ModItems {
     public static Item NANO_BOOTS;
     public static Item NANO_SABER;
 
-    public static Item TREETAP;
-    public static Item WRENCH;
+    public static Item SMALL_POWER_UNIT;
+    public static Item POWER_UNIT;
+
     public static Item HAMMER;
     public static Item CUTTER;
+
+    public static Item TREETAP;
+    public static Item ELECTRIC_TREETAP;
+
+    public static Item WRENCH;
+    public static Item ELECTRIC_WRENCH;
+
+    public static Item CHAINSAW;
+    public static Item DIAMOND_CHAINSAW;
+
+    public static Item MINING_DRILL;
+    public static Item DIAMOND_DRILL;
+    public static Item IRIDIUM_DRILL;
+
+    public static Item ELECTRIC_HOE;
+    public static Item WIND_METER;
+    public static Item IE_METER;
+    public static Item MULTI_TOOL;
 
     public static Item FOAM_SPRAYER;
     public static Item PAINTER;
@@ -148,6 +177,9 @@ public final class ModItems {
 
         IRON_ROD = registerItem(new ItemBasic(), "iron_rod");
 
+        IRIDIUM_SHARD = registerItem(new ItemBasic(), "iridium_shard");
+        IRIDIUM = registerItem(new ItemBasic(), "iridium");
+
         COPPER_PLATE = registerItem(new ItemBasic(), "copper_plate");
         TIN_PLATE = registerItem(new ItemBasic(), "tin_plate");
         IRON_PLATE = registerItem(new ItemBasic(), "iron_plate");
@@ -170,11 +202,11 @@ public final class ModItems {
         BRONZE_LEGGINGS = registerItem(new IndRebArmour(ModArmorMaterials.BRONZE, EquipmentSlot.LEGS), "bronze_leggings");
         BRONZE_BOOTS = registerItem(new IndRebArmour(ModArmorMaterials.BRONZE, EquipmentSlot.FEET), "bronze_boots");
 
-        BRONZE_SWORD = registerItem(new IndRebSword(Tiers.IRON, 3, -2.4F), "bronze_sword");
-        BRONZE_PICKAXE = registerItem(new IndRebPickaxe(Tiers.IRON, 1, -2.8F), "bronze_pickaxe");
-        BRONZE_AXE = registerItem(new IndRebAxe(Tiers.IRON, 6.0F, -3.1F), "bronze_axe");
-        BRONZE_SHOVEL = registerItem(new IndRebShovel(Tiers.IRON, 1.5F, -3.0F), "bronze_shovel");
-        BRONZE_HOE = registerItem(new IndRebHoe(Tiers.IRON, -2, -1.0F), "bronze_hoe");
+        BRONZE_SWORD = registerItem(new IndRebSword(ModTiers.BRONZE, 3, -2.4F), "bronze_sword");
+        BRONZE_PICKAXE = registerItem(new IndRebPickaxe(ModTiers.BRONZE, 1, -2.8F), "bronze_pickaxe");
+        BRONZE_AXE = registerItem(new IndRebAxe(ModTiers.BRONZE, 6.0F, -3.1F), "bronze_axe");
+        BRONZE_SHOVEL = registerItem(new IndRebShovel(ModTiers.BRONZE, 1.5F, -3.0F), "bronze_shovel");
+        BRONZE_HOE = registerItem(new IndRebHoe(ModTiers.BRONZE, -2, -1.0F), "bronze_hoe");
 
         NANO_HELMET = registerItem(new ItemNanoArmour(EquipmentSlot.HEAD, 0, 1000000, EnumEnergyType.RECEIVE, EnergyTier.ADVANCED), "nano_helmet");
         NANO_CHESTPLATE = registerItem(new ItemNanoArmour(EquipmentSlot.CHEST, 0, 1000000, EnumEnergyType.RECEIVE, EnergyTier.ADVANCED), "nano_chestplate");
@@ -182,12 +214,34 @@ public final class ModItems {
         NANO_BOOTS = registerItem(new ItemNanoArmour(EquipmentSlot.FEET, 0, 1000000, EnumEnergyType.RECEIVE, EnergyTier.ADVANCED), "nano_boots");
         NANO_SABER = registerItem(new ItemNanosaber(1, -3F, 0, 160000, EnumEnergyType.RECEIVE, EnergyTier.ADVANCED), "nano_saber");
 
-        TREETAP = registerItem(new ItemTreetap(20), "treetap");
-        WRENCH = registerItem(new ItemWrench(120), "wrench");
+
+        SMALL_POWER_UNIT = registerItem(new DummyItem(CreativeModeTab.TAB_REDSTONE), "small_power_unit");
+        POWER_UNIT = registerItem(new DummyItem(CreativeModeTab.TAB_REDSTONE), "power_unit");
+
         HAMMER = registerItem(new ItemTool(80), "hammer");
         CUTTER = registerItem(new ItemTool(60), "cutter");
 
-//        FOAM_SPRAYER = registerItem(new ItemWIP(), "foam_sprayer");
+        TREETAP = registerItem(new Treetap(20), "treetap");
+        ELECTRIC_TREETAP = registerItem(new ElectricTreetap(0, 10000, EnumEnergyType.RECEIVE, EnergyTier.BASIC), "electric_treetap");
+
+        WRENCH = registerItem(new Wrench(120), "wrench");
+        ELECTRIC_WRENCH = registerItem(new ElectricWrench(0, 10000, EnumEnergyType.RECEIVE, EnergyTier.BASIC), "electric_wrench");
+
+        CHAINSAW = registerItem(new Chainsaw(Tiers.IRON,6.0F, -3.1F, 0, 10000, 50, 100, EnumEnergyType.RECEIVE, EnergyTier.BASIC), "chainsaw");
+        DIAMOND_CHAINSAW = registerItem(new Chainsaw(Tiers.DIAMOND,5.0F, -3.0F, 0, 30000, 50, 100, EnumEnergyType.RECEIVE, EnergyTier.STANDARD), "diamond_chainsaw");
+
+        MINING_DRILL = registerItem(new MiningDrill(Tiers.IRON,1, -2.8F, 0, 10000, 50, 100, EnumEnergyType.RECEIVE, EnergyTier.BASIC), "mining_drill");
+        DIAMOND_DRILL = registerItem(new MiningDrill(Tiers.DIAMOND,1, -2.8F, 0, 30000, 80, 120, EnumEnergyType.RECEIVE, EnergyTier.STANDARD), "diamond_drill");
+        IRIDIUM_DRILL = registerItem(new MiningDrill(ModTiers.IRIDIUM, 1, -2.8F, 0, 300000, 1000, 1400, EnumEnergyType.RECEIVE, EnergyTier.ADVANCED), "iridium_drill");
+
+        ELECTRIC_HOE = registerItem(new ElectricHoe(0, 1000, EnumEnergyType.RECEIVE, EnergyTier.BASIC), "electric_hoe");
+        WIND_METER = registerItem(new WindMeter(0, 1000, EnumEnergyType.RECEIVE, EnergyTier.BASIC), "wind_meter");
+        IE_METER = registerItem(new IEMeter(CreativeModeTab.TAB_TOOLS), "ie_meter");
+        MULTI_TOOL = registerItem(new MultiTool(0, 300000, EnumEnergyType.RECEIVE, EnergyTier.ADVANCED), "multi_tool");
+
+        FOAM_SPRAYER = registerItem(new DummyItem(CreativeModeTab.TAB_TOOLS), "foam_sprayer");
+
+
         PAINTER = registerItem(new ItemTool(1), "painter");
         PAINTER_WHITE = registerItem(new ItemPainter(MaterialColor.WOOL), "painter_white");
         PAINTER_RED = registerItem(new ItemPainter(MaterialColor.COLOR_RED), "painter_red");
@@ -205,6 +259,7 @@ public final class ModItems {
         PAINTER_GRAY = registerItem(new ItemPainter(MaterialColor.COLOR_GRAY), "painter_gray");
         PAINTER_LIGHT_GRAY = registerItem(new ItemPainter(MaterialColor.COLOR_LIGHT_GRAY), "painter_light_gray");
         PAINTER_BLACK = registerItem(new ItemPainter(MaterialColor.COLOR_BLACK), "painter_black");
+
 
 
 

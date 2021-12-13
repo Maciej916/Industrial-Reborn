@@ -69,8 +69,8 @@ public class IndRebBlock extends Block {
     @Override
     public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult trace) {
 
-        if (!level.isClientSide) {
-            if (WrenchHelper.hasAction(this) && player.getItemInHand(player.getUsedItemHand()).getItem().getTags().contains(ModTags.WRENCH_RES)) return InteractionResult.PASS;
+        if (WrenchHelper.hasAction(this) && player.getItemInHand(player.getUsedItemHand()).getItem().getTags().contains(ModTags.WRENCH_RES)) {
+            return InteractionResult.PASS;
         }
 
         BlockEntity blockEntity = level.getBlockEntity(pos);

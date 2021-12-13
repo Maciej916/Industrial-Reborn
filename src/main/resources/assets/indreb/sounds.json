@@ -69,5 +69,13 @@
         "name": "indreb:wrench"
       }
     ]
+  },
+
+  "item.electric_wrench": {
+    "sounds": [
+      {
+        "name": "indreb:electric_wrench"
+      }
+    ]
   }
 }

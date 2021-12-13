@@ -7,6 +7,7 @@ import com.maciej916.indreb.common.interfaces.block.IStateActive;
 import com.maciej916.indreb.common.interfaces.block.IStateAxis;
 import com.maciej916.indreb.common.interfaces.block.IStateFacing;
 import com.maciej916.indreb.common.interfaces.wrench.IWrenchAction;
+import com.maciej916.indreb.common.item.base.ElectricItem;
 import com.maciej916.indreb.common.registries.ModCapabilities;
 import com.maciej916.indreb.common.registries.ModSounds;
 import com.maciej916.indreb.common.util.BlockStateHelper;
@@ -16,6 +17,7 @@ import net.minecraft.core.Direction;
 import net.minecraft.core.Vec3i;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.TextComponent;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.Containers;
@@ -97,25 +99,37 @@ public class WrenchHelper {
     }
 
     public static boolean onWrenchUse(BlockState state, Level world, BlockPos pos, Player player, Direction clickedFace) {
-        if (!state.isAir()) {
-            if (WrenchHelper.getWrenchActions().containsKey(state.getBlock())) {
-                List<IWrenchAction> actions = WrenchHelper.getWrenchActions().get(state.getBlock()).getActions();
-                boolean success = false;
-                for (final IWrenchAction action : actions) {
-                    success = action.perform(world, pos, state, player, clickedFace);
-                    if (success) break;
-                }
+        if (!state.isAir() && WrenchHelper.getWrenchActions().containsKey(state.getBlock())) {
+            List<IWrenchAction> actions = WrenchHelper.getWrenchActions().get(state.getBlock()).getActions();
+            boolean success = false;
 
-                if (success) {
-                    ItemStack item = player.getItemInHand(player.getUsedItemHand());
-                    if (item.getDamageValue() + 1 != item.getMaxDamage()) {
+            ItemStack itemStack = player.getItemInHand(player.getUsedItemHand());
+            if (itemStack.getItem() instanceof ElectricItem electricItem) {
+                IEnergy energy = electricItem.getEnergy(itemStack);
+                if (energy.energyStored() == 0) {
+                    return false;
+                }
+            }
+
+            for (final IWrenchAction action : actions) {
+                success = action.perform(world, pos, state, player, clickedFace);
+                if (success) break;
+            }
+
+            if (success) {
+                if (itemStack.getItem() instanceof ElectricItem electricItem) {
+                    IEnergy energy = electricItem.getEnergy(itemStack);
+                    energy.consumeEnergy(50, false);
+                    world.playSound(null, pos, ModSounds.ELECTRIC_WRENCH, SoundSource.NEUTRAL, 1F, 0.9F / (new Random().nextFloat() * 0.4F + 0.8F));
+                } else {
+                    if (itemStack.getDamageValue() + 1 != itemStack.getMaxDamage()) {
                         world.playSound(null, pos, ModSounds.WRENCH, SoundSource.NEUTRAL, 1F, 0.9F / (new Random().nextFloat() * 0.4F + 0.8F));
                     }
-                    item.hurtAndBreak(1, player, (i) -> world.playSound(null, pos, SoundEvents.ITEM_BREAK, SoundSource.NEUTRAL, 0.5F, 0.4F / (new Random().nextFloat() * 0.4F + 0.8F)));
+                    itemStack.hurtAndBreak(1, player, (i) -> world.playSound(null, pos, SoundEvents.ITEM_BREAK, SoundSource.NEUTRAL, 0.5F, 0.4F / (new Random().nextFloat() * 0.4F + 0.8F)));
                 }
-
-                return success;
             }
+
+            return success;
         }
 
         return false;

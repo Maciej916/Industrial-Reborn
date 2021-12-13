@@ -23,6 +23,7 @@ public final class ModSounds {
 
     public static SoundEvent TREETAP;
     public static SoundEvent WRENCH;
+    public static SoundEvent ELECTRIC_WRENCH;
 
 
     @SubscribeEvent
@@ -39,6 +40,7 @@ public final class ModSounds {
 
         TREETAP = registerSound("item.treetap");
         WRENCH = registerSound("item.wrench");
+        ELECTRIC_WRENCH = registerSound("item.electric_wrench");
     }
 
     public static SoundEvent registerSound(String name) {

@@ -204,9 +204,25 @@
   "item.indreb.painter_light_gray": "Painter (Light Gray)",
   "item.indreb.painter_black": "Painter (Black)",
 
+  "item.indreb.small_power_unit": "Small Power Unit",
+  "item.indreb.power_unit": "Power Unit",
+  "item.indreb.electric_treetap": "Electric Treetap",
+  "item.indreb.electric_wrench": "Electric Wrench",
+  "item.indreb.chainsaw": "Chainsaw",
+  "item.indreb.diamond_chainsaw": "Diamond Chainsaw",
+  "item.indreb.mining_drill": "Mining Drill",
+  "item.indreb.diamond_drill": "Diamond Drill",
+  "item.indreb.iridium_drill": "Iridium Drill",
+  "item.indreb.electric_hoe": "Electric Hoe",
+  "item.indreb.wind_meter": "Wind Meter",
+  "item.indreb.ie_meter": "IE Mater",
+  "item.indreb.foam_sprayer": "Foam Sprayer",
+
+  "item.indreb.iridium_shard": "Iridium Shard",
+  "item.indreb.iridium": "Iridium",
+
   "item.indreb.treetap": "Treetap",
   "item.indreb.wrench": "Wrench",
-  "item.indreb.hammer": "Hammer",
   "item.indreb.hammer": "Hammer",
   "item.indreb.cutter": "Cutter",
 
