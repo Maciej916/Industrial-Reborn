@@ -436,6 +436,13 @@ public class Crushing extends RecipeProvider {
                 .addCriterion("item", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.RAW_TIN))
                 .save(consumer, "raw_tin");
 
+        RecipeBuilderCrushing.builder(ModItems.IRIDIUM_SHARD,9)
+                .setIngredient(Ingredient.of(ModItems.IRIDIUM), 1)
+                .setExperience(1F)
+                .setGroup("crushing/items")
+                .addCriterion("iridium", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.IRIDIUM))
+                .save(consumer, "iridium_shard");
+
 
     }
 

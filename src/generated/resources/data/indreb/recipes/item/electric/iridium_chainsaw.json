@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "indreb",
+  "pattern": [
+    " ii",
+    " ci",
+    "e  "
+  ],
+  "key": {
+    "c": {
+      "item": "indreb:diamond_chainsaw"
+    },
+    "i": {
+      "item": "indreb:iridium_plate"
+    },
+    "e": {
+      "item": "indreb:energy_crystal"
+    }
+  },
+  "result": {
+    "item": "indreb:iridium_chainsaw"
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "indreb:item/electric/electric_wrench"
+    ]
+  },
+  "criteria": {
+    "wrench": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:wrench"
+            ]
+          }
+        ]
+      }
+    },
+    "small_power_unit": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:small_power_unit"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "indreb:item/electric/electric_wrench"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "wrench",
+      "small_power_unit",
+      "has_the_recipe"
+    ]
+  ]
+}

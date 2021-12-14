@@ -11,6 +11,7 @@ import net.minecraft.data.recipes.ShapelessRecipeBuilder;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.crafting.Ingredient;
 
 import java.util.function.Consumer;
 
@@ -109,6 +110,77 @@ public class Item extends RecipeProvider {
                 .group(MODID)
                 .unlockedBy("item", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.DIAMOND_DUST))
                 .save(consumer, saveResource("energium_dust"));
+
+        ShapedRecipeBuilder.shaped(ModItems.IRIDIUM_PLATE, 1)
+                .pattern("iai")
+                .pattern("ada")
+                .pattern("iai")
+                .define('d', ItemTags.bind("forge:gems/diamond"))
+                .define('a', ModItems.ADVANCED_ALLOY)
+                .define('i', ModItems.IRIDIUM)
+                .group(MODID)
+                .unlockedBy("diamond", InventoryChangeTrigger.TriggerInstance.hasItems(Items.DIAMOND))
+                .unlockedBy("advanced_alloy", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.ADVANCED_ALLOY))
+                .unlockedBy("iridium", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.IRIDIUM))
+                .save(consumer, saveResource("iridium_plate"));
+
+        ShapedRecipeBuilder.shaped(ModItems.SMALL_POWER_UNIT, 1)
+                .pattern(" ci")
+                .pattern("rem")
+                .pattern(" ci")
+                .define('r', ModItems.BATTERY)
+                .define('e', ModItems.ELECTRONIC_CIRCUIT)
+                .define('m', ModItems.ELECTRIC_MOTOR)
+                .define('i', ModItems.IRON_PLATE)
+                .define('c', ModBlocks.COPPER_CABLE)
+                .group(MODID)
+                .unlockedBy("battery", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.BATTERY))
+                .unlockedBy("electronic_circuit", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.ELECTRONIC_CIRCUIT))
+                .unlockedBy("electric_motor", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.ELECTRIC_MOTOR))
+                .unlockedBy("iron_plate", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.IRON_PLATE))
+                .unlockedBy("copper_cable", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.COPPER_CABLE))
+                .save(consumer, saveResource("small_power_unit"));
+
+        ShapedRecipeBuilder.shaped(ModItems.POWER_UNIT, 1)
+                .pattern("rci")
+                .pattern("rem")
+                .pattern("rci")
+                .define('r', ModItems.BATTERY)
+                .define('e', ModItems.ELECTRONIC_CIRCUIT)
+                .define('m', ModItems.ELECTRIC_MOTOR)
+                .define('i', ModItems.IRON_PLATE)
+                .define('c', ModBlocks.COPPER_CABLE)
+                .group(MODID)
+                .unlockedBy("battery", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.BATTERY))
+                .unlockedBy("electronic_circuit", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.ELECTRONIC_CIRCUIT))
+                .unlockedBy("electric_motor", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.ELECTRIC_MOTOR))
+                .unlockedBy("iron_plate", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.IRON_PLATE))
+                .unlockedBy("copper_cable", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.COPPER_CABLE))
+                .save(consumer, saveResource("power_unit"));
+
+        ShapedRecipeBuilder.shaped(ModItems.COIL, 1)
+                .pattern("ccc")
+                .pattern("cic")
+                .pattern("ccc")
+                .define('i', Ingredient.of(ItemTags.bind("forge:ingots/iron")))
+                .define('c', ModBlocks.COPPER_CABLE)
+                .group(MODID)
+                .unlockedBy("diamond", InventoryChangeTrigger.TriggerInstance.hasItems(Items.IRON_INGOT))
+                .unlockedBy("copper_cable", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.COPPER_CABLE))
+                .save(consumer, saveResource("coil"));
+
+        ShapedRecipeBuilder.shaped(ModItems.ELECTRIC_MOTOR, 1)
+                .pattern(" t ")
+                .pattern("cic")
+                .pattern(" t ")
+                .define('i', Ingredient.of(ItemTags.bind("forge:ingots/iron")))
+                .define('c', ModItems.COIL)
+                .define('t', ModItems.TIN_PLATE)
+                .group(MODID)
+                .unlockedBy("diamond", InventoryChangeTrigger.TriggerInstance.hasItems(Items.IRON_INGOT))
+                .unlockedBy("coil", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.COIL))
+                .unlockedBy("tin_plate", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.TIN_PLATE))
+                .save(consumer, saveResource("electric_motor"));
 
 
     }

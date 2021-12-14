@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "indreb",
+  "pattern": [
+    " d ",
+    "dcd",
+    " a "
+  ],
+  "key": {
+    "c": {
+      "item": "indreb:mining_drill"
+    },
+    "d": {
+      "tag": "forge:gems/diamond"
+    },
+    "a": {
+      "item": "indreb:advanced_battery"
+    }
+  },
+  "result": {
+    "item": "indreb:diamond_drill"
+  }
+}

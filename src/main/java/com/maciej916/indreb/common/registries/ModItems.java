@@ -5,6 +5,7 @@ import com.maciej916.indreb.common.enums.EnumEnergyType;
 import com.maciej916.indreb.common.enums.ModArmorMaterials;
 import com.maciej916.indreb.common.item.*;
 import com.maciej916.indreb.common.item.base.DummyItem;
+import com.maciej916.indreb.common.item.base.WIPItem;
 import com.maciej916.indreb.common.item.impl.tools.*;
 import com.maciej916.indreb.common.item.impl.treetap.ElectricTreetap;
 import com.maciej916.indreb.common.item.impl.treetap.Treetap;
@@ -98,6 +99,12 @@ public final class ModItems {
 
     public static Item SMALL_POWER_UNIT;
     public static Item POWER_UNIT;
+    public static Item COIL;
+    public static Item ELECTRIC_MOTOR;
+    public static Item TIN_CAN;
+    public static Item FILLED_TIN_CAN;
+    public static Item SCRAP;
+    public static Item SCRAP_BOX;
 
     public static Item HAMMER;
     public static Item CUTTER;
@@ -110,6 +117,7 @@ public final class ModItems {
 
     public static Item CHAINSAW;
     public static Item DIAMOND_CHAINSAW;
+    public static Item IRIDIUM_CHAINSAW;
 
     public static Item MINING_DRILL;
     public static Item DIAMOND_DRILL;
@@ -214,9 +222,14 @@ public final class ModItems {
         NANO_BOOTS = registerItem(new ItemNanoArmour(EquipmentSlot.FEET, 0, 1000000, EnumEnergyType.RECEIVE, EnergyTier.ADVANCED), "nano_boots");
         NANO_SABER = registerItem(new ItemNanosaber(1, -3F, 0, 160000, EnumEnergyType.RECEIVE, EnergyTier.ADVANCED), "nano_saber");
 
-
         SMALL_POWER_UNIT = registerItem(new DummyItem(CreativeModeTab.TAB_REDSTONE), "small_power_unit");
         POWER_UNIT = registerItem(new DummyItem(CreativeModeTab.TAB_REDSTONE), "power_unit");
+        COIL = registerItem(new DummyItem(CreativeModeTab.TAB_REDSTONE), "coil");
+        ELECTRIC_MOTOR = registerItem(new DummyItem(CreativeModeTab.TAB_REDSTONE), "electric_motor");
+        TIN_CAN = registerItem(new WIPItem(), "tin_can");
+        FILLED_TIN_CAN = registerItem(new WIPItem(), "filled_tin_can");
+        SCRAP = registerItem(new WIPItem(), "scrap");
+        SCRAP_BOX = registerItem(new WIPItem(), "scrap_box");
 
         HAMMER = registerItem(new ItemTool(80), "hammer");
         CUTTER = registerItem(new ItemTool(60), "cutter");
@@ -227,21 +240,22 @@ public final class ModItems {
         WRENCH = registerItem(new Wrench(120), "wrench");
         ELECTRIC_WRENCH = registerItem(new ElectricWrench(0, 10000, EnumEnergyType.RECEIVE, EnergyTier.BASIC), "electric_wrench");
 
-        CHAINSAW = registerItem(new Chainsaw(Tiers.IRON,6.0F, -3.1F, 0, 10000, 50, 100, EnumEnergyType.RECEIVE, EnergyTier.BASIC), "chainsaw");
-        DIAMOND_CHAINSAW = registerItem(new Chainsaw(Tiers.DIAMOND,5.0F, -3.0F, 0, 30000, 50, 100, EnumEnergyType.RECEIVE, EnergyTier.STANDARD), "diamond_chainsaw");
+        CHAINSAW = registerItem(new Chainsaw(Tiers.IRON,6.0F, -3.1F, 0, 30000, 50, 100, EnumEnergyType.RECEIVE, EnergyTier.BASIC), "chainsaw");
+        DIAMOND_CHAINSAW = registerItem(new Chainsaw(Tiers.DIAMOND,5.0F, -3.0F, 0, 80000, 70, 120, EnumEnergyType.RECEIVE, EnergyTier.STANDARD), "diamond_chainsaw");
+        IRIDIUM_CHAINSAW = registerItem(new Chainsaw(ModTiers.IRIDIUM,5.0F, -3.0F, 0, 300000, 1000, 1400, EnumEnergyType.RECEIVE, EnergyTier.ADVANCED), "iridium_chainsaw");
 
-        MINING_DRILL = registerItem(new MiningDrill(Tiers.IRON,1, -2.8F, 0, 10000, 50, 100, EnumEnergyType.RECEIVE, EnergyTier.BASIC), "mining_drill");
-        DIAMOND_DRILL = registerItem(new MiningDrill(Tiers.DIAMOND,1, -2.8F, 0, 30000, 80, 120, EnumEnergyType.RECEIVE, EnergyTier.STANDARD), "diamond_drill");
+        MINING_DRILL = registerItem(new MiningDrill(Tiers.IRON,1, -2.8F, 0, 30000, 50, 100, EnumEnergyType.RECEIVE, EnergyTier.BASIC), "mining_drill");
+        DIAMOND_DRILL = registerItem(new MiningDrill(Tiers.DIAMOND,1, -2.8F, 0, 80000, 70, 120, EnumEnergyType.RECEIVE, EnergyTier.STANDARD), "diamond_drill");
         IRIDIUM_DRILL = registerItem(new MiningDrill(ModTiers.IRIDIUM, 1, -2.8F, 0, 300000, 1000, 1400, EnumEnergyType.RECEIVE, EnergyTier.ADVANCED), "iridium_drill");
 
-        ELECTRIC_HOE = registerItem(new ElectricHoe(0, 1000, EnumEnergyType.RECEIVE, EnergyTier.BASIC), "electric_hoe");
-        WIND_METER = registerItem(new WindMeter(0, 1000, EnumEnergyType.RECEIVE, EnergyTier.BASIC), "wind_meter");
-        IE_METER = registerItem(new IEMeter(CreativeModeTab.TAB_TOOLS), "ie_meter");
-        MULTI_TOOL = registerItem(new MultiTool(0, 300000, EnumEnergyType.RECEIVE, EnergyTier.ADVANCED), "multi_tool");
+        ELECTRIC_HOE = registerItem(new ElectricHoe(Tiers.IRON,-2, -1.0F, 0, 10000, 50, 100, 50, EnumEnergyType.RECEIVE, EnergyTier.BASIC), "electric_hoe");
+//        WIND_METER = registerItem(new WindMeter(0, 1000, EnumEnergyType.RECEIVE, EnergyTier.BASIC), "wind_meter");
+        WIND_METER = registerItem(new WIPItem(), "wind_meter");
+//        IE_METER = registerItem(new IEMeter(CreativeModeTab.TAB_TOOLS), "ie_meter");
+        IE_METER = registerItem(new WIPItem(), "ie_meter");
+        MULTI_TOOL = registerItem(new MultiTool(Tiers.DIAMOND,-3, 0.0F, 0, 300000, 800, 1400, 500, EnumEnergyType.RECEIVE, EnergyTier.ADVANCED), "multi_tool");
 
-        FOAM_SPRAYER = registerItem(new DummyItem(CreativeModeTab.TAB_TOOLS), "foam_sprayer");
-
-
+        FOAM_SPRAYER = registerItem(new WIPItem(), "foam_sprayer");
         PAINTER = registerItem(new ItemTool(1), "painter");
         PAINTER_WHITE = registerItem(new ItemPainter(MaterialColor.WOOL), "painter_white");
         PAINTER_RED = registerItem(new ItemPainter(MaterialColor.COLOR_RED), "painter_red");

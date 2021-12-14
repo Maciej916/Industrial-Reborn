@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "indreb",
+  "pattern": [
+    " t ",
+    "cic",
+    " t "
+  ],
+  "key": {
+    "i": {
+      "tag": "forge:ingots/iron"
+    },
+    "c": {
+      "item": "indreb:coil"
+    },
+    "t": {
+      "item": "indreb:tin_plate"
+    }
+  },
+  "result": {
+    "item": "indreb:electric_motor"
+  }
+}

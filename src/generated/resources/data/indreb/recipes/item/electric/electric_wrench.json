@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "indreb",
+  "pattern": [
+    "w ",
+    "s "
+  ],
+  "key": {
+    "w": {
+      "item": "indreb:wrench"
+    },
+    "s": {
+      "item": "indreb:small_power_unit"
+    }
+  },
+  "result": {
+    "item": "indreb:electric_wrench"
+  }
+}

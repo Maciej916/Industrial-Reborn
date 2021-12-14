@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "indreb",
+  "pattern": [
+    " dd",
+    " cd",
+    "a  "
+  ],
+  "key": {
+    "c": {
+      "item": "indreb:chainsaw"
+    },
+    "d": {
+      "tag": "forge:gems/diamond"
+    },
+    "a": {
+      "item": "indreb:advanced_battery"
+    }
+  },
+  "result": {
+    "item": "indreb:diamond_chainsaw"
+  }
+}

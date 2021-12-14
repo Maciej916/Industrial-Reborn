@@ -1,0 +1,60 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "indreb:item/electric/iridium_chainsaw"
+    ]
+  },
+  "criteria": {
+    "diamond_chainsaw": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:diamond_chainsaw"
+            ]
+          }
+        ]
+      }
+    },
+    "iridium_plate": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:iridium_plate"
+            ]
+          }
+        ]
+      }
+    },
+    "energy_crystal": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:energy_crystal"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "indreb:item/electric/iridium_chainsaw"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "diamond_chainsaw",
+      "iridium_plate",
+      "energy_crystal",
+      "has_the_recipe"
+    ]
+  ]
+}

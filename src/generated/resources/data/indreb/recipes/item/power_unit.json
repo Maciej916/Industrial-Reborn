@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "indreb",
+  "pattern": [
+    "rci",
+    "rem",
+    "rci"
+  ],
+  "key": {
+    "r": {
+      "item": "indreb:battery"
+    },
+    "e": {
+      "item": "indreb:electronic_circuit"
+    },
+    "m": {
+      "item": "indreb:electric_motor"
+    },
+    "i": {
+      "item": "indreb:iron_plate"
+    },
+    "c": {
+      "item": "indreb:copper_cable"
+    }
+  },
+  "result": {
+    "item": "indreb:power_unit"
+  }
+}

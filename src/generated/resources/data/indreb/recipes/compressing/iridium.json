@@ -1,0 +1,13 @@
+{
+  "type": "indreb:compressing",
+  "ingredient": {
+    "item": "indreb:iridium_shard",
+    "count": 9
+  },
+  "result": {
+    "item": "indreb:iridium"
+  },
+  "experience": 1.0,
+  "duration": 180,
+  "power_cost": 8
+}

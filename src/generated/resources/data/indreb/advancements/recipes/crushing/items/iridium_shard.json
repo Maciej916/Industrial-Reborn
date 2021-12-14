@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "indreb:crushing/items/iridium_shard"
+    ]
+  },
+  "criteria": {
+    "iridium": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:iridium"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "indreb:crushing/items/iridium_shard"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "iridium",
+      "has_the_recipe"
+    ]
+  ]
+}

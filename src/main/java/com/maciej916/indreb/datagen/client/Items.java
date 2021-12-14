@@ -51,7 +51,7 @@ public class Items extends ItemModelProvider {
         createWithBlock(ModBlocks.REINFORCED_STONE_STAIRS.getBlock(), "reinforced_stone_stairs");
 
         createWithBlock(ModBlocks.IRON_SCAFFOLDING.getBlock(), "iron_scaffolding");
-        createWithBlock(ModBlocks.IRON_FENCE.getBlock(), "iron_fence_side");
+        createWithBlock(ModBlocks.IRON_FENCE.getBlock(), "iron_fence");
 
         createWithBlock(ModBlocks.LUMINATOR.getBlock(), "luminator");
 
@@ -169,12 +169,14 @@ public class Items extends ItemModelProvider {
         createHandheldTexture(ModItems.ELECTRIC_WRENCH, "tool/electric/electric_wrench");
         createHandheldTexture(ModItems.CHAINSAW, "tool/electric/chainsaw");
         createHandheldTexture(ModItems.DIAMOND_CHAINSAW, "tool/electric/diamond_chainsaw");
+        createHandheldTexture(ModItems.IRIDIUM_CHAINSAW, "tool/electric/iridium_chainsaw");
         createHandheldTexture(ModItems.MINING_DRILL, "tool/electric/mining_drill");
         createHandheldTexture(ModItems.DIAMOND_DRILL, "tool/electric/diamond_drill");
         createHandheldTexture(ModItems.IRIDIUM_DRILL, "tool/electric/iridium_drill");
         createHandheldTexture(ModItems.WIND_METER, "tool/electric/wind_meter");
         createHandheldTexture(ModItems.IE_METER, "tool/electric/ie_meter");
         createHandheldTexture(ModItems.ELECTRIC_HOE, "tool/electric/electric_hoe");
+        createHandheldTexture(ModItems.MULTI_TOOL, "tool/electric/multi_tool");
     }
 
     protected void registerBatteries() {
@@ -264,6 +266,12 @@ public class Items extends ItemModelProvider {
         createGeneratedTexture(ModItems.ADVANCED_CIRCUIT, "crafting/advanced_circuit");
         createGeneratedTexture(ModItems.SMALL_POWER_UNIT, "crafting/small_power_unit");
         createGeneratedTexture(ModItems.POWER_UNIT, "crafting/power_unit");
+        createGeneratedTexture(ModItems.COIL, "crafting/coil");
+        createGeneratedTexture(ModItems.ELECTRIC_MOTOR, "crafting/electric_motor");
+        createGeneratedTexture(ModItems.TIN_CAN, "crafting/tin_can");
+        createGeneratedTexture(ModItems.FILLED_TIN_CAN, "crafting/filled_tin_can");
+        createGeneratedTexture(ModItems.SCRAP, "crafting/scrap");
+        createGeneratedTexture(ModItems.SCRAP_BOX, "crafting/scrap_box");
     }
 
     protected void registerCables() {

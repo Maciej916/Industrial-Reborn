@@ -155,7 +155,6 @@ public class Compressing extends RecipeProvider {
                 .setGroup("compressing/block")
                 .save(consumer,"slime_ball_slime_block");
 
-
         RecipeBuilderCompressing.builder(Items.CLAY, 1)
                 .setIngredient(Ingredient.of(Items.CLAY_BALL), 4)
                 .addCriterion("item", InventoryChangeTrigger.TriggerInstance.hasItems(Items.CLAY_BALL))
@@ -205,7 +204,6 @@ public class Compressing extends RecipeProvider {
                 .setGroup("compressing/items")
                 .save(consumer,"blaze_powder_blaze_rod");
 
-
         RecipeBuilderCompressing.builder(Items.NETHER_BRICK, 1)
                 .setIngredient(Ingredient.of(Items.NETHERITE_INGOT), 9)
                 .setExperience(0.5F)
@@ -243,6 +241,13 @@ public class Compressing extends RecipeProvider {
                 .addCriterion("deepslate", InventoryChangeTrigger.TriggerInstance.hasItems(Items.DEEPSLATE))
                 .setGroup("compressing/dust")
                 .save(consumer,"deepslate");
+
+        RecipeBuilderCompressing.builder(ModItems.IRIDIUM, 1)
+                .setIngredient(Ingredient.of(ModItems.IRIDIUM_SHARD), 9)
+                .addCriterion("iridium_shard", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.IRIDIUM_SHARD))
+                .setExperience(1F)
+                .setGroup("compressing")
+                .save(consumer,"iridium");
 
     }
 
