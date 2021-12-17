@@ -57,7 +57,7 @@ public class BlockEntityGenerator extends IndRebBlockEntity implements ICooldown
 
 
     @Override
-    public void tickServer(BlockState state) {
+    public void tickOperate(BlockState state) {
         progressBurn.clearChanged();
         active = false;
 
@@ -94,8 +94,6 @@ public class BlockEntityGenerator extends IndRebBlockEntity implements ICooldown
         if (progressBurn.changed()) {
             super.updateBlockState();
         }
-
-        super.tickServer(state);
     }
 
     @Override

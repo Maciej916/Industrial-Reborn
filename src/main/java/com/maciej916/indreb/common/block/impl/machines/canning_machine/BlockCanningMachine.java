@@ -4,9 +4,11 @@ import com.maciej916.indreb.common.block.BlockElectricMachine;
 import com.maciej916.indreb.common.config.ServerConfig;
 import com.maciej916.indreb.common.enums.EnergyTier;
 import com.maciej916.indreb.common.enums.EnumLang;
+import com.maciej916.indreb.common.enums.UpgradeType;
 import com.maciej916.indreb.common.interfaces.block.IHasContainer;
 import com.maciej916.indreb.common.interfaces.block.IStateActive;
 import com.maciej916.indreb.common.interfaces.block.IStateFacing;
+import com.maciej916.indreb.common.interfaces.entity.ISupportUpgrades;
 import com.maciej916.indreb.common.util.TextComponentUtil;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
@@ -31,10 +33,10 @@ import net.minecraft.world.phys.BlockHitResult;
 import net.minecraftforge.fluids.FluidStack;
 
 import javax.annotation.Nullable;
+import java.util.HashSet;
 import java.util.List;
 
 public class BlockCanningMachine extends BlockElectricMachine implements IStateFacing, IHasContainer, IStateActive {
-
 
     public BlockCanningMachine() {
         super(EnergyTier.BASIC,12, 0);

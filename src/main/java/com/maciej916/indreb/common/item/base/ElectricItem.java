@@ -86,8 +86,12 @@ public class ElectricItem extends BaseItem implements IElectricItem {
             list.add(new ItemStack(this));
 
             ItemStack full = new ItemStack(this);
-            LazyOptionalHelper<IEnergy> cap = CapabilityUtil.getCapabilityHelper(full, ModCapabilities.ENERGY);
-            cap.getIfPresent(e -> e.setEnergy(e.maxEnergy()));
+            IEnergy cap = CapabilityUtil.getCapabilityHelper(full, ModCapabilities.ENERGY).getValue();
+
+            if (cap != null) {
+                cap.setEnergy(cap.maxEnergy());
+                full.getOrCreateTag().putInt("energyStored", cap.maxEnergy());
+            }
 
             list.add(full);
         }

@@ -243,11 +243,12 @@ public class Items extends ItemModelProvider {
         createWithBlock(ModBlocks.EXTRACTOR.getBlock(), "machines/extractor");
         createWithBlock(ModBlocks.SAWMILL.getBlock(), "machines/sawmill");
         createWithBlock(ModBlocks.EXTRUDER.getBlock(), "machines/extruder");
+        createWithBlock(ModBlocks.ALLOY_SMELTER.getBlock(), "machines/alloy_smelter");
 
 //        createWithBlock(ModBlocks.CANNING_MACHINE.getBlock(), "machines/canning_machine");
 //        createWithBlock(ModBlocks.FLUID_ENRICHER.getBlock(), "machines/fluid_enricher");
-
-        createWithBlock(ModBlocks.ALLOY_SMELTER.getBlock(), "machines/alloy_smelter");
+        createWithBlock(ModBlocks.CANNING_MACHINE.getBlock(), "canning_machine");
+        createWithBlock(ModBlocks.RECYCLER.getBlock(), "recycler");
     }
 
     protected void registerBatteryBox() {

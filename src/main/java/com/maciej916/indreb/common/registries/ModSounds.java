@@ -20,6 +20,7 @@ public final class ModSounds {
     public static SoundEvent COMPRESSOR;
     public static SoundEvent EXTRACTOR;
     public static SoundEvent SAWMILL;
+    public static SoundEvent RECYCLER;
 
     public static SoundEvent TREETAP;
     public static SoundEvent WRENCH;
@@ -36,6 +37,7 @@ public final class ModSounds {
         COMPRESSOR = registerSound("tile.compressor");
         EXTRACTOR = registerSound("tile.extractor");
         SAWMILL = registerSound("tile.sawmill");
+        RECYCLER = registerSound("tile.recycler");
 
 
         TREETAP = registerSound("item.treetap");

@@ -4,6 +4,7 @@ public enum GuiSlotType {
     NORMAL(18,18, 84, 27),
     LARGE(26,26, 84, 0),
     BATTERY(18,18, 103, 27),
+    UPGRADE(18,18, 103, 46),
     HELMET(18,18, 122, 27),
     CHESTPLATE(18,18, 141, 27),
     LEGGINGS(18,18, 160, 27),

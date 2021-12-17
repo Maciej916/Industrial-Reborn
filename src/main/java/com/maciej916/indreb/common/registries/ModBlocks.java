@@ -19,6 +19,7 @@ import com.maciej916.indreb.common.block.impl.machines.extractor.BlockExtractor;
 import com.maciej916.indreb.common.block.impl.machines.extruder.BlockExtruder;
 import com.maciej916.indreb.common.block.impl.machines.fluid_enricher.BlockFluidEnricher;
 import com.maciej916.indreb.common.block.impl.machines.iron_furnace.BlockIronFurnace;
+import com.maciej916.indreb.common.block.impl.machines.recycler.BlockRecycler;
 import com.maciej916.indreb.common.block.impl.machines.sawmill.BlockSawmill;
 import com.maciej916.indreb.common.block.impl.rubber_wood.*;
 import com.maciej916.indreb.common.generation.RubberTree;
@@ -65,6 +66,7 @@ public final class ModBlocks {
     public static BlockItem EXTRUDER;
     public static BlockItem CANNING_MACHINE;
     public static BlockItem FLUID_ENRICHER;
+    public static BlockItem RECYCLER;
 
     public static BlockItem ALLOY_SMELTER;
 
@@ -157,6 +159,7 @@ public final class ModBlocks {
         EXTRUDER = registerBlock(new BlockItemElectric(new BlockExtruder()), "extruder");
         CANNING_MACHINE = registerBlock(new BlockItemElectric(new BlockCanningMachine()), "canning_machine");
         FLUID_ENRICHER = registerBlock(new BlockItemElectric(new BlockFluidEnricher()), "fluid_enricher");
+        RECYCLER = registerBlock(new BlockItemElectric(new BlockRecycler()), "recycler");
 
         ALLOY_SMELTER = registerBlock(new BlockItemElectric(new BlockAlloySmelter()), "alloy_smelter");
 

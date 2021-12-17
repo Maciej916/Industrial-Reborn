@@ -11,6 +11,7 @@ import com.maciej916.indreb.common.enums.GuiSlotType;
 import com.maciej916.indreb.common.enums.InventorySlotType;
 import com.maciej916.indreb.common.interfaces.entity.IElectricSlot;
 import com.maciej916.indreb.common.interfaces.entity.IExpCollector;
+import com.maciej916.indreb.common.interfaces.entity.ISupportUpgrades;
 import com.maciej916.indreb.common.receipe.impl.AlloySmeltingRecipe;
 import com.maciej916.indreb.common.registries.ModBlockEntities;
 import com.maciej916.indreb.common.registries.ModRecipeType;
@@ -35,7 +36,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 
 import static com.maciej916.indreb.common.enums.EnumEnergyType.RECEIVE;
 
-public class BlockEntityAlloySmelter extends IndRebBlockEntity implements IEnergyBlock, IExpCollector {
+public class BlockEntityAlloySmelter extends IndRebBlockEntity implements IEnergyBlock, IExpCollector, ISupportUpgrades {
 
     public static final int INPUT_SLOT_0 = 0;
     public static final int INPUT_SLOT_1 = 1;
@@ -80,6 +81,7 @@ public class BlockEntityAlloySmelter extends IndRebBlockEntity implements IEnerg
     }
 
     protected Optional<AlloySmeltingRecipe> getRecipe(ItemStack... input) {
+        if (level == null) return Optional.empty();
         return level.getRecipeManager().getRecipeFor(ModRecipeType.ALLOY_SMELTING, new SimpleContainer(input), level);
     }
 
@@ -91,64 +93,12 @@ public class BlockEntityAlloySmelter extends IndRebBlockEntity implements IEnerg
         return getRecipe(stack).isPresent();
     }
 
-    private ArrayList<Integer> getIngredientCost(ItemStack... inputStack) {
-        ArrayList<Integer> cost = new ArrayList<>();
-        List<ItemStack> ingredientCost = new ArrayList<>(recipe.getIngredientCost());
-        for (ItemStack stack : inputStack) {
-            if (stack.isEmpty()) {
-                cost.add(0);
-            } else {
-                for (var i = ingredientCost.size() - 1; i >= 0; i--) {
-                    if (ingredientCost.get(i).getItem() == stack.getItem()) {
-                        cost.add(ingredientCost.get(i).getCount());
-                        ingredientCost.remove(i);
-                        break;
-                    }
-                }
-            }
-        }
-        return cost;
-    }
-
-    private boolean isValidRecipe(ItemStack... inputStack) {
-        int size = inputStack.length;
-        int got = 0;
-
-        List<ItemStack> ingredientCost = new ArrayList<>(recipe.getIngredientCost());
-        List<ItemStack> stacks = new ArrayList<>(List.of(inputStack));
-
-        ingredientCost.sort(Comparator.comparingInt(ItemStack::getCount));
-        stacks.sort((lhs, rhs) -> Integer.compare(rhs.getCount(), lhs.getCount()));
-
-        for (ItemStack stack : inputStack) {
-            if (stack.isEmpty()) {
-                size--;
-            } else {
-                for (var i = ingredientCost.size() - 1; i >= 0; i--) {
-                    if (ingredientCost.get(i).getItem() == stack.getItem()) {
-                        if (stack.getCount() >= ingredientCost.get(i).getCount()) {
-                            got++;
-                            ingredientCost.remove(i);
-                            break;
-                        }
-                    }
-                }
-            }
-        }
-
-        cachedWork = size > 1 && size == got;
-        return cachedWork;
-    }
-
     boolean canWork(ItemStack inputStack0, ItemStack inputStack1, ItemStack inputStack2, ItemStack outputStack, ItemStack resultStack) {
-        return isValidInput(inputStack0, inputStack1, inputStack2) &&
-                isValidRecipe(inputStack0, inputStack1, inputStack2) &&
-                (outputStack.isEmpty() || (resultStack.getCount() + outputStack.getCount() <= outputStack.getMaxStackSize() &&
-                        resultStack.getItem() == outputStack.getItem()));
+        return isValidInput(inputStack0, inputStack1, inputStack2) && (outputStack.isEmpty() || (resultStack.getCount() + outputStack.getCount() <= outputStack.getMaxStackSize() && resultStack.getItem() == outputStack.getItem()));
     }
 
     @Override
-    public void tickServer(BlockState state) {
+    public void tickOperate(BlockState state) {
         active = false;
 
         final ItemStack inputStack0 = getStackHandler().getStackInSlot(INPUT_SLOT_0);
@@ -195,20 +145,21 @@ public class BlockEntityAlloySmelter extends IndRebBlockEntity implements IEnerg
                     getStackHandler().setStackInSlot(OUTPUT_SLOT, outputStack.copy());
                 }
 
-                ArrayList<Integer> ingredientCost = getIngredientCost(inputStack0, inputStack1, inputStack2);
-
-                if (ingredientCost.get(0) != 0) {
-                    inputStack0.shrink(ingredientCost.get(0));
+                int cost0 = this.recipe.getIngredientCost(inputStack0);
+                if (cost0 > 0) {
+                    inputStack0.shrink(cost0);
                     getStackHandler().setStackInSlot(INPUT_SLOT_0, inputStack0.copy());
                 }
 
-                if (ingredientCost.get(1) != 0) {
-                    inputStack1.shrink(ingredientCost.get(1));
+                int cost1 = this.recipe.getIngredientCost(inputStack1);
+                if (cost1 > 0) {
+                    inputStack1.shrink(cost1);
                     getStackHandler().setStackInSlot(INPUT_SLOT_1, inputStack1.copy());
                 }
 
-                if (ingredientCost.get(2) != 0) {
-                    inputStack2.shrink(ingredientCost.get(2));
+                int cost2 = this.recipe.getIngredientCost(inputStack2);
+                if (cost2 > 0) {
+                    inputStack2.shrink(cost2);
                     getStackHandler().setStackInSlot(INPUT_SLOT_2, inputStack2.copy());
                 }
 
@@ -242,8 +193,6 @@ public class BlockEntityAlloySmelter extends IndRebBlockEntity implements IEnerg
         if (heatLevel.changed() || progress.changed()) {
             super.updateBlockState();
         }
-
-        super.tickServer(state);
     }
 
     @Override

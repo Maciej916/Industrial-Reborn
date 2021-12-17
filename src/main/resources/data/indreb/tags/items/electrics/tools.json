@@ -3,12 +3,16 @@
   "values": [
     "indreb:electric_wrench",
     "indreb:electric_treetap",
+
     "indreb:chainsaw",
     "indreb:diamond_chainsaw",
+    "indreb:iridium_chainsaw",
+
     "indreb:mining_drill",
     "indreb:diamond_drill",
     "indreb:iridium_drill",
-    "indreb:iridium_drill",
+
+
     "indreb:electric_hoe",
     "indreb:wind_meter",
     "indreb:multi_tool"

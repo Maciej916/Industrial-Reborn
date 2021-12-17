@@ -12,6 +12,7 @@ import com.maciej916.indreb.common.enums.GuiSlotType;
 import com.maciej916.indreb.common.enums.InventorySlotType;
 import com.maciej916.indreb.common.interfaces.entity.IElectricSlot;
 import com.maciej916.indreb.common.interfaces.entity.IExpCollector;
+import com.maciej916.indreb.common.interfaces.entity.ISupportUpgrades;
 import com.maciej916.indreb.common.interfaces.entity.ITileSound;
 import com.maciej916.indreb.common.network.ModNetworking;
 import com.maciej916.indreb.common.network.packet.PacketExtruderRecipe;
@@ -42,7 +43,7 @@ import java.util.Objects;
 
 import static com.maciej916.indreb.common.enums.EnumEnergyType.RECEIVE;
 
-public class BlockEntityFluidEnricher extends IndRebBlockEntity implements IEnergyBlock, IExpCollector {
+public class BlockEntityFluidEnricher extends IndRebBlockEntity implements IEnergyBlock, IExpCollector, ISupportUpgrades {
 
     public BlockEntityFluidEnricher(BlockPos pWorldPosition, BlockState pBlockState) {
         super(ModBlockEntities.FLUID_ENRICHER, pWorldPosition, pBlockState);

@@ -125,6 +125,24 @@ public class Machines extends RecipeProvider {
                 .save(consumer, saveResource("alloy_smelter"));
 
 
+        ShapedRecipeBuilder.shaped(ModBlocks.RECYCLER)
+                .pattern(" g ")
+                .pattern("dcd")
+                .pattern("psp")
+                .define('g', Items.GLOWSTONE_DUST)
+                .define('d', Items.DIRT)
+                .define('s', Items.SAND)
+                .define('p', ModItems.IRON_PLATE)
+                .define('c', ModBlocks.COMPRESSOR)
+                .group(MODID)
+                .unlockedBy("glowstone_dust", InventoryChangeTrigger.TriggerInstance.hasItems(Items.GLOWSTONE_DUST))
+                .unlockedBy("dirt", InventoryChangeTrigger.TriggerInstance.hasItems(Items.DIRT))
+                .unlockedBy("sand", InventoryChangeTrigger.TriggerInstance.hasItems(Items.SAND))
+                .unlockedBy("iron_plate", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.IRON_PLATE))
+                .unlockedBy("compressor", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.COMPRESSOR))
+                .save(consumer, saveResource("recycler"));
+
+
     }
 
 }

@@ -10,6 +10,7 @@ public enum InventorySlotType {
     CHESTPLATE("chestplate"),
     LEGGINGS("leggings"),
     BOOTS("boots"),
+    UPGRADE("upgrade"),
     DISABLED("disabled");
 
     private final String type;

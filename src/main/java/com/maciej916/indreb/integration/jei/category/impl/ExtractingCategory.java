@@ -105,7 +105,7 @@ public class ExtractingCategory extends AbstractRecipeCategory<ExtractingRecipe>
         @Override
         public void onTooltip(int slotIndex, boolean input, ItemStack ingredient, List<Component> tooltip) {
             if (slotIndex == 2 && recipe.hasBonus()) {
-                tooltip.add(new TranslatableComponent(EnumLang.GENERIC.getTranslationKey(), recipe.getBonus().getChance() + "%").withStyle(ChatFormatting.DARK_BLUE));
+                tooltip.add(new TranslatableComponent(EnumLang.CHANCE.getTranslationKey(), recipe.getBonus().getChance() + "%").withStyle(ChatFormatting.BLUE));
             }
         }
     }

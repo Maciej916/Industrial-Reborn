@@ -1,22 +1,15 @@
 package com.maciej916.indreb.common.container;
 
-import com.maciej916.indreb.common.energy.impl.BasicEnergyStorage;
 import com.maciej916.indreb.common.energy.interfaces.IEnergy;
-import com.maciej916.indreb.common.energy.interfaces.IEnergyBlock;
 import com.maciej916.indreb.common.entity.block.BlockEntityProgress;
 import com.maciej916.indreb.common.entity.block.IndRebBlockEntity;
 import com.maciej916.indreb.common.registries.ModCapabilities;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.Direction;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.*;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.Level;
-import net.minecraftforge.common.ForgeHooks;
-import net.minecraftforge.fluids.capability.CapabilityFluidHandler;
-import net.minecraftforge.fluids.capability.IFluidHandler;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.SlotItemHandler;
 import net.minecraftforge.items.wrapper.InvWrapper;
@@ -38,19 +31,13 @@ public abstract class IndRebContainer extends AbstractContainerMenu {
         this.playerEntity = player;
         this.playerInventory = new InvWrapper(playerInventory);
 
-//        if (blockEntity != null) {
-//            blockEntity.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY).ifPresent(h -> {
-//                addSlot(new SlotItemHandler(h, 0, 64, 24));
-//            });
-//        }
-
-
         this.init();
     }
 
     public void init() {
         blockEntity.getItemHandlers().forEach(this::addSlot);
         blockEntity.getBatteryHandlers().forEach(this::addSlot);
+        blockEntity.getUpgradeHandlers().forEach(this::addSlot);
 
         layoutPlayerInventorySlots(playerInvLeft, playerInvTop);
     }
@@ -59,66 +46,65 @@ public abstract class IndRebContainer extends AbstractContainerMenu {
         return blockEntity;
     }
 
-    protected void trackProgress(BlockEntityProgress progress) {
-        addDataSlot(new DataSlot() {
-            @Override
-            public int get() {
-                return Math.round(progress.getProgress());
-            }
-
-            @Override
-            public void set(int value) {
-                progress.setProgress(value);
-            }
-        });
-        addDataSlot(new DataSlot() {
-            @Override
-            public int get() {
-                return Math.round(progress.getProgressMax());
-            }
-
-            @Override
-            public void set(int value) {
-                progress.setProgressMax(value);
-            }
-        });
-    }
-
-    private void trackPower() {
-        addDataSlot(new DataSlot() {
-            @Override
-            public int get() {
-                return getEnergy() & 0xffff;
-            }
-
-            @Override
-            public void set(int value) {
-                blockEntity.getCapability(ModCapabilities.ENERGY).ifPresent(h -> {
-                    int energyStored = h.energyStored() & 0xffff0000;
-                    h.setEnergy(energyStored + (value & 0xffff));
-                });
-            }
-        });
-        addDataSlot(new DataSlot() {
-            @Override
-            public int get() {
-                return (getEnergy() >> 16) & 0xffff;
-            }
-
-            @Override
-            public void set(int value) {
-                blockEntity.getCapability(ModCapabilities.ENERGY).ifPresent(h -> {
-                    int energyStored = h.energyStored() & 0x0000ffff;
-                    h.setEnergy(energyStored | (value << 16));
-                });
-            }
-        });
-    }
-
-    public int getEnergy() {
-        return blockEntity.getCapability(ModCapabilities.ENERGY).map(IEnergy::energyStored).orElse(0);
-    }
-
+//    protected void trackProgress(BlockEntityProgress progress) {
+//        addDataSlot(new DataSlot() {
+//            @Override
+//            public int get() {
+//                return Math.round(progress.getProgress());
+//            }
+//
+//            @Override
+//            public void set(int value) {
+//                progress.setProgress(value);
+//            }
+//        });
+//        addDataSlot(new DataSlot() {
+//            @Override
+//            public int get() {
+//                return Math.round(progress.getProgressMax());
+//            }
+//
+//            @Override
+//            public void set(int value) {
+//                progress.setProgressMax(value);
+//            }
+//        });
+//    }
+//
+//    private void trackPower() {
+//        addDataSlot(new DataSlot() {
+//            @Override
+//            public int get() {
+//                return getEnergy() & 0xffff;
+//            }
+//
+//            @Override
+//            public void set(int value) {
+//                blockEntity.getCapability(ModCapabilities.ENERGY).ifPresent(h -> {
+//                    int energyStored = h.energyStored() & 0xffff0000;
+//                    h.setEnergy(energyStored + (value & 0xffff));
+//                });
+//            }
+//        });
+//        addDataSlot(new DataSlot() {
+//            @Override
+//            public int get() {
+//                return (getEnergy() >> 16) & 0xffff;
+//            }
+//
+//            @Override
+//            public void set(int value) {
+//                blockEntity.getCapability(ModCapabilities.ENERGY).ifPresent(h -> {
+//                    int energyStored = h.energyStored() & 0x0000ffff;
+//                    h.setEnergy(energyStored | (value << 16));
+//                });
+//            }
+//        });
+//    }
+//
+//    public int getEnergy() {
+//        return blockEntity.getCapability(ModCapabilities.ENERGY).map(IEnergy::energyStored).orElse(0);
+//    }
 
     public IItemHandler getPlayerInventory() {
         return playerInventory;

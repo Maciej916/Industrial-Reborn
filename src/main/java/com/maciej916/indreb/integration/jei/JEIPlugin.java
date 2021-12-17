@@ -17,10 +17,15 @@ import com.maciej916.indreb.common.block.impl.machines.extractor.ContainerExtrac
 import com.maciej916.indreb.common.block.impl.machines.extractor.ScreenExtractor;
 import com.maciej916.indreb.common.block.impl.machines.extruder.ScreenExtruder;
 import com.maciej916.indreb.common.block.impl.machines.iron_furnace.ScreenIronFurnace;
+import com.maciej916.indreb.common.block.impl.machines.recycler.BlockEntityRecycler;
+import com.maciej916.indreb.common.block.impl.machines.recycler.ContainerRecycler;
+import com.maciej916.indreb.common.block.impl.machines.recycler.ScreenRecycler;
 import com.maciej916.indreb.common.block.impl.machines.sawmill.BlockEntitySawmill;
 import com.maciej916.indreb.common.block.impl.machines.sawmill.ContainerSawmill;
 import com.maciej916.indreb.common.block.impl.machines.sawmill.ScreenSawmill;
+import com.maciej916.indreb.common.item.ItemEnergy;
 import com.maciej916.indreb.common.registries.ModBlocks;
+import com.maciej916.indreb.common.registries.ModItems;
 import com.maciej916.indreb.common.registries.ModRecipeType;
 import com.maciej916.indreb.common.util.RecipeUtil;
 import com.maciej916.indreb.integration.jei.category.impl.*;
@@ -62,6 +67,7 @@ public class JEIPlugin implements IModPlugin {
         registration.addRecipeCatalyst(new ItemStack(ModBlocks.EXTRUDER), ExtrudingCategory.UID);
         registration.addRecipeCatalyst(new ItemStack(ModBlocks.SAWMILL), SawingCategory.UID);
         registration.addRecipeCatalyst(new ItemStack(ModBlocks.ALLOY_SMELTER), AlloySmeltingCategory.UID);
+        registration.addRecipeCatalyst(new ItemStack(ModBlocks.RECYCLER), RecyclingCategory.UID);
     }
 
     @Override
@@ -75,6 +81,9 @@ public class JEIPlugin implements IModPlugin {
         registration.addRecipeCategories(new ExtrudingCategory(ScreenHelper));
         registration.addRecipeCategories(new SawingCategory(ScreenHelper));
         registration.addRecipeCategories(new AlloySmeltingCategory(ScreenHelper));
+        registration.addRecipeCategories(new RecyclingCategory(ScreenHelper));
+
+        registration.addRecipeCategories(new ScrapBoxCategory(ScreenHelper));
     }
 
 
@@ -90,6 +99,9 @@ public class JEIPlugin implements IModPlugin {
         registration.addRecipes(RecipeUtil.getRecipes(recipeManager, ModRecipeType.EXTRUDING), ExtrudingCategory.UID);
         registration.addRecipes(RecipeUtil.getRecipes(recipeManager, ModRecipeType.SAWING), SawingCategory.UID);
         registration.addRecipes(RecipeUtil.getRecipes(recipeManager, ModRecipeType.ALLOY_SMELTING), AlloySmeltingCategory.UID);
+        registration.addRecipes(RecipeUtil.getRecipes(recipeManager, ModRecipeType.RECYCLING), RecyclingCategory.UID);
+
+        registration.addRecipes(RecipeUtil.getRecipes(recipeManager, ModRecipeType.SCRAP_BOX), ScrapBoxCategory.UID);
 
         sw.stop();
         LOGGER.info("Loaded jei recipe integration in {}", sw);
@@ -106,6 +118,7 @@ public class JEIPlugin implements IModPlugin {
         registration.addRecipeClickArea(ScreenExtruder.class, 78, 35, 24, 17, ExtrudingCategory.UID);
         registration.addRecipeClickArea(ScreenSawmill.class, 71, 35, 24, 17, SawingCategory.UID);
         registration.addRecipeClickArea(ScreenAlloySmelter.class, 82, 33, 24, 17, AlloySmeltingCategory.UID);
+        registration.addRecipeClickArea(ScreenRecycler.class, 71, 35, 24, 17, RecyclingCategory.UID);
 
     }
 
@@ -116,6 +129,30 @@ public class JEIPlugin implements IModPlugin {
         registration.addRecipeTransferHandler(ContainerExtractor.class, ExtractingCategory.UID, BlockEntityExtractor.INPUT_SLOT, 1, 1, 37);
         registration.addRecipeTransferHandler(ContainerSawmill.class, SawingCategory.UID, BlockEntitySawmill.INPUT_SLOT, 1, 1, 37);
         registration.addRecipeTransferHandler(ContainerAlloySmelter.class, AlloySmeltingCategory.UID, BlockEntityAlloySmelter.INPUT_SLOT_0, 3, 0, 37);
+        registration.addRecipeTransferHandler(ContainerRecycler.class, RecyclingCategory.UID, BlockEntityRecycler.INPUT_SLOT, 1, 1, 37);
     }
 
+    @Override
+    public void registerItemSubtypes(ISubtypeRegistration registration) {
+
+        registration.useNbtForSubtypes(ModItems.ELECTRIC_HOE);
+        registration.useNbtForSubtypes(ModItems.ELECTRIC_WRENCH);
+        registration.useNbtForSubtypes(ModItems.ELECTRIC_TREETAP);
+        registration.useNbtForSubtypes(ModItems.MULTI_TOOL);
+
+        registration.useNbtForSubtypes(ModItems.MINING_DRILL);
+        registration.useNbtForSubtypes(ModItems.DIAMOND_DRILL);
+        registration.useNbtForSubtypes(ModItems.IRIDIUM_DRILL);
+
+        registration.useNbtForSubtypes(ModItems.CHAINSAW);
+        registration.useNbtForSubtypes(ModItems.DIAMOND_CHAINSAW);
+        registration.useNbtForSubtypes(ModItems.IRIDIUM_CHAINSAW);
+
+        registration.useNbtForSubtypes(ModItems.BATTERY);
+        registration.useNbtForSubtypes(ModItems.ADVANCED_BATTERY);
+        registration.useNbtForSubtypes(ModItems.ENERGY_CRYSTAL);
+        registration.useNbtForSubtypes(ModItems.LAPOTRON_CRYSTAL);
+
+    }
 }
+

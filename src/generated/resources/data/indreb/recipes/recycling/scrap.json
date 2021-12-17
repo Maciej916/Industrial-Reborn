@@ -1,0 +1,66 @@
+{
+  "type": "indreb:recycling",
+  "result": {
+    "item": "indreb:scrap"
+  },
+  "chance": 0.15,
+  "excluded": [
+    {
+      "item": "minecraft:gray_stained_glass_pane"
+    },
+    {
+      "item": "minecraft:light_blue_stained_glass_pane"
+    },
+    {
+      "item": "minecraft:orange_stained_glass_pane"
+    },
+    {
+      "item": "minecraft:light_gray_stained_glass_pane"
+    },
+    {
+      "item": "minecraft:purple_stained_glass_pane"
+    },
+    {
+      "item": "minecraft:snowball"
+    },
+    {
+      "tag": "indreb:electrics"
+    },
+    {
+      "item": "minecraft:red_stained_glass_pane"
+    },
+    {
+      "item": "minecraft:pink_stained_glass_pane"
+    },
+    {
+      "item": "minecraft:brown_stained_glass_pane"
+    },
+    {
+      "item": "minecraft:cyan_stained_glass_pane"
+    },
+    {
+      "item": "minecraft:black_stained_glass_pane"
+    },
+    {
+      "item": "minecraft:green_stained_glass_pane"
+    },
+    {
+      "item": "minecraft:blue_stained_glass_pane"
+    },
+    {
+      "item": "minecraft:stick"
+    },
+    {
+      "item": "minecraft:glass_pane"
+    },
+    {
+      "item": "minecraft:white_stained_glass_pane"
+    },
+    {
+      "item": "minecraft:lime_stained_glass_pane"
+    },
+    {
+      "item": "minecraft:magenta_stained_glass_pane"
+    }
+  ]
+}

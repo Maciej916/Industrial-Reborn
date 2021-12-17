@@ -42,8 +42,8 @@
   "block.indreb.extractor": "Экстрактор",
   "block.indreb.extruder": "Экструдер",
   "block.indreb.sawmill": "Лесопильный завод",
-  "block.indreb.canning_machine": "Canning Machine",
-  "block.indreb.fluid_enricher": "Fluid Enricher",
+  "block.indreb.canning_machine": "Консервирующая машина",
+  "block.indreb.fluid_enricher": "Обогащение жидкости",
   "block.indreb.alloy_smelter": "Плавильный завод",
 
   "block.indreb.tin_ore": "Оловянная руда",
@@ -89,6 +89,7 @@
   "block.indreb.iron_fence": "Железный забор",
 
   "block.indreb.luminator": "Электролампа",
+  "block.indreb.recycler": "Recycler",
 
   "block.indreb.rubber_sapling": "Саженец гевеи",
   "block.indreb.rubber_planks": "Доски гевеи",
@@ -113,7 +114,7 @@
   "item.indreb.rubber": "Резина",
   "item.indreb.sawdust": "Опилки",
 
-  "item.indreb.raw_tin": "Сырая олово",
+  "item.indreb.raw_tin": "Рудное олово",
   "item.indreb.tin_ingot": "Оловянный слиток",
   "item.indreb.bronze_ingot": "Бронзовый слиток",
   "item.indreb.silver_ingot": "Серебряный слиток",
@@ -197,6 +198,30 @@
   "item.indreb.painter_light_gray": "Светло-серый валик",
   "item.indreb.painter_black": "Чёрный валик",
 
+  "item.indreb.small_power_unit": "Малый силовой агрегат",
+  "item.indreb.power_unit": "Силовой агрегат",
+  "item.indreb.electric_treetap": "Электрокраник",
+  "item.indreb.electric_wrench": "Электроключ",
+  "item.indreb.chainsaw": "Электропила",
+  "item.indreb.diamond_chainsaw": "Алмазная электропила",
+  "item.indreb.iridium_chainsaw": "§bИридиевая электропила",
+  "item.indreb.mining_drill": "Шахтёрский бур",
+  "item.indreb.diamond_drill": "Алмазный бур",
+  "item.indreb.iridium_drill": "§bИридиевый бур",
+  "item.indreb.electric_hoe": "Электромотыга",
+  "item.indreb.wind_meter": "Ветромер",
+  "item.indreb.ie_meter": "Сканер",
+  "item.indreb.foam_sprayer": "Распылитель строительной пены",
+  "item.indreb.iridium_shard": "§bОсколок иридия",
+  "item.indreb.iridium": "§bИридий",
+  "item.indreb.multi_tool": "Универсальный гаечный ключ",
+  "item.indreb.coil": "Катушка",
+  "item.indreb.electric_motor": "Электромотор",
+  "item.indreb.tin_can": "Консервная банка",
+  "item.indreb.filled_tin_can": "Заполненная консервная банка (Заполненный)",
+  "item.indreb.scrap": "Утильсырьё",
+  "item.indreb.scrap_box": "Коробка утильсырья",
+
   "item.indreb.treetap": "Краник",
   "item.indreb.wrench": "Электроключ",
   "item.indreb.hammer": "Кузнечный молот",
@@ -215,6 +240,8 @@
   "jei.indreb.sawing": "Распиловка",
   "jei.indreb.extruding": "Экструдирование",
   "jei.indreb.alloy_smelting": "Плавка сплавов",
+  "jei.indreb.recycling": "Recycling",
+  "jei.indreb.scrap_box": "Scrap Box",
 
   "jei.indreb.chance": "Шанс: %s",
 

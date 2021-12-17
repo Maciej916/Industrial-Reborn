@@ -4,7 +4,6 @@ import com.maciej916.indreb.common.config.ServerConfig;
 import com.maciej916.indreb.common.entity.block.BlockEntityStandardMachine;
 import com.maciej916.indreb.common.receipe.impl.ExtractingRecipe;
 import com.maciej916.indreb.common.registries.ModBlockEntities;
-import com.maciej916.indreb.common.registries.Config;
 import com.maciej916.indreb.common.registries.ModRecipeType;
 import com.maciej916.indreb.common.registries.ModSounds;
 import net.minecraft.core.BlockPos;

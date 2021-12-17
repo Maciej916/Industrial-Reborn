@@ -8,26 +8,11 @@
       "entries": [
         {
           "type": "minecraft:item",
+          "weight": 80,
           "functions": [
             {
               "function": "minecraft:copy_name",
               "source": "block_entity"
-            },
-            {
-              "function": "minecraft:copy_nbt",
-              "source": "block_entity",
-              "ops": [
-                {
-                  "source": "inv",
-                  "target": "BlockEntityTag.inv",
-                  "op": "replace"
-                },
-                {
-                  "source": "energy",
-                  "target": "BlockEntityTag.energy",
-                  "op": "replace"
-                }
-              ]
             },
             {
               "function": "minecraft:set_contents",
@@ -41,6 +26,23 @@
             }
           ],
           "name": "indreb:electric_furnace"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 20,
+          "functions": [
+            {
+              "function": "minecraft:set_contents",
+              "type": "indreb:electric_furnace",
+              "entries": [
+                {
+                  "type": "minecraft:dynamic",
+                  "name": "minecraft:contents"
+                }
+              ]
+            }
+          ],
+          "name": "indreb:basic_machine_casing"
         }
       ]
     }

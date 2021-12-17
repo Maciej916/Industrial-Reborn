@@ -3,14 +3,17 @@ package com.maciej916.indreb.common.screen;
 import com.maciej916.indreb.common.container.IndRebContainer;
 import com.maciej916.indreb.common.energy.interfaces.IEnergyBlock;
 import com.maciej916.indreb.common.entity.block.IndRebBlockEntity;
+import com.maciej916.indreb.common.enums.GuiSlotType;
 import com.maciej916.indreb.common.interfaces.entity.ICooldown;
 import com.maciej916.indreb.common.interfaces.entity.IExpCollector;
+import com.maciej916.indreb.common.interfaces.entity.ISupportUpgrades;
 import com.maciej916.indreb.common.interfaces.screen.IGuiWrapper;
 import com.maciej916.indreb.common.screen.bar.GuiElectricBarHorizontal;
 import com.maciej916.indreb.common.screen.bar.GuiElectricBarVertical;
 import com.maciej916.indreb.common.screen.button.GuiExpButton;
 import com.maciej916.indreb.common.screen.slot.*;
 import com.maciej916.indreb.common.screen.widgets.GuiCooldown;
+import com.maciej916.indreb.common.screen.widgets.GuiUpgrades;
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
@@ -25,6 +28,10 @@ public abstract class IndRebScreen <CONTAINER extends IndRebContainer> extends A
         super(container, inv, name);
         this.container = container;
         this.imageHeight = 234;
+
+        if (getBlockEntity() instanceof ISupportUpgrades) {
+            this.imageWidth = this.imageWidth + 22;
+        }
     }
 
     public IndRebBlockEntity getBlockEntity() {
@@ -37,6 +44,12 @@ public abstract class IndRebScreen <CONTAINER extends IndRebContainer> extends A
 
         this.leftPos = (this.width - this.imageWidth) / 2;
         this.topPos = ((this.height - this.imageHeight) / 2) + 34;
+
+        if (getBlockEntity() instanceof ISupportUpgrades) {
+            this.leftPos = this.leftPos + 11;
+            addRenderableOnly(new GuiUpgrades(this));
+            getBlockEntity().getUpgradeHandlers().forEach(s -> addRenderableOnly(new GuiItemSlot(GuiSlotType.UPGRADE, this, s.x - 1, s.y - 1)));
+        }
 
         if (getBlockEntity() instanceof ICooldown) {
             addRenderableOnly(new GuiCooldown(this));
@@ -55,8 +68,7 @@ public abstract class IndRebScreen <CONTAINER extends IndRebContainer> extends A
 
         getBlockEntity().getElectricSlot().forEach(s -> addRenderableOnly(new GuiItemSlot(s.guiSlotType(), this, s.getXPosition() - 1, s.getYPosition() - 1)));
 
-
-        getBlockEntity().getSlots().forEach(s -> {
+        getBlockEntity().getItem().forEach(s -> {
             if (s.guiSlotType() != null) {
                 addRenderableOnly(new GuiSlot(s.guiSlotType(), this, s.getGuiX(), s.getGuiY()));
             }

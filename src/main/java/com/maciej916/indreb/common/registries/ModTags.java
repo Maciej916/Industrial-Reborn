@@ -17,6 +17,7 @@ public final class ModTags {
     public static final ResourceLocation BATTERIES_RES = new ResourceLocation(MODID, "batteries");
     public static final ResourceLocation ELECTRICS_RES = new ResourceLocation(MODID, "electrics");
     public static final ResourceLocation WRENCH_RES = new ResourceLocation(MODID, "wrenches");
+//    public static final ResourceLocation UPGRADE_RES = new ResourceLocation(MODID, "upgrades");
 
     public static final ResourceLocation HELMET_RES = new ResourceLocation(MODID, "helmet");
     public static final ResourceLocation CHESTPLATE_RES = new ResourceLocation(MODID, "chestplate");

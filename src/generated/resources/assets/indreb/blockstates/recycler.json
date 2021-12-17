@@ -1,0 +1,34 @@
+{
+  "variants": {
+    "active=false,facing=north": {
+      "model": "indreb:block/recycler"
+    },
+    "active=true,facing=north": {
+      "model": "indreb:block/recycler_active"
+    },
+    "active=false,facing=south": {
+      "model": "indreb:block/recycler",
+      "y": 180
+    },
+    "active=true,facing=south": {
+      "model": "indreb:block/recycler_active",
+      "y": 180
+    },
+    "active=false,facing=west": {
+      "model": "indreb:block/recycler",
+      "y": 270
+    },
+    "active=true,facing=west": {
+      "model": "indreb:block/recycler_active",
+      "y": 270
+    },
+    "active=false,facing=east": {
+      "model": "indreb:block/recycler",
+      "y": 90
+    },
+    "active=true,facing=east": {
+      "model": "indreb:block/recycler_active",
+      "y": 90
+    }
+  }
+}

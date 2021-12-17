@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "indreb:item/scrap_box"
+    ]
+  },
+  "criteria": {
+    "scrap": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:scrap"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "indreb:item/scrap_box"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "scrap",
+      "has_the_recipe"
+    ]
+  ]
+}

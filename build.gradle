@@ -3,6 +3,12 @@ buildscript {
         // These repositories are only for Gradle plugins, put any other repositories in the repository block further below
         maven { url = 'https://maven.minecraftforge.net' }
         maven { url = 'https://maven.parchmentmc.org' }
+        maven {
+            url "https://cursemaven.com"
+            content {
+                includeGroup "curse.maven"
+            }
+        }
         mavenCentral()
     }
     dependencies {
@@ -140,6 +146,9 @@ repositories {
         name = "ModMaven"
         url = "https://modmaven.k-4u.nl"
     }
+    maven { // TOP
+        url "https://cursemaven.com"
+    }
 }
 
 dependencies {
@@ -151,6 +160,9 @@ dependencies {
 
     compileOnly fg.deobf("mezz.jei:jei-${minecraftRelease}:${jeiVersion}:api")
     runtimeOnly fg.deobf("mezz.jei:jei-${minecraftRelease}:${jeiVersion}")
+
+//    implementation fg.deobf("mcjty.theoneprobe:TheOneProbe:1.18-5.0.0")
+    implementation fg.deobf("curse.maven:the-one-probe-245211:3550084")
 
 
 //    compileOnly "mezz.jei:jei-1.17.1:8.2.0.36:api"

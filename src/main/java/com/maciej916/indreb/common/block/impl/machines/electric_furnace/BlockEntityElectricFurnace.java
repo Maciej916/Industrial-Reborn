@@ -11,6 +11,7 @@ import com.maciej916.indreb.common.enums.GuiSlotType;
 import com.maciej916.indreb.common.enums.InventorySlotType;
 import com.maciej916.indreb.common.interfaces.entity.IExpCollector;
 import com.maciej916.indreb.common.interfaces.entity.IElectricSlot;
+import com.maciej916.indreb.common.interfaces.entity.ISupportUpgrades;
 import com.maciej916.indreb.common.registries.ModBlockEntities;
 import com.maciej916.indreb.common.registries.Config;
 import net.minecraft.core.BlockPos;
@@ -37,7 +38,7 @@ import java.util.Optional;
 
 import static com.maciej916.indreb.common.enums.EnumEnergyType.RECEIVE;
 
-public class BlockEntityElectricFurnace extends IndRebBlockEntity implements IEnergyBlock, IExpCollector {
+public class BlockEntityElectricFurnace extends IndRebBlockEntity implements IEnergyBlock, IExpCollector, ISupportUpgrades {
 
     public static final int INPUT_SLOT = 0;
     public static final int OUTPUT_SLOT = 1;
@@ -76,7 +77,7 @@ public class BlockEntityElectricFurnace extends IndRebBlockEntity implements IEn
     }
 
     @Override
-    public void tickServer(BlockState state) {
+    public void tickOperate(BlockState state) {
         progress.clearChanged();
         active = false;
 
@@ -130,8 +131,6 @@ public class BlockEntityElectricFurnace extends IndRebBlockEntity implements IEn
         if (progress.changed()) {
             super.updateBlockState();
         }
-
-        super.tickServer(state);
     }
 
     @Override

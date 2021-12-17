@@ -55,6 +55,18 @@
     ]
   },
 
+  "tile.recycler": {
+    "sounds": [
+      {
+        "name": "indreb:recycler"
+      }
+    ]
+  },
+
+
+
+
+
   "item.treetap": {
     "sounds": [
       {

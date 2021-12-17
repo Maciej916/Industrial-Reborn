@@ -14,6 +14,7 @@ import com.maciej916.indreb.common.block.impl.machines.extractor.ContainerExtrac
 import com.maciej916.indreb.common.block.impl.machines.extruder.ContainerExtruder;
 import com.maciej916.indreb.common.block.impl.machines.fluid_enricher.ContainerFluidEnricher;
 import com.maciej916.indreb.common.block.impl.machines.iron_furnace.ContainerIronFurnace;
+import com.maciej916.indreb.common.block.impl.machines.recycler.ContainerRecycler;
 import com.maciej916.indreb.common.block.impl.machines.sawmill.ContainerSawmill;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.MenuType;
@@ -43,6 +44,7 @@ public final class ModContainers {
     public static MenuType<ContainerExtruder> EXTRUDER;
     public static MenuType<ContainerCanningMachine> CANNING_MACHINE;
     public static MenuType<ContainerFluidEnricher> FLUID_ENRICHER;
+    public static MenuType<ContainerRecycler> RECYCLER;
 
     public static MenuType<ContainerAlloySmelter> ALLOY_SMELTER;
 
@@ -68,6 +70,7 @@ public final class ModContainers {
         EXTRUDER = registerContainer("extruder", IForgeMenuType.create(ContainerExtruder::new));
         CANNING_MACHINE = registerContainer("canning_machine", IForgeMenuType.create(ContainerCanningMachine::new));
         FLUID_ENRICHER = registerContainer("fluid_enricher", IForgeMenuType.create(ContainerFluidEnricher::new));
+        RECYCLER = registerContainer("recycler", IForgeMenuType.create(ContainerRecycler::new));
 
         ALLOY_SMELTER = registerContainer("alloy_smelter", IForgeMenuType.create(ContainerAlloySmelter::new));
 

@@ -210,7 +210,7 @@ public class EnergyCore extends CapabilityFluidHandler implements IEnergyCore, I
         for (BlockPos pos : this.energyBlocks) {
             BlockEntity be = world.getBlockEntity(pos);
             if (be instanceof IndRebBlockEntity ibe) {
-                if (ibe.isHasBattery() && ibe.isHasEnergy()) {
+                if (ibe.hasBattery() && ibe.hasEnergy()) {
                     BasicEnergyStorage energyStorage = ibe.getEnergyStorage();
                     if (energyStorage.canExtractEnergy() || energyStorage.canReceiveEnergy()) {
                         ItemStackHandler batteryHandler = ibe.getBatteryHandler();
@@ -548,7 +548,7 @@ public class EnergyCore extends CapabilityFluidHandler implements IEnergyCore, I
         for (BlockPos pos : energyBlocks) {
             BlockEntity be = world.getBlockEntity(pos);
             if (be instanceof IndRebBlockEntity ibe) {
-                if (ibe.isHasEnergy()) {
+                if (ibe.hasEnergy()) {
                     BasicEnergyStorage energy = ibe.getEnergyStorage();
                     int leftExtract = Math.max(0, energy.maxExtract() - getEnergyExtractedBlock(pos));
                     if (energy.canExtractEnergy() && leftExtract > 0) {
@@ -560,7 +560,7 @@ public class EnergyCore extends CapabilityFluidHandler implements IEnergyCore, I
                                     Direction oppositeDir = direction.getOpposite();
                                     BlockEntity oBe = world.getBlockEntity(relativePos);
                                     if (oBe instanceof IndRebBlockEntity oIbe) {
-                                        if (oIbe.isHasEnergy()) {
+                                        if (oIbe.hasEnergy()) {
                                             BasicEnergyStorage oEnergy = oIbe.getEnergyStorage();
                                             if (oEnergy.canReceiveEnergy(oppositeDir)) {
                                                 int leftReceive = Math.max(0, oEnergy.maxReceive() - getEnergyReceivedBlock(relativePos));

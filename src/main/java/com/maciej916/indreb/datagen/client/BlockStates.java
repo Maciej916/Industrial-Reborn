@@ -91,22 +91,53 @@ public class BlockStates extends BlockStateProvider {
 
 
     private void registerMachines() {
-        ResourceLocation txt = new ResourceLocation(IndReb.MODID, "block/generator/generator_side");
 
 
-        BlockModelBuilder noActive = models().orientableWithBottom("canning_machine", txt, new ResourceLocation(IndReb.MODID, "block/generator/generator_front"), new ResourceLocation(IndReb.MODID, "block/generator/generator_bottom"), new ResourceLocation(IndReb.MODID, "block/generator/generator_top"));
 
-        BlockModelBuilder active = models().orientableWithBottom("canning_machine_active", txt, new ResourceLocation(IndReb.MODID, "block/generator/generator_front_active"), new ResourceLocation(IndReb.MODID, "block/generator/generator_bottom"), new ResourceLocation(IndReb.MODID, "block/generator/generator_top"));
 
-        orientedBlock(ModBlocks.CANNING_MACHINE.getBlock(), state -> {
+        createSimple(ModBlocks.CANNING_MACHINE.getBlock(), "machines", "canning_machine");
+        createWithTopActive(ModBlocks.RECYCLER.getBlock(), "machines", "recycler");
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+    private void createSimple(Block block, String category, String name) {
+        BlockModelBuilder notActive = models().orientableWithBottom(name, new ResourceLocation(IndReb.MODID, "block/" + category + "/" + name + "_side"), new ResourceLocation(IndReb.MODID, "block/" + category + "/" + name + "_front"), new ResourceLocation(IndReb.MODID, "block/" + category + "/" + name + "_bottom"), new ResourceLocation(IndReb.MODID, "block/" + category + "/" + name + "_top"));
+        BlockModelBuilder active = models().orientableWithBottom(name + "_active", new ResourceLocation(IndReb.MODID, "block/" + category + "/" + name + "_side"), new ResourceLocation(IndReb.MODID, "block/" + category + "/" + name + "_front_active"), new ResourceLocation(IndReb.MODID, "block/" + category + "/" + name + "_bottom"), new ResourceLocation(IndReb.MODID, "block/" + category + "/" + name + "_top"));
+        orientedBlock(block, state -> {
             if (state.getValue(BlockStateHelper.activeProperty)) {
                 return active;
             } else {
-                return noActive;
+                return notActive;
             }
         });
-
     }
+
+    private void createWithTopActive(Block block, String category, String name) {
+        BlockModelBuilder notActive = models().orientableWithBottom(name, new ResourceLocation(IndReb.MODID, "block/" + category + "/" + name + "_side"), new ResourceLocation(IndReb.MODID, "block/" + category + "/" + name + "_front"), new ResourceLocation(IndReb.MODID, "block/" + category + "/" + name + "_bottom"), new ResourceLocation(IndReb.MODID, "block/" + category + "/" + name + "_top"));
+        BlockModelBuilder active = models().orientableWithBottom(name + "_active", new ResourceLocation(IndReb.MODID, "block/" + category + "/" + name + "_side"), new ResourceLocation(IndReb.MODID, "block/" + category + "/" + name + "_front_active"), new ResourceLocation(IndReb.MODID, "block/" + category + "/" + name + "_bottom"), new ResourceLocation(IndReb.MODID, "block/" + category + "/" + name + "_top_active"));
+        orientedBlock(block, state -> {
+            if (state.getValue(BlockStateHelper.activeProperty)) {
+                return active;
+            } else {
+                return notActive;
+            }
+        });
+    }
+
+
+
+
 
     private void createCubeAll(Block block, String path) {
         simpleBlock(block, models().cubeAll(block.getRegistryName().getPath(), new ResourceLocation(IndReb.MODID, "block/" + path)));

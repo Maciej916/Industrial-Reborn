@@ -16,6 +16,9 @@ public final class ModRecipeType {
 	public static RecipeType<SawingRecipe> SAWING = register("sawing");
 	public static RecipeType<ExtrudingRecipe> EXTRUDING = register("extruding");
 	public static RecipeType<AlloySmeltingRecipe> ALLOY_SMELTING = register("alloy_smelting");
+	public static RecipeType<RecyclingRecipe> RECYCLING = register("recycling");
+
+	public static RecipeType<ScrapBoxRecipe> SCRAP_BOX = register("scrap_box");
 
 	private static <T extends Recipe<?>> RecipeType<T> register(final String key) {
 		return Registry.register(Registry.RECIPE_TYPE, new ResourceLocation(MODID, key), new RecipeType<T>() {

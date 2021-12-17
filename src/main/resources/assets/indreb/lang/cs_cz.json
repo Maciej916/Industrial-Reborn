@@ -89,6 +89,7 @@
   "block.indreb.iron_fence": "Železný Plot",
 
   "block.indreb.luminator": "Luminátor",
+  "block.indreb.recycler": "Recycler",
 
   "block.indreb.rubber_sapling": "Sazenice Gumovníku",
   "block.indreb.rubber_planks": "Gumovníková Prkna",
@@ -197,6 +198,30 @@
   "item.indreb.painter_light_gray": "Malířský Váleček (Světle Šedý)",
   "item.indreb.painter_black": "Malířský Váleček (Černý)",
 
+  "item.indreb.small_power_unit": "Malá Energetická Jednotka",
+  "item.indreb.power_unit": "Energetická Jednotka",
+  "item.indreb.electric_treetap": "Elektrický StromKohoutek",
+  "item.indreb.electric_wrench": "Elektrický Utahovák",
+  "item.indreb.chainsaw": "Motorovka",
+  "item.indreb.diamond_chainsaw": "Diamantová Motorovka",
+  "item.indreb.iridium_chainsaw": "Iridiová Motorovka",
+  "item.indreb.mining_drill": "Těžební Vrták",
+  "item.indreb.diamond_drill": "Diamantový Vrták",
+  "item.indreb.iridium_drill": "Iridiový Vrták",
+  "item.indreb.electric_hoe": "Elektrická Kosa",
+  "item.indreb.wind_meter": "Větroměr",
+  "item.indreb.ie_meter": "IEmetr",
+  "item.indreb.foam_sprayer": "Sprej na pěnu",
+  "item.indreb.iridium_shard": "Iridiový Úlomek",
+  "item.indreb.iridium": "Iridium",
+  "item.indreb.multi_tool": "Všestranný Nástroj-Utahovák",
+  "item.indreb.coil": "Cívka",
+  "item.indreb.electric_motor": "Elektromotor",
+  "item.indreb.tin_can": "Konzerva",
+  "item.indreb.filled_tin_can": "Konzerva s jídlem (Plná)",
+  "item.indreb.scrap": "Odpad",
+  "item.indreb.scrap_box": "Box s Odpadem",
+
   "item.indreb.treetap": "StromKohoutek",
   "item.indreb.wrench": "Utahovák",
   "item.indreb.hammer": "Kladivo",
@@ -215,6 +240,8 @@
   "jei.indreb.sawing": "Řezání",
   "jei.indreb.extruding": "Extruze",
   "jei.indreb.alloy_smelting": "Slévání Litin",
+  "jei.indreb.recycling": "Recycling",
+  "jei.indreb.scrap_box": "Scrap Box",
 
   "jei.indreb.chance": "Pravděpodobnost: %s",
 

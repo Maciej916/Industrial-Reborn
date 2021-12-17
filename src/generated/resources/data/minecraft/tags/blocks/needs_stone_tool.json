@@ -20,6 +20,7 @@
     "indreb:extruder",
     "indreb:canning_machine",
     "indreb:fluid_enricher",
+    "indreb:recycler",
     "indreb:alloy_smelter",
     "indreb:copper_cable",
     "indreb:copper_cable_insulated",

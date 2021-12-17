@@ -7,6 +7,7 @@ import com.maciej916.indreb.common.enums.EnergyTier;
 import com.maciej916.indreb.common.enums.GuiSlotType;
 import com.maciej916.indreb.common.enums.InventorySlotType;
 import com.maciej916.indreb.common.interfaces.entity.IExpCollector;
+import com.maciej916.indreb.common.interfaces.entity.ISupportUpgrades;
 import com.maciej916.indreb.common.interfaces.entity.ITileSound;
 import com.maciej916.indreb.common.interfaces.receipe.IChanceRecipe;
 import com.maciej916.indreb.common.interfaces.entity.IElectricSlot;
@@ -34,7 +35,7 @@ import java.util.Optional;
 
 import static com.maciej916.indreb.common.enums.EnumEnergyType.RECEIVE;
 
-public class BlockEntityStandardMachine extends IndRebBlockEntity implements IEnergyBlock, ITileSound, IExpCollector {
+public class BlockEntityStandardMachine extends IndRebBlockEntity implements IEnergyBlock, ITileSound, IExpCollector, ISupportUpgrades {
 
     public static final int INPUT_SLOT = 0;
     public static final int OUTPUT_SLOT = 1;
@@ -79,7 +80,7 @@ public class BlockEntityStandardMachine extends IndRebBlockEntity implements IEn
     }
 
     @Override
-    public void tickServer(BlockState state) {
+    public void tickOperate(BlockState state) {
         progress.clearChanged();
         active = false;
 
@@ -155,8 +156,6 @@ public class BlockEntityStandardMachine extends IndRebBlockEntity implements IEn
         if (progress.changed()) {
             super.updateBlockState();
         }
-
-        super.tickServer(state);
     }
 
     @Override

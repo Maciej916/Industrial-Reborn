@@ -11,6 +11,8 @@ import com.maciej916.indreb.common.registries.ModItemGroups;
 import com.maciej916.indreb.common.util.CapabilityUtil;
 import com.maciej916.indreb.common.util.LazyOptionalHelper;
 import com.maciej916.indreb.common.util.TextComponentUtil;
+import mezz.jei.api.ingredients.subtypes.IIngredientSubtypeInterpreter;
+import mezz.jei.api.ingredients.subtypes.UidContext;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.NonNullList;
 import net.minecraft.nbt.CompoundTag;
@@ -23,7 +25,9 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.common.capabilities.ICapabilityProvider;
+import net.minecraftforge.fluids.FluidStack;
 
+import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import java.util.List;
 
@@ -41,6 +45,18 @@ public class ItemEnergy extends Item implements IElectricItem {
         this.energyType = energyType;
         this.energyTier = energyTier;
     }
+
+//    public static ItemStack getSubtype(ItemStack stack) {
+////        ItemStack full = new ItemStack(stack);
+////        LazyOptionalHelper<IEnergy> cap = CapabilityUtil.getCapabilityHelper(full, ModCapabilities.ENERGY);
+////        cap.getIfPresent(e -> e.setEnergy(e.maxEnergy()));
+//        return stack;
+//    }
+
+//    @Nonnull
+//    public static String getSubtype(ItemStack stack) {
+//        return stacktack.getOrCreateTag().getInt("energyStored") ? "full" : "none");
+//    }
 
     @Nullable
     @Override
@@ -146,4 +162,6 @@ public class ItemEnergy extends Item implements IElectricItem {
         }
         super.readShareTag(stack, nbt);
     }
+
+
 }

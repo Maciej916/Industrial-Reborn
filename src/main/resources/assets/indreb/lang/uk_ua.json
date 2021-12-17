@@ -43,7 +43,7 @@
   "block.indreb.extruder": "Екструдер",
   "block.indreb.sawmill": "Лісопильний завод",
   "block.indreb.canning_machine": "Canning Machine",
-  "block.indreb.fluid_enricher": "Fluid Enricher",
+  "block.indreb.fluid_enricher": "Збагачення рідини",
   "block.indreb.alloy_smelter": "Плавильний завод",
 
   "block.indreb.tin_ore": "Олов'яна руда",
@@ -89,6 +89,7 @@
   "block.indreb.iron_fence": "Залізний паркан",
 
   "block.indreb.luminator": "Світильник",
+  "block.indreb.recycler": "Recycler",
 
   "block.indreb.rubber_sapling": "Саджанець гевеї",
   "block.indreb.rubber_planks": "Дошки гевеї",
@@ -113,7 +114,7 @@
   "item.indreb.rubber": "Гумовий лист",
   "item.indreb.sawdust": "Тирса",
 
-  "item.indreb.raw_tin": "Сире олово",
+  "item.indreb.raw_tin": "Необроблене олово",
   "item.indreb.tin_ingot": "Олов'яний злиток",
   "item.indreb.bronze_ingot": "Бронзовий злиток",
   "item.indreb.silver_ingot": "Срібний злиток",
@@ -197,6 +198,30 @@
   "item.indreb.painter_light_gray": "Світло-сірий валок",
   "item.indreb.painter_black": "Чорний валок",
 
+  "item.indreb.small_power_unit": "Малий силовий агрегат",
+  "item.indreb.power_unit": "Силовий агрегат",
+  "item.indreb.electric_treetap": "Електрокраник",
+  "item.indreb.electric_wrench": "Електроключ",
+  "item.indreb.chainsaw": "Електропила",
+  "item.indreb.diamond_chainsaw": "Алмазна електропилка",
+  "item.indreb.iridium_chainsaw": "§bІридієва електропила",
+  "item.indreb.mining_drill": "Шахтарський бур",
+  "item.indreb.diamond_drill": "Алмазний бур",
+  "item.indreb.iridium_drill": "§bІридієвий бур",
+  "item.indreb.electric_hoe": "Електромотика",
+  "item.indreb.wind_meter": "Вітромір",
+  "item.indreb.ie_meter": "Сканер",
+  "item.indreb.foam_sprayer": "Розпилювач будівельної піни",
+  "item.indreb.iridium_shard": "§bУламок іридію",
+  "item.indreb.iridium": "§bІрідій",
+  "item.indreb.multi_tool": "Універсальний гайковий ключ",
+  "item.indreb.coil": "Котушка",
+  "item.indreb.electric_motor": "Електромотор",
+  "item.indreb.tin_can": "Консервна банка",
+  "item.indreb.filled_tin_can": "Заповнена консервна банка (Заповнений)",
+  "item.indreb.scrap": "Брухт",
+  "item.indreb.scrap_box": "Коробка брухту",
+
   "item.indreb.treetap": "Краник",
   "item.indreb.wrench": "Електричний гайковий ключ",
   "item.indreb.hammer": "Ковальський молот",
@@ -215,6 +240,8 @@
   "jei.indreb.sawing": "Пиляння",
   "jei.indreb.extruding": "Екструдування",
   "jei.indreb.alloy_smelting": "Виплавка сплавів",
+  "jei.indreb.recycling": "Recycling",
+  "jei.indreb.scrap_box": "Scrap Box",
 
   "jei.indreb.chance": "Шанс: %s",
 

@@ -51,6 +51,7 @@ public class Tags extends BlockTagsProvider {
                 .add(ModBlocks.EXTRUDER.getBlock())
                 .add(ModBlocks.CANNING_MACHINE.getBlock())
                 .add(ModBlocks.FLUID_ENRICHER.getBlock())
+                .add(ModBlocks.RECYCLER.getBlock())
                 .add(ModBlocks.ALLOY_SMELTER.getBlock())
 
                 .add(ModBlocks.COPPER_CABLE.getBlock())
@@ -105,6 +106,7 @@ public class Tags extends BlockTagsProvider {
                 .add(ModBlocks.EXTRUDER.getBlock())
                 .add(ModBlocks.CANNING_MACHINE.getBlock())
                 .add(ModBlocks.FLUID_ENRICHER.getBlock())
+                .add(ModBlocks.RECYCLER.getBlock())
                 .add(ModBlocks.ALLOY_SMELTER.getBlock())
 
                 .add(ModBlocks.COPPER_CABLE.getBlock())

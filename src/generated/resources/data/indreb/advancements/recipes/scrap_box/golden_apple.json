@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "indreb:scrap_box/golden_apple"
+    ]
+  },
+  "criteria": {
+    "scrap_box": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:scrap_box"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "indreb:scrap_box/golden_apple"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "scrap_box",
+      "has_the_recipe"
+    ]
+  ]
+}

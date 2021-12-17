@@ -39,7 +39,7 @@ public class BlockEntitySolarGenerator extends IndRebBlockEntity implements IEne
     }
 
     @Override
-    public void tickServer(BlockState state) {
+    public void tickOperate(BlockState state) {
         active = false;
         amount = 0;
 
@@ -69,8 +69,6 @@ public class BlockEntitySolarGenerator extends IndRebBlockEntity implements IEne
         if (this.setActive(active)) {
             super.updateBlockState();
         }
-
-        super.tickServer(state);
     }
 
     @Override

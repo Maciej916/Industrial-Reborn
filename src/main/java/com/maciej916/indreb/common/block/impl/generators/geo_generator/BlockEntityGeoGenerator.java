@@ -63,7 +63,7 @@ public class BlockEntityGeoGenerator extends IndRebBlockEntity implements ICoold
     }
 
     @Override
-    public void tickServer(BlockState state) {
+    public void tickOperate(BlockState state) {
         active = false;
         boolean updateState = false;
 
@@ -113,8 +113,6 @@ public class BlockEntityGeoGenerator extends IndRebBlockEntity implements ICoold
         if (updateState) {
             this.updateBlockState();
         }
-
-        super.tickServer(state);
     }
 
     @Override

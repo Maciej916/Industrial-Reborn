@@ -56,7 +56,7 @@ public class BlockEntityCrystallineGenerator extends IndRebBlockEntity implement
 
 
     @Override
-    public void tickServer(BlockState state) {
+    public void tickOperate(BlockState state) {
         progressBurn.clearChanged();
         active = false;
 
@@ -93,8 +93,6 @@ public class BlockEntityCrystallineGenerator extends IndRebBlockEntity implement
         if (progressBurn.changed()) {
             super.updateBlockState();
         }
-
-        super.tickServer(state);
     }
 
     @Override

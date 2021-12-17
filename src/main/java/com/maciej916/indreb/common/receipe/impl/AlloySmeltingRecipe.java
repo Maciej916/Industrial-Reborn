@@ -24,6 +24,7 @@ import net.minecraftforge.registries.ForgeRegistryEntry;
 
 import javax.annotation.Nullable;
 import java.util.*;
+import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 public class AlloySmeltingRecipe implements IBaseRecipe {
@@ -56,46 +57,46 @@ public class AlloySmeltingRecipe implements IBaseRecipe {
         return result;
     }
 
-    public List<ItemStack> getIngredientCost() {
-        List<ItemStack> cost = new ArrayList<>();
+    public int getIngredientCost(ItemStack stack) {
         for (Map.Entry<Ingredient, Integer> entry : ingredients.entrySet()) {
-            cost.add(new ItemStack(entry.getKey().getItems()[0].getItem(), entry.getValue()));
+            if (entry.getKey().test(stack)) {
+               return entry.getValue();
+            }
         }
-        return cost;
+        return 0;
     }
 
     @Override
     public boolean matches(Container inv, Level worldIn) {
-        ArrayList<Item> allItems = new ArrayList<>();
-        for (Map.Entry<Ingredient, Integer> entry : ingredients.entrySet()) {
-            Ingredient ingredient = entry.getKey();
-            allItems.add(ingredient.getItems()[0].getItem());
-        }
-
-        int notAirItems = 0;
-        for (int slot = 0; slot < inv.getContainerSize(); ++slot) {
-            Item item = inv.getItem(slot).getItem();
-            if (item != Items.AIR) {
-                notAirItems++;
+        if (inv.getContainerSize() == 1 && ingredients.keySet().size() > 1) {
+            // Check if item is valid
+            for (Ingredient ingredient : ingredients.keySet()) {
+                if (ingredient.test(inv.getItem(0))) {
+                    return true;
+                }
             }
-        }
-
-        boolean matches = true;
-        if (notAirItems == 0 || notAirItems > allItems.size()) {
-            matches = false;
+            return false;
         } else {
-            if (inv.getContainerSize() == allItems.size() || inv.getContainerSize() == 1) {
-                for (int slot = 0; slot < inv.getContainerSize(); ++slot) {
-                    Item item = inv.getItem(slot).getItem();
-                    if (!allItems.contains(item)) {
-                        matches = false;
-                        break;
+            // Check recipe
+            int foundIngredients = 0;
+            int airSlots = 0;
+            for (Map.Entry<Ingredient, Integer> entry : ingredients.entrySet()) {
+                Ingredient ingredient = entry.getKey();
+                int count = entry.getValue();
+                for (int slot = 0; slot < inv.getContainerSize(); slot++) {
+                    ItemStack itemStack = inv.getItem(slot);
+                    if (itemStack.equals(ItemStack.EMPTY)){
+                        airSlots++;
+                    } else {
+                        if (ingredient.test(itemStack) && itemStack.getCount() >= count) {
+                            foundIngredients++;
+                        }
                     }
                 }
             }
-        }
 
-        return matches;
+            return foundIngredients >= ingredients.entrySet().size() && inv.getContainerSize() - airSlots <= foundIngredients;
+        }
     }
 
     @Override

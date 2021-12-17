@@ -182,7 +182,14 @@ public class Item extends RecipeProvider {
                 .unlockedBy("tin_plate", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.TIN_PLATE))
                 .save(consumer, saveResource("electric_motor"));
 
-
+        ShapedRecipeBuilder.shaped(ModItems.SCRAP_BOX)
+                .pattern("sss")
+                .pattern("sss")
+                .pattern("sss")
+                .define('s', ModItems.SCRAP)
+                .group(MODID)
+                .unlockedBy("scrap", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.SCRAP))
+                .save(consumer, saveResource("scrap_box"));
     }
 
 }

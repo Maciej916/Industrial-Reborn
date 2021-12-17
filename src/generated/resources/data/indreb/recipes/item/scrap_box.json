@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "indreb",
+  "pattern": [
+    "sss",
+    "sss",
+    "sss"
+  ],
+  "key": {
+    "s": {
+      "item": "indreb:scrap"
+    }
+  },
+  "result": {
+    "item": "indreb:scrap_box"
+  }
+}

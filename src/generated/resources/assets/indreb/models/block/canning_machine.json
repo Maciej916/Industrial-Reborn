@@ -1,9 +1,9 @@
 {
   "parent": "minecraft:block/orientable_with_bottom",
   "textures": {
-    "side": "indreb:block/generator/generator_side",
-    "front": "indreb:block/generator/generator_front",
-    "bottom": "indreb:block/generator/generator_bottom",
-    "top": "indreb:block/generator/generator_top"
+    "side": "indreb:block/machines/canning_machine_side",
+    "front": "indreb:block/machines/canning_machine_front",
+    "bottom": "indreb:block/machines/canning_machine_bottom",
+    "top": "indreb:block/machines/canning_machine_top"
   }
 }

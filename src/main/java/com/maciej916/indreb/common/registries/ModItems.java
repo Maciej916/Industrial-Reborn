@@ -5,7 +5,12 @@ import com.maciej916.indreb.common.enums.EnumEnergyType;
 import com.maciej916.indreb.common.enums.ModArmorMaterials;
 import com.maciej916.indreb.common.item.*;
 import com.maciej916.indreb.common.item.base.DummyItem;
+import com.maciej916.indreb.common.item.base.ElectricItem;
+import com.maciej916.indreb.common.item.base.EnergyStorageItem;
 import com.maciej916.indreb.common.item.base.WIPItem;
+import com.maciej916.indreb.common.item.impl.IridiumItem;
+import com.maciej916.indreb.common.item.impl.Scrap;
+import com.maciej916.indreb.common.item.impl.ScrapBox;
 import com.maciej916.indreb.common.item.impl.tools.*;
 import com.maciej916.indreb.common.item.impl.treetap.ElectricTreetap;
 import com.maciej916.indreb.common.item.impl.treetap.Treetap;
@@ -176,17 +181,17 @@ public final class ModItems {
         ELECTRONIC_CIRCUIT = registerItem(new ItemBasic(), "electronic_circuit");
         ADVANCED_CIRCUIT = registerItem(new ItemBasic(), "advanced_circuit");
 
-        BATTERY = registerItem(new ItemEnergy(0, 10000, EnumEnergyType.BOTH, EnergyTier.BASIC), "battery");
-        ADVANCED_BATTERY = registerItem(new ItemEnergy(0, 40000, EnumEnergyType.BOTH, EnergyTier.STANDARD), "advanced_battery");
-        ENERGY_CRYSTAL = registerItem(new ItemEnergy(0, 100000, EnumEnergyType.BOTH, EnergyTier.ADVANCED), "energy_crystal");
-        LAPOTRON_CRYSTAL = registerItem(new ItemEnergy(0, 1000000, EnumEnergyType.BOTH, EnergyTier.SUPER), "lapotron_crystal");
+        BATTERY = registerItem(new EnergyStorageItem(0, 10000, EnumEnergyType.BOTH, EnergyTier.BASIC), "battery");
+        ADVANCED_BATTERY = registerItem(new EnergyStorageItem(0, 40000, EnumEnergyType.BOTH, EnergyTier.STANDARD), "advanced_battery");
+        ENERGY_CRYSTAL = registerItem(new EnergyStorageItem(0, 100000, EnumEnergyType.BOTH, EnergyTier.ADVANCED), "energy_crystal");
+        LAPOTRON_CRYSTAL = registerItem(new EnergyStorageItem(0, 1000000, EnumEnergyType.BOTH, EnergyTier.SUPER), "lapotron_crystal");
 
         FLUID_CELL = registerItem(new ItemCell(), "fluid_cell");
 
         IRON_ROD = registerItem(new ItemBasic(), "iron_rod");
 
-        IRIDIUM_SHARD = registerItem(new ItemBasic(), "iridium_shard");
-        IRIDIUM = registerItem(new ItemBasic(), "iridium");
+        IRIDIUM_SHARD = registerItem(new IridiumItem(), "iridium_shard");
+        IRIDIUM = registerItem(new IridiumItem(), "iridium");
 
         COPPER_PLATE = registerItem(new ItemBasic(), "copper_plate");
         TIN_PLATE = registerItem(new ItemBasic(), "tin_plate");
@@ -194,7 +199,7 @@ public final class ModItems {
         GOLD_PLATE = registerItem(new ItemBasic(), "gold_plate");
         BRONZE_PLATE = registerItem(new ItemBasic(), "bronze_plate");
         STEEL_PLATE = registerItem(new ItemBasic(), "steel_plate");
-        IRIDIUM_PLATE = registerItem(new ItemBasic(), "iridium_plate");
+        IRIDIUM_PLATE = registerItem(new IridiumItem(), "iridium_plate");
 
         CARBON_FIBERS = registerItem(new ItemBasic(), "carbon_fibers");
         COMBINED_CARBON_FIBERS = registerItem(new ItemBasic(), "combined_carbon_fibers");
@@ -228,9 +233,10 @@ public final class ModItems {
         ELECTRIC_MOTOR = registerItem(new DummyItem(CreativeModeTab.TAB_REDSTONE), "electric_motor");
         TIN_CAN = registerItem(new WIPItem(), "tin_can");
         FILLED_TIN_CAN = registerItem(new WIPItem(), "filled_tin_can");
-        SCRAP = registerItem(new WIPItem(), "scrap");
-        SCRAP_BOX = registerItem(new WIPItem(), "scrap_box");
+        SCRAP = registerItem(new Scrap(), "scrap");
+        SCRAP_BOX = registerItem(new ScrapBox(), "scrap_box");
 
+        // have container
         HAMMER = registerItem(new ItemTool(80), "hammer");
         CUTTER = registerItem(new ItemTool(60), "cutter");
 
@@ -242,11 +248,11 @@ public final class ModItems {
 
         CHAINSAW = registerItem(new Chainsaw(Tiers.IRON,6.0F, -3.1F, 0, 30000, 50, 100, EnumEnergyType.RECEIVE, EnergyTier.BASIC), "chainsaw");
         DIAMOND_CHAINSAW = registerItem(new Chainsaw(Tiers.DIAMOND,5.0F, -3.0F, 0, 80000, 70, 120, EnumEnergyType.RECEIVE, EnergyTier.STANDARD), "diamond_chainsaw");
-        IRIDIUM_CHAINSAW = registerItem(new Chainsaw(ModTiers.IRIDIUM,5.0F, -3.0F, 0, 300000, 1000, 1400, EnumEnergyType.RECEIVE, EnergyTier.ADVANCED), "iridium_chainsaw");
+        IRIDIUM_CHAINSAW = registerItem(new Chainsaw(ModTiers.IRIDIUM,5.0F, -3.0F, 0, 300000, 200, 400, EnumEnergyType.RECEIVE, EnergyTier.ADVANCED), "iridium_chainsaw");
 
         MINING_DRILL = registerItem(new MiningDrill(Tiers.IRON,1, -2.8F, 0, 30000, 50, 100, EnumEnergyType.RECEIVE, EnergyTier.BASIC), "mining_drill");
         DIAMOND_DRILL = registerItem(new MiningDrill(Tiers.DIAMOND,1, -2.8F, 0, 80000, 70, 120, EnumEnergyType.RECEIVE, EnergyTier.STANDARD), "diamond_drill");
-        IRIDIUM_DRILL = registerItem(new MiningDrill(ModTiers.IRIDIUM, 1, -2.8F, 0, 300000, 1000, 1400, EnumEnergyType.RECEIVE, EnergyTier.ADVANCED), "iridium_drill");
+        IRIDIUM_DRILL = registerItem(new MiningDrill(ModTiers.IRIDIUM, 1, -2.8F, 0, 300000, 200, 400, EnumEnergyType.RECEIVE, EnergyTier.ADVANCED), "iridium_drill");
 
         ELECTRIC_HOE = registerItem(new ElectricHoe(Tiers.IRON,-2, -1.0F, 0, 10000, 50, 100, 50, EnumEnergyType.RECEIVE, EnergyTier.BASIC), "electric_hoe");
 //        WIND_METER = registerItem(new WindMeter(0, 1000, EnumEnergyType.RECEIVE, EnergyTier.BASIC), "wind_meter");

@@ -8,6 +8,7 @@ public enum GuiSprite {
     SAWING(24,16, 0, 68, 24,16,25, 68, 0, 0),
     SMELTING(16,16, 50, 0, 16,16,67, 0, 0, 0),
     SOLAR_SUN(16,16, 50, 17, 16,16,67, 17, 0, 0),
+    RECYCLER(24,16,0, 85, 24,16,25, 85, 0, 0),
 
     ELECTRIC_VERTICAL(18,49,0, 0, 10,41,19, 0, 4, 4),
     ELECTRIC_HORIZONTAL(49,18,30, 0, 41,10,30, 19, 4, 4),

@@ -20,6 +20,9 @@ public final class ModRecipeSerializer {
     public static RecipeSerializer<SawingRecipe> SAWING;
     public static RecipeSerializer<ExtrudingRecipe> EXTRUDING;
     public static RecipeSerializer<AlloySmeltingRecipe> ALLOY_SMELTING;
+    public static RecipeSerializer<RecyclingRecipe> RECYCLING;
+
+    public static RecipeSerializer<ScrapBoxRecipe> SCRAP_BOX;
 
     @SubscribeEvent
     public static void registerRecipeSerializers(RegistryEvent.Register<RecipeSerializer<?>> event) {
@@ -30,6 +33,9 @@ public final class ModRecipeSerializer {
         SAWING = registerRecipeSerializer("sawing", SawingRecipe.SERIALIZER);
         EXTRUDING = registerRecipeSerializer("extruding", ExtrudingRecipe.SERIALIZER);
         ALLOY_SMELTING = registerRecipeSerializer("alloy_smelting", AlloySmeltingRecipe.SERIALIZER);
+        RECYCLING = registerRecipeSerializer("recycling", RecyclingRecipe.SERIALIZER);
+
+        SCRAP_BOX = registerRecipeSerializer("scrap_box", ScrapBoxRecipe.SERIALIZER);
     }
 
     private static <S extends RecipeSerializer<T>, T extends Recipe<?>> S registerRecipeSerializer(String name, S recipeSerializer) {

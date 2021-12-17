@@ -14,22 +14,6 @@
               "source": "block_entity"
             },
             {
-              "function": "minecraft:copy_nbt",
-              "source": "block_entity",
-              "ops": [
-                {
-                  "source": "inv",
-                  "target": "BlockEntityTag.inv",
-                  "op": "replace"
-                },
-                {
-                  "source": "energy",
-                  "target": "BlockEntityTag.energy",
-                  "op": "replace"
-                }
-              ]
-            },
-            {
               "function": "minecraft:set_contents",
               "type": "indreb:iron_furnace",
               "entries": [

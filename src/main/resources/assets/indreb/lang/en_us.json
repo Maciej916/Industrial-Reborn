@@ -18,7 +18,7 @@
 
   "_comment": "GUI",
   "gui.indreb.energy": "%s / %s IE",
-  "gui.indreb.fluid": "%s: %s/%s mB",
+  "gui.indreb.fluid": "%s: %s / %s mB",
   "gui.indreb.fluid_empty": "Empty",
 
   "gui.indreb.progress": "Progress %s/%s",
@@ -93,6 +93,7 @@
   "block.indreb.iron_fence": "Iron Fence",
 
   "block.indreb.luminator": "Luminator",
+  "block.indreb.recycler": "Recycler",
 
   "_comment": "Rubber Wood",
   "block.indreb.rubber_sapling": "Rubber Sapling",
@@ -138,7 +139,7 @@
   "item.indreb.gold_plate": "Gold Plate",
   "item.indreb.bronze_plate": "Bronze Plate",
   "item.indreb.steel_plate": "Steel Plate",
-  "item.indreb.iridium_plate": "§bIridium Plate",
+  "item.indreb.iridium_plate": "Iridium Plate",
 
   "item.indreb.coal_dust": "Coal Dust",
   "item.indreb.diamond_dust": "Diamond Dust",
@@ -210,16 +211,16 @@
   "item.indreb.electric_wrench": "Electric Wrench",
   "item.indreb.chainsaw": "Chainsaw",
   "item.indreb.diamond_chainsaw": "Diamond Chainsaw",
-  "item.indreb.iridium_chainsaw": "§bIridium Chainsaw",
+  "item.indreb.iridium_chainsaw": "Iridium Chainsaw",
   "item.indreb.mining_drill": "Mining Drill",
   "item.indreb.diamond_drill": "Diamond Drill",
-  "item.indreb.iridium_drill": "§bIridium Drill",
+  "item.indreb.iridium_drill": "Iridium Drill",
   "item.indreb.electric_hoe": "Electric Hoe",
   "item.indreb.wind_meter": "Wind Meter",
   "item.indreb.ie_meter": "IE Meter",
   "item.indreb.foam_sprayer": "Foam Sprayer",
-  "item.indreb.iridium_shard": "§bIridium Shard",
-  "item.indreb.iridium": "§bIridium",
+  "item.indreb.iridium_shard": "Iridium Shard",
+  "item.indreb.iridium": "Iridium",
   "item.indreb.multi_tool": "Multi Tool-Wrench",
   "item.indreb.coil": "Coil",
   "item.indreb.electric_motor": "Electric Motor",
@@ -249,6 +250,8 @@
   "jei.indreb.sawing": "Sawing",
   "jei.indreb.extruding": "Extruding",
   "jei.indreb.alloy_smelting": "Alloy Smelting",
+  "jei.indreb.recycling": "Recycling",
+  "jei.indreb.scrap_box": "Scrap Box",
 
   "jei.indreb.chance": "Chance: %s",
 

@@ -15,6 +15,7 @@ import com.maciej916.indreb.common.block.impl.machines.extractor.ScreenExtractor
 import com.maciej916.indreb.common.block.impl.machines.extruder.ScreenExtruder;
 import com.maciej916.indreb.common.block.impl.machines.fluid_enricher.ScreenFluidEnricher;
 import com.maciej916.indreb.common.block.impl.machines.iron_furnace.ScreenIronFurnace;
+import com.maciej916.indreb.common.block.impl.machines.recycler.ScreenRecycler;
 import com.maciej916.indreb.common.block.impl.machines.sawmill.ScreenSawmill;
 import com.maciej916.indreb.common.item.ItemEnergy;
 import com.maciej916.indreb.common.item.ItemNanosaber;
@@ -31,6 +32,7 @@ import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.FoliageColor;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.api.distmarker.Dist;
@@ -62,6 +64,7 @@ public final class ClientModEventSubscriber {
 			MenuScreens.register(ModContainers.EXTRUDER, ScreenExtruder::new);
 			MenuScreens.register(ModContainers.CANNING_MACHINE, ScreenCanningMachine::new);
 			MenuScreens.register(ModContainers.FLUID_ENRICHER, ScreenFluidEnricher::new);
+			MenuScreens.register(ModContainers.RECYCLER, ScreenRecycler::new);
 
 			MenuScreens.register(ModContainers.ALLOY_SMELTER, ScreenAlloySmelter::new);
 
@@ -92,7 +95,6 @@ public final class ClientModEventSubscriber {
 
 		});
 	}
-
 
 
 

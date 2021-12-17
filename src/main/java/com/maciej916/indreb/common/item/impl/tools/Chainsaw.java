@@ -4,6 +4,7 @@ import com.maciej916.indreb.common.energy.interfaces.IEnergy;
 import com.maciej916.indreb.common.enums.EnergyTier;
 import com.maciej916.indreb.common.enums.EnumEnergyType;
 import com.maciej916.indreb.common.item.base.DiggerElectricItem;
+import com.maciej916.indreb.common.registries.ModTiers;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.NonNullList;
@@ -15,6 +16,7 @@ import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Rarity;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
@@ -31,6 +33,11 @@ public class Chainsaw extends DiggerElectricItem {
         super(tier, attackDamage, attackSpeed, BlockTags.MINEABLE_WITH_AXE, new Properties(), energyStored, maxEnergy, energyType, energyTier);
         this.energyCostMine = energyCostMine;
         this.energyCostHurt = energyCostHurt;
+    }
+
+    @Override
+    public Rarity getRarity(ItemStack stack) {
+        return getTier() == ModTiers.IRIDIUM ? Rarity.RARE : Rarity.COMMON;
     }
 
     @Override

@@ -19,6 +19,8 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 
+import java.util.ArrayList;
+
 public class DiggerElectricItem extends TieredElectricItem {
     private final Tag<Block> blocks;
     protected final float speed;

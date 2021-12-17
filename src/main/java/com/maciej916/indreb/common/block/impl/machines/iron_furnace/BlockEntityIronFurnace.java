@@ -71,7 +71,7 @@ public class BlockEntityIronFurnace extends IndRebBlockEntity implements IExpCol
     }
 
     @Override
-    public void tickServer(BlockState state) {
+    public void tickOperate(BlockState state) {
         fuel.clearChanged();
         smelting.clearChanged();
 
@@ -142,8 +142,6 @@ public class BlockEntityIronFurnace extends IndRebBlockEntity implements IExpCol
         if (fuel.changed() || smelting.changed()) {
             super.updateBlockState();
         }
-
-        super.tickServer(state);
     }
 
     @Override

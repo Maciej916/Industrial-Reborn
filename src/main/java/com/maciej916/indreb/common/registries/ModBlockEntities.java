@@ -15,6 +15,7 @@ import com.maciej916.indreb.common.block.impl.machines.extractor.BlockEntityExtr
 import com.maciej916.indreb.common.block.impl.machines.extruder.BlockEntityExtruder;
 import com.maciej916.indreb.common.block.impl.machines.fluid_enricher.BlockEntityFluidEnricher;
 import com.maciej916.indreb.common.block.impl.machines.iron_furnace.BlockEntityIronFurnace;
+import com.maciej916.indreb.common.block.impl.machines.recycler.BlockEntityRecycler;
 import com.maciej916.indreb.common.block.impl.machines.sawmill.BlockEntitySawmill;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
@@ -41,6 +42,7 @@ public final class ModBlockEntities {
     public static BlockEntityType<BlockEntityExtruder> EXTRUDER;
     public static BlockEntityType<BlockEntityCanningMachine> CANNING_MACHINE;
     public static BlockEntityType<BlockEntityFluidEnricher> FLUID_ENRICHER;
+    public static BlockEntityType<BlockEntityRecycler> RECYCLER;
 
     public static BlockEntityType<BlockEntityAlloySmelter> ALLOY_SMELTER;
 
@@ -67,6 +69,7 @@ public final class ModBlockEntities {
         EXTRUDER = registerTileEntity("extruder", BlockEntityType.Builder.of(BlockEntityExtruder::new, ModBlocks.EXTRUDER.getBlock()).build(null));
         CANNING_MACHINE = registerTileEntity("canning_machine", BlockEntityType.Builder.of(BlockEntityCanningMachine::new, ModBlocks.CANNING_MACHINE.getBlock()).build(null));
         FLUID_ENRICHER = registerTileEntity("fluid_enricher", BlockEntityType.Builder.of(BlockEntityFluidEnricher::new, ModBlocks.FLUID_ENRICHER.getBlock()).build(null));
+        RECYCLER = registerTileEntity("recycler", BlockEntityType.Builder.of(BlockEntityRecycler::new, ModBlocks.RECYCLER.getBlock()).build(null));
 
         ALLOY_SMELTER = registerTileEntity("alloy_smelter", BlockEntityType.Builder.of(BlockEntityAlloySmelter::new, ModBlocks.ALLOY_SMELTER.getBlock()).build(null));
 
