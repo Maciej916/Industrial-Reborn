@@ -41,6 +41,22 @@ public class Extruding extends RecipeProvider {
                 .setGroup("extruding")
                 .save(consumer,"obsidian");
 
+        RecipeBuilderExtruding.builder(Blocks.COBBLED_DEEPSLATE, 1)
+                .setDuration(100)
+                .setWaterCost(200)
+                .setLavaCost(50)
+                .addCriterion("item", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.EXTRUDER))
+                .setGroup("extruding")
+                .save(consumer,"cobbled_deepslate");
+
+        RecipeBuilderExtruding.builder(Blocks.DEEPSLATE, 1)
+                .setDuration(120)
+                .setWaterCost(2000)
+                .setLavaCost(200)
+                .setExperience(0.5F)
+                .addCriterion("item", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.EXTRUDER))
+                .setGroup("extruding")
+                .save(consumer,"deepslate");
 
     }
 

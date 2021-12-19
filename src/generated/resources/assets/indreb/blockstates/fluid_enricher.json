@@ -1,0 +1,34 @@
+{
+  "variants": {
+    "active=false,facing=north": {
+      "model": "indreb:block/fluid_enricher"
+    },
+    "active=true,facing=north": {
+      "model": "indreb:block/fluid_enricher_active"
+    },
+    "active=false,facing=south": {
+      "model": "indreb:block/fluid_enricher",
+      "y": 180
+    },
+    "active=true,facing=south": {
+      "model": "indreb:block/fluid_enricher_active",
+      "y": 180
+    },
+    "active=false,facing=west": {
+      "model": "indreb:block/fluid_enricher",
+      "y": 270
+    },
+    "active=true,facing=west": {
+      "model": "indreb:block/fluid_enricher_active",
+      "y": 270
+    },
+    "active=false,facing=east": {
+      "model": "indreb:block/fluid_enricher",
+      "y": 90
+    },
+    "active=true,facing=east": {
+      "model": "indreb:block/fluid_enricher_active",
+      "y": 90
+    }
+  }
+}

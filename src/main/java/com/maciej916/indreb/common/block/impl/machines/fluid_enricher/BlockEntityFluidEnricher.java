@@ -45,8 +45,23 @@ import static com.maciej916.indreb.common.enums.EnumEnergyType.RECEIVE;
 
 public class BlockEntityFluidEnricher extends IndRebBlockEntity implements IEnergyBlock, IExpCollector, ISupportUpgrades {
 
+    public static final int INPUT_SLOT = 0;
+
     public BlockEntityFluidEnricher(BlockPos pWorldPosition, BlockState pBlockState) {
         super(ModBlockEntities.FLUID_ENRICHER, pWorldPosition, pBlockState);
+        createEnergyStorage(0, ServerConfig.fluid_enricher_energy_capacity.get(), ServerConfig.basic_tier_transfer.get(), 0, RECEIVE);
+    }
+
+    @Override
+    public ArrayList<IndRebSlot> addInventorySlot(ArrayList<IndRebSlot> slots) {
+        slots.add(new IndRebSlot(INPUT_SLOT, 8, 35, InventorySlotType.INPUT, GuiSlotType.NORMAL, 7, 34));
+        return super.addInventorySlot(slots);
+    }
+
+    @Override
+    public ArrayList<IElectricSlot> addBatterySlot(ArrayList<IElectricSlot> slots) {
+        slots.add(new SlotBattery(0, 152, 62, false, List.of(EnergyTier.STANDARD)));
+        return super.addBatterySlot(slots);
     }
 
 }

@@ -10,6 +10,7 @@ import com.maciej916.indreb.common.entity.slot.IndRebSlot;
 import com.maciej916.indreb.common.enums.EnergyTier;
 import com.maciej916.indreb.common.enums.GuiSlotType;
 import com.maciej916.indreb.common.enums.InventorySlotType;
+import com.maciej916.indreb.common.interfaces.block.IStateFacing;
 import com.maciej916.indreb.common.interfaces.entity.IExpCollector;
 import com.maciej916.indreb.common.interfaces.entity.ISupportUpgrades;
 import com.maciej916.indreb.common.interfaces.entity.ITileSound;
@@ -31,6 +32,7 @@ import net.minecraft.world.level.material.Fluids;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.fluids.FluidStack;
+import net.minecraftforge.fluids.capability.CapabilityFluidHandler;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.wrapper.RangedWrapper;
 import org.apache.logging.log4j.core.jmx.Server;
@@ -49,8 +51,11 @@ public class BlockEntityExtruder extends IndRebBlockEntity implements IEnergyBlo
     public static final int INPUT_SLOT = 0;
     public static final int OUTPUT_SLOT = 1;
 
-    public FluidStorage waterStorage = new FluidStorage(8000);
-    public FluidStorage lavaStorage = new FluidStorage(8000);
+    protected int cachedWater = 0;
+    protected int cachedLava = 0;
+
+    public FluidStorage waterStorage = new FluidStorage(8000, p -> p.getFluid() == Fluids.WATER);
+    public FluidStorage lavaStorage = new FluidStorage(8000, p -> p.getFluid() == Fluids.LAVA);
     public BlockEntityProgress progress = new BlockEntityProgress();
 
     protected int recipeIndex = 0;
@@ -70,8 +75,6 @@ public class BlockEntityExtruder extends IndRebBlockEntity implements IEnergyBlo
     public BlockEntityExtruder(BlockPos pWorldPosition, BlockState pBlockState) {
         super(ModBlockEntities.EXTRUDER, pWorldPosition, pBlockState);
         createEnergyStorage(0, ServerConfig.extruder_energy_capacity.get(), EnergyTier.BASIC.getBasicTransfer(), 0, RECEIVE);
-        waterStorage.setFluid(new FluidStack(Fluids.WATER, 0));
-        lavaStorage.setFluid(new FluidStack(Fluids.LAVA, 0));
     }
 
     @Override
@@ -133,6 +136,12 @@ public class BlockEntityExtruder extends IndRebBlockEntity implements IEnergyBlo
             initRecipes();
         }
 
+        if (cachedWater != waterStorage.getFluid().getAmount() || cachedLava != lavaStorage.getFluid().getAmount()) {
+            this.cachedWater = waterStorage.getFluid().getAmount();
+            this.cachedLava = lavaStorage.getFluid().getAmount();
+            this.updateBlockState();
+        }
+
         if (this.recipe == null && recipes != null) {
             setRecipe(0);
             this.updateBlockState();
@@ -183,6 +192,10 @@ public class BlockEntityExtruder extends IndRebBlockEntity implements IEnergyBlo
     @Override
     public void load(CompoundTag tag) {
         super.load(tag);
+
+        this.cachedWater = tag.getInt("cachedWater");
+        this.cachedLava = tag.getInt("cachedLava");
+
         this.lavaStorage.readFromNBT(tag.getCompound("lava_storage"));
         this.waterStorage.readFromNBT(tag.getCompound("water_storage"));
         this.active = tag.getBoolean("active");
@@ -191,6 +204,9 @@ public class BlockEntityExtruder extends IndRebBlockEntity implements IEnergyBlo
 
     @Override
     public CompoundTag save(CompoundTag tag) {
+        tag.putInt("cachedWater", cachedWater);
+        tag.putInt("cachedLava", cachedLava);
+
         tag.put("lava_storage", this.lavaStorage.writeToNBT(tag.getCompound("lava_storage")));
         tag.put("water_storage", this.waterStorage.writeToNBT(tag.getCompound("water_storage")));
         tag.putBoolean("active", active);
@@ -210,14 +226,38 @@ public class BlockEntityExtruder extends IndRebBlockEntity implements IEnergyBlo
 
     ArrayList<LazyOptional<?>> capabilities = new ArrayList<>(Arrays.asList(
             LazyOptional.of(this::getStackHandler),
-            LazyOptional.of(() -> new RangedWrapper(getStackHandler(), OUTPUT_SLOT, OUTPUT_SLOT + 1))
+            LazyOptional.of(() -> new RangedWrapper(getStackHandler(), INPUT_SLOT, INPUT_SLOT + 1)),
+            LazyOptional.of(() -> new RangedWrapper(getStackHandler(), OUTPUT_SLOT, OUTPUT_SLOT + 1)),
+            LazyOptional.of(() -> this.waterStorage),
+            LazyOptional.of(() -> this.lavaStorage)
     ));
 
     @Nonnull
     @Override
     public <T> LazyOptional<T> getCapability(@Nonnull final Capability<T> cap, @Nullable final Direction side) {
+
+        if (cap == CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY) {
+            if (side == null) return LazyOptional.empty();
+
+            if (getBlock() instanceof IStateFacing facing) {
+                Direction dir = facing.getDirection(getBlockState());
+                if (dir.getClockWise() == side) {
+                    return capabilities.get(3).cast();
+                }
+                if (dir.getCounterClockWise() == side) {
+                    return capabilities.get(4).cast();
+                }
+            }
+
+            return LazyOptional.empty();
+        }
+
         if (cap == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY) {
-            return capabilities.get(1).cast();
+            if (side == null) return capabilities.get(0).cast();
+            return switch (side) {
+                case DOWN -> capabilities.get(2).cast();
+                case UP, NORTH, SOUTH, WEST, EAST -> capabilities.get(1).cast();
+            };
         }
         return super.getCapability(cap, side);
     }

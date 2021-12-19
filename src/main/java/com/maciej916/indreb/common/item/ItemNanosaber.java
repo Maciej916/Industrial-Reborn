@@ -159,15 +159,15 @@ public class ItemNanosaber extends IndRebSword implements IElectricItem {
         return super.getAttributeModifiers(slot, stack);
     }
 
-    @Override
-    public boolean isEnchantable(ItemStack p_41456_) {
-        return false;
-    }
-
-    @Override
-    public boolean isBookEnchantable(ItemStack stack, ItemStack book) {
-        return false;
-    }
+//    @Override
+//    public boolean isEnchantable(ItemStack p_41456_) {
+//        return false;
+//    }
+//
+//    @Override
+//    public boolean isBookEnchantable(ItemStack stack, ItemStack book) {
+//        return false;
+//    }
 
     @Override
     public boolean isDamageable(ItemStack stack) {

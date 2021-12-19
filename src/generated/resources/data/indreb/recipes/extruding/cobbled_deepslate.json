@@ -1,0 +1,11 @@
+{
+  "type": "indreb:extruding",
+  "result": {
+    "item": "minecraft:cobbled_deepslate"
+  },
+  "experience": 0.0,
+  "duration": 100,
+  "power_cost": 8,
+  "water_cost": 200,
+  "lava_cost": 50
+}

@@ -63,6 +63,14 @@
     ]
   },
 
+  "tile.canning_machine": {
+    "sounds": [
+      {
+        "name": "indreb:canning_machine"
+      }
+    ]
+  },
+
 
 
 

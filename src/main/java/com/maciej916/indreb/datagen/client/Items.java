@@ -249,6 +249,7 @@ public class Items extends ItemModelProvider {
 //        createWithBlock(ModBlocks.FLUID_ENRICHER.getBlock(), "machines/fluid_enricher");
         createWithBlock(ModBlocks.CANNING_MACHINE.getBlock(), "canning_machine");
         createWithBlock(ModBlocks.RECYCLER.getBlock(), "recycler");
+        createWithBlock(ModBlocks.FLUID_ENRICHER.getBlock(), "fluid_enricher");
     }
 
     protected void registerBatteryBox() {

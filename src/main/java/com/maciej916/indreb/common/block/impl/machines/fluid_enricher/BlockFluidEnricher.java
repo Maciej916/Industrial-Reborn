@@ -37,7 +37,7 @@ public class BlockFluidEnricher extends BlockElectricMachine implements IStateFa
 
 
     public BlockFluidEnricher() {
-        super(EnergyTier.BASIC,12, 0);
+        super(EnergyTier.BASIC,0, 0);
     }
 
     @Override

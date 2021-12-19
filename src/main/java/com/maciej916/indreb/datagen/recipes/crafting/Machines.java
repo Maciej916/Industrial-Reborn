@@ -116,12 +116,12 @@ public class Machines extends RecipeProvider {
                 .pattern(" e ")
                 .pattern("fbf")
                 .define('f', ModBlocks.ELECTRIC_FURNACE)
-                .define('e', ModItems.ELECTRONIC_CIRCUIT)
+                .define('e', ModItems.ADVANCED_CIRCUIT)
                 .define('b', ModBlocks.BASIC_MACHINE_CASING)
                 .group(MODID)
                 .unlockedBy("electric_furnace", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.ELECTRIC_FURNACE))
-                .unlockedBy("basic", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.BASIC_MACHINE_CASING))
-                .unlockedBy("circuit", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.ELECTRONIC_CIRCUIT))
+                .unlockedBy("basic_machine_casing", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.BASIC_MACHINE_CASING))
+                .unlockedBy("advanced_circuit", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.ADVANCED_CIRCUIT))
                 .save(consumer, saveResource("alloy_smelter"));
 
 
@@ -142,6 +142,19 @@ public class Machines extends RecipeProvider {
                 .unlockedBy("compressor", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.COMPRESSOR))
                 .save(consumer, saveResource("recycler"));
 
+
+        ShapedRecipeBuilder.shaped(ModBlocks.CANNING_MACHINE)
+                .pattern("pep")
+                .pattern("pbp")
+                .pattern("ppp")
+                .define('p', ModItems.TIN_PLATE)
+                .define('b', ModBlocks.BASIC_MACHINE_CASING)
+                .define('e', ModItems.ELECTRONIC_CIRCUIT)
+                .group(MODID)
+                .unlockedBy("tin_plate", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.TIN_PLATE))
+                .unlockedBy("basic_machine_casing", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.BASIC_MACHINE_CASING))
+                .unlockedBy("electronic_circuit", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.ELECTRONIC_CIRCUIT))
+                .save(consumer, saveResource("canning_machine"));
 
     }
 

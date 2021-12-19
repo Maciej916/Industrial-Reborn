@@ -39,7 +39,7 @@ import java.util.List;
 public class BlockCanningMachine extends BlockElectricMachine implements IStateFacing, IHasContainer, IStateActive {
 
     public BlockCanningMachine() {
-        super(EnergyTier.BASIC,12, 0);
+        super(EnergyTier.BASIC,0, 0);
     }
 
     @Override
@@ -66,8 +66,5 @@ public class BlockCanningMachine extends BlockElectricMachine implements IStateF
                 new TranslatableComponent(EnumLang.CAPACITY.getTranslationKey()).withStyle(ChatFormatting.GRAY),
                 new TranslatableComponent(EnumLang.POWER.getTranslationKey(), TextComponentUtil.getFormattedEnergyUnit(ServerConfig.extruder_energy_capacity.get())).withStyle(EnergyTier.BASIC.getColor())
         ));
-
-        pTooltip.add(new TranslatableComponent(EnumLang.WIP.getTranslationKey()).withStyle(ChatFormatting.RED));
-
     }
 }

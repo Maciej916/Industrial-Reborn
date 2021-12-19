@@ -22,6 +22,7 @@ import com.maciej916.indreb.common.block.impl.machines.iron_furnace.BlockIronFur
 import com.maciej916.indreb.common.block.impl.machines.recycler.BlockRecycler;
 import com.maciej916.indreb.common.block.impl.machines.sawmill.BlockSawmill;
 import com.maciej916.indreb.common.block.impl.rubber_wood.*;
+import com.maciej916.indreb.common.fluids.ConstructionFoam;
 import com.maciej916.indreb.common.generation.RubberTree;
 import com.maciej916.indreb.common.item.block.BlockItemElectric;
 import com.maciej916.indreb.common.item.block.ItemIronScaffolding;
@@ -31,10 +32,13 @@ import com.maciej916.indreb.common.tier.SolarGeneratorTier;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.LiquidBlock;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.material.Material;
 import net.minecraft.world.level.material.MaterialColor;
+import net.minecraftforge.common.property.Properties;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -223,7 +227,6 @@ public final class ModBlocks {
         IRON_FENCE = registerBlock(new BlockIronFence(), "iron_fence");
 
         LUMINATOR = registerBlock(new BlockWIP(), "luminator");
-
 
     }
 

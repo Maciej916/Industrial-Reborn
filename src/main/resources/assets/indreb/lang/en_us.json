@@ -243,6 +243,11 @@
   "_comment": "Energy Converter",
   "block.indreb.wooden_energy_converter": "Wooden Energy Converter",
 
+  "_comment": "Fluid",
+  "fluid.indreb.construction_foam": "Construction Foam",
+  "fluid.indreb.reinforced_construction_foam": "Reinforced Construction Foam",
+
+
   "_comment": "JEI",
   "jei.indreb.crushing": "Crushing",
   "jei.indreb.compressing": "Compressing",
@@ -252,6 +257,7 @@
   "jei.indreb.alloy_smelting": "Alloy Smelting",
   "jei.indreb.recycling": "Recycling",
   "jei.indreb.scrap_box": "Scrap Box",
+  "jei.indreb.canning": "Canning",
 
   "jei.indreb.chance": "Chance: %s",
 

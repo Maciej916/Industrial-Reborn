@@ -18,7 +18,7 @@
         ]
       }
     },
-    "basic": {
+    "basic_machine_casing": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
@@ -30,13 +30,13 @@
         ]
       }
     },
-    "circuit": {
+    "advanced_circuit": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
             "items": [
-              "indreb:electronic_circuit"
+              "indreb:advanced_circuit"
             ]
           }
         ]
@@ -52,8 +52,8 @@
   "requirements": [
     [
       "electric_furnace",
-      "basic",
-      "circuit",
+      "basic_machine_casing",
+      "advanced_circuit",
       "has_the_recipe"
     ]
   ]

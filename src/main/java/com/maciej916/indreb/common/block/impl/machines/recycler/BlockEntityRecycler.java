@@ -56,7 +56,7 @@ public class BlockEntityRecycler extends IndRebBlockEntity implements IEnergyBlo
         createEnergyStorage(0, ServerConfig.recycler_energy_capacity.get(), ServerConfig.basic_tier_transfer.get(), 0, RECEIVE);
     }
 
-    protected Optional<?> getRecipe(ItemStack input) {
+    protected Optional<RecyclingRecipe> getRecipe(ItemStack input) {
         return level.getRecipeManager().getRecipeFor(ModRecipeType.RECYCLING, new SimpleContainer(input), level);
     }
 
@@ -83,7 +83,7 @@ public class BlockEntityRecycler extends IndRebBlockEntity implements IEnergyBlo
         if (cachedInputStack.getItem() != inputStack.getItem()) {
             cachedInputStack = inputStack.copy();
             if (inputStack.getItem() != Items.AIR && getRecipe(inputStack).isPresent()) {
-                recipe = (RecyclingRecipe) getRecipe(inputStack).get();
+                recipe = getRecipe(inputStack).get();
             } else {
                 recipe = null;
             }

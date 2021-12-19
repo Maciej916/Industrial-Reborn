@@ -53,6 +53,8 @@ public final class ServerConfig {
 	public static ForgeConfigSpec.IntValue alloy_smelter_energy_capacity;
 	public static ForgeConfigSpec.IntValue alloy_smelter_energy_heat_cost;
 	public static ForgeConfigSpec.IntValue recycler_energy_capacity;
+	public static ForgeConfigSpec.IntValue canning_machine_energy_capacity;
+	public static ForgeConfigSpec.IntValue fluid_enricher_energy_capacity;
 
 
 
@@ -128,6 +130,8 @@ public final class ServerConfig {
 		compressor_energy_capacity = builder.defineInRange("compressor_energy_capacity", 1200, 1, Integer.MAX_VALUE);
 		sawmill_energy_capacity = builder.defineInRange("sawmill_energy_capacity", 1200, 1, Integer.MAX_VALUE);
 		recycler_energy_capacity = builder.defineInRange("recycler_energy_capacity", 90, 1, Integer.MAX_VALUE);
+		canning_machine_energy_capacity = builder.defineInRange("canning_machine_energy_capacity", 1200, 1, Integer.MAX_VALUE);
+		fluid_enricher_energy_capacity = builder.defineInRange("fluid_enricher_energy_capacity", 1200, 1, Integer.MAX_VALUE);
 		builder.pop();
 
 		builder.push("standard_machines");

@@ -21,6 +21,7 @@ public final class ModSounds {
     public static SoundEvent EXTRACTOR;
     public static SoundEvent SAWMILL;
     public static SoundEvent RECYCLER;
+    public static SoundEvent CANNING_MACHINE;
 
     public static SoundEvent TREETAP;
     public static SoundEvent WRENCH;
@@ -38,6 +39,7 @@ public final class ModSounds {
         EXTRACTOR = registerSound("tile.extractor");
         SAWMILL = registerSound("tile.sawmill");
         RECYCLER = registerSound("tile.recycler");
+        CANNING_MACHINE = registerSound("tile.canning_machine");
 
 
         TREETAP = registerSound("item.treetap");

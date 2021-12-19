@@ -1,0 +1,11 @@
+{
+  "type": "indreb:extruding",
+  "result": {
+    "item": "minecraft:deepslate"
+  },
+  "experience": 0.5,
+  "duration": 120,
+  "power_cost": 8,
+  "water_cost": 2000,
+  "lava_cost": 200
+}

@@ -1,0 +1,18 @@
+{
+  "type": "indreb:canning",
+  "ingredient_from": {
+    "item": "minecraft:cooked_salmon",
+    "count": 1
+  },
+  "ingredient_to": {
+    "item": "indreb:tin_can",
+    "count": 6
+  },
+  "result": {
+    "item": "indreb:filled_tin_can",
+    "count": 6
+  },
+  "experience": 0.2,
+  "duration": 180,
+  "power_cost": 4
+}

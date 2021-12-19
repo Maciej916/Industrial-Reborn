@@ -97,6 +97,7 @@ public class BlockStates extends BlockStateProvider {
 
         createSimple(ModBlocks.CANNING_MACHINE.getBlock(), "machines", "canning_machine");
         createWithTopActive(ModBlocks.RECYCLER.getBlock(), "machines", "recycler");
+        createSimple(ModBlocks.FLUID_ENRICHER.getBlock(), "machines", "fluid_enricher");
     }
 
 
@@ -126,6 +127,19 @@ public class BlockStates extends BlockStateProvider {
     private void createWithTopActive(Block block, String category, String name) {
         BlockModelBuilder notActive = models().orientableWithBottom(name, new ResourceLocation(IndReb.MODID, "block/" + category + "/" + name + "_side"), new ResourceLocation(IndReb.MODID, "block/" + category + "/" + name + "_front"), new ResourceLocation(IndReb.MODID, "block/" + category + "/" + name + "_bottom"), new ResourceLocation(IndReb.MODID, "block/" + category + "/" + name + "_top"));
         BlockModelBuilder active = models().orientableWithBottom(name + "_active", new ResourceLocation(IndReb.MODID, "block/" + category + "/" + name + "_side"), new ResourceLocation(IndReb.MODID, "block/" + category + "/" + name + "_front_active"), new ResourceLocation(IndReb.MODID, "block/" + category + "/" + name + "_bottom"), new ResourceLocation(IndReb.MODID, "block/" + category + "/" + name + "_top_active"));
+        orientedBlock(block, state -> {
+            if (state.getValue(BlockStateHelper.activeProperty)) {
+                return active;
+            } else {
+                return notActive;
+            }
+        });
+    }
+
+    // TODO
+    private void createWithSidesActive(Block block, String category, String name) {
+        BlockModelBuilder notActive = models().cube(name, new ResourceLocation(IndReb.MODID, "block/" + category + "/" + name + "_bottom"), new ResourceLocation(IndReb.MODID, "block/" + category + "/" + name + "_top"), new ResourceLocation(IndReb.MODID, "block/" + category + "/" + name + "_bottom"), new ResourceLocation(IndReb.MODID, "block/" + category + "/" + name + "_back"), new ResourceLocation(IndReb.MODID, "block/" + category + "/" + name + "_leftright"), new ResourceLocation(IndReb.MODID, "block/" + category + "/" + name + "_leftright"));
+        BlockModelBuilder active = models().cube(name + "_active", new ResourceLocation(IndReb.MODID, "block/" + category + "/" + name + "_bottom"), new ResourceLocation(IndReb.MODID, "block/" + category + "/" + name + "_top"), new ResourceLocation(IndReb.MODID, "block/" + category + "/" + name + "_bottom"), new ResourceLocation(IndReb.MODID, "block/" + category + "/" + name + "_back"), new ResourceLocation(IndReb.MODID, "block/" + category + "/" + name + "_leftright_active"), new ResourceLocation(IndReb.MODID, "block/" + category + "/" + name + "_leftright_active"));
         orientedBlock(block, state -> {
             if (state.getValue(BlockStateHelper.activeProperty)) {
                 return active;

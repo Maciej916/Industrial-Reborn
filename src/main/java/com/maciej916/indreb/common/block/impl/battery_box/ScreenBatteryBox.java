@@ -3,7 +3,7 @@ package com.maciej916.indreb.common.block.impl.battery_box;
 import com.maciej916.indreb.IndReb;
 import com.maciej916.indreb.common.energy.impl.BasicEnergyStorage;
 import com.maciej916.indreb.common.enums.EnumLang;
-import com.maciej916.indreb.common.screen.IndRebScreen;
+import com.maciej916.indreb.common.screen.BetterScreen;
 import com.maciej916.indreb.common.screen.text.GuiTextElectricProgress;
 import com.maciej916.indreb.common.screen.widgets.GuiText;
 import com.maciej916.indreb.common.tier.BatteryBoxTier;
@@ -14,7 +14,7 @@ import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
 
-public class ScreenBatteryBox extends IndRebScreen<ContainerBatteryBox> {
+public class ScreenBatteryBox extends BetterScreen<ContainerBatteryBox> {
 
     public ScreenBatteryBox(ContainerBatteryBox container, Inventory inv, Component name) {
         super(container, inv, name);
@@ -27,16 +27,16 @@ public class ScreenBatteryBox extends IndRebScreen<ContainerBatteryBox> {
         super.init();
 
         BasicEnergyStorage energyStorage = getBlockEntity().getEnergyStorage();
-
         BlockBatteryBox block = (BlockBatteryBox) getBlockEntity().getBlock();
         BatteryBoxTier batteryBoxTier = block.getBatteryBoxTier();
 
-        addRenderableOnly(new GuiTextElectricProgress(this, 50, 10, 90, 24, energyStorage));
-        addRenderableOnly(new GuiText(this, 50, 10, 90, 58, TextComponentUtil.build(
+        addRenderableOnlyComponent(new GuiTextElectricProgress(this, 50, 10, 90, 24, energyStorage));
+        addRenderableOnlyComponent(new GuiText(this, 50, 10, 90, 58, TextComponentUtil.build(
                 new TranslatableComponent(EnumLang.TRANSFER.getTranslationKey()),
                 new TranslatableComponent(EnumLang.POWER_TICK.getTranslationKey(), TextComponentUtil.getFormattedEnergyUnit(batteryBoxTier.getEnergyTier().getBasicTransfer()))
         )));
 
+        drawComponents(true);
     }
 
     @Override

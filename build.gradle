@@ -163,6 +163,7 @@ dependencies {
 
 //    implementation fg.deobf("mcjty.theoneprobe:TheOneProbe:1.18-5.0.0")
     implementation fg.deobf("curse.maven:the-one-probe-245211:3550084")
+    implementation fg.deobf("curse.maven:DimStorage-353882:3569750")
 
 
 //    compileOnly "mezz.jei:jei-1.17.1:8.2.0.36:api"

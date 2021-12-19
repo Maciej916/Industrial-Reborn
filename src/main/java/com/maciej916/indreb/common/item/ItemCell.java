@@ -5,17 +5,21 @@ import com.maciej916.indreb.common.registries.ModItemGroups;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TranslatableComponent;
+import net.minecraft.world.item.BucketItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.material.Fluid;
 
 import javax.annotation.Nullable;
 import java.util.List;
 
-public class ItemCell extends Item {
-    public ItemCell() {
-        super(new Properties().tab(ModItemGroups.MAIN_ITEM_GROUP));
+public class ItemCell extends BucketItem {
+
+
+    public ItemCell(Fluid fluid) {
+        super(fluid, new Properties().tab(ModItemGroups.MAIN_ITEM_GROUP));
     }
 
     @Override

@@ -1,13 +1,13 @@
 package com.maciej916.indreb.common.container;
 
-import com.maciej916.indreb.common.energy.interfaces.IEnergy;
-import com.maciej916.indreb.common.entity.block.BlockEntityProgress;
 import com.maciej916.indreb.common.entity.block.IndRebBlockEntity;
-import com.maciej916.indreb.common.registries.ModCapabilities;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.inventory.*;
+import net.minecraft.world.inventory.AbstractContainerMenu;
+import net.minecraft.world.inventory.ContainerLevelAccess;
+import net.minecraft.world.inventory.MenuType;
+import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.items.IItemHandler;

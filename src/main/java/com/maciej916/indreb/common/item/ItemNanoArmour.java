@@ -130,15 +130,15 @@ public class ItemNanoArmour extends IndRebArmour implements IElectricItem {
         return false;
     }
 
-    @Override
-    public boolean canApplyAtEnchantingTable(ItemStack stack, Enchantment enchantment) {
-        return false;
-    }
-
-    @Override
-    public boolean isBookEnchantable(ItemStack stack, ItemStack book) {
-        return false;
-    }
+//    @Override
+//    public boolean canApplyAtEnchantingTable(ItemStack stack, Enchantment enchantment) {
+//        return false;
+//    }
+//
+//    @Override
+//    public boolean isBookEnchantable(ItemStack stack, ItemStack book) {
+//        return false;
+//    }
 
     @Override
     public boolean shouldCauseReequipAnimation(ItemStack oldStack, ItemStack newStack, boolean slotChanged) {

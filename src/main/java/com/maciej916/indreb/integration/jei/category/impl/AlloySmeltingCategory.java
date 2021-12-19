@@ -36,7 +36,7 @@ public class AlloySmeltingCategory extends AbstractRecipeCategory<AlloySmeltingR
                 UID,
                 "alloy_smelting",
                 guiHelper,
-                () -> guiHelper.createDrawable(JEI_LARGE, 0, 0, 150, 54),
+                () -> guiHelper.createDrawable(JEI_LARGE, 0, 0, 152, 54),
                 () -> guiHelper.createDrawableIngredient(new ItemStack(ModBlocks.ALLOY_SMELTER))
         );
     }
@@ -79,8 +79,8 @@ public class AlloySmeltingCategory extends AbstractRecipeCategory<AlloySmeltingR
 
     @Override
     public void draw(AlloySmeltingRecipe recipe, PoseStack poseStack, double mouseX, double mouseY) {
-        this.progress.draw(poseStack, halfX - 5, 19);
-        this.energy.draw(poseStack, halfX + 59, 7);
+        this.progress.draw(poseStack, halfX - 6, 19);
+        this.energy.draw(poseStack, halfX + 58, 7);
         this.fire.draw(poseStack, halfX - 49, 27);
 
         if (recipe.getExperience() > 0) {

@@ -8,6 +8,7 @@ import com.maciej916.indreb.common.item.base.DummyItem;
 import com.maciej916.indreb.common.item.base.ElectricItem;
 import com.maciej916.indreb.common.item.base.EnergyStorageItem;
 import com.maciej916.indreb.common.item.base.WIPItem;
+import com.maciej916.indreb.common.item.impl.FilledTinCan;
 import com.maciej916.indreb.common.item.impl.IridiumItem;
 import com.maciej916.indreb.common.item.impl.Scrap;
 import com.maciej916.indreb.common.item.impl.ScrapBox;
@@ -21,6 +22,7 @@ import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Tiers;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.level.material.MaterialColor;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -186,7 +188,7 @@ public final class ModItems {
         ENERGY_CRYSTAL = registerItem(new EnergyStorageItem(0, 100000, EnumEnergyType.BOTH, EnergyTier.ADVANCED), "energy_crystal");
         LAPOTRON_CRYSTAL = registerItem(new EnergyStorageItem(0, 1000000, EnumEnergyType.BOTH, EnergyTier.SUPER), "lapotron_crystal");
 
-        FLUID_CELL = registerItem(new ItemCell(), "fluid_cell");
+        FLUID_CELL = registerItem(new ItemCell(Fluids.EMPTY), "fluid_cell");
 
         IRON_ROD = registerItem(new ItemBasic(), "iron_rod");
 
@@ -231,8 +233,8 @@ public final class ModItems {
         POWER_UNIT = registerItem(new DummyItem(CreativeModeTab.TAB_REDSTONE), "power_unit");
         COIL = registerItem(new DummyItem(CreativeModeTab.TAB_REDSTONE), "coil");
         ELECTRIC_MOTOR = registerItem(new DummyItem(CreativeModeTab.TAB_REDSTONE), "electric_motor");
-        TIN_CAN = registerItem(new WIPItem(), "tin_can");
-        FILLED_TIN_CAN = registerItem(new WIPItem(), "filled_tin_can");
+        TIN_CAN = registerItem(new DummyItem(CreativeModeTab.TAB_FOOD), "tin_can");
+        FILLED_TIN_CAN = registerItem(new FilledTinCan(), "filled_tin_can");
         SCRAP = registerItem(new Scrap(), "scrap");
         SCRAP_BOX = registerItem(new ScrapBox(), "scrap_box");
 

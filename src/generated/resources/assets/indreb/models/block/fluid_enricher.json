@@ -1,0 +1,9 @@
+{
+  "parent": "minecraft:block/orientable_with_bottom",
+  "textures": {
+    "side": "indreb:block/machines/fluid_enricher_side",
+    "front": "indreb:block/machines/fluid_enricher_front",
+    "bottom": "indreb:block/machines/fluid_enricher_bottom",
+    "top": "indreb:block/machines/fluid_enricher_top"
+  }
+}

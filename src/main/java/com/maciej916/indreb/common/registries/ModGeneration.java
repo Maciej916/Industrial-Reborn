@@ -29,8 +29,10 @@ public final class ModGeneration {
     }
 
     public static void registerOverworldOres() {
-        OVERWORLD_ORES.add(ModPlacedFeatures.ORE_TIN_SMALL);
-        OVERWORLD_ORES.add(ModPlacedFeatures.ORE_TIN_LARGE);
+        if (CommonConfig.worldgen_tin_enabled.get()) {
+            OVERWORLD_ORES.add(ModPlacedFeatures.ORE_TIN_SMALL);
+            OVERWORLD_ORES.add(ModPlacedFeatures.ORE_TIN_LARGE);
+        }
     }
 
     public static void registerNetherOres() {
