@@ -115,6 +115,19 @@ public class Generators extends RecipeProvider {
                 .unlockedBy("energy_crystal", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.ENERGY_CRYSTAL))
                 .save(consumer, saveResource("hybrid_solar_generator"));
 
+
+        ShapedRecipeBuilder.shaped(ModBlocks.SEMIFLUID_GENERATOR)
+                .pattern("pcp")
+                .pattern("cgc")
+                .pattern("pcp")
+                .define('p', ModItems.IRON_PLATE)
+                .define('c', ModItems.FLUID_CELL)
+                .define('g', ModBlocks.GEO_GENERATOR)
+                .group(MODID)
+                .unlockedBy("geo_generator", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.GEO_GENERATOR))
+                .unlockedBy("fluid_cell", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.FLUID_CELL))
+                .unlockedBy("iron_plate", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.IRON_PLATE))
+                .save(consumer, saveResource("semifluid_generator"));
     }
 
 }

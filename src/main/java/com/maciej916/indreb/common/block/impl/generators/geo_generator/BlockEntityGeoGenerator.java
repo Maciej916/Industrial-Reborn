@@ -12,21 +12,21 @@ import com.maciej916.indreb.common.interfaces.entity.ICooldown;
 import com.maciej916.indreb.common.interfaces.entity.ITileSound;
 import com.maciej916.indreb.common.interfaces.entity.IElectricSlot;
 import com.maciej916.indreb.common.registries.ModBlockEntities;
-import com.maciej916.indreb.common.registries.Config;
 import com.maciej916.indreb.common.registries.ModSounds;
+import com.maciej916.indreb.common.util.BlockEntityUtil;
+import com.maciej916.indreb.common.util.CapabilityUtil;
+import com.maciej916.indreb.common.util.LazyOptionalHelper;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.sounds.SoundEvent;
-import net.minecraft.world.item.BucketItem;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.util.LazyOptional;
-import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fluids.capability.CapabilityFluidHandler;
+import net.minecraftforge.fluids.capability.IFluidHandlerItem;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.wrapper.RangedWrapper;
 
@@ -40,25 +40,23 @@ import static com.maciej916.indreb.common.enums.EnumEnergyType.EXTRACT;
 
 public class BlockEntityGeoGenerator extends IndRebBlockEntity implements ICooldown, IEnergyBlock, ITileSound {
 
-    public static final int INPUT_SLOT = 0;
-    public static final int OUTPUT_SLOT = 1;
+    public static final int FILL_BUCKET_UP = 0;
+    public static final int FILL_BUCKET_DOWN = 1;
+    public BlockEntityProgress progressFill = new BlockEntityProgress(0, 1);
 
     private boolean active = false;
-    public FluidStorage lavaStorage = new FluidStorage(ServerConfig.geo_generator_lava_capacity.get());
-    public BlockEntityProgress fill = new BlockEntityProgress(0, 1);
-    ItemStack inputStackCache = getStackHandler().getStackInSlot(INPUT_SLOT);
-    ItemStack outputStackCache = getStackHandler().getStackInSlot(OUTPUT_SLOT);
+    public FluidStorage fluidStorage = new FluidStorage(ServerConfig.geo_generator_lava_capacity.get(), (fluidStack -> fluidStack.getFluid() == Fluids.LAVA));
+    private int cachedLava = 0;
 
     public BlockEntityGeoGenerator(BlockPos pWorldPosition, BlockState pBlockState) {
         super(ModBlockEntities.GEO_GENERATOR, pWorldPosition, pBlockState);
         createEnergyStorage(0, ServerConfig.geo_generator_energy_capacity.get(), 0, ServerConfig.basic_tier_transfer.get(), EXTRACT);
-        lavaStorage.setFluid(new FluidStack(Fluids.LAVA, 0));
     }
 
     @Override
     public ArrayList<IndRebSlot> addInventorySlot(ArrayList<IndRebSlot> slots) {
-        slots.add(new IndRebSlot(INPUT_SLOT, 48, 35, InventorySlotType.INPUT, GuiSlotType.NORMAL, 47, 34));
-        slots.add(new IndRebSlot(OUTPUT_SLOT, 108, 35, InventorySlotType.OUTPUT, GuiSlotType.LARGE, 103, 30));
+        slots.add(new IndRebSlot(FILL_BUCKET_UP, 61, 20, InventorySlotType.INPUT, GuiSlotType.NORMAL, 60, 19));
+        slots.add(new IndRebSlot(FILL_BUCKET_DOWN, 61, 51, InventorySlotType.OUTPUT, GuiSlotType.NORMAL, 60, 50));
         return super.addInventorySlot(slots);
     }
 
@@ -67,40 +65,36 @@ public class BlockEntityGeoGenerator extends IndRebBlockEntity implements ICoold
         active = false;
         boolean updateState = false;
 
-        final ItemStack inputStack = getStackHandler().getStackInSlot(INPUT_SLOT);
-        final ItemStack outputStack = getStackHandler().getStackInSlot(OUTPUT_SLOT);
+        final ItemStack fillBucketUp = getStackHandler().getStackInSlot(FILL_BUCKET_UP);
+        final ItemStack fillBucketDown = getStackHandler().getStackInSlot(FILL_BUCKET_DOWN);
 
-        if (!inputStack.isEmpty() && inputStack.getItem() instanceof BucketItem bucketItem && outputStack.isEmpty()) {
-            FluidStack lava = new FluidStack(bucketItem.getFluid(), 1000);
-            if (this.lavaStorage.fillFluid(lava, true) == 1000) {
-                this.lavaStorage.fillFluid(lava, false);
-                inputStack.shrink(1);
-                getStackHandler().setStackInSlot(OUTPUT_SLOT, new ItemStack(Items.BUCKET));
-                fill.setProgress(1);
+        if (progressFill.getProgress() == 0) {
+            boolean filled = BlockEntityUtil.fillTank(fillBucketUp, fillBucketDown, fluidStorage, getStackHandler(), FILL_BUCKET_DOWN);
+            if (filled) {
+                progressFill.setProgress(1);
             }
         } else {
-            fill.setProgress(0);
+            progressFill.setProgress(0);
         }
 
-        if (inputStack != inputStackCache) {
+        if (progressFill.changed()) {
             updateState = true;
-            inputStackCache = getStackHandler().getStackInSlot(INPUT_SLOT);
         }
 
-        if (outputStack != outputStackCache) {
+        if (cachedLava != fluidStorage.getFluidAmount()) {
+            cachedLava = fluidStorage.getFluidAmount();
             updateState = true;
-            outputStackCache = getStackHandler().getStackInSlot(OUTPUT_SLOT);
         }
 
         if (this.getCooldown() == 0) {
-            if (getEnergyStorage().generateEnergy(ServerConfig.geo_generator_tick_generate.get(), true) == ServerConfig.geo_generator_tick_generate.get() && lavaStorage.takeFluid(1, true) == 1) {
-                lavaStorage.takeFluid(1, false);
+            if (getEnergyStorage().generateEnergy(ServerConfig.geo_generator_tick_generate.get(), true) == ServerConfig.geo_generator_tick_generate.get() && fluidStorage.takeFluid(1, true) == 1) {
+                fluidStorage.takeFluid(1, false);
                 getEnergyStorage().generateEnergy(ServerConfig.geo_generator_tick_generate.get(), false);
                 active = true;
                 updateState = true;
             }
 
-            if (active && getEnergyStorage().generateEnergy(ServerConfig.geo_generator_tick_generate.get(), true) < ServerConfig.generator_tick_generate.get() && lavaStorage.takeFluid(1, true) == 1) {
+            if (active && getEnergyStorage().generateEnergy(ServerConfig.geo_generator_tick_generate.get(), true) < ServerConfig.geo_generator_tick_generate.get() && fluidStorage.takeFluid(1, true) == 1) {
                 this.setCooldown(10);
             }
         }
@@ -117,19 +111,31 @@ public class BlockEntityGeoGenerator extends IndRebBlockEntity implements ICoold
 
     @Override
     public boolean isItemValidForSlot(int slot, @Nonnull ItemStack stack) {
-        if (slot == INPUT_SLOT) return !stack.isEmpty() && stack.getItem().equals(Items.LAVA_BUCKET);
-        if (slot == OUTPUT_SLOT) return false;
+        if (slot == FILL_BUCKET_UP) {
+            LazyOptionalHelper<IFluidHandlerItem> cap = CapabilityUtil.getCapabilityHelper(stack, CapabilityFluidHandler.FLUID_HANDLER_ITEM_CAPABILITY);
+            if (cap.isPresent()) {
+                if (cap.getValue().getTanks() > 0 && cap.getValue().getFluidInTank(1).getFluid() == Fluids.LAVA) {
+                    return true;
+                }
+            }
+            return false;
+        };
+        if (slot == FILL_BUCKET_DOWN) return false;
         return super.isItemValidForSlot(slot, stack);
     }
 
     @Override
     public ItemStack insertItemForSlot(int slot, @Nonnull ItemStack stack, boolean simulate) {
-
-        if (slot == INPUT_SLOT && !stack.getItem().equals(Items.LAVA_BUCKET)) {
+        if (slot == FILL_BUCKET_UP) {
+            LazyOptionalHelper<IFluidHandlerItem> cap = CapabilityUtil.getCapabilityHelper(stack, CapabilityFluidHandler.FLUID_HANDLER_ITEM_CAPABILITY);
+            if (cap.isPresent()) {
+                if (cap.getValue().getTanks() > 0 && cap.getValue().getFluidInTank(1).getFluid() == Fluids.LAVA) {
+                    return null;
+                }
+            }
             return stack;
         }
-
-        if (slot == OUTPUT_SLOT) return stack;
+        if (slot == FILL_BUCKET_DOWN) return stack;
 
         return super.insertItemForSlot(slot, stack, simulate);
     }
@@ -137,16 +143,16 @@ public class BlockEntityGeoGenerator extends IndRebBlockEntity implements ICoold
     @Override
     public void load(CompoundTag tag) {
         super.load(tag);
-        this.lavaStorage.readFromNBT(tag.getCompound("lava_storage"));
+        this.fluidStorage.readFromNBT(tag.getCompound("fluidStorage"));
         this.active = tag.getBoolean("active");
-        this.fill.deserializeNBT(tag.getCompound("fill"));
+        this.progressFill.deserializeNBT(tag.getCompound("fill"));
     }
 
     @Override
     public CompoundTag save(CompoundTag tag) {
-        tag.put("lava_storage", this.lavaStorage.writeToNBT(tag.getCompound("lava_storage")));
+        tag.put("fluidStorage", this.fluidStorage.writeToNBT(tag.getCompound("fluidStorage")));
         tag.putBoolean("active", active);
-        tag.put("fill", this.fill.serializeNBT());
+        tag.put("fill", this.progressFill.serializeNBT());
         return super.save(tag);
     }
 
@@ -168,9 +174,9 @@ public class BlockEntityGeoGenerator extends IndRebBlockEntity implements ICoold
 
     ArrayList<LazyOptional<?>> capabilities = new ArrayList<>(Arrays.asList(
             LazyOptional.of(this::getStackHandler),
-            LazyOptional.of(() -> new RangedWrapper(getStackHandler(), INPUT_SLOT, INPUT_SLOT + 1)),
-            LazyOptional.of(() -> new RangedWrapper(getStackHandler(), OUTPUT_SLOT, OUTPUT_SLOT + 1)),
-            LazyOptional.of(() -> this.lavaStorage)
+            LazyOptional.of(() -> new RangedWrapper(getStackHandler(), FILL_BUCKET_UP, FILL_BUCKET_UP + 1)),
+            LazyOptional.of(() -> new RangedWrapper(getStackHandler(), FILL_BUCKET_DOWN, FILL_BUCKET_DOWN + 1)),
+            LazyOptional.of(() -> this.fluidStorage)
     ));
 
     @Nonnull

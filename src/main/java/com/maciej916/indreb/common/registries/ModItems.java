@@ -5,7 +5,6 @@ import com.maciej916.indreb.common.enums.EnumEnergyType;
 import com.maciej916.indreb.common.enums.ModArmorMaterials;
 import com.maciej916.indreb.common.item.*;
 import com.maciej916.indreb.common.item.base.DummyItem;
-import com.maciej916.indreb.common.item.base.ElectricItem;
 import com.maciej916.indreb.common.item.base.EnergyStorageItem;
 import com.maciej916.indreb.common.item.base.WIPItem;
 import com.maciej916.indreb.common.item.impl.FilledTinCan;
@@ -154,6 +153,13 @@ public final class ModItems {
     public static Item PAINTER_LIGHT_GRAY;
     public static Item PAINTER_BLACK;
 
+    public static Item BIO_CHAFF;
+    public static Item FERTILIZER;
+    public static Item HEAT_CONDUCTOR;
+
+    public static Item FOAM_POWDER;
+    public static Item REINFORCED_FOAM_POWDER;
+
     @SubscribeEvent
     public static void registerBlocks(RegistryEvent.Register<Block> event) {
 
@@ -188,7 +194,7 @@ public final class ModItems {
         ENERGY_CRYSTAL = registerItem(new EnergyStorageItem(0, 100000, EnumEnergyType.BOTH, EnergyTier.ADVANCED), "energy_crystal");
         LAPOTRON_CRYSTAL = registerItem(new EnergyStorageItem(0, 1000000, EnumEnergyType.BOTH, EnergyTier.SUPER), "lapotron_crystal");
 
-        FLUID_CELL = registerItem(new ItemCell(Fluids.EMPTY), "fluid_cell");
+        FLUID_CELL = registerItem(new FluidCell(), "fluid_cell");
 
         IRON_ROD = registerItem(new ItemBasic(), "iron_rod");
 
@@ -281,6 +287,12 @@ public final class ModItems {
         PAINTER_GRAY = registerItem(new ItemPainter(MaterialColor.COLOR_GRAY), "painter_gray");
         PAINTER_LIGHT_GRAY = registerItem(new ItemPainter(MaterialColor.COLOR_LIGHT_GRAY), "painter_light_gray");
         PAINTER_BLACK = registerItem(new ItemPainter(MaterialColor.COLOR_BLACK), "painter_black");
+
+        BIO_CHAFF = registerItem(new DummyItem(CreativeModeTab.TAB_MATERIALS), "bio_chaff");
+        FERTILIZER = registerItem(new DummyItem(CreativeModeTab.TAB_MATERIALS), "fertilizer");
+        HEAT_CONDUCTOR = registerItem(new DummyItem(CreativeModeTab.TAB_MATERIALS), "heat_conductor");
+        FOAM_POWDER = registerItem(new DummyItem(CreativeModeTab.TAB_MATERIALS), "foam_powder");
+        REINFORCED_FOAM_POWDER = registerItem(new DummyItem(CreativeModeTab.TAB_MATERIALS), "reinforced_foam_powder");
 
 
 

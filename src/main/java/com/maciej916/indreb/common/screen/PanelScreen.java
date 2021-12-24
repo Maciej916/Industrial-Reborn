@@ -1,8 +1,11 @@
 package com.maciej916.indreb.common.screen;
 
 import com.maciej916.indreb.common.container.IndRebContainer;
+import com.maciej916.indreb.common.screen.bar.GuiFertilizerBar;
 import com.maciej916.indreb.common.screen.button.GuiExpButton;
+import com.maciej916.indreb.common.screen.widgets.GuiElement;
 import com.maciej916.indreb.common.screen.widgets.GuiUpgrades;
+import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.gui.components.AbstractWidget;
 import net.minecraft.client.renderer.Rect2i;
 import net.minecraft.network.chat.Component;
@@ -36,6 +39,16 @@ public class PanelScreen <T extends IndRebContainer> extends BaseScreen<T> {
 
     protected void drawComponents(boolean draw) {
         for (AbstractWidget widget : component) widget.visible = draw;
+    }
+
+    @Override
+    protected void renderTooltip(PoseStack poseStack, int mouseX, int mouseY) {
+        super.renderTooltip(poseStack, mouseX, mouseY);
+        for (AbstractWidget widget : component) {
+            if (widget instanceof GuiElement guiElement) {
+                guiElement.renderWidgetToolTip(this, poseStack, mouseX, mouseY);
+            }
+        }
     }
 
     public List<Rect2i> getAreas() {

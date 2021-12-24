@@ -19,9 +19,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.SimpleContainer;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.common.capabilities.Capability;
@@ -32,7 +30,6 @@ import net.minecraftforge.items.wrapper.RangedWrapper;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import java.util.*;
-import java.util.concurrent.atomic.AtomicBoolean;
 
 import static com.maciej916.indreb.common.enums.EnumEnergyType.RECEIVE;
 
@@ -170,11 +167,10 @@ public class BlockEntityAlloySmelter extends IndRebBlockEntity implements IEnerg
             progress.setBoth(-1);
         }
 
-        int redstonePower = level.getDirectSignalTo(getBlockPos());
-        if ((redstonePower > 0 && getEnergyStorage().consumeEnergy(ServerConfig.alloy_smelter_energy_heat_cost.get(), true) >= ServerConfig.alloy_smelter_energy_heat_cost.get() || active)) {
+        if ((getRedstonePower() > 0 && getEnergyStorage().consumeEnergy(ServerConfig.alloy_smelter_energy_heat_cost.get(), true) >= ServerConfig.alloy_smelter_energy_heat_cost.get() || active)) {
             if (heatLevel.getProgress() < 100) {
                 if (tickCounter == 20) {
-                    heatLevel.incProgress(1);
+                    heatLevel.incProgress(0.2f);
                     if (!active) {
                         getEnergyStorage().consumeEnergy(ServerConfig.alloy_smelter_energy_heat_cost.get(), false);
                     }
@@ -184,7 +180,7 @@ public class BlockEntityAlloySmelter extends IndRebBlockEntity implements IEnerg
         } else {
             if (heatLevel.getProgress() > 0) {
                 if (tickCounter == 20) {
-                    heatLevel.decProgress(1);
+                    heatLevel.decProgress(Math.min(heatLevel.getProgress(), 1));
                 }
             }
         }

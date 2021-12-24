@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "indreb:crushing/bio/beetroot_seeds"
+    ]
+  },
+  "criteria": {
+    "cactus": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:beetroot_seeds"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "indreb:crushing/bio/beetroot_seeds"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "cactus",
+      "has_the_recipe"
+    ]
+  ]
+}

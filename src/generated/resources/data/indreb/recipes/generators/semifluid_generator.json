@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "indreb",
+  "pattern": [
+    "pcp",
+    "cgc",
+    "pcp"
+  ],
+  "key": {
+    "p": {
+      "item": "indreb:iron_plate"
+    },
+    "c": {
+      "item": "indreb:fluid_cell"
+    },
+    "g": {
+      "item": "indreb:geo_generator"
+    }
+  },
+  "result": {
+    "item": "indreb:semifluid_generator"
+  }
+}

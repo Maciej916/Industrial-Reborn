@@ -11,29 +11,29 @@ import net.minecraftforge.fluids.ForgeFlowingFluid;
 
 public class ReinforcedConstructionFoam {
 
-    public static final ResourceLocation STILL_TEXTURE = new ResourceLocation(IndReb.MODID,"/block/fluids/reinforced_construction_foam_still");
-    public static final ResourceLocation FLOWING_TEXTURE = new ResourceLocation(IndReb.MODID,"/block/fluids/reinforced_construction_foam_flow");
+    public static final ResourceLocation STILL_TEXTURE = new ResourceLocation(IndReb.MODID,"/block/fluid/reinforced_construction_foam_still");
+    public static final ResourceLocation FLOWING_TEXTURE = new ResourceLocation(IndReb.MODID,"/block/fluid/reinforced_construction_foam_flow");
 
-    public static FlowingFluid REINFORCED_CONSTRUCTION_FOAM;
-    public static FlowingFluid FLOWING_REINFORCED_CONSTRUCTION_FOAM;
-    public static LiquidBlock LIQUID_REINFORCED_CONSTRUCTION_FOAM;
+    public static FlowingFluid STILL_FLUID;
+    public static FlowingFluid FLOWING_FLUID;
+    public static LiquidBlock LIQUID_BLOCK;
 
-    public static FlowingFluid ConstructionFoamFluid() {
-        REINFORCED_CONSTRUCTION_FOAM = new ForgeFlowingFluid.Source(properties);
-        return REINFORCED_CONSTRUCTION_FOAM;
+    public static FlowingFluid Fluid() {
+        STILL_FLUID = new ForgeFlowingFluid.Source(properties);
+        return STILL_FLUID;
     }
 
-    public static FlowingFluid FlowingConstructionFoamFluid() {
-        FLOWING_REINFORCED_CONSTRUCTION_FOAM = new ForgeFlowingFluid.Flowing(properties);
-        return FLOWING_REINFORCED_CONSTRUCTION_FOAM;
+    public static FlowingFluid FlowingFluid() {
+        FLOWING_FLUID = new ForgeFlowingFluid.Flowing(properties);
+        return FLOWING_FLUID;
     }
 
-    public static LiquidBlock LiquidConstructionFoam() {
-        LIQUID_REINFORCED_CONSTRUCTION_FOAM = new LiquidBlock(() -> REINFORCED_CONSTRUCTION_FOAM, Block.Properties.of(Material.WATER).noCollission().strength(100.0F).noDrops());
-        return LIQUID_REINFORCED_CONSTRUCTION_FOAM;
+    public static LiquidBlock Block() {
+        LIQUID_BLOCK = new LiquidBlock(() -> STILL_FLUID, Block.Properties.of(Material.WATER).noCollission().strength(100.0F).noDrops());
+        return LIQUID_BLOCK;
     }
 
     public static final ForgeFlowingFluid.Properties properties =
-        new ForgeFlowingFluid.Properties(() -> REINFORCED_CONSTRUCTION_FOAM, () -> FLOWING_REINFORCED_CONSTRUCTION_FOAM, FluidAttributes.builder(STILL_TEXTURE, FLOWING_TEXTURE))
-        .block(() -> LIQUID_REINFORCED_CONSTRUCTION_FOAM);
+        new ForgeFlowingFluid.Properties(() -> STILL_FLUID, () -> FLOWING_FLUID, FluidAttributes.builder(STILL_TEXTURE, FLOWING_TEXTURE))
+        .block(() -> LIQUID_BLOCK);
 }

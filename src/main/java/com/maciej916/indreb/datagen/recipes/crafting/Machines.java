@@ -115,13 +115,16 @@ public class Machines extends RecipeProvider {
         ShapedRecipeBuilder.shaped(ModBlocks.ALLOY_SMELTER)
                 .pattern(" e ")
                 .pattern("fbf")
+                .pattern(" h ")
                 .define('f', ModBlocks.ELECTRIC_FURNACE)
                 .define('e', ModItems.ADVANCED_CIRCUIT)
                 .define('b', ModBlocks.BASIC_MACHINE_CASING)
+                .define('h', ModItems.HEAT_CONDUCTOR)
                 .group(MODID)
                 .unlockedBy("electric_furnace", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.ELECTRIC_FURNACE))
                 .unlockedBy("basic_machine_casing", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.BASIC_MACHINE_CASING))
                 .unlockedBy("advanced_circuit", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.ADVANCED_CIRCUIT))
+                .unlockedBy("heat_conductor", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.HEAT_CONDUCTOR))
                 .save(consumer, saveResource("alloy_smelter"));
 
 
@@ -155,6 +158,38 @@ public class Machines extends RecipeProvider {
                 .unlockedBy("basic_machine_casing", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.BASIC_MACHINE_CASING))
                 .unlockedBy("electronic_circuit", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.ELECTRONIC_CIRCUIT))
                 .save(consumer, saveResource("canning_machine"));
+
+
+        ShapedRecipeBuilder.shaped(ModBlocks.FLUID_ENRICHER)
+                .pattern("ppp")
+                .pattern("cbc")
+                .pattern("pep")
+                .define('p', ModItems.TIN_PLATE)
+                .define('b', ModBlocks.BASIC_MACHINE_CASING)
+                .define('c', ModItems.FLUID_CELL)
+                .define('e', ModItems.ELECTRONIC_CIRCUIT)
+                .group(MODID)
+                .unlockedBy("tin_plate", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.TIN_PLATE))
+                .unlockedBy("basic_machine_casing", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.BASIC_MACHINE_CASING))
+                .unlockedBy("electronic_circuit", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.ELECTRONIC_CIRCUIT))
+                .unlockedBy("fluid_cell", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.FLUID_CELL))
+                .save(consumer, saveResource("fluid_enricher"));
+
+
+        ShapedRecipeBuilder.shaped(ModBlocks.FERMENTER)
+                .pattern("pcp")
+                .pattern("cbc")
+                .pattern("php")
+                .define('p', ModItems.TIN_PLATE)
+                .define('b', ModBlocks.BASIC_MACHINE_CASING)
+                .define('c', ModItems.FLUID_CELL)
+                .define('h', ModItems.HEAT_CONDUCTOR)
+                .group(MODID)
+                .unlockedBy("tin_plate", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.TIN_PLATE))
+                .unlockedBy("basic_machine_casing", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.BASIC_MACHINE_CASING))
+                .unlockedBy("fluid_cell", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.FLUID_CELL))
+                .unlockedBy("heat_conductor", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.HEAT_CONDUCTOR))
+                .save(consumer, saveResource("fermenter"));
 
     }
 

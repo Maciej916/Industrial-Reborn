@@ -36,6 +36,7 @@ public class Tags extends BlockTagsProvider {
                 .add(ModBlocks.HYBRID_SOLAR_GENERATOR.getBlock())
                 .add(ModBlocks.QUANTUM_SOLAR_GENERATOR.getBlock())
                 .add(ModBlocks.CRYSTALLINE_GENERATOR.getBlock())
+                .add(ModBlocks.SEMIFLUID_GENERATOR.getBlock())
 
                 .add(ModBlocks.CESU.getBlock())
                 .add(ModBlocks.MFE.getBlock())
@@ -53,6 +54,7 @@ public class Tags extends BlockTagsProvider {
                 .add(ModBlocks.FLUID_ENRICHER.getBlock())
                 .add(ModBlocks.RECYCLER.getBlock())
                 .add(ModBlocks.ALLOY_SMELTER.getBlock())
+                .add(ModBlocks.FERMENTER.getBlock())
 
                 .add(ModBlocks.COPPER_CABLE.getBlock())
                 .add(ModBlocks.COPPER_CABLE_INSULATED.getBlock())
@@ -91,6 +93,7 @@ public class Tags extends BlockTagsProvider {
                 .add(ModBlocks.HYBRID_SOLAR_GENERATOR.getBlock())
                 .add(ModBlocks.QUANTUM_SOLAR_GENERATOR.getBlock())
                 .add(ModBlocks.CRYSTALLINE_GENERATOR.getBlock())
+                .add(ModBlocks.SEMIFLUID_GENERATOR.getBlock())
 
                 .add(ModBlocks.CESU.getBlock())
                 .add(ModBlocks.MFE.getBlock())
@@ -108,6 +111,7 @@ public class Tags extends BlockTagsProvider {
                 .add(ModBlocks.FLUID_ENRICHER.getBlock())
                 .add(ModBlocks.RECYCLER.getBlock())
                 .add(ModBlocks.ALLOY_SMELTER.getBlock())
+                .add(ModBlocks.FERMENTER.getBlock())
 
                 .add(ModBlocks.COPPER_CABLE.getBlock())
                 .add(ModBlocks.COPPER_CABLE_INSULATED.getBlock())

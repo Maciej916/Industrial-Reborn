@@ -6,6 +6,7 @@ import com.maciej916.indreb.common.interfaces.screen.IGuiWrapper;
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.resources.ResourceLocation;
 
@@ -19,14 +20,14 @@ public class GuiCooldown extends GuiElement {
 
 
     @Override
-    public void renderToolTip(PoseStack pPoseStack, int pMouseX, int pMouseY) {
-        if (be.getCooldown() > 0) {
-            Minecraft.getInstance().screen.renderTooltip(pPoseStack, new TranslatableComponent("gui." + IndReb.MODID + ".can_operate_in", be.getCooldown()), pMouseX, pMouseY);
-        } else {
-            Minecraft.getInstance().screen.renderTooltip(pPoseStack, new TranslatableComponent("gui." + IndReb.MODID + ".can_operate"), pMouseX, pMouseY);
+    public void renderWidgetToolTip(Screen screen, PoseStack pPoseStack, int pMouseX, int pMouseY) {
+        if (isHoveredOrFocused()) {
+            if (be.getCooldown() > 0) {
+                Minecraft.getInstance().screen.renderTooltip(pPoseStack, new TranslatableComponent("gui." + IndReb.MODID + ".can_operate_in", be.getCooldown()), pMouseX, pMouseY);
+            } else {
+                Minecraft.getInstance().screen.renderTooltip(pPoseStack, new TranslatableComponent("gui." + IndReb.MODID + ".can_operate"), pMouseX, pMouseY);
+            }
         }
-
-        super.renderToolTip(pPoseStack, pMouseX, pMouseY);
     }
 
     @Override

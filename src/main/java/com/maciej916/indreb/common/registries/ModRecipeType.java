@@ -18,6 +18,7 @@ public final class ModRecipeType {
 	public static RecipeType<AlloySmeltingRecipe> ALLOY_SMELTING = register("alloy_smelting");
 	public static RecipeType<RecyclingRecipe> RECYCLING = register("recycling");
 	public static RecipeType<CanningRecipe> CANNING = register("canning");
+	public static RecipeType<FluidEnrichingRecipe> FLUID_ENRICHING = register("fluid_enriching");
 
 	public static RecipeType<ScrapBoxRecipe> SCRAP_BOX = register("scrap_box");
 

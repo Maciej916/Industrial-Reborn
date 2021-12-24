@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "indreb:block/generator/semifluid_generator_bottom",
+    "up": "indreb:block/generator/semifluid_generator_top",
+    "north": "indreb:block/generator/semifluid_generator_front_active",
+    "south": "indreb:block/generator/semifluid_generator_back",
+    "east": "indreb:block/generator/semifluid_generator_leftright_active",
+    "west": "indreb:block/generator/semifluid_generator_leftright_active",
+    "particle": "indreb:block/generator/semifluid_generator_front_active"
+  }
+}

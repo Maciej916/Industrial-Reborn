@@ -4,6 +4,7 @@ import com.maciej916.indreb.common.block.impl.battery_box.ContainerBatteryBox;
 import com.maciej916.indreb.common.block.impl.generators.crystalline_generator.ContainerCrystallineGenerator;
 import com.maciej916.indreb.common.block.impl.generators.generator.ContainerGenerator;
 import com.maciej916.indreb.common.block.impl.generators.geo_generator.ContainerGeoGenerator;
+import com.maciej916.indreb.common.block.impl.generators.semifluid_generator.ContainerSemifluidGenerator;
 import com.maciej916.indreb.common.block.impl.generators.solar_panels.ContainerSolarGenerator;
 import com.maciej916.indreb.common.block.impl.machines.alloy_smelter.ContainerAlloySmelter;
 import com.maciej916.indreb.common.block.impl.machines.canning_machine.ContainerCanningMachine;
@@ -12,6 +13,7 @@ import com.maciej916.indreb.common.block.impl.machines.crusher.ContainerCrusher;
 import com.maciej916.indreb.common.block.impl.machines.electric_furnace.ContainerElectricFurnace;
 import com.maciej916.indreb.common.block.impl.machines.extractor.ContainerExtractor;
 import com.maciej916.indreb.common.block.impl.machines.extruder.ContainerExtruder;
+import com.maciej916.indreb.common.block.impl.machines.fermenter.ContainerFermenter;
 import com.maciej916.indreb.common.block.impl.machines.fluid_enricher.ContainerFluidEnricher;
 import com.maciej916.indreb.common.block.impl.machines.iron_furnace.ContainerIronFurnace;
 import com.maciej916.indreb.common.block.impl.machines.recycler.ContainerRecycler;
@@ -31,6 +33,7 @@ public final class ModContainers {
     public static MenuType<ContainerSolarGenerator> SOLAR_GENERATOR;
     public static MenuType<ContainerGeoGenerator> GEO_GENERATOR;
     public static MenuType<ContainerCrystallineGenerator> CRYSTALLINE_GENERATOR;
+    public static MenuType<ContainerSemifluidGenerator> SEMIFLUID_GENERATOR;
 
     public static MenuType<ContainerBatteryBox> BATTERY_BOX;
 
@@ -45,6 +48,7 @@ public final class ModContainers {
     public static MenuType<ContainerCanningMachine> CANNING_MACHINE;
     public static MenuType<ContainerFluidEnricher> FLUID_ENRICHER;
     public static MenuType<ContainerRecycler> RECYCLER;
+    public static MenuType<ContainerFermenter> FERMENTER;
 
     public static MenuType<ContainerAlloySmelter> ALLOY_SMELTER;
 
@@ -56,7 +60,8 @@ public final class ModContainers {
         GENERATOR = registerContainer("generator", IForgeMenuType.create(ContainerGenerator::new));
         SOLAR_GENERATOR = registerContainer("solar_generator", IForgeMenuType.create(ContainerSolarGenerator::new));
         GEO_GENERATOR = registerContainer("geo_generator", IForgeMenuType.create(ContainerGeoGenerator::new));
-//        CRYSTALLINE_GENERATOR = registerContainer("crystalline_generator", IForgeMenuType.create(ContainerCrystallineGenerator::new));
+        CRYSTALLINE_GENERATOR = registerContainer("crystalline_generator", IForgeMenuType.create(ContainerCrystallineGenerator::new));
+        SEMIFLUID_GENERATOR = registerContainer("semifluid_generator", IForgeMenuType.create(ContainerSemifluidGenerator::new));
 
         BATTERY_BOX = registerContainer("battery_box", IForgeMenuType.create(ContainerBatteryBox::new));
 
@@ -71,6 +76,7 @@ public final class ModContainers {
         CANNING_MACHINE = registerContainer("canning_machine", IForgeMenuType.create(ContainerCanningMachine::new));
         FLUID_ENRICHER = registerContainer("fluid_enricher", IForgeMenuType.create(ContainerFluidEnricher::new));
         RECYCLER = registerContainer("recycler", IForgeMenuType.create(ContainerRecycler::new));
+        FERMENTER = registerContainer("fermenter", IForgeMenuType.create(ContainerFermenter::new));
 
         ALLOY_SMELTER = registerContainer("alloy_smelter", IForgeMenuType.create(ContainerAlloySmelter::new));
 

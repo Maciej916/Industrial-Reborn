@@ -21,7 +21,7 @@ public class GuiTextHeat extends GuiElement {
 
     @Override
     public void renderButton(PoseStack pPoseStack, int pMouseX, int pMouseY, float pPartialTicks) {
-        TranslatableComponent component = new TranslatableComponent("gui." + IndReb.MODID + ".heat", progress.getProgressString() + " %");
+        TranslatableComponent component = new TranslatableComponent("gui." + IndReb.MODID + ".heat", progress.getPercentProgressString() + "%");
         GuiUtil.renderScaled(pPoseStack, component.getString(), getLeftOffset(), getTopOffset(), 0.8f, 4210752, false);
         super.renderButton(pPoseStack, pMouseX, pMouseY, pPartialTicks);
     }

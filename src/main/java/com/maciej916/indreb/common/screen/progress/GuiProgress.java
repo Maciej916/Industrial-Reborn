@@ -49,9 +49,9 @@ public class GuiProgress extends GuiElement {
 
         blit(pPoseStack, getLeftOffset(), getTopOffset(), progressType.getOffsetLeft(), progressType.getOffsetTop(), progressType.getWidth(), progressType.getHeight());
 
-        int currProgress = progress.getPercentProgress();
-        int scaleX = Math.round((float) currProgress / 100 * progressType.getActiveHeight());
-        int scaleY = Math.round((float) currProgress / 100 * progressType.getActiveWidth());
+        float currProgress = progress.getPercentProgress();
+        int scaleX = Math.round(currProgress / 100 * progressType.getActiveHeight());
+        int scaleY = Math.round(currProgress / 100 * progressType.getActiveWidth());
 
         switch (direction) {
             case VERTICAL:

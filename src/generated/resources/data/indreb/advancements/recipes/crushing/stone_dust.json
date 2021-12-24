@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "indreb:crushing/stone_dust"
+    ]
+  },
+  "criteria": {
+    "stone": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:stone"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "indreb:crushing/stone_dust"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "stone",
+      "has_the_recipe"
+    ]
+  ]
+}

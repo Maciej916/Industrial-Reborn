@@ -8,6 +8,7 @@ import com.maciej916.indreb.common.enums.GuiSprite;
 import com.maciej916.indreb.common.util.TextComponentUtil;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.resources.ResourceLocation;
 
@@ -23,13 +24,9 @@ public class GuiElectricBarVertical extends GuiProgress {
     }
 
     @Override
-    public void renderToolTip(PoseStack pPoseStack, int pMouseX, int pMouseY) {
-
+    public void renderWidgetToolTip(Screen screen, PoseStack pPoseStack, int pMouseX, int pMouseY) {
         if (isHoveredOrFocused()) {
-            Minecraft.getInstance().screen.renderTooltip(pPoseStack, new TranslatableComponent("gui." + IndReb.MODID + ".energy", TextComponentUtil.getFormattedEnergyUnit(getProgress().getProgress()), TextComponentUtil.getFormattedEnergyUnit(getProgress().getProgressMax())), pMouseX, pMouseY);
+            screen.renderTooltip(pPoseStack, new TranslatableComponent("gui." + IndReb.MODID + ".energy", TextComponentUtil.getFormattedEnergyUnit(getProgress().getProgress()), TextComponentUtil.getFormattedEnergyUnit(getProgress().getProgressMax())), pMouseX, pMouseY);
         }
-
-        super.renderToolTip(pPoseStack, pMouseX, pMouseY);
     }
-
 }

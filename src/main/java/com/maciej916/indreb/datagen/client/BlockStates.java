@@ -28,6 +28,7 @@ public class BlockStates extends BlockStateProvider {
     @Override
     protected void registerStatesAndModels() {
         registerOres();
+        registerGenerators();
         registerMachines();
         registerConstructionFoam();
         registerRubberWood();
@@ -89,6 +90,11 @@ public class BlockStates extends BlockStateProvider {
 
     }
 
+    private void registerGenerators() {
+
+
+        createWithSidesActive(ModBlocks.SEMIFLUID_GENERATOR.getBlock(), "generator", "semifluid_generator");
+    }
 
     private void registerMachines() {
 
@@ -97,7 +103,8 @@ public class BlockStates extends BlockStateProvider {
 
         createSimple(ModBlocks.CANNING_MACHINE.getBlock(), "machines", "canning_machine");
         createWithTopActive(ModBlocks.RECYCLER.getBlock(), "machines", "recycler");
-        createSimple(ModBlocks.FLUID_ENRICHER.getBlock(), "machines", "fluid_enricher");
+        createWithSidesActive(ModBlocks.FLUID_ENRICHER.getBlock(), "machines", "fluid_enricher");
+        createWithSidesActive(ModBlocks.FERMENTER.getBlock(), "machines", "fermenter");
     }
 
 
@@ -136,10 +143,9 @@ public class BlockStates extends BlockStateProvider {
         });
     }
 
-    // TODO
     private void createWithSidesActive(Block block, String category, String name) {
-        BlockModelBuilder notActive = models().cube(name, new ResourceLocation(IndReb.MODID, "block/" + category + "/" + name + "_bottom"), new ResourceLocation(IndReb.MODID, "block/" + category + "/" + name + "_top"), new ResourceLocation(IndReb.MODID, "block/" + category + "/" + name + "_bottom"), new ResourceLocation(IndReb.MODID, "block/" + category + "/" + name + "_back"), new ResourceLocation(IndReb.MODID, "block/" + category + "/" + name + "_leftright"), new ResourceLocation(IndReb.MODID, "block/" + category + "/" + name + "_leftright"));
-        BlockModelBuilder active = models().cube(name + "_active", new ResourceLocation(IndReb.MODID, "block/" + category + "/" + name + "_bottom"), new ResourceLocation(IndReb.MODID, "block/" + category + "/" + name + "_top"), new ResourceLocation(IndReb.MODID, "block/" + category + "/" + name + "_bottom"), new ResourceLocation(IndReb.MODID, "block/" + category + "/" + name + "_back"), new ResourceLocation(IndReb.MODID, "block/" + category + "/" + name + "_leftright_active"), new ResourceLocation(IndReb.MODID, "block/" + category + "/" + name + "_leftright_active"));
+        BlockModelBuilder notActive = cubeWithParticle(name, new ResourceLocation(IndReb.MODID, "block/" + category + "/" + name + "_bottom"), new ResourceLocation(IndReb.MODID, "block/" + category + "/" + name + "_top"), new ResourceLocation(IndReb.MODID, "block/" + category + "/" + name + "_front"), new ResourceLocation(IndReb.MODID, "block/" + category + "/" + name + "_back"), new ResourceLocation(IndReb.MODID, "block/" + category + "/" + name + "_leftright"), new ResourceLocation(IndReb.MODID, "block/" + category + "/" + name + "_leftright"));
+        BlockModelBuilder active = cubeWithParticle(name + "_active", new ResourceLocation(IndReb.MODID, "block/" + category + "/" + name + "_bottom"), new ResourceLocation(IndReb.MODID, "block/" + category + "/" + name + "_top"), new ResourceLocation(IndReb.MODID, "block/" + category + "/" + name + "_front_active"), new ResourceLocation(IndReb.MODID, "block/" + category + "/" + name + "_back"), new ResourceLocation(IndReb.MODID, "block/" + category + "/" + name + "_leftright_active"), new ResourceLocation(IndReb.MODID, "block/" + category + "/" + name + "_leftright_active"));
         orientedBlock(block, state -> {
             if (state.getValue(BlockStateHelper.activeProperty)) {
                 return active;
@@ -153,28 +159,21 @@ public class BlockStates extends BlockStateProvider {
 
 
 
+    private BlockModelBuilder cubeWithParticle(String name, ResourceLocation down, ResourceLocation up, ResourceLocation north, ResourceLocation south, ResourceLocation east, ResourceLocation west) {
+        return models().withExistingParent(name, "cube")
+                .texture("down", down)
+                .texture("up", up)
+                .texture("north", north)
+                .texture("south", south)
+                .texture("east", east)
+                .texture("west", west)
+                .texture("particle", north);
+    }
+
+
     private void createCubeAll(Block block, String path) {
         simpleBlock(block, models().cubeAll(block.getRegistryName().getPath(), new ResourceLocation(IndReb.MODID, "block/" + path)));
     }
-
-//
-//    private void registerGeneratorBlock() {
-//        ResourceLocation txt = new ResourceLocation(IndReb.MODID, "block/generator");
-//        BlockModelBuilder modelFirstblock = models().cube("generator",
-//                txt, txt, new ResourceLocation(IndReb.MODID, "block/generator_front"), txt, txt, txt);
-//        BlockModelBuilder modelFirstblockPowered = models().cube("generator_powered",
-//                txt, txt, new ResourceLocation(IndReb.MODID, "block/generator_powered"), txt, txt, txt);
-//        orientedBlock(Registration.GENERATOR.get(), state -> {
-//            if (state.getValue(BlockStateProperties.POWERED)) {
-//                return modelFirstblockPowered;
-//            } else {
-//                return modelFirstblock;
-//            }
-//        });
-//    }
-//
-
-
 
     private void orientedBlock(Block block, Function<BlockState, ModelFile> modelFunc) {
         getVariantBuilder(block)

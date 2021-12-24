@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "indreb:crushing/bio/dirt"
+    ]
+  },
+  "criteria": {
+    "bio_chaff": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:bio_chaff"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "indreb:crushing/bio/dirt"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "bio_chaff",
+      "has_the_recipe"
+    ]
+  ]
+}

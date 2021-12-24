@@ -39,8 +39,9 @@ public class Items extends ItemModelProvider {
         registerBatteryBox();
         registerCrafting();
         registerCables();
+        registerCrop();
 
-        createGeneratedTexture(ModItems.FLUID_CELL, "fluid_cell");
+//        createGeneratedTexture(ModItems.FLUID_CELL, "fluid_cell");
 
         createWithBlock(ModBlocks.BASIC_MACHINE_CASING.getBlock(), "basic_machine_casing");
         createWithBlock(ModBlocks.ADVANCED_MACHINE_CASING.getBlock(), "advanced_machine_casing");
@@ -232,6 +233,7 @@ public class Items extends ItemModelProvider {
         createWithBlock(ModBlocks.HYBRID_SOLAR_GENERATOR.getBlock(), "generator/hybrid_solar_generator");
         createWithBlock(ModBlocks.QUANTUM_SOLAR_GENERATOR.getBlock(), "generator/quantum_solar_generator");
 //        createWithBlock(ModBlocks.CRYSTALLINE_GENERATOR.getBlock(), "generator/crystalline_generator");
+        createWithBlock(ModBlocks.SEMIFLUID_GENERATOR.getBlock(), "semifluid_generator");
     }
 
     protected void registerMachines() {
@@ -244,12 +246,10 @@ public class Items extends ItemModelProvider {
         createWithBlock(ModBlocks.SAWMILL.getBlock(), "machines/sawmill");
         createWithBlock(ModBlocks.EXTRUDER.getBlock(), "machines/extruder");
         createWithBlock(ModBlocks.ALLOY_SMELTER.getBlock(), "machines/alloy_smelter");
-
-//        createWithBlock(ModBlocks.CANNING_MACHINE.getBlock(), "machines/canning_machine");
-//        createWithBlock(ModBlocks.FLUID_ENRICHER.getBlock(), "machines/fluid_enricher");
         createWithBlock(ModBlocks.CANNING_MACHINE.getBlock(), "canning_machine");
         createWithBlock(ModBlocks.RECYCLER.getBlock(), "recycler");
         createWithBlock(ModBlocks.FLUID_ENRICHER.getBlock(), "fluid_enricher");
+        createWithBlock(ModBlocks.FERMENTER.getBlock(), "fermenter");
     }
 
     protected void registerBatteryBox() {
@@ -274,6 +274,10 @@ public class Items extends ItemModelProvider {
         createGeneratedTexture(ModItems.FILLED_TIN_CAN, "crafting/filled_tin_can");
         createGeneratedTexture(ModItems.SCRAP, "crafting/scrap");
         createGeneratedTexture(ModItems.SCRAP_BOX, "crafting/scrap_box");
+        createGeneratedTexture(ModItems.BIO_CHAFF, "crafting/bio_chaff");
+        createGeneratedTexture(ModItems.FOAM_POWDER, "crafting/foam_powder");
+        createGeneratedTexture(ModItems.REINFORCED_FOAM_POWDER, "crafting/reinforced_foam_powder");
+        createGeneratedTexture(ModItems.HEAT_CONDUCTOR, "crafting/heat_conductor");
     }
 
     protected void registerCables() {
@@ -286,6 +290,10 @@ public class Items extends ItemModelProvider {
         createWithBlock(ModBlocks.HV_CABLE.getBlock(), "cable/hv_cable_inventory");
         createWithBlock(ModBlocks.HV_CABLE_INSULATED.getBlock(), "cable/hv_cable_insulated_inventory");
         createWithBlock(ModBlocks.GLASS_FIBRE_CABLE.getBlock(), "cable/glass_fibre_cable_inventory");
+    }
+
+    protected void registerCrop() {
+        createGeneratedTexture(ModItems.FERTILIZER, "crop/fertilizer");
     }
 
     private ItemModelBuilder createGeneratedTexture(Item item, String path) {

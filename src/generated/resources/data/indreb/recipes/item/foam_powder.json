@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "indreb",
+  "pattern": [
+    "dsd",
+    "dcd",
+    "dsd"
+  ],
+  "key": {
+    "d": {
+      "item": "indreb:stone_dust"
+    },
+    "s": {
+      "item": "minecraft:sand"
+    },
+    "c": {
+      "item": "minecraft:clay_ball"
+    }
+  },
+  "result": {
+    "item": "indreb:foam_powder"
+  }
+}

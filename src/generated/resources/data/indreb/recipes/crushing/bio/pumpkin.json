@@ -1,0 +1,13 @@
+{
+  "type": "indreb:crushing",
+  "ingredient": {
+    "item": "minecraft:pumpkin",
+    "count": 8
+  },
+  "result": {
+    "item": "indreb:bio_chaff"
+  },
+  "experience": 0.0,
+  "duration": 180,
+  "power_cost": 8
+}

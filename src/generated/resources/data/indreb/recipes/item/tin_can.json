@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "indreb",
+  "pattern": [
+    "t t",
+    "ttt"
+  ],
+  "key": {
+    "t": {
+      "item": "indreb:tin_plate"
+    }
+  },
+  "result": {
+    "item": "indreb:tin_can",
+    "count": 4
+  }
+}

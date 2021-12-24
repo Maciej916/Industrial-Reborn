@@ -64,7 +64,7 @@ public class BlockExtruder extends BlockElectricMachine implements IStateFacing,
                         FluidStack fluidStack = new FluidStack(bucketFluid, 1000);
 
                         Fluid firstFluid = be.waterStorage.getFluid().getFluid();
-                        Fluid secondFluid = be.lavaStorage.getFluid().getFluid();
+                        Fluid secondFluid = be.fluidStorage.getFluid().getFluid();
 
                         if (be.waterStorage.fillFluid(fluidStack, true) == 1000 && bucketFluid == Fluids.WATER && (firstFluid == Fluids.WATER || firstFluid == Fluids.EMPTY)) {
                             be.waterStorage.fillFluid(fluidStack, false);
@@ -74,8 +74,8 @@ public class BlockExtruder extends BlockElectricMachine implements IStateFacing,
                             }
                             be.updateBlockState();
                             return InteractionResult.PASS;
-                        } else if (be.lavaStorage.fillFluid(fluidStack, true) == 1000 && bucketFluid == Fluids.LAVA && (secondFluid == Fluids.LAVA || secondFluid == Fluids.EMPTY)) {
-                            be.lavaStorage.fillFluid(fluidStack, false);
+                        } else if (be.fluidStorage.fillFluid(fluidStack, true) == 1000 && bucketFluid == Fluids.LAVA && (secondFluid == Fluids.LAVA || secondFluid == Fluids.EMPTY)) {
+                            be.fluidStorage.fillFluid(fluidStack, false);
                             if (!player.isCreative()) {
                                 ItemStack stack = new ItemStack(Items.BUCKET);
                                 player.setItemInHand(hand, stack);

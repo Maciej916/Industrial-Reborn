@@ -1,0 +1,47 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "indreb:item/heat_conductor"
+    ]
+  },
+  "criteria": {
+    "rubber": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:rubber"
+            ]
+          }
+        ]
+      }
+    },
+    "copper_plate": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:copper_plate"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "indreb:item/heat_conductor"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "rubber",
+      "copper_plate",
+      "has_the_recipe"
+    ]
+  ]
+}

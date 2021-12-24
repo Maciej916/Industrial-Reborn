@@ -1,6 +1,5 @@
 package com.maciej916.indreb.common.block.impl.generators.geo_generator;
 
-import com.maciej916.indreb.common.block.impl.generators.generator.BlockEntityGenerator;
 import com.maciej916.indreb.common.container.IndRebContainer;
 import com.maciej916.indreb.common.registries.ModContainers;
 import net.minecraft.core.BlockPos;

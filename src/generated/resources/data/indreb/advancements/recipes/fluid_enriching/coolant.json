@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "indreb:fluid_enriching/coolant"
+    ]
+  },
+  "criteria": {
+    "lapis_lazuli": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:lapis_lazuli"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "indreb:fluid_enriching/coolant"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "lapis_lazuli",
+      "has_the_recipe"
+    ]
+  ]
+}

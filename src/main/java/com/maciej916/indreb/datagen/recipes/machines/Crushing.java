@@ -404,14 +404,12 @@ public class Crushing extends RecipeProvider {
                 .addCriterion("item", InventoryChangeTrigger.TriggerInstance.hasItems(Items.DIAMOND))
                 .save(consumer, "diamond_dust");
 
-
         RecipeBuilderCrushing.builder(ModItems.CRUSHED_IRON,2)
                 .setIngredient(Ingredient.of(Items.RAW_IRON), 1)
                 .setExperience(0.2F)
                 .setGroup("crushing/items")
                 .addCriterion("item", InventoryChangeTrigger.TriggerInstance.hasItems(Items.RAW_IRON))
                 .save(consumer, "raw_iron");
-
 
         RecipeBuilderCrushing.builder(ModItems.CRUSHED_COPPER,2)
                 .setIngredient(Ingredient.of(Items.RAW_COPPER), 1)
@@ -420,14 +418,12 @@ public class Crushing extends RecipeProvider {
                 .addCriterion("item", InventoryChangeTrigger.TriggerInstance.hasItems(Items.RAW_COPPER))
                 .save(consumer, "raw_copper");
 
-
         RecipeBuilderCrushing.builder(ModItems.CRUSHED_GOLD,2)
                 .setIngredient(Ingredient.of(Items.RAW_GOLD), 1)
                 .setExperience(0.2F)
                 .setGroup("crushing/items")
                 .addCriterion("item", InventoryChangeTrigger.TriggerInstance.hasItems(Items.RAW_GOLD))
                 .save(consumer, "raw_gold");
-
 
         RecipeBuilderCrushing.builder(ModItems.CRUSHED_TIN,2)
                 .setIngredient(Ingredient.of(ModItems.RAW_TIN), 1)
@@ -442,6 +438,122 @@ public class Crushing extends RecipeProvider {
                 .setGroup("crushing/items")
                 .addCriterion("iridium", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.IRIDIUM))
                 .save(consumer, "iridium_shard");
+
+        RecipeBuilderCrushing.builder(Items.DIRT,1)
+                .setIngredient(ModItems.BIO_CHAFF, 1)
+                .setGroup("crushing/bio")
+                .addCriterion("bio_chaff", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.BIO_CHAFF))
+                .save(consumer, "dirt");
+
+        RecipeBuilderCrushing.builder(ModItems.BIO_CHAFF,1)
+                .setIngredient(ItemTags.bind("minecraft:saplings"), 4)
+                .setGroup("crushing/bio")
+                .addCriterion("oak_sapling", InventoryChangeTrigger.TriggerInstance.hasItems(Items.OAK_SAPLING))
+                .save(consumer, "saplings");
+
+        RecipeBuilderCrushing.builder(ModItems.BIO_CHAFF,1)
+                .setIngredient(ItemTags.bind("minecraft:leaves"), 8)
+                .setGroup("crushing/bio")
+                .addCriterion("oak_leaves", InventoryChangeTrigger.TriggerInstance.hasItems(Items.OAK_LEAVES))
+                .save(consumer, "leaves");
+
+        RecipeBuilderCrushing.builder(ModItems.BIO_CHAFF,1)
+                .setIngredient(Items.WHEAT, 8)
+                .setGroup("crushing/bio")
+                .addCriterion("wheat", InventoryChangeTrigger.TriggerInstance.hasItems(Items.WHEAT))
+                .save(consumer, "wheat");
+
+        RecipeBuilderCrushing.builder(ModItems.BIO_CHAFF,1)
+                .setIngredient(Items.CACTUS, 8)
+                .setGroup("crushing/bio")
+                .addCriterion("cactus", InventoryChangeTrigger.TriggerInstance.hasItems(Items.CACTUS))
+                .save(consumer, "cactus");
+
+        RecipeBuilderCrushing.builder(ModItems.BIO_CHAFF,1)
+                .setIngredient(Items.SUGAR_CANE, 8)
+                .setGroup("crushing/bio")
+                .addCriterion("cactus", InventoryChangeTrigger.TriggerInstance.hasItems(Items.SUGAR_CANE))
+                .save(consumer, "sugar_cane");
+
+        RecipeBuilderCrushing.builder(ModItems.BIO_CHAFF,1)
+                .setIngredient(Items.CARROT, 8)
+                .setGroup("crushing/bio")
+                .addCriterion("cactus", InventoryChangeTrigger.TriggerInstance.hasItems(Items.CARROT))
+                .save(consumer, "carrot");
+
+        RecipeBuilderCrushing.builder(ModItems.BIO_CHAFF,1)
+                .setIngredient(Items.POTATO, 8)
+                .setGroup("crushing/bio")
+                .addCriterion("cactus", InventoryChangeTrigger.TriggerInstance.hasItems(Items.POTATO))
+                .save(consumer, "potato");
+
+        RecipeBuilderCrushing.builder(ModItems.BIO_CHAFF,1)
+                .setIngredient(Items.MELON_SLICE, 8)
+                .setGroup("crushing/bio")
+                .addCriterion("cactus", InventoryChangeTrigger.TriggerInstance.hasItems(Items.MELON_SLICE))
+                .save(consumer, "melon_slice");
+
+        RecipeBuilderCrushing.builder(ModItems.BIO_CHAFF,1)
+                .setIngredient(Items.PUMPKIN, 8)
+                .setGroup("crushing/bio")
+                .addCriterion("cactus", InventoryChangeTrigger.TriggerInstance.hasItems(Items.PUMPKIN))
+                .save(consumer, "pumpkin");
+
+        RecipeBuilderCrushing.builder(ModItems.BIO_CHAFF,1)
+                .setIngredient(Items.WHEAT_SEEDS, 16)
+                .setGroup("crushing/bio")
+                .addCriterion("cactus", InventoryChangeTrigger.TriggerInstance.hasItems(Items.WHEAT_SEEDS))
+                .save(consumer, "wheat_seeds");
+
+        RecipeBuilderCrushing.builder(ModItems.BIO_CHAFF,1)
+                .setIngredient(Items.MELON_SEEDS, 16)
+                .setGroup("crushing/bio")
+                .addCriterion("cactus", InventoryChangeTrigger.TriggerInstance.hasItems(Items.MELON_SEEDS))
+                .save(consumer, "melon_seeds");
+
+        RecipeBuilderCrushing.builder(ModItems.BIO_CHAFF,1)
+                .setIngredient(Items.PUMPKIN_SEEDS, 16)
+                .setGroup("crushing/bio")
+                .addCriterion("cactus", InventoryChangeTrigger.TriggerInstance.hasItems(Items.PUMPKIN_SEEDS))
+                .save(consumer, "pumpkin_seeds");
+
+        RecipeBuilderCrushing.builder(ModItems.BIO_CHAFF,1)
+                .setIngredient(Items.BEETROOT_SEEDS, 8)
+                .setGroup("crushing/bio")
+                .addCriterion("cactus", InventoryChangeTrigger.TriggerInstance.hasItems(Items.BEETROOT_SEEDS))
+                .save(consumer, "beetroot_seeds");
+
+        RecipeBuilderCrushing.builder(ModItems.BIO_CHAFF,1)
+                .setIngredient(Items.VINE, 32)
+                .setGroup("crushing/bio")
+                .addCriterion("cactus", InventoryChangeTrigger.TriggerInstance.hasItems(Items.VINE))
+                .save(consumer, "vine");
+
+        RecipeBuilderCrushing.builder(ModItems.BIO_CHAFF,1)
+                .setIngredient(Items.BAMBOO, 32)
+                .setGroup("crushing/bio")
+                .addCriterion("cactus", InventoryChangeTrigger.TriggerInstance.hasItems(Items.BAMBOO))
+                .save(consumer, "bamboo");
+
+        RecipeBuilderCrushing.builder(ModItems.BIO_CHAFF,1)
+                .setIngredient(Items.KELP, 32)
+                .setGroup("crushing/bio")
+                .addCriterion("cactus", InventoryChangeTrigger.TriggerInstance.hasItems(Items.KELP))
+                .save(consumer, "kelp");
+
+
+       RecipeBuilderCrushing.builder(ModItems.DEEPSLATE_DUST,1)
+                .setIngredient(Items.DEEPSLATE, 1)
+                .setGroup("crushing")
+                .addCriterion("deepslate", InventoryChangeTrigger.TriggerInstance.hasItems(Items.DEEPSLATE))
+                .save(consumer, "deepslate_dust");
+
+       RecipeBuilderCrushing.builder(ModItems.STONE_DUST,1)
+                .setIngredient(Items.STONE, 1)
+                .setGroup("crushing")
+                .addCriterion("stone", InventoryChangeTrigger.TriggerInstance.hasItems(Items.STONE))
+                .save(consumer, "stone_dust");
+
 
 
     }

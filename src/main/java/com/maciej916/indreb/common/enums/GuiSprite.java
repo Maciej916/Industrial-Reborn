@@ -13,6 +13,9 @@ public enum GuiSprite {
     ELECTRIC_VERTICAL(18,49,0, 0, 10,41,19, 0, 4, 4),
     ELECTRIC_HORIZONTAL(49,18,30, 0, 41,10,30, 19, 4, 4),
 
+    FERTILIZER(36,15,80, 0, 28,7,80, 16, 4, 4),
+    FILL(14,7, 242, 0,14,7, 242, 8, 0, 0),
+
     LEFT_BUTTON(19,23, 0, 0, 19,23, 0, 24, 0, 0),
     RIGHT_BUTTON(19,23, 0, 0, 19,23, 0, 24, 0, 0),
     SMALL_BUTTON(12,12, 40, 0, 12,12, 40, 13, 0, 0),

@@ -19,6 +19,9 @@ import com.maciej916.indreb.common.block.impl.machines.extractor.BlockEntityExtr
 import com.maciej916.indreb.common.block.impl.machines.extractor.ContainerExtractor;
 import com.maciej916.indreb.common.block.impl.machines.extractor.ScreenExtractor;
 import com.maciej916.indreb.common.block.impl.machines.extruder.ScreenExtruder;
+import com.maciej916.indreb.common.block.impl.machines.fluid_enricher.BlockEntityFluidEnricher;
+import com.maciej916.indreb.common.block.impl.machines.fluid_enricher.ContainerFluidEnricher;
+import com.maciej916.indreb.common.block.impl.machines.fluid_enricher.ScreenFluidEnricher;
 import com.maciej916.indreb.common.block.impl.machines.iron_furnace.ScreenIronFurnace;
 import com.maciej916.indreb.common.block.impl.machines.recycler.BlockEntityRecycler;
 import com.maciej916.indreb.common.block.impl.machines.recycler.ContainerRecycler;
@@ -26,12 +29,14 @@ import com.maciej916.indreb.common.block.impl.machines.recycler.ScreenRecycler;
 import com.maciej916.indreb.common.block.impl.machines.sawmill.BlockEntitySawmill;
 import com.maciej916.indreb.common.block.impl.machines.sawmill.ContainerSawmill;
 import com.maciej916.indreb.common.block.impl.machines.sawmill.ScreenSawmill;
+import com.maciej916.indreb.common.item.FluidCell;
 import com.maciej916.indreb.common.registries.ModBlocks;
 import com.maciej916.indreb.common.registries.ModItems;
 import com.maciej916.indreb.common.registries.ModRecipeType;
 import com.maciej916.indreb.common.screen.GuiHandler;
 import com.maciej916.indreb.common.screen.PanelScreen;
 import com.maciej916.indreb.common.util.RecipeUtil;
+import com.maciej916.indreb.datagen.recipes.machines.FluidEnriching;
 import com.maciej916.indreb.integration.jei.category.impl.*;
 import mezz.jei.api.IModPlugin;
 import mezz.jei.api.JeiPlugin;
@@ -73,6 +78,7 @@ public class JEIPlugin implements IModPlugin {
         registration.addRecipeCatalyst(new ItemStack(ModBlocks.ALLOY_SMELTER), AlloySmeltingCategory.UID);
         registration.addRecipeCatalyst(new ItemStack(ModBlocks.RECYCLER), RecyclingCategory.UID);
         registration.addRecipeCatalyst(new ItemStack(ModBlocks.CANNING_MACHINE), CanningCategory.UID);
+        registration.addRecipeCatalyst(new ItemStack(ModBlocks.FLUID_ENRICHER), FluidEnrichingCategory.UID);
     }
 
     @Override
@@ -88,6 +94,7 @@ public class JEIPlugin implements IModPlugin {
         registration.addRecipeCategories(new AlloySmeltingCategory(ScreenHelper));
         registration.addRecipeCategories(new RecyclingCategory(ScreenHelper));
         registration.addRecipeCategories(new CanningCategory(ScreenHelper));
+        registration.addRecipeCategories(new FluidEnrichingCategory(ScreenHelper));
 
         registration.addRecipeCategories(new ScrapBoxCategory(ScreenHelper));
     }
@@ -107,6 +114,7 @@ public class JEIPlugin implements IModPlugin {
         registration.addRecipes(RecipeUtil.getRecipes(recipeManager, ModRecipeType.ALLOY_SMELTING), AlloySmeltingCategory.UID);
         registration.addRecipes(RecipeUtil.getRecipes(recipeManager, ModRecipeType.RECYCLING), RecyclingCategory.UID);
         registration.addRecipes(RecipeUtil.getRecipes(recipeManager, ModRecipeType.CANNING), CanningCategory.UID);
+        registration.addRecipes(RecipeUtil.getRecipes(recipeManager, ModRecipeType.FLUID_ENRICHING), FluidEnrichingCategory.UID);
 
         registration.addRecipes(RecipeUtil.getRecipes(recipeManager, ModRecipeType.SCRAP_BOX), ScrapBoxCategory.UID);
 
@@ -128,6 +136,7 @@ public class JEIPlugin implements IModPlugin {
         registration.addRecipeClickArea(ScreenAlloySmelter.class, 82, 33, 24, 16, AlloySmeltingCategory.UID);
         registration.addRecipeClickArea(ScreenRecycler.class, 71, 35, 24, 16, RecyclingCategory.UID);
         registration.addRecipeClickArea(ScreenCanningMachine.class, 76, 35, 24, 16, CanningCategory.UID);
+        registration.addRecipeClickArea(ScreenFluidEnricher.class, 76, 35, 24, 16, FluidEnrichingCategory.UID);
 
     }
 
@@ -140,10 +149,12 @@ public class JEIPlugin implements IModPlugin {
         registration.addRecipeTransferHandler(ContainerAlloySmelter.class, AlloySmeltingCategory.UID, BlockEntityAlloySmelter.INPUT_SLOT_0, 3, 0, 37);
         registration.addRecipeTransferHandler(ContainerRecycler.class, RecyclingCategory.UID, BlockEntityRecycler.INPUT_SLOT, 1, 1, 37);
         registration.addRecipeTransferHandler(ContainerCanningMachine.class, CanningCategory.UID, BlockEntityCanningMachine.INPUT_SLOT_0, 2, 1, 37);
+        registration.addRecipeTransferHandler(ContainerFluidEnricher.class, FluidEnrichingCategory.UID, BlockEntityFluidEnricher.INPUT_SLOT, 1, 1, 37);
     }
 
     @Override
     public void registerItemSubtypes(ISubtypeRegistration registration) {
+        registration.useNbtForSubtypes(ModItems.FLUID_CELL);
 
         registration.useNbtForSubtypes(ModItems.ELECTRIC_HOE);
         registration.useNbtForSubtypes(ModItems.ELECTRIC_WRENCH);

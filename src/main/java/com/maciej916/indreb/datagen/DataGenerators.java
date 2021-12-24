@@ -58,6 +58,7 @@ public class DataGenerators {
             generator.addProvider(new Recycling(generator));
             generator.addProvider(new ScrapBox(generator));
             generator.addProvider(new Canning(generator));
+            generator.addProvider(new FluidEnriching(generator));
 
 
             generator.addProvider(new LootTables(generator));

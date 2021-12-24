@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "indreb:crushing/bio/saplings"
+    ]
+  },
+  "criteria": {
+    "oak_sapling": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:oak_sapling"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "indreb:crushing/bio/saplings"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "oak_sapling",
+      "has_the_recipe"
+    ]
+  ]
+}

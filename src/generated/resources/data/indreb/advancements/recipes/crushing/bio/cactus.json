@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "indreb:crushing/bio/cactus"
+    ]
+  },
+  "criteria": {
+    "cactus": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:cactus"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "indreb:crushing/bio/cactus"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "cactus",
+      "has_the_recipe"
+    ]
+  ]
+}

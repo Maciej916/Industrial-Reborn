@@ -1,6 +1,7 @@
 package com.maciej916.indreb.common.registries;
 
 import com.maciej916.indreb.common.receipe.impl.*;
+import com.maciej916.indreb.datagen.recipes.machines.FluidEnriching;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.item.crafting.RecipeSerializer;
@@ -22,6 +23,7 @@ public final class ModRecipeSerializer {
     public static RecipeSerializer<AlloySmeltingRecipe> ALLOY_SMELTING;
     public static RecipeSerializer<RecyclingRecipe> RECYCLING;
     public static RecipeSerializer<CanningRecipe> CANNING;
+    public static RecipeSerializer<FluidEnrichingRecipe> FLUID_ENRICHING;
 
     public static RecipeSerializer<ScrapBoxRecipe> SCRAP_BOX;
 
@@ -36,6 +38,7 @@ public final class ModRecipeSerializer {
         ALLOY_SMELTING = registerRecipeSerializer("alloy_smelting", AlloySmeltingRecipe.SERIALIZER);
         RECYCLING = registerRecipeSerializer("recycling", RecyclingRecipe.SERIALIZER);
         CANNING = registerRecipeSerializer("canning", CanningRecipe.SERIALIZER);
+        FLUID_ENRICHING = registerRecipeSerializer("fluid_enriching", FluidEnrichingRecipe.SERIALIZER);
 
         SCRAP_BOX = registerRecipeSerializer("scrap_box", ScrapBoxRecipe.SERIALIZER);
     }

@@ -1,0 +1,60 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "indreb:item/reinforced_foam_powder"
+    ]
+  },
+  "criteria": {
+    "deepslate_dust": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:deepslate_dust"
+            ]
+          }
+        ]
+      }
+    },
+    "sand": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:sand"
+            ]
+          }
+        ]
+      }
+    },
+    "clay": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:clay"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "indreb:item/reinforced_foam_powder"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "deepslate_dust",
+      "sand",
+      "clay",
+      "has_the_recipe"
+    ]
+  ]
+}

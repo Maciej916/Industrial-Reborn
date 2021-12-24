@@ -1,0 +1,18 @@
+{
+  "type": "indreb:fluid_enriching",
+  "ingredient": {
+    "item": "indreb:foam_powder",
+    "count": 1
+  },
+  "fluid_ingredient": {
+    "fluid": "minecraft:water",
+    "amount": 1000
+  },
+  "result": {
+    "fluid": "indreb:construction_foam",
+    "amount": 1000
+  },
+  "experience": 3.5,
+  "duration": 180,
+  "power_cost": 8
+}

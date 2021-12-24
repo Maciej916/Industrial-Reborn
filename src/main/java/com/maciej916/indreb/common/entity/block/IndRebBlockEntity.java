@@ -369,16 +369,10 @@ public class IndRebBlockEntity extends BlockEntity implements IHasSlot {
         return itemHandlers.size() + batteryHandlers.size() + upgradeHandlers.size();
     }
 
-
-
-
-
-
-
-
-
-
-
+    public int getRedstonePower() {
+        if (level == null) return 0;
+        return level.getDirectSignalTo(getBlockPos());
+    }
 
     public int getCooldown() {
         return cooldown;

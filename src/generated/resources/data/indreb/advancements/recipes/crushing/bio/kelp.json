@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "indreb:crushing/bio/kelp"
+    ]
+  },
+  "criteria": {
+    "cactus": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:kelp"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "indreb:crushing/bio/kelp"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "cactus",
+      "has_the_recipe"
+    ]
+  ]
+}

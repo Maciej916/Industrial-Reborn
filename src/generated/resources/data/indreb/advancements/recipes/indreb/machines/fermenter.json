@@ -1,0 +1,73 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "indreb:machines/fermenter"
+    ]
+  },
+  "criteria": {
+    "tin_plate": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:tin_plate"
+            ]
+          }
+        ]
+      }
+    },
+    "basic_machine_casing": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:basic_machine_casing"
+            ]
+          }
+        ]
+      }
+    },
+    "fluid_cell": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:fluid_cell"
+            ]
+          }
+        ]
+      }
+    },
+    "heat_conductor": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:heat_conductor"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "indreb:machines/fermenter"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "tin_plate",
+      "basic_machine_casing",
+      "fluid_cell",
+      "heat_conductor",
+      "has_the_recipe"
+    ]
+  ]
+}

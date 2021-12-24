@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "indreb:block/machines/fermenter_bottom",
+    "up": "indreb:block/machines/fermenter_top",
+    "north": "indreb:block/machines/fermenter_front",
+    "south": "indreb:block/machines/fermenter_back",
+    "east": "indreb:block/machines/fermenter_leftright",
+    "west": "indreb:block/machines/fermenter_leftright",
+    "particle": "indreb:block/machines/fermenter_front"
+  }
+}

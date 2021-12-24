@@ -9,7 +9,9 @@ import com.maciej916.indreb.common.block.impl.cf.*;
 import com.maciej916.indreb.common.block.impl.generators.crystalline_generator.BlockCrystallineGenerator;
 import com.maciej916.indreb.common.block.impl.generators.generator.BlockGenerator;
 import com.maciej916.indreb.common.block.impl.generators.geo_generator.BlockGeoGenerator;
+import com.maciej916.indreb.common.block.impl.generators.semifluid_generator.BlockSemifluidGenerator;
 import com.maciej916.indreb.common.block.impl.generators.solar_panels.BlockSolarGenerator;
+import com.maciej916.indreb.common.block.impl.luminator.BlockLuminator;
 import com.maciej916.indreb.common.block.impl.machines.alloy_smelter.BlockAlloySmelter;
 import com.maciej916.indreb.common.block.impl.machines.canning_machine.BlockCanningMachine;
 import com.maciej916.indreb.common.block.impl.machines.compressor.BlockCompressor;
@@ -17,6 +19,7 @@ import com.maciej916.indreb.common.block.impl.machines.crusher.BlockCrusher;
 import com.maciej916.indreb.common.block.impl.machines.electric_furnace.BlockElectricFurnace;
 import com.maciej916.indreb.common.block.impl.machines.extractor.BlockExtractor;
 import com.maciej916.indreb.common.block.impl.machines.extruder.BlockExtruder;
+import com.maciej916.indreb.common.block.impl.machines.fermenter.BlockFermenter;
 import com.maciej916.indreb.common.block.impl.machines.fluid_enricher.BlockFluidEnricher;
 import com.maciej916.indreb.common.block.impl.machines.iron_furnace.BlockIronFurnace;
 import com.maciej916.indreb.common.block.impl.machines.recycler.BlockRecycler;
@@ -54,6 +57,7 @@ public final class ModBlocks {
     public static BlockItem QUANTUM_SOLAR_GENERATOR;
     public static BlockItem GEO_GENERATOR;
     public static BlockItem CRYSTALLINE_GENERATOR;
+    public static BlockItem SEMIFLUID_GENERATOR;
 
     public static BlockItem BATTERY_BOX;
     public static BlockItem CESU;
@@ -71,8 +75,8 @@ public final class ModBlocks {
     public static BlockItem CANNING_MACHINE;
     public static BlockItem FLUID_ENRICHER;
     public static BlockItem RECYCLER;
-
     public static BlockItem ALLOY_SMELTER;
+    public static BlockItem FERMENTER;
 
     public static BlockItem COPPER_CABLE;
     public static BlockItem COPPER_CABLE_INSULATED;
@@ -147,6 +151,7 @@ public final class ModBlocks {
         QUANTUM_SOLAR_GENERATOR = registerBlock(new BlockSolarGenerator(SolarGeneratorTier.QUANTUM), "quantum_solar_generator");
         GEO_GENERATOR = registerBlock(new BlockItemElectric(new BlockGeoGenerator()), "geo_generator");
         CRYSTALLINE_GENERATOR = registerBlock(new BlockItemElectric(new BlockCrystallineGenerator()), "crystalline_generator");
+        SEMIFLUID_GENERATOR = registerBlock(new BlockItemElectric(new BlockSemifluidGenerator()), "semifluid_generator");
 
         BATTERY_BOX = registerBlock(new BlockItemElectric(new BlockBatteryBox(BatteryBoxTier.BASIC, BlockBehaviour.Properties.of(Material.WOOD).strength(1f, 3f).sound(SoundType.WOOD))), "battery_box");
         CESU = registerBlock(new BlockItemElectric(new BlockBatteryBox(BatteryBoxTier.STANDARD, BlockBehaviour.Properties.of(Material.METAL).strength(1f, 3f).sound(SoundType.METAL))), "cesu");
@@ -164,8 +169,8 @@ public final class ModBlocks {
         CANNING_MACHINE = registerBlock(new BlockItemElectric(new BlockCanningMachine()), "canning_machine");
         FLUID_ENRICHER = registerBlock(new BlockItemElectric(new BlockFluidEnricher()), "fluid_enricher");
         RECYCLER = registerBlock(new BlockItemElectric(new BlockRecycler()), "recycler");
-
         ALLOY_SMELTER = registerBlock(new BlockItemElectric(new BlockAlloySmelter()), "alloy_smelter");
+        FERMENTER = registerBlock(new BlockItemElectric(new BlockFermenter()), "fermenter");
 
         TIN_CABLE = registerBlock(new BlockCable(0.127F, CableTier.TIN_CABLE), "tin_cable");
         TIN_CABLE_INSULATED = registerBlock(new BlockCable(0.189F, CableTier.TIN_CABLE_INSULATED), "tin_cable_insulated");
@@ -226,7 +231,7 @@ public final class ModBlocks {
         IRON_SCAFFOLDING = registerBlock(new ItemIronScaffolding(new BlockIronScaffolding()), "iron_scaffolding");
         IRON_FENCE = registerBlock(new BlockIronFence(), "iron_fence");
 
-        LUMINATOR = registerBlock(new BlockWIP(), "luminator");
+        LUMINATOR = registerBlock(new BlockLuminator(), "luminator");
 
     }
 

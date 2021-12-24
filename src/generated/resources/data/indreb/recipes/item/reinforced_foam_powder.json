@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "indreb",
+  "pattern": [
+    "dsd",
+    "dcd",
+    "dsd"
+  ],
+  "key": {
+    "d": {
+      "item": "indreb:deepslate_dust"
+    },
+    "s": {
+      "item": "minecraft:sand"
+    },
+    "c": {
+      "item": "minecraft:clay_ball"
+    }
+  },
+  "result": {
+    "item": "indreb:reinforced_foam_powder"
+  }
+}

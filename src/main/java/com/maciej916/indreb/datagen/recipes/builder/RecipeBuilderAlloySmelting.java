@@ -42,7 +42,7 @@ public class RecipeBuilderAlloySmelting {
     }
 
     public static RecipeBuilderAlloySmelting builder(ItemLike item, int resultCount) {
-        return new RecipeBuilderAlloySmelting(new ItemStack(item, resultCount), 280, 16, 0);
+        return new RecipeBuilderAlloySmelting(new ItemStack(item, resultCount), 560, 16, 0);
     }
 
     public RecipeBuilderAlloySmelting addIngredient(Ingredient ingredient, int count) {

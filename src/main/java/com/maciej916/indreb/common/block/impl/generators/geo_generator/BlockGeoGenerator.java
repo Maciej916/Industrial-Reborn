@@ -1,14 +1,16 @@
 package com.maciej916.indreb.common.block.impl.generators.geo_generator;
 
 import com.maciej916.indreb.common.block.BlockElectricMachine;
+import com.maciej916.indreb.common.block.impl.generators.semifluid_generator.BlockEntitySemifluidGenerator;
 import com.maciej916.indreb.common.block.impl.machines.extruder.BlockEntityExtruder;
 import com.maciej916.indreb.common.config.ServerConfig;
 import com.maciej916.indreb.common.enums.EnergyTier;
 import com.maciej916.indreb.common.enums.EnumLang;
+import com.maciej916.indreb.common.fluids.Biogas;
 import com.maciej916.indreb.common.interfaces.block.IHasContainer;
 import com.maciej916.indreb.common.interfaces.block.IStateActive;
 import com.maciej916.indreb.common.interfaces.block.IStateFacing;
-import com.maciej916.indreb.common.registries.Config;
+import com.maciej916.indreb.common.util.CapabilityUtil;
 import com.maciej916.indreb.common.util.TextComponentUtil;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
@@ -31,6 +33,8 @@ import net.minecraft.world.level.material.Fluid;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraftforge.fluids.FluidStack;
+import net.minecraftforge.fluids.capability.CapabilityFluidHandler;
+import net.minecraftforge.fluids.capability.IFluidHandlerItem;
 
 import javax.annotation.Nullable;
 import java.util.List;
@@ -74,24 +78,26 @@ public class BlockGeoGenerator extends BlockElectricMachine implements IStateFac
         if (!level.isClientSide) {
             if (!player.isShiftKeyDown()) {
                 BlockEntity blockEntity = level.getBlockEntity(pos);
-                if (blockEntity instanceof BlockEntityExtruder be) {
-                    ItemStack heldStack = player.getItemInHand(hand);
-                    if (heldStack.getItem() instanceof BucketItem bi) {
-                        Fluid bucketFluid = bi.getFluid();
-                        FluidStack fluidStack = new FluidStack(bucketFluid, 1000);
-
-                        Fluid lava = be.lavaStorage.getFluid().getFluid();
-                        if (be.lavaStorage.fillFluid(fluidStack, true) == 1000 && bucketFluid == Fluids.LAVA && (lava == Fluids.LAVA || lava == Fluids.EMPTY)) {
-                            be.lavaStorage.fillFluid(fluidStack, false);
-                            if (!player.isCreative()) {
-                                ItemStack stack = new ItemStack(bi.getFluid().getBucket());
-                                player.setItemInHand(hand, stack);
+                if (blockEntity instanceof BlockEntityGeoGenerator be) {
+                    ItemStack stack = player.getItemInHand(hand);
+                    if (!stack.isEmpty()) {
+                        IFluidHandlerItem cap = CapabilityUtil.getCapabilityHelper(stack, CapabilityFluidHandler.FLUID_HANDLER_ITEM_CAPABILITY).getValue();
+                        if (cap != null) {
+                            FluidStack fluid = cap.getFluidInTank(1);
+                            if (fluid.getFluid() == Fluids.LAVA) {
+                                if (be.fluidStorage.fillFluid(fluid, true) == fluid.getAmount()) {
+                                    be.fluidStorage.fillFluid(fluid, false);
+                                    if (stack.getItem() instanceof BucketItem) {
+                                        player.addItem(new ItemStack(Items.BUCKET));
+                                    } else {
+                                        player.addItem(new ItemStack(stack.getItem()));
+                                    }
+                                    stack.shrink(1);
+                                    return InteractionResult.PASS;
+                                }
                             }
-                            be.updateBlockState();
-                            return InteractionResult.PASS;
                         }
                     }
-
                 }
             }
         }

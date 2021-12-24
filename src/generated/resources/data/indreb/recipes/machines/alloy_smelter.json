@@ -3,7 +3,8 @@
   "group": "indreb",
   "pattern": [
     " e ",
-    "fbf"
+    "fbf",
+    " h "
   ],
   "key": {
     "f": {
@@ -14,6 +15,9 @@
     },
     "b": {
       "item": "indreb:basic_machine_casing"
+    },
+    "h": {
+      "item": "indreb:heat_conductor"
     }
   },
   "result": {

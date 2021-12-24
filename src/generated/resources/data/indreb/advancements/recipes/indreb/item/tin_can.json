@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "indreb:item/tin_can"
+    ]
+  },
+  "criteria": {
+    "tin_plate": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:tin_plate"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "indreb:item/tin_can"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "tin_plate",
+      "has_the_recipe"
+    ]
+  ]
+}

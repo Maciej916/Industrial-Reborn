@@ -6,6 +6,7 @@ import com.maciej916.indreb.common.interfaces.screen.IGuiWrapper;
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.TranslatableComponent;
 
 import static com.maciej916.indreb.IndReb.MODID;
@@ -17,11 +18,10 @@ public class GuiExpButton extends GuiButton {
     }
 
     @Override
-    public void renderToolTip(PoseStack pPoseStack, int pMouseX, int pMouseY) {
-
-        Minecraft.getInstance().screen.renderTooltip(pPoseStack, new TranslatableComponent("gui." + MODID + ".collect_exp"), pMouseX, pMouseY);
-
-        super.renderToolTip(pPoseStack, pMouseX, pMouseY);
+    public void renderWidgetToolTip(Screen screen, PoseStack pPoseStack, int pMouseX, int pMouseY) {
+        if (isHoveredOrFocused()) {
+            screen.renderTooltip(pPoseStack, new TranslatableComponent("gui." + MODID + ".collect_exp"), pMouseX, pMouseY);
+        }
     }
 
     @Override

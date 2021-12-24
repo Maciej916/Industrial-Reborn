@@ -190,6 +190,71 @@ public class Item extends RecipeProvider {
                 .group(MODID)
                 .unlockedBy("scrap", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.SCRAP))
                 .save(consumer, saveResource("scrap_box"));
+
+
+
+
+        ShapedRecipeBuilder.shaped(ModItems.FOAM_POWDER, 1)
+                .pattern("dsd")
+                .pattern("dcd")
+                .pattern("dsd")
+                .define('d', ModItems.STONE_DUST)
+                .define('s', Items.SAND)
+                .define('c', Items.CLAY_BALL)
+                .group(MODID)
+                .unlockedBy("stone_dust", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.STONE_DUST))
+                .unlockedBy("sand", InventoryChangeTrigger.TriggerInstance.hasItems(Items.SAND))
+                .unlockedBy("clay", InventoryChangeTrigger.TriggerInstance.hasItems(Items.CLAY))
+                .save(consumer, saveResource("foam_powder"));
+
+        ShapedRecipeBuilder.shaped(ModItems.REINFORCED_FOAM_POWDER, 1)
+                .pattern("dsd")
+                .pattern("dcd")
+                .pattern("dsd")
+                .define('d', ModItems.DEEPSLATE_DUST)
+                .define('s', Items.SAND)
+                .define('c', Items.CLAY_BALL)
+                .group(MODID)
+                .unlockedBy("deepslate_dust", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.DEEPSLATE_DUST))
+                .unlockedBy("sand", InventoryChangeTrigger.TriggerInstance.hasItems(Items.SAND))
+                .unlockedBy("clay", InventoryChangeTrigger.TriggerInstance.hasItems(Items.CLAY))
+                .save(consumer, saveResource("reinforced_foam_powder"));
+
+        ShapedRecipeBuilder.shaped(ModItems.TIN_CAN, 4)
+                .pattern("t t")
+                .pattern("ttt")
+                .define('t', ModItems.TIN_PLATE)
+                .group(MODID)
+                .unlockedBy("tin_plate", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.TIN_PLATE))
+                .save(consumer, saveResource("tin_can"));
+
+
+        ShapedRecipeBuilder.shaped(ModItems.HEAT_CONDUCTOR, 1)
+                .pattern("rcr")
+                .pattern("rcr")
+                .pattern("rcr")
+                .define('r', ModItems.RUBBER)
+                .define('c', ModItems.COPPER_PLATE)
+                .group(MODID)
+                .unlockedBy("rubber", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.RUBBER))
+                .unlockedBy("copper_plate", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.COPPER_PLATE))
+                .save(consumer, saveResource("heat_conductor"));
+
+        ShapelessRecipeBuilder.shapeless(ModItems.FERTILIZER, 1)
+                .requires(ModItems.SCRAP)
+                .requires(Items.BONE_MEAL)
+                .group(MODID)
+                .unlockedBy("scrap", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.SCRAP))
+                .unlockedBy("bone_meal", InventoryChangeTrigger.TriggerInstance.hasItems(Items.BONE_MEAL))
+                .save(consumer, saveResource("fertilizer"));
+
+
+
+
+
+
+
+
     }
 
 }

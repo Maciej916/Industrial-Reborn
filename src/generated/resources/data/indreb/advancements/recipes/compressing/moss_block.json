@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "indreb:compressing/moss_block"
+    ]
+  },
+  "criteria": {
+    "iridium": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:bio_chaff"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "indreb:compressing/moss_block"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "iridium",
+      "has_the_recipe"
+    ]
+  ]
+}

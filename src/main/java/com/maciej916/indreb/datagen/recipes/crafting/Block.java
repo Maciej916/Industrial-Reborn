@@ -162,35 +162,6 @@ public class Block extends RecipeProvider {
                 .unlockedBy("glass", InventoryChangeTrigger.TriggerInstance.hasItems(Items.GLASS))
                 .save(consumer, saveResource("reinforced_glass"));
 
-
-        ShapedRecipeBuilder.shaped(ModBlocks.CONSTRUCTION_FOAM, 9)
-                .pattern("dsd")
-                .pattern("dcd")
-                .pattern("dsd")
-                .define('d', ModItems.STONE_DUST)
-                .define('s', Items.SAND)
-                .define('c', Items.CLAY_BALL)
-                .group(MODID)
-                .unlockedBy("stone_dust", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.STONE_DUST))
-                .unlockedBy("sand", InventoryChangeTrigger.TriggerInstance.hasItems(Items.SAND))
-                .unlockedBy("clay", InventoryChangeTrigger.TriggerInstance.hasItems(Items.CLAY))
-                .save(consumer, saveResource("construction_foam"));
-
-
-        ShapedRecipeBuilder.shaped(ModBlocks.REINFORCED_CONSTRUCTION_FOAM, 9)
-                .pattern("dsd")
-                .pattern("dcd")
-                .pattern("dsd")
-                .define('d', ModItems.DEEPSLATE_DUST)
-                .define('s', Items.SAND)
-                .define('c', Items.CLAY_BALL)
-                .group(MODID)
-                .unlockedBy("deepslate_dust", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.DEEPSLATE_DUST))
-                .unlockedBy("sand", InventoryChangeTrigger.TriggerInstance.hasItems(Items.SAND))
-                .unlockedBy("clay", InventoryChangeTrigger.TriggerInstance.hasItems(Items.CLAY))
-                .save(consumer, saveResource("reinforced_construction_foam"));
-
-
         ShapedRecipeBuilder.shaped(ModBlocks.LUMINATOR, 8)
                 .pattern("pcp")
                 .pattern("gug")

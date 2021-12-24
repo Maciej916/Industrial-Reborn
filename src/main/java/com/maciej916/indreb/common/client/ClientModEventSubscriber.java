@@ -5,6 +5,7 @@ import com.maciej916.indreb.common.block.impl.battery_box.ScreenBatteryBox;
 import com.maciej916.indreb.common.block.impl.generators.crystalline_generator.ScreenCrystallineGenerator;
 import com.maciej916.indreb.common.block.impl.generators.generator.ScreenGenerator;
 import com.maciej916.indreb.common.block.impl.generators.geo_generator.ScreenGeoGenerator;
+import com.maciej916.indreb.common.block.impl.generators.semifluid_generator.ScreenSemifluidGenerator;
 import com.maciej916.indreb.common.block.impl.generators.solar_panels.ScreenSolarGenerator;
 import com.maciej916.indreb.common.block.impl.machines.alloy_smelter.ScreenAlloySmelter;
 import com.maciej916.indreb.common.block.impl.machines.canning_machine.ScreenCanningMachine;
@@ -13,6 +14,7 @@ import com.maciej916.indreb.common.block.impl.machines.crusher.ScreenCrusher;
 import com.maciej916.indreb.common.block.impl.machines.electric_furnace.ScreenElectricFurnace;
 import com.maciej916.indreb.common.block.impl.machines.extractor.ScreenExtractor;
 import com.maciej916.indreb.common.block.impl.machines.extruder.ScreenExtruder;
+import com.maciej916.indreb.common.block.impl.machines.fermenter.ScreenFermenter;
 import com.maciej916.indreb.common.block.impl.machines.fluid_enricher.ScreenFluidEnricher;
 import com.maciej916.indreb.common.block.impl.machines.iron_furnace.ScreenIronFurnace;
 import com.maciej916.indreb.common.block.impl.machines.recycler.ScreenRecycler;
@@ -51,6 +53,7 @@ public final class ClientModEventSubscriber {
 			MenuScreens.register(ModContainers.SOLAR_GENERATOR, ScreenSolarGenerator::new);
 			MenuScreens.register(ModContainers.GEO_GENERATOR, ScreenGeoGenerator::new);
 			MenuScreens.register(ModContainers.CRYSTALLINE_GENERATOR, ScreenCrystallineGenerator::new);
+			MenuScreens.register(ModContainers.SEMIFLUID_GENERATOR, ScreenSemifluidGenerator::new);
 
 			MenuScreens.register(ModContainers.BATTERY_BOX, ScreenBatteryBox::new);
 
@@ -65,8 +68,8 @@ public final class ClientModEventSubscriber {
 			MenuScreens.register(ModContainers.CANNING_MACHINE, ScreenCanningMachine::new);
 			MenuScreens.register(ModContainers.FLUID_ENRICHER, ScreenFluidEnricher::new);
 			MenuScreens.register(ModContainers.RECYCLER, ScreenRecycler::new);
-
 			MenuScreens.register(ModContainers.ALLOY_SMELTER, ScreenAlloySmelter::new);
+			MenuScreens.register(ModContainers.FERMENTER, ScreenFermenter::new);
 
 
 			ItemBlockRenderTypes.setRenderLayer(ModBlocks.GLASS_FIBRE_CABLE.getBlock(), RenderType.translucent());

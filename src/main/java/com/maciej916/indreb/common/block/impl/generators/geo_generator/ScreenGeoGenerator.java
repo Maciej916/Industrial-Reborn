@@ -2,8 +2,8 @@ package com.maciej916.indreb.common.block.impl.generators.geo_generator;
 
 import com.maciej916.indreb.IndReb;
 import com.maciej916.indreb.common.screen.BetterScreen;
-import com.maciej916.indreb.common.screen.bar.GuiFluidBarVertical;
-import com.maciej916.indreb.common.screen.progress.GuiProgressArrow;
+import com.maciej916.indreb.common.screen.bar.GuiFluidBarVerticalLarge;
+import com.maciej916.indreb.common.screen.progress.GuiProgressFill;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
@@ -18,8 +18,10 @@ public class ScreenGeoGenerator extends BetterScreen<ContainerGeoGenerator> {
     public void init() {
         super.init();
 
-        addRenderableOnlyComponent(new GuiProgressArrow(this, 71, 35, ((BlockEntityGeoGenerator) getBlockEntity()).fill));
-        addRenderableOnlyComponent(new GuiFluidBarVertical(this, 7, 18, ((BlockEntityGeoGenerator) getBlockEntity()).lavaStorage));
+        BlockEntityGeoGenerator be = (BlockEntityGeoGenerator) getBlockEntity();
+
+        addRenderableOnlyComponent(new GuiProgressFill(this, 62, 40, be.progressFill));
+        addRenderableOnlyComponent(new GuiFluidBarVerticalLarge(this, 80, 19, be.fluidStorage));
 
         drawComponents(true);
     }

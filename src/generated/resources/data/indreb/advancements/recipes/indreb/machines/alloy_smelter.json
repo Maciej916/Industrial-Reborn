@@ -42,6 +42,18 @@
         ]
       }
     },
+    "heat_conductor": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:heat_conductor"
+            ]
+          }
+        ]
+      }
+    },
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
@@ -54,6 +66,7 @@
       "electric_furnace",
       "basic_machine_casing",
       "advanced_circuit",
+      "heat_conductor",
       "has_the_recipe"
     ]
   ]

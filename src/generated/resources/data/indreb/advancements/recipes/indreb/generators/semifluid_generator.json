@@ -1,0 +1,60 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "indreb:generators/semifluid_generator"
+    ]
+  },
+  "criteria": {
+    "geo_generator": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:geo_generator"
+            ]
+          }
+        ]
+      }
+    },
+    "fluid_cell": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:fluid_cell"
+            ]
+          }
+        ]
+      }
+    },
+    "iron_plate": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:iron_plate"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "indreb:generators/semifluid_generator"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "geo_generator",
+      "fluid_cell",
+      "iron_plate",
+      "has_the_recipe"
+    ]
+  ]
+}

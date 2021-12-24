@@ -1,0 +1,73 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "indreb:machines/fluid_enricher"
+    ]
+  },
+  "criteria": {
+    "tin_plate": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:tin_plate"
+            ]
+          }
+        ]
+      }
+    },
+    "basic_machine_casing": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:basic_machine_casing"
+            ]
+          }
+        ]
+      }
+    },
+    "electronic_circuit": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:electronic_circuit"
+            ]
+          }
+        ]
+      }
+    },
+    "fluid_cell": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:fluid_cell"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "indreb:machines/fluid_enricher"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "tin_plate",
+      "basic_machine_casing",
+      "electronic_circuit",
+      "fluid_cell",
+      "has_the_recipe"
+    ]
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "indreb:item/fertilizer"
+    ]
+  },
+  "criteria": {
+    "scrap": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:scrap"
+            ]
+          }
+        ]
+      }
+    },
+    "bone_meal": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:bone_meal"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "indreb:item/fertilizer"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "scrap",
+      "bone_meal",
+      "has_the_recipe"
+    ]
+  ]
+}

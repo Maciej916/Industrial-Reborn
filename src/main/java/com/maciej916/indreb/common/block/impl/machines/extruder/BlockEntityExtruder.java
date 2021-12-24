@@ -31,11 +31,9 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.util.LazyOptional;
-import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fluids.capability.CapabilityFluidHandler;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.wrapper.RangedWrapper;
-import org.apache.logging.log4j.core.jmx.Server;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -55,7 +53,7 @@ public class BlockEntityExtruder extends IndRebBlockEntity implements IEnergyBlo
     protected int cachedLava = 0;
 
     public FluidStorage waterStorage = new FluidStorage(8000, p -> p.getFluid() == Fluids.WATER);
-    public FluidStorage lavaStorage = new FluidStorage(8000, p -> p.getFluid() == Fluids.LAVA);
+    public FluidStorage fluidStorage = new FluidStorage(8000, p -> p.getFluid() == Fluids.LAVA);
     public BlockEntityProgress progress = new BlockEntityProgress();
 
     protected int recipeIndex = 0;
@@ -136,9 +134,9 @@ public class BlockEntityExtruder extends IndRebBlockEntity implements IEnergyBlo
             initRecipes();
         }
 
-        if (cachedWater != waterStorage.getFluid().getAmount() || cachedLava != lavaStorage.getFluid().getAmount()) {
+        if (cachedWater != waterStorage.getFluid().getAmount() || cachedLava != fluidStorage.getFluid().getAmount()) {
             this.cachedWater = waterStorage.getFluid().getAmount();
-            this.cachedLava = lavaStorage.getFluid().getAmount();
+            this.cachedLava = fluidStorage.getFluid().getAmount();
             this.updateBlockState();
         }
 
@@ -155,9 +153,9 @@ public class BlockEntityExtruder extends IndRebBlockEntity implements IEnergyBlo
                 recipe.getResultItem().getCount() + outputStack.getCount() <= outputStack.getMaxStackSize() &&
                 (outputStack.isEmpty() || outputStack.getItem() == recipe.getResultItem().getItem()) &&
                 !waterStorage.getFluid().isEmpty() &&
-                !lavaStorage.getFluid().isEmpty() &&
-                lavaStorage.takeFluid(recipe.getWaterCost(), true) == recipe.getWaterCost() &&
-                lavaStorage.takeFluid(recipe.getLavaCost(), true) == recipe.getLavaCost()
+                !fluidStorage.getFluid().isEmpty() &&
+                fluidStorage.takeFluid(recipe.getWaterCost(), true) == recipe.getWaterCost() &&
+                fluidStorage.takeFluid(recipe.getLavaCost(), true) == recipe.getLavaCost()
         ) {
 
                 if (progress.getProgress() == -1) {
@@ -174,7 +172,7 @@ public class BlockEntityExtruder extends IndRebBlockEntity implements IEnergyBlo
             this.setRecipeUsed(recipe);
 
             if (recipe.getWaterCost() > 0) waterStorage.takeFluid(recipe.getWaterCost(), false);
-            if (recipe.getLavaCost() > 0) lavaStorage.takeFluid(recipe.getLavaCost(), false);
+            if (recipe.getLavaCost() > 0) fluidStorage.takeFluid(recipe.getLavaCost(), false);
 
             if (outputStack.isEmpty()) {
                 getStackHandler().setStackInSlot(OUTPUT_SLOT, recipe.getResultItem().copy());
@@ -196,7 +194,7 @@ public class BlockEntityExtruder extends IndRebBlockEntity implements IEnergyBlo
         this.cachedWater = tag.getInt("cachedWater");
         this.cachedLava = tag.getInt("cachedLava");
 
-        this.lavaStorage.readFromNBT(tag.getCompound("lava_storage"));
+        this.fluidStorage.readFromNBT(tag.getCompound("lava_storage"));
         this.waterStorage.readFromNBT(tag.getCompound("water_storage"));
         this.active = tag.getBoolean("active");
         this.progress.deserializeNBT(tag.getCompound("progress"));
@@ -207,7 +205,7 @@ public class BlockEntityExtruder extends IndRebBlockEntity implements IEnergyBlo
         tag.putInt("cachedWater", cachedWater);
         tag.putInt("cachedLava", cachedLava);
 
-        tag.put("lava_storage", this.lavaStorage.writeToNBT(tag.getCompound("lava_storage")));
+        tag.put("lava_storage", this.fluidStorage.writeToNBT(tag.getCompound("lava_storage")));
         tag.put("water_storage", this.waterStorage.writeToNBT(tag.getCompound("water_storage")));
         tag.putBoolean("active", active);
         tag.put("progress", this.progress.serializeNBT());
@@ -229,7 +227,7 @@ public class BlockEntityExtruder extends IndRebBlockEntity implements IEnergyBlo
             LazyOptional.of(() -> new RangedWrapper(getStackHandler(), INPUT_SLOT, INPUT_SLOT + 1)),
             LazyOptional.of(() -> new RangedWrapper(getStackHandler(), OUTPUT_SLOT, OUTPUT_SLOT + 1)),
             LazyOptional.of(() -> this.waterStorage),
-            LazyOptional.of(() -> this.lavaStorage)
+            LazyOptional.of(() -> this.fluidStorage)
     ));
 
     @Nonnull

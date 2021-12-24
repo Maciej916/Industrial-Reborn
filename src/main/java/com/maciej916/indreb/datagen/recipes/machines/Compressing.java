@@ -3,6 +3,7 @@ package com.maciej916.indreb.datagen.recipes.machines;
 import com.maciej916.indreb.common.registries.ModBlocks;
 import com.maciej916.indreb.common.registries.ModItems;
 import com.maciej916.indreb.datagen.recipes.builder.RecipeBuilderCompressing;
+import com.maciej916.indreb.datagen.recipes.builder.RecipeBuilderCrushing;
 import com.maciej916.indreb.datagen.recipes.builder.RecipeBuilderExtracting;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.data.DataGenerator;
@@ -248,6 +249,13 @@ public class Compressing extends RecipeProvider {
                 .setExperience(1F)
                 .setGroup("compressing")
                 .save(consumer,"iridium");
+
+        RecipeBuilderCompressing.builder(Items.MOSS_BLOCK,1)
+                .setIngredient(Ingredient.of(ModItems.BIO_CHAFF), 1)
+                .setGroup("compressing")
+                .addCriterion("iridium", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.BIO_CHAFF))
+                .save(consumer, "moss_block");
+
 
     }
 
