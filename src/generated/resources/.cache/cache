@@ -225,6 +225,7 @@ eb27e73128f4f637088e67852b7cfa3294e46c9d assets/indreb/models/item/painter_red.j
 f1647d95aadb38df9b918535087a857d14493e2e assets/indreb/models/item/painter_white.json
 dbaceb4214b724a3138514d84a693dec473de0a1 assets/indreb/models/item/painter_yellow.json
 6efadc95d45053208c1f90fc90d5f8cb8f3bd9be assets/indreb/models/item/power_unit.json
+ae5e574f198927b019b187334f52555cc8bcbef9 assets/indreb/models/item/quantum_saber.json
 32136ca99c7d1b7c9ccfb83196077bd66d5975d4 assets/indreb/models/item/quantum_solar_generator.json
 b01d18782dd5e3460ae21079e8be93494da33707 assets/indreb/models/item/raw_tin.json
 9cc6c0edf56b3667e338ab465c2ae77cca8a6740 assets/indreb/models/item/recycler.json
@@ -267,6 +268,8 @@ e97f2e55dd6eeb8355d505a9147ac89e4395bd10 assets/indreb/models/item/tin_ore.json
 b94385c9ddbba5aa84e6e0bf8a5a1df010b6a3e8 assets/indreb/models/item/tin_plate.json
 870b7fd8c1085a456b6cef535e1e5f788cf3edf0 assets/indreb/models/item/tool/electric/nano_saber.json
 2dae51261d38e9c2e7d5d79b8d405138102e3d7e assets/indreb/models/item/tool/electric/nano_saber_active.json
+13c636c871c32b4bde6e49a7abd3c57a4d9d7bf6 assets/indreb/models/item/tool/electric/quantum_saber.json
+f255dc129234ab7c9cbb7d9b27754389010ec30e assets/indreb/models/item/tool/electric/quantum_saber_active.json
 87fa46e89e131e5247221cb79b9aa1c2e345397c assets/indreb/models/item/treetap.json
 c2fd9c9d01713e61595a0bfe36e748e6ecb1f190 assets/indreb/models/item/wind_meter.json
 9391fc9d6bce1613156edf03cf40a322117f69ab assets/indreb/models/item/wrench.json
@@ -494,6 +497,7 @@ cac24e07e4442d04ddc910c4efaede70f19adef2 data/indreb/advancements/recipes/indreb
 1d79c0357c92bc67f6cf35508fcc24deccabff89 data/indreb/advancements/recipes/indreb/item/electric/mining_drill.json
 94634e42434cb0fcd0c2acb815faf5a220be6706 data/indreb/advancements/recipes/indreb/item/electric/multi_tool.json
 c4030ea7583286a1cdaf20aea64bba75f1cf1dbd data/indreb/advancements/recipes/indreb/item/electric/nano_saber.json
+efda4fa9b39614f09feef12b81039f2e48bcfd51 data/indreb/advancements/recipes/indreb/item/electric/quantum_saber.json
 14e398e7fc591c4c3307b20d7aeb3f1daee5719d data/indreb/advancements/recipes/indreb/item/electric/wind_meter.json
 6bca2ff5d6b9b3fec77aba6e963bc54698f5dcc7 data/indreb/advancements/recipes/indreb/item/electric_motor.json
 cb66abfa6eb42fafbf7ad7f4dc9f603110718aab data/indreb/advancements/recipes/indreb/item/electronic_circuit.json
@@ -922,6 +926,7 @@ d99d64adb7c340c20f183e38d475f1f14a861157 data/indreb/recipes/item/electric/iridi
 7599d1eb3a40633f3c8a52507109b9caaa2f38f8 data/indreb/recipes/item/electric/mining_drill.json
 0fc275e0f6ab284f6f55a4c0176afcf53f40ec6f data/indreb/recipes/item/electric/multi_tool.json
 cf45fecb7d35599db66c1b4e18e75fe4df2965a4 data/indreb/recipes/item/electric/nano_saber.json
+35453b3043945011d1f64ccb54fc2b60ccfb8aee data/indreb/recipes/item/electric/quantum_saber.json
 c67f8c71784c7645f2d58ea41595bb8486a5a02f data/indreb/recipes/item/electric/wind_meter.json
 516c9d5be16739e422cde4958c55a23c5fac0d90 data/indreb/recipes/item/electric_motor.json
 0980b3d18fb4399d470e86d9087812de29f7ef0b data/indreb/recipes/item/electronic_circuit.json
@@ -982,7 +987,7 @@ b50b590958a7b637ec81dac89dc4d18f072fc353 data/indreb/recipes/machines/alloy_smel
 455bcfbc522b89d917e7af46fab145368292f43c data/indreb/recipes/machines/iron_furnace.json
 e80d84eaf4d249f6ae23d76b6e9a2dc113284fec data/indreb/recipes/machines/recycler.json
 c50e5d9aa1008a90eb34890e9ecf3c987d547bd5 data/indreb/recipes/machines/sawmill.json
-da47d52d053de76265cb47cc93608eed3efcbbe7 data/indreb/recipes/recycling/scrap.json
+12247e54a39b8e5ebae19356d56df1a6210870f8 data/indreb/recipes/recycling/scrap.json
 69551e33c9d0887e792685f4f9c4d77e18d42d08 data/indreb/recipes/sawing/acacia_log_acacia_planks.json
 5d87dcd403274e5ecf29a27b264422e1d1eedac8 data/indreb/recipes/sawing/armour/leather_boots_leather.json
 ed0e8c6a15e745c29c0957746be210f275c01eb9 data/indreb/recipes/sawing/armour/leather_chestplate_leather.json

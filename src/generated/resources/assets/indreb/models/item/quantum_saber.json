@@ -1,0 +1,20 @@
+{
+  "parent": "minecraft:item/handheld",
+  "textures": {
+    "layer0": "indreb:item/tool/electric/quantum_saber"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "indreb:active": 0.0
+      },
+      "model": "indreb:item/tool/electric/quantum_saber"
+    },
+    {
+      "predicate": {
+        "indreb:active": 1.0
+      },
+      "model": "indreb:item/tool/electric/quantum_saber_active"
+    }
+  ]
+}

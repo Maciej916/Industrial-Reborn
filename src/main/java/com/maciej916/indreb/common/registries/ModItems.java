@@ -102,6 +102,7 @@ public final class ModItems {
     public static Item NANO_LEGGINGS;
     public static Item NANO_BOOTS;
     public static Item NANO_SABER;
+    public static Item QUANTUM_SABER;
 
     public static Item SMALL_POWER_UNIT;
     public static Item POWER_UNIT;
@@ -234,6 +235,7 @@ public final class ModItems {
         NANO_LEGGINGS = registerItem(new ItemNanoArmour(EquipmentSlot.LEGS, 0, 1000000, EnumEnergyType.RECEIVE, EnergyTier.ADVANCED), "nano_leggings");
         NANO_BOOTS = registerItem(new ItemNanoArmour(EquipmentSlot.FEET, 0, 1000000, EnumEnergyType.RECEIVE, EnergyTier.ADVANCED), "nano_boots");
         NANO_SABER = registerItem(new ItemNanosaber(1, -3F, 0, 160000, EnumEnergyType.RECEIVE, EnergyTier.ADVANCED), "nano_saber");
+        QUANTUM_SABER = registerItem(new ItemQuantumsaber(1, -3F, 0, 1000000, EnumEnergyType.RECEIVE, EnergyTier.SUPER), "quantum_saber");
 
         SMALL_POWER_UNIT = registerItem(new DummyItem(CreativeModeTab.TAB_REDSTONE), "small_power_unit");
         POWER_UNIT = registerItem(new DummyItem(CreativeModeTab.TAB_REDSTONE), "power_unit");

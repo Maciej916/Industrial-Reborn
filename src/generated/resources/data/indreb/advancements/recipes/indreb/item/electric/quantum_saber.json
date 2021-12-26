@@ -1,0 +1,47 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "indreb:item/electric/quantum_saber"
+    ]
+  },
+  "criteria": {
+    "nano_saber": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:nano_saber"
+            ]
+          }
+        ]
+      }
+    },
+    "lapotron_crystal": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:lapotron_crystal"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "indreb:item/electric/quantum_saber"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "nano_saber",
+      "lapotron_crystal",
+      "has_the_recipe"
+    ]
+  ]
+}

@@ -166,6 +166,7 @@ public class Items extends ItemModelProvider {
 
     protected void registerElectricTools() {
         createWithActive(ModItems.NANO_SABER,"tool/electric/nano_saber");
+        createWithActive(ModItems.QUANTUM_SABER,"tool/electric/quantum_saber");
         createHandheldTexture(ModItems.ELECTRIC_TREETAP, "tool/electric/electric_treetap");
         createHandheldTexture(ModItems.ELECTRIC_WRENCH, "tool/electric/electric_wrench");
         createHandheldTexture(ModItems.CHAINSAW, "tool/electric/chainsaw");

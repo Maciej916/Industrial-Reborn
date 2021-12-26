@@ -1,11 +1,12 @@
 package com.maciej916.indreb.common.item;
 
 import com.google.common.collect.HashMultimap;
-import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;
 import com.maciej916.indreb.common.energy.impl.CapEnergyStorage;
 import com.maciej916.indreb.common.energy.interfaces.IEnergy;
-import com.maciej916.indreb.common.enums.*;
+import com.maciej916.indreb.common.enums.EnergyTier;
+import com.maciej916.indreb.common.enums.EnumEnergyType;
+import com.maciej916.indreb.common.enums.EnumLang;
 import com.maciej916.indreb.common.interfaces.item.IElectricItem;
 import com.maciej916.indreb.common.registries.ModCapabilities;
 import com.maciej916.indreb.common.util.CapabilityUtil;
@@ -33,10 +34,9 @@ import net.minecraft.world.level.Level;
 import net.minecraftforge.common.capabilities.ICapabilityProvider;
 
 import javax.annotation.Nullable;
-import java.util.Collection;
 import java.util.List;
 
-public class ItemNanosaber extends IndRebSword implements IElectricItem {
+public class ItemQuantumsaber extends IndRebSword implements IElectricItem {
 
     private final int energyStored;
     private final int maxEnergy;
@@ -44,7 +44,7 @@ public class ItemNanosaber extends IndRebSword implements IElectricItem {
     private final EnergyTier energyTier;
     private final int baseAttackDamage;
 
-    public ItemNanosaber(int pAttackDamageModifier, float pAttackSpeedModifier, int energyStored, int maxEnergy, EnumEnergyType energyType, EnergyTier energyTier) {
+    public ItemQuantumsaber(int pAttackDamageModifier, float pAttackSpeedModifier, int energyStored, int maxEnergy, EnumEnergyType energyType, EnergyTier energyTier) {
         super(Tiers.DIAMOND, pAttackDamageModifier, pAttackSpeedModifier);
         this.baseAttackDamage = pAttackDamageModifier;
         this.energyStored = energyStored;
@@ -147,7 +147,7 @@ public class ItemNanosaber extends IndRebSword implements IElectricItem {
                     modifiers.removeAll(Attributes.ATTACK_DAMAGE);
 
                     if (tag.getBoolean("active")) {
-                        modifiers.put(Attributes.ATTACK_DAMAGE, new AttributeModifier(BASE_ATTACK_DAMAGE_UUID, "Nano modifier", 19, AttributeModifier.Operation.ADDITION));
+                        modifiers.put(Attributes.ATTACK_DAMAGE, new AttributeModifier(BASE_ATTACK_DAMAGE_UUID, "Quantum modifier", 50, AttributeModifier.Operation.ADDITION));
                     } else {
                         modifiers.put(Attributes.ATTACK_DAMAGE, new AttributeModifier(BASE_ATTACK_DAMAGE_UUID, "Weapon modifier", baseAttackDamage + getTier().getAttackDamageBonus(), AttributeModifier.Operation.ADDITION));
                     }

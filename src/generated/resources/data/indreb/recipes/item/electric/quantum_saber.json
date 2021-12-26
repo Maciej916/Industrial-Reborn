@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "indreb",
+  "pattern": [
+    " l ",
+    " l ",
+    " n "
+  ],
+  "key": {
+    "l": {
+      "item": "indreb:lapotron_crystal"
+    },
+    "n": {
+      "item": "indreb:nano_saber"
+    }
+  },
+  "result": {
+    "item": "indreb:quantum_saber"
+  }
+}
