@@ -102,6 +102,11 @@ public final class ModItems {
     public static Item NANO_LEGGINGS;
     public static Item NANO_BOOTS;
     public static Item NANO_SABER;
+
+    public static Item QUANTUM_HELMET;
+    public static Item QUANTUM_CHESTPLATE;
+    public static Item QUANTUM_LEGGINGS;
+    public static Item QUANTUM_BOOTS;
     public static Item QUANTUM_SABER;
 
     public static Item SMALL_POWER_UNIT;
@@ -235,7 +240,12 @@ public final class ModItems {
         NANO_LEGGINGS = registerItem(new ItemNanoArmour(EquipmentSlot.LEGS, 0, 1000000, EnumEnergyType.RECEIVE, EnergyTier.ADVANCED), "nano_leggings");
         NANO_BOOTS = registerItem(new ItemNanoArmour(EquipmentSlot.FEET, 0, 1000000, EnumEnergyType.RECEIVE, EnergyTier.ADVANCED), "nano_boots");
         NANO_SABER = registerItem(new ItemNanosaber(1, -3F, 0, 160000, EnumEnergyType.RECEIVE, EnergyTier.ADVANCED), "nano_saber");
-        QUANTUM_SABER = registerItem(new ItemQuantumsaber(1, -3F, 0, 1000000, EnumEnergyType.RECEIVE, EnergyTier.SUPER), "quantum_saber");
+
+        QUANTUM_HELMET = registerItem(new ItemQuantumArmour(EquipmentSlot.HEAD, 0, 10000000, EnumEnergyType.RECEIVE, EnergyTier.SUPER), "quantum_helmet");
+        QUANTUM_CHESTPLATE = registerItem(new ItemQuantumArmour(EquipmentSlot.CHEST, 0, 10000000, EnumEnergyType.RECEIVE, EnergyTier.SUPER), "quantum_chestplate");
+        QUANTUM_LEGGINGS = registerItem(new ItemQuantumArmour(EquipmentSlot.LEGS, 0, 10000000, EnumEnergyType.RECEIVE, EnergyTier.SUPER), "quantum_leggings");
+        QUANTUM_BOOTS = registerItem(new ItemQuantumArmour(EquipmentSlot.FEET, 0, 10000000, EnumEnergyType.RECEIVE, EnergyTier.SUPER), "quantum_boots");
+        QUANTUM_SABER = registerItem(new ItemQuantumsaber(1, -3F, 0, 10000000, EnumEnergyType.RECEIVE, EnergyTier.SUPER), "quantum_saber");
 
         SMALL_POWER_UNIT = registerItem(new DummyItem(CreativeModeTab.TAB_REDSTONE), "small_power_unit");
         POWER_UNIT = registerItem(new DummyItem(CreativeModeTab.TAB_REDSTONE), "power_unit");
