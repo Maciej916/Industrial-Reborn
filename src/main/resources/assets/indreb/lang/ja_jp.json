@@ -1,5 +1,4 @@
 {
-  "_comment": "Tooltip",
   "itemGroup.indreb": "Industrial Reborn",
 
   "indreb.generic": "%s",
@@ -15,7 +14,7 @@
   "tier.indreb.creative": "クリエイティブ",
 
   "gui.indreb.energy": "%s / %s IE",
-  "gui.indreb.fluid": "%s: %s/%s mB",
+  "gui.indreb.fluid": "%s: %s / %s mB",
   "gui.indreb.fluid_empty": "空",
 
   "gui.indreb.progress": "進行： %s/%s",
@@ -28,12 +27,12 @@
   "gui.indreb.can_operate": "準備完了",
 
   "block.indreb.generator": "火力発電機",
-  "block.indreb.geo_generator": "地熱発電記r",
+  "block.indreb.geo_generator": "地熱発電記",
   "block.indreb.solar_generator": "太陽光発電機",
-  "block.indreb.advanced_solar_generator": "Advanced Solar Panel",
-  "block.indreb.hybrid_solar_generator": "Hybrid Solar Panel",
-  "block.indreb.quantum_solar_generator": "Quantum Solar Panel",
-  "block.indreb.crystalline_generator": "Crystalline Generator",
+  "block.indreb.advanced_solar_generator": "発展太陽光発電機",
+  "block.indreb.hybrid_solar_generator": "複合太陽光発電機",
+  "block.indreb.quantum_solar_generator": "クアンタム型太陽光発電機",
+  "block.indreb.crystalline_generator": "クリスタリン型太陽光発電機",
 
   "block.indreb.iron_furnace": "鉄かまど",
   "block.indreb.electric_furnace": "電気かまど",
@@ -42,8 +41,8 @@
   "block.indreb.extractor": "抽出機",
   "block.indreb.extruder": "押出機",
   "block.indreb.sawmill": "製材機",
-  "block.indreb.canning_machine": "Canning Machine",
-  "block.indreb.fluid_enricher": "Fluid Enricher",
+  "block.indreb.canning_machine": "缶詰装置",
+  "block.indreb.fluid_enricher": "液体濃縮機",
   "block.indreb.alloy_smelter": "溶鉱炉",
 
   "block.indreb.tin_ore": "スズ鉱石",
@@ -63,22 +62,22 @@
   "block.indreb.construction_foam": "建材泡",
   "block.indreb.reinforced_construction_foam": "強化建材泡",
 
-  "block.indreb.construction_foam_wall_white": "建材泡 Wall (白)",
-  "block.indreb.construction_foam_wall_red": "建材泡 Wall (赤)",
-  "block.indreb.construction_foam_wall_orange": "建材泡 Wall (橙)",
-  "block.indreb.construction_foam_wall_pink": "建材泡 Wall (桃)",
-  "block.indreb.construction_foam_wall_yellow": "建材泡 Wall (黄)",
-  "block.indreb.construction_foam_wall_lime": "建材泡 Wall (黄緑)",
-  "block.indreb.construction_foam_wall_green": "建材泡 Wall (緑)",
-  "block.indreb.construction_foam_wall_light_blue": "建材泡 Wall (水色)",
-  "block.indreb.construction_foam_wall_cyan": "建材泡 Wall (紺)",
-  "block.indreb.construction_foam_wall_blue": "建材泡 Wall (青)",
-  "block.indreb.construction_foam_wall_magenta": "建材泡 Wall (赤紫)",
-  "block.indreb.construction_foam_wall_purple": "建材泡 Wall (紫)",
-  "block.indreb.construction_foam_wall_brown": "建材泡 Wall (茶)",
-  "block.indreb.construction_foam_wall_gray": "建材泡 Wall (灰色)",
-  "block.indreb.construction_foam_wall_light_gray": "建材泡 Wall (Light 灰色)",
-  "block.indreb.construction_foam_wall_black": "建材泡 Wall (黒)",
+  "block.indreb.construction_foam_wall_white": "色付き建材 (白)",
+  "block.indreb.construction_foam_wall_red": "色付き建材 (赤)",
+  "block.indreb.construction_foam_wall_orange": "色付き建材 (橙)",
+  "block.indreb.construction_foam_wall_pink": "色付き建材 (桃)",
+  "block.indreb.construction_foam_wall_yellow": "色付き建材 (黄)",
+  "block.indreb.construction_foam_wall_lime": "色付き建材 (黄緑)",
+  "block.indreb.construction_foam_wall_green": "色付き建材 (緑)",
+  "block.indreb.construction_foam_wall_light_blue": "色付き建材 (水色)",
+  "block.indreb.construction_foam_wall_cyan": "色付き建材 (紺)",
+  "block.indreb.construction_foam_wall_blue": "色付き建材 (青)",
+  "block.indreb.construction_foam_wall_magenta": "色付き建材 (赤紫)",
+  "block.indreb.construction_foam_wall_purple": "色付き建材 (紫)",
+  "block.indreb.construction_foam_wall_brown": "色付き建材 (茶)",
+  "block.indreb.construction_foam_wall_gray": "色付き建材 (灰色)",
+  "block.indreb.construction_foam_wall_light_gray": "色付き建材 (灰色)",
+  "block.indreb.construction_foam_wall_black": "色付き建材 (黒)",
 
   "block.indreb.reinforced_glass": "強化ガラス",
   "block.indreb.reinforced_stone": "強化石材",
@@ -89,6 +88,7 @@
   "block.indreb.iron_fence": "鉄のフェンス",
 
   "block.indreb.luminator": "ルミネーター",
+  "block.indreb.recycler": "リサイクラー",
 
   "block.indreb.rubber_sapling": "ゴムの苗木",
   "block.indreb.rubber_planks": "ゴムの木材",
@@ -113,7 +113,7 @@
   "item.indreb.rubber": "ゴム",
   "item.indreb.sawdust": "木粉",
 
-  "item.indreb.raw_tin": "Raw Tin",
+  "item.indreb.raw_tin": "スズの原石",
   "item.indreb.tin_ingot": "スズインゴット",
   "item.indreb.bronze_ingot": "青銅インゴット",
   "item.indreb.silver_ingot": "銀インゴット",
@@ -131,7 +131,7 @@
   "item.indreb.gold_plate": "金板",
   "item.indreb.bronze_plate": "青銅板",
   "item.indreb.steel_plate": "鋼鉄板",
-  "item.indreb.iridium_plate": "Iridium Plate",
+  "item.indreb.iridium_plate": "イリジウム板",
 
   "item.indreb.coal_dust": "石炭粉末",
   "item.indreb.diamond_dust": "ダイヤモンド粉末",
@@ -174,7 +174,7 @@
 
   "item.indreb.battery": "電池",
   "item.indreb.advanced_battery": "発展電池",
-  "item.indreb.energy_crystal": "エナジークリスタル",
+  "item.indreb.energy_crystal": "エネルギウムクリスタル",
   "item.indreb.lapotron_crystal": "ラポトロン結晶",
 
   "item.indreb.fluid_cell": "液体セル",
@@ -197,6 +197,30 @@
   "item.indreb.painter_light_gray": "ペインター (明灰色)",
   "item.indreb.painter_black": "ペインター (黒)",
 
+  "item.indreb.small_power_unit": "小型動力装置",
+  "item.indreb.power_unit": "動力装置",
+  "item.indreb.electric_treetap": "電動ツリータップ",
+  "item.indreb.electric_wrench": "電動レンチ",
+  "item.indreb.chainsaw": "チェーンソー",
+  "item.indreb.diamond_chainsaw": "ダイヤモンドドリル",
+  "item.indreb.iridium_chainsaw": "イリジウムドリル",
+  "item.indreb.mining_drill": "採掘ドリル",
+  "item.indreb.diamond_drill": "ダイヤモンドドリル",
+  "item.indreb.iridium_drill": "イリジウムドリル",
+  "item.indreb.electric_hoe": "電動クワ",
+  "item.indreb.wind_meter": "風力計",
+  "item.indreb.ie_meter": "電力計",
+  "item.indreb.foam_sprayer": "建築スプレー",
+  "item.indreb.iridium_shard": "イリジウム小片",
+  "item.indreb.iridium": "イリジウム",
+  "item.indreb.multi_tool": "万能レンチ",
+  "item.indreb.coil": "コイル",
+  "item.indreb.electric_motor": "モーター",
+  "item.indreb.tin_can": "スズ缶",
+  "item.indreb.filled_tin_can": "充填済み缶詰食料",
+  "item.indreb.scrap": "スクラップ",
+  "item.indreb.scrap_box": "スクラップ箱",
+
   "item.indreb.treetap": "ツリータップ",
   "item.indreb.wrench": "レンチ",
   "item.indreb.hammer": "ハンマー",
@@ -215,6 +239,8 @@
   "jei.indreb.sawing": "製剤",
   "jei.indreb.extruding": "押出",
   "jei.indreb.alloy_smelting": "溶鉱",
+  "jei.indreb.recycling": "リサイクル",
+  "jei.indreb.scrap_box": "スクラップボックス",
 
   "jei.indreb.chance": "確率：: %s",
 
@@ -231,8 +257,8 @@
   "tooltip.indreb.accept_capacity": "入力： %s 容量： %s",
   "tooltip.indreb.accept": "入力： %s",
   "tooltip.indreb.accept_output": "入力： %s 出力： %s",
-  "tooltip.indreb.stored": "蓄積： %s",
-  "tooltip.indreb.stored_capacity": "蓄積： %s 容量： %s",
+  "tooltip.indreb.stored": "蓄電： %s",
+  "tooltip.indreb.stored_capacity": "蓄電： %s 容量： %s",
 
   "tooltip.indreb.cable_unisolated": "接触により感電の恐れあり：危険",
 
