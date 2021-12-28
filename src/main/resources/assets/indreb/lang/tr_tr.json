@@ -1,0 +1,288 @@
+{
+    "_comment": "Global",
+    "itemGroup.indreb": "Industrial Reborn",
+  
+    "indreb.generic": "%s",
+  
+    "_comment": "Energy",
+    "energy.indreb.power": "%s IE",
+    "energy.indreb.power_tick": "%s IE/t",
+  
+    "_comment": "Tier",
+    "tier.indreb.basic": "Basit",
+    "tier.indreb.standard": "Standart",
+    "tier.indreb.advanced": "Gelişmiş",
+    "tier.indreb.super": "Süper",
+    "tier.indreb.ultra": "Ultra",
+    "tier.indreb.creative": "Yaratıcı",
+  
+    "_comment": "GUI",
+    "gui.indreb.energy": "%s / %s IE",
+    "gui.indreb.fluid": "%s: %s / %s mB",
+    "gui.indreb.fluid_empty": "Boş",
+  
+    "gui.indreb.progress": "İlerleme %s/%s",
+    "gui.indreb.fuelBurnTimeProgress": "Yakıt yanış süresi %s/%s",
+    "gui.indreb.heat": "Isı: %s",
+    "gui.indreb.armour": "Zırh",
+  
+  
+    "gui.indreb.can_operate_in": "%s saniye sonra çalışmaya hazır",
+    "gui.indreb.can_operate": "Bu makine hazır!",
+  
+    "_comment": "Block",
+    "block.indreb.generator": "Jeneratör",
+    "block.indreb.geo_generator": "Jeotermal Jeneratör",
+    "block.indreb.solar_generator": "Güneş Enerjisi Jeneratörü",
+    "block.indreb.advanced_solar_generator": "Gelişmiş Güneş Paneli",
+    "block.indreb.hybrid_solar_generator": "Hibrit Güneş Paneli",
+    "block.indreb.quantum_solar_generator": "Kuantum Güneş Paneli",
+    "block.indreb.crystalline_generator": "Kristalize Enerji Jeneratörü",
+  
+    "block.indreb.iron_furnace": "Demir Fırın",
+    "block.indreb.electric_furnace": "Elektrikli Fırın",
+    "block.indreb.crusher": "Ezici",
+    "block.indreb.compressor": "Sıkıştırıcı",
+    "block.indreb.extractor": "Ayırıcı",
+    "block.indreb.extruder": "Bükücü",
+    "block.indreb.sawmill": "Kereste Kesici",
+    "block.indreb.canning_machine": "Tenekeleme Makinesi",
+    "block.indreb.fluid_enricher": "Sıvı Zenginleştirici",
+    "block.indreb.alloy_smelter": "Alaşım Eritici",
+  
+    "block.indreb.tin_ore": "Kalay Madeni",
+    "block.indreb.deepslate_tin_ore": "Derintaş Kalay Madeni",
+  
+    "block.indreb.tin_block": "Kalay Bloğu",
+    "block.indreb.bronze_block": "Bronz Bloğu",
+    "block.indreb.silver_block": "Gümüş Bloğu",
+    "block.indreb.steel_block": "Çelik Bloğu",
+  
+    "block.indreb.basic_machine_casing": "Basit Makine Kasası",
+    "block.indreb.advanced_machine_casing": "Gelişmiş Makine Kasası",
+  
+    "block.indreb.resin_sheet": "Reçine Levha",
+    "block.indreb.rubber_sheet": "Kauçuk Levha",
+  
+    "block.indreb.construction_foam": "İnşaat Köpüğü",
+    "block.indreb.reinforced_construction_foam": "Güçlendirilmiş İnşaat Köpüğü",
+  
+    "block.indreb.construction_foam_wall_white": "İnşaat Köpüğü Duvarı (Beyaz)",
+    "block.indreb.construction_foam_wall_red": "İnşaat Köpüğü Duvarı (Kırmızı)",
+    "block.indreb.construction_foam_wall_orange": "İnşaat Köpüğü Duvarı (Turuncu)",
+    "block.indreb.construction_foam_wall_pink": "İnşaat Köpüğü Duvarı (Pembe)",
+    "block.indreb.construction_foam_wall_yellow": "İnşaat Köpüğü Duvarı (Sarı)",
+    "block.indreb.construction_foam_wall_lime": "İnşaat Köpüğü Duvarı (Açık Yeşil)",
+    "block.indreb.construction_foam_wall_green": "İnşaat Köpüğü Duvarı (Yeşil)",
+    "block.indreb.construction_foam_wall_light_blue": "İnşaat Köpüğü Duvarı (Açık Mavi)",
+    "block.indreb.construction_foam_wall_cyan": "İnşaat Köpüğü Duvarı (Turkuaz)",
+    "block.indreb.construction_foam_wall_blue": "İnşaat Köpüğü Duvarı (Mavi)",
+    "block.indreb.construction_foam_wall_magenta": "İnşaat Köpüğü Duvarı (Mor Pembe)",
+    "block.indreb.construction_foam_wall_purple": "İnşaat Köpüğü Duvarı (Mor)",
+    "block.indreb.construction_foam_wall_brown": "İnşaat Köpüğü Duvarı (Kahverengi)",
+    "block.indreb.construction_foam_wall_gray": "İnşaat Köpüğü Duvarı (Gri)",
+    "block.indreb.construction_foam_wall_light_gray": "İnşaat Köpüğü Duvarı (Açık Gri)",
+    "block.indreb.construction_foam_wall_black": "İnşaat Köpüğü Duvarı (Siyah)",
+  
+    "block.indreb.reinforced_glass": "Güçlendirilmiş Cam",
+    "block.indreb.reinforced_stone": "Güçlendirilmiş Taş",
+    "block.indreb.reinforced_stone_slab": "Güçlendirilmiş Taş Plaka",
+    "block.indreb.reinforced_stone_stairs": "Güçlendirilmiş Taş Basamak",
+  
+    "block.indreb.iron_scaffolding": "Demir Yapı İskelesi",
+    "block.indreb.iron_fence": "Demir Çit",
+  
+    "block.indreb.luminator": "Aydınlatıcı",
+    "block.indreb.recycler": "Geri Dönüştürücü",
+  
+    "_comment": "Rubber Wood",
+    "block.indreb.rubber_sapling": "Kauçuk Fidanı",
+    "block.indreb.rubber_planks": "Kauçuk Tahta",
+    "block.indreb.rubber_leaves": "Kauçuk Yaprakları",
+    "block.indreb.rubber_wood": "Kauçuk Ahşap",
+    "block.indreb.rubber_log": "Kauçuk Odunu",
+    "block.indreb.rubber_stairs": "Kauçuk Basamak",
+    "block.indreb.rubber_slab": "Kauçuk Plaka",
+  
+  
+    "_comment": "Cable",
+    "block.indreb.tin_cable": "Kalay Kablo",
+    "block.indreb.tin_cable_insulated": "Yalıtılmış Kalay Kablo",
+    "block.indreb.copper_cable": "Bakır Kablo",
+    "block.indreb.copper_cable_insulated": "Yalıtılmış Bakır Kablo",
+    "block.indreb.gold_cable": "Altın Kablo",
+    "block.indreb.gold_cable_insulated": "Yalıtılmış Altın Kablo",
+    "block.indreb.hv_cable": "Yüksek Voltaj Kablosu",
+    "block.indreb.hv_cable_insulated": "Yalıtılmış Yüksek Voltaj Kablosu",
+    "block.indreb.glass_fibre_cable": "Cam Elyaf Kablo",
+  
+    "_comment": "Item",
+    "item.indreb.sticky_resin": "Yapışkan Reçine",
+    "item.indreb.rubber": "Kauçuk",
+    "item.indreb.sawdust": "Talaş",
+  
+    "item.indreb.raw_tin": "Ham Kalay",
+    "item.indreb.tin_ingot": "Kalay Külçesi",
+    "item.indreb.bronze_ingot": "Bronz Külçesi",
+    "item.indreb.silver_ingot": "Gümüş Külçesi",
+    "item.indreb.steel_ingot": "Çelik Külçesi",
+    "item.indreb.mixed_metal_ingot": "Karışık Metal Külçesi",
+  
+    "item.indreb.crushed_tin": "Ezilmiş Kalay",
+    "item.indreb.crushed_copper": "Ezilmiş Bakır",
+    "item.indreb.crushed_gold": "Ezilmiş Altın",
+    "item.indreb.crushed_iron": "Ezilmiş Demir",
+  
+    "item.indreb.copper_plate": "Bakır Levha",
+    "item.indreb.tin_plate": "Kalay Levha",
+    "item.indreb.iron_plate": "Demir Levha",
+    "item.indreb.gold_plate": "Altın Levha",
+    "item.indreb.bronze_plate": "Bronz Levha",
+    "item.indreb.steel_plate": "Çelik Levha",
+    "item.indreb.iridium_plate": "İridyum Levha",
+  
+    "item.indreb.coal_dust": "Kömür Tozu",
+    "item.indreb.diamond_dust": "Pırlanta Tozu",
+    "item.indreb.silver_dust": "Gümüş Tozu",
+    "item.indreb.stone_dust": "Taş Tozu",
+    "item.indreb.deepslate_dust": "Derin Taş Tozu",
+  
+    "item.indreb.iron_rod": "Demir Çubuk",
+  
+    "item.indreb.electronic_circuit": "Elektronik Devre",
+    "item.indreb.advanced_circuit": "Gelişmiş Devre",
+  
+    "item.indreb.carbon_fibers": "Karbon Elyaf",
+    "item.indreb.combined_carbon_fibers": "Birleşik Karbon Elyaf",
+    "item.indreb.carbon_plate": "Karbon Levha",
+  
+    "item.indreb.advanced_alloy": "Gelişmiş Alaşım",
+  
+    "item.indreb.nightvision_goggles": "Gece Görüşü Gözlükleri",
+    "item.indreb.rubber_boots": "Kauçuk Bot",
+  
+    "item.indreb.bronze_helmet": "Bronz Kask",
+    "item.indreb.bronze_chestplate": "Bronz Zırh",
+    "item.indreb.bronze_leggings": "Bronz Tozluk",
+    "item.indreb.bronze_boots": "Bronz Bot",
+  
+    "item.indreb.bronze_sword": "Bronz Kılıç",
+    "item.indreb.bronze_pickaxe": "Bronz Kazma",
+    "item.indreb.bronze_axe": "Bronz Balta",
+    "item.indreb.bronze_shovel": "Bronz Kürek",
+    "item.indreb.bronze_hoe": "Bronz Çapa",
+  
+    "item.indreb.nano_helmet": "Nano Kask",
+    "item.indreb.nano_chestplate": "Nano Zırh",
+    "item.indreb.nano_leggings": "Nano Tozluk",
+    "item.indreb.nano_boots": "Nano Bot",
+    "item.indreb.nano_saber": "Nano Işın Kılıcı",
+  
+    "item.indreb.energium_dust": "Enerjiyum Tozu",
+  
+    "item.indreb.battery": "Pil",
+    "item.indreb.advanced_battery": "Gelişmiş Pil",
+    "item.indreb.energy_crystal": "Enerji Kristali",
+    "item.indreb.lapotron_crystal": "Lapotron Kristali",
+  
+    "item.indreb.fluid_cell": "Sıvı Ünitesi",
+  
+    "item.indreb.painter": "Boya Rulosu",
+    "item.indreb.painter_white": "Boya Rulosu (Beyaz)",
+    "item.indreb.painter_red": "Boya Rulosu (Kırmızı)",
+    "item.indreb.painter_orange": "Boya Rulosu (Turuncu)",
+    "item.indreb.painter_pink": "Boya Rulosu (Pembe)",
+    "item.indreb.painter_yellow": "Boya Rulosu (Sarı)",
+    "item.indreb.painter_lime": "Boya Rulosu (Açık Yeşil)",
+    "item.indreb.painter_green": "Boya Rulosu (Yeşil)",
+    "item.indreb.painter_light_blue": "Boya Rulosu (Açık Mavi)",
+    "item.indreb.painter_cyan": "Boya Rulosu (Turkuaz)",
+    "item.indreb.painter_blue": "Boya Rulosu (Mavi)",
+    "item.indreb.painter_magenta": "Boya Rulosu (Mor Pembe)",
+    "item.indreb.painter_purple": "Boya Rulosu (Mor)",
+    "item.indreb.painter_brown": "Boya Rulosu (Kahverengi)",
+    "item.indreb.painter_gray": "Boya Rulosu (Gri)",
+    "item.indreb.painter_light_gray": "Boya Rulosu (Açık Gri)",
+    "item.indreb.painter_black": "Boya Rulosu (Siyah)",
+  
+    "item.indreb.small_power_unit": "Küçük Güç Ünitesi",
+    "item.indreb.power_unit": "Güç Ünitesi",
+    "item.indreb.electric_treetap": "Elektrikli Ağaç Musluğu",
+    "item.indreb.electric_wrench": "Elektrikli İngiliz Anahtarı",
+    "item.indreb.chainsaw": "Motorlu Testere",
+    "item.indreb.diamond_chainsaw": "Pırlanta Motorlu Testere",
+    "item.indreb.iridium_chainsaw": "İridyum Motorlu Testere",
+    "item.indreb.mining_drill": "Madencilik Matkabı",
+    "item.indreb.diamond_drill": "Pırlanta Matkap",
+    "item.indreb.iridium_drill": "İridyum Matkap",
+    "item.indreb.electric_hoe": "Elektrik Çapa",
+    "item.indreb.wind_meter": "Rüzgarmetre",
+    "item.indreb.ie_meter": "IE Metresi",
+    "item.indreb.foam_sprayer": "Köpük Püskürtücü",
+    "item.indreb.iridium_shard": "İridyum Parçası",
+    "item.indreb.iridium": "İridyum",
+    "item.indreb.multi_tool": "Çoklu Araç-İngiliz Anahtarı",
+    "item.indreb.coil": "Bobin",
+    "item.indreb.electric_motor": "Elektrik Motoru",
+    "item.indreb.tin_can": "Kalay Teneke",
+    "item.indreb.filled_tin_can": "Tenekelenmiş Yemek (Dolu)",
+    "item.indreb.scrap": "Hurda",
+    "item.indreb.scrap_box": "Hurda Kutusu",
+  
+    "item.indreb.treetap": "Ağaç Musluğu",
+    "item.indreb.wrench": "İngiliz Anahtarı",
+    "item.indreb.hammer": "Çekiç",
+    "item.indreb.cutter": "Makas",
+  
+    "_comment": "Battery Box",
+    "block.indreb.battery_box": "Pil Kutusu",
+    "block.indreb.cesu": "CESU",
+    "block.indreb.mfe": "MFE",
+    "block.indreb.mfsu": "MFSU",
+  
+    "_comment": "Energy Converter",
+    "block.indreb.wooden_energy_converter": "Tahta Enerji Dönüştürücü",
+  
+    "_comment": "Fluid",
+    "fluid.indreb.construction_foam": "İnşaat Köpüğü",
+    "fluid.indreb.reinforced_construction_foam": "Güçlendirilmiş İnşaat Köpüğü",
+  
+  
+    "_comment": "JEI",
+    "jei.indreb.crushing": "Ezme",
+    "jei.indreb.compressing": "Sıkıştırıcı",
+    "jei.indreb.extracting": "Ayırma",
+    "jei.indreb.sawing": "Kesme",
+    "jei.indreb.extruding": "Bükme",
+    "jei.indreb.alloy_smelting": "Alaşım Eritme",
+    "jei.indreb.recycling": "Geri Dönüştürme",
+    "jei.indreb.scrap_box": "Hurda Kutusu",
+    "jei.indreb.canning": "Tenekeleme",
+  
+    "jei.indreb.chance": "Şans: %s",
+  
+    "_comment": "GUI",
+    "gui.indreb.collect_exp": "Tecrübe Topla",
+  
+    "_comment": "Tooltip",
+    "tooltip.indreb.wip": "Yakında!",
+  
+    "tooltip.indreb.power_tier": "Güç Kademesi: %s",
+    "tooltip.indreb.generate": "Üretilen: %s",
+    "tooltip.indreb.output": "Çıktı: %s",
+    "tooltip.indreb.transfer": "Transfer: %s",
+    "tooltip.indreb.capacity": "Kapasite: %s",
+    "tooltip.indreb.output_capacity": "Çıktı: %s Kapasite: %s",
+    "tooltip.indreb.accept_capacity": "Girdi: %s Kapasite: %s",
+    "tooltip.indreb.accept": "Girdi: %s",
+    "tooltip.indreb.accept_output": "Girdi: %s Çıktı: %s",
+    "tooltip.indreb.stored": "Depolanmış: %s",
+    "tooltip.indreb.stored_capacity": "Depolanmış: %s Kapasite: %s",
+  
+    "tooltip.indreb.cable_unisolated": "Bu kablo sizi çarpabilir!",
+  
+  
+  
+  
+    "test.indreb.test": "%s"
+  }
