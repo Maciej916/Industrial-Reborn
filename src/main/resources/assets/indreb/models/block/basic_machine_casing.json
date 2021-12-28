@@ -1,6 +1,0 @@
-{
-	"parent": "block/cube_all",
-	"textures": {
-		"all": "indreb:block/basic_machine_casing"
-	}
-}

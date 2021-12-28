@@ -39,6 +39,7 @@
     "indreb:basic_machine_casing",
     "indreb:advanced_machine_casing",
     "indreb:resin_sheet",
-    "indreb:rubber_sheet"
+    "indreb:rubber_sheet",
+    "indreb:luminator"
   ]
 }

@@ -7,6 +7,7 @@ import com.maciej916.indreb.common.screen.bar.GuiFertilizerBar;
 import com.maciej916.indreb.common.screen.bar.GuiFluidBarVertical;
 import com.maciej916.indreb.common.screen.progress.GuiProgressArrow;
 import com.maciej916.indreb.common.screen.progress.GuiProgressExtracting;
+import com.maciej916.indreb.common.screen.progress.GuiProgressFill;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
@@ -26,6 +27,7 @@ public class ScreenFluidEnricher extends BetterScreen<ContainerFluidEnricher> {
         addRenderableOnlyComponent(new GuiProgressArrow(this, 76, 35, be.progress));
         addRenderableOnlyComponent(new GuiFluidBarVertical(this, 52, 18, be.fluidInputStorage));
         addRenderableOnlyComponent(new GuiFluidBarVertical(this, 108, 18, be.fluidOutputStorage));
+        addRenderableOnlyComponent(new GuiProgressFill(this, 128, 39, be.progressDrain));
 
         drawComponents(true);
     }

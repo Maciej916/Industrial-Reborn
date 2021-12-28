@@ -33,6 +33,7 @@ import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fluids.capability.CapabilityFluidHandler;
+import net.minecraftforge.fluids.capability.IFluidHandler;
 import net.minecraftforge.fluids.capability.IFluidHandlerItem;
 
 import javax.annotation.Nullable;
@@ -80,18 +81,19 @@ public class BlockSemifluidGenerator extends BlockElectricMachine implements ISt
                 if (blockEntity instanceof BlockEntitySemifluidGenerator be) {
                     ItemStack stack = player.getItemInHand(hand);
                     if (!stack.isEmpty()) {
-                        IFluidHandlerItem cap = CapabilityUtil.getCapabilityHelper(stack, CapabilityFluidHandler.FLUID_HANDLER_ITEM_CAPABILITY).getValue();
+                        ItemStack newStack = stack.copy();
+                        newStack.setCount(1);
+                        IFluidHandlerItem cap = CapabilityUtil.getCapabilityHelper(newStack, CapabilityFluidHandler.FLUID_HANDLER_ITEM_CAPABILITY).getValue();
                         if (cap != null) {
                             FluidStack fluid = cap.getFluidInTank(1);
                             if (fluid.getFluid() == Biogas.STILL_FLUID) {
                                 if (be.fluidStorage.fillFluid(fluid, true) == fluid.getAmount()) {
                                     be.fluidStorage.fillFluid(fluid, false);
-                                    if (stack.getItem() instanceof BucketItem) {
-                                        player.addItem(new ItemStack(Items.BUCKET));
-                                    } else {
-                                        player.addItem(new ItemStack(stack.getItem()));
-                                    }
+
+                                    cap.drain(fluid.getAmount(), IFluidHandler.FluidAction.EXECUTE);
+                                    player.addItem(cap.getContainer());
                                     stack.shrink(1);
+
                                     return InteractionResult.PASS;
                                 }
                             }

@@ -24,7 +24,7 @@ public class BlockCF extends AbstractGlassBlock {
     protected static final VoxelShape SHAPE = Block.box(4.0D, 0.0D, 4.0D, 12.0D, 12.0D, 12.0D);
 
     public BlockCF() {
-        super(Properties.of(Material.WOOD, MaterialColor.WOOL).strength(2.0F, 3.0F).sound(SoundType.WOOL).randomTicks().noOcclusion());
+        super(Properties.of(Material.WOOD, MaterialColor.WOOL).strength(0.5F, 3.0F).sound(SoundType.WOOL).randomTicks().noOcclusion());
     }
 
     public VoxelShape getCollisionShape(BlockState p_54015_, BlockGetter p_54016_, BlockPos p_54017_, CollisionContext p_54018_) {

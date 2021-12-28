@@ -15,6 +15,7 @@ public final class ModSounds {
     public static SoundEvent GENERATOR;
     public static SoundEvent GEO_GENERATOR;
     public static SoundEvent SOLAR_GENERATOR;
+    public static SoundEvent SEMIFLUID_GENERATOR;
 
     public static SoundEvent CRUSHER;
     public static SoundEvent COMPRESSOR;
@@ -33,6 +34,7 @@ public final class ModSounds {
         GENERATOR = registerSound("tile.generator");
         GEO_GENERATOR = registerSound("tile.geo_generator");
         SOLAR_GENERATOR = registerSound("tile.solar_generator");
+        SEMIFLUID_GENERATOR = registerSound("tile.semifluid_generator");
 
         CRUSHER = registerSound("tile.crusher");
         COMPRESSOR = registerSound("tile.compressor");

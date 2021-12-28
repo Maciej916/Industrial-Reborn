@@ -133,6 +133,7 @@ public class Tags extends BlockTagsProvider {
 
                 .add(ModBlocks.RESIN_SHEET.getBlock())
                 .add(ModBlocks.RUBBER_SHEET.getBlock())
+                .add(ModBlocks.LUMINATOR.getBlock())
         ;
     }
 

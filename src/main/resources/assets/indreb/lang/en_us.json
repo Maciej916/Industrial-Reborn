@@ -33,7 +33,7 @@
   "_comment": "Block",
   "block.indreb.generator": "Generator",
   "block.indreb.geo_generator": "Geothermal Generator",
-  "block.indreb.solar_generator": "Solar Generator",
+  "block.indreb.solar_generator": "Solar Panel",
   "block.indreb.advanced_solar_generator": "Advanced Solar Panel",
   "block.indreb.hybrid_solar_generator": "Hybrid Solar Panel",
   "block.indreb.quantum_solar_generator": "Quantum Solar Panel",

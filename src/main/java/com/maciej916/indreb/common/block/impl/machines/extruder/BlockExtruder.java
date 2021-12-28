@@ -7,6 +7,8 @@ import com.maciej916.indreb.common.enums.EnumLang;
 import com.maciej916.indreb.common.interfaces.block.IHasContainer;
 import com.maciej916.indreb.common.interfaces.block.IStateActive;
 import com.maciej916.indreb.common.interfaces.block.IStateFacing;
+import com.maciej916.indreb.common.item.impl.FluidCell;
+import com.maciej916.indreb.common.util.CapabilityUtil;
 import com.maciej916.indreb.common.util.TextComponentUtil;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
@@ -25,10 +27,12 @@ import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.material.Fluid;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraftforge.fluids.FluidStack;
+import net.minecraftforge.fluids.capability.CapabilityFluidHandler;
+import net.minecraftforge.fluids.capability.IFluidHandler;
+import net.minecraftforge.fluids.capability.IFluidHandlerItem;
 
 import javax.annotation.Nullable;
 import java.util.List;
@@ -51,40 +55,43 @@ public class BlockExtruder extends BlockElectricMachine implements IStateFacing,
         return new BlockEntityExtruder(pos, state);
     }
 
-
     @Override
     public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult trace) {
         if (!level.isClientSide) {
             if (!player.isShiftKeyDown()) {
                 BlockEntity blockEntity = level.getBlockEntity(pos);
                 if (blockEntity instanceof BlockEntityExtruder be) {
-                    ItemStack heldStack = player.getItemInHand(hand);
-                    if (heldStack.getItem() instanceof BucketItem bi) {
-                        Fluid bucketFluid = bi.getFluid();
-                        FluidStack fluidStack = new FluidStack(bucketFluid, 1000);
+                    ItemStack stack = player.getItemInHand(hand);
+                    if (!stack.isEmpty()) {
+                        ItemStack newStack = stack.copy();
+                        newStack.setCount(1);
+                        IFluidHandlerItem cap = CapabilityUtil.getCapabilityHelper(newStack, CapabilityFluidHandler.FLUID_HANDLER_ITEM_CAPABILITY).getValue();
+                        if (cap != null) {
+                            FluidStack fluid = cap.getFluidInTank(1);
 
-                        Fluid firstFluid = be.waterStorage.getFluid().getFluid();
-                        Fluid secondFluid = be.fluidStorage.getFluid().getFluid();
+                            if (fluid.getFluid() == Fluids.WATER) {
+                                if (be.waterStorage.fillFluid(fluid, true) == fluid.getAmount()) {
+                                    be.waterStorage.fillFluid(fluid, false);
 
-                        if (be.waterStorage.fillFluid(fluidStack, true) == 1000 && bucketFluid == Fluids.WATER && (firstFluid == Fluids.WATER || firstFluid == Fluids.EMPTY)) {
-                            be.waterStorage.fillFluid(fluidStack, false);
-                            if (!player.isCreative()) {
-                                ItemStack stack = new ItemStack(Items.BUCKET);
-                                player.setItemInHand(hand, stack);
+                                    cap.drain(fluid.getAmount(), IFluidHandler.FluidAction.EXECUTE);
+                                    player.addItem(cap.getContainer());
+                                    stack.shrink(1);
+
+                                    return InteractionResult.PASS;
+                                }
+                            } else if (fluid.getFluid() == Fluids.LAVA) {
+                                if (be.lavaStorage.fillFluid(fluid, true) == fluid.getAmount()) {
+                                    be.lavaStorage.fillFluid(fluid, false);
+
+                                    cap.drain(fluid.getAmount(), IFluidHandler.FluidAction.EXECUTE);
+                                    player.addItem(cap.getContainer());
+                                    stack.shrink(1);
+
+                                    return InteractionResult.PASS;
+                                }
                             }
-                            be.updateBlockState();
-                            return InteractionResult.PASS;
-                        } else if (be.fluidStorage.fillFluid(fluidStack, true) == 1000 && bucketFluid == Fluids.LAVA && (secondFluid == Fluids.LAVA || secondFluid == Fluids.EMPTY)) {
-                            be.fluidStorage.fillFluid(fluidStack, false);
-                            if (!player.isCreative()) {
-                                ItemStack stack = new ItemStack(Items.BUCKET);
-                                player.setItemInHand(hand, stack);
-                            }
-                            be.updateBlockState();
-                            return InteractionResult.PASS;
                         }
                     }
-
                 }
             }
         }

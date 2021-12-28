@@ -1,14 +1,15 @@
-package com.maciej916.indreb.common.item;
+package com.maciej916.indreb.common.item.impl;
 
+import com.maciej916.indreb.common.item.base.ToolItem;
 import com.maciej916.indreb.common.registries.ModBlocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.MaterialColor;
 
-public class ItemPainter extends ItemTool {
+public class Painter extends ToolItem {
 
     private final MaterialColor color;
 
-    public ItemPainter(MaterialColor color) {
+    public Painter(MaterialColor color) {
         super(32);
         this.color = color;
     }

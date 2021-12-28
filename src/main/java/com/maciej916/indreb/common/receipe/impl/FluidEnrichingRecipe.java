@@ -35,10 +35,7 @@ public class FluidEnrichingRecipe implements IBaseRecipe {
     private int ingredientCount;
 
     private FluidStack fluidInput;
-    private int fluidInputCount;
-
     private FluidStack result;
-    private int fluidResultCount;
 
     private float experience;
     private int duration;
@@ -60,8 +57,7 @@ public class FluidEnrichingRecipe implements IBaseRecipe {
 
     @Override
     public boolean matches(Container inv, Level worldIn) {
-
-        return true;
+        return ingredient.getItems().length > 0 && ingredient.getItems()[0].getItem() == inv.getItem(0).getItem();
     }
 
     @Override

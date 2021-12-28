@@ -166,7 +166,7 @@ public class BlockEntitySemifluidGenerator extends IndRebBlockEntity implements 
 
     @Override
     public SoundEvent getSoundEvent() {
-        return ModSounds.GEO_GENERATOR;
+        return ModSounds.SEMIFLUID_GENERATOR;
     }
 
     @Override

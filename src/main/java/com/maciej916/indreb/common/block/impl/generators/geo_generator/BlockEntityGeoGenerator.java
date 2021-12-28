@@ -112,24 +112,20 @@ public class BlockEntityGeoGenerator extends IndRebBlockEntity implements ICoold
     @Override
     public boolean isItemValidForSlot(int slot, @Nonnull ItemStack stack) {
         if (slot == FILL_BUCKET_UP) {
-            LazyOptionalHelper<IFluidHandlerItem> cap = CapabilityUtil.getCapabilityHelper(stack, CapabilityFluidHandler.FLUID_HANDLER_ITEM_CAPABILITY);
-            if (cap.isPresent()) {
-                if (cap.getValue().getTanks() > 0 && cap.getValue().getFluidInTank(1).getFluid() == Fluids.LAVA) {
-                    return true;
-                }
+            IFluidHandlerItem cap = CapabilityUtil.getCapabilityHelper(stack, CapabilityFluidHandler.FLUID_HANDLER_ITEM_CAPABILITY).getValue();
+            if (cap != null) {
+                return cap.getTanks() > 0 && cap.getFluidInTank(1).getFluid() == Fluids.LAVA;
             }
-            return false;
-        };
-        if (slot == FILL_BUCKET_DOWN) return false;
-        return super.isItemValidForSlot(slot, stack);
+        }
+        return false;
     }
 
     @Override
     public ItemStack insertItemForSlot(int slot, @Nonnull ItemStack stack, boolean simulate) {
         if (slot == FILL_BUCKET_UP) {
-            LazyOptionalHelper<IFluidHandlerItem> cap = CapabilityUtil.getCapabilityHelper(stack, CapabilityFluidHandler.FLUID_HANDLER_ITEM_CAPABILITY);
-            if (cap.isPresent()) {
-                if (cap.getValue().getTanks() > 0 && cap.getValue().getFluidInTank(1).getFluid() == Fluids.LAVA) {
+            IFluidHandlerItem cap = CapabilityUtil.getCapabilityHelper(stack, CapabilityFluidHandler.FLUID_HANDLER_ITEM_CAPABILITY).getValue();
+            if (cap != null) {
+                if (cap.getTanks() > 0 && cap.getFluidInTank(1).getFluid() == Fluids.LAVA) {
                     return null;
                 }
             }

@@ -167,12 +167,12 @@ public class BlockEntityAlloySmelter extends IndRebBlockEntity implements IEnerg
             progress.setBoth(-1);
         }
 
-        if ((getRedstonePower() > 0 && getEnergyStorage().consumeEnergy(ServerConfig.alloy_smelter_energy_heat_cost.get(), true) >= ServerConfig.alloy_smelter_energy_heat_cost.get() || active)) {
+        if ((getRedstonePower() > 0 && getEnergyStorage().consumeEnergy(ServerConfig.alloy_smelter_heat_cost.get(), true) >= ServerConfig.alloy_smelter_heat_cost.get() || active)) {
             if (heatLevel.getProgress() < 100) {
                 if (tickCounter == 20) {
                     heatLevel.incProgress(0.2f);
                     if (!active) {
-                        getEnergyStorage().consumeEnergy(ServerConfig.alloy_smelter_energy_heat_cost.get(), false);
+                        getEnergyStorage().consumeEnergy(ServerConfig.alloy_smelter_heat_cost.get(), false);
                     }
                 }
             }

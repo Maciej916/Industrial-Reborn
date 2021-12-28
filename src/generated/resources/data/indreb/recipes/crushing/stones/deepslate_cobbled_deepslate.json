@@ -5,7 +5,12 @@
     "count": 1
   },
   "result": {
-    "item": "indreb:deepslate_dust"
+    "item": "minecraft:cobbled_deepslate"
+  },
+  "bonus_result": {
+    "item": "indreb:deepslate_dust",
+    "count": 1,
+    "chance": 50.0
   },
   "experience": 0.0,
   "duration": 180,

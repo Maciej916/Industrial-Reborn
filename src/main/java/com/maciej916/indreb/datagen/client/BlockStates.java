@@ -32,6 +32,7 @@ public class BlockStates extends BlockStateProvider {
         registerMachines();
         registerConstructionFoam();
         registerRubberWood();
+        registerSimple();
 
 
 
@@ -87,6 +88,12 @@ public class BlockStates extends BlockStateProvider {
     private void registerRubberWood() {
         simpleBlock(ModBlocks.RUBBER_SAPLING.getBlock(), models().cross(ModBlocks.RUBBER_SAPLING.getBlock().getRegistryName().getPath(), new ResourceLocation(IndReb.MODID, "block/rubber_wood/rubber_sapling")));
 
+
+    }
+
+    private void registerSimple() {
+        createCubeAll(ModBlocks.BASIC_MACHINE_CASING.getBlock(), "basic_machine_casing");
+        createCubeAll(ModBlocks.ADVANCED_MACHINE_CASING.getBlock(), "advanced_machine_casing");
 
     }
 

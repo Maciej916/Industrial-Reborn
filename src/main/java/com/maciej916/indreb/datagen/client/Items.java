@@ -161,7 +161,7 @@ public class Items extends ItemModelProvider {
         createGeneratedTexture(ModItems.WRENCH, "tool/wrench");
         createGeneratedTexture(ModItems.HAMMER, "tool/hammer");
         createGeneratedTexture(ModItems.TREETAP, "tool/treetap");
-        createGeneratedTexture(ModItems.FOAM_SPRAYER, "tool/foam_sprayer");
+        createHandheldTexture(ModItems.FOAM_SPRAYER, "tool/foam_sprayer");
     }
 
     protected void registerElectricTools() {

@@ -1,18 +1,14 @@
 package com.maciej916.indreb.common.entity.block;
 
-import com.maciej916.indreb.common.enums.EnergyTier;
-import com.maciej916.indreb.common.enums.EnumEnergyType;
-import com.maciej916.indreb.common.enums.InventorySlotType;
 import com.maciej916.indreb.common.enums.UpgradeType;
-import com.maciej916.indreb.common.interfaces.item.IElectricItem;
-import com.maciej916.indreb.common.registries.ModTags;
+import com.maciej916.indreb.common.item.base.UpgradeItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.SlotItemHandler;
 
 import javax.annotation.Nonnull;
 import java.util.HashSet;
-import java.util.List;
+import java.util.Objects;
 
 
 public class UpgradeSlotHandler extends SlotItemHandler {
@@ -27,7 +23,15 @@ public class UpgradeSlotHandler extends SlotItemHandler {
     @Override
     public boolean mayPlace(@Nonnull ItemStack stack) {
 
-        return true;
+
+
+        if (stack.getItem() instanceof UpgradeItem upgradeItem) {
+            if (acceptedUpgrades.contains(upgradeItem.getUpgradeType())) {
+               return true;
+            }
+        }
+
+        return false;
     }
 
     public HashSet<UpgradeType> getAcceptedUpgrades() {

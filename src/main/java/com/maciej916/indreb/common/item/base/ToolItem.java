@@ -1,12 +1,8 @@
 package com.maciej916.indreb.common.item.base;
 
-import com.maciej916.indreb.common.registries.ModItemGroups;
 import net.minecraft.core.NonNullList;
 import net.minecraft.world.item.CreativeModeTab;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-
-import java.util.Collection;
 
 public class ToolItem extends BaseItem {
 
@@ -28,5 +24,17 @@ public class ToolItem extends BaseItem {
     public void fillItemCategory(CreativeModeTab pCategory, NonNullList<ItemStack> pItems) {
         if (pCategory == CreativeModeTab.TAB_TOOLS) pItems.add(new ItemStack(this));
         super.fillItemCategory(pCategory, pItems);
+    }
+
+    @Override
+    public boolean hasContainerItem(ItemStack stack) {
+        return true;
+    }
+
+    @Override
+    public ItemStack getContainerItem(ItemStack itemStack) {
+        ItemStack result = itemStack.copy();
+        result.setDamageValue(itemStack.getDamageValue() + 1);
+        return result.getDamageValue() >= result.getMaxDamage() ? ItemStack.EMPTY : result;
     }
 }

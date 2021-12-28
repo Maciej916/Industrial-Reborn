@@ -123,28 +123,22 @@ public abstract class IndRebContainer extends AbstractContainerMenu {
     public ItemStack quickMoveStack(Player playerIn, int index) {
         ItemStack itemstack = ItemStack.EMPTY;
 
-        int totalContainerSlots = blockEntity.getItemHandlers().size() + blockEntity.getBatteryHandlers().size();
+        int machineSlots = blockEntity.getItemHandlers().size();
+        int batterySlots = machineSlots + blockEntity.getBatteryHandlers().size();
+        int upgradeSlots = batterySlots + blockEntity.getUpgradeHandlers().size();
+        int totalSlots = blockEntity.getTotalMachineSlotCount() + 37;
 
         Slot slot = this.slots.get(index);
-        if (slot != null && slot.hasItem()) {
+        if (slot.hasItem()) {
             ItemStack stack = slot.getItem();
             itemstack = stack.copy();
-            if (index == 0) {
-                if (!this.moveItemStackTo(stack, 1, 37, true)) {
+
+            if (index < upgradeSlots) {
+                if (!this.moveItemStackTo(stack, upgradeSlots - 1, totalSlots - 1, true)) {
                     return ItemStack.EMPTY;
                 }
-                slot.onQuickCraft(stack, itemstack);
-            } else {
-//                if (ForgeHooks.getBurnTime(stack, RecipeType.SMELTING) > 0) {
-//                    if (!this.moveItemStackTo(stack, 0, 1, false)) {
-//                        return ItemStack.EMPTY;
-//                    }
-//                } else if (index < 28) {
-                if (index < 28 + totalContainerSlots) {
-                    if (!this.moveItemStackTo(stack, 28, 37, false)) {
-                        return ItemStack.EMPTY;
-                    }
-                } else if (index < 37 + totalContainerSlots && !this.moveItemStackTo(stack, 1, 28, false)) {
+            } else if (index < totalSlots) {
+                if (!this.moveItemStackTo(stack, 0, upgradeSlots, true)) {
                     return ItemStack.EMPTY;
                 }
             }

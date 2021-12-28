@@ -41,6 +41,7 @@ import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.items.ItemStackHandler;
 import net.minecraftforge.items.SlotItemHandler;
+import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -238,7 +239,7 @@ public class IndRebBlockEntity extends BlockEntity implements IHasSlot {
         return item;
     }
 
-    public ItemStackHandler getStackHandler() {
+    public @NotNull ItemStackHandler getStackHandler() {
         return stackHandler;
     }
 

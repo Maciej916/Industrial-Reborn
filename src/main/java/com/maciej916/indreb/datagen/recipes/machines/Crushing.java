@@ -130,9 +130,17 @@ public class Crushing extends RecipeProvider {
 
         RecipeBuilderCrushing.builder(Items.COBBLESTONE,1)
                 .setIngredient(Ingredient.of(Items.STONE), 1)
+                .setBonus(ModItems.STONE_DUST, 1, 50)
                 .setGroup("crushing/stones")
                 .addCriterion("item", InventoryChangeTrigger.TriggerInstance.hasItems(Items.STONE))
                 .save(consumer, "stone_cobblestone");
+
+        RecipeBuilderCrushing.builder(Items.COBBLED_DEEPSLATE,1)
+                .setIngredient(Ingredient.of(Items.DEEPSLATE), 1)
+                .setBonus(ModItems.DEEPSLATE_DUST, 1, 50)
+                .setGroup("crushing/stones")
+                .addCriterion("item", InventoryChangeTrigger.TriggerInstance.hasItems(Items.DEEPSLATE))
+                .save(consumer, "deepslate_cobbled_deepslate");
 
         // Ores
 
@@ -542,17 +550,17 @@ public class Crushing extends RecipeProvider {
                 .save(consumer, "kelp");
 
 
-       RecipeBuilderCrushing.builder(ModItems.DEEPSLATE_DUST,1)
-                .setIngredient(Items.DEEPSLATE, 1)
-                .setGroup("crushing")
-                .addCriterion("deepslate", InventoryChangeTrigger.TriggerInstance.hasItems(Items.DEEPSLATE))
-                .save(consumer, "deepslate_dust");
-
-       RecipeBuilderCrushing.builder(ModItems.STONE_DUST,1)
-                .setIngredient(Items.STONE, 1)
-                .setGroup("crushing")
-                .addCriterion("stone", InventoryChangeTrigger.TriggerInstance.hasItems(Items.STONE))
-                .save(consumer, "stone_dust");
+//       RecipeBuilderCrushing.builder(ModItems.DEEPSLATE_DUST,1)
+//                .setIngredient(Items.DEEPSLATE, 1)
+//                .setGroup("crushing")
+//                .addCriterion("deepslate", InventoryChangeTrigger.TriggerInstance.hasItems(Items.DEEPSLATE))
+//                .save(consumer, "deepslate_dust");
+//
+//       RecipeBuilderCrushing.builder(ModItems.STONE_DUST,1)
+//                .setIngredient(Items.STONE, 1)
+//                .setGroup("crushing")
+//                .addCriterion("stone", InventoryChangeTrigger.TriggerInstance.hasItems(Items.STONE))
+//                .save(consumer, "stone_dust");
 
 
 

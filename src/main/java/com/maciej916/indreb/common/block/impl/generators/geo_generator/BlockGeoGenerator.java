@@ -1,15 +1,14 @@
 package com.maciej916.indreb.common.block.impl.generators.geo_generator;
 
 import com.maciej916.indreb.common.block.BlockElectricMachine;
-import com.maciej916.indreb.common.block.impl.generators.semifluid_generator.BlockEntitySemifluidGenerator;
-import com.maciej916.indreb.common.block.impl.machines.extruder.BlockEntityExtruder;
+import com.maciej916.indreb.common.capabilities.FluidHandler;
 import com.maciej916.indreb.common.config.ServerConfig;
 import com.maciej916.indreb.common.enums.EnergyTier;
 import com.maciej916.indreb.common.enums.EnumLang;
-import com.maciej916.indreb.common.fluids.Biogas;
 import com.maciej916.indreb.common.interfaces.block.IHasContainer;
 import com.maciej916.indreb.common.interfaces.block.IStateActive;
 import com.maciej916.indreb.common.interfaces.block.IStateFacing;
+import com.maciej916.indreb.common.item.impl.FluidCell;
 import com.maciej916.indreb.common.util.CapabilityUtil;
 import com.maciej916.indreb.common.util.TextComponentUtil;
 import net.minecraft.ChatFormatting;
@@ -29,11 +28,11 @@ import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.material.Fluid;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fluids.capability.CapabilityFluidHandler;
+import net.minecraftforge.fluids.capability.IFluidHandler;
 import net.minecraftforge.fluids.capability.IFluidHandlerItem;
 
 import javax.annotation.Nullable;
@@ -81,17 +80,16 @@ public class BlockGeoGenerator extends BlockElectricMachine implements IStateFac
                 if (blockEntity instanceof BlockEntityGeoGenerator be) {
                     ItemStack stack = player.getItemInHand(hand);
                     if (!stack.isEmpty()) {
-                        IFluidHandlerItem cap = CapabilityUtil.getCapabilityHelper(stack, CapabilityFluidHandler.FLUID_HANDLER_ITEM_CAPABILITY).getValue();
+                        ItemStack newStack = stack.copy();
+                        newStack.setCount(1);
+                        IFluidHandlerItem cap = CapabilityUtil.getCapabilityHelper(newStack, CapabilityFluidHandler.FLUID_HANDLER_ITEM_CAPABILITY).getValue();
                         if (cap != null) {
                             FluidStack fluid = cap.getFluidInTank(1);
                             if (fluid.getFluid() == Fluids.LAVA) {
                                 if (be.fluidStorage.fillFluid(fluid, true) == fluid.getAmount()) {
                                     be.fluidStorage.fillFluid(fluid, false);
-                                    if (stack.getItem() instanceof BucketItem) {
-                                        player.addItem(new ItemStack(Items.BUCKET));
-                                    } else {
-                                        player.addItem(new ItemStack(stack.getItem()));
-                                    }
+                                    cap.drain(fluid.getAmount(), IFluidHandler.FluidAction.EXECUTE);
+                                    player.addItem(cap.getContainer());
                                     stack.shrink(1);
                                     return InteractionResult.PASS;
                                 }

@@ -29,14 +29,12 @@ import com.maciej916.indreb.common.block.impl.machines.recycler.ScreenRecycler;
 import com.maciej916.indreb.common.block.impl.machines.sawmill.BlockEntitySawmill;
 import com.maciej916.indreb.common.block.impl.machines.sawmill.ContainerSawmill;
 import com.maciej916.indreb.common.block.impl.machines.sawmill.ScreenSawmill;
-import com.maciej916.indreb.common.item.FluidCell;
 import com.maciej916.indreb.common.registries.ModBlocks;
 import com.maciej916.indreb.common.registries.ModItems;
 import com.maciej916.indreb.common.registries.ModRecipeType;
 import com.maciej916.indreb.common.screen.GuiHandler;
 import com.maciej916.indreb.common.screen.PanelScreen;
 import com.maciej916.indreb.common.util.RecipeUtil;
-import com.maciej916.indreb.datagen.recipes.machines.FluidEnriching;
 import com.maciej916.indreb.integration.jei.category.impl.*;
 import mezz.jei.api.IModPlugin;
 import mezz.jei.api.JeiPlugin;
@@ -155,6 +153,7 @@ public class JEIPlugin implements IModPlugin {
     @Override
     public void registerItemSubtypes(ISubtypeRegistration registration) {
         registration.useNbtForSubtypes(ModItems.FLUID_CELL);
+        registration.useNbtForSubtypes(ModItems.FOAM_SPRAYER);
 
         registration.useNbtForSubtypes(ModItems.ELECTRIC_HOE);
         registration.useNbtForSubtypes(ModItems.ELECTRIC_WRENCH);

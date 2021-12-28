@@ -7,6 +7,8 @@ import com.maciej916.indreb.common.enums.EnumLang;
 import com.maciej916.indreb.common.interfaces.block.IHasContainer;
 import com.maciej916.indreb.common.interfaces.block.IStateActive;
 import com.maciej916.indreb.common.interfaces.block.IStateFacing;
+import com.maciej916.indreb.common.item.impl.FluidCell;
+import com.maciej916.indreb.common.util.CapabilityUtil;
 import com.maciej916.indreb.common.util.TextComponentUtil;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
@@ -25,10 +27,12 @@ import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.material.Fluid;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraftforge.fluids.FluidStack;
+import net.minecraftforge.fluids.capability.CapabilityFluidHandler;
+import net.minecraftforge.fluids.capability.IFluidHandler;
+import net.minecraftforge.fluids.capability.IFluidHandlerItem;
 
 import javax.annotation.Nullable;
 import java.util.List;
@@ -52,6 +56,39 @@ public class BlockFluidEnricher extends BlockElectricMachine implements IStateFa
     }
 
     @Override
+    public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult trace) {
+        if (!level.isClientSide) {
+            if (!player.isShiftKeyDown()) {
+                BlockEntity blockEntity = level.getBlockEntity(pos);
+                if (blockEntity instanceof BlockEntityFluidEnricher be) {
+                    ItemStack stack = player.getItemInHand(hand);
+                    if (!stack.isEmpty()) {
+                        ItemStack newStack = stack.copy();
+                        newStack.setCount(1);
+                        IFluidHandlerItem cap = CapabilityUtil.getCapabilityHelper(newStack, CapabilityFluidHandler.FLUID_HANDLER_ITEM_CAPABILITY).getValue();
+                        if (cap != null) {
+                            FluidStack fluid = cap.getFluidInTank(1);
+                            if (fluid.getFluid() == Fluids.WATER) {
+                                if (be.fluidInputStorage.fillFluid(fluid, true) == fluid.getAmount()) {
+                                    be.fluidInputStorage.fillFluid(fluid, false);
+
+                                    cap.drain(fluid.getAmount(), IFluidHandler.FluidAction.EXECUTE);
+                                    player.addItem(cap.getContainer());
+                                    stack.shrink(1);
+
+                                    return InteractionResult.PASS;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        return super.use(state, level, pos, player, hand, trace);
+    }
+
+    @Override
     public void appendHoverText(ItemStack pStack, @Nullable BlockGetter pLevel, List<Component> pTooltip, TooltipFlag pFlag) {
         super.appendHoverText(pStack, pLevel, pTooltip, pFlag);
 
@@ -64,8 +101,5 @@ public class BlockFluidEnricher extends BlockElectricMachine implements IStateFa
                 new TranslatableComponent(EnumLang.CAPACITY.getTranslationKey()).withStyle(ChatFormatting.GRAY),
                 new TranslatableComponent(EnumLang.POWER.getTranslationKey(), TextComponentUtil.getFormattedEnergyUnit(ServerConfig.extruder_energy_capacity.get())).withStyle(EnergyTier.BASIC.getColor())
         ));
-
-        pTooltip.add(new TranslatableComponent(EnumLang.WIP.getTranslationKey()).withStyle(ChatFormatting.RED));
-
     }
 }

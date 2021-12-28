@@ -1,6 +1,5 @@
 package com.maciej916.indreb.common.item.impl.treetap;
 
-import com.maciej916.indreb.common.item.base.BaseItem;
 import com.maciej916.indreb.common.item.base.ToolItem;
 
 public class Treetap extends ToolItem {

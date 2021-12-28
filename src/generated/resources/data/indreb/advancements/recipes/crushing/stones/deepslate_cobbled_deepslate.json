@@ -2,17 +2,17 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "indreb:crushing/stone_dust"
+      "indreb:crushing/stones/deepslate_cobbled_deepslate"
     ]
   },
   "criteria": {
-    "stone": {
+    "item": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
             "items": [
-              "minecraft:stone"
+              "minecraft:deepslate"
             ]
           }
         ]
@@ -21,13 +21,13 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "indreb:crushing/stone_dust"
+        "recipe": "indreb:crushing/stones/deepslate_cobbled_deepslate"
       }
     }
   },
   "requirements": [
     [
-      "stone",
+      "item",
       "has_the_recipe"
     ]
   ]

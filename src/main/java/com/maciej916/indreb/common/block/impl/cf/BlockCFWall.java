@@ -1,6 +1,6 @@
 package com.maciej916.indreb.common.block.impl.cf;
 
-import com.maciej916.indreb.common.item.ItemPainter;
+import com.maciej916.indreb.common.item.impl.Painter;
 import com.mojang.math.Vector3f;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -31,7 +31,7 @@ public class BlockCFWall extends Block {
     @Override
     public InteractionResult use(BlockState blockState, Level level, BlockPos blockPos, Player player, InteractionHand interactionHand, BlockHitResult blockHitResult) {
 
-        if (player.getItemInHand(interactionHand).getItem() instanceof ItemPainter painter) {
+        if (player.getItemInHand(interactionHand).getItem() instanceof Painter painter) {
             if (painter.getState() == blockState) {
                 return InteractionResult.PASS;
             } else {

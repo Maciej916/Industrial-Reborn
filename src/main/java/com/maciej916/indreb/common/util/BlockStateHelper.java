@@ -109,13 +109,6 @@ public class BlockStateHelper {
         }
     }
 
-
-
-
-
-
-
-
     public static BlockState rotate(BlockState state, Rotation rotation) {
         Block block = state.getBlock();
 
