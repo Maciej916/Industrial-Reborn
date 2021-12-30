@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "indreb:compressing/refined_uranium"
+    ]
+  },
+  "criteria": {
+    "uranium": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:uranium"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "indreb:compressing/refined_uranium"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "uranium",
+      "has_the_recipe"
+    ]
+  ]
+}

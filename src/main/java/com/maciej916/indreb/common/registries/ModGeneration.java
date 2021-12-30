@@ -31,7 +31,13 @@ public final class ModGeneration {
     public static void registerOverworldOres() {
         if (CommonConfig.worldgen_tin_enabled.get()) {
             OVERWORLD_ORES.add(ModPlacedFeatures.ORE_TIN_SMALL);
-            OVERWORLD_ORES.add(ModPlacedFeatures.ORE_TIN_LARGE);
+//            OVERWORLD_ORES.add(ModPlacedFeatures.ORE_TIN_LARGE);
+        }
+        if (CommonConfig.worldgen_lead_enabled.get()) {
+            OVERWORLD_ORES.add(ModPlacedFeatures.ORE_LEAD);
+        }
+        if (CommonConfig.worldgen_uranium_enabled.get()) {
+            OVERWORLD_ORES.add(ModPlacedFeatures.ORE_URANIUM);
         }
     }
 
@@ -72,6 +78,8 @@ public final class ModGeneration {
         registerOverworldOres();
 
         List<Supplier<PlacedFeature>> features = gen.getFeatures(GenerationStep.Decoration.UNDERGROUND_ORES);
+
+
         switch(event.getCategory()) {
             case NETHER -> NETHER_ORES.forEach(ore -> features.add(() -> ore));
             case THEEND -> END_ORES.forEach(ore -> features.add(() -> ore));

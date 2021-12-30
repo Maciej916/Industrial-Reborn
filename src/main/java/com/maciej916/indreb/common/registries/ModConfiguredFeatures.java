@@ -20,10 +20,14 @@ import java.util.List;
 
 public class ModConfiguredFeatures {
     public static final List<OreConfiguration.TargetBlockState> ORE_TIN_TARGET_LIST = List.of(OreConfiguration.target(OreFeatures.STONE_ORE_REPLACEABLES, ModBlocks.TIN_ORE.getBlock().defaultBlockState()), OreConfiguration.target(OreFeatures.DEEPSLATE_ORE_REPLACEABLES, ModBlocks.DEEPSLATE_TIN_ORE.getBlock().defaultBlockState()));
+    public static final List<OreConfiguration.TargetBlockState> ORE_LEAD_TARGET_LIST = List.of(OreConfiguration.target(OreFeatures.STONE_ORE_REPLACEABLES, ModBlocks.LEAD_ORE.getBlock().defaultBlockState()), OreConfiguration.target(OreFeatures.DEEPSLATE_ORE_REPLACEABLES, ModBlocks.DEEPSLATE_LEAD_ORE.getBlock().defaultBlockState()));
+    public static final List<OreConfiguration.TargetBlockState> ORE_URANIUM_TARGET_LIST = List.of(OreConfiguration.target(OreFeatures.DEEPSLATE_ORE_REPLACEABLES, ModBlocks.DEEPSLATE_URANIUM_ORE.getBlock().defaultBlockState()));
 
     public static ConfiguredFeature<TreeConfiguration, ?> RUBBER_TREE;
     public static ConfiguredFeature<OreConfiguration, ?> ORE_TIN_SMALL;
     public static ConfiguredFeature<OreConfiguration, ?> ORE_TIN_LARGE;
+    public static ConfiguredFeature<OreConfiguration, ?> ORE_LEAD;
+    public static ConfiguredFeature<OreConfiguration, ?> ORE_URANIUM;
 
     public static void init() {
         RUBBER_TREE = register("rubber_tree", Feature.TREE.configured((
@@ -39,6 +43,9 @@ public class ModConfiguredFeatures {
 
         ORE_TIN_SMALL = register("ore_tin_small", Feature.ORE.configured(new OreConfiguration(ORE_TIN_TARGET_LIST, CommonConfig.worldgen_tin_size.get())));
         ORE_TIN_LARGE = register("ore_tin_large", Feature.ORE.configured(new OreConfiguration(ORE_TIN_TARGET_LIST, CommonConfig.worldgen_tin_size_large.get())));
+
+        ORE_LEAD = register("ore_lead", Feature.ORE.configured(new OreConfiguration(ORE_LEAD_TARGET_LIST, CommonConfig.worldgen_lead_size.get())));
+        ORE_URANIUM = register("ore_uranium", Feature.ORE.configured(new OreConfiguration(ORE_URANIUM_TARGET_LIST, CommonConfig.worldgen_uranium_size.get(), CommonConfig.worldgen_uranium_discard_air_exposure.get().floatValue())));
     }
 
     private static <FC extends FeatureConfiguration> ConfiguredFeature<FC, ?> register(String key, ConfiguredFeature<FC, ?> configuredFeature) {

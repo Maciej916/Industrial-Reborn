@@ -31,6 +31,7 @@ public class ScrapBox extends RecipeProvider {
         RecipeBuilderScrapBox.builder(Items.DIAMOND).setWeight(0.2F).save(consumer,"diamond");
         RecipeBuilderScrapBox.builder(Items.EMERALD).setWeight(0.1F).save(consumer,"emerald");
         RecipeBuilderScrapBox.builder(ModItems.RAW_TIN).setWeight(0.7F).save(consumer,"raw_tin");
+        RecipeBuilderScrapBox.builder(ModItems.RAW_LEAD).setWeight(0.8F).save(consumer,"raw_lead");
         RecipeBuilderScrapBox.builder(ModItems.SILVER_INGOT).setWeight(0.7F).save(consumer,"silver_ingot");
         RecipeBuilderScrapBox.builder(Items.STICK).setWeight(4.0F).save(consumer,"stick");
         RecipeBuilderScrapBox.builder(Items.SOUL_SAND).setWeight(1.0F).save(consumer,"soul_sand");

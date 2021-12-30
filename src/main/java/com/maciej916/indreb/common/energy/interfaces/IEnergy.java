@@ -8,6 +8,7 @@ public interface IEnergy {
     int energyStored();
     int maxEnergy();
     int setEnergy(int amount);
+    int setMaxEnergy(int amount);
 
     default boolean canReceiveEnergy() {
         return canReceiveEnergy(null);

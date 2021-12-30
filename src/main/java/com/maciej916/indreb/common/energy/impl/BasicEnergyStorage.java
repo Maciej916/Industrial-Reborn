@@ -10,13 +10,16 @@ import net.minecraftforge.common.util.INBTSerializable;
 public class BasicEnergyStorage implements IEnergy, IProgress, INBTSerializable<CompoundTag> {
 
     private int energyStored;
-    private final int maxEnergy;
+    private int maxEnergy;
+
+    public final int origEnergy;
     private final int maxReceiveTick;
     private final int maxExtractTick;
     private final EnumEnergyType energyType;
 
     public BasicEnergyStorage(int energyStored, int maxEnergy, int maxReceiveTick, int maxExtractTick, EnumEnergyType energyType) {
         this.energyStored = energyStored;
+        this.origEnergy = maxEnergy;
         this.maxEnergy = maxEnergy;
         this.maxReceiveTick = maxReceiveTick;
         this.maxExtractTick = maxExtractTick;
@@ -37,6 +40,13 @@ public class BasicEnergyStorage implements IEnergy, IProgress, INBTSerializable<
     public int setEnergy(int amount) {
         energyStored = Math.min(maxEnergy, amount);
         return energyStored;
+    }
+
+    @Override
+    public int setMaxEnergy(int amount) {
+        this.maxEnergy = amount;
+        if (energyStored > maxEnergy) this.energyStored = amount;
+        return amount;
     }
 
     @Override

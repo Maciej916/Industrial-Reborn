@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:blasting",
+  "ingredient": {
+    "item": "indreb:deepslate_uranium_ore"
+  },
+  "result": "indreb:uranium",
+  "experience": 1.5,
+  "cookingtime": 100
+}

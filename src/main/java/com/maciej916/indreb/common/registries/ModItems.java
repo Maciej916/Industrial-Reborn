@@ -3,6 +3,7 @@ package com.maciej916.indreb.common.registries;
 import com.maciej916.indreb.common.enums.EnergyTier;
 import com.maciej916.indreb.common.enums.EnumEnergyType;
 import com.maciej916.indreb.common.enums.ModArmorMaterials;
+import com.maciej916.indreb.common.enums.UpgradeType;
 import com.maciej916.indreb.common.item.*;
 import com.maciej916.indreb.common.item.base.DummyItem;
 import com.maciej916.indreb.common.item.base.EnergyStorageItem;
@@ -12,6 +13,9 @@ import com.maciej916.indreb.common.item.impl.*;
 import com.maciej916.indreb.common.item.impl.tools.*;
 import com.maciej916.indreb.common.item.impl.treetap.ElectricTreetap;
 import com.maciej916.indreb.common.item.impl.treetap.Treetap;
+import com.maciej916.indreb.common.item.impl.upgrade.ItemDirectionalUpgrade;
+import com.maciej916.indreb.common.item.impl.upgrade.ItemUpgrade;
+import com.maciej916.indreb.common.item.impl.upgrade.OverclockerUpgrade;
 import com.maciej916.indreb.common.item.impl.wrench.ElectricWrench;
 import com.maciej916.indreb.common.item.impl.wrench.Wrench;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -29,10 +33,15 @@ import net.minecraftforge.registries.ForgeRegistries;
 public final class ModItems {
 
     public static Item RAW_TIN;
+    public static Item RAW_LEAD;
+    public static Item URANIUM;
+
     public static Item TIN_INGOT;
     public static Item SILVER_INGOT;
     public static Item BRONZE_INGOT;
     public static Item STEEL_INGOT;
+    public static Item LEAD_INGOT;
+    public static Item REFINED_URANIUM;
     public static Item MIXED_METAL_INGOT;
 
     public static Item CRUSHED_TIN;
@@ -157,15 +166,36 @@ public final class ModItems {
     public static Item FOAM_POWDER;
     public static Item REINFORCED_FOAM_POWDER;
 
+    public static Item OVERCLOCKER_UPGRADE;
+    public static Item TRANSFORMER_UPGRADE;
+    public static Item ENERGY_STORAGE_UPGRADE;
+    public static Item REDSTONE_SIGNAL_INVERTER_UPGRADE;
+    public static Item EJECTOR_UPGRADE;
+    public static Item PULLING_UPGRADE;
+    public static Item FLUID_EJECTOR_UPGRADE;
+    public static Item FLUID_PULLING_UPGRADE;
+    public static Item ADVANCED_EJECTOR_UPGRADE;
+    public static Item ADVANCED_PULLING_UPGRADE;
+    public static Item ADVANCED_FLUID_EJECTOR_UPGRADE;
+    public static Item ADVANCED_FLUID_PULLING_UPGRADE;
+
+
+
+
     @SubscribeEvent
     public static void registerBlocks(RegistryEvent.Register<Block> event) {
 
         RAW_TIN = registerItem(new ItemBasic(), "raw_tin");
+        RAW_LEAD = registerItem(new ItemBasic(), "raw_lead");
+        URANIUM = registerItem(new ItemBasic(), "uranium");
+
         TIN_INGOT = registerItem(new ItemBasic(), "tin_ingot");
         BRONZE_INGOT = registerItem(new ItemBasic(), "bronze_ingot");
         STEEL_INGOT = registerItem(new ItemBasic(), "steel_ingot");
         MIXED_METAL_INGOT = registerItem(new ItemBasic(), "mixed_metal_ingot");
         SILVER_INGOT = registerItem(new ItemBasic(), "silver_ingot");
+        LEAD_INGOT = registerItem(new ItemBasic(), "lead_ingot");
+        REFINED_URANIUM = registerItem(new ItemBasic(), "refined_uranium");
 
         CRUSHED_TIN = registerItem(new ItemBasic(), "crushed_tin");
         CRUSHED_COPPER = registerItem(new ItemBasic(), "crushed_copper");
@@ -291,7 +321,18 @@ public final class ModItems {
         FOAM_POWDER = registerItem(new DummyItem(CreativeModeTab.TAB_MATERIALS), "foam_powder");
         REINFORCED_FOAM_POWDER = registerItem(new DummyItem(CreativeModeTab.TAB_MATERIALS), "reinforced_foam_powder");
 
-
+        OVERCLOCKER_UPGRADE = registerItem(new OverclockerUpgrade(), "overclocker_upgrade");
+        TRANSFORMER_UPGRADE = registerItem(new ItemUpgrade(UpgradeType.TRANSFORMER), "transformer_upgrade");
+        ENERGY_STORAGE_UPGRADE = registerItem(new ItemUpgrade(UpgradeType.ENERGY_STORAGE), "energy_storage_upgrade");
+        REDSTONE_SIGNAL_INVERTER_UPGRADE = registerItem(new ItemUpgrade(UpgradeType.REDSTONE_SIGNAL_INVERTER), "redstone_signal_inverter_upgrade");
+        EJECTOR_UPGRADE = registerItem(new ItemDirectionalUpgrade(UpgradeType.EJECTOR), "ejector_upgrade");
+        PULLING_UPGRADE = registerItem(new ItemDirectionalUpgrade(UpgradeType.PULLING), "pulling_upgrade");
+        FLUID_EJECTOR_UPGRADE = registerItem(new ItemDirectionalUpgrade(UpgradeType.FLUID_EJECTOR), "fluid_ejector_upgrade");
+        FLUID_PULLING_UPGRADE = registerItem(new ItemDirectionalUpgrade(UpgradeType.FLUID_PULLING), "fluid_pulling_upgrade");
+        ADVANCED_EJECTOR_UPGRADE = registerItem(new ItemDirectionalUpgrade(UpgradeType.EJECTOR), "advanced_ejector_upgrade");
+        ADVANCED_PULLING_UPGRADE = registerItem(new ItemDirectionalUpgrade(UpgradeType.PULLING), "advanced_pulling_upgrade");
+        ADVANCED_FLUID_EJECTOR_UPGRADE = registerItem(new ItemDirectionalUpgrade(UpgradeType.FLUID_EJECTOR), "advanced_fluid_ejector_upgrade");
+        ADVANCED_FLUID_PULLING_UPGRADE = registerItem(new ItemDirectionalUpgrade(UpgradeType.FLUID_PULLING), "advanced_fluid_pulling_upgrade");
 
 
     }

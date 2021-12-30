@@ -94,6 +94,13 @@ public class EnergyNetwork implements IEnergy, INBTSerializable<CompoundTag> {
     }
 
     @Override
+    public int setMaxEnergy(int amount) {
+        this.energyMax = amount;
+        if (energy > energyMax) this.energy = amount;
+        return amount;
+    }
+
+    @Override
     public boolean canReceiveEnergy(Direction side) {
         return true;
     }

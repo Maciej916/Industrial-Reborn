@@ -21,6 +21,7 @@ import com.maciej916.indreb.common.block.impl.machines.recycler.ScreenRecycler;
 import com.maciej916.indreb.common.block.impl.machines.sawmill.ScreenSawmill;
 import com.maciej916.indreb.common.item.ItemEnergy;
 import com.maciej916.indreb.common.item.ItemNanosaber;
+import com.maciej916.indreb.common.item.impl.upgrade.ItemDirectionalUpgrade;
 import com.maciej916.indreb.common.registries.ModBlocks;
 import com.maciej916.indreb.common.registries.ModContainers;
 import com.maciej916.indreb.common.registries.ModItems;
@@ -95,7 +96,14 @@ public final class ClientModEventSubscriber {
 			ItemProperties.register(ModItems.LAPOTRON_CRYSTAL, new ResourceLocation(IndReb.MODID, "charge_ratio"), (stack, level, living, id) -> ItemEnergy.getChargeRatioModel(stack));
 			ItemProperties.register(ModItems.NANO_SABER, new ResourceLocation(IndReb.MODID, "active"), (stack, level, living, id) -> ItemNanosaber.isActivated(stack));
 
-
+			ItemProperties.register(ModItems.EJECTOR_UPGRADE, new ResourceLocation(IndReb.MODID, "direction"), (stack, level, living, id) -> ItemDirectionalUpgrade.getDirection(stack));
+			ItemProperties.register(ModItems.PULLING_UPGRADE, new ResourceLocation(IndReb.MODID, "direction"), (stack, level, living, id) -> ItemDirectionalUpgrade.getDirection(stack));
+			ItemProperties.register(ModItems.FLUID_EJECTOR_UPGRADE, new ResourceLocation(IndReb.MODID, "direction"), (stack, level, living, id) -> ItemDirectionalUpgrade.getDirection(stack));
+			ItemProperties.register(ModItems.FLUID_EJECTOR_UPGRADE, new ResourceLocation(IndReb.MODID, "direction"), (stack, level, living, id) -> ItemDirectionalUpgrade.getDirection(stack));
+			ItemProperties.register(ModItems.ADVANCED_EJECTOR_UPGRADE, new ResourceLocation(IndReb.MODID, "direction"), (stack, level, living, id) -> ItemDirectionalUpgrade.getDirection(stack));
+			ItemProperties.register(ModItems.ADVANCED_PULLING_UPGRADE, new ResourceLocation(IndReb.MODID, "direction"), (stack, level, living, id) -> ItemDirectionalUpgrade.getDirection(stack));
+			ItemProperties.register(ModItems.ADVANCED_FLUID_EJECTOR_UPGRADE, new ResourceLocation(IndReb.MODID, "direction"), (stack, level, living, id) -> ItemDirectionalUpgrade.getDirection(stack));
+			ItemProperties.register(ModItems.ADVANCED_FLUID_PULLING_UPGRADE, new ResourceLocation(IndReb.MODID, "direction"), (stack, level, living, id) -> ItemDirectionalUpgrade.getDirection(stack));
 		});
 	}
 

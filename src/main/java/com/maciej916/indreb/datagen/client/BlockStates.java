@@ -61,6 +61,9 @@ public class BlockStates extends BlockStateProvider {
     private void registerOres() {
         createCubeAll(ModBlocks.TIN_ORE.getBlock(), "ore/tin");
         createCubeAll(ModBlocks.DEEPSLATE_TIN_ORE.getBlock(), "ore/deepslate_tin");
+        createCubeAll(ModBlocks.LEAD_ORE.getBlock(), "ore/lead");
+        createCubeAll(ModBlocks.DEEPSLATE_LEAD_ORE.getBlock(), "ore/deepslate_lead");
+        createCubeAll(ModBlocks.DEEPSLATE_URANIUM_ORE.getBlock(), "ore/deepslate_uranium");
     }
 
     private void registerConstructionFoam() {

@@ -1,0 +1,50 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "indreb:item/upgrade/pulling"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "indreb:direction": -1.0
+      },
+      "model": "indreb:item/upgrade/pulling"
+    },
+    {
+      "predicate": {
+        "indreb:direction": 0.0
+      },
+      "model": "indreb:item/upgrade/pulling_down"
+    },
+    {
+      "predicate": {
+        "indreb:direction": 1.0
+      },
+      "model": "indreb:item/upgrade/pulling_up"
+    },
+    {
+      "predicate": {
+        "indreb:direction": 2.0
+      },
+      "model": "indreb:item/upgrade/pulling_north"
+    },
+    {
+      "predicate": {
+        "indreb:direction": 3.0
+      },
+      "model": "indreb:item/upgrade/pulling_south"
+    },
+    {
+      "predicate": {
+        "indreb:direction": 4.0
+      },
+      "model": "indreb:item/upgrade/pulling_west"
+    },
+    {
+      "predicate": {
+        "indreb:direction": 5.0
+      },
+      "model": "indreb:item/upgrade/pulling_east"
+    }
+  ]
+}

@@ -67,6 +67,9 @@ public class Tags extends BlockTagsProvider {
 
                 .add(ModBlocks.TIN_ORE.getBlock())
                 .add(ModBlocks.DEEPSLATE_TIN_ORE.getBlock())
+                .add(ModBlocks.LEAD_ORE.getBlock())
+                .add(ModBlocks.DEEPSLATE_LEAD_ORE.getBlock())
+                .add(ModBlocks.DEEPSLATE_URANIUM_ORE.getBlock())
 
                 .add(ModBlocks.TIN_BLOCK.getBlock())
                 .add(ModBlocks.SILVER_BLOCK.getBlock())
@@ -123,6 +126,7 @@ public class Tags extends BlockTagsProvider {
                 .add(ModBlocks.GLASS_FIBRE_CABLE.getBlock())
 
                 .add(ModBlocks.TIN_ORE.getBlock())
+                .add(ModBlocks.LEAD_ORE.getBlock())
 
                 .add(ModBlocks.TIN_BLOCK.getBlock())
                 .add(ModBlocks.SILVER_BLOCK.getBlock())
@@ -134,6 +138,12 @@ public class Tags extends BlockTagsProvider {
                 .add(ModBlocks.RESIN_SHEET.getBlock())
                 .add(ModBlocks.RUBBER_SHEET.getBlock())
                 .add(ModBlocks.LUMINATOR.getBlock())
+        ;
+
+        tag(BlockTags.NEEDS_IRON_TOOL)
+                .add(ModBlocks.DEEPSLATE_TIN_ORE.getBlock())
+                .add(ModBlocks.DEEPSLATE_LEAD_ORE.getBlock())
+                .add(ModBlocks.DEEPSLATE_URANIUM_ORE.getBlock())
         ;
     }
 

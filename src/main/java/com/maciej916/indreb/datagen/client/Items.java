@@ -3,6 +3,8 @@ package com.maciej916.indreb.datagen.client;
 import com.maciej916.indreb.IndReb;
 import com.maciej916.indreb.common.registries.ModBlocks;
 import com.maciej916.indreb.common.registries.ModItems;
+import net.minecraft.core.Direction;
+import net.minecraft.core.Vec3i;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
@@ -40,6 +42,7 @@ public class Items extends ItemModelProvider {
         registerCrafting();
         registerCables();
         registerCrop();
+        registerUpgrades();
 
 //        createGeneratedTexture(ModItems.FLUID_CELL, "fluid_cell");
 
@@ -63,10 +66,15 @@ public class Items extends ItemModelProvider {
     protected void registerOres() {
         createWithBlock(ModBlocks.TIN_ORE.getBlock(), "tin_ore");
         createWithBlock(ModBlocks.DEEPSLATE_TIN_ORE.getBlock(), "deepslate_tin_ore");
+        createWithBlock(ModBlocks.LEAD_ORE.getBlock(), "lead_ore");
+        createWithBlock(ModBlocks.DEEPSLATE_LEAD_ORE.getBlock(), "deepslate_lead_ore");
+        createWithBlock(ModBlocks.DEEPSLATE_URANIUM_ORE.getBlock(), "deepslate_uranium_ore");
     }
 
     protected void registerRaw() {
         createGeneratedTexture(ModItems.RAW_TIN, "raw/tin");
+        createGeneratedTexture(ModItems.RAW_LEAD, "raw/lead");
+        createGeneratedTexture(ModItems.URANIUM, "raw/uranium");
     }
 
     protected void registerIngots() {
@@ -75,6 +83,8 @@ public class Items extends ItemModelProvider {
         createGeneratedTexture(ModItems.MIXED_METAL_INGOT, "ingot/mixed_metal");
         createGeneratedTexture(ModItems.SILVER_INGOT, "ingot/silver");
         createGeneratedTexture(ModItems.STEEL_INGOT, "ingot/steel");
+        createGeneratedTexture(ModItems.LEAD_INGOT, "ingot/lead");
+        createGeneratedTexture(ModItems.REFINED_URANIUM, "ingot/uranium");
     }
 
     protected void registerRods() {
@@ -213,7 +223,7 @@ public class Items extends ItemModelProvider {
         createWithBlock(ModBlocks.RUBBER_WOOD.getBlock(), "rubber_wood/rubber_wood");
         createWithBlock(ModBlocks.RUBBER_LOG.getBlock(), "rubber_wood/rubber_log");
         createWithBlock(ModBlocks.RUBBER_LEAVES.getBlock(), "rubber_wood/rubber_leaves");
-        createWithBlock(ModBlocks.RUBBER_STAIRS.getBlock(), "reinforced_stone");
+        createWithBlock(ModBlocks.RUBBER_STAIRS.getBlock(), "rubber_wood/rubber_stairs");
         createWithBlock(ModBlocks.RUBBER_SLAB.getBlock(), "rubber_wood/rubber_slab");
         createWithBlock(ModBlocks.RUBBER_PLANKS.getBlock(), "rubber_wood/rubber_planks");
 
@@ -296,6 +306,21 @@ public class Items extends ItemModelProvider {
         createGeneratedTexture(ModItems.FERTILIZER, "crop/fertilizer");
     }
 
+    protected void registerUpgrades() {
+        createGeneratedTexture(ModItems.OVERCLOCKER_UPGRADE, "upgrade/overclocker");
+        createGeneratedTexture(ModItems.TRANSFORMER_UPGRADE, "upgrade/transformer");
+        createGeneratedTexture(ModItems.ENERGY_STORAGE_UPGRADE, "upgrade/energy_storage");
+        createGeneratedTexture(ModItems.REDSTONE_SIGNAL_INVERTER_UPGRADE, "upgrade/redstone_inverter");
+        createWithDirections(ModItems.EJECTOR_UPGRADE, "upgrade/ejector");
+        createWithDirections(ModItems.PULLING_UPGRADE, "upgrade/pulling");
+        createWithDirections(ModItems.FLUID_EJECTOR_UPGRADE, "upgrade/fluid_ejector");
+        createWithDirections(ModItems.FLUID_PULLING_UPGRADE, "upgrade/fluid_pulling");
+        createWithDirections(ModItems.ADVANCED_EJECTOR_UPGRADE, "upgrade/advanced_ejector");
+        createWithDirections(ModItems.ADVANCED_PULLING_UPGRADE, "upgrade/advanced_pulling");
+        createWithDirections(ModItems.ADVANCED_FLUID_EJECTOR_UPGRADE, "upgrade/advanced_fluid_ejector");
+        createWithDirections(ModItems.ADVANCED_FLUID_PULLING_UPGRADE, "upgrade/advanced_fluid_pulling");
+    }
+
     private ItemModelBuilder createGeneratedTexture(Item item, String path) {
         return singleTexture(item.getRegistryName().getPath(), new ResourceLocation("item/generated"),"layer0",new ResourceLocation(IndReb.MODID, "item/" + path));
     }
@@ -330,6 +355,20 @@ public class Items extends ItemModelProvider {
                 .override().predicate(new ResourceLocation(IndReb.MODID, "charge_ratio"), 3).model(createTestModel("generated", path, "_3")).end()
                 .override().predicate(new ResourceLocation(IndReb.MODID, "charge_ratio"), 4).model(createTestModel("generated", path, "_4")).end();
     }
+
+    private ItemModelBuilder createWithDirections(Item item, String path) {
+        return getBuilder(item.getRegistryName().getPath())
+                .parent(getExistingFile(mcLoc("item/generated")))
+                .texture("layer0", "item/" + path)
+                .override().predicate(new ResourceLocation(IndReb.MODID, "direction"), -1).model(createTestModel("generated", path, "")).end()
+                .override().predicate(new ResourceLocation(IndReb.MODID, "direction"), 0).model(createTestModel("generated", path, "_down")).end()
+                .override().predicate(new ResourceLocation(IndReb.MODID, "direction"), 1).model(createTestModel("generated", path, "_up")).end()
+                .override().predicate(new ResourceLocation(IndReb.MODID, "direction"), 2).model(createTestModel("generated", path, "_north")).end()
+                .override().predicate(new ResourceLocation(IndReb.MODID, "direction"), 3).model(createTestModel("generated", path, "_south")).end()
+                .override().predicate(new ResourceLocation(IndReb.MODID, "direction"), 4).model(createTestModel("generated", path, "_west")).end()
+                .override().predicate(new ResourceLocation(IndReb.MODID, "direction"), 5).model(createTestModel("generated", path, "_east")).end();
+    }
+
 
     private ItemModelBuilder createTestModel(String type, String path, String suffix) {
         return getBuilder("item/" + path + suffix).parent(getExistingFile(mcLoc("item/" + type)))

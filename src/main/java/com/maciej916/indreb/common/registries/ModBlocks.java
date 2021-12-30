@@ -98,6 +98,9 @@ public final class ModBlocks {
 
     public static BlockItem TIN_ORE;
     public static BlockItem DEEPSLATE_TIN_ORE;
+    public static BlockItem LEAD_ORE;
+    public static BlockItem DEEPSLATE_LEAD_ORE;
+    public static BlockItem DEEPSLATE_URANIUM_ORE;
 
     public static BlockItem TIN_BLOCK;
     public static BlockItem SILVER_BLOCK;
@@ -192,6 +195,9 @@ public final class ModBlocks {
 
         TIN_ORE = registerBlock(new BlockOre(), "tin_ore");
         DEEPSLATE_TIN_ORE = registerBlock(new BlockOre(), "deepslate_tin_ore");
+        LEAD_ORE = registerBlock(new BlockOre(), "lead_ore");
+        DEEPSLATE_LEAD_ORE = registerBlock(new BlockOre(), "deepslate_lead_ore");
+        DEEPSLATE_URANIUM_ORE = registerBlock(new BlockOre(), "deepslate_uranium_ore");
 
         TIN_BLOCK = registerBlock(new BlockResource(1f, 3f), "tin_block");
         SILVER_BLOCK = registerBlock(new BlockResource(1f, 3f), "silver_block");

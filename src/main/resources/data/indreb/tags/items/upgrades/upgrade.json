@@ -1,0 +1,17 @@
+{
+  "replace": false,
+  "values": [
+    "indreb:overclocker_upgrade",
+    "indreb:transformer_upgrade",
+    "indreb:energy_storage_upgrade",
+    "indreb:redstone_signal_inverter_upgrade",
+    "indreb:ejector_upgrade",
+    "indreb:pulling_upgrade",
+    "indreb:fluid_ejector_upgrade",
+    "indreb:fluid_pulling_upgrade",
+    "indreb:advanced_ejector_upgrade",
+    "indreb:advanced_pulling_upgrade",
+    "indreb:advanced_fluid_ejector_upgrade",
+    "indreb:advanced_fluid_pulling_upgrade"
+  ]
+}

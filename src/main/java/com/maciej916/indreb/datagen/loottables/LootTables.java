@@ -74,6 +74,9 @@ public class LootTables extends LootTableProvider {
 
         tables.put(ModBlocks.TIN_ORE.getBlock().getLootTable(), createOreDrop(ModBlocks.TIN_ORE.getBlock(), ModItems.RAW_TIN).setParamSet(LootContextParamSets.BLOCK).build());
         tables.put(ModBlocks.DEEPSLATE_TIN_ORE.getBlock().getLootTable(), createOreDrop(ModBlocks.DEEPSLATE_TIN_ORE.getBlock(), ModItems.RAW_TIN).setParamSet(LootContextParamSets.BLOCK).build());
+        tables.put(ModBlocks.LEAD_ORE.getBlock().getLootTable(), createOreDrop(ModBlocks.LEAD_ORE.getBlock(), ModItems.RAW_LEAD).setParamSet(LootContextParamSets.BLOCK).build());
+        tables.put(ModBlocks.DEEPSLATE_LEAD_ORE.getBlock().getLootTable(), createOreDrop(ModBlocks.DEEPSLATE_LEAD_ORE.getBlock(), ModItems.RAW_LEAD).setParamSet(LootContextParamSets.BLOCK).build());
+        tables.put(ModBlocks.DEEPSLATE_URANIUM_ORE.getBlock().getLootTable(), createOreDrop(ModBlocks.DEEPSLATE_URANIUM_ORE.getBlock(), ModItems.URANIUM).setParamSet(LootContextParamSets.BLOCK).build());
 
         tables.put(ModBlocks.TIN_BLOCK.getBlock().getLootTable(), createStandardTable("tin_block", ModBlocks.TIN_BLOCK.getBlock()).setParamSet(LootContextParamSets.BLOCK).build());
         tables.put(ModBlocks.SILVER_BLOCK.getBlock().getLootTable(), createStandardTable("silver_block", ModBlocks.SILVER_BLOCK.getBlock()).setParamSet(LootContextParamSets.BLOCK).build());

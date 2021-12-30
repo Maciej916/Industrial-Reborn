@@ -53,6 +53,9 @@
 
   "block.indreb.tin_ore": "Tin Ore",
   "block.indreb.deepslate_tin_ore": "Deepslate Tin Ore",
+  "block.indreb.lead_ore": "Lead Ore",
+  "block.indreb.deepslate_lead_ore": "Deepslate Lead Ore",
+  "block.indreb.deepslate_uranium_ore": "Deepslate Uranium Ore",
 
   "block.indreb.tin_block": "Tin Block",
   "block.indreb.bronze_block": "Bronze Block",
@@ -124,10 +127,15 @@
   "item.indreb.sawdust": "Sawdust",
 
   "item.indreb.raw_tin": "Raw Tin",
+  "item.indreb.raw_lead": "Raw Lead",
+  "item.indreb.uranium": "Uranium",
+
   "item.indreb.tin_ingot": "Tin Ingot",
   "item.indreb.bronze_ingot": "Bronze Ingot",
   "item.indreb.silver_ingot": "Silver Ingot",
   "item.indreb.steel_ingot": "Steel Ingot",
+  "item.indreb.lead_ingot": "Lead Ingot",
+  "item.indreb.refined_uranium": "Refined Uranium",
   "item.indreb.mixed_metal_ingot": "Mixed Metal Ingot",
 
   "item.indreb.crushed_tin": "Crushed Tin",
@@ -293,7 +301,35 @@
 
   "tooltip.indreb.cable_unisolated": "This cable can electrocute you!",
 
+  "_comment": "Upgrade",
+  "item.indreb.overclocker_upgrade": "Overclocker Upgrade",
+  "item.indreb.transformer_upgrade": "Transformer Upgrade",
+  "item.indreb.energy_storage_upgrade": "Energy Storage Upgrade",
+  "item.indreb.redstone_signal_inverter_upgrade": "Redstone Signal Inverter Upgrade",
+  "item.indreb.ejector_upgrade": "Ejector Upgrade",
+  "item.indreb.pulling_upgrade": "Pulling Upgrade",
+  "item.indreb.fluid_ejector_upgrade": "Fluid Ejector Upgrade",
+  "item.indreb.fluid_pulling_upgrade": "Fluid Pulling Upgrade",
+  "item.indreb.advanced_ejector_upgrade": "Advanced Ejector Upgrade",
+  "item.indreb.advanced_pulling_upgrade": "Advanced Pulling Upgrade",
+  "item.indreb.advanced_fluid_ejector_upgrade": "Advanced Fluid Ejector Upgrade",
+  "item.indreb.advanced_fluid_pulling_upgrade": "Advanced Fluid Pulling Upgrade",
 
+  "dir.indreb.all": "First valid",
+  "dir.indreb.up": "Up",
+  "dir.indreb.down": "Down",
+  "dir.indreb.north": "North",
+  "dir.indreb.south": "South",
+  "dir.indreb.east": "East",
+  "dir.indreb.west": "West",
+
+  "ejector.indreb.dir": "Automatically output to %s side",
+  "pulling.indreb.dir": "Automatically input %s side",
+  "fluid_ejector.indreb.dir": "Automatically output fluid to %s side",
+  "fluid_pulling.indreb.dir": "Automatically input fluid from %s side",
+
+  "speed.indreb.factor": "Decrease process time to %s",
+  "power.indreb.factor": "Increase power to %s",
 
 
   "test.indreb.test": "%s"

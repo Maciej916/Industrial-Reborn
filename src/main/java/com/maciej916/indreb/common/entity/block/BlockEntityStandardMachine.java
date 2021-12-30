@@ -1,11 +1,13 @@
 package com.maciej916.indreb.common.entity.block;
 
+import com.google.common.collect.ImmutableSet;
 import com.maciej916.indreb.common.energy.interfaces.IEnergyBlock;
 import com.maciej916.indreb.common.entity.slot.SlotBattery;
 import com.maciej916.indreb.common.entity.slot.IndRebSlot;
 import com.maciej916.indreb.common.enums.EnergyTier;
 import com.maciej916.indreb.common.enums.GuiSlotType;
 import com.maciej916.indreb.common.enums.InventorySlotType;
+import com.maciej916.indreb.common.enums.UpgradeType;
 import com.maciej916.indreb.common.interfaces.entity.IExpCollector;
 import com.maciej916.indreb.common.interfaces.entity.ISupportUpgrades;
 import com.maciej916.indreb.common.interfaces.entity.ITileSound;
@@ -28,10 +30,7 @@ import net.minecraftforge.items.wrapper.RangedWrapper;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 import static com.maciej916.indreb.common.enums.EnumEnergyType.RECEIVE;
 
@@ -111,11 +110,15 @@ public class BlockEntityStandardMachine extends IndRebBlockEntity implements IEn
             }
 
             if (canWork(inputStack, outputStack, resultStack, bonusStack)) {
-                if (getEnergyStorage().consumeEnergy(energyCostPerTick, true) == energyCostPerTick && progress.getProgress() <= progress.getProgressMax()) {
+
+                progress.setProgressMax(getSpeedFactor() * duration);
+                int energyCost = (int) (energyCostPerTick * getEnergyUsageFactor());
+
+                if (getEnergyStorage().consumeEnergy(energyCost, true) == energyCost && progress.getProgress() <= progress.getProgressMax()) {
                     if (progress.getProgress() <= progress.getProgressMax()) {
                         active = true;
                         progress.incProgress(1);
-                        getEnergyStorage().consumeEnergy(energyCostPerTick, false);
+                        getEnergyStorage().consumeEnergy(energyCost, false);
                     }
                 }
 
@@ -244,5 +247,10 @@ public class BlockEntityStandardMachine extends IndRebBlockEntity implements IEn
     public void onBreak() {
         for (LazyOptional<?> capability : capabilities) capability.invalidate();
         super.onBreak();
+    }
+
+    @Override
+    public List<UpgradeType> getSupportedUpgrades() {
+        return List.of(UpgradeType.OVERCLOCKER, UpgradeType.TRANSFORMER, UpgradeType.ENERGY_STORAGE, UpgradeType.EJECTOR, UpgradeType.PULLING, UpgradeType.REDSTONE_SIGNAL_INVERTER);
     }
 }

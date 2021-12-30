@@ -12,7 +12,7 @@ import com.maciej916.indreb.common.enums.InventorySlotType;
 import com.maciej916.indreb.common.enums.UpgradeType;
 import com.maciej916.indreb.common.interfaces.entity.*;
 import com.maciej916.indreb.common.interfaces.block.IStateActive;
-import com.maciej916.indreb.common.item.base.UpgradeItem;
+import com.maciej916.indreb.common.item.impl.upgrade.ItemUpgrade;
 import com.maciej916.indreb.common.network.ModNetworking;
 import com.maciej916.indreb.common.network.packet.PacketExperience;
 import com.maciej916.indreb.common.registries.ModCapabilities;
@@ -83,6 +83,10 @@ public class IndRebBlockEntity extends BlockEntity implements IHasSlot {
     private SoundInstance activeSound;
 
     private final Map<ResourceLocation, Integer> recipesUsed = Maps.newHashMap();
+
+
+    float speedFactor = 1f;
+    float energyUsageFactor = 1f;
 
     public IndRebBlockEntity(BlockEntityType<?> pType, BlockPos pWorldPosition, BlockState pBlockState) {
         super(pType, pWorldPosition, pBlockState);
@@ -155,10 +159,47 @@ public class IndRebBlockEntity extends BlockEntity implements IHasSlot {
             }
         }
 
+        if (hasUpgrades()) {
+            tickUpgrades(state);
+        }
+
         tickOperate(state);
     }
 
     public void tickOperate(BlockState state) {
+
+    }
+
+    public void tickUpgrades(BlockState state) {
+
+        double speed = 0;
+        double energy = 0;
+
+        for (int i = 0; i < upgradesHandler.getSlots(); i++) {
+            ItemStack stack = upgradesHandler.getStackInSlot(i);
+            if (!stack.isEmpty() && stack.getItem() instanceof ItemUpgrade itemUpgrade) {
+                if (itemUpgrade.getUpgradeType() == UpgradeType.OVERCLOCKER) {
+                    speed += stack.getCount();
+                    energy += stack.getCount();
+                }
+
+
+            }
+        }
+
+        double speedFactor = Math.pow(0.7, speed);
+        double energyUsageFactor = Math.pow(1.6, energy);
+
+        this.speedFactor = (float) speedFactor;
+        this.energyUsageFactor = (float) energyUsageFactor;
+
+        double calculateEnergy = energyStorage.origEnergy * energyUsageFactor;
+        int newEnergy = (calculateEnergy % 1) == 0 ? (int) calculateEnergy : Integer.MAX_VALUE;
+        energyStorage.setMaxEnergy(newEnergy);
+
+
+
+
 
     }
 
@@ -324,28 +365,24 @@ public class IndRebBlockEntity extends BlockEntity implements IHasSlot {
         return energyStorage;
     }
 
-
-
-
-
     public float getSpeedFactor() {
-        return 1f;
+        return speedFactor;
     }
 
     public float getEnergyUsageFactor() {
-        return 1f;
+        return energyUsageFactor;
     }
 
-    public HashSet<UpgradeType> getSupportedUpgrades() {
-      return new HashSet<>();
+    public List<UpgradeType> getSupportedUpgrades() {
+      return new ArrayList<>();
     }
 
     public void initUpgradeHandler() {
         this.upgradesHandler = new ItemStackHandler(4) {
             @Override
             public boolean isItemValid(final int slot, @Nonnull final ItemStack stack) {
-                if (stack.getItem() instanceof UpgradeItem upgradeItem) {
-                    return getSupportedUpgrades().contains(upgradeItem.getUpgradeType());
+                if (stack.getItem() instanceof ItemUpgrade itemUpgrade) {
+                    return getSupportedUpgrades().contains(itemUpgrade.getUpgradeType());
                 }
                 return false;
             }
@@ -489,6 +526,12 @@ public class IndRebBlockEntity extends BlockEntity implements IHasSlot {
             }
         }
 
+        if (hasUpgrades) {
+            for (int slot = 0; slot < upgradesHandler.getSlots(); slot++) {
+                stacks.add(upgradesHandler.getStackInSlot(slot));
+            }
+        }
+
         Containers.dropContents(getLevel(), getBlockPos(), stacks);
     }
 
@@ -562,6 +605,10 @@ public class IndRebBlockEntity extends BlockEntity implements IHasSlot {
             batteryHandler.deserializeNBT(tag.getCompound("battery"));
         }
 
+        if (hasUpgrades) {
+            upgradesHandler.deserializeNBT(tag.getCompound("upgrade"));
+        }
+
         if (hasEnergy) {
             energyStorage.setEnergy(tag.getInt("energy"));
         }
@@ -590,6 +637,10 @@ public class IndRebBlockEntity extends BlockEntity implements IHasSlot {
 
         if (hasBattery) {
             tag.put("battery", batteryHandler.serializeNBT());
+        }
+
+        if (hasUpgrades) {
+            tag.put("upgrade", upgradesHandler.serializeNBT());
         }
 
         if (hasEnergy) {

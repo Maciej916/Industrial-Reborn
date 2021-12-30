@@ -256,6 +256,12 @@ public class Compressing extends RecipeProvider {
                 .addCriterion("iridium", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.BIO_CHAFF))
                 .save(consumer, "moss_block");
 
+        RecipeBuilderCompressing.builder(ModItems.REFINED_URANIUM,1)
+                .setIngredient(Ingredient.of(ModItems.URANIUM), 1)
+                .setGroup("compressing")
+                .setExperience(2F)
+                .addCriterion("uranium", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.URANIUM))
+                .save(consumer, "refined_uranium");
 
     }
 

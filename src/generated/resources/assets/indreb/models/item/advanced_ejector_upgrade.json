@@ -1,0 +1,50 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "indreb:item/upgrade/advanced_ejector"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "indreb:direction": -1.0
+      },
+      "model": "indreb:item/upgrade/advanced_ejector"
+    },
+    {
+      "predicate": {
+        "indreb:direction": 0.0
+      },
+      "model": "indreb:item/upgrade/advanced_ejector_down"
+    },
+    {
+      "predicate": {
+        "indreb:direction": 1.0
+      },
+      "model": "indreb:item/upgrade/advanced_ejector_up"
+    },
+    {
+      "predicate": {
+        "indreb:direction": 2.0
+      },
+      "model": "indreb:item/upgrade/advanced_ejector_north"
+    },
+    {
+      "predicate": {
+        "indreb:direction": 3.0
+      },
+      "model": "indreb:item/upgrade/advanced_ejector_south"
+    },
+    {
+      "predicate": {
+        "indreb:direction": 4.0
+      },
+      "model": "indreb:item/upgrade/advanced_ejector_west"
+    },
+    {
+      "predicate": {
+        "indreb:direction": 5.0
+      },
+      "model": "indreb:item/upgrade/advanced_ejector_east"
+    }
+  ]
+}

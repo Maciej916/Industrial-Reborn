@@ -20,6 +20,8 @@ public class ModPlacedFeatures {
 
     public static PlacedFeature ORE_TIN_SMALL;
     public static PlacedFeature ORE_TIN_LARGE;
+    public static PlacedFeature ORE_LEAD;
+    public static PlacedFeature ORE_URANIUM;
 
     public static void init() {
         RUBBER_TREE_STANDARD = register("rubber_tree_standard", ModConfiguredFeatures.RUBBER_TREE.placed(PlacementUtils.countExtra(0, 0.1F, 1), InSquarePlacement.spread(), SurfaceWaterDepthFilter.forMaxDepth(0), PlacementUtils.HEIGHTMAP_OCEAN_FLOOR, BlockPredicateFilter.forPredicate(BlockPredicate.wouldSurvive(ModBlocks.RUBBER_SAPLING.getBlock().defaultBlockState(), BlockPos.ZERO)), BiomeFilter.biome()));
@@ -27,6 +29,9 @@ public class ModPlacedFeatures {
 
         ORE_TIN_SMALL = register("ore_tin_small", ModConfiguredFeatures.ORE_TIN_SMALL.placed(commonOrePlacement(CommonConfig.worldgen_tin_placement.get(), HeightRangePlacement.triangle(VerticalAnchor.absolute(CommonConfig.worldgen_tin_placement_offset.get()), VerticalAnchor.absolute(CommonConfig.worldgen_tin_placement_vertical.get())))));
         ORE_TIN_LARGE = register("ore_tin_large", ModConfiguredFeatures.ORE_TIN_LARGE.placed(commonOrePlacement(CommonConfig.worldgen_tin_placement.get(), HeightRangePlacement.triangle(VerticalAnchor.absolute(CommonConfig.worldgen_tin_placement_offset.get()), VerticalAnchor.absolute(CommonConfig.worldgen_tin_placement_vertical.get())))));
+
+        ORE_LEAD = register("ore_lead", ModConfiguredFeatures.ORE_LEAD.placed(commonOrePlacement(CommonConfig.worldgen_lead_placement.get(), HeightRangePlacement.triangle(VerticalAnchor.absolute(CommonConfig.worldgen_lead_placement_offset.get()), VerticalAnchor.absolute(CommonConfig.worldgen_lead_placement_vertical.get())))));
+        ORE_URANIUM = register("ore_uranium", ModConfiguredFeatures.ORE_URANIUM.placed(commonOrePlacement(CommonConfig.worldgen_uranium_placement.get(), HeightRangePlacement.triangle(VerticalAnchor.absolute(CommonConfig.worldgen_uranium_placement_offset.get()), VerticalAnchor.absolute(CommonConfig.worldgen_uranium_placement_vertical.get())))));
     }
 
     public static List<PlacementModifier> orePlacement(PlacementModifier p_195347_, PlacementModifier p_195348_) {
