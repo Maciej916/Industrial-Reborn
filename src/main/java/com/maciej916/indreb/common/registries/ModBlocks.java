@@ -6,6 +6,7 @@ import com.maciej916.indreb.common.block.impl.BlockIronScaffolding;
 import com.maciej916.indreb.common.block.impl.battery_box.BlockBatteryBox;
 import com.maciej916.indreb.common.block.impl.cable.BlockCable;
 import com.maciej916.indreb.common.block.impl.cf.*;
+import com.maciej916.indreb.common.block.impl.charge_pad.BlockChargePad;
 import com.maciej916.indreb.common.block.impl.generators.crystalline_generator.BlockCrystallineGenerator;
 import com.maciej916.indreb.common.block.impl.generators.generator.BlockGenerator;
 import com.maciej916.indreb.common.block.impl.generators.geo_generator.BlockGeoGenerator;
@@ -25,23 +26,18 @@ import com.maciej916.indreb.common.block.impl.machines.iron_furnace.BlockIronFur
 import com.maciej916.indreb.common.block.impl.machines.recycler.BlockRecycler;
 import com.maciej916.indreb.common.block.impl.machines.sawmill.BlockSawmill;
 import com.maciej916.indreb.common.block.impl.rubber_wood.*;
-import com.maciej916.indreb.common.fluids.ConstructionFoam;
+import com.maciej916.indreb.common.block.impl.transformer.BlockTransformer;
 import com.maciej916.indreb.common.generation.RubberTree;
 import com.maciej916.indreb.common.item.block.BlockItemElectric;
 import com.maciej916.indreb.common.item.block.ItemIronScaffolding;
-import com.maciej916.indreb.common.tier.BatteryBoxTier;
-import com.maciej916.indreb.common.tier.CableTier;
-import com.maciej916.indreb.common.tier.SolarGeneratorTier;
+import com.maciej916.indreb.common.tier.*;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.LiquidBlock;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
-import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.material.Material;
 import net.minecraft.world.level.material.MaterialColor;
-import net.minecraftforge.common.property.Properties;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -63,6 +59,16 @@ public final class ModBlocks {
     public static BlockItem CESU;
     public static BlockItem MFE;
     public static BlockItem MFSU;
+
+    public static BlockItem LV_TRANSFORMER;
+    public static BlockItem MV_TRANSFORMER;
+    public static BlockItem HV_TRANSFORMER;
+    public static BlockItem EV_TRANSFORMER;
+
+    public static BlockItem CHARGE_PAD_BATTERY_BOX;
+    public static BlockItem CHARGE_PAD_CESU;
+    public static BlockItem CHARGE_PAD_MFE;
+    public static BlockItem CHARGE_PAD_MFSU;
 
     public static BlockItem IRON_FURNACE;
     public static BlockItem ELECTRIC_FURNACE;
@@ -157,9 +163,19 @@ public final class ModBlocks {
         SEMIFLUID_GENERATOR = registerBlock(new BlockItemElectric(new BlockSemifluidGenerator()), "semifluid_generator");
 
         BATTERY_BOX = registerBlock(new BlockItemElectric(new BlockBatteryBox(BatteryBoxTier.BASIC, BlockBehaviour.Properties.of(Material.WOOD).strength(1f, 3f).sound(SoundType.WOOD))), "battery_box");
-        CESU = registerBlock(new BlockItemElectric(new BlockBatteryBox(BatteryBoxTier.STANDARD, BlockBehaviour.Properties.of(Material.METAL).strength(1f, 3f).sound(SoundType.METAL))), "cesu");
-        MFE = registerBlock(new BlockItemElectric(new BlockBatteryBox(BatteryBoxTier.ADVANCED, BlockBehaviour.Properties.of(Material.METAL).strength(1f, 3f).sound(SoundType.METAL))), "mfe");
-        MFSU = registerBlock(new BlockItemElectric(new BlockBatteryBox(BatteryBoxTier.SUPER, BlockBehaviour.Properties.of(Material.METAL).strength(1f, 3f).sound(SoundType.METAL))), "mfsu");
+        CESU = registerBlock(new BlockItemElectric(new BlockBatteryBox(BatteryBoxTier.STANDARD, BlockBehaviour.Properties.of(Material.METAL).strength(5f, 3f).sound(SoundType.METAL))), "cesu");
+        MFE = registerBlock(new BlockItemElectric(new BlockBatteryBox(BatteryBoxTier.ADVANCED, BlockBehaviour.Properties.of(Material.METAL).strength(5f, 3f).sound(SoundType.METAL))), "mfe");
+        MFSU = registerBlock(new BlockItemElectric(new BlockBatteryBox(BatteryBoxTier.SUPER, BlockBehaviour.Properties.of(Material.METAL).strength(5f, 3f).sound(SoundType.METAL))), "mfsu");
+
+        LV_TRANSFORMER = registerBlock(new BlockTransformer(TransformerTier.BASIC, BlockBehaviour.Properties.of(Material.METAL).strength(5f, 3f).sound(SoundType.METAL)), "lv_transformer");
+        MV_TRANSFORMER = registerBlock(new BlockTransformer(TransformerTier.STANDARD, BlockBehaviour.Properties.of(Material.METAL).strength(5f, 3f).sound(SoundType.METAL)), "mv_transformer");
+        HV_TRANSFORMER = registerBlock(new BlockTransformer(TransformerTier.ADVANCED, BlockBehaviour.Properties.of(Material.METAL).strength(5f, 3f).sound(SoundType.METAL)), "hv_transformer");
+        EV_TRANSFORMER = registerBlock(new BlockTransformer(TransformerTier.SUPER, BlockBehaviour.Properties.of(Material.METAL).strength(5f, 3f).sound(SoundType.METAL)), "ev_transformer");
+
+        CHARGE_PAD_BATTERY_BOX = registerBlock(new BlockItemElectric(new BlockChargePad(ChargePadTier.BASIC, BlockBehaviour.Properties.of(Material.WOOD).strength(1f, 3f).sound(SoundType.WOOD))), "charge_pad_battery_box");
+        CHARGE_PAD_CESU = registerBlock(new BlockItemElectric(new BlockChargePad(ChargePadTier.STANDARD, BlockBehaviour.Properties.of(Material.METAL).strength(5f, 3f).sound(SoundType.METAL))), "charge_pad_cesu");
+        CHARGE_PAD_MFE = registerBlock(new BlockItemElectric(new BlockChargePad(ChargePadTier.ADVANCED, BlockBehaviour.Properties.of(Material.METAL).strength(5f, 3f).sound(SoundType.METAL))), "charge_pad_mfe");
+        CHARGE_PAD_MFSU = registerBlock(new BlockItemElectric(new BlockChargePad(ChargePadTier.SUPER, BlockBehaviour.Properties.of(Material.METAL).strength(5f, 3f).sound(SoundType.METAL))), "charge_pad_mfsu");
 
         IRON_FURNACE = registerBlock(new BlockIronFurnace(), "iron_furnace");
         ELECTRIC_FURNACE = registerBlock(new BlockItemElectric(new BlockElectricFurnace()), "electric_furnace");

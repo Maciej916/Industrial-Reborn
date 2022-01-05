@@ -28,8 +28,9 @@ public enum EnumLang {
     ACCEPT_OUTPUT("accept_output", "tooltip"),
     STORED("stored", "tooltip"),
     STORED_CAPACITY("stored_capacity", "tooltip"),
-
     CABLE_UNISOLATED("cable_unisolated", "tooltip"),
+    LOW("low", "tooltip"),
+    HIGH("high", "tooltip"),
 
     HEAT("heat", "gui"),
     ARMOUR("armour", "gui"),

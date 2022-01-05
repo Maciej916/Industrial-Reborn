@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "indreb",
+  "pattern": [
+    "epe",
+    "rbr"
+  ],
+  "key": {
+    "e": {
+      "item": "indreb:electronic_circuit"
+    },
+    "p": {
+      "item": "minecraft:stone_pressure_plate"
+    },
+    "r": {
+      "item": "indreb:rubber"
+    },
+    "b": {
+      "item": "indreb:mfe"
+    }
+  },
+  "result": {
+    "item": "indreb:charge_pad_mfe"
+  }
+}

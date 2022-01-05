@@ -4,10 +4,14 @@ import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.network.chat.TranslatableComponent;
 
 import java.awt.*;
+import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
 import java.util.*;
 import java.util.List;
 
 public class TextComponentUtil {
+
+    private static DecimalFormat df = new DecimalFormat("###,##0");
 
     private static final NavigableMap<Long, String> suffixes = new TreeMap<>();
     static {
@@ -36,6 +40,14 @@ public class TextComponentUtil {
 
     public static String getFormattedEnergyUnit(float energy) {
         return format((long) energy);
+    }
+
+    public static String getFormattedLong(float energy) {
+        DecimalFormatSymbols customSymbol = new DecimalFormatSymbols();
+        customSymbol.setGroupingSeparator(' ');
+        df.setDecimalFormatSymbols(customSymbol);
+
+        return df.format(energy);
     }
 
     public static MutableComponent build(MutableComponent... components) {

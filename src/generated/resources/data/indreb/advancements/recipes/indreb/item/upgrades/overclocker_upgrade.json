@@ -1,0 +1,60 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "indreb:item/upgrades/overclocker_upgrade"
+    ]
+  },
+  "criteria": {
+    "small_coolant_cell": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:small_coolant_cell"
+            ]
+          }
+        ]
+      }
+    },
+    "copper_cable_insulated": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:copper_cable_insulated"
+            ]
+          }
+        ]
+      }
+    },
+    "electronic_circuit": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:electronic_circuit"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "indreb:item/upgrades/overclocker_upgrade"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "small_coolant_cell",
+      "copper_cable_insulated",
+      "electronic_circuit",
+      "has_the_recipe"
+    ]
+  ]
+}

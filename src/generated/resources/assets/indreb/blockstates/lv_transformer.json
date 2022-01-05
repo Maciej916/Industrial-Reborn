@@ -1,0 +1,27 @@
+{
+  "variants": {
+    "facing=down": {
+      "model": "indreb:block/lv_transformer",
+      "x": 90
+    },
+    "facing=up": {
+      "model": "indreb:block/lv_transformer",
+      "x": -90
+    },
+    "facing=north": {
+      "model": "indreb:block/lv_transformer"
+    },
+    "facing=south": {
+      "model": "indreb:block/lv_transformer",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "indreb:block/lv_transformer",
+      "y": 270
+    },
+    "facing=east": {
+      "model": "indreb:block/lv_transformer",
+      "y": 90
+    }
+  }
+}

@@ -2,6 +2,7 @@ package com.maciej916.indreb.common.client;
 
 import com.maciej916.indreb.IndReb;
 import com.maciej916.indreb.common.block.impl.battery_box.ScreenBatteryBox;
+import com.maciej916.indreb.common.block.impl.charge_pad.ScreenChargePad;
 import com.maciej916.indreb.common.block.impl.generators.crystalline_generator.ScreenCrystallineGenerator;
 import com.maciej916.indreb.common.block.impl.generators.generator.ScreenGenerator;
 import com.maciej916.indreb.common.block.impl.generators.geo_generator.ScreenGeoGenerator;
@@ -19,8 +20,10 @@ import com.maciej916.indreb.common.block.impl.machines.fluid_enricher.ScreenFlui
 import com.maciej916.indreb.common.block.impl.machines.iron_furnace.ScreenIronFurnace;
 import com.maciej916.indreb.common.block.impl.machines.recycler.ScreenRecycler;
 import com.maciej916.indreb.common.block.impl.machines.sawmill.ScreenSawmill;
-import com.maciej916.indreb.common.item.ItemEnergy;
-import com.maciej916.indreb.common.item.ItemNanosaber;
+import com.maciej916.indreb.common.block.impl.transformer.ScreenTransformer;
+import com.maciej916.indreb.common.client.renderer.EnergyInfoRenderer;
+import com.maciej916.indreb.common.item.base.ElectricItem;
+import com.maciej916.indreb.common.item.impl.nano.ItemNanosaber;
 import com.maciej916.indreb.common.item.impl.upgrade.ItemDirectionalUpgrade;
 import com.maciej916.indreb.common.registries.ModBlocks;
 import com.maciej916.indreb.common.registries.ModContainers;
@@ -35,10 +38,10 @@ import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.BlockItem;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.FoliageColor;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
@@ -50,6 +53,8 @@ public final class ClientModEventSubscriber {
 	public static void onFMLClientSetupEvent(final FMLClientSetupEvent event) {
 		event.enqueueWork(() -> {
 
+			MinecraftForge.EVENT_BUS.addListener(EnergyInfoRenderer::render);
+
 			MenuScreens.register(ModContainers.GENERATOR, ScreenGenerator::new);
 			MenuScreens.register(ModContainers.SOLAR_GENERATOR, ScreenSolarGenerator::new);
 			MenuScreens.register(ModContainers.GEO_GENERATOR, ScreenGeoGenerator::new);
@@ -57,6 +62,8 @@ public final class ClientModEventSubscriber {
 			MenuScreens.register(ModContainers.SEMIFLUID_GENERATOR, ScreenSemifluidGenerator::new);
 
 			MenuScreens.register(ModContainers.BATTERY_BOX, ScreenBatteryBox::new);
+			MenuScreens.register(ModContainers.TRANSFORMER, ScreenTransformer::new);
+			MenuScreens.register(ModContainers.CHARGE_PAD, ScreenChargePad::new);
 
 			MenuScreens.register(ModContainers.IRON_FURNACE, ScreenIronFurnace::new);
 			MenuScreens.register(ModContainers.ELECTRIC_FURNACE, ScreenElectricFurnace::new);
@@ -90,10 +97,16 @@ public final class ClientModEventSubscriber {
 
 
 
-			ItemProperties.register(ModItems.BATTERY, new ResourceLocation(IndReb.MODID, "charge_ratio"), (stack, level, living, id) -> ItemEnergy.getChargeRatioModel(stack));
-			ItemProperties.register(ModItems.ADVANCED_BATTERY, new ResourceLocation(IndReb.MODID, "charge_ratio"), (stack, level, living, id) -> ItemEnergy.getChargeRatioModel(stack));
-			ItemProperties.register(ModItems.ENERGY_CRYSTAL, new ResourceLocation(IndReb.MODID, "charge_ratio"), (stack, level, living, id) -> ItemEnergy.getChargeRatioModel(stack));
-			ItemProperties.register(ModItems.LAPOTRON_CRYSTAL, new ResourceLocation(IndReb.MODID, "charge_ratio"), (stack, level, living, id) -> ItemEnergy.getChargeRatioModel(stack));
+			ItemProperties.register(ModItems.BATTERY, new ResourceLocation(IndReb.MODID, "charge_ratio"), (stack, level, living, id) -> ElectricItem.getChargeRatioModel(stack));
+			ItemProperties.register(ModItems.ADVANCED_BATTERY, new ResourceLocation(IndReb.MODID, "charge_ratio"), (stack, level, living, id) -> ElectricItem.getChargeRatioModel(stack));
+			ItemProperties.register(ModItems.ENERGY_CRYSTAL, new ResourceLocation(IndReb.MODID, "charge_ratio"), (stack, level, living, id) -> ElectricItem.getChargeRatioModel(stack));
+			ItemProperties.register(ModItems.LAPOTRON_CRYSTAL, new ResourceLocation(IndReb.MODID, "charge_ratio"), (stack, level, living, id) -> ElectricItem.getChargeRatioModel(stack));
+
+			ItemProperties.register(ModItems.CHARGING_BATTERY, new ResourceLocation(IndReb.MODID, "charge_ratio"), (stack, level, living, id) -> ElectricItem.getChargeRatioModel(stack));
+			ItemProperties.register(ModItems.ADVANCED_CHARGING_BATTERY, new ResourceLocation(IndReb.MODID, "charge_ratio"), (stack, level, living, id) -> ElectricItem.getChargeRatioModel(stack));
+			ItemProperties.register(ModItems.CHARGING_ENERGY_CRYSTAL, new ResourceLocation(IndReb.MODID, "charge_ratio"), (stack, level, living, id) -> ElectricItem.getChargeRatioModel(stack));
+			ItemProperties.register(ModItems.CHARGING_LAPOTRON_CRYSTAL, new ResourceLocation(IndReb.MODID, "charge_ratio"), (stack, level, living, id) -> ElectricItem.getChargeRatioModel(stack));
+
 			ItemProperties.register(ModItems.NANO_SABER, new ResourceLocation(IndReb.MODID, "active"), (stack, level, living, id) -> ItemNanosaber.isActivated(stack));
 
 			ItemProperties.register(ModItems.EJECTOR_UPGRADE, new ResourceLocation(IndReb.MODID, "direction"), (stack, level, living, id) -> ItemDirectionalUpgrade.getDirection(stack));

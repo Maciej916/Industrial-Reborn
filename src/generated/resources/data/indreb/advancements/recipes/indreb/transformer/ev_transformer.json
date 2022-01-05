@@ -1,0 +1,73 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "indreb:transformer/ev_transformer"
+    ]
+  },
+  "criteria": {
+    "glass_fibre_cable": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:glass_fibre_cable"
+            ]
+          }
+        ]
+      }
+    },
+    "hv_transformer": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:hv_transformer"
+            ]
+          }
+        ]
+      }
+    },
+    "advanced_circuit": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:advanced_circuit"
+            ]
+          }
+        ]
+      }
+    },
+    "lapotron_crystal": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:lapotron_crystal"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "indreb:transformer/ev_transformer"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "glass_fibre_cable",
+      "hv_transformer",
+      "advanced_circuit",
+      "lapotron_crystal",
+      "has_the_recipe"
+    ]
+  ]
+}

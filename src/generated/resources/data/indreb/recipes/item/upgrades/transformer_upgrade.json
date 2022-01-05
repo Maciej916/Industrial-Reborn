@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "indreb",
+  "pattern": [
+    "ggg",
+    "ctc",
+    "geg"
+  ],
+  "key": {
+    "g": {
+      "item": "minecraft:glass"
+    },
+    "c": {
+      "item": "indreb:gold_cable_insulated"
+    },
+    "t": {
+      "item": "indreb:mv_transformer"
+    },
+    "e": {
+      "item": "indreb:electronic_circuit"
+    }
+  },
+  "result": {
+    "item": "indreb:transformer_upgrade"
+  }
+}

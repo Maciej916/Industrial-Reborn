@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "indreb",
+  "pattern": [
+    "btb",
+    "tht",
+    "btb"
+  ],
+  "key": {
+    "b": {
+      "item": "minecraft:iron_bars"
+    },
+    "t": {
+      "tag": "forge:plates/tin"
+    },
+    "h": {
+      "item": "indreb:heat_vent"
+    }
+  },
+  "result": {
+    "item": "indreb:component_heat_vent"
+  }
+}

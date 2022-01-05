@@ -1,0 +1,47 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "indreb:transformer/mv_transformer"
+    ]
+  },
+  "criteria": {
+    "gold_cable_insulated": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:gold_cable_insulated"
+            ]
+          }
+        ]
+      }
+    },
+    "basic_machine_casing": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:basic_machine_casing"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "indreb:transformer/mv_transformer"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "gold_cable_insulated",
+      "basic_machine_casing",
+      "has_the_recipe"
+    ]
+  ]
+}

@@ -18,8 +18,6 @@ public enum BatteryBoxTier {
         this.energyTier = energyTier;
         this.energyStored = energyStored;
         this.energyCapacity = energyCapacity;
-
-
     }
 
     public EnergyTier getEnergyTier() {

@@ -1,7 +1,8 @@
 package com.maciej916.indreb.common.energy.provider;
 
 import com.maciej916.indreb.common.energy.interfaces.IEnergy;
-import com.maciej916.indreb.common.enums.EnumEnergyType;
+import com.maciej916.indreb.common.enums.EnergyTier;
+import com.maciej916.indreb.common.enums.EnergyType;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
@@ -20,17 +21,36 @@ public class EnergyNetwork implements IEnergy, INBTSerializable<CompoundTag> {
     private HashSet<BlockPos> electrics = new HashSet<>();
     private HashSet<BlockPos> transmitters = new HashSet<>();
 
+    private EnergyTier energyTier;
+
+    public float r,g,b;
+
     public EnergyNetwork() {
+        initColor();
     }
 
-    public EnergyNetwork(BlockPos pos, int energyMax) {
+    public EnergyNetwork(BlockPos pos, EnergyTier energyTier) {
         this.connections.add(pos);
-        this.energyMax = energyMax;
+        this.energyMax = energyTier.getBasicTransfer();
+        this.energyTier = energyTier;
+        initColor();
     }
 
-    public EnergyNetwork(int energy, int energyMax) {
+    public EnergyNetwork(int energy, EnergyTier energyTier) {
         this.energy = energy;
-        this.energyMax = energyMax;
+        this.energyMax = energyTier.getBasicTransfer();
+        this.energyTier = energyTier;
+        initColor();
+    }
+
+    void initColor() {
+        this.r = (float) Math.random();
+        this.g = (float) Math.random();
+        this.b = (float) Math.random();
+    }
+
+    public EnergyTier getEnergyTier() {
+        return energyTier;
     }
 
     public int getEnergy() {
@@ -84,7 +104,7 @@ public class EnergyNetwork implements IEnergy, INBTSerializable<CompoundTag> {
 
     @Override
     public int maxEnergy() {
-        return energyMax;
+        return energyTier.getBasicTransfer();
     }
 
     @Override
@@ -94,10 +114,9 @@ public class EnergyNetwork implements IEnergy, INBTSerializable<CompoundTag> {
     }
 
     @Override
-    public int setMaxEnergy(int amount) {
+    public void setMaxEnergy(int amount) {
         this.energyMax = amount;
         if (energy > energyMax) this.energy = amount;
-        return amount;
     }
 
     @Override
@@ -121,8 +140,18 @@ public class EnergyNetwork implements IEnergy, INBTSerializable<CompoundTag> {
     }
 
     @Override
-    public EnumEnergyType energyType() {
-        return EnumEnergyType.CABLE;
+    public EnergyType energyType() {
+        return EnergyType.CABLE;
+    }
+
+    @Override
+    public EnergyTier energyTier() {
+        return energyTier;
+    }
+
+    @Override
+    public void setEnergyTier(EnergyTier tier) {
+        this.energyTier = tier;
     }
 
     @Override
@@ -131,6 +160,7 @@ public class EnergyNetwork implements IEnergy, INBTSerializable<CompoundTag> {
 
         nbt.putInt("energy", energy);
         nbt.putInt("energyMax", energyMax);
+        nbt.putInt("energyTier", energyTier.getLvl());
 
         List<Long> connections = new ArrayList<>();
         for (final BlockPos pos : getConnections()) {
@@ -150,6 +180,11 @@ public class EnergyNetwork implements IEnergy, INBTSerializable<CompoundTag> {
         }
         nbt.putLongArray("transmitters", transmitters);
 
+
+        nbt.putFloat("r", r);
+        nbt.putFloat("g", g);
+        nbt.putFloat("b", b);
+
         return nbt;
     }
 
@@ -157,6 +192,7 @@ public class EnergyNetwork implements IEnergy, INBTSerializable<CompoundTag> {
     public void deserializeNBT(CompoundTag nbt) {
         energy = nbt.getInt("energy");
         energyMax = nbt.getInt("energyMax");
+        energyTier = EnergyTier.getTierFromLvl(nbt.getInt("energyTier"));
 
         HashSet<BlockPos> nbtConnections = new HashSet<>();
         for (long longPos : nbt.getLongArray("connections")) {
@@ -178,6 +214,10 @@ public class EnergyNetwork implements IEnergy, INBTSerializable<CompoundTag> {
             nbtTransmitters.add(pos);
         }
         transmitters = nbtTransmitters;
+
+        r = nbt.getFloat("r");
+        g = nbt.getFloat("g");
+        b = nbt.getFloat("b");
     }
 
     @Override

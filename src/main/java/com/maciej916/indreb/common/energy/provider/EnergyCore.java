@@ -1,5 +1,8 @@
 package com.maciej916.indreb.common.energy.provider;
 
+import com.maciej916.indreb.common.block.impl.charge_pad.BlockEntityChargePad;
+import com.maciej916.indreb.common.block.impl.transformer.BlockEntityTransformer;
+import com.maciej916.indreb.common.block.impl.transformer.BlockTransformer;
 import com.maciej916.indreb.common.energy.impl.BasicEnergyStorage;
 import com.maciej916.indreb.common.energy.interfaces.IEnergy;
 import com.maciej916.indreb.common.energy.interfaces.IEnergyCore;
@@ -7,20 +10,33 @@ import com.maciej916.indreb.common.energy.provider.comparator.EnergyExtractCompa
 import com.maciej916.indreb.common.energy.provider.comparator.EnergyExtractComparatorNetwork;
 import com.maciej916.indreb.common.energy.provider.comparator.EnergyReceiveComparator;
 import com.maciej916.indreb.common.entity.block.IndRebBlockEntity;
-import com.maciej916.indreb.common.enums.EnumEnergyType;
+import com.maciej916.indreb.common.enums.EnergyTier;
+import com.maciej916.indreb.common.enums.EnergyType;
+import com.maciej916.indreb.common.enums.TransformerMode;
+import com.maciej916.indreb.common.interfaces.item.IElectricItem;
+import com.maciej916.indreb.common.network.ModNetworking;
+import com.maciej916.indreb.common.network.packet.PacketParticle;
 import com.maciej916.indreb.common.registries.ModCapabilities;
 import com.maciej916.indreb.common.util.Constants;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
+import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.Explosion;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.levelgen.structure.BoundingBox;
+import net.minecraft.world.phys.AABB;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.capabilities.ICapabilitySerializable;
 import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.fluids.capability.CapabilityFluidHandler;
 import net.minecraftforge.items.ItemStackHandler;
+import net.minecraftforge.network.PacketDistributor;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -31,9 +47,8 @@ public class EnergyCore extends CapabilityFluidHandler implements IEnergyCore, I
 
     private final Level world;
     public EnergyNetworks networks;
-    private HashSet<BlockPos> energyBlocks = new HashSet<>();
+    private ArrayList<BlockPos> energyBlocks = new ArrayList<>();
     private final LazyOptional<IEnergyCore> energyCoreLazyOptional = LazyOptional.of(() -> this);
-
 
     public EnergyCore(Level world) {
         this.world = world;
@@ -102,7 +117,6 @@ public class EnergyCore extends CapabilityFluidHandler implements IEnergyCore, I
 
     private final HashMap<EnergyNetwork, Integer> energyExtractedNetwork = new HashMap<>();
 
-
     public int getEnergyExtractedNetwork(EnergyNetwork network) {
         return energyExtractedNetwork.getOrDefault(network, 0);
     }
@@ -115,26 +129,41 @@ public class EnergyCore extends CapabilityFluidHandler implements IEnergyCore, I
         }
     }
 
+    private final HashMap<EnergyNetwork, EnergyTier> energyNetworkTier = new HashMap<>();
 
-    //    private final HashSet<EnergyExtract> energyExtracts = new HashSet<>();
+    public void setEnergyNetworkTier(EnergyNetwork network, EnergyTier tier) {
+        if (network.getEnergyTier().getLvl() < tier.getLvl()) return;
+        if (energyNetworkTier.containsKey(network)) {
+            EnergyTier currentTier = energyNetworkTier.get(network);
+            if (tier.getLvl() > currentTier.getLvl()) {
+                energyNetworkTier.put(network, tier);
+            }
+        } else {
+            energyNetworkTier.put(network, tier);
+        }
+    }
 
+    public EnergyTier getEnergyNetworkTier(EnergyNetwork network) {
+        return energyNetworkTier.getOrDefault(network, EnergyTier.BASIC);
+    }
 
-//    private void putTransfer(IEnergy energy) {
-//        if (!energyTransfers.containsKey(energy)) energyTransfers.put(energy, new EnergyTransfer(energy));
-//    }
-//
-//    private void putExtract(IEnergy energy, IEnergy energyTo, int amount, Direction direction) {
-//        putTransfer(energy);
-//        energyTransfers.get(energy).totalExtract += amount;
-//        energyTransfers.get(energy).extract.add(new EnergyExtract(energy, energyTo, amount, direction));
-//    }
-//
-//    private void putReceive(IEnergy energy, IEnergy energyTo, int amount, Direction direction) {
-//        putTransfer(energy);
-//        energyTransfers.get(energy).totalReceive += amount;
-//        energyTransfers.get(energy).receive.add(new EnergyExtract(energyTo, energy, amount, direction));
-//    }
+    public EnergyTier getEnergyNetworkTier(EnergyNetwork network, EnergyTier def) {
+        return energyNetworkTier.getOrDefault(network, def);
+    }
 
+    private void createExplosion(BlockPos pos, int lvl) {
+        world.explode(null, pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5, 2, false, Explosion.BlockInteraction.DESTROY);
+    }
+
+    private void createBurn(EnergyNetwork network, BlockPos blockPos) {
+        HashSet<BlockPos> connections = (HashSet<BlockPos>) network.getConnections().clone();
+        for (BlockPos netPos : connections) {
+            world.removeBlock(netPos, false);
+            networks.onRemove(netPos);
+            world.playSound(null, netPos, SoundEvents.GENERIC_BURN, SoundSource.BLOCKS, 1F, 0.9F / (new Random().nextFloat() * 0.4F + 0.8F));
+            ModNetworking.INSTANCE.send(PacketDistributor.TRACKING_CHUNK.with(() -> world.getChunkAt(netPos)), new PacketParticle(netPos));
+        }
+    }
 
     /**
      * Evenly charge internal energy providers
@@ -144,8 +173,7 @@ public class EnergyCore extends CapabilityFluidHandler implements IEnergyCore, I
      * @param max
      */
     private void chargeInternal(BlockPos pos, BasicEnergyStorage energyFrom, List<EnergyReceiveComparator> energyTo, int max) {
-
-        int chargeLeft = energyFrom.maxExtract();
+        int chargeLeft = energyFrom.maxExtract() - getEnergyExtractedBlock(pos);
         int size = energyTo.size();
         int chargeSplit = chargeLeft / size;
 
@@ -179,7 +207,7 @@ public class EnergyCore extends CapabilityFluidHandler implements IEnergyCore, I
      */
 
     private void dischargeInternal(BlockPos pos, List<EnergyExtractComparator> energyFrom, IEnergy energyTo, int max) {
-        int distributeLeft = Math.min(energyTo.maxReceive(), max);
+        int distributeLeft = Math.min(energyTo.maxReceive() - getEnergyReceivedBlock(pos), max);
         int size = energyFrom.size();
         int distributeSplit = distributeLeft / size;
 
@@ -207,208 +235,90 @@ public class EnergyCore extends CapabilityFluidHandler implements IEnergyCore, I
      * Transfer energy inside energy blocks
      */
     private void transferInternal() {
-        for (BlockPos pos : this.energyBlocks) {
+        for (int i = this.energyBlocks.size() - 1; i >= 0; i--) {
+        BlockPos pos = this.energyBlocks.get(i);
+        if (pos == null) continue;
             BlockEntity be = world.getBlockEntity(pos);
             if (be instanceof IndRebBlockEntity ibe) {
-                if (ibe.hasBattery() && ibe.hasEnergy()) {
-                    BasicEnergyStorage energyStorage = ibe.getEnergyStorage();
-                    if (energyStorage.canExtractEnergy() || energyStorage.canReceiveEnergy()) {
-                        ItemStackHandler batteryHandler = ibe.getBatteryHandler();
-                        AtomicInteger chargeMax = new AtomicInteger();
-                        List<EnergyReceiveComparator> transferCharge = new ArrayList<>();
+                BasicEnergyStorage energyStorage = ibe.getEnergyStorage();
+                if (ibe.hasEnergy()) {
+                    if (ibe.hasBattery()) {
+                        if (energyStorage.canExtractEnergy() || energyStorage.canReceiveEnergy()) {
+                            ItemStackHandler batteryHandler = ibe.getBatteryHandler();
+                            AtomicInteger chargeMax = new AtomicInteger();
+                            List<EnergyReceiveComparator> transferCharge = new ArrayList<>();
 
-                        AtomicInteger dischargeMax = new AtomicInteger();
-                        List<EnergyExtractComparator> transferDischarge = new ArrayList<>();
+                            AtomicInteger dischargeMax = new AtomicInteger();
+                            List<EnergyExtractComparator> transferDischarge = new ArrayList<>();
 
-                        for (int i = 0; i < batteryHandler.getSlots(); i++) {
-                            ItemStack stack = batteryHandler.getStackInSlot(i);
-                            if (!stack.isEmpty()) {
-                                boolean isCharging = ibe.getBatteryHandlers().get(i).isCharging();
-                                stack.getCapability(ModCapabilities.ENERGY).ifPresent(e -> {
-                                    if (isCharging) {
-                                        if (e.canReceiveEnergy() && energyStorage.canExtractEnergy() && energyStorage.maxExtract() > 0) {
-                                            chargeMax.addAndGet(e.maxReceive());
-                                            transferCharge.add(new EnergyReceiveComparator(e, stack));
+                            for (int j = 0; j < batteryHandler.getSlots(); j++) {
+                                ItemStack stack = batteryHandler.getStackInSlot(j);
+                                if (!stack.isEmpty()) {
+                                    boolean isCharging = ibe.getBatteryHandlers().get(j).isCharging();
+                                    stack.getCapability(ModCapabilities.ENERGY).ifPresent(e -> {
+                                        if (isCharging) {
+                                            if (e.canReceiveEnergy() && energyStorage.canExtractEnergy() && energyStorage.maxExtract() > 0) {
+                                                chargeMax.addAndGet(e.maxReceive());
+                                                transferCharge.add(new EnergyReceiveComparator(e, stack));
+                                            }
+                                        } else {
+                                            if (e.canExtractEnergy() && energyStorage.canReceiveEnergy() && energyStorage.maxReceive() > 0) {
+                                                if (e.energyTier().getLvl() <= energyStorage.energyTier().getLvl()) {
+                                                    dischargeMax.addAndGet(e.maxExtract());
+                                                    transferDischarge.add(new EnergyExtractComparator(e , stack));
+                                                } else {
+                                                    createExplosion(pos, energyStorage.energyTier().getLvl());
+                                                }
+                                            }
                                         }
-                                    } else {
-                                        if (e.canExtractEnergy() && energyStorage.canReceiveEnergy() && energyStorage.maxReceive() > 0) {
-                                            dischargeMax.addAndGet(e.maxExtract());
-                                            transferDischarge.add(new EnergyExtractComparator(e , stack));
+                                    });
+                                }
+                            }
+
+                            if (transferCharge.size() > 0) {
+                                Collections.sort(transferCharge);
+                                chargeInternal(pos, energyStorage, transferCharge, chargeMax.get());
+                            }
+
+                            if (transferDischarge.size() > 0) {
+                                Collections.sort(transferDischarge);
+                                dischargeInternal(pos, transferDischarge, energyStorage, dischargeMax.get());
+                            }
+                        }
+                    }
+
+                    if (be instanceof BlockEntityChargePad) {
+                        List<EnergyReceiveComparator> transferCharge = new ArrayList<>();
+                        int chargeMax = 0;
+
+                        List<ServerPlayer> list = world.getEntitiesOfClass(ServerPlayer.class, AABB.of(new BoundingBox(pos.getX(), pos.getY(), pos.getZ(), pos.getX(), pos.getY() + 1, pos.getZ())));
+                        for (ServerPlayer player : list) {
+                            Inventory inventory = player.getInventory();
+                            for (int j = 0; j < inventory.getContainerSize(); ++j) {
+                                ItemStack stack = inventory.getItem(j);
+                                if (stack.getItem() instanceof IElectricItem electricItem) {
+                                    IEnergy energy = electricItem.getEnergy(stack);
+                                    if (energy != null) {
+                                        if (energy.energyTier().getLvl() <= energyStorage.energyTier().getLvl() && energy.canReceiveEnergy() && energy.energyStored() < energy.maxEnergy() && energyStorage.maxExtract() > 0) {
+                                            chargeMax += energy.maxReceive();
+                                            transferCharge.add(new EnergyReceiveComparator(energy, stack));
                                         }
                                     }
-                                });
+                                }
                             }
                         }
 
+                        ibe.setActive(transferCharge.size() > 0);
+
                         if (transferCharge.size() > 0) {
                             Collections.sort(transferCharge);
-                            chargeInternal(pos, energyStorage, transferCharge, chargeMax.get());
-                        }
-
-                        if (transferDischarge.size() > 0) {
-                            Collections.sort(transferDischarge);
-                            dischargeInternal(pos, transferDischarge, energyStorage, dischargeMax.get());
+                            chargeInternal(pos, energyStorage, transferCharge, chargeMax);
                         }
                     }
                 }
             }
         }
     }
-
-
-
-
-
-
-
-
-
-    /**
-     * Transfer energy between IEnergyTransmitter
-     * Push energy from cables with higher energy to lower to make them even
-     */
-    private void transferTransmitter() {
-
-
-
-
-        HashMap<EnergyNetwork, EnergyTransfer> energyTransfers = new HashMap<>();
-        for (EnergyNetwork network : networks.getNetworks()) {
-            if (network.maxExtract() > 0) {
-                List<EnergyNetwork> connectedNetworks = networks.getConnectedNetworks(network);
-                for (EnergyNetwork nCn : connectedNetworks) {
-                    if (nCn.maxReceive() > 0 && network.energyStored() > nCn.energyStored() && network.energyStored() - nCn.energyStored() > 2) {
-                        if (energyTransfers.containsKey(network)) {
-                            energyTransfers.get(network).networksTo.add(nCn);
-                        } else {
-                            energyTransfers.put(network, new EnergyTransfer(null, network, null, nCn));
-                        }
-                    }
-                }
-            }
-        }
-
-        List<EnergyExtractComparatorNetwork> transferDischarge = new ArrayList<>();
-        for (EnergyNetwork network : networks.getNetworks()) {
-//            ta co otrzy,uje
-
-
-
-            int dischargeMax = 0;
-            List<EnergyNetwork> connectedNetworks = networks.getConnectedNetworks(network);
-
-            for (EnergyNetwork nCn : connectedNetworks) {
-                if (energyTransfers.containsKey(nCn)) {
-                    EnergyTransfer et = energyTransfers.get(nCn);
-
-                    int max = et.getMaxTransferToTransmitter(network);
-                    dischargeMax += max;
-
-//
-//                    System.out.println("max");
-//                    System.out.println(max);
-
-                    transferDischarge.add(new EnergyExtractComparatorNetwork(nCn, max / 2));
-                }
-            }
-
-
-
-//
-//            System.out.println("network");
-//            System.out.println(network);
-
-                if (transferDischarge.size() > 0) {
-                    Collections.sort(transferDischarge);
-                    distributeDischargeNet(transferDischarge, network, dischargeMax);
-                }
-
-
-
-
-            }
-
-
-
-
-
-//            if (network.maxExtract() > 0) {
-//                HashSet<EnergyNetwork> networksChecked = new HashSet<>();
-//                for (BlockPos ePos : network.getTransmitters()) {
-//                    EnergyNetwork otherNetwork = this.networks.getNetwork(ePos);
-//                    if (!networksChecked.contains(otherNetwork)) {
-//                        networksChecked.add(otherNetwork);
-//                        if (otherNetwork.maxReceive() > 0) {
-//                            if (energyTransfers.containsKey(otherNetwork)) {
-//                                energyTransfers.get(otherNetwork).networksTo.add(network);
-//                            } else {
-//                                energyTransfers.put(network, new EnergyTransfer(null, network, ePos, otherNetwork));
-//                            }
-//
-//                        }
-//                    }
-//                }
-//            }
-//        }
-
-
-
-//        System.out.println("energyTransfers");
-//        System.out.println(energyTransfers.size());
-//        System.out.println(energyTransfers);
-//
-//
-//        for (EnergyNetwork network : networks.getNetworks()) {
-//            if (energyTransfers.containsKey(network)) {
-//                EnergyTransfer et = energyTransfers.get(network);
-//
-//                int dischargeMax = 0;
-//                List<EnergyExtractComparatorNetwork> transferDischarge = new ArrayList<>();
-//                HashSet<EnergyNetwork> networksChecked = new HashSet<>();
-//
-//
-//
-//                for (BlockPos ePos : network.getTransmitters()) {
-//                    EnergyNetwork otherNetwork = this.networks.getNetwork(ePos);
-//
-//                    System.out.println("Other network");
-//                    System.out.println(otherNetwork);
-//
-//                    if (otherNetwork != null && et.getNetworksTo().contains(otherNetwork) && !networksChecked.contains(otherNetwork)) {
-//                        networksChecked.add(otherNetwork);
-//
-//
-//                        int max = et.getMaxTransferToTransmitter(otherNetwork);
-//                        dischargeMax += max;
-//
-//                        System.out.println("max");
-//                        System.out.println(max);
-//
-//                        transferDischarge.add(new EnergyExtractComparatorNetwork(otherNetwork, max));
-//                    }
-//                }
-//
-//                if (transferDischarge.size() > 0) {
-//                    Collections.sort(transferDischarge);
-//                    distributeDischargeNet(transferDischarge, network, dischargeMax);
-//                }
-//                System.out.println("transferDischarge");
-//                System.out.println(transferDischarge);
-//
-//
-//            }
-//        }
-//
-//
-//
-//
-
-
-    }
-
-
-
-
 
     /**
      * This is to distribute calculated energy from generators to cable network
@@ -420,17 +330,6 @@ public class EnergyCore extends CapabilityFluidHandler implements IEnergyCore, I
         int distributeLeft = Math.min(energyTo.maxReceive(), max);
         int size = energyFrom.size();
         int distributeSplit = distributeLeft / size;
-
-
-//        System.out.println("distributeLeft");
-//        System.out.println(distributeLeft);
-//
-//        System.out.println("size");
-//        System.out.println(size);
-//
-//        System.out.println("distributeSplit");
-//        System.out.println(distributeSplit);
-
         for (EnergyExtractComparatorNetwork en: energyFrom) {
             if (distributeLeft > 0 && distributeSplit > 0) {
                 int maxEnergy = Math.min(distributeSplit, en.getMaxExtract());
@@ -545,27 +444,64 @@ public class EnergyCore extends CapabilityFluidHandler implements IEnergyCore, I
      * Transfer energy to blocks around
      */
     private void transferTouching() {
-        for (BlockPos pos : energyBlocks) {
+        ArrayList<BlockPos> clone = (ArrayList<BlockPos>) energyBlocks.clone();
+        for (BlockPos pos : clone) {
             BlockEntity be = world.getBlockEntity(pos);
             if (be instanceof IndRebBlockEntity ibe) {
                 if (ibe.hasEnergy()) {
                     BasicEnergyStorage energy = ibe.getEnergyStorage();
                     int leftExtract = Math.max(0, energy.maxExtract() - getEnergyExtractedBlock(pos));
-                    if (energy.canExtractEnergy() && leftExtract > 0) {
+                    if (leftExtract > 0) {
                         List<TransferTo> transferTo = new ArrayList<>();
                         for (Direction direction : Constants.DIRECTIONS) {
-                            BlockPos relativePos = pos.relative(direction);
-                            if (energyBlocks.contains(relativePos)) {
-                                if (energy.canExtractEnergy(direction)) {
-                                    Direction oppositeDir = direction.getOpposite();
-                                    BlockEntity oBe = world.getBlockEntity(relativePos);
-                                    if (oBe instanceof IndRebBlockEntity oIbe) {
-                                        if (oIbe.hasEnergy()) {
-                                            BasicEnergyStorage oEnergy = oIbe.getEnergyStorage();
-                                            if (oEnergy.canReceiveEnergy(oppositeDir)) {
-                                                int leftReceive = Math.max(0, oEnergy.maxReceive() - getEnergyReceivedBlock(relativePos));
-                                                if (leftReceive > 0 && (oEnergy.energyType() == EnumEnergyType.BOTH || oEnergy.energyType() == EnumEnergyType.RECEIVE)) {
-                                                    transferTo.add(new TransferTo(oEnergy, relativePos, leftReceive));
+                            if (energy.canExtractEnergy(direction)) {
+                                BlockPos relativePos = pos.relative(direction);
+                                if (energyBlocks.contains(relativePos)) {
+                                    if (energy.canExtractEnergy(direction)) {
+                                        Direction oppositeDir = direction.getOpposite();
+                                        BlockEntity oBe = world.getBlockEntity(relativePos);
+                                        if (oBe instanceof IndRebBlockEntity oIbe) {
+                                            if (oIbe.hasEnergy()) {
+                                                BasicEnergyStorage oEnergy = oIbe.getEnergyStorage();
+                                                if (oEnergy.canReceiveEnergy(oppositeDir)) {
+                                                    int leftReceive = Math.max(0, oEnergy.maxReceive() - getEnergyReceivedBlock(relativePos));
+                                                    if (leftReceive > 0) {
+                                                        if (be instanceof BlockEntityTransformer beT && oBe instanceof BlockEntityTransformer iBeT) {
+                                                            EnergyTier fromTier = beT.energyExtractTier();
+                                                            EnergyTier toTier = iBeT.energyReceiveTier();
+                                                            if (Objects.equals(fromTier.getLvl(), toTier.getLvl())) {
+                                                                transferTo.add(new TransferTo(oEnergy, relativePos, leftReceive));
+                                                            } else {
+                                                                if (fromTier.getLvl() > toTier.getLvl()) {
+                                                                    createExplosion(relativePos, fromTier.getLvl());
+                                                                }
+                                                            }
+                                                        } else if (be instanceof BlockEntityTransformer beT) {
+                                                            EnergyTier fromTier = beT.energyExtractTier();
+                                                            if (fromTier.getLvl() <= oEnergy.energyTier().getLvl()) {
+                                                                transferTo.add(new TransferTo(oEnergy, relativePos, leftReceive));
+                                                            } else {
+                                                                createExplosion(relativePos, fromTier.getLvl());
+                                                            }
+                                                        } else if (oBe instanceof BlockEntityTransformer iBeT) {
+                                                            EnergyTier toTier = iBeT.energyReceiveTier();
+                                                            if (Objects.equals(energy.energyTier().getLvl(), toTier.getLvl())) {
+                                                                transferTo.add(new TransferTo(oEnergy, relativePos, leftReceive));
+                                                            } else {
+                                                                if (energy.energyTier().getLvl() > toTier.getLvl()) {
+                                                                    createExplosion(relativePos, energy.energyTier().getLvl());
+                                                                }
+                                                            }
+                                                        } else {
+                                                            if (oEnergy.energyType() == EnergyType.BOTH || oEnergy.energyType() == EnergyType.RECEIVE) {
+                                                                if (oEnergy.energyTier().getLvl() >= energy.energyTier().getLvl()) {
+                                                                    transferTo.add(new TransferTo(oEnergy, relativePos, leftReceive));
+                                                                } else {
+                                                                    createExplosion(relativePos, energy.energyTier().getLvl());
+                                                                }
+                                                            }
+                                                        }
+                                                    }
                                                 }
                                             }
                                         }
@@ -573,6 +509,7 @@ public class EnergyCore extends CapabilityFluidHandler implements IEnergyCore, I
                                 }
                             }
                         }
+
                         if (transferTo.size() > 0) {
                             Collections.sort(transferTo);
                             dischargeGenerator(pos, energy, transferTo, leftExtract);
@@ -587,12 +524,14 @@ public class EnergyCore extends CapabilityFluidHandler implements IEnergyCore, I
      * Transfer energy from cables to machines
      */
     private void transferFromCables() {
-        for (EnergyNetwork network : networks.getNetworks()) {
+        ArrayList<EnergyNetwork> clone = (ArrayList<EnergyNetwork>) networks.getNetworks().clone();
+        for (EnergyNetwork network : clone) {
             List<TransferTo> transferTo = new ArrayList<>();
             if (network.maxExtract() > 0) {
-                HashSet<BlockPos> connections = network.getConnections();
+                HashSet<BlockPos> connections = (HashSet<BlockPos>) network.getConnections().clone();
                 HashSet<BlockPos> electrics = network.getElectrics();
                 List<BlockPos> posChecked = new ArrayList<>();
+
                 for (BlockPos pos : connections) {
                     for (Direction direction : Constants.DIRECTIONS) {
                         BlockPos relativePos = pos.relative(direction);
@@ -603,9 +542,30 @@ public class EnergyCore extends CapabilityFluidHandler implements IEnergyCore, I
                             if (be != null) {
                                 be.getCapability(ModCapabilities.ENERGY).ifPresent(energy -> {
                                     if (energy.canReceiveEnergy(oppositeDir)) {
-                                        if (energy.maxReceive() > 0 && (energy.energyType() == EnumEnergyType.BOTH || energy.energyType() == EnumEnergyType.RECEIVE)) {
-                                            int leftReceive = Math.max(0, energy.maxReceive() - getEnergyReceivedBlock(relativePos));
-                                            transferTo.add(new TransferTo(energy, relativePos, leftReceive));
+                                        if (energy.maxReceive() > 0) {
+                                            EnergyTier networkTier = getEnergyNetworkTier(network);
+
+                                            if (energy.energyType() == EnergyType.BOTH || energy.energyType() == EnergyType.RECEIVE) {
+                                                if (energy.energyTier().getLvl() >= networkTier.getLvl()) {
+                                                    int leftReceive = Math.max(0, energy.maxReceive() - getEnergyReceivedBlock(relativePos));
+                                                    transferTo.add(new TransferTo(energy, relativePos, leftReceive));
+                                                } else {
+                                                    createExplosion(relativePos, networkTier.getLvl());
+                                                }
+                                            }
+
+                                            if (energy.energyType() == EnergyType.TRANSFORMER) {
+                                                BlockEntityTransformer beTransformer = (BlockEntityTransformer) be;
+                                                EnergyTier transformerTier = beTransformer.energyReceiveTier();
+                                                if (Objects.equals(transformerTier.getLvl(), networkTier.getLvl())) {
+                                                    int leftReceive = Math.max(0, energy.maxReceive() - getEnergyReceivedBlock(relativePos));
+                                                    transferTo.add(new TransferTo(energy, relativePos, leftReceive));
+                                                } else {
+                                                    if (transformerTier.getLvl() < networkTier.getLvl()) {
+                                                        createExplosion(relativePos, networkTier.getLvl());
+                                                    }
+                                                }
+                                            }
                                         }
                                     }
                                 });
@@ -627,39 +587,47 @@ public class EnergyCore extends CapabilityFluidHandler implements IEnergyCore, I
      * Transfer energy from generators to cables
      */
     private void transferFromGenerators() {
-        for (EnergyNetwork network : networks.getNetworks()) {
+        ArrayList<EnergyNetwork> clone = (ArrayList<EnergyNetwork>) networks.getNetworks().clone();
+        for (EnergyNetwork network : clone) {
             int leftReceive = Math.max(0, network.maxReceive() - getEnergyReceivedNetwork(network));
-            if (leftReceive > 0) {
-                List<TransferFrom> transferFrom = new ArrayList<>();
-                HashSet<BlockPos> connections = network.getConnections();
-                HashSet<BlockPos> electrics = network.getElectrics();
-                List<BlockPos> posChecked = new ArrayList<>();
-                for (BlockPos pos : connections) {
-                    for (Direction direction : Constants.DIRECTIONS) {
-                        BlockPos relativePos = pos.relative(direction);
-                        if (electrics.contains(relativePos) && !posChecked.contains(relativePos)) {
-                            posChecked.add(relativePos);
-                            Direction oppositeDir = direction.getOpposite();
-                            BlockEntity be = world.getBlockEntity(relativePos);
-                            if (be != null) {
-                                be.getCapability(ModCapabilities.ENERGY).ifPresent(energy -> {
-                                    if (energy.canExtractEnergy(oppositeDir)) {
-                                        if (energy.maxExtract() > 0 && energy.energyType() == EnumEnergyType.EXTRACT) {
-                                            int leftExtract = Math.max(0, energy.maxExtract() - getEnergyExtractedBlock(relativePos));
-                                            if (leftExtract > 0) {
+            List<TransferFrom> transferFrom = new ArrayList<>();
+            HashSet<BlockPos> connections =  (HashSet<BlockPos>) network.getConnections().clone();
+            HashSet<BlockPos> electrics = network.getElectrics();
+            List<BlockPos> posChecked = new ArrayList<>();
+
+            for (BlockPos pos : connections) {
+                for (Direction direction : Constants.DIRECTIONS) {
+                    BlockPos relativePos = pos.relative(direction);
+                    if (electrics.contains(relativePos) && !posChecked.contains(relativePos)) {
+                        posChecked.add(relativePos);
+                        Direction oppositeDir = direction.getOpposite();
+                        BlockEntity be = world.getBlockEntity(relativePos);
+                        if (be != null) {
+                            be.getCapability(ModCapabilities.ENERGY).ifPresent(energy -> {
+                                if (energy.canExtractEnergy(oppositeDir)) {
+                                    setEnergyNetworkTier(network, energy.energyTier());
+
+                                    if (energy.maxExtract() > 0 && energy.energyType() == EnergyType.EXTRACT) {
+                                        int leftExtract = Math.max(0, energy.maxExtract() - getEnergyExtractedBlock(relativePos));
+                                        if (leftReceive > 0 && leftExtract > 0) {
+                                            EnergyTier networkTier = getEnergyNetworkTier(network);
+                                            if (energy.energyTier().getLvl() <= networkTier.getLvl()) {
                                                 transferFrom.add(new TransferFrom(energy, relativePos, leftExtract));
+                                            } else {
+                                                createExplosion(pos, energy.energyTier().getLvl());
                                             }
                                         }
                                     }
-                                });
-                            }
+                                }
+                            });
                         }
                     }
                 }
-                if (transferFrom.size() > 0) {
-                    Collections.sort(transferFrom);
-                    chargeNetwork(transferFrom, network, leftReceive);
-                }
+            }
+
+            if (transferFrom.size() > 0) {
+                Collections.sort(transferFrom);
+                chargeNetwork(transferFrom, network, leftReceive);
             }
         }
     }
@@ -668,45 +636,71 @@ public class EnergyCore extends CapabilityFluidHandler implements IEnergyCore, I
      * Transfer energy from batteries to cables
      */
     private void transferFromBatteries() {
-        for (EnergyNetwork network : networks.getNetworks()) {
+        ArrayList<EnergyNetwork> clone = (ArrayList<EnergyNetwork>) networks.getNetworks().clone();
+        for (EnergyNetwork network : clone) {
             int leftReceive = Math.max(0, network.maxReceive() - getEnergyReceivedNetwork(network));
-            if (leftReceive > 0) {
-                List<TransferFrom> transferFrom = new ArrayList<>();
-                HashSet<BlockPos> electrics = network.getElectrics();
-                HashSet<BlockPos> connections = network.getConnections();
-                List<BlockPos> posChecked = new ArrayList<>();
-                for (BlockPos pos : connections) {
-                    for (Direction direction : Constants.DIRECTIONS) {
-                        BlockPos relativePos = pos.relative(direction);
-                        if (electrics.contains(relativePos) && !posChecked.contains(relativePos)) {
-                            posChecked.add(relativePos);
-                            Direction oppositeDir = direction.getOpposite();
-                            BlockEntity be = world.getBlockEntity(relativePos);
-                            if (be != null) {
-                                be.getCapability(ModCapabilities.ENERGY).ifPresent(energy -> {
-                                    if (energy.energyType() == EnumEnergyType.BOTH) {
-                                        if (energy.canExtractEnergy(oppositeDir)) {
-                                            if (energy.maxExtract() > 0) {
-                                                int leftExtract = Math.max(0, energy.maxExtract() - getEnergyReceivedBlock(relativePos));
-                                                if (leftExtract > 0) {
+            List<TransferFrom> transferFrom = new ArrayList<>();
+            HashSet<BlockPos> electrics = network.getElectrics();
+            HashSet<BlockPos> connections = (HashSet<BlockPos>) network.getConnections().clone();
+            List<BlockPos> posChecked = new ArrayList<>();
+
+            for (BlockPos pos : connections) {
+                for (Direction direction : Constants.DIRECTIONS) {
+                    BlockPos relativePos = pos.relative(direction);
+                    if (electrics.contains(relativePos) && !posChecked.contains(relativePos)) {
+                        posChecked.add(relativePos);
+                        Direction oppositeDir = direction.getOpposite();
+                        BlockEntity be = world.getBlockEntity(relativePos);
+                        if (be != null) {
+                            be.getCapability(ModCapabilities.ENERGY).ifPresent(energy -> {
+                                EnergyTier networkTier = getEnergyNetworkTier(network, network.getEnergyTier());
+
+                                if (energy.energyType() == EnergyType.BOTH) {
+                                    if (energy.canExtractEnergy(oppositeDir)) {
+                                        setEnergyNetworkTier(network, energy.energyTier());
+
+                                        if (energy.maxExtract() > 0) {
+                                            int leftExtract = Math.max(0, energy.maxExtract() - getEnergyReceivedBlock(relativePos));
+                                            if (leftReceive > 0 && leftExtract > 0) {
+                                                if (energy.energyTier().getLvl() <= networkTier.getLvl()) {
                                                     transferFrom.add(new TransferFrom(energy, relativePos, leftExtract));
+                                                } else {
+                                                    createBurn(network, pos);
                                                 }
                                             }
                                         }
                                     }
-                                });
-                            }
+                                }
+
+                                if (energy.energyType() == EnergyType.TRANSFORMER) {
+                                    if (energy.canExtractEnergy(oppositeDir)) {
+                                        BlockEntityTransformer beTransformer = (BlockEntityTransformer) be;
+                                        EnergyTier tier = beTransformer.energyExtractTier();
+
+                                        setEnergyNetworkTier(network, tier);
+
+                                        int leftExtract = Math.max(0, energy.maxExtract() - getEnergyReceivedBlock(relativePos));
+                                        if (leftReceive > 0 && leftExtract > 0) {
+                                            if (tier.getLvl() <= networkTier.getLvl()) {
+                                                setEnergyNetworkTier(network, tier);
+                                                transferFrom.add(new TransferFrom(energy, relativePos, leftExtract));
+                                            } else {
+                                                createBurn(network, pos);
+                                            }
+                                        }
+                                    }
+                                }
+                            });
                         }
                     }
                 }
-                if (transferFrom.size() > 0) {
-                    Collections.sort(transferFrom);
-                    chargeNetwork(transferFrom, network, leftReceive);
-                }
+            }
+
+            if (transferFrom.size() > 0) {
+                Collections.sort(transferFrom);
+                chargeNetwork(transferFrom, network, leftReceive);
             }
         }
-
-
     }
 
     @Override
@@ -715,26 +709,14 @@ public class EnergyCore extends CapabilityFluidHandler implements IEnergyCore, I
         energyExtractedBlock.clear();
         energyReceivedNetwork.clear();
         energyExtractedNetwork.clear();
+        energyNetworkTier.clear();
 
-        // Good?
         transferInternal();
-
-        // Good?
         transferTouching();
-
-        // Bad?
-//        transferTransmitter();
-
-        // Good?
-        transferFromCables();
-
-        // 50 - 50
         transferFromGenerators();
-
-        // Good?
         transferFromBatteries();
+        transferFromCables();
     }
-
 
     @Nonnull
     @Override
@@ -745,8 +727,8 @@ public class EnergyCore extends CapabilityFluidHandler implements IEnergyCore, I
         return LazyOptional.empty();
     }
 
-    @Override
-    public CompoundTag serializeNBT() {
+
+    public CompoundTag serializeData() {
         CompoundTag nbt = new CompoundTag();
 
         List<Long> blocks = new ArrayList<>();
@@ -757,21 +739,44 @@ public class EnergyCore extends CapabilityFluidHandler implements IEnergyCore, I
         return nbt;
     }
 
-    @Override
-    public void deserializeNBT(CompoundTag nbt) {
-
-        HashSet<BlockPos> nbtConnections = new HashSet<>();
+    public void deserializeData(CompoundTag nbt) {
+        ArrayList<BlockPos> nbtConnections = new ArrayList<>();
         for (long longPos : nbt.getLongArray("energyBlocks")) {
             BlockPos pos = BlockPos.of(longPos);
             nbtConnections.add(pos);
         }
         this.energyBlocks = nbtConnections;
 
-//        for (String key : nbt.getAllKeys()) {
-//            BlockPos pos = BlockPos.of(nbt.getLong(key));
-//            energyBlocks.add(pos);
-//        }
-
         this.networks.deserializeNBT(nbt.getCompound("networks"));
+    }
+
+    @Override
+    public CompoundTag serializeNBT() {
+        return serializeData();
+    }
+
+    @Override
+    public void deserializeNBT(CompoundTag nbt) {
+        deserializeData(nbt);
+    }
+
+    @Override
+    public CompoundTag getNetworkTag(@Nullable BlockPos pos) {
+        if (pos == null) {
+            return serializeData();
+        } else {
+            CompoundTag nbt = new CompoundTag();
+            EnergyNetworks net = new EnergyNetworks(world);
+            net.addNetwork(networks.getNetwork(pos));
+            nbt.putLongArray("energyBlock", new ArrayList<>());
+            nbt.put("networks", net.serializeNBT());
+            return nbt;
+        }
+    }
+
+    @Override
+    public void setNetworkTag(CompoundTag tag) {
+        this.networks.clearNetworks();
+        deserializeData(tag);
     }
 }

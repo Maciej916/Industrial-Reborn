@@ -1,7 +1,7 @@
 package com.maciej916.indreb.common.item.impl.tools;
 
 import com.maciej916.indreb.common.enums.EnergyTier;
-import com.maciej916.indreb.common.enums.EnumEnergyType;
+import com.maciej916.indreb.common.enums.EnergyType;
 import com.maciej916.indreb.common.item.base.DiggerElectricItem;
 import com.maciej916.indreb.common.registries.ModTiers;
 import net.minecraft.core.NonNullList;
@@ -17,7 +17,7 @@ public class MiningDrill extends DiggerElectricItem {
     private final int energyCostMine;
     private final int energyCostHurt;
 
-    public MiningDrill(Tier tier, float attackDamage, float attackSpeed, int energyStored, int maxEnergy, int energyCostMine, int energyCostHurt, EnumEnergyType energyType, EnergyTier energyTier) {
+    public MiningDrill(Tier tier, float attackDamage, float attackSpeed, int energyStored, int maxEnergy, int energyCostMine, int energyCostHurt, EnergyType energyType, EnergyTier energyTier) {
         super(tier, attackDamage, attackSpeed, BlockTags.MINEABLE_WITH_PICKAXE, new Properties(), energyStored, maxEnergy, energyType, energyTier);
         this.energyCostMine = energyCostMine;
         this.energyCostHurt = energyCostHurt;

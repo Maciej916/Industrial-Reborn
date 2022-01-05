@@ -6,14 +6,10 @@ import com.maciej916.indreb.common.entity.block.BlockEntityProgress;
 import com.maciej916.indreb.common.entity.block.IndRebBlockEntity;
 import com.maciej916.indreb.common.entity.slot.IndRebSlot;
 import com.maciej916.indreb.common.entity.slot.SlotBattery;
-import com.maciej916.indreb.common.enums.EnergyTier;
-import com.maciej916.indreb.common.enums.GuiSlotType;
-import com.maciej916.indreb.common.enums.InventorySlotType;
+import com.maciej916.indreb.common.enums.*;
 import com.maciej916.indreb.common.interfaces.entity.IElectricSlot;
 import com.maciej916.indreb.common.interfaces.entity.ISupportUpgrades;
 import com.maciej916.indreb.common.interfaces.entity.ITileSound;
-import com.maciej916.indreb.common.interfaces.receipe.IBaseRecipe;
-import com.maciej916.indreb.common.interfaces.receipe.IChanceRecipe;
 import com.maciej916.indreb.common.receipe.impl.RecyclingRecipe;
 import com.maciej916.indreb.common.registries.ModBlockEntities;
 import com.maciej916.indreb.common.registries.ModItems;
@@ -26,7 +22,6 @@ import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.item.crafting.SmeltingRecipe;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.util.LazyOptional;
@@ -37,7 +32,7 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import java.util.*;
 
-import static com.maciej916.indreb.common.enums.EnumEnergyType.RECEIVE;
+import static com.maciej916.indreb.common.enums.EnergyType.RECEIVE;
 
 public class BlockEntityRecycler extends IndRebBlockEntity implements IEnergyBlock, ISupportUpgrades, ITileSound {
 
@@ -53,7 +48,7 @@ public class BlockEntityRecycler extends IndRebBlockEntity implements IEnergyBlo
 
     public BlockEntityRecycler(BlockPos pWorldPosition, BlockState pBlockState) {
         super(ModBlockEntities.RECYCLER, pWorldPosition, pBlockState);
-        createEnergyStorage(0, ServerConfig.recycler_energy_capacity.get(), ServerConfig.basic_tier_transfer.get(), 0, RECEIVE);
+        createEnergyStorage(0, ServerConfig.recycler_energy_capacity.get(), EnergyType.RECEIVE, EnergyTier.BASIC);
     }
 
     protected Optional<RecyclingRecipe> getRecipe(ItemStack input) {
@@ -76,6 +71,7 @@ public class BlockEntityRecycler extends IndRebBlockEntity implements IEnergyBlo
     @Override
     public void tickOperate(BlockState state) {
         active = false;
+        getEnergyStorage().updateConsumed(0);
 
         final ItemStack inputStack = getStackHandler().getStackInSlot(INPUT_SLOT);
         final ItemStack outputStack = getStackHandler().getStackInSlot(OUTPUT_SLOT);
@@ -94,15 +90,16 @@ public class BlockEntityRecycler extends IndRebBlockEntity implements IEnergyBlo
                 progress.setData(0, recipe.getDuration());
             }
 
-            float progressSpeed = getSpeedFactor();
+            progress.setProgressMax(getSpeedFactor() * recipe.getDuration());
             int energyCost = (int) (recipe.getPowerCost() * getEnergyUsageFactor());
 
             ItemStack resultStack = new ItemStack(ModItems.SCRAP);
             if (canWork(outputStack, resultStack)) {
                 if (getEnergyStorage().consumeEnergy(energyCost, true) == energyCost && progress.getProgress() <= progress.getProgressMax()) {
                     active = true;
-                    progress.incProgress(progressSpeed);
+                    progress.incProgress(1);
                     getEnergyStorage().consumeEnergy(energyCost, false);
+                    getEnergyStorage().updateConsumed(energyCost);
                 }
 
                 if (progress.getProgress() >= progress.getProgressMax()) {
@@ -139,7 +136,7 @@ public class BlockEntityRecycler extends IndRebBlockEntity implements IEnergyBlo
 
     @Override
     public ArrayList<IElectricSlot> addBatterySlot(ArrayList<IElectricSlot> slots) {
-        slots.add(new SlotBattery(0, 152, 62, false, List.of(EnergyTier.BASIC)));
+        slots.add(new SlotBattery(0, 152, 62, false));
         return super.addBatterySlot(slots);
     }
 
@@ -210,5 +207,10 @@ public class BlockEntityRecycler extends IndRebBlockEntity implements IEnergyBlo
     public void onBreak() {
         for (LazyOptional<?> capability : capabilities) capability.invalidate();
         super.onBreak();
+    }
+
+    @Override
+    public List<UpgradeType> getSupportedUpgrades() {
+        return List.of(UpgradeType.OVERCLOCKER, UpgradeType.TRANSFORMER, UpgradeType.ENERGY_STORAGE, UpgradeType.EJECTOR, UpgradeType.PULLING, UpgradeType.REDSTONE_SIGNAL_INVERTER);
     }
 }

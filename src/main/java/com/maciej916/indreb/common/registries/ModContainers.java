@@ -1,6 +1,7 @@
 package com.maciej916.indreb.common.registries;
 
 import com.maciej916.indreb.common.block.impl.battery_box.ContainerBatteryBox;
+import com.maciej916.indreb.common.block.impl.charge_pad.ContainerChargePad;
 import com.maciej916.indreb.common.block.impl.generators.crystalline_generator.ContainerCrystallineGenerator;
 import com.maciej916.indreb.common.block.impl.generators.generator.ContainerGenerator;
 import com.maciej916.indreb.common.block.impl.generators.geo_generator.ContainerGeoGenerator;
@@ -18,6 +19,7 @@ import com.maciej916.indreb.common.block.impl.machines.fluid_enricher.ContainerF
 import com.maciej916.indreb.common.block.impl.machines.iron_furnace.ContainerIronFurnace;
 import com.maciej916.indreb.common.block.impl.machines.recycler.ContainerRecycler;
 import com.maciej916.indreb.common.block.impl.machines.sawmill.ContainerSawmill;
+import com.maciej916.indreb.common.block.impl.transformer.ContainerTransformer;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.MenuType;
 import net.minecraftforge.common.extensions.IForgeMenuType;
@@ -36,6 +38,8 @@ public final class ModContainers {
     public static MenuType<ContainerSemifluidGenerator> SEMIFLUID_GENERATOR;
 
     public static MenuType<ContainerBatteryBox> BATTERY_BOX;
+    public static MenuType<ContainerTransformer> TRANSFORMER;
+    public static MenuType<ContainerChargePad> CHARGE_PAD;
 
     public static MenuType<ContainerIronFurnace> IRON_FURNACE;
     public static MenuType<ContainerElectricFurnace> ELECTRIC_FURNACE;
@@ -64,6 +68,8 @@ public final class ModContainers {
         SEMIFLUID_GENERATOR = registerContainer("semifluid_generator", IForgeMenuType.create(ContainerSemifluidGenerator::new));
 
         BATTERY_BOX = registerContainer("battery_box", IForgeMenuType.create(ContainerBatteryBox::new));
+        TRANSFORMER = registerContainer("transformer", IForgeMenuType.create(ContainerTransformer::new));
+        CHARGE_PAD = registerContainer("charge_pad", IForgeMenuType.create(ContainerChargePad::new));
 
         IRON_FURNACE = registerContainer("iron_furnace", IForgeMenuType.create(ContainerIronFurnace::new));
         ELECTRIC_FURNACE = registerContainer("electric_furnace", IForgeMenuType.create(ContainerElectricFurnace::new));

@@ -1,12 +1,14 @@
 {
-  "_comment": "Tooltip",
+  "_comment": "Global",
   "itemGroup.indreb": "Industrial Reborn",
 
   "indreb.generic": "%s",
 
+  "_comment": "Energy",
   "energy.indreb.power": "%s IE",
   "energy.indreb.power_tick": "%s IE/t",
 
+  "_comment": "Tier",
   "tier.indreb.basic": "Базовый",
   "tier.indreb.standard": "Стандарт",
   "tier.indreb.advanced": "Расширенный",
@@ -14,6 +16,7 @@
   "tier.indreb.ultra": "Ультра",
   "tier.indreb.creative": "Творческий",
 
+  "_comment": "GUI",
   "gui.indreb.energy": "%s / %s IE",
   "gui.indreb.fluid": "%s: %s/%s mB",
   "gui.indreb.fluid_empty": "Пусто",
@@ -22,11 +25,12 @@
   "gui.indreb.fuelBurnTimeProgress": "Время сжигания топлива %s/%s",
   "gui.indreb.heat": "Нагрев: %s",
   "gui.indreb.armour": "Броня",
-
+  "gui.indreb.waste": "Отходы: %s",
 
   "gui.indreb.can_operate_in": "Может работать через %sс",
   "gui.indreb.can_operate": "Эта машина готова!",
 
+  "_comment": "Block",
   "block.indreb.generator": "Генератор",
   "block.indreb.geo_generator": "Геотермальный генератор",
   "block.indreb.solar_generator": "Солнечная панель",
@@ -34,6 +38,7 @@
   "block.indreb.hybrid_solar_generator": "Гибридная солнечная панель",
   "block.indreb.quantum_solar_generator": "Квантовая солнечная панель",
   "block.indreb.crystalline_generator": "Кристаллический генератор",
+  "block.indreb.semifluid_generator": "Полужидкостный генератор",
 
   "block.indreb.iron_furnace": "Железная печь",
   "block.indreb.electric_furnace": "Электрическая печь",
@@ -48,6 +53,9 @@
 
   "block.indreb.tin_ore": "Оловянная руда",
   "block.indreb.deepslate_tin_ore": "Оловоносный глубокий сланец",
+  "block.indreb.lead_ore": "Свинцовая руда",
+  "block.indreb.deepslate_lead_ore": "Глубокая cвинцовая руда",
+  "block.indreb.deepslate_uranium_ore": "Глубокая урановая руда",
 
   "block.indreb.tin_block": "Оловянный блок",
   "block.indreb.bronze_block": "Бронзовый блок",
@@ -89,8 +97,10 @@
   "block.indreb.iron_fence": "Железный забор",
 
   "block.indreb.luminator": "Электролампа",
-  "block.indreb.recycler": "Recycler",
+  "block.indreb.recycler": "Утилизатор",
+  "block.indreb.fermenter": "Ферментер",
 
+  "_comment": "Rubber Wood",
   "block.indreb.rubber_sapling": "Саженец гевеи",
   "block.indreb.rubber_planks": "Доски гевеи",
   "block.indreb.rubber_leaves": "Листва гевеи",
@@ -100,6 +110,7 @@
   "block.indreb.rubber_slab": "Плита гевеи",
 
 
+  "_comment": "Cable",
   "block.indreb.tin_cable": "Оловянный провод",
   "block.indreb.tin_cable_insulated": "Изолированный оловянный провод",
   "block.indreb.copper_cable": "Медный провод",
@@ -110,15 +121,21 @@
   "block.indreb.hv_cable_insulated": "Изолированный высоковольтный кабель",
   "block.indreb.glass_fibre_cable": "Стекловолоконный провод",
 
+  "_comment": "Item",
   "item.indreb.sticky_resin": "Латексный лист",
   "item.indreb.rubber": "Резина",
   "item.indreb.sawdust": "Опилки",
 
   "item.indreb.raw_tin": "Рудное олово",
+  "item.indreb.raw_lead": "Свинцовая руда",
+  "item.indreb.uranium": "Уран",
+  
   "item.indreb.tin_ingot": "Оловянный слиток",
   "item.indreb.bronze_ingot": "Бронзовый слиток",
   "item.indreb.silver_ingot": "Серебряный слиток",
   "item.indreb.steel_ingot": "Стальной слиток",
+  "item.indreb.lead_ingot": "Свинцовый слиток",
+  "item.indreb.refined_uranium": "Очищенный уран",
   "item.indreb.mixed_metal_ingot": "Композитный слиток",
 
   "item.indreb.crushed_tin": "Измельчённая оловянная руда",
@@ -179,6 +196,7 @@
   "item.indreb.lapotron_crystal": "Лазуротроновый кристалл",
 
   "item.indreb.fluid_cell": "Универсальная жидкостная капсула",
+  "item.indreb.empty_fluid": "< Пустой >",
 
   "item.indreb.painter": "Валик",
   "item.indreb.painter_white": "Белый валик",
@@ -197,7 +215,7 @@
   "item.indreb.painter_gray": "Тёмно-серый валик",
   "item.indreb.painter_light_gray": "Светло-серый валик",
   "item.indreb.painter_black": "Чёрный валик",
-
+  
   "item.indreb.small_power_unit": "Малый силовой агрегат",
   "item.indreb.power_unit": "Силовой агрегат",
   "item.indreb.electric_treetap": "Электрокраник",
@@ -221,32 +239,52 @@
   "item.indreb.filled_tin_can": "Заполненная консервная банка (Заполненный)",
   "item.indreb.scrap": "Утильсырьё",
   "item.indreb.scrap_box": "Коробка утильсырья",
+  "item.indreb.bio_chaff": "Отходы",
+  "item.indreb.foam_powder": "Пена порошок",
+  "item.indreb.reinforced_foam_powder": "Усиленный пенный порошок",
+  "item.indreb.fertilizer": "Удобрение",
+  "item.indreb.heat_conductor": "Теплопровод",
 
   "item.indreb.treetap": "Краник",
   "item.indreb.wrench": "Электроключ",
   "item.indreb.hammer": "Кузнечный молот",
   "item.indreb.cutter": "Кусачки",
 
+  "_comment": "Battery Box",
   "block.indreb.battery_box": "Энергохранилище",
   "block.indreb.cesu": "МЭСН",
   "block.indreb.mfe": "МФЭ",
   "block.indreb.mfsu": "МФСУ",
 
+  "_comment": "Energy Converter",
   "block.indreb.wooden_energy_converter": "Преобразователь энергии из дерева",
 
+  "_comment": "Fluid",
+  "fluid.indreb.construction_foam": "Жидкая строительная пена",
+  "fluid.indreb.reinforced_construction_foam": "Армированная строительная пена",
+  "fluid.indreb.coolant": "Хладагент",
+  "fluid.indreb.biomass": "Жидкая биомасса",
+  "fluid.indreb.biogas": "Биогаз",
+
+
+  "_comment": "JEI",
   "jei.indreb.crushing": "Дробление",
   "jei.indreb.compressing": "Сжатие",
   "jei.indreb.extracting": "Извлечение",
   "jei.indreb.sawing": "Распиловка",
   "jei.indreb.extruding": "Экструдирование",
   "jei.indreb.alloy_smelting": "Плавка сплавов",
-  "jei.indreb.recycling": "Recycling",
-  "jei.indreb.scrap_box": "Scrap Box",
+  "jei.indreb.recycling": "Переработка",
+  "jei.indreb.scrap_box": "Ящик для металлолома",
+  "jei.indreb.canning": "Консервирование",
+  "jei.indreb.fluid_enriching": "Обогащение жидкости",
 
   "jei.indreb.chance": "Шанс: %s",
 
+  "_comment": "GUI",
   "gui.indreb.collect_exp": "Собрать опыт",
 
+  "_comment": "Tooltip",
   "tooltip.indreb.wip": "Работа в процессе!",
 
   "tooltip.indreb.power_tier": "Энергоуровень: %s",
@@ -263,7 +301,35 @@
 
   "tooltip.indreb.cable_unisolated": "Этот кабель может убить вас электрическим током!",
 
+  "_comment": "Upgrade",
+  "item.indreb.overclocker_upgrade": "Улучшение Ускоритель",
+  "item.indreb.transformer_upgrade": "Улучшение Трансформатор",
+  "item.indreb.energy_storage_upgrade": "Улучшение Энергохранитель",
+  "item.indreb.redstone_signal_inverter_upgrade": "Улучшение Инвертор сигнала красного камня",
+  "item.indreb.ejector_upgrade": "Улучшение Выталкиватель",
+  "item.indreb.pulling_upgrade": "Улучшение Затягиватель",
+  "item.indreb.fluid_ejector_upgrade": "Улучшение Выталкиватель жидкостей",
+  "item.indreb.fluid_pulling_upgrade": "Улучшение Затягиватель жидкостей",
+  "item.indreb.advanced_ejector_upgrade": "Улучшение Улучшенный выталкиватель",
+  "item.indreb.advanced_pulling_upgrade": "Улучшение Улучшенный затягиватель жидкостей",
+  "item.indreb.advanced_fluid_ejector_upgrade": "Улучшение Усовершенствованная выталкиватель",
+  "item.indreb.advanced_fluid_pulling_upgrade": "Улучшение Усовершенствованная затягиватель жидкостей",
 
+  "dir.indreb.all": "Первый действительный",
+  "dir.indreb.up": "Вверх",
+  "dir.indreb.down": "Вниз",
+  "dir.indreb.north": "Cевер",
+  "dir.indreb.south": "Юг",
+  "dir.indreb.east": "Восток",
+  "dir.indreb.west": "Запад",
+
+  "ejector.indreb.dir": "Автоматически выводить на сторону %s",
+  "pulling.indreb.dir": "Автоматически вводить сторону %s",
+  "fluid_ejector.indreb.dir": "Автоматически выводить жидкость на сторону %s",
+  "fluid_pulling.indreb.dir": "Автоматически вводить жидкость со стороны %s",
+
+  "speed.indreb.factor": "Уменьшить время обработки до %s",
+  "power.indreb.factor": "Увеличьте мощность до %s",
 
 
   "test.indreb.test": "%s"

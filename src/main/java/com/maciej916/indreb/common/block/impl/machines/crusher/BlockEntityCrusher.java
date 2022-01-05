@@ -4,7 +4,6 @@ import com.maciej916.indreb.common.config.ServerConfig;
 import com.maciej916.indreb.common.entity.block.BlockEntityStandardMachine;
 import com.maciej916.indreb.common.receipe.impl.CrushingRecipe;
 import com.maciej916.indreb.common.registries.ModBlockEntities;
-import com.maciej916.indreb.common.registries.Config;
 import com.maciej916.indreb.common.registries.ModRecipeType;
 import com.maciej916.indreb.common.registries.ModSounds;
 import net.minecraft.core.BlockPos;
@@ -18,7 +17,7 @@ import java.util.Optional;
 public class BlockEntityCrusher extends BlockEntityStandardMachine {
 
     public BlockEntityCrusher(BlockPos pWorldPosition, BlockState pBlockState) {
-        super(ModBlockEntities.CRUSHER, pWorldPosition, pBlockState, ServerConfig.crusher_energy_capacity.get(), ServerConfig.basic_tier_transfer.get());
+        super(ModBlockEntities.CRUSHER, pWorldPosition, pBlockState, ServerConfig.crusher_energy_capacity.get());
     }
 
     @Override

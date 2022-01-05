@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "indreb",
+  "pattern": [
+    "tmt",
+    "ttt",
+    "tmt"
+  ],
+  "key": {
+    "t": {
+      "tag": "forge:plates/tin"
+    },
+    "m": {
+      "item": "indreb:medium_coolant_cell"
+    }
+  },
+  "result": {
+    "item": "indreb:large_coolant_cell"
+  }
+}

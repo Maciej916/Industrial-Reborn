@@ -175,7 +175,7 @@ public class Item extends RecipeProvider {
                 .pattern(" t ")
                 .define('i', Ingredient.of(ItemTags.bind("forge:ingots/iron")))
                 .define('c', ModItems.COIL)
-                .define('t', ModItems.TIN_PLATE)
+                .define('t', ItemTags.bind("forge:plates/tin"))
                 .group(MODID)
                 .unlockedBy("diamond", InventoryChangeTrigger.TriggerInstance.hasItems(Items.IRON_INGOT))
                 .unlockedBy("coil", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.COIL))
@@ -223,7 +223,7 @@ public class Item extends RecipeProvider {
         ShapedRecipeBuilder.shaped(ModItems.TIN_CAN, 4)
                 .pattern("t t")
                 .pattern("ttt")
-                .define('t', ModItems.TIN_PLATE)
+                .define('t', ItemTags.bind("forge:plates/tin"))
                 .group(MODID)
                 .unlockedBy("tin_plate", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.TIN_PLATE))
                 .save(consumer, saveResource("tin_can"));

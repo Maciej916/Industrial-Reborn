@@ -1,0 +1,60 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "indreb:item/electric/charging_lapotron_crystal"
+    ]
+  },
+  "criteria": {
+    "advanced_heat_exchanger": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:advanced_heat_exchanger"
+            ]
+          }
+        ]
+      }
+    },
+    "lapotron_crystal": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:lapotron_crystal"
+            ]
+          }
+        ]
+      }
+    },
+    "charging_energy_crystal": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:charging_energy_crystal"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "indreb:item/electric/charging_lapotron_crystal"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "advanced_heat_exchanger",
+      "lapotron_crystal",
+      "charging_energy_crystal",
+      "has_the_recipe"
+    ]
+  ]
+}

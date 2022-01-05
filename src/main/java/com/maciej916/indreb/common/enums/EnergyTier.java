@@ -48,15 +48,13 @@ public enum EnergyTier {
         return basicTransfer;
     }
 
-    public static List<EnergyTier> getTierWithAbove(EnergyTier tier) {
-        List<EnergyTier> list = new ArrayList<>();
+    public static EnergyTier getTierFromLvl(int lvl) {
         EnergyTier[] currencies = EnergyTier.values();
         for (EnergyTier enumTier : currencies) {
-            if (enumTier.getLvl() <= tier.getLvl()) {
-                list.add(enumTier);
+            if (enumTier.getLvl() == lvl) {
+                return enumTier;
             }
         }
-        return list;
+        return BASIC;
     }
-
 }

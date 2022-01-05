@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "indreb",
+  "pattern": [
+    " g ",
+    "cec",
+    "c c"
+  ],
+  "key": {
+    "g": {
+      "item": "minecraft:glowstone_dust"
+    },
+    "c": {
+      "item": "indreb:copper_cable_insulated"
+    },
+    "e": {
+      "item": "indreb:electronic_circuit"
+    }
+  },
+  "result": {
+    "item": "indreb:ie_meter"
+  }
+}

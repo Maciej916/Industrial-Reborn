@@ -160,6 +160,14 @@ public class Crushing extends RecipeProvider {
                 .addCriterion("item", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.TIN_ORE.asItem()))
                 .save(consumer, "tin_ore_crushed_tin");
 
+        RecipeBuilderCrushing.builder(ModItems.CRUSHED_LEAD,2)
+                .setIngredient(Ingredient.of(ItemTags.bind("forge:ores/lead")), 1)
+                .setExperience(0.2F)
+                .setBonus(ModItems.STONE_DUST, 1, 50)
+                .setGroup("crushing/ores")
+                .addCriterion("item", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.LEAD_ORE.asItem()))
+                .save(consumer, "lead_ore_crushed_lead");
+
         RecipeBuilderCrushing.builder(Items.DIAMOND,2)
                 .setIngredient(Ingredient.of(ItemTags.bind("forge:ores/diamond")), 1)
                 .setExperience(0.2F)

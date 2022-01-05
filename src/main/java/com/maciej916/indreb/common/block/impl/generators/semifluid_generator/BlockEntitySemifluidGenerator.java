@@ -8,6 +8,7 @@ import com.maciej916.indreb.common.entity.block.IndRebBlockEntity;
 import com.maciej916.indreb.common.entity.slot.IndRebSlot;
 import com.maciej916.indreb.common.entity.slot.SlotBattery;
 import com.maciej916.indreb.common.enums.EnergyTier;
+import com.maciej916.indreb.common.enums.EnergyType;
 import com.maciej916.indreb.common.enums.GuiSlotType;
 import com.maciej916.indreb.common.enums.InventorySlotType;
 import com.maciej916.indreb.common.fluids.Biogas;
@@ -36,9 +37,6 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
-
-import static com.maciej916.indreb.common.enums.EnumEnergyType.EXTRACT;
 
 public class BlockEntitySemifluidGenerator extends IndRebBlockEntity implements ICooldown, IEnergyBlock, ITileSound {
 
@@ -52,7 +50,7 @@ public class BlockEntitySemifluidGenerator extends IndRebBlockEntity implements 
 
     public BlockEntitySemifluidGenerator(BlockPos pWorldPosition, BlockState pBlockState) {
         super(ModBlockEntities.SEMIFLUID_GENERATOR, pWorldPosition, pBlockState);
-        createEnergyStorage(0, ServerConfig.semifluid_generator_energy_capacity.get(), 0, ServerConfig.basic_tier_transfer.get(), EXTRACT);
+        createEnergyStorage(0, ServerConfig.semifluid_generator_energy_capacity.get(), EnergyType.EXTRACT, EnergyTier.BASIC);
     }
 
     @Override
@@ -66,6 +64,7 @@ public class BlockEntitySemifluidGenerator extends IndRebBlockEntity implements 
     public void tickOperate(BlockState state) {
         active = false;
         boolean updateState = false;
+        getEnergyStorage().updateGenerated(0);
 
         final ItemStack fillBucketUp = getStackHandler().getStackInSlot(FILL_BUCKET_UP);
         final ItemStack fillBucketDown = getStackHandler().getStackInSlot(FILL_BUCKET_DOWN);
@@ -92,6 +91,7 @@ public class BlockEntitySemifluidGenerator extends IndRebBlockEntity implements 
             if (getEnergyStorage().generateEnergy(ServerConfig.semifluid_generator_tick_generate.get(), true) == ServerConfig.semifluid_generator_tick_generate.get() && fluidStorage.takeFluid(1, true) == 1) {
                 fluidStorage.takeFluid(1, false);
                 getEnergyStorage().generateEnergy(ServerConfig.semifluid_generator_tick_generate.get(), false);
+                getEnergyStorage().updateGenerated(ServerConfig.semifluid_generator_tick_generate.get());
                 active = true;
                 updateState = true;
             }
@@ -160,7 +160,7 @@ public class BlockEntitySemifluidGenerator extends IndRebBlockEntity implements 
 
     @Override
     public ArrayList<IElectricSlot> addBatterySlot(ArrayList<IElectricSlot> slots) {
-        slots.add(new SlotBattery(0, 152, 62, true, List.of(EnergyTier.BASIC)));
+        slots.add(new SlotBattery(0, 152, 62, true));
         return super.addBatterySlot(slots);
     }
 

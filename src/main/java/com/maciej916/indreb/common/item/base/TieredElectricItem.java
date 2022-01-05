@@ -1,7 +1,7 @@
 package com.maciej916.indreb.common.item.base;
 
 import com.maciej916.indreb.common.enums.EnergyTier;
-import com.maciej916.indreb.common.enums.EnumEnergyType;
+import com.maciej916.indreb.common.enums.EnergyType;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.Vanishable;
@@ -9,7 +9,7 @@ import net.minecraft.world.item.Vanishable;
 public class TieredElectricItem extends ElectricItem implements Vanishable {
     private final Tier tier;
 
-    public TieredElectricItem(Tier tier, Properties properties, int energyStored, int maxEnergy, EnumEnergyType energyType, EnergyTier energyTier) {
+    public TieredElectricItem(Tier tier, Properties properties, int energyStored, int maxEnergy, EnergyType energyType, EnergyTier energyTier) {
         super(properties, energyStored, maxEnergy, energyType, energyTier);
         this.tier = tier;
     }

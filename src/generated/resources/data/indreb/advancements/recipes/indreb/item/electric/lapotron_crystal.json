@@ -6,7 +6,7 @@
     ]
   },
   "criteria": {
-    "energy": {
+    "energy_crystal": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
@@ -18,7 +18,7 @@
         ]
       }
     },
-    "circuit": {
+    "advanced_circuit": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
@@ -39,8 +39,8 @@
   },
   "requirements": [
     [
-      "energy",
-      "circuit",
+      "energy_crystal",
+      "advanced_circuit",
       "has_the_recipe"
     ]
   ]

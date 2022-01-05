@@ -2,20 +2,22 @@ package com.maciej916.indreb.common.block.impl.generators.geo_generator;
 
 import com.maciej916.indreb.common.config.ServerConfig;
 import com.maciej916.indreb.common.energy.interfaces.IEnergyBlock;
-import com.maciej916.indreb.common.entity.block.*;
-import com.maciej916.indreb.common.entity.slot.SlotBattery;
+import com.maciej916.indreb.common.entity.block.BlockEntityProgress;
+import com.maciej916.indreb.common.entity.block.FluidStorage;
+import com.maciej916.indreb.common.entity.block.IndRebBlockEntity;
 import com.maciej916.indreb.common.entity.slot.IndRebSlot;
+import com.maciej916.indreb.common.entity.slot.SlotBattery;
 import com.maciej916.indreb.common.enums.EnergyTier;
+import com.maciej916.indreb.common.enums.EnergyType;
 import com.maciej916.indreb.common.enums.GuiSlotType;
 import com.maciej916.indreb.common.enums.InventorySlotType;
 import com.maciej916.indreb.common.interfaces.entity.ICooldown;
-import com.maciej916.indreb.common.interfaces.entity.ITileSound;
 import com.maciej916.indreb.common.interfaces.entity.IElectricSlot;
+import com.maciej916.indreb.common.interfaces.entity.ITileSound;
 import com.maciej916.indreb.common.registries.ModBlockEntities;
 import com.maciej916.indreb.common.registries.ModSounds;
 import com.maciej916.indreb.common.util.BlockEntityUtil;
 import com.maciej916.indreb.common.util.CapabilityUtil;
-import com.maciej916.indreb.common.util.LazyOptionalHelper;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
@@ -34,9 +36,6 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
-
-import static com.maciej916.indreb.common.enums.EnumEnergyType.EXTRACT;
 
 public class BlockEntityGeoGenerator extends IndRebBlockEntity implements ICooldown, IEnergyBlock, ITileSound {
 
@@ -50,7 +49,7 @@ public class BlockEntityGeoGenerator extends IndRebBlockEntity implements ICoold
 
     public BlockEntityGeoGenerator(BlockPos pWorldPosition, BlockState pBlockState) {
         super(ModBlockEntities.GEO_GENERATOR, pWorldPosition, pBlockState);
-        createEnergyStorage(0, ServerConfig.geo_generator_energy_capacity.get(), 0, ServerConfig.basic_tier_transfer.get(), EXTRACT);
+        createEnergyStorage(0, ServerConfig.geo_generator_energy_capacity.get(), EnergyType.EXTRACT, EnergyTier.BASIC);
     }
 
     @Override
@@ -64,6 +63,7 @@ public class BlockEntityGeoGenerator extends IndRebBlockEntity implements ICoold
     public void tickOperate(BlockState state) {
         active = false;
         boolean updateState = false;
+        getEnergyStorage().updateGenerated(0);
 
         final ItemStack fillBucketUp = getStackHandler().getStackInSlot(FILL_BUCKET_UP);
         final ItemStack fillBucketDown = getStackHandler().getStackInSlot(FILL_BUCKET_DOWN);
@@ -90,6 +90,7 @@ public class BlockEntityGeoGenerator extends IndRebBlockEntity implements ICoold
             if (getEnergyStorage().generateEnergy(ServerConfig.geo_generator_tick_generate.get(), true) == ServerConfig.geo_generator_tick_generate.get() && fluidStorage.takeFluid(1, true) == 1) {
                 fluidStorage.takeFluid(1, false);
                 getEnergyStorage().generateEnergy(ServerConfig.geo_generator_tick_generate.get(), false);
+                getEnergyStorage().updateGenerated(ServerConfig.geo_generator_tick_generate.get());
                 active = true;
                 updateState = true;
             }
@@ -154,7 +155,7 @@ public class BlockEntityGeoGenerator extends IndRebBlockEntity implements ICoold
 
     @Override
     public ArrayList<IElectricSlot> addBatterySlot(ArrayList<IElectricSlot> slots) {
-        slots.add(new SlotBattery(0, 152, 62, true, List.of(EnergyTier.BASIC)));
+        slots.add(new SlotBattery(0, 152, 62, true));
         return super.addBatterySlot(slots);
     }
 

@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "indreb",
+  "pattern": [
+    "ccc",
+    "aea"
+  ],
+  "key": {
+    "c": {
+      "item": "indreb:large_coolant_cell"
+    },
+    "a": {
+      "item": "indreb:copper_cable_insulated"
+    },
+    "e": {
+      "item": "indreb:electronic_circuit"
+    }
+  },
+  "result": {
+    "item": "indreb:overclocker_upgrade",
+    "count": 12
+  }
+}

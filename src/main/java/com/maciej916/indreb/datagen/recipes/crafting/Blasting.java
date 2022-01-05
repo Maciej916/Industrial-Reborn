@@ -73,6 +73,10 @@ public class Blasting extends RecipeProvider {
                 .unlockedBy("item", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.RAW_LEAD))
                 .save(consumer, saveResource("lead_ingot3"));
 
+        SimpleCookingRecipeBuilder.blasting(Ingredient.of(ModItems.CRUSHED_LEAD), ModItems.LEAD_INGOT, 0.7f, 100)
+                .unlockedBy("item", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.CRUSHED_LEAD))
+                .save(consumer, saveResource("lead_ingot4"));
+
         SimpleCookingRecipeBuilder.blasting(Ingredient.of(ModBlocks.DEEPSLATE_URANIUM_ORE), ModItems.URANIUM, 1.5f, 100)
                 .unlockedBy("item", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.DEEPSLATE_URANIUM_ORE))
                 .save(consumer, saveResource("uranium"));

@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "indreb:item/reactor/medium_coolant_cell"
+  }
+}

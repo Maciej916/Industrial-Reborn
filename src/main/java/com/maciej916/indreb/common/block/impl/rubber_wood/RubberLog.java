@@ -4,6 +4,7 @@ import com.maciej916.indreb.common.block.IndRebBlock;
 import com.maciej916.indreb.common.energy.interfaces.IEnergy;
 import com.maciej916.indreb.common.interfaces.block.IStateAxis;
 import com.maciej916.indreb.common.interfaces.block.IStateRubberLog;
+import com.maciej916.indreb.common.interfaces.item.IElectricItem;
 import com.maciej916.indreb.common.item.base.ElectricItem;
 import com.maciej916.indreb.common.registries.ModItems;
 import com.maciej916.indreb.common.registries.ModSounds;
@@ -75,7 +76,7 @@ public class RubberLog extends IndRebBlock implements IStateRubberLog, IStateAxi
        if (level.isClientSide()) return InteractionResult.PASS;
         Random random = new Random();
 
-        if (itemStack.getItem() instanceof ElectricItem electricItem) {
+        if (itemStack.getItem() instanceof IElectricItem electricItem) {
             IEnergy energy = electricItem.getEnergy(itemStack);
             if (energy.energyStored() == 0) return InteractionResult.PASS;
             energy.consumeEnergy(50, false);

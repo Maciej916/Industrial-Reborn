@@ -7,9 +7,7 @@ import com.maciej916.indreb.common.entity.block.FluidStorage;
 import com.maciej916.indreb.common.entity.block.IndRebBlockEntity;
 import com.maciej916.indreb.common.entity.slot.IndRebSlot;
 import com.maciej916.indreb.common.entity.slot.SlotBattery;
-import com.maciej916.indreb.common.enums.EnergyTier;
-import com.maciej916.indreb.common.enums.GuiSlotType;
-import com.maciej916.indreb.common.enums.InventorySlotType;
+import com.maciej916.indreb.common.enums.*;
 import com.maciej916.indreb.common.fluids.Biogas;
 import com.maciej916.indreb.common.fluids.Biomass;
 import com.maciej916.indreb.common.interfaces.block.IStateFacing;
@@ -40,8 +38,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import static com.maciej916.indreb.common.enums.EnumEnergyType.RECEIVE;
-
 public class BlockEntityFermenter extends IndRebBlockEntity implements IEnergyBlock, ISupportUpgrades {
 
     public static final int FILL_BUCKET_UP = 0;
@@ -67,7 +63,7 @@ public class BlockEntityFermenter extends IndRebBlockEntity implements IEnergyBl
 
     public BlockEntityFermenter(BlockPos pWorldPosition, BlockState pBlockState) {
         super(ModBlockEntities.FERMENTER, pWorldPosition, pBlockState);
-        createEnergyStorage(0, ServerConfig.fermenter_energy_capacity.get(), ServerConfig.standard_tier_transfer.get(), 0, RECEIVE);
+        createEnergyStorage(0, ServerConfig.fermenter_energy_capacity.get(), EnergyType.RECEIVE, EnergyTier.STANDARD);
     }
 
     @Override
@@ -84,7 +80,7 @@ public class BlockEntityFermenter extends IndRebBlockEntity implements IEnergyBl
 
     @Override
     public ArrayList<IElectricSlot> addBatterySlot(ArrayList<IElectricSlot> slots) {
-        slots.add(new SlotBattery(0, 152, 62, false, List.of(EnergyTier.STANDARD)));
+        slots.add(new SlotBattery(0, 152, 62, false));
         return super.addBatterySlot(slots);
     }
 
@@ -92,6 +88,7 @@ public class BlockEntityFermenter extends IndRebBlockEntity implements IEnergyBl
     public void tickOperate(BlockState state) {
         active = false;
         boolean updateState = false;
+        getEnergyStorage().updateConsumed(0);
 
         final ItemStack fillBucketUp = getStackHandler().getStackInSlot(FILL_BUCKET_UP);
         final ItemStack fillBucketDown = getStackHandler().getStackInSlot(FILL_BUCKET_DOWN);
@@ -137,7 +134,8 @@ public class BlockEntityFermenter extends IndRebBlockEntity implements IEnergyBl
             updateState = true;
         }
 
-        float progressSpeed = getSpeedFactor() * (1 + (heatLevel.getPercentProgress() / 100f));
+        progress.setProgressMax(getSpeedFactor() * 600);
+        progressWaste.setProgressMax(getSpeedFactor() * 1400);
         int energyCost = (int) (ServerConfig.fermenter_tick_usage.get() * getEnergyUsageFactor());
 
         if (fluidInputStorage.getFluidAmount() >= 1000 && fluidOutputStorage.getFluidAmount() + 200 <= fluidOutputStorage.getCapacity() && wasteStack.getCount() < wasteStack.getMaxStackSize()) {
@@ -151,10 +149,11 @@ public class BlockEntityFermenter extends IndRebBlockEntity implements IEnergyBl
 
             if (getEnergyStorage().consumeEnergy(energyCost, true) == energyCost && progress.getProgress() <= progress.getProgressMax()) {
                 active = true;
-                progress.incProgress(progressSpeed);
-                progressWaste.incProgress(progressSpeed);
+                progress.incProgress(1 + (heatLevel.getPercentProgress() / 100f));
+                progressWaste.incProgress(1);
 
                 getEnergyStorage().consumeEnergy(energyCost, false);
+                getEnergyStorage().updateConsumed(energyCost);
             }
 
             if (progress.getProgress() >= progress.getProgressMax()) {
@@ -328,5 +327,10 @@ public class BlockEntityFermenter extends IndRebBlockEntity implements IEnergyBl
     public void onBreak() {
         for (LazyOptional<?> capability : capabilities) capability.invalidate();
         super.onBreak();
+    }
+
+    @Override
+    public List<UpgradeType> getSupportedUpgrades() {
+        return List.of(UpgradeType.OVERCLOCKER, UpgradeType.TRANSFORMER, UpgradeType.ENERGY_STORAGE, UpgradeType.EJECTOR, UpgradeType.PULLING, UpgradeType.FLUID_EJECTOR, UpgradeType.FLUID_PULLING, UpgradeType.REDSTONE_SIGNAL_INVERTER);
     }
 }

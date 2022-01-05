@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "indreb",
+  "pattern": [
+    "hah",
+    "aca",
+    "hah"
+  ],
+  "key": {
+    "h": {
+      "item": "indreb:advanced_heat_exchanger"
+    },
+    "a": {
+      "item": "indreb:lapotron_crystal"
+    },
+    "c": {
+      "item": "indreb:charging_energy_crystal"
+    }
+  },
+  "result": {
+    "item": "indreb:charging_lapotron_crystal"
+  }
+}

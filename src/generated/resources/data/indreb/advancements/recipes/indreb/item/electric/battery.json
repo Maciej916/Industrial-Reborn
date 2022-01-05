@@ -6,7 +6,7 @@
     ]
   },
   "criteria": {
-    "item": {
+    "copper_cable_insulated": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
@@ -27,7 +27,7 @@
   },
   "requirements": [
     [
-      "item",
+      "copper_cable_insulated",
       "has_the_recipe"
     ]
   ]

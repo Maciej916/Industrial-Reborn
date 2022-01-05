@@ -19,15 +19,23 @@ import java.util.List;
 
 public class EnergyNetworks implements IEnergyNetworks, INBTSerializable<CompoundTag> {
 
-    private final HashSet<EnergyNetwork> networks = new HashSet<>();
+    private final ArrayList<EnergyNetwork> networks = new ArrayList<>();
     private final Level level;
 
     public EnergyNetworks(Level world) {
         this.level = world;
     }
 
-    public HashSet<EnergyNetwork> getNetworks() {
+    public ArrayList<EnergyNetwork> getNetworks() {
         return networks;
+    }
+
+    public void clearNetworks() {
+        networks.clear();
+    }
+
+    public void addNetwork(EnergyNetwork network) {
+        networks.add(network);
     }
 
     @Override
@@ -67,8 +75,8 @@ public class EnergyNetworks implements IEnergyNetworks, INBTSerializable<Compoun
     }
 
     @Override
-    public EnergyNetwork createNetwork(BlockPos pos, int maxEnergy) {
-        EnergyNetwork net = new EnergyNetwork(pos, maxEnergy);
+    public EnergyNetwork createNetwork(BlockPos pos, EnergyTier energyTier) {
+        EnergyNetwork net = new EnergyNetwork(pos, energyTier);
         this.networks.add(net);
         return net;
     }
@@ -79,12 +87,10 @@ public class EnergyNetworks implements IEnergyNetworks, INBTSerializable<Compoun
     }
 
     @Override
-    public void onPlaced(BlockPos pos, BlockState state, int capacity) {
+    public void onPlaced(BlockPos pos, BlockState state, EnergyTier energyTier) {
         HashSet<EnergyNetwork> networksAround = new HashSet<>();
         HashSet<BlockPos> electricsAround = new HashSet<>();
         HashSet<BlockPos> transmittersAround = new HashSet<>();
-
-        EnergyTier tier = ((BlockCable) state.getBlock()).getCableTier().getEnergyTier();
 
         for (Direction direction : Constants.DIRECTIONS) {
             BlockPos offsetPos = pos.relative(direction);
@@ -93,7 +99,7 @@ public class EnergyNetworks implements IEnergyNetworks, INBTSerializable<Compoun
 
             if (dirState.getBlock() instanceof BlockCable dirBlock) {
                 EnergyTier dirTier = dirBlock.getCableTier().getEnergyTier();
-                if (tier == dirTier) {
+                if (energyTier == dirTier) {
                     EnergyNetwork network = getNetwork(offsetPos);
                     networksAround.add(network);
                 } else {
@@ -108,7 +114,7 @@ public class EnergyNetworks implements IEnergyNetworks, INBTSerializable<Compoun
 
         EnergyNetwork network;
         if (networksAround.size() > 1) {
-            network = createNetwork(pos, capacity);
+            network = createNetwork(pos, energyTier);
             networksAround.forEach((net)-> {
                 network.add(network.getConnections(), net.getConnections());
                 network.add(network.getElectrics(), net.getElectrics());
@@ -119,7 +125,7 @@ public class EnergyNetworks implements IEnergyNetworks, INBTSerializable<Compoun
             network = networksAround.iterator().next();
             network.add(network.getConnections(), pos);
         } else {
-            network = createNetwork(pos, capacity);
+            network = createNetwork(pos, energyTier);
         }
 
         network.add(network.getElectrics(), electricsAround);
@@ -133,17 +139,22 @@ public class EnergyNetworks implements IEnergyNetworks, INBTSerializable<Compoun
         HashSet<BlockPos> allConnections = new HashSet<>();
         HashSet<BlockPos> netConnections = network.getConnections();
         network.remove(network.getConnections(), pos);
-        for (Direction direction : Constants.DIRECTIONS) {
-            BlockPos offsetPos = pos.relative(direction);
-            if (netConnections.contains(offsetPos) && !allConnections.contains(offsetPos)) {
-                EnergyNetwork net = recheckConnections(allConnections, network, new EnergyNetwork(network.energyStored(), network.maxEnergy()), offsetPos);
-                networks.add(net);
+
+        if (network.getConnections().size() > 0) {
+            for (Direction direction : Constants.DIRECTIONS) {
+                BlockPos offsetPos = pos.relative(direction);
+                if (netConnections.contains(offsetPos) && !allConnections.contains(offsetPos)) {
+                    EnergyNetwork net = recheckConnections(allConnections, network, new EnergyNetwork(network.energyStored(), network.getEnergyTier()), offsetPos);
+                    networks.add(net);
+                }
             }
         }
+
         removeNetwork(network);
     }
     public EnergyNetwork recheckConnections(HashSet<BlockPos> allConnections, EnergyNetwork oldNet, EnergyNetwork newNet, BlockPos pos) {
         newNet.add(newNet.getConnections(), pos);
+
         for (Direction direction : Constants.DIRECTIONS) {
             BlockPos offsetPos = pos.relative(direction);
 
@@ -163,6 +174,7 @@ public class EnergyNetworks implements IEnergyNetworks, INBTSerializable<Compoun
                 }
             }
         }
+
         return newNet;
     }
 

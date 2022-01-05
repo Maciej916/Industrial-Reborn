@@ -13,8 +13,17 @@ public class SlotItemHandlerDisabled extends SlotItemHandler {
     }
 
     @Override
+    public boolean mayPlace(@NotNull ItemStack stack) {
+        return false;
+    }
+
+    @Override
     public boolean mayPickup(Player playerIn) {
         return false;
     }
 
+    @Override
+    public int getMaxStackSize() {
+        return 1;
+    }
 }

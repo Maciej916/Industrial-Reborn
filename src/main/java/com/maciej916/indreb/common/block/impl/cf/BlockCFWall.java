@@ -1,6 +1,7 @@
 package com.maciej916.indreb.common.block.impl.cf;
 
 import com.maciej916.indreb.common.item.impl.Painter;
+import com.maciej916.indreb.common.registries.ModSounds;
 import com.mojang.math.Vector3f;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -53,14 +54,14 @@ public class BlockCFWall extends Block {
                             z = dropPos.getZ() + ((Math.random() * (0.8 - 0.2)) + 0.2);
                         } else {
                             x = dropPos.getX() + ((Math.random() * (0.8 - 0.2)) + 0.2);
-                            z = dropPos.getZ() + (dir == Direction.NORTH ? ((Math.random() * (0.2 - 0)) + 0) : ((Math.random() * (1 - 0.8)) + 0.8));
+                            z = dropPos.getZ() + (dir == Direction.SOUTH ? ((Math.random() * (0.2 - 0)) + 0) : ((Math.random() * (1 - 0.8)) + 0.8));
                         }
                     }
                     level.addParticle(new DustParticleOptions(COLOR, 1.0F), x, y, z, 0.0D, 0.0D, 0.0D);
                 }
 
                 if (!level.isClientSide()) {
-                    level.playSound(null, blockPos.getX(), blockPos.getY(), blockPos.getZ(), SoundEvents.DYE_USE, SoundSource.PLAYERS, 1.0F, 1.0F);
+                    level.playSound(null, blockPos.getX(), blockPos.getY(), blockPos.getZ(), ModSounds.PAINTER, SoundSource.PLAYERS, 1.0F, 1.0F);
                     level.setBlock(blockPos, painter.getState(), 2);
                     player.getItemInHand(interactionHand).hurtAndBreak(1, player, (i) -> level.playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.ITEM_BREAK, SoundSource.BLOCKS, 0.5F, 0.4F / (random.nextFloat() * 0.4F + 0.8F)));
                 }

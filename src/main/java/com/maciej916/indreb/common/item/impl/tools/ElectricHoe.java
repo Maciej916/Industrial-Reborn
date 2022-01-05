@@ -4,7 +4,7 @@ import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Maps;
 import com.maciej916.indreb.common.energy.interfaces.IEnergy;
 import com.maciej916.indreb.common.enums.EnergyTier;
-import com.maciej916.indreb.common.enums.EnumEnergyType;
+import com.maciej916.indreb.common.enums.EnergyType;
 import com.maciej916.indreb.common.item.base.DiggerElectricItem;
 import com.mojang.datafixers.util.Pair;
 import net.minecraft.core.BlockPos;
@@ -34,7 +34,7 @@ public class ElectricHoe extends DiggerElectricItem {
     private final int energyCostHurt;
     private final int energyCostTile;
 
-    public ElectricHoe(Tier tier, float attackDamage, float attackSpeed, int energyStored, int maxEnergy, int energyCostMine, int energyCostHurt, int energyCostTile, EnumEnergyType energyType, EnergyTier energyTier) {
+    public ElectricHoe(Tier tier, float attackDamage, float attackSpeed, int energyStored, int maxEnergy, int energyCostMine, int energyCostHurt, int energyCostTile, EnergyType energyType, EnergyTier energyTier) {
         super(tier, attackDamage, attackSpeed, BlockTags.MINEABLE_WITH_HOE, new Properties(), energyStored, maxEnergy, energyType, energyTier);
         this.energyCostMine = energyCostMine;
         this.energyCostHurt = energyCostHurt;

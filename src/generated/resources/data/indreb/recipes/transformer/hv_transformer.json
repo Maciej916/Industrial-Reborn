@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "indreb",
+  "pattern": [
+    " g ",
+    "ebn",
+    " g "
+  ],
+  "key": {
+    "g": {
+      "item": "indreb:hv_cable_insulated"
+    },
+    "b": {
+      "item": "indreb:mv_transformer"
+    },
+    "e": {
+      "item": "indreb:electronic_circuit"
+    },
+    "n": {
+      "item": "indreb:energy_crystal"
+    }
+  },
+  "result": {
+    "item": "indreb:hv_transformer"
+  }
+}

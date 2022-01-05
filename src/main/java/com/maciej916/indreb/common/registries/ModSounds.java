@@ -16,6 +16,7 @@ public final class ModSounds {
     public static SoundEvent GEO_GENERATOR;
     public static SoundEvent SOLAR_GENERATOR;
     public static SoundEvent SEMIFLUID_GENERATOR;
+    public static SoundEvent CHARGE_PAD;
 
     public static SoundEvent CRUSHER;
     public static SoundEvent COMPRESSOR;
@@ -24,9 +25,11 @@ public final class ModSounds {
     public static SoundEvent RECYCLER;
     public static SoundEvent CANNING_MACHINE;
 
+
     public static SoundEvent TREETAP;
     public static SoundEvent WRENCH;
     public static SoundEvent ELECTRIC_WRENCH;
+    public static SoundEvent PAINTER;
 
 
     @SubscribeEvent
@@ -35,6 +38,7 @@ public final class ModSounds {
         GEO_GENERATOR = registerSound("tile.geo_generator");
         SOLAR_GENERATOR = registerSound("tile.solar_generator");
         SEMIFLUID_GENERATOR = registerSound("tile.semifluid_generator");
+        CHARGE_PAD = registerSound("tile.charge_pad");
 
         CRUSHER = registerSound("tile.crusher");
         COMPRESSOR = registerSound("tile.compressor");
@@ -43,10 +47,10 @@ public final class ModSounds {
         RECYCLER = registerSound("tile.recycler");
         CANNING_MACHINE = registerSound("tile.canning_machine");
 
-
         TREETAP = registerSound("item.treetap");
         WRENCH = registerSound("item.wrench");
         ELECTRIC_WRENCH = registerSound("item.electric_wrench");
+        PAINTER = registerSound("item.painter");
     }
 
     public static SoundEvent registerSound(String name) {

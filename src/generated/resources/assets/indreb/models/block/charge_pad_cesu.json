@@ -1,0 +1,9 @@
+{
+  "parent": "minecraft:block/orientable_with_bottom",
+  "textures": {
+    "side": "indreb:block/charge_pad/cesu_side",
+    "front": "indreb:block/charge_pad/cesu_front",
+    "bottom": "indreb:block/charge_pad/cesu_bottom",
+    "top": "indreb:block/charge_pad/cesu_top"
+  }
+}

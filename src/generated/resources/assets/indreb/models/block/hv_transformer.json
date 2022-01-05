@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "indreb:block/transformer/hv_transformer_side",
+    "up": "indreb:block/transformer/hv_transformer_side",
+    "north": "indreb:block/transformer/hv_transformer_front",
+    "south": "indreb:block/transformer/hv_transformer_side",
+    "east": "indreb:block/transformer/hv_transformer_side",
+    "west": "indreb:block/transformer/hv_transformer_side",
+    "particle": "indreb:block/transformer/hv_transformer_front"
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "indreb:item/reactor/heat_capacity_reactor_plating"
+    ]
+  },
+  "criteria": {
+    "copper_plate": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:copper_plate"
+            ]
+          }
+        ]
+      }
+    },
+    "reactor_plating": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:reactor_plating"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "indreb:item/reactor/heat_capacity_reactor_plating"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "copper_plate",
+      "reactor_plating",
+      "has_the_recipe"
+    ]
+  ]
+}

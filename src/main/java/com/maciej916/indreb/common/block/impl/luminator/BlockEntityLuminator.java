@@ -2,13 +2,13 @@ package com.maciej916.indreb.common.block.impl.luminator;
 
 import com.maciej916.indreb.common.energy.interfaces.IEnergyBlock;
 import com.maciej916.indreb.common.entity.block.IndRebBlockEntity;
+import com.maciej916.indreb.common.enums.EnergyTier;
+import com.maciej916.indreb.common.enums.EnergyType;
 import com.maciej916.indreb.common.registries.ModBlockEntities;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.level.block.state.BlockState;
-
-import static com.maciej916.indreb.common.enums.EnumEnergyType.RECEIVE;
 
 public class BlockEntityLuminator extends IndRebBlockEntity implements IEnergyBlock {
 
@@ -16,16 +16,18 @@ public class BlockEntityLuminator extends IndRebBlockEntity implements IEnergyBl
 
     public BlockEntityLuminator(BlockPos pWorldPosition, BlockState pBlockState) {
         super(ModBlockEntities.LUMINATOR, pWorldPosition, pBlockState);
-        createEnergyStorage(0, 1, 1, 0, RECEIVE);
+        createEnergyStorage(0, 1, EnergyType.RECEIVE, EnergyTier.ULTRA);
     }
 
     @Override
     public void tickOperate(BlockState state) {
         active = false;
+        getEnergyStorage().updateConsumed(0);
 
         if (getEnergyStorage().energyStored() == 1) {
             active = true;
             getEnergyStorage().consumeEnergy(1, false);
+            getEnergyStorage().updateConsumed(1);
         }
 
         this.setActive(active);

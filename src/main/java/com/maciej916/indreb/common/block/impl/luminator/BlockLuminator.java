@@ -16,7 +16,7 @@ public class BlockLuminator extends IndRebEntityBlock implements IStateActive {
 
     public BlockLuminator() {
         super(Properties.of(Material.GLASS, MaterialColor.WOOL).lightLevel(state -> state.getValue(BlockStateHelper.activeProperty) ? 16 : 0));
-        WrenchHelper.registerAction(this).add(WrenchHelper.energyNetworkInfo()).add(WrenchHelper.dropAction());
+        WrenchHelper.registerAction(this).add(WrenchHelper.dropAction());
     }
 
     @Nullable

@@ -27,7 +27,6 @@
   "gui.indreb.armour": "盔甲",
   "gui.indreb.waste": "消耗: %s",
 
-
   "gui.indreb.can_operate_in": "可以在 %ss 后操作",
   "gui.indreb.can_operate": "这个设备准备就绪!",
 
@@ -38,8 +37,8 @@
   "block.indreb.advanced_solar_generator": "高级太阳能发电机",
   "block.indreb.hybrid_solar_generator": "混合太阳能发电机",
   "block.indreb.quantum_solar_generator": "量子太阳能发电机",
-  "block.indreb.crystalline_generator": "Crystalline Generator",
-  "block.indreb.semifluid_generator": "Semifluid Generator",
+  "block.indreb.crystalline_generator": "水晶发电机",
+  "block.indreb.semifluid_generator": "半流质发电机",
 
   "block.indreb.iron_furnace": "铁炉",
   "block.indreb.electric_furnace": "电炉",
@@ -54,7 +53,10 @@
 
   "block.indreb.tin_ore": "锡矿石",
   "block.indreb.deepslate_tin_ore": "深板锡矿石",
-  "block.indreb.copper_block": "铜方块",
+  "block.indreb.lead_ore": "铅矿",
+  "block.indreb.deepslate_lead_ore": "深板铅矿",
+  "block.indreb.deepslate_uranium_ore": "深板铀矿",
+
   "block.indreb.tin_block": "锡方块",
   "block.indreb.bronze_block": "青铜方块",
   "block.indreb.silver_block": "银方块",
@@ -74,7 +76,7 @@
   "block.indreb.construction_foam_wall_orange": "建筑泡沫墙 (橙色)",
   "block.indreb.construction_foam_wall_pink": "建筑泡沫墙 (粉色)",
   "block.indreb.construction_foam_wall_yellow": "建筑泡沫墙 (黄色)",
-  "block.indreb.construction_foam_wall_lime": "建筑泡沫墙 (Lime)",
+  "block.indreb.construction_foam_wall_lime": "建筑泡沫墙 (亮绿色)",
   "block.indreb.construction_foam_wall_green": "建筑泡沫墙 (绿色)",
   "block.indreb.construction_foam_wall_light_blue": "建筑泡沫墙 (亮蓝色)",
   "block.indreb.construction_foam_wall_cyan": "建筑泡沫墙 (青色)",
@@ -124,11 +126,16 @@
   "item.indreb.rubber": "橡胶",
   "item.indreb.sawdust": "锯末",
 
-  "item.indreb.raw_tin": "未加工的锡",
+  "item.indreb.raw_tin": "粗锡",
+  "item.indreb.raw_lead": "粗铅",
+  "item.indreb.uranium": "铀",
+
   "item.indreb.tin_ingot": "锡锭",
   "item.indreb.bronze_ingot": "青铜锭",
   "item.indreb.silver_ingot": "银锭",
   "item.indreb.steel_ingot": "钢锭",
+  "item.indreb.lead_ingot": "铅锭",
+  "item.indreb.refined_uranium": "提炼铀",
   "item.indreb.mixed_metal_ingot": "合金锭",
 
   "item.indreb.crushed_tin": "碎锡",
@@ -197,7 +204,7 @@
   "item.indreb.painter_orange": "滚筒刷(橙色)",
   "item.indreb.painter_pink": "滚筒刷(粉色)",
   "item.indreb.painter_yellow": "滚筒刷(黄色)",
-  "item.indreb.painter_lime": "滚筒刷(Lime)",
+  "item.indreb.painter_lime": "滚筒刷(亮绿色)",
   "item.indreb.painter_green": "滚筒刷(绿色)",
   "item.indreb.painter_light_blue": "滚筒刷(亮蓝色)",
   "item.indreb.painter_cyan": "滚筒刷(青色)",
@@ -209,8 +216,8 @@
   "item.indreb.painter_light_gray": "滚筒刷(浅灰色)",
   "item.indreb.painter_black": "滚筒刷(黑色)",
 
-  "item.indreb.small_power_unit": "Small Power Unit",
-  "item.indreb.power_unit": "Power Unit",
+  "item.indreb.small_power_unit": "小型驱动把手",
+  "item.indreb.power_unit": "驱动把手",
   "item.indreb.electric_treetap": "电动龙头",
   "item.indreb.electric_wrench": "电动扳手",
   "item.indreb.chainsaw": "电锯",
@@ -225,14 +232,14 @@
   "item.indreb.foam_sprayer": "建筑泡沫喷枪",
   "item.indreb.iridium_shard": "铱碎片",
   "item.indreb.iridium": "铱",
-  "item.indreb.multi_tool": "Multi Tool-Wrench",
+  "item.indreb.multi_tool": "多功能工具扳手",
   "item.indreb.coil": "线圈",
   "item.indreb.electric_motor": "电动马达",
   "item.indreb.tin_can": "锡罐",
   "item.indreb.filled_tin_can": "罐头 (满)",
   "item.indreb.scrap": "废料",
   "item.indreb.scrap_box": "废料盒",
-  "item.indreb.bio_chaff": "Bio Chaff",
+  "item.indreb.bio_chaff": "生物糠",
   "item.indreb.foam_powder": "泡沫粉",
   "item.indreb.reinforced_foam_powder": "强力泡沫粉",
   "item.indreb.fertilizer": "肥料",
@@ -256,7 +263,7 @@
   "fluid.indreb.construction_foam": "建筑泡沫",
   "fluid.indreb.reinforced_construction_foam": "强力建筑泡沫",
   "fluid.indreb.coolant": "冷却液",
-  "fluid.indreb.biomass": "Biomass",
+  "fluid.indreb.biomass": "生物质",
   "fluid.indreb.biogas": "沼气",
 
 
@@ -268,7 +275,7 @@
   "jei.indreb.extruding": "挤压中",
   "jei.indreb.alloy_smelting": "切割中",
   "jei.indreb.recycling": "回收中",
-  "jei.indreb.scrap_box": "Scrap Box",
+  "jei.indreb.scrap_box": "废料盒",
   "jei.indreb.canning": "装罐中",
   "jei.indreb.fluid_enriching": "流体填充中",
 
@@ -294,8 +301,36 @@
 
   "tooltip.indreb.cable_unisolated": "这个线缆会导致触电!",
 
+  "_comment": "Upgrade",
+  "item.indreb.overclocker_upgrade": "超频升级",
+  "item.indreb.transformer_upgrade": "变压升级",
+  "item.indreb.energy_storage_upgrade": "能量存储升级",
+  "item.indreb.redstone_signal_inverter_upgrade": "红石信号升级",
+  "item.indreb.ejector_upgrade": "弹出升级",
+  "item.indreb.pulling_upgrade": "抽入升级",
+  "item.indreb.fluid_ejector_upgrade": "流体弹出升级",
+  "item.indreb.fluid_pulling_upgrade": "流体抽入升级",
+  "item.indreb.advanced_ejector_upgrade": "高级弹出升级",
+  "item.indreb.advanced_pulling_upgrade": "高级抽入升级",
+  "item.indreb.advanced_fluid_ejector_upgrade": "高级流体弹出升级",
+  "item.indreb.advanced_fluid_pulling_upgrade": "高级流体抽入升级",
+
+  "dir.indreb.all": "第一个有效",
+  "dir.indreb.up": "上",
+  "dir.indreb.down": "下",
+  "dir.indreb.north": "北",
+  "dir.indreb.south": "南",
+  "dir.indreb.east": "东",
+  "dir.indreb.west": "西",
+
+  "ejector.indreb.dir": "自动输出到%s侧",
+  "pulling.indreb.dir": "自动从%s侧输入",
+  "fluid_ejector.indreb.dir": "自动将流体输出到%s侧",
+  "fluid_pulling.indreb.dir": "自动从%s侧输入流体",
+
+  "speed.indreb.factor": "将处理时间减少到%s",
+  "power.indreb.factor": "增加能量到%s",
 
 
-
-  "test.indreb.test": "%s",
+  "test.indreb.test": "%s"
 }

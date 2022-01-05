@@ -11,6 +11,7 @@ import net.minecraft.world.level.block.FenceBlock;
 import net.minecraft.world.level.block.SlabBlock;
 import net.minecraft.world.level.block.StairBlock;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraftforge.client.model.generators.BlockModelBuilder;
 import net.minecraftforge.client.model.generators.ConfiguredModel;
 import net.minecraftforge.client.model.generators.ModelFile;
@@ -30,6 +31,8 @@ public class BlockStates extends BlockStateProvider {
         registerOres();
         registerGenerators();
         registerMachines();
+        registerTransformers();
+        registerChargePad();
         registerConstructionFoam();
         registerRubberWood();
         registerSimple();
@@ -64,6 +67,20 @@ public class BlockStates extends BlockStateProvider {
         createCubeAll(ModBlocks.LEAD_ORE.getBlock(), "ore/lead");
         createCubeAll(ModBlocks.DEEPSLATE_LEAD_ORE.getBlock(), "ore/deepslate_lead");
         createCubeAll(ModBlocks.DEEPSLATE_URANIUM_ORE.getBlock(), "ore/deepslate_uranium");
+    }
+
+    private void registerTransformers() {
+        createTransformer(ModBlocks.LV_TRANSFORMER.getBlock(), "lv_transformer");
+        createTransformer(ModBlocks.MV_TRANSFORMER.getBlock(), "mv_transformer");
+        createTransformer(ModBlocks.HV_TRANSFORMER.getBlock(), "hv_transformer");
+        createTransformer(ModBlocks.EV_TRANSFORMER.getBlock(), "ev_transformer");
+    }
+
+    private void registerChargePad() {
+        createOnlyTopActive(ModBlocks.CHARGE_PAD_BATTERY_BOX.getBlock(), "charge_pad", "battery_box");
+        createOnlyTopActive(ModBlocks.CHARGE_PAD_CESU.getBlock(), "charge_pad", "cesu");
+        createOnlyTopActive(ModBlocks.CHARGE_PAD_MFE.getBlock(), "charge_pad", "mfe");
+        createOnlyTopActive(ModBlocks.CHARGE_PAD_MFSU.getBlock(), "charge_pad", "mfsu");
     }
 
     private void registerConstructionFoam() {
@@ -153,6 +170,18 @@ public class BlockStates extends BlockStateProvider {
         });
     }
 
+    private void createOnlyTopActive(Block block, String category, String name) {
+        BlockModelBuilder notActive = models().orientableWithBottom(category + "_" + name, new ResourceLocation(IndReb.MODID, "block/" + category + "/" + name + "_side"), new ResourceLocation(IndReb.MODID, "block/" + category + "/" + name + "_front"), new ResourceLocation(IndReb.MODID, "block/" + category + "/" + name + "_bottom"), new ResourceLocation(IndReb.MODID, "block/" + category + "/" + name + "_top"));
+        BlockModelBuilder active = models().orientableWithBottom(category + "_" + name + "_active", new ResourceLocation(IndReb.MODID, "block/" + category + "/" + name + "_side"), new ResourceLocation(IndReb.MODID, "block/" + category + "/" + name + "_front"), new ResourceLocation(IndReb.MODID, "block/" + category + "/" + name + "_bottom"), new ResourceLocation(IndReb.MODID, "block/" + category + "/" + name + "_top_active"));
+        orientedBlock(block, state -> {
+            if (state.getValue(BlockStateHelper.activeProperty)) {
+                return active;
+            } else {
+                return notActive;
+            }
+        });
+    }
+
     private void createWithSidesActive(Block block, String category, String name) {
         BlockModelBuilder notActive = cubeWithParticle(name, new ResourceLocation(IndReb.MODID, "block/" + category + "/" + name + "_bottom"), new ResourceLocation(IndReb.MODID, "block/" + category + "/" + name + "_top"), new ResourceLocation(IndReb.MODID, "block/" + category + "/" + name + "_front"), new ResourceLocation(IndReb.MODID, "block/" + category + "/" + name + "_back"), new ResourceLocation(IndReb.MODID, "block/" + category + "/" + name + "_leftright"), new ResourceLocation(IndReb.MODID, "block/" + category + "/" + name + "_leftright"));
         BlockModelBuilder active = cubeWithParticle(name + "_active", new ResourceLocation(IndReb.MODID, "block/" + category + "/" + name + "_bottom"), new ResourceLocation(IndReb.MODID, "block/" + category + "/" + name + "_top"), new ResourceLocation(IndReb.MODID, "block/" + category + "/" + name + "_front_active"), new ResourceLocation(IndReb.MODID, "block/" + category + "/" + name + "_back"), new ResourceLocation(IndReb.MODID, "block/" + category + "/" + name + "_leftright_active"), new ResourceLocation(IndReb.MODID, "block/" + category + "/" + name + "_leftright_active"));
@@ -165,9 +194,9 @@ public class BlockStates extends BlockStateProvider {
         });
     }
 
-
-
-
+    private void createTransformer(Block block, String name) {
+        orientedBlock(block, state -> cubeWithParticle(name, new ResourceLocation(IndReb.MODID, "block/transformer/" + name + "_side"), new ResourceLocation(IndReb.MODID, "block/transformer/" + name + "_side"), new ResourceLocation(IndReb.MODID, "block/transformer/" + name + "_front"), new ResourceLocation(IndReb.MODID, "block/transformer/" + name + "_side"), new ResourceLocation(IndReb.MODID, "block/transformer/" + name + "_side"), new ResourceLocation(IndReb.MODID, "block/transformer/" + name + "_side")), BlockStateHelper.facingProperty);
+    }
 
     private BlockModelBuilder cubeWithParticle(String name, ResourceLocation down, ResourceLocation up, ResourceLocation north, ResourceLocation south, ResourceLocation east, ResourceLocation west) {
         return models().withExistingParent(name, "cube")
@@ -180,9 +209,20 @@ public class BlockStates extends BlockStateProvider {
                 .texture("particle", north);
     }
 
-
     private void createCubeAll(Block block, String path) {
         simpleBlock(block, models().cubeAll(block.getRegistryName().getPath(), new ResourceLocation(IndReb.MODID, "block/" + path)));
+    }
+
+    private void orientedBlock(Block block, Function<BlockState, ModelFile> modelFunc, DirectionProperty directionProperty) {
+        getVariantBuilder(block)
+                .forAllStates(state -> {
+                    Direction dir = state.getValue(directionProperty);
+                    return ConfiguredModel.builder()
+                            .modelFile(modelFunc.apply(state))
+                            .rotationX(dir.getAxis() == Direction.Axis.Y ?  dir.getAxisDirection().getStep() * -90 : 0)
+                            .rotationY(dir.getAxis() != Direction.Axis.Y ? ((dir.get2DDataValue() + 2) % 4) * 90 : 0)
+                            .build();
+                });
     }
 
     private void orientedBlock(Block block, Function<BlockState, ModelFile> modelFunc) {

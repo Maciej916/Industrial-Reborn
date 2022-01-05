@@ -1,7 +1,9 @@
 package com.maciej916.indreb.common.block.impl.battery_box;
 
 import com.maciej916.indreb.common.block.IndRebEntityBlock;
+import com.maciej916.indreb.common.enums.EnergyTier;
 import com.maciej916.indreb.common.enums.EnumLang;
+import com.maciej916.indreb.common.interfaces.block.IElectricMachine;
 import com.maciej916.indreb.common.interfaces.block.IHasContainer;
 import com.maciej916.indreb.common.interfaces.block.IStateFacing;
 import com.maciej916.indreb.common.tier.BatteryBoxTier;
@@ -26,7 +28,7 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import java.util.List;
 
-public class BlockBatteryBox extends IndRebEntityBlock implements IStateFacing, IHasContainer {
+public class BlockBatteryBox extends IndRebEntityBlock implements IStateFacing, IHasContainer, IElectricMachine {
 
     private final BatteryBoxTier batteryBoxTier;
 
@@ -74,5 +76,8 @@ public class BlockBatteryBox extends IndRebEntityBlock implements IStateFacing, 
         ));
     }
 
-
+    @Override
+    public EnergyTier getEnergyTier() {
+        return batteryBoxTier.getEnergyTier();
+    }
 }

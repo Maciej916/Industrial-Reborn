@@ -25,7 +25,7 @@ public final class ForgeEventSubscriber {
     public static void onWorldTick(TickEvent.WorldTickEvent event) {
         if (event.world.isClientSide()) return;
         event.world.getCapability(ModCapabilities.ENERGY_CORE).ifPresent(IEnergyCore::tick);
-        CapabilityUtil.getCapabilityHelper(event.world, ModCapabilities.ENERGY_CORE, null).ifPresent(IEnergyCore::tick);
+//        CapabilityUtil.getCapabilityHelper(event.world, ModCapabilities.ENERGY_CORE, null).ifPresent(IEnergyCore::tick);
     }
 
 }

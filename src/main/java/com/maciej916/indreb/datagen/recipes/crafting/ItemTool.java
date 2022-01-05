@@ -123,6 +123,20 @@ public class ItemTool extends RecipeProvider {
                 .save(consumer, saveResource("bronze_sword"));
 
 
+        ShapedRecipeBuilder.shaped(ModItems.IE_METER)
+                .pattern(" g ")
+                .pattern("cec")
+                .pattern("c c")
+                .define('g', Items.GLOWSTONE_DUST)
+                .define('c', ModBlocks.COPPER_CABLE_INSULATED)
+                .define('e', ModItems.ELECTRONIC_CIRCUIT)
+                .group(MODID)
+                .unlockedBy("glowstone_dust", InventoryChangeTrigger.TriggerInstance.hasItems(Items.GLOWSTONE_DUST))
+                .unlockedBy("copper_cable_insulated", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.COPPER_CABLE_INSULATED))
+                .unlockedBy("electronic_circuit", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.ELECTRONIC_CIRCUIT))
+                .save(consumer, saveResource("ie_meter"));
+
+
     }
 
 }

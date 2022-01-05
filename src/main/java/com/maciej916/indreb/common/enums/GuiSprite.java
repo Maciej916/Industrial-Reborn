@@ -19,11 +19,12 @@ public enum GuiSprite {
     LEFT_BUTTON(19,23, 0, 0, 19,23, 0, 24, 0, 0),
     RIGHT_BUTTON(19,23, 0, 0, 19,23, 0, 24, 0, 0),
     SMALL_BUTTON(12,12, 40, 0, 12,12, 40, 13, 0, 0),
-
+    LARGE_BUTTON(20,20, 53, 0, 20,20, 53, 21, 0, 0),
 
     EXP_ICON(16,16, 0, 48, 0,0,0,0,3, 3),
     FORWARD_ICON(12,12, 40, 26, 0,0,0,0,0, 0),
-    BACKWARD_ICON(12,12, 40, 39, 0,0,0,0,0, 0);
+    BACKWARD_ICON(12,12, 40, 39, 0,0,0,0,0, 0),
+    TRANSFORMER_ICON(16,16, 0, 65, 0,0,0,0,2, 2);
 
 
     private final int width;

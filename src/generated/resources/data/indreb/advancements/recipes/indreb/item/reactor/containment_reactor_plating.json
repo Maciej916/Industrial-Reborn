@@ -1,0 +1,47 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "indreb:item/reactor/containment_reactor_plating"
+    ]
+  },
+  "criteria": {
+    "reactor_plating": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:reactor_plating"
+            ]
+          }
+        ]
+      }
+    },
+    "advanced_alloy": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:advanced_alloy"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "indreb:item/reactor/containment_reactor_plating"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "reactor_plating",
+      "advanced_alloy",
+      "has_the_recipe"
+    ]
+  ]
+}

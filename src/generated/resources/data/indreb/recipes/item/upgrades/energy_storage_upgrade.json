@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "indreb",
+  "pattern": [
+    "ppp",
+    "cbc",
+    "pep"
+  ],
+  "key": {
+    "p": {
+      "tag": "minecraft:planks"
+    },
+    "b": {
+      "item": "indreb:battery"
+    },
+    "e": {
+      "item": "indreb:electronic_circuit"
+    },
+    "c": {
+      "item": "indreb:copper_cable_insulated"
+    }
+  },
+  "result": {
+    "item": "indreb:energy_storage_upgrade"
+  }
+}

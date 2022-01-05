@@ -166,7 +166,7 @@ public class Block extends RecipeProvider {
                 .pattern("pcp")
                 .pattern("gug")
                 .pattern("ggg")
-                .define('p', ModItems.TIN_PLATE)
+                .define('p', ItemTags.bind("forge:plates/tin"))
                 .define('c', ModBlocks.TIN_CABLE_INSULATED)
                 .define('u', ModBlocks.TIN_CABLE)
                 .define('g', Items.GLASS)

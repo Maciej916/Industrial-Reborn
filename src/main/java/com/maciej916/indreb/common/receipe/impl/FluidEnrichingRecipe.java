@@ -52,7 +52,7 @@ public class FluidEnrichingRecipe implements IBaseRecipe {
 
     @Override
     public ItemStack getResultItem() {
-        return null;
+        return ItemStack.EMPTY;
     }
 
     @Override

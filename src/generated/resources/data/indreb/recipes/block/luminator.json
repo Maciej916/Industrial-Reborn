@@ -8,7 +8,7 @@
   ],
   "key": {
     "p": {
-      "item": "indreb:tin_plate"
+      "tag": "forge:plates/tin"
     },
     "c": {
       "item": "indreb:tin_cable_insulated"

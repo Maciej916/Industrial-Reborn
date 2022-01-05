@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "indreb",
+  "pattern": [
+    " g ",
+    "ebn",
+    " g "
+  ],
+  "key": {
+    "g": {
+      "item": "indreb:glass_fibre_cable"
+    },
+    "b": {
+      "item": "indreb:hv_transformer"
+    },
+    "e": {
+      "item": "indreb:advanced_circuit"
+    },
+    "n": {
+      "item": "indreb:lapotron_crystal"
+    }
+  },
+  "result": {
+    "item": "indreb:ev_transformer"
+  }
+}

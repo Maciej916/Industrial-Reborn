@@ -1,18 +1,14 @@
 package com.maciej916.indreb.common.entity.block;
 
-import com.google.common.collect.ImmutableSet;
 import com.maciej916.indreb.common.energy.interfaces.IEnergyBlock;
-import com.maciej916.indreb.common.entity.slot.SlotBattery;
 import com.maciej916.indreb.common.entity.slot.IndRebSlot;
-import com.maciej916.indreb.common.enums.EnergyTier;
-import com.maciej916.indreb.common.enums.GuiSlotType;
-import com.maciej916.indreb.common.enums.InventorySlotType;
-import com.maciej916.indreb.common.enums.UpgradeType;
+import com.maciej916.indreb.common.entity.slot.SlotBattery;
+import com.maciej916.indreb.common.enums.*;
+import com.maciej916.indreb.common.interfaces.entity.IElectricSlot;
 import com.maciej916.indreb.common.interfaces.entity.IExpCollector;
 import com.maciej916.indreb.common.interfaces.entity.ISupportUpgrades;
 import com.maciej916.indreb.common.interfaces.entity.ITileSound;
 import com.maciej916.indreb.common.interfaces.receipe.IChanceRecipe;
-import com.maciej916.indreb.common.interfaces.entity.IElectricSlot;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
@@ -30,9 +26,10 @@ import net.minecraftforge.items.wrapper.RangedWrapper;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
-import java.util.*;
-
-import static com.maciej916.indreb.common.enums.EnumEnergyType.RECEIVE;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Optional;
 
 public class BlockEntityStandardMachine extends IndRebBlockEntity implements IEnergyBlock, ITileSound, IExpCollector, ISupportUpgrades {
 
@@ -52,9 +49,9 @@ public class BlockEntityStandardMachine extends IndRebBlockEntity implements IEn
     private int energyCostPerTick = 0;
     private int duration = 0;
 
-    public BlockEntityStandardMachine(BlockEntityType<?> pType, BlockPos pWorldPosition, BlockState pBlockState, int energyCapacity, int energyTickAccept) {
+    public BlockEntityStandardMachine(BlockEntityType<?> pType, BlockPos pWorldPosition, BlockState pBlockState, int energyCapacity) {
         super(pType, pWorldPosition, pBlockState);
-        createEnergyStorage(0, energyCapacity, energyTickAccept, 0, RECEIVE);
+        createEnergyStorage(0, energyCapacity, EnergyType.RECEIVE, EnergyTier.BASIC);
     }
 
     protected Optional<?> getRecipe(ItemStack input) {
@@ -82,6 +79,7 @@ public class BlockEntityStandardMachine extends IndRebBlockEntity implements IEn
     public void tickOperate(BlockState state) {
         progress.clearChanged();
         active = false;
+        getEnergyStorage().updateConsumed(0);
 
         final ItemStack inputStack = getStackHandler().getStackInSlot(INPUT_SLOT);
         final ItemStack outputStack = getStackHandler().getStackInSlot(OUTPUT_SLOT);
@@ -119,6 +117,7 @@ public class BlockEntityStandardMachine extends IndRebBlockEntity implements IEn
                         active = true;
                         progress.incProgress(1);
                         getEnergyStorage().consumeEnergy(energyCost, false);
+                        getEnergyStorage().updateConsumed(energyCost);
                     }
                 }
 
@@ -199,7 +198,7 @@ public class BlockEntityStandardMachine extends IndRebBlockEntity implements IEn
 
     @Override
     public ArrayList<IElectricSlot> addBatterySlot(ArrayList<IElectricSlot> slots) {
-        slots.add(new SlotBattery(0, 152, 62, false, List.of(EnergyTier.BASIC)));
+        slots.add(new SlotBattery(0, 152, 62, false));
         return super.addBatterySlot(slots);
     }
 

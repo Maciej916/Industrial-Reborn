@@ -1,9 +1,9 @@
 package com.maciej916.indreb.common.block.impl.generators.solar_panels;
 
 import com.maciej916.indreb.common.energy.interfaces.IEnergyBlock;
-import com.maciej916.indreb.common.entity.block.BlockEntityProgress;
 import com.maciej916.indreb.common.entity.block.IndRebBlockEntity;
 import com.maciej916.indreb.common.enums.EnergyTier;
+import com.maciej916.indreb.common.enums.EnergyType;
 import com.maciej916.indreb.common.interfaces.entity.ITileSound;
 import com.maciej916.indreb.common.registries.ModBlockEntities;
 import com.maciej916.indreb.common.registries.ModSounds;
@@ -13,8 +13,6 @@ import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.level.block.state.BlockState;
-
-import static com.maciej916.indreb.common.enums.EnumEnergyType.EXTRACT;
 
 public class BlockEntitySolarGenerator extends IndRebBlockEntity implements IEnergyBlock, ITileSound {
 
@@ -30,7 +28,7 @@ public class BlockEntitySolarGenerator extends IndRebBlockEntity implements IEne
         this.tier = block.getSolarGeneratorTier();
         EnergyTier energyTier =  this.tier.getEnergyTier();
 
-        createEnergyStorage(0, tier.getEnergyCapacity(), 0, energyTier.getBasicTransfer(), EXTRACT);
+        createEnergyStorage(0, tier.getEnergyCapacity(), EnergyType.EXTRACT, energyTier);
     }
 
     @Override
@@ -42,6 +40,7 @@ public class BlockEntitySolarGenerator extends IndRebBlockEntity implements IEne
     public void tickOperate(BlockState state) {
         active = false;
         amount = 0;
+        getEnergyStorage().updateGenerated(0);
 
         if (level != null &&level.canSeeSky(getBlockPos())) {
             if (level.isDay() && !level.isThundering()) {
@@ -57,6 +56,7 @@ public class BlockEntitySolarGenerator extends IndRebBlockEntity implements IEne
             active = true;
             if (getEnergyStorage().generateEnergy(amount, true) == amount) {
                 getEnergyStorage().generateEnergy(amount, false);
+                getEnergyStorage().updateGenerated(amount);
             }
         }
 

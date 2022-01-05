@@ -3,12 +3,11 @@ package com.maciej916.indreb.common.item.base;
 import com.maciej916.indreb.common.energy.impl.CapEnergyStorage;
 import com.maciej916.indreb.common.energy.interfaces.IEnergy;
 import com.maciej916.indreb.common.enums.EnergyTier;
-import com.maciej916.indreb.common.enums.EnumEnergyType;
+import com.maciej916.indreb.common.enums.EnergyType;
 import com.maciej916.indreb.common.enums.EnumLang;
 import com.maciej916.indreb.common.interfaces.item.IElectricItem;
 import com.maciej916.indreb.common.registries.ModCapabilities;
 import com.maciej916.indreb.common.util.CapabilityUtil;
-import com.maciej916.indreb.common.util.LazyOptionalHelper;
 import com.maciej916.indreb.common.util.TextComponentUtil;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.NonNullList;
@@ -16,6 +15,7 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TextComponent;
 import net.minecraft.network.chat.TranslatableComponent;
+import net.minecraft.util.Mth;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
@@ -29,10 +29,10 @@ public class ElectricItem extends BaseItem implements IElectricItem {
 
     private final int energyStored;
     private final int maxEnergy;
-    private final EnumEnergyType energyType;
+    private final EnergyType energyType;
     private final EnergyTier energyTier;
 
-    public ElectricItem(Properties properties, int energyStored, int maxEnergy, EnumEnergyType energyType, EnergyTier energyTier) {
+    public ElectricItem(Properties properties, int energyStored, int maxEnergy, EnergyType energyType, EnergyTier energyTier) {
         super(properties.setNoRepair().stacksTo(1));
         this.energyStored = energyStored;
         this.maxEnergy = maxEnergy;
@@ -43,7 +43,7 @@ public class ElectricItem extends BaseItem implements IElectricItem {
     @Nullable
     @Override
     public ICapabilityProvider initCapabilities(ItemStack stack, @Nullable CompoundTag nbt) {
-        return new CapEnergyStorage(energyStored, maxEnergy, energyTier.getBasicTransfer(), energyTier.getBasicTransfer(), energyType);
+        return new CapEnergyStorage(energyStored, maxEnergy, energyType, energyTier);
     }
 
     @Override
@@ -52,7 +52,7 @@ public class ElectricItem extends BaseItem implements IElectricItem {
     }
 
     @Override
-    public EnumEnergyType getEnergyType() {
+    public EnergyType getEnergyType() {
         return energyType;
     }
 
@@ -76,8 +76,17 @@ public class ElectricItem extends BaseItem implements IElectricItem {
         return Math.round(13.0F - ((1 - getChargeRatio(pStack)) * 13.0F));
     }
 
+    public int getBarColor(ItemStack pStack) {
+        return Mth.hsvToRgb(0, 1.0F, 1.0F);
+    }
+
     public static float getChargeRatio(ItemStack stack) {
         return CapabilityUtil.getCapabilityHelper(stack, ModCapabilities.ENERGY).getIfPresentElse(e -> (float) e.energyStored() / e.maxEnergy(), 0f);
+    }
+
+    @Override
+    public boolean shouldCauseReequipAnimation(ItemStack oldStack, ItemStack newStack, boolean slotChanged) {
+        return false;
     }
 
     @Override

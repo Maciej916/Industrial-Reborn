@@ -1,0 +1,34 @@
+{
+  "variants": {
+    "active=false,facing=north": {
+      "model": "indreb:block/charge_pad_battery_box"
+    },
+    "active=true,facing=north": {
+      "model": "indreb:block/charge_pad_battery_box_active"
+    },
+    "active=false,facing=south": {
+      "model": "indreb:block/charge_pad_battery_box",
+      "y": 180
+    },
+    "active=true,facing=south": {
+      "model": "indreb:block/charge_pad_battery_box_active",
+      "y": 180
+    },
+    "active=false,facing=west": {
+      "model": "indreb:block/charge_pad_battery_box",
+      "y": 270
+    },
+    "active=true,facing=west": {
+      "model": "indreb:block/charge_pad_battery_box_active",
+      "y": 270
+    },
+    "active=false,facing=east": {
+      "model": "indreb:block/charge_pad_battery_box",
+      "y": 90
+    },
+    "active=true,facing=east": {
+      "model": "indreb:block/charge_pad_battery_box_active",
+      "y": 90
+    }
+  }
+}

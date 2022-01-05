@@ -48,6 +48,10 @@ public class DataGenerators {
             generator.addProvider(new Wood(generator));
             generator.addProvider(new Armour(generator));
             generator.addProvider(new Machines(generator));
+            generator.addProvider(new Upgrades(generator));
+            generator.addProvider(new Reactor(generator));
+            generator.addProvider(new Transformers(generator));
+            generator.addProvider(new ChargePads(generator));
 
             generator.addProvider(new Crushing(generator));
             generator.addProvider(new Extracting(generator));

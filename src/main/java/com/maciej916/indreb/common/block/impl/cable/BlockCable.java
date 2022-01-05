@@ -1,6 +1,7 @@
 package com.maciej916.indreb.common.block.impl.cable;
 
 import com.maciej916.indreb.common.block.VoxelBlock;
+import com.maciej916.indreb.common.block.impl.battery_box.BlockEntityBatteryBox;
 import com.maciej916.indreb.common.enums.EnumLang;
 import com.maciej916.indreb.common.registries.ModCapabilities;
 import com.maciej916.indreb.common.tier.CableTier;
@@ -17,9 +18,11 @@ import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.Explosion;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.EntityBlock;
 import net.minecraft.world.level.block.SimpleWaterloggedBlock;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
@@ -29,15 +32,22 @@ import net.minecraft.world.level.material.Fluids;
 import javax.annotation.Nullable;
 import java.util.List;
 
-public class BlockCable extends VoxelBlock implements SimpleWaterloggedBlock {
+public class BlockCable extends VoxelBlock implements SimpleWaterloggedBlock, EntityBlock {
 
     private final CableTier cableTier;
 
     public BlockCable(float apothem, CableTier tier) {
         super(tier.getProperties(), apothem);
         this.cableTier = tier;
-        WrenchHelper.registerAction(this).add(WrenchHelper.energyNetworkInfo()).add(WrenchHelper.dropAction());
+        WrenchHelper.registerAction(this).add(WrenchHelper.dropAction());
     }
+
+    @Nullable
+    @Override
+    public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
+        return new BlockEntityCable(pos, state);
+    }
+
 
     @Override
     public void appendHoverText(ItemStack pStack, @Nullable BlockGetter pLevel, List<Component> pTooltip, TooltipFlag pFlag) {
@@ -75,27 +85,35 @@ public class BlockCable extends VoxelBlock implements SimpleWaterloggedBlock {
     }
 
     @Override
-    public void onPlace(BlockState pState, Level pLevel, BlockPos pPos, BlockState pOldState, boolean pIsMoving) {
-        if (pLevel.isClientSide()) return;
-        CapabilityUtil.getCapabilityHelper(pLevel, ModCapabilities.ENERGY_CORE).ifPresent(e -> e.getNetworks().onPlaced(pPos, pState, cableTier.getEnergyTier().getBasicTransfer()));
-        super.onPlace(pState, pLevel, pPos, pOldState, pIsMoving);
+    public void onPlace(BlockState state, Level level, BlockPos pos, BlockState oldState, boolean isMoving) {
+        if (level.isClientSide()) return;
+
+        if (oldState.getBlock() != state.getBlock()) {
+            CapabilityUtil.getCapabilityHelper(level, ModCapabilities.ENERGY_CORE).ifPresent(e -> e.getNetworks().onPlaced(pos, state, cableTier.getEnergyTier()));
+        }
+
+        super.onPlace(state, level, pos, oldState, isMoving);
     }
 
     @Override
-    public void onRemove(BlockState pState, Level pLevel, BlockPos pPos, BlockState pNewState, boolean pIsMoving) {
+    public void onRemove(BlockState state, Level pLevel, BlockPos pos, BlockState newState, boolean pIsMoving) {
         if (pLevel.isClientSide()) return;
-        CapabilityUtil.getCapabilityHelper(pLevel, ModCapabilities.ENERGY_CORE).ifPresent(e -> e.getNetworks().onRemove(pPos));
-        super.onRemove(pState, pLevel, pPos, pNewState, pIsMoving);
-    }
 
+        if (newState.getBlock() != state.getBlock()) {
+            CapabilityUtil.getCapabilityHelper(pLevel, ModCapabilities.ENERGY_CORE).ifPresent(e -> e.getNetworks().onRemove(pos));
+        }
+
+        super.onRemove(state, pLevel, pos, newState, pIsMoving);
+    }
 
     @Override
     public void neighborChanged(BlockState pState, Level pLevel, BlockPos pPos, Block pBlock, BlockPos pFromPos, boolean pIsMoving) {
         if (pLevel.isClientSide()) return;
+
         CapabilityUtil.getCapabilityHelper(pLevel, ModCapabilities.ENERGY_CORE).ifPresent(e -> e.getNetworks().neighborChanged(pPos, pFromPos));
+
         super.neighborChanged(pState, pLevel, pPos, pBlock, pFromPos, pIsMoving);
     }
-
 
     @Override
     @Deprecated
@@ -116,5 +134,12 @@ public class BlockCable extends VoxelBlock implements SimpleWaterloggedBlock {
         }
 
         return state;
+    }
+
+    @Override
+    public void onBlockExploded(BlockState state, Level world, BlockPos pos, Explosion explosion) {
+        if (world.isClientSide()) return;
+        CapabilityUtil.getCapabilityHelper(world, ModCapabilities.ENERGY_CORE).ifPresent(e -> e.getNetworks().onRemove(pos));
+        super.onBlockExploded(state, world, pos, explosion);
     }
 }

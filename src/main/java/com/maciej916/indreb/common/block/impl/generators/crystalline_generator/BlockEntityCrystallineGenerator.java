@@ -7,6 +7,7 @@ import com.maciej916.indreb.common.entity.block.IndRebBlockEntity;
 import com.maciej916.indreb.common.entity.slot.IndRebSlot;
 import com.maciej916.indreb.common.entity.slot.SlotBattery;
 import com.maciej916.indreb.common.enums.EnergyTier;
+import com.maciej916.indreb.common.enums.EnergyType;
 import com.maciej916.indreb.common.enums.GuiSlotType;
 import com.maciej916.indreb.common.enums.InventorySlotType;
 import com.maciej916.indreb.common.interfaces.entity.ICooldown;
@@ -32,9 +33,6 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
-
-import static com.maciej916.indreb.common.enums.EnumEnergyType.EXTRACT;
 
 public class BlockEntityCrystallineGenerator extends IndRebBlockEntity implements ICooldown, IEnergyBlock, ITileSound {
 
@@ -45,7 +43,7 @@ public class BlockEntityCrystallineGenerator extends IndRebBlockEntity implement
 
     public BlockEntityCrystallineGenerator(BlockPos pWorldPosition, BlockState pBlockState) {
         super(ModBlockEntities.CRYSTALLINE_GENERATOR, pWorldPosition, pBlockState);
-        createEnergyStorage(0, ServerConfig.generator_energy_capacity.get(), 0, ServerConfig.basic_tier_transfer.get(), EXTRACT);
+        createEnergyStorage(0, ServerConfig.generator_energy_capacity.get(), EnergyType.EXTRACT, EnergyTier.BASIC);
     }
 
     @Override
@@ -128,7 +126,7 @@ public class BlockEntityCrystallineGenerator extends IndRebBlockEntity implement
 
     @Override
     public ArrayList<IElectricSlot> addBatterySlot(ArrayList<IElectricSlot> slots) {
-        slots.add(new SlotBattery(0, 152, 62, true, List.of(EnergyTier.BASIC)));
+        slots.add(new SlotBattery(0, 152, 62, true));
         return super.addBatterySlot(slots);
     }
 

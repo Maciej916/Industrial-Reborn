@@ -12,6 +12,7 @@
   "tier.indreb.basic": "Basic",
   "tier.indreb.standard": "Standard",
   "tier.indreb.advanced": "Advanced",
+  "tier.indreb.advanced": "Advanced",
   "tier.indreb.super": "Super",
   "tier.indreb.ultra": "Ultra",
   "tier.indreb.creative": "Creative",
@@ -121,6 +122,12 @@
   "block.indreb.hv_cable_insulated": "Insulated HV Cable",
   "block.indreb.glass_fibre_cable": "Glass Fibre Cable",
 
+  "_comment": "Transformer",
+  "block.indreb.lv_transformer": "LV Transformer",
+  "block.indreb.mv_transformer": "MV Transformer",
+  "block.indreb.hv_transformer": "HV Transformer",
+  "block.indreb.ev_transformer": "EV Transformer",
+
   "_comment": "Item",
   "item.indreb.sticky_resin": "Sticky Resin",
   "item.indreb.rubber": "Rubber",
@@ -142,11 +149,13 @@
   "item.indreb.crushed_copper": "Crushed Copper",
   "item.indreb.crushed_gold": "Crushed Gold",
   "item.indreb.crushed_iron": "Crushed Iron",
+  "item.indreb.crushed_lead": "Crushed Lead",
 
   "item.indreb.copper_plate": "Copper Plate",
   "item.indreb.tin_plate": "Tin Plate",
   "item.indreb.iron_plate": "Iron Plate",
   "item.indreb.gold_plate": "Gold Plate",
+  "item.indreb.lead_plate": "Lead Plate",
   "item.indreb.bronze_plate": "Bronze Plate",
   "item.indreb.steel_plate": "Steel Plate",
   "item.indreb.iridium_plate": "Iridium Plate",
@@ -229,6 +238,7 @@
   "item.indreb.electric_hoe": "Electric Hoe",
   "item.indreb.wind_meter": "Wind Meter",
   "item.indreb.ie_meter": "IE Meter",
+  "item.indreb.debug_stick": "Debug Stick",
   "item.indreb.foam_sprayer": "Foam Sprayer",
   "item.indreb.iridium_shard": "Iridium Shard",
   "item.indreb.iridium": "Iridium",
@@ -236,7 +246,7 @@
   "item.indreb.coil": "Coil",
   "item.indreb.electric_motor": "Electric Motor",
   "item.indreb.tin_can": "Tin Can",
-  "item.indreb.filled_tin_can": "Caneed Food (Filled)",
+  "item.indreb.filled_tin_can": "Canned Food (Filled)",
   "item.indreb.scrap": "Scrap",
   "item.indreb.scrap_box": "Scrap Box",
   "item.indreb.bio_chaff": "Bio Chaff",
@@ -250,11 +260,40 @@
   "item.indreb.hammer": "Hammer",
   "item.indreb.cutter": "Cutter",
 
+  "item.indreb.charging_battery": "Charging Battery",
+  "item.indreb.advanced_charging_battery": "Advanced Charging Battery",
+  "item.indreb.charging_energy_crystal": "Charging Energy Crystal",
+  "item.indreb.charging_lapotron_crystal": "Charging Lapotron Crystal",
+
+  "item.indreb.small_coolant_cell": "Small Coolant Cell",
+  "item.indreb.medium_coolant_cell": "Medium Coolant Cell",
+  "item.indreb.large_coolant_cell": "Large Coolant Cell",
+
+  "item.indreb.heat_exchanger": "Heat Exchanger",
+  "item.indreb.heat_vent": "Heat Vent",
+  "item.indreb.overclocked_heat_vent": "Overclocked Heat Vent",
+  "item.indreb.advanced_heat_exchanger": "Advanced Heat Exchanger",
+  "item.indreb.advanced_heat_vent": "Advanced Heat Vent",
+  "item.indreb.component_heat_exchanger": "Component Heat Exchanger",
+  "item.indreb.component_heat_vent": "Component Heat Vent",
+  "item.indreb.containment_reactor_plating": "Containment Reactor Plating",
+  "item.indreb.heat_capacity_reactor_plating": "Heat-Capacity Reactor Plating",
+  "item.indreb.heating_cell": "Heating Cell",
+  "item.indreb.reactor_heat_exchanger": "Reactor Heat Exchanger",
+  "item.indreb.reactor_heat_vent": "Reactor Heat Vent",
+  "item.indreb.reactor_plating": "Reactor Plating",
+
   "_comment": "Battery Box",
   "block.indreb.battery_box": "Battery Box",
   "block.indreb.cesu": "CESU",
   "block.indreb.mfe": "MFE",
   "block.indreb.mfsu": "MFSU",
+
+  "_comment": "Charge Pad",
+  "block.indreb.charge_pad_battery_box": "Charge Pad (Battery Box)",
+  "block.indreb.charge_pad_cesu": "Charge Pad (CESU)",
+  "block.indreb.charge_pad_mfe": "Charge Pad (MFE)",
+  "block.indreb.charge_pad_mfsu": "Charge Pad (MFSU)",
 
   "_comment": "Energy Converter",
   "block.indreb.wooden_energy_converter": "Wooden Energy Converter",
@@ -265,7 +304,6 @@
   "fluid.indreb.coolant": "Coolant",
   "fluid.indreb.biomass": "Biomass",
   "fluid.indreb.biogas": "Biogas",
-
 
   "_comment": "JEI",
   "jei.indreb.crushing": "Crushing",
@@ -281,8 +319,14 @@
 
   "jei.indreb.chance": "Chance: %s",
 
+  "_comment": "TOP",
+  "top.indreb.energy_tier": "Power tier: %s",
+
   "_comment": "GUI",
   "gui.indreb.collect_exp": "Collect Exp",
+  "gui.indreb.input": "Input:",
+  "gui.indreb.output": "Output:",
+  "gui.indreb.change_mode": "Change Mode",
 
   "_comment": "Tooltip",
   "tooltip.indreb.wip": "Work in Progress!",
@@ -298,6 +342,8 @@
   "tooltip.indreb.accept_output": "Accept: %s Output: %s",
   "tooltip.indreb.stored": "Stored: %s",
   "tooltip.indreb.stored_capacity": "Stored: %s Capacity: %s",
+  "tooltip.indreb.low": "Low power tier: %s",
+  "tooltip.indreb.high": "High power tier: %s",
 
   "tooltip.indreb.cable_unisolated": "This cable can electrocute you!",
 
@@ -330,7 +376,28 @@
 
   "speed.indreb.factor": "Decrease process time to %s",
   "power.indreb.factor": "Increase power to %s",
+  "power.indreb.increase": "Increase energy storage by %s IE",
+  "transformer.indreb.increase": "Increase power tier by %s",
+  "transformer.indreb.max": "Maximum power tier is 5",
+  "redstone.indreb.inverter": "Inverts the Redstone signal",
 
+  "charging.indreb.mode": "Charging mode: %s",
+  "mode.indreb.0": "Disabled",
+  "mode.indreb.1": "Enabled",
+  "mode.indreb.2": "Charge Items not in hand",
+  "mode.indreb.3": "Charge Item in hand",
+
+  "_comment": "IE Meter",
+  "ie.indreb.desc": "Reads info about cable networks and electric blocks",
+  "ie.indreb.network_info": "Energy Network Info",
+  "ie.indreb.connected_generators": "Connected generators: %s",
+  "ie.indreb.connected_machines": "Connected machines: %s",
+  "ie.indreb.connected_batteries": "Connected batteries: %s",
+  "ie.indreb.machine_info": "Machine Info",
+  "ie.indreb.last_generated": "Generating: %s",
+  "ie.indreb.total_generated": "Total generated: %s",
+  "ie.indreb.last_consumed": "Consuming: %s",
+  "ie.indreb.total_consumed": "Total consumed: %s",
 
   "test.indreb.test": "%s"
 }

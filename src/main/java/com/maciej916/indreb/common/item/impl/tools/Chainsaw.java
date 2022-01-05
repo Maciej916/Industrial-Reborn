@@ -2,7 +2,7 @@ package com.maciej916.indreb.common.item.impl.tools;
 
 import com.maciej916.indreb.common.energy.interfaces.IEnergy;
 import com.maciej916.indreb.common.enums.EnergyTier;
-import com.maciej916.indreb.common.enums.EnumEnergyType;
+import com.maciej916.indreb.common.enums.EnergyType;
 import com.maciej916.indreb.common.item.base.DiggerElectricItem;
 import com.maciej916.indreb.common.registries.ModTiers;
 import net.minecraft.advancements.CriteriaTriggers;
@@ -29,7 +29,7 @@ public class Chainsaw extends DiggerElectricItem {
     private final int energyCostMine;
     private final int energyCostHurt;
 
-    public Chainsaw(Tier tier, float attackDamage, float attackSpeed, int energyStored, int maxEnergy, int energyCostMine, int energyCostHurt, EnumEnergyType energyType, EnergyTier energyTier) {
+    public Chainsaw(Tier tier, float attackDamage, float attackSpeed, int energyStored, int maxEnergy, int energyCostMine, int energyCostHurt, EnergyType energyType, EnergyTier energyTier) {
         super(tier, attackDamage, attackSpeed, BlockTags.MINEABLE_WITH_AXE, new Properties(), energyStored, maxEnergy, energyType, energyTier);
         this.energyCostMine = energyCostMine;
         this.energyCostHurt = energyCostHurt;

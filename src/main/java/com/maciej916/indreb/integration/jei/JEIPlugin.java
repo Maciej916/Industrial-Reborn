@@ -39,9 +39,12 @@ import com.maciej916.indreb.integration.jei.category.impl.*;
 import mezz.jei.api.IModPlugin;
 import mezz.jei.api.JeiPlugin;
 import mezz.jei.api.constants.VanillaRecipeCategoryUid;
+import mezz.jei.api.constants.VanillaTypes;
 import mezz.jei.api.helpers.IGuiHelper;
 import mezz.jei.api.helpers.IJeiHelpers;
 import mezz.jei.api.registration.*;
+import mezz.jei.api.runtime.IIngredientManager;
+import mezz.jei.api.runtime.IJeiRuntime;
 import net.minecraft.client.Minecraft;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
@@ -49,6 +52,9 @@ import net.minecraft.world.item.crafting.RecipeManager;
 import net.minecraft.world.level.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+
+import java.util.Arrays;
+import java.util.List;
 
 @JeiPlugin
 public class JEIPlugin implements IModPlugin {
@@ -104,6 +110,9 @@ public class JEIPlugin implements IModPlugin {
         RecipeManager recipeManager = world.getRecipeManager();
         Stopwatch sw = Stopwatch.createStarted();
 
+        IIngredientManager ingredientManager = registration.getIngredientManager();
+        ingredientManager.removeIngredientsAtRuntime(VanillaTypes.ITEM, List.of(ModItems.DEBUG_STICK.getDefaultInstance()));
+
         registration.addRecipes(RecipeUtil.getRecipes(recipeManager, ModRecipeType.CRUSHING), CrushingCategory.UID);
         registration.addRecipes(RecipeUtil.getRecipes(recipeManager, ModRecipeType.COMPRESSING), CompressingCategory.UID);
         registration.addRecipes(RecipeUtil.getRecipes(recipeManager, ModRecipeType.EXTRACTING), ExtractingCategory.UID);
@@ -152,6 +161,12 @@ public class JEIPlugin implements IModPlugin {
 
     @Override
     public void registerItemSubtypes(ISubtypeRegistration registration) {
+        registration.useNbtForSubtypes(ModItems.NANO_SABER);
+        registration.useNbtForSubtypes(ModItems.NANO_HELMET);
+        registration.useNbtForSubtypes(ModItems.NANO_CHESTPLATE);
+        registration.useNbtForSubtypes(ModItems.NANO_LEGGINGS);
+        registration.useNbtForSubtypes(ModItems.NANO_BOOTS);
+
         registration.useNbtForSubtypes(ModItems.FLUID_CELL);
         registration.useNbtForSubtypes(ModItems.FOAM_SPRAYER);
 
@@ -173,6 +188,13 @@ public class JEIPlugin implements IModPlugin {
         registration.useNbtForSubtypes(ModItems.ENERGY_CRYSTAL);
         registration.useNbtForSubtypes(ModItems.LAPOTRON_CRYSTAL);
 
+        registration.useNbtForSubtypes(ModItems.CHARGING_BATTERY);
+        registration.useNbtForSubtypes(ModItems.ADVANCED_CHARGING_BATTERY);
+        registration.useNbtForSubtypes(ModItems.CHARGING_ENERGY_CRYSTAL);
+        registration.useNbtForSubtypes(ModItems.CHARGING_LAPOTRON_CRYSTAL);
+
     }
+
+
 }
 

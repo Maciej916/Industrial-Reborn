@@ -1,7 +1,7 @@
 package com.maciej916.indreb.common.item.impl.tools;
 
 import com.maciej916.indreb.common.enums.EnergyTier;
-import com.maciej916.indreb.common.enums.EnumEnergyType;
+import com.maciej916.indreb.common.enums.EnergyType;
 import com.maciej916.indreb.common.util.wrench.WrenchHelper;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.InteractionResult;
@@ -11,7 +11,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 
 public class MultiTool extends ElectricHoe {
-    public MultiTool(Tier tier, float attackDamage, float attackSpeed, int energyStored, int maxEnergy, int energyCostMine, int energyCostHurt, int energyCostTile, EnumEnergyType energyType, EnergyTier energyTier) {
+    public MultiTool(Tier tier, float attackDamage, float attackSpeed, int energyStored, int maxEnergy, int energyCostMine, int energyCostHurt, int energyCostTile, EnergyType energyType, EnergyTier energyTier) {
         super(tier, attackDamage, attackSpeed, energyStored, maxEnergy, energyCostMine, energyCostHurt, energyCostTile, energyType, energyTier);
     }
 

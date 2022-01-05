@@ -16,6 +16,7 @@ import mezz.jei.api.helpers.IGuiHelper;
 import mezz.jei.api.ingredients.IIngredients;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.TextComponent;
 import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.ItemTags;
@@ -96,7 +97,7 @@ public class RecyclingCategory extends AbstractRecipeCategory<RecyclingRecipe> {
         @Override
         public void onTooltip(int slotIndex, boolean input, ItemStack ingredient, List<Component> tooltip) {
             if (slotIndex == 1) {
-                tooltip.add(new TranslatableComponent(EnumLang.CHANCE.getTranslationKey(), (recipe.getChance() * 100) + "%").withStyle(ChatFormatting.BLUE));
+                tooltip.add(new TranslatableComponent(EnumLang.CHANCE.getTranslationKey(), new TextComponent((Math.round(recipe.getChance() * 100.0) / 100.0) + "%").withStyle(ChatFormatting.YELLOW)).withStyle(ChatFormatting.DARK_GRAY));
             }
         }
     }

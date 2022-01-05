@@ -86,6 +86,16 @@ public class Tags extends BlockTagsProvider {
                 .add(ModBlocks.IRON_SCAFFOLDING.getBlock())
                 .add(ModBlocks.IRON_FENCE.getBlock())
                 .add(ModBlocks.LUMINATOR.getBlock())
+
+                .add(ModBlocks.CHARGE_PAD_BATTERY_BOX.getBlock())
+                .add(ModBlocks.CHARGE_PAD_CESU.getBlock())
+                .add(ModBlocks.CHARGE_PAD_MFE.getBlock())
+                .add(ModBlocks.CHARGE_PAD_MFSU.getBlock())
+
+                .add(ModBlocks.LV_TRANSFORMER.getBlock())
+                .add(ModBlocks.MV_TRANSFORMER.getBlock())
+                .add(ModBlocks.HV_TRANSFORMER.getBlock())
+                .add(ModBlocks.EV_TRANSFORMER.getBlock())
         ;
 
         tag(BlockTags.NEEDS_STONE_TOOL)
@@ -138,6 +148,16 @@ public class Tags extends BlockTagsProvider {
                 .add(ModBlocks.RESIN_SHEET.getBlock())
                 .add(ModBlocks.RUBBER_SHEET.getBlock())
                 .add(ModBlocks.LUMINATOR.getBlock())
+
+                .add(ModBlocks.CHARGE_PAD_BATTERY_BOX.getBlock())
+                .add(ModBlocks.CHARGE_PAD_CESU.getBlock())
+                .add(ModBlocks.CHARGE_PAD_MFE.getBlock())
+                .add(ModBlocks.CHARGE_PAD_MFSU.getBlock())
+
+                .add(ModBlocks.LV_TRANSFORMER.getBlock())
+                .add(ModBlocks.MV_TRANSFORMER.getBlock())
+                .add(ModBlocks.HV_TRANSFORMER.getBlock())
+                .add(ModBlocks.EV_TRANSFORMER.getBlock())
         ;
 
         tag(BlockTags.NEEDS_IRON_TOOL)

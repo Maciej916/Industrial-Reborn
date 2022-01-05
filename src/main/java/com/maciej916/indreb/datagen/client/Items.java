@@ -43,6 +43,9 @@ public class Items extends ItemModelProvider {
         registerCables();
         registerCrop();
         registerUpgrades();
+        registerTransformers();
+        registerChargePad();
+        registerReactor();
 
 //        createGeneratedTexture(ModItems.FLUID_CELL, "fluid_cell");
 
@@ -96,6 +99,7 @@ public class Items extends ItemModelProvider {
         createGeneratedTexture(ModItems.CRUSHED_COPPER, "crushed/copper");
         createGeneratedTexture(ModItems.CRUSHED_GOLD, "crushed/gold");
         createGeneratedTexture(ModItems.CRUSHED_IRON, "crushed/iron");
+        createGeneratedTexture(ModItems.CRUSHED_LEAD, "crushed/lead");
     }
 
     protected void registerPlates() {
@@ -106,6 +110,7 @@ public class Items extends ItemModelProvider {
         createGeneratedTexture(ModItems.TIN_PLATE, "plate/tin");
         createGeneratedTexture(ModItems.STEEL_PLATE, "plate/steel");
         createGeneratedTexture(ModItems.COPPER_PLATE, "plate/copper");
+        createGeneratedTexture(ModItems.LEAD_PLATE, "plate/lead");
     }
 
     protected void registerDusts() {
@@ -172,6 +177,7 @@ public class Items extends ItemModelProvider {
         createGeneratedTexture(ModItems.HAMMER, "tool/hammer");
         createGeneratedTexture(ModItems.TREETAP, "tool/treetap");
         createHandheldTexture(ModItems.FOAM_SPRAYER, "tool/foam_sprayer");
+        createHandheldTexture(ModItems.DEBUG_STICK, "tool/debug_stick");
     }
 
     protected void registerElectricTools() {
@@ -195,6 +201,11 @@ public class Items extends ItemModelProvider {
         createWithChargeRatio(ModItems.ADVANCED_BATTERY,"battery/advanced_battery");
         createWithChargeRatio(ModItems.ENERGY_CRYSTAL,"battery/energy_crystal");
         createWithChargeRatio(ModItems.LAPOTRON_CRYSTAL,"battery/lapotron_crystal");
+
+        createWithChargeRatio(ModItems.CHARGING_BATTERY,"battery/charging_battery");
+        createWithChargeRatio(ModItems.ADVANCED_CHARGING_BATTERY,"battery/advanced_charging_battery");
+        createWithChargeRatio(ModItems.CHARGING_ENERGY_CRYSTAL,"battery/charging_energy_crystal");
+        createWithChargeRatio(ModItems.CHARGING_LAPOTRON_CRYSTAL,"battery/charging_lapotron_crystal");
     }
 
     protected void registerArmour() {
@@ -319,6 +330,40 @@ public class Items extends ItemModelProvider {
         createWithDirections(ModItems.ADVANCED_PULLING_UPGRADE, "upgrade/advanced_pulling");
         createWithDirections(ModItems.ADVANCED_FLUID_EJECTOR_UPGRADE, "upgrade/advanced_fluid_ejector");
         createWithDirections(ModItems.ADVANCED_FLUID_PULLING_UPGRADE, "upgrade/advanced_fluid_pulling");
+    }
+
+    protected void registerTransformers() {
+        createWithBlock(ModBlocks.LV_TRANSFORMER.getBlock(), "lv_transformer");
+        createWithBlock(ModBlocks.MV_TRANSFORMER.getBlock(), "mv_transformer");
+        createWithBlock(ModBlocks.HV_TRANSFORMER.getBlock(), "hv_transformer");
+        createWithBlock(ModBlocks.EV_TRANSFORMER.getBlock(), "ev_transformer");
+    }
+
+    protected void registerChargePad() {
+        createWithBlock(ModBlocks.CHARGE_PAD_BATTERY_BOX.getBlock(), "charge_pad_battery_box");
+        createWithBlock(ModBlocks.CHARGE_PAD_CESU.getBlock(), "charge_pad_cesu");
+        createWithBlock(ModBlocks.CHARGE_PAD_MFE.getBlock(), "charge_pad_mfe");
+        createWithBlock(ModBlocks.CHARGE_PAD_MFSU.getBlock(), "charge_pad_mfsu");
+    }
+
+    protected void registerReactor() {
+        createGeneratedTexture(ModItems.SMALL_COOLANT_CELL, "reactor/small_coolant_cell");
+        createGeneratedTexture(ModItems.MEDIUM_COOLANT_CELL, "reactor/medium_coolant_cell");
+        createGeneratedTexture(ModItems.LARGE_COOLANT_CELL, "reactor/large_coolant_cell");
+
+        createGeneratedTexture(ModItems.HEAT_EXCHANGER, "reactor/heat_exchanger");
+        createGeneratedTexture(ModItems.HEAT_VENT, "reactor/heat_vent");
+        createGeneratedTexture(ModItems.OVERCLOCKED_HEAT_VENT, "reactor/overclocked_heat_vent");
+        createGeneratedTexture(ModItems.ADVANCED_HEAT_EXCHANGER, "reactor/advanced_heat_exchanger");
+        createGeneratedTexture(ModItems.ADVANCED_HEAT_VENT, "reactor/advanced_heat_vent");
+        createGeneratedTexture(ModItems.COMPONENT_HEAT_EXCHANGER, "reactor/component_heat_exchanger");
+        createGeneratedTexture(ModItems.COMPONENT_HEAT_VENT, "reactor/component_heat_vent");
+        createGeneratedTexture(ModItems.CONTAINMENT_REACTOR_PLATING, "reactor/containment_reactor_plating");
+        createGeneratedTexture(ModItems.HEAT_CAPACITY_REACTOR_PLATING, "reactor/heat_capacity_reactor_plating");
+        createGeneratedTexture(ModItems.HEATING_CELL, "reactor/heating_cell");
+        createGeneratedTexture(ModItems.REACTOR_HEAT_EXCHANGER, "reactor/reactor_heat_exchanger");
+        createGeneratedTexture(ModItems.REACTOR_HEAT_VENT, "reactor/reactor_heat_vent");
+        createGeneratedTexture(ModItems.REACTOR_PLATING, "reactor/reactor_plating");
     }
 
     private ItemModelBuilder createGeneratedTexture(Item item, String path) {

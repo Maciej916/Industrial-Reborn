@@ -7,9 +7,7 @@ import com.maciej916.indreb.common.entity.block.FluidStorage;
 import com.maciej916.indreb.common.entity.block.IndRebBlockEntity;
 import com.maciej916.indreb.common.entity.slot.SlotBattery;
 import com.maciej916.indreb.common.entity.slot.IndRebSlot;
-import com.maciej916.indreb.common.enums.EnergyTier;
-import com.maciej916.indreb.common.enums.GuiSlotType;
-import com.maciej916.indreb.common.enums.InventorySlotType;
+import com.maciej916.indreb.common.enums.*;
 import com.maciej916.indreb.common.interfaces.block.IStateFacing;
 import com.maciej916.indreb.common.interfaces.entity.IExpCollector;
 import com.maciej916.indreb.common.interfaces.entity.ISupportUpgrades;
@@ -42,7 +40,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 
-import static com.maciej916.indreb.common.enums.EnumEnergyType.RECEIVE;
+import static com.maciej916.indreb.common.enums.EnergyType.RECEIVE;
 
 public class BlockEntityExtruder extends IndRebBlockEntity implements IEnergyBlock, ITileSound, IExpCollector, ISupportUpgrades {
 
@@ -72,7 +70,7 @@ public class BlockEntityExtruder extends IndRebBlockEntity implements IEnergyBlo
 
     public BlockEntityExtruder(BlockPos pWorldPosition, BlockState pBlockState) {
         super(ModBlockEntities.EXTRUDER, pWorldPosition, pBlockState);
-        createEnergyStorage(0, ServerConfig.extruder_energy_capacity.get(), EnergyTier.BASIC.getBasicTransfer(), 0, RECEIVE);
+        createEnergyStorage(0, ServerConfig.extruder_energy_capacity.get(), EnergyType.RECEIVE, EnergyTier.BASIC);
     }
 
     @Override
@@ -84,7 +82,7 @@ public class BlockEntityExtruder extends IndRebBlockEntity implements IEnergyBlo
 
     @Override
     public ArrayList<IElectricSlot> addBatterySlot(ArrayList<IElectricSlot> slots) {
-        slots.add(new SlotBattery(0, 152, 62, false, List.of(EnergyTier.BASIC)));
+        slots.add(new SlotBattery(0, 152, 62, false));
         return super.addBatterySlot(slots);
     }
 
@@ -129,6 +127,7 @@ public class BlockEntityExtruder extends IndRebBlockEntity implements IEnergyBlo
     @Override
     public void tickOperate(BlockState state) {
         active = false;
+        getEnergyStorage().updateConsumed(0);
 
         if (recipes == null) {
             initRecipes();
@@ -147,27 +146,33 @@ public class BlockEntityExtruder extends IndRebBlockEntity implements IEnergyBlo
 
         final ItemStack outputStack = getStackHandler().getStackInSlot(OUTPUT_SLOT);
 
-        if (
-                recipe != null &&
-                getEnergyStorage().consumeEnergy(recipe.getPowerCost(), true) >= recipe.getPowerCost() &&
-                recipe.getResultItem().getCount() + outputStack.getCount() <= outputStack.getMaxStackSize() &&
-                (outputStack.isEmpty() || outputStack.getItem() == recipe.getResultItem().getItem()) &&
-                !waterStorage.getFluid().isEmpty() &&
-                !lavaStorage.getFluid().isEmpty() &&
-                lavaStorage.takeFluid(recipe.getWaterCost(), true) == recipe.getWaterCost() &&
-                lavaStorage.takeFluid(recipe.getLavaCost(), true) == recipe.getLavaCost()
-        ) {
+        if (recipe != null) {
+
+            progress.setProgressMax(getSpeedFactor() * recipe.getDuration());
+            int energyCost = (int) (recipe.getPowerCost() * getEnergyUsageFactor());
+
+            if (
+                    getEnergyStorage().consumeEnergy(energyCost, true) == energyCost &&
+                    recipe.getResultItem().getCount() + outputStack.getCount() <= outputStack.getMaxStackSize() &&
+                    (outputStack.isEmpty() || outputStack.getItem() == recipe.getResultItem().getItem()) &&
+                    !waterStorage.getFluid().isEmpty() &&
+                    !lavaStorage.getFluid().isEmpty() &&
+                    lavaStorage.takeFluid(recipe.getWaterCost(), true) == recipe.getWaterCost() &&
+                    lavaStorage.takeFluid(recipe.getLavaCost(), true) == recipe.getLavaCost()
+            ) {
 
                 if (progress.getProgress() == -1) {
                     progress.setData(0, recipe.getDuration());
                 }
 
-                getEnergyStorage().consumeEnergy(recipe.getPowerCost(), false);
+                getEnergyStorage().consumeEnergy(energyCost, false);
+                getEnergyStorage().updateConsumed(energyCost);
                 progress.incProgress(1);
                 active = true;
+            }
         }
 
-        if (progress.getProgress() > 0 && progress.getProgress() == progress.getProgressMax()) {
+        if (progress.getProgress() > 0 && progress.getProgress() >= progress.getProgressMax()) {
             progress.setBoth(-1);
             this.setRecipeUsed(recipe);
 
@@ -264,5 +269,10 @@ public class BlockEntityExtruder extends IndRebBlockEntity implements IEnergyBlo
     public void onBreak() {
         for (LazyOptional<?> capability : capabilities) capability.invalidate();
         super.onBreak();
+    }
+
+    @Override
+    public List<UpgradeType> getSupportedUpgrades() {
+        return List.of(UpgradeType.OVERCLOCKER, UpgradeType.TRANSFORMER, UpgradeType.ENERGY_STORAGE, UpgradeType.EJECTOR, UpgradeType.PULLING, UpgradeType.REDSTONE_SIGNAL_INVERTER, UpgradeType.FLUID_PULLING, UpgradeType.FLUID_EJECTOR);
     }
 }

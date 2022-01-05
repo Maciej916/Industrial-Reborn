@@ -135,11 +135,15 @@ public class LootTables extends LootTableProvider {
         tables.put(ModBlocks.IRON_FENCE.getBlock().getLootTable(), createStandardTable("IRON_FENCE", ModBlocks.IRON_FENCE.getBlock()).setParamSet(LootContextParamSets.BLOCK).build());
         tables.put(ModBlocks.LUMINATOR.getBlock().getLootTable(), createStandardTable("luminator", ModBlocks.LUMINATOR.getBlock()).setParamSet(LootContextParamSets.BLOCK).build());
 
+        tables.put(ModBlocks.CHARGE_PAD_BATTERY_BOX.getBlock().getLootTable(), createBlockEntityTableBreakable("charge_pad_battery_box", ModBlocks.CHARGE_PAD_BATTERY_BOX.getBlock(), ModBlockEntities.CHARGE_PAD, ModBlocks.BATTERY_BOX.getBlock()).setParamSet(LootContextParamSets.BLOCK).build());
+        tables.put(ModBlocks.CHARGE_PAD_CESU.getBlock().getLootTable(), createBlockEntityTableBreakable("charge_pad_cesu", ModBlocks.CHARGE_PAD_CESU.getBlock(), ModBlockEntities.CHARGE_PAD, ModBlocks.CESU.getBlock()).setParamSet(LootContextParamSets.BLOCK).build());
+        tables.put(ModBlocks.CHARGE_PAD_MFE.getBlock().getLootTable(), createBlockEntityTableBreakable("charge_pad_mfe", ModBlocks.CHARGE_PAD_MFE.getBlock(), ModBlockEntities.CHARGE_PAD, ModBlocks.MFE.getBlock()).setParamSet(LootContextParamSets.BLOCK).build());
+        tables.put(ModBlocks.CHARGE_PAD_MFSU.getBlock().getLootTable(), createBlockEntityTableBreakable("charge_pad_mfsu", ModBlocks.CHARGE_PAD_MFSU.getBlock(), ModBlockEntities.CHARGE_PAD, ModBlocks.MFSU.getBlock()).setParamSet(LootContextParamSets.BLOCK).build());
 
-
-
-
-
+        tables.put(ModBlocks.LV_TRANSFORMER.getBlock().getLootTable(), createStandardTable("lv_transformer", ModBlocks.LV_TRANSFORMER.getBlock()).setParamSet(LootContextParamSets.BLOCK).build());
+        tables.put(ModBlocks.MV_TRANSFORMER.getBlock().getLootTable(), createStandardTable("mv_transformer", ModBlocks.MV_TRANSFORMER.getBlock()).setParamSet(LootContextParamSets.BLOCK).build());
+        tables.put(ModBlocks.HV_TRANSFORMER.getBlock().getLootTable(), createStandardTable("hv_transformer", ModBlocks.HV_TRANSFORMER.getBlock()).setParamSet(LootContextParamSets.BLOCK).build());
+        tables.put(ModBlocks.EV_TRANSFORMER.getBlock().getLootTable(), createStandardTable("ev_transformer", ModBlocks.EV_TRANSFORMER.getBlock()).setParamSet(LootContextParamSets.BLOCK).build());
 
         writeTables(cache, tables);
     }

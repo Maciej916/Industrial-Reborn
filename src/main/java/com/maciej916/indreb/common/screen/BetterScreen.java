@@ -22,7 +22,6 @@ public class BetterScreen <T extends IndRebContainer> extends PanelScreen<T> {
         super(container, inventory, component);
     }
 
-
     @Override
     protected void init() {
         super.init();
@@ -39,7 +38,7 @@ public class BetterScreen <T extends IndRebContainer> extends PanelScreen<T> {
         if (getBlockEntity() instanceof IEnergyBlock energyBlock) {
             if (energyBlock.showInGui()) {
                 if (energyBlock.showVertical()) {
-                    addRenderableOnlyComponent(new GuiElectricBarVertical(this, energyBlock.leftOffsetVertical(), energyBlock.topOffsetVertical(), getBlockEntity().getEnergyStorage()));
+                    addRenderableOnlyComponent(new GuiElectricBarVertical(this, energyBlock.leftOffsetVertical(), energyBlock.topOffsetVertical(), getBlockEntity().getEnergyStorage(), getBlockEntity()));
                 } else {
                     addRenderableOnlyComponent(new GuiElectricBarHorizontal(this, energyBlock.leftOffsetHorizontal(), energyBlock.topOffsetHorizontal(), getBlockEntity().getEnergyStorage()));
                 }

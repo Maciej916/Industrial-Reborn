@@ -4,7 +4,6 @@ import com.maciej916.indreb.common.config.ServerConfig;
 import com.maciej916.indreb.common.entity.block.BlockEntityStandardMachine;
 import com.maciej916.indreb.common.receipe.impl.CompressingRecipe;
 import com.maciej916.indreb.common.registries.ModBlockEntities;
-import com.maciej916.indreb.common.registries.Config;
 import com.maciej916.indreb.common.registries.ModRecipeType;
 import com.maciej916.indreb.common.registries.ModSounds;
 import net.minecraft.core.BlockPos;
@@ -18,7 +17,7 @@ import java.util.Optional;
 public class BlockEntityCompressor extends BlockEntityStandardMachine {
 
     public BlockEntityCompressor(BlockPos pWorldPosition, BlockState pBlockState) {
-        super(ModBlockEntities.COMPRESSOR, pWorldPosition, pBlockState, ServerConfig.compressor_energy_capacity.get(), ServerConfig.basic_tier_transfer.get());
+        super(ModBlockEntities.COMPRESSOR, pWorldPosition, pBlockState, ServerConfig.compressor_energy_capacity.get());
     }
 
     @Override

@@ -3,6 +3,7 @@ package com.maciej916.indreb.common.util.wrench;
 import com.maciej916.indreb.common.energy.interfaces.IEnergy;
 import com.maciej916.indreb.common.energy.provider.EnergyNetwork;
 import com.maciej916.indreb.common.entity.block.IndRebBlockEntity;
+import com.maciej916.indreb.common.interfaces.item.IElectricItem;
 import com.maciej916.indreb.common.interfaces.wrench.IWrenchAction;
 import com.maciej916.indreb.common.item.base.ElectricItem;
 import com.maciej916.indreb.common.registries.ModCapabilities;
@@ -65,7 +66,13 @@ public class WrenchHelper {
                 return false;
             }
 
-            BlockState newState = blockState.setValue(BlockStateHelper.facingProperty, clickedFace);
+            BlockState newState;
+            if (player.isShiftKeyDown()) {
+                newState = blockState.setValue(BlockStateHelper.facingProperty, clickedFace.getOpposite());
+            } else {
+                newState = blockState.setValue(BlockStateHelper.facingProperty, clickedFace);
+            }
+
             world.setBlockAndUpdate(pos, newState);
 
             return true;
@@ -80,24 +87,13 @@ public class WrenchHelper {
         };
     }
 
-    public static IWrenchAction energyNetworkInfo() {
-        return (world, pos, blockState, player, clickedFace) -> {
-            if (world.isClientSide() || player.isCrouching()) return false;
-            EnergyNetwork net = CapabilityUtil.getCapabilityHelper(world, ModCapabilities.ENERGY_CORE).getIfPresent(e -> e.getNetworks().getNetwork(pos));
-            if (net != null) {
-                player.displayClientMessage(new TextComponent(net.toString()), false);
-            }
-            return false;
-        };
-    }
-
     public static boolean onWrenchUse(BlockState state, Level world, BlockPos pos, Player player, Direction clickedFace) {
         if (!state.isAir() && WrenchHelper.getWrenchActions().containsKey(state.getBlock())) {
             List<IWrenchAction> actions = WrenchHelper.getWrenchActions().get(state.getBlock()).getActions();
             boolean success = false;
 
             ItemStack itemStack = player.getItemInHand(player.getUsedItemHand());
-            if (itemStack.getItem() instanceof ElectricItem electricItem) {
+            if (itemStack.getItem() instanceof IElectricItem electricItem) {
                 IEnergy energy = electricItem.getEnergy(itemStack);
                 if (energy.energyStored() == 0) {
                     return false;
@@ -110,7 +106,7 @@ public class WrenchHelper {
             }
 
             if (success) {
-                if (itemStack.getItem() instanceof ElectricItem electricItem) {
+                if (itemStack.getItem() instanceof IElectricItem electricItem) {
                     IEnergy energy = electricItem.getEnergy(itemStack);
                     energy.consumeEnergy(50, false);
                     world.playSound(null, pos, ModSounds.ELECTRIC_WRENCH, SoundSource.NEUTRAL, 1F, 0.9F / (new Random().nextFloat() * 0.4F + 0.8F));
@@ -134,18 +130,33 @@ public class WrenchHelper {
 
     public static void dismantleBlock(BlockState state, Level world, BlockPos pos, BlockEntity be) {
         if (world instanceof ServerLevel serverLevel) {
-            Block.getDrops(state, serverLevel, pos, be).forEach((itemStack) -> {
-                CompoundTag tag = itemStack.getOrCreateTag();
-                if (be instanceof IndRebBlockEntity irb) {
-                    if (irb.hasEnergy()) {
-                        CompoundTag newTag = new CompoundTag();
-                        newTag.putString("id", itemStack.getItem().getRegistryName().toString());
-                        newTag.putInt("energy", irb.getEnergyStorage().energyStored());
-                        tag.put("BlockEntityTag", newTag);
-                    }
+
+
+            ItemStack drop = new ItemStack(state.getBlock());
+            CompoundTag tag = drop.getOrCreateTag();
+            if (be instanceof IndRebBlockEntity irb) {
+                if (irb.hasEnergy()) {
+                    CompoundTag newTag = new CompoundTag();
+                    newTag.putString("id", drop.getItem().getRegistryName().toString());
+                    newTag.putInt("energy", irb.getEnergyStorage().energyStored());
+                    tag.put("BlockEntityTag", newTag);
                 }
-                Block.popResource(serverLevel, pos, itemStack);
-            });
+            }
+            Block.popResource(serverLevel, pos, drop);
+
+
+//            Block.getDrops(state, serverLevel, pos, be).forEach((itemStack) -> {
+//                CompoundTag tag = itemStack.getOrCreateTag();
+//                if (be instanceof IndRebBlockEntity irb) {
+//                    if (irb.hasEnergy()) {
+//                        CompoundTag newTag = new CompoundTag();
+//                        newTag.putString("id", itemStack.getItem().getRegistryName().toString());
+//                        newTag.putInt("energy", irb.getEnergyStorage().energyStored());
+//                        tag.put("BlockEntityTag", newTag);
+//                    }
+//                }
+//                Block.popResource(serverLevel, pos, itemStack);
+//            });
         }
         world.removeBlock(pos, false);
     }

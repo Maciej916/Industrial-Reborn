@@ -41,6 +41,14 @@
     "indreb:advanced_machine_casing",
     "indreb:resin_sheet",
     "indreb:rubber_sheet",
-    "indreb:luminator"
+    "indreb:luminator",
+    "indreb:charge_pad_battery_box",
+    "indreb:charge_pad_cesu",
+    "indreb:charge_pad_mfe",
+    "indreb:charge_pad_mfsu",
+    "indreb:lv_transformer",
+    "indreb:mv_transformer",
+    "indreb:hv_transformer",
+    "indreb:ev_transformer"
   ]
 }

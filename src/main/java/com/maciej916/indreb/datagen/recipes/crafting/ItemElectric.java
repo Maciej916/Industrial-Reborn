@@ -36,7 +36,7 @@ public class ItemElectric extends RecipeProvider {
                 .define('r', Items.REDSTONE)
                 .define('T', ItemTags.bind("forge:plates/tin"))
                 .group(MODID)
-                .unlockedBy("item", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.COPPER_CABLE_INSULATED))
+                .unlockedBy("copper_cable_insulated", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.COPPER_CABLE_INSULATED))
                 .save(consumer, saveResource("battery"));
 
         ShapedRecipeBuilder.shaped(ModItems.ADVANCED_BATTERY)
@@ -49,7 +49,7 @@ public class ItemElectric extends RecipeProvider {
                 .define('p', ItemTags.bind("forge:plates/copper"))
                 .group(MODID)
                 .unlockedBy("battery", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.BATTERY))
-                .unlockedBy("copper_cable", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.COPPER_CABLE_INSULATED))
+                .unlockedBy("copper_cable_insulated", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.COPPER_CABLE_INSULATED))
                 .save(consumer, saveResource("advanced_battery"));
 
         ShapedRecipeBuilder.shaped(ModItems.LAPOTRON_CRYSTAL)
@@ -60,8 +60,8 @@ public class ItemElectric extends RecipeProvider {
                 .define('l', Items.LAPIS_LAZULI)
                 .define('a', ModItems.ADVANCED_CIRCUIT)
                 .group(MODID)
-                .unlockedBy("energy", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.ENERGY_CRYSTAL))
-                .unlockedBy("circuit", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.ADVANCED_CIRCUIT))
+                .unlockedBy("energy_crystal", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.ENERGY_CRYSTAL))
+                .unlockedBy("advanced_circuit", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.ADVANCED_CIRCUIT))
                 .save(consumer, saveResource("lapotron_crystal"));
 
         ShapedRecipeBuilder.shaped(ModItems.NANO_SABER)
@@ -188,7 +188,7 @@ public class ItemElectric extends RecipeProvider {
                 .pattern(" t ")
                 .pattern("tbt")
                 .pattern(" ts")
-                .define('t', ModItems.TIN_PLATE)
+                .define('t', ItemTags.bind("forge:plates/tin"))
                 .define('b', ModItems.BRONZE_PLATE)
                 .define('s', ModItems.SMALL_POWER_UNIT)
                 .group(MODID)
@@ -218,7 +218,55 @@ public class ItemElectric extends RecipeProvider {
                 .unlockedBy("electric_hoe", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.ELECTRIC_HOE))
                 .save(consumer, saveResource("multi_tool"));
 
+        ShapedRecipeBuilder.shaped(ModItems.CHARGING_BATTERY)
+                .pattern("ebe")
+                .pattern("b b")
+                .pattern("ebe")
+                .define('e', ModItems.ELECTRONIC_CIRCUIT)
+                .define('b', ModItems.BATTERY)
+                .group(MODID)
+                .unlockedBy("electronic_circuit", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.ELECTRONIC_CIRCUIT))
+                .unlockedBy("battery", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.BATTERY))
+                .save(consumer, saveResource("charging_battery"));
 
+        ShapedRecipeBuilder.shaped(ModItems.ADVANCED_CHARGING_BATTERY)
+                .pattern("hah")
+                .pattern("aca")
+                .pattern("hah")
+                .define('h', ModItems.HEAT_EXCHANGER)
+                .define('a', ModItems.ADVANCED_BATTERY)
+                .define('c', ModItems.CHARGING_BATTERY)
+                .group(MODID)
+                .unlockedBy("heat_exchanger", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.HEAT_EXCHANGER))
+                .unlockedBy("advanced_battery", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.ADVANCED_BATTERY))
+                .unlockedBy("charging_battery", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.CHARGING_BATTERY))
+                .save(consumer, saveResource("advanced_charging_battery"));
+
+        ShapedRecipeBuilder.shaped(ModItems.CHARGING_ENERGY_CRYSTAL)
+                .pattern("hah")
+                .pattern("aca")
+                .pattern("hah")
+                .define('h', ModItems.COMPONENT_HEAT_EXCHANGER)
+                .define('a', ModItems.ENERGY_CRYSTAL)
+                .define('c', ModItems.ADVANCED_CHARGING_BATTERY)
+                .group(MODID)
+                .unlockedBy("component_heat_exchanger", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.COMPONENT_HEAT_EXCHANGER))
+                .unlockedBy("energy_crystal", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.ENERGY_CRYSTAL))
+                .unlockedBy("advanced_charging_battery", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.ADVANCED_CHARGING_BATTERY))
+                .save(consumer, saveResource("charging_energy_crystal"));
+
+        ShapedRecipeBuilder.shaped(ModItems.CHARGING_LAPOTRON_CRYSTAL)
+                .pattern("hah")
+                .pattern("aca")
+                .pattern("hah")
+                .define('h', ModItems.ADVANCED_HEAT_EXCHANGER)
+                .define('a', ModItems.LAPOTRON_CRYSTAL)
+                .define('c', ModItems.CHARGING_ENERGY_CRYSTAL)
+                .group(MODID)
+                .unlockedBy("advanced_heat_exchanger", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.ADVANCED_HEAT_EXCHANGER))
+                .unlockedBy("lapotron_crystal", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.LAPOTRON_CRYSTAL))
+                .unlockedBy("charging_energy_crystal", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.CHARGING_ENERGY_CRYSTAL))
+                .save(consumer, saveResource("charging_lapotron_crystal"));
 
 
     }

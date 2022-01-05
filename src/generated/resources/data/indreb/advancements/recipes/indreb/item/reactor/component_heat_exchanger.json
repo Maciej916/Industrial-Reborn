@@ -1,0 +1,47 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "indreb:item/reactor/component_heat_exchanger"
+    ]
+  },
+  "criteria": {
+    "gold_plate": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:gold_plate"
+            ]
+          }
+        ]
+      }
+    },
+    "heat_exchanger": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:heat_exchanger"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "indreb:item/reactor/component_heat_exchanger"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "gold_plate",
+      "heat_exchanger",
+      "has_the_recipe"
+    ]
+  ]
+}

@@ -1,12 +1,14 @@
 {
-  "_comment": "Tooltip",
+  "_comment": "Global",
   "itemGroup.indreb": "Industrial Reborn",
 
   "indreb.generic": "%s",
 
+  "_comment": "Energy",
   "energy.indreb.power": "%s IE",
   "energy.indreb.power_tick": "%s IE/t",
 
+  "_comment": "Tier",
   "tier.indreb.basic": "Básico",
   "tier.indreb.standard": "Comum",
   "tier.indreb.advanced": "Avançado",
@@ -14,19 +16,21 @@
   "tier.indreb.ultra": "Ultra",
   "tier.indreb.creative": "Criativo",
 
+  "_comment": "GUI",
   "gui.indreb.energy": "%s / %s IE",
-  "gui.indreb.fluid": "%s: %s/%s mB",
+  "gui.indreb.fluid": "%s: %s / %s mB",
   "gui.indreb.fluid_empty": "Vazio",
 
   "gui.indreb.progress": "Progresso %s/%s",
   "gui.indreb.fuelBurnTimeProgress": "Tempo de queima do combustível %s/%s",
   "gui.indreb.heat": "Calor: %s",
   "gui.indreb.armour": "Armadura",
-
+  "gui.indreb.waste": "Consumo: %s",
 
   "gui.indreb.can_operate_in": "Pode produzir em %ss",
   "gui.indreb.can_operate": "Essa máquina esta pronta!",
 
+  "_comment": "Block",
   "block.indreb.generator": "Gerador",
   "block.indreb.geo_generator": "Gerador geotérmico",
   "block.indreb.solar_generator": "Generador solar",
@@ -34,13 +38,14 @@
   "block.indreb.hybrid_solar_generator": "Painel solar híbrido",
   "block.indreb.quantum_solar_generator": "Painel solar quântico",
   "block.indreb.crystalline_generator": "Gerador cristalino",
+  "block.indreb.semifluid_generator": "Gerador de Semifluído",
 
   "block.indreb.iron_furnace": "Fornalha de ferro",
   "block.indreb.electric_furnace": "Fornalha elétrica",
   "block.indreb.crusher": "Macerador",
   "block.indreb.compressor": "Compressor",
   "block.indreb.extractor": "Extrator",
-  "block.indreb.extruder": "Extrudora",
+  "block.indreb.extruder": "Extrusora",
   "block.indreb.sawmill": "Serraria",
   "block.indreb.canning_machine": "Enlatadora",
   "block.indreb.fluid_enricher": "Enriquecedora de fluídos",
@@ -48,6 +53,9 @@
 
   "block.indreb.tin_ore": "Minério de estanho",
   "block.indreb.deepslate_tin_ore": "Minério de estanho de ardósia",
+  "block.indreb.lead_ore": "Minério de chumbo",
+  "block.indreb.deepslate_lead_ore": "Minério de chumbo de ardósia",
+  "block.indreb.deepslate_uranium_ore": "Minério de urânio de ardósia",
 
   "block.indreb.tin_block": "Bloco de estanho",
   "block.indreb.bronze_block": "Bloco de bronze",
@@ -89,8 +97,10 @@
   "block.indreb.iron_fence": "Cerca de ferro",
 
   "block.indreb.luminator": "Luminária",
-  "block.indreb.recycler": "Recycler",
+  "block.indreb.recycler": "Reciclador",
+  "block.indreb.fermenter": "Fermentador",
 
+  "_comment": "Rubber Wood",
   "block.indreb.rubber_sapling": "Muda de seringueira",
   "block.indreb.rubber_planks": "Tábuas de seringueira",
   "block.indreb.rubber_leaves": "Folhas de seringueira",
@@ -100,6 +110,7 @@
   "block.indreb.rubber_slab": "Laje de seringueira",
 
 
+  "_comment": "Cable",
   "block.indreb.tin_cable": "Cabo de estanho",
   "block.indreb.tin_cable_insulated": "Cabo de estanho isolado",
   "block.indreb.copper_cable": "Cabo de cobre",
@@ -110,15 +121,21 @@
   "block.indreb.hv_cable_insulated": "Cabo AT isolado",
   "block.indreb.glass_fibre_cable": "Cabo de fibra de vidro",
 
+  "_comment": "Item",
   "item.indreb.sticky_resin": "Resina pegajosa",
   "item.indreb.rubber": "Borracha",
   "item.indreb.sawdust": "Serragem",
 
   "item.indreb.raw_tin": "Estanho bruto",
+  "item.indreb.raw_lead": "Chumbo bruto",
+  "item.indreb.uranium": "Urânio",
+  
   "item.indreb.tin_ingot": "Barra de estanho",
   "item.indreb.bronze_ingot": "Barra de bronze",
   "item.indreb.silver_ingot": "Barra de prata",
   "item.indreb.steel_ingot": "Barra de aço",
+  "item.indreb.lead_ingot": "Barra de chumbo",
+  "item.indreb.refined_uranium": "Urânio refinado",
   "item.indreb.mixed_metal_ingot": "Liga de metais",
 
   "item.indreb.crushed_tin": "Estanho triturado",
@@ -179,6 +196,7 @@
   "item.indreb.lapotron_crystal": "Cristal lapotron",
 
   "item.indreb.fluid_cell": "Célula de fluído",
+  "item.indreb.empty_fluid": "< Vazio >",
 
   "item.indreb.painter": "Rolo de tinta",
   "item.indreb.painter_white": "Rolo de tinta branca",
@@ -204,16 +222,16 @@
   "item.indreb.electric_wrench": "Chave elétrica",
   "item.indreb.chainsaw": "Motoserra",
   "item.indreb.diamond_chainsaw": "Motoserra de diamante",
-  "item.indreb.iridium_chainsaw": "§bMotoserra de irídio",
+  "item.indreb.iridium_chainsaw": "Motoserra de irídio",
   "item.indreb.mining_drill": "Escavadora",
   "item.indreb.diamond_drill": "Escavadora de diamante",
-  "item.indreb.iridium_drill": "§bEscavadora de irídio",
+  "item.indreb.iridium_drill": "Escavadora de irídio",
   "item.indreb.electric_hoe": "Enxada elétrica",
   "item.indreb.wind_meter": "Anenômetro",
   "item.indreb.ie_meter": "Medidor de IE",
   "item.indreb.foam_sprayer": "Spray de espuma",
-  "item.indreb.iridium_shard": "§bPedaço de irídio",
-  "item.indreb.iridium": "§bIrídio",
+  "item.indreb.iridium_shard": "Fragmento de irídio",
+  "item.indreb.iridium": "Irídio",
   "item.indreb.multi_tool": "Chave multi ferramentas",
   "item.indreb.coil": "Bobina",
   "item.indreb.electric_motor": "Motor elétrico",
@@ -221,32 +239,51 @@
   "item.indreb.filled_tin_can": "Comida enlatada (Cheia)",
   "item.indreb.scrap": "Sucata",
   "item.indreb.scrap_box": "Caixa de sucatas",
-
+  "item.indreb.bio_chaff": "Pilha biótica",
+  "item.indreb.foam_powder": "Pó de espuma de construção",
+  "item.indreb.reinforced_foam_powder": "Pó de espuma de construção reforçado",
+  "item.indreb.fertilizer": "Fertilizante",
+  "item.indreb.heat_conductor": "Condutor de calor",
+  
   "item.indreb.treetap": "Treetap",
   "item.indreb.wrench": "Chave inglesa",
   "item.indreb.hammer": "Martelo",
   "item.indreb.cutter": "Alicate",
 
+  "_comment": "Battery Box",
   "block.indreb.battery_box": "Caixa de baterias",
   "block.indreb.cesu": "CESU",
   "block.indreb.mfe": "MFE",
   "block.indreb.mfsu": "MFSU",
 
+  "_comment": "Energy Converter",
   "block.indreb.wooden_energy_converter": "Conversor de energia de madeira",
 
+  "_comment": "Fluid",
+  "fluid.indreb.construction_foam": "Espuma de construção",
+  "fluid.indreb.reinforced_construction_foam": "Espuma de construção reforçada",
+  "fluid.indreb.coolant": "Refrigerante",
+  "fluid.indreb.biomass": "Biomassa",
+  "fluid.indreb.biogas": "Biogás",
+
+  "_comment": "JEI",
   "jei.indreb.crushing": "Maceração",
   "jei.indreb.compressing": "Compressão",
   "jei.indreb.extracting": "Extração",
   "jei.indreb.sawing": "Serração",
   "jei.indreb.extruding": "Extrusão",
   "jei.indreb.alloy_smelting": "Fundição",
-  "jei.indreb.recycling": "Recycling",
-  "jei.indreb.scrap_box": "Scrap Box",
+  "jei.indreb.recycling": "Reciclando",
+  "jei.indreb.scrap_box": "Caixa de sucatas",
+  "jei.indreb.canning": "Enlatando",
+  "jei.indreb.fluid_enriching": "Enriquecendo fluído",
 
   "jei.indreb.chance": "Chance: %s",
 
+  "_comment": "GUI",
   "gui.indreb.collect_exp": "Coletar XP",
 
+  "_comment": "Tooltip",
   "tooltip.indreb.wip": "Trabalho em progresso!",
 
   "tooltip.indreb.power_tier": "Nível energético: %s",
@@ -262,9 +299,36 @@
   "tooltip.indreb.stored_capacity": "Armazenado: %s Capacidade: %s",
 
   "tooltip.indreb.cable_unisolated": "Esse cabo pode te eletrocutar!",
+  
+  "_comment": "Upgrade",
+  "item.indreb.overclocker_upgrade": "Melhoria de overclock",
+  "item.indreb.transformer_upgrade": "Melhoria de transformador",
+  "item.indreb.energy_storage_upgrade": "Melhoria do armazenamento de energia",
+  "item.indreb.redstone_signal_inverter_upgrade": "Melhoria de inversor de sinal de redstone",
+  "item.indreb.ejector_upgrade": "Melhoria de saída",
+  "item.indreb.pulling_upgrade": "Melhoria de entrada",
+  "item.indreb.fluid_ejector_upgrade": "Melhoria de saída de fluídos",
+  "item.indreb.fluid_pulling_upgrade": "Melhoria de entrada de fluídos",
+  "item.indreb.advanced_ejector_upgrade": "Melhoria de saída avançada",
+  "item.indreb.advanced_pulling_upgrade": "Melhoria de entrada avançada",
+  "item.indreb.advanced_fluid_ejector_upgrade": "Melhoria de saída de fluídos avançada",
+  "item.indreb.advanced_fluid_pulling_upgrade": "Melhoria de entrada de fluídos avançada",
 
+  "dir.indreb.all": "Primeiro válido",
+  "dir.indreb.up": "Cima",
+  "dir.indreb.down": "Baixo",
+  "dir.indreb.north": "Norte",
+  "dir.indreb.south": "Sul",
+  "dir.indreb.east": "Leste",
+  "dir.indreb.west": "Oeste",
 
+  "ejector.indreb.dir": "Automatically output to %s side",
+  "pulling.indreb.dir": "Automatically input %s side",
+  "fluid_ejector.indreb.dir": "Automatically output fluid to %s side",
+  "fluid_pulling.indreb.dir": "Automatically input fluid from %s side",
 
+  "speed.indreb.factor": "Diminui o tempo de processamento para %s",
+  "power.indreb.factor": "Aumenta a energia para %s",
 
   "test.indreb.test": "%s"
 }

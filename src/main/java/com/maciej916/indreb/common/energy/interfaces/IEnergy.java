@@ -1,6 +1,7 @@
 package com.maciej916.indreb.common.energy.interfaces;
 
-import com.maciej916.indreb.common.enums.EnumEnergyType;
+import com.maciej916.indreb.common.enums.EnergyTier;
+import com.maciej916.indreb.common.enums.EnergyType;
 import net.minecraft.core.Direction;
 
 public interface IEnergy {
@@ -8,7 +9,7 @@ public interface IEnergy {
     int energyStored();
     int maxEnergy();
     int setEnergy(int amount);
-    int setMaxEnergy(int amount);
+    void setMaxEnergy(int amount);
 
     default boolean canReceiveEnergy() {
         return canReceiveEnergy(null);
@@ -28,10 +29,7 @@ public interface IEnergy {
     default int receiveEnergy(Direction side, int amount, boolean simulate) {
         if (!canReceiveEnergy(side) && side != null) return 0;
         int received = Math.min(amount, maxReceive());
-        if (!simulate) {
-            setEnergy(energyStored() + received);
-            updated();
-        }
+        if (!simulate) setEnergy(energyStored() + received);
         return received;
     }
 
@@ -53,10 +51,7 @@ public interface IEnergy {
     default int extractEnergy(Direction side, int amount, boolean simulate) {
         if (!canExtractEnergy(side) && side != null) return 0;
         int extracted = Math.min(energyStored(), Math.min(maxExtract(), amount));
-        if (!simulate) {
-            setEnergy(energyStored() - extracted);
-            updated();
-        }
+        if (!simulate) setEnergy(energyStored() - extracted);
         return extracted;
     }
 
@@ -73,7 +68,11 @@ public interface IEnergy {
         return energy;
     }
 
-    EnumEnergyType energyType();
+    EnergyType energyType();
+
+    EnergyTier energyTier();
+    void setEnergyTier(EnergyTier tier);
+
     default void updated() {};
 
 }

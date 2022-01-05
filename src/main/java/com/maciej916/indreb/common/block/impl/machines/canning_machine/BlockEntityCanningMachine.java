@@ -6,9 +6,7 @@ import com.maciej916.indreb.common.entity.block.BlockEntityProgress;
 import com.maciej916.indreb.common.entity.block.IndRebBlockEntity;
 import com.maciej916.indreb.common.entity.slot.IndRebSlot;
 import com.maciej916.indreb.common.entity.slot.SlotBattery;
-import com.maciej916.indreb.common.enums.EnergyTier;
-import com.maciej916.indreb.common.enums.GuiSlotType;
-import com.maciej916.indreb.common.enums.InventorySlotType;
+import com.maciej916.indreb.common.enums.*;
 import com.maciej916.indreb.common.interfaces.entity.IElectricSlot;
 import com.maciej916.indreb.common.interfaces.entity.IExpCollector;
 import com.maciej916.indreb.common.interfaces.entity.ISupportUpgrades;
@@ -37,8 +35,6 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
-import static com.maciej916.indreb.common.enums.EnumEnergyType.RECEIVE;
-
 public class BlockEntityCanningMachine extends IndRebBlockEntity implements IEnergyBlock, IExpCollector, ISupportUpgrades, ITileSound {
 
     public static final int INPUT_SLOT_0 = 0;
@@ -53,7 +49,7 @@ public class BlockEntityCanningMachine extends IndRebBlockEntity implements IEne
 
     public BlockEntityCanningMachine(BlockPos pWorldPosition, BlockState pBlockState) {
         super(ModBlockEntities.CANNING_MACHINE, pWorldPosition, pBlockState);
-        createEnergyStorage(0, ServerConfig.canning_machine_energy_capacity.get(), ServerConfig.basic_tier_transfer.get(), 0, RECEIVE);
+        createEnergyStorage(0, ServerConfig.canning_machine_energy_capacity.get(), EnergyType.RECEIVE, EnergyTier.BASIC);
     }
 
     @Override
@@ -66,7 +62,7 @@ public class BlockEntityCanningMachine extends IndRebBlockEntity implements IEne
 
     @Override
     public ArrayList<IElectricSlot> addBatterySlot(ArrayList<IElectricSlot> slots) {
-        slots.add(new SlotBattery(0, 152, 62, false, List.of(EnergyTier.STANDARD)));
+        slots.add(new SlotBattery(0, 152, 62, false));
         return super.addBatterySlot(slots);
     }
 
@@ -98,6 +94,7 @@ public class BlockEntityCanningMachine extends IndRebBlockEntity implements IEne
     @Override
     public void tickOperate(BlockState state) {
         active = false;
+        getEnergyStorage().updateConsumed(0);
 
         final ItemStack inputStack0 = getStackHandler().getStackInSlot(INPUT_SLOT_0);
         final ItemStack inputStack1 = getStackHandler().getStackInSlot(INPUT_SLOT_1);
@@ -119,14 +116,15 @@ public class BlockEntityCanningMachine extends IndRebBlockEntity implements IEne
                 progress.setData(0, recipe.getDuration());
             }
 
-            float progressSpeed = getSpeedFactor();
+            progress.setProgressMax(getSpeedFactor() * recipe.getDuration());
             int energyCost = (int) (recipe.getPowerCost() * getEnergyUsageFactor());
 
             if (canWork(outputStack, recipe.getResultItem())) {
                 if (getEnergyStorage().consumeEnergy(energyCost, true) == energyCost && progress.getProgress() <= progress.getProgressMax()) {
                     active = true;
-                    progress.incProgress(progressSpeed);
+                    progress.incProgress(1);
                     getEnergyStorage().consumeEnergy(energyCost, false);
+                    getEnergyStorage().updateConsumed(energyCost);
                 }
 
                 if (progress.getProgress() >= progress.getProgressMax()) {
@@ -229,4 +227,8 @@ public class BlockEntityCanningMachine extends IndRebBlockEntity implements IEne
         return ModSounds.CANNING_MACHINE;
     }
 
+    @Override
+    public List<UpgradeType> getSupportedUpgrades() {
+        return List.of(UpgradeType.OVERCLOCKER, UpgradeType.TRANSFORMER, UpgradeType.ENERGY_STORAGE, UpgradeType.EJECTOR, UpgradeType.PULLING, UpgradeType.REDSTONE_SIGNAL_INVERTER);
+    }
 }

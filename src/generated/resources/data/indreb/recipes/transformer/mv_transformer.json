@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "indreb",
+  "pattern": [
+    "g",
+    "b",
+    "g"
+  ],
+  "key": {
+    "g": {
+      "item": "indreb:gold_cable_insulated"
+    },
+    "b": {
+      "item": "indreb:basic_machine_casing"
+    }
+  },
+  "result": {
+    "item": "indreb:mv_transformer"
+  }
+}

@@ -17,7 +17,7 @@ import java.util.Optional;
 public class BlockEntityExtractor extends BlockEntityStandardMachine {
 
     public BlockEntityExtractor(BlockPos pWorldPosition, BlockState pBlockState) {
-        super(ModBlockEntities.EXTRACTOR, pWorldPosition, pBlockState, ServerConfig.extractor_energy_capacity.get(), ServerConfig.basic_tier_transfer.get());
+        super(ModBlockEntities.EXTRACTOR, pWorldPosition, pBlockState, ServerConfig.extractor_energy_capacity.get());
     }
 
     @Override

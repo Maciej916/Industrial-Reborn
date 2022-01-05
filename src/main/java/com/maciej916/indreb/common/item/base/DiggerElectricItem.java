@@ -3,7 +3,7 @@ package com.maciej916.indreb.common.item.base;
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;
 import com.maciej916.indreb.common.enums.EnergyTier;
-import com.maciej916.indreb.common.enums.EnumEnergyType;
+import com.maciej916.indreb.common.enums.EnergyType;
 import net.minecraft.core.BlockPos;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.Tag;
@@ -14,12 +14,9 @@ import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Tier;
-import net.minecraft.world.item.Vanishable;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
-
-import java.util.ArrayList;
 
 public class DiggerElectricItem extends TieredElectricItem {
     private final Tag<Block> blocks;
@@ -27,7 +24,7 @@ public class DiggerElectricItem extends TieredElectricItem {
     private final float attackDamageBaseline;
     private final Multimap<Attribute, AttributeModifier> defaultModifiers;
 
-    public DiggerElectricItem(Tier tier, float attackDamage, float attackSpeed, Tag<Block> blocks, Properties properties, int energyStored, int maxEnergy, EnumEnergyType energyType, EnergyTier energyTier) {
+    public DiggerElectricItem(Tier tier, float attackDamage, float attackSpeed, Tag<Block> blocks, Properties properties, int energyStored, int maxEnergy, EnergyType energyType, EnergyTier energyTier) {
         super(tier, properties, energyStored, maxEnergy, energyType, energyTier);
         this.blocks = blocks;
         this.speed = tier.getSpeed();

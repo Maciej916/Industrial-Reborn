@@ -1,8 +1,8 @@
 package com.maciej916.indreb.common.item.block;
 
-import com.maciej916.indreb.common.block.BlockElectricMachine;
 import com.maciej916.indreb.common.enums.EnergyTier;
 import com.maciej916.indreb.common.enums.EnumLang;
+import com.maciej916.indreb.common.interfaces.block.IElectricMachine;
 import com.maciej916.indreb.common.registries.ModItemGroups;
 import com.maciej916.indreb.common.util.TextComponentUtil;
 import net.minecraft.ChatFormatting;
@@ -33,7 +33,7 @@ public class BlockItemElectric extends BlockItem {
         if (tag.get("BlockEntityTag") instanceof CompoundTag ct) {
             int energy = ct.getInt("energy");
             if (energy > 0) {
-                if (getBlock() instanceof BlockElectricMachine bem) {
+                if (getBlock() instanceof IElectricMachine bem) {
                     EnergyTier energyTier = bem.getEnergyTier();
 
                     componentList.add(TextComponentUtil.build(

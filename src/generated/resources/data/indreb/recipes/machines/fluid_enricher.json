@@ -8,7 +8,7 @@
   ],
   "key": {
     "p": {
-      "item": "indreb:tin_plate"
+      "tag": "forge:plates/tin"
     },
     "b": {
       "item": "indreb:basic_machine_casing"

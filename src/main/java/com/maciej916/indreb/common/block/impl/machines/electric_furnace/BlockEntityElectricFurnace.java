@@ -6,14 +6,11 @@ import com.maciej916.indreb.common.entity.block.BlockEntityProgress;
 import com.maciej916.indreb.common.entity.block.IndRebBlockEntity;
 import com.maciej916.indreb.common.entity.slot.SlotBattery;
 import com.maciej916.indreb.common.entity.slot.IndRebSlot;
-import com.maciej916.indreb.common.enums.EnergyTier;
-import com.maciej916.indreb.common.enums.GuiSlotType;
-import com.maciej916.indreb.common.enums.InventorySlotType;
+import com.maciej916.indreb.common.enums.*;
 import com.maciej916.indreb.common.interfaces.entity.IExpCollector;
 import com.maciej916.indreb.common.interfaces.entity.IElectricSlot;
 import com.maciej916.indreb.common.interfaces.entity.ISupportUpgrades;
 import com.maciej916.indreb.common.registries.ModBlockEntities;
-import com.maciej916.indreb.common.registries.Config;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
@@ -36,7 +33,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
-import static com.maciej916.indreb.common.enums.EnumEnergyType.RECEIVE;
+import static com.maciej916.indreb.common.enums.EnergyType.RECEIVE;
 
 public class BlockEntityElectricFurnace extends IndRebBlockEntity implements IEnergyBlock, IExpCollector, ISupportUpgrades {
 
@@ -52,7 +49,7 @@ public class BlockEntityElectricFurnace extends IndRebBlockEntity implements IEn
 
     public BlockEntityElectricFurnace(BlockPos pWorldPosition, BlockState pBlockState) {
         super(ModBlockEntities.ELECTRIC_FURNACE, pWorldPosition, pBlockState);
-        createEnergyStorage(0, ServerConfig.electric_furnace_energy_capacity.get(), ServerConfig.basic_tier_transfer.get(), 0, RECEIVE);
+        createEnergyStorage(0, ServerConfig.electric_furnace_energy_capacity.get(), EnergyType. RECEIVE, EnergyTier.BASIC);
     }
 
     protected Optional<SmeltingRecipe> getRecipe(ItemStack input) {
@@ -80,6 +77,7 @@ public class BlockEntityElectricFurnace extends IndRebBlockEntity implements IEn
     public void tickOperate(BlockState state) {
         progress.clearChanged();
         active = false;
+        getEnergyStorage().updateConsumed(0);
 
         final ItemStack inputStack = getStackHandler().getStackInSlot(INPUT_SLOT);
         final ItemStack outputStack = getStackHandler().getStackInSlot(OUTPUT_SLOT);
@@ -96,10 +94,15 @@ public class BlockEntityElectricFurnace extends IndRebBlockEntity implements IEn
 
         if (furnaceRecipe != null) {
             if (canSmelt(inputStack, outputStack, resultStack) && progress.getProgress() != -1) {
-                if (getEnergyStorage().consumeEnergy(ServerConfig.electric_furnace_tick_usage.get(), true) == ServerConfig.electric_furnace_tick_usage.get()) {
+
+                progress.setProgressMax(getSpeedFactor() * furnaceRecipe.getCookingTime());
+                int energyCost = (int) (ServerConfig.electric_furnace_tick_usage.get() * getEnergyUsageFactor());
+
+                if (getEnergyStorage().consumeEnergy(energyCost, true) == energyCost) {
                     active = true;
                     progress.incProgress(1);
-                    getEnergyStorage().consumeEnergy(ServerConfig.electric_furnace_tick_usage.get(), false);
+                    getEnergyStorage().consumeEnergy(energyCost, false);
+                    getEnergyStorage().updateConsumed(energyCost);
                 }
 
                 if (progress.getProgress() >= progress.getProgressMax()) {
@@ -170,7 +173,7 @@ public class BlockEntityElectricFurnace extends IndRebBlockEntity implements IEn
 
     @Override
     public ArrayList<IElectricSlot> addBatterySlot(ArrayList<IElectricSlot> slots) {
-        slots.add(new SlotBattery(0, 152, 62, false, List.of(EnergyTier.BASIC)));
+        slots.add(new SlotBattery(0, 152, 62, false));
         return super.addBatterySlot(slots);
     }
 
@@ -209,5 +212,10 @@ public class BlockEntityElectricFurnace extends IndRebBlockEntity implements IEn
     public void onBreak() {
         for (LazyOptional<?> capability : capabilities) capability.invalidate();
         super.onBreak();
+    }
+
+    @Override
+    public List<UpgradeType> getSupportedUpgrades() {
+        return List.of(UpgradeType.OVERCLOCKER, UpgradeType.TRANSFORMER, UpgradeType.ENERGY_STORAGE, UpgradeType.EJECTOR, UpgradeType.PULLING, UpgradeType.REDSTONE_SIGNAL_INVERTER);
     }
 }

@@ -3,7 +3,7 @@ package com.maciej916.indreb.common.item.base;
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;
 import com.maciej916.indreb.common.enums.EnergyTier;
-import com.maciej916.indreb.common.enums.EnumEnergyType;
+import com.maciej916.indreb.common.enums.EnergyType;
 import net.minecraft.core.BlockPos;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -23,7 +23,7 @@ public class SwordElectricItem extends TieredElectricItem {
     private final float attackDamage;
     private final Multimap<Attribute, AttributeModifier> defaultModifiers;
 
-    public SwordElectricItem(Tier tier, int damage, float speed, Properties properties, int energyStored, int maxEnergy, EnumEnergyType energyType, EnergyTier energyTier) {
+    public SwordElectricItem(Tier tier, int damage, float speed, Properties properties, int energyStored, int maxEnergy, EnergyType energyType, EnergyTier energyTier) {
         super(tier, properties, energyStored, maxEnergy, energyType, energyTier);
         this.attackDamage = (float)damage + tier.getAttackDamageBonus();
         ImmutableMultimap.Builder<Attribute, AttributeModifier> builder = ImmutableMultimap.builder();

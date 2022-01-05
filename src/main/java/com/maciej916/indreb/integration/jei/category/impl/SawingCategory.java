@@ -105,7 +105,7 @@ public class SawingCategory extends AbstractRecipeCategory<SawingRecipe> {
         @Override
         public void onTooltip(int slotIndex, boolean input, ItemStack ingredient, List<Component> tooltip) {
             if (slotIndex == 2 && recipe.hasBonus()) {
-                tooltip.add(new TranslatableComponent(EnumLang.CHANCE.getTranslationKey(), recipe.getBonus().getChance() + "%").withStyle(ChatFormatting.BLUE));
+                tooltip.add(new TranslatableComponent(EnumLang.CHANCE.getTranslationKey(), (Math.round(recipe.getBonus().getChance() * 100.0) / 100.0) + "%").withStyle(ChatFormatting.BLUE));
             }
         }
     }

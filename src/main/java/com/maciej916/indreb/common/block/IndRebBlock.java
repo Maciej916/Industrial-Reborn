@@ -21,6 +21,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.BlockPlaceContext;
+import net.minecraft.world.level.Explosion;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Mirror;
@@ -126,6 +127,19 @@ public class IndRebBlock extends Block {
         }
 
         super.onRemove(pState, pLevel, pPos, pNewState, pIsMoving);
+    }
+
+    @Override
+    public void onBlockExploded(BlockState state, Level world, BlockPos pos, Explosion explosion) {
+        if (world.isClientSide()) return;
+        if (state.hasBlockEntity()) {
+            BlockEntity be = world.getBlockEntity(pos);
+            if (be instanceof IEnergyBlock) {
+                CapabilityUtil.getCapabilityHelper(world, ModCapabilities.ENERGY_CORE).ifPresent(e -> e.removeEnergyBlock(pos));
+            }
+        }
+
+        super.onBlockExploded(state, world, pos, explosion);
     }
 
 }

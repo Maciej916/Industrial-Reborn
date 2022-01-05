@@ -6,12 +6,14 @@ import com.maciej916.indreb.common.fluids.ConstructionFoam;
 import com.maciej916.indreb.common.fluids.ReinforcedConstructionFoam;
 import com.maciej916.indreb.common.item.base.FluidItem;
 import com.maciej916.indreb.common.registries.ModBlocks;
+import com.maciej916.indreb.common.registries.ModCapabilities;
 import com.maciej916.indreb.common.registries.ModItemGroups;
 import com.maciej916.indreb.common.util.CapabilityUtil;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.NonNullList;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.util.Mth;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.CreativeModeTab;
@@ -187,5 +189,25 @@ public class FoamSprayer extends FluidItem {
         }
 
         return blockPos;
+    }
+
+    public static float getFillRatio(ItemStack stack) {
+        return CapabilityUtil.getCapabilityHelper(stack, CapabilityFluidHandler.FLUID_HANDLER_ITEM_CAPABILITY).getIfPresentElse(e -> (float) e.getFluidInTank(1).getAmount() / e.getTankCapacity(1), 0f);
+    }
+
+    @Override
+    public int getBarWidth(ItemStack stack) {
+        return Math.round(13.0F - ((1 - getFillRatio(stack)) * 13.0F));
+    }
+
+    @Override
+    public boolean isBarVisible(ItemStack stack) {
+        return true;
+    }
+
+    @Override
+    public int getBarColor(ItemStack stack) {
+        float f = Math.max(0.0F, getFillRatio(stack));
+        return Mth.hsvToRgb(f / 3.0F, 1.0F, 1.0F);
     }
 }

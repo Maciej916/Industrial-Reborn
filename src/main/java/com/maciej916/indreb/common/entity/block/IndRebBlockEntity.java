@@ -7,7 +7,8 @@ import com.maciej916.indreb.common.energy.interfaces.IEnergy;
 import com.maciej916.indreb.common.entity.slot.IndRebSlot;
 import com.maciej916.indreb.common.entity.slot.SlotItemHandlerDisabled;
 import com.maciej916.indreb.common.entity.slot.SlotItemHandlerOutput;
-import com.maciej916.indreb.common.enums.EnumEnergyType;
+import com.maciej916.indreb.common.enums.EnergyTier;
+import com.maciej916.indreb.common.enums.EnergyType;
 import com.maciej916.indreb.common.enums.InventorySlotType;
 import com.maciej916.indreb.common.enums.UpgradeType;
 import com.maciej916.indreb.common.interfaces.entity.*;
@@ -16,6 +17,8 @@ import com.maciej916.indreb.common.item.impl.upgrade.ItemUpgrade;
 import com.maciej916.indreb.common.network.ModNetworking;
 import com.maciej916.indreb.common.network.packet.PacketExperience;
 import com.maciej916.indreb.common.registries.ModCapabilities;
+import com.maciej916.indreb.common.util.CapabilityUtil;
+import com.maciej916.indreb.common.util.Constants;
 import com.maciej916.indreb.common.util.SoundHandler;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.resources.sounds.SoundInstance;
@@ -37,15 +40,21 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.material.Fluids;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.util.LazyOptional;
-import net.minecraftforge.items.ItemStackHandler;
-import net.minecraftforge.items.SlotItemHandler;
+import net.minecraftforge.fluids.FluidStack;
+import net.minecraftforge.fluids.capability.CapabilityFluidHandler;
+import net.minecraftforge.fluids.capability.IFluidHandler;
+import net.minecraftforge.fluids.capability.IFluidHandlerItem;
+import net.minecraftforge.items.*;
 import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import java.util.*;
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.stream.Collectors;
 
 import static com.maciej916.indreb.common.registries.ModTags.*;
 
@@ -69,6 +78,7 @@ public class IndRebBlockEntity extends BlockEntity implements IHasSlot {
     Block block;
     protected int tickCounter = 0;
     private int cooldown = 0;
+    private boolean invertRedstone = false;
 
     protected boolean isActivate;
     protected boolean hasCooldown;
@@ -114,7 +124,6 @@ public class IndRebBlockEntity extends BlockEntity implements IHasSlot {
 
         this.setSupportedTypes();
         this.initSlots();
-        this.initBatterySlots();
 
         if (hasSound) {
             soundEvent = ((ITileSound) this).getSoundEvent();
@@ -172,35 +181,217 @@ public class IndRebBlockEntity extends BlockEntity implements IHasSlot {
 
     public void tickUpgrades(BlockState state) {
 
-        double speed = 0;
-        double energy = 0;
+        int countSpeed = 0;
+        int countEnergyUsage = 0;
+        int countEnergyStorage = 0;
+        int countTransformer = 0;
+
+        invertRedstone = false;
 
         for (int i = 0; i < upgradesHandler.getSlots(); i++) {
             ItemStack stack = upgradesHandler.getStackInSlot(i);
+            CompoundTag tag  = stack.getOrCreateTag();
             if (!stack.isEmpty() && stack.getItem() instanceof ItemUpgrade itemUpgrade) {
                 if (itemUpgrade.getUpgradeType() == UpgradeType.OVERCLOCKER) {
-                    speed += stack.getCount();
-                    energy += stack.getCount();
+                    countSpeed += stack.getCount();
+                    countEnergyUsage += stack.getCount();
                 }
 
+                if (itemUpgrade.getUpgradeType() == UpgradeType.ENERGY_STORAGE) {
+                    countEnergyStorage += stack.getCount();
+                }
 
+                if (itemUpgrade.getUpgradeType() == UpgradeType.TRANSFORMER) {
+                    countTransformer += stack.getCount();
+                }
+
+                if (itemUpgrade.getUpgradeType() == UpgradeType.REDSTONE_SIGNAL_INVERTER && !invertRedstone) {
+                    invertRedstone = true;
+                }
+
+                if (itemUpgrade.getUpgradeType() == UpgradeType.PULLING ||
+                        itemUpgrade.getUpgradeType() == UpgradeType.EJECTOR ||
+                        itemUpgrade.getUpgradeType() == UpgradeType.FLUID_EJECTOR ||
+                        itemUpgrade.getUpgradeType() == UpgradeType.FLUID_PULLING
+                ) {
+                    if (level.getGameTime() % 5 == 0) {
+                        int direction = tag.getAllKeys().contains("Direction") ? tag.getInt("Direction") : -1;
+
+                        ArrayList<Direction> directions = new ArrayList<>();
+                        if (direction == -1) {
+                            directions.addAll(Arrays.stream(Constants.DIRECTIONS).collect(Collectors.toList()));
+                        } else {
+                            directions.add(Direction.from3DDataValue(direction));
+                        }
+                        switch (itemUpgrade.getUpgradeType()) {
+                            case PULLING -> pullItems(directions, stack.getCount());
+                            case EJECTOR -> ejectItems(directions, stack.getCount());
+                            case FLUID_PULLING -> pullFluids(directions, stack.getCount());
+                            case FLUID_EJECTOR -> ejectFluids(directions, stack.getCount());
+                        }
+                    }
+                }
             }
         }
 
-        double speedFactor = Math.pow(0.7, speed);
-        double energyUsageFactor = Math.pow(1.6, energy);
+        double speedFactor = Math.pow(0.7, countSpeed);
+        double energyUsageFactor = Math.pow(1.6, countEnergyUsage);
+        double energyStorageAdd = countEnergyStorage * 10000;
 
         this.speedFactor = (float) speedFactor;
         this.energyUsageFactor = (float) energyUsageFactor;
 
-        double calculateEnergy = energyStorage.origEnergy * energyUsageFactor;
-        int newEnergy = (calculateEnergy % 1) == 0 ? (int) calculateEnergy : Integer.MAX_VALUE;
+        double calculateEnergy = (energyStorage.origEnergy * energyUsageFactor) + energyStorageAdd;
+
+        int newEnergy = calculateEnergy < Integer.MAX_VALUE ? (int) calculateEnergy : Integer.MAX_VALUE;
         energyStorage.setMaxEnergy(newEnergy);
 
+        int newTier = energyStorage.origTier.getLvl() + countTransformer;
+        energyStorage.setEnergyTier(newTier > 5 ? EnergyTier.ULTRA : EnergyTier.getTierFromLvl(newTier));
+    }
 
+    public void pullItems(ArrayList<Direction> directions, int count) {
+        for (Direction dir : directions) {
+            IItemHandler myHandler = CapabilityUtil.getCapabilityHelper(this, CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, dir).getValue();
+            if (myHandler != null) {
+                BlockEntity blockEntity = level.getBlockEntity(getBlockPos().relative(dir));
+                if (blockEntity != null) {
+                    IItemHandler otherHandler = CapabilityUtil.getCapabilityHelper(blockEntity, CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, dir.getOpposite()).getValue();
+                    if (otherHandler != null) {
+                        for (int i = 0; i < otherHandler.getSlots(); i++) {
+                            int amount = Math.min(otherHandler.getStackInSlot(i).getCount(), count);
+                            ItemStack extractItem = otherHandler.extractItem(i, amount, true);
+                            boolean found = false;
+                            if (!extractItem.isEmpty()) {
+                                for (int j = 0; j < myHandler.getSlots(); j++) {
+                                    ItemStack insertItem = myHandler.insertItem(j, extractItem, true);
+                                    if (insertItem.isEmpty()) {
+                                        otherHandler.extractItem(i, amount, false);
+                                        myHandler.insertItem(j, extractItem, false);
+                                        found = true;
+                                        break;
+                                    }
+                                }
+                            }
+                            if (found) {
+                                break;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
 
+    public void ejectItems(ArrayList<Direction> directions, int count) {
+        for (Direction dir : directions) {
+            IItemHandler myHandler = CapabilityUtil.getCapabilityHelper(this, CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, dir).getValue();
+            if (myHandler != null) {
+                BlockEntity blockEntity = level.getBlockEntity(getBlockPos().relative(dir));
+                if (blockEntity != null) {
+                    IItemHandler otherHandler = CapabilityUtil.getCapabilityHelper(blockEntity, CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, dir.getOpposite()).getValue();
+                    if (otherHandler != null) {
+                        for (int i = 0; i < myHandler.getSlots(); i++) {
+                            int amount = Math.min(myHandler.getStackInSlot(i).getCount(), count);
+                            ItemStack extractItem = myHandler.extractItem(i, amount, true);
+                            boolean found = false;
+                            if (!extractItem.isEmpty()) {
+                                for (int j = 0; j < otherHandler.getSlots(); j++) {
+                                    ItemStack insertItem = otherHandler.insertItem(j, extractItem, true);
+                                    if (insertItem.isEmpty()) {
+                                        myHandler.extractItem(i, amount, false);
+                                        otherHandler.insertItem(j, extractItem, false);
+                                        found = true;
+                                        break;
+                                    }
+                                }
+                            }
+                            if (found) {
+                                break;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
 
+    public void pullFluids(ArrayList<Direction> directions, int count) {
+        for (Direction dir : directions) {
+            IFluidHandler myHandler = CapabilityUtil.getCapabilityHelper(this, CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY, dir).getValue();
+            if (myHandler != null) {
+                BlockEntity blockEntity = level.getBlockEntity(getBlockPos().relative(dir));
+                if (blockEntity != null) {
+                    IFluidHandler otherHandler = CapabilityUtil.getCapabilityHelper(blockEntity, CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY, dir.getOpposite()).getValue();
+                    if (otherHandler != null) {
+                        for (int i = 0; i < otherHandler.getTanks(); i++) {
+                            FluidStack stack = otherHandler.getFluidInTank(i);
+                            if (!stack.isEmpty()) {
+                                stack.setAmount(Math.min(stack.getAmount(), 100 * count));
+                                FluidStack extractFluid = otherHandler.drain(stack, IFluidHandler.FluidAction.SIMULATE);
+                                boolean found = false;
+                                if (!extractFluid.isEmpty()) {
+                                    for (int j = 0; j < myHandler.getTanks(); j++) {
+                                        if (myHandler.isFluidValid(j, extractFluid)) {
+                                            int insertAmount = myHandler.fill(stack, IFluidHandler.FluidAction.SIMULATE);
+                                            if (insertAmount > 0) {
+                                                extractFluid.setAmount(insertAmount);
+                                                otherHandler.drain(extractFluid, IFluidHandler.FluidAction.EXECUTE);
+                                                myHandler.fill(extractFluid, IFluidHandler.FluidAction.EXECUTE);
+                                                found = true;
+                                                break;
+                                            }
+                                        }
+                                    }
+                                }
+                                if (found) {
+                                    break;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
 
+    public void ejectFluids(ArrayList<Direction> directions, int count) {
+        for (Direction dir : directions) {
+            IFluidHandler myHandler = CapabilityUtil.getCapabilityHelper(this, CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY, dir).getValue();
+            if (myHandler != null) {
+                BlockEntity blockEntity = level.getBlockEntity(getBlockPos().relative(dir));
+                if (blockEntity != null) {
+                    IFluidHandler otherHandler = CapabilityUtil.getCapabilityHelper(blockEntity, CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY, dir.getOpposite()).getValue();
+                    if (otherHandler != null) {
+                        for (int i = 0; i < myHandler.getTanks(); i++) {
+                            FluidStack stack = myHandler.getFluidInTank(i);
+                            if (!stack.isEmpty()) {
+                                stack.setAmount(Math.min(stack.getAmount(), 100 * count));
+                                FluidStack extractFluid = myHandler.drain(stack, IFluidHandler.FluidAction.SIMULATE);
+                                boolean found = false;
+                                if (!extractFluid.isEmpty()) {
+                                    for (int j = 0; j < otherHandler.getTanks(); j++) {
+                                        if (otherHandler.isFluidValid(j, extractFluid)) {
+                                            int insertAmount = otherHandler.fill(stack, IFluidHandler.FluidAction.SIMULATE);
+                                            if (insertAmount > 0) {
+                                                extractFluid.setAmount(insertAmount);
+                                                myHandler.drain(extractFluid, IFluidHandler.FluidAction.EXECUTE);
+                                                otherHandler.fill(extractFluid, IFluidHandler.FluidAction.EXECUTE);
+                                                found = true;
+                                                break;
+                                            }
+                                        }
+                                    }
+                                }
+                                if (found) {
+                                    break;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 
     public void tickClient(BlockState state) {
@@ -317,7 +508,7 @@ public class IndRebBlockEntity extends BlockEntity implements IHasSlot {
         };
 
         slots.forEach(sl -> batteryHandlers.add(
-                new ElectricSlotHandler(batteryHandler, sl.getSlotId(), sl.getXPosition(), sl.getYPosition(), sl.isCharging(), sl.getInventorySlotType(), sl.getAllowedTiers()))
+                new ElectricSlotHandler(batteryHandler, sl.getSlotId(), sl.getXPosition(), sl.getYPosition(), sl.isCharging(), sl.getInventorySlotType(), energyStorage))
         );
     }
 
@@ -341,8 +532,16 @@ public class IndRebBlockEntity extends BlockEntity implements IHasSlot {
         return false;
     }
 
-    public void createEnergyStorage(int energyStored, int maxEnergy, int maxReceiveTick, int maxExtractTick, EnumEnergyType energyType) {
-        this.energyStorage = new BasicEnergyStorage(energyStored, maxEnergy, maxReceiveTick, maxExtractTick, energyType) {
+    public int customEnergyReceiveTick() {
+        return -1;
+    }
+
+    public int customEnergyExtractTick() {
+        return -1;
+    }
+
+    public void createEnergyStorage(int energyStored, int maxEnergy, EnergyType energyType, EnergyTier energyTier) {
+        this.energyStorage = new BasicEnergyStorage(energyStored, maxEnergy, energyType, energyTier) {
             @Override
             public boolean canExtractEnergy(Direction side) {
                 return canExtractEnergyDir(side);
@@ -354,11 +553,24 @@ public class IndRebBlockEntity extends BlockEntity implements IHasSlot {
             }
 
             @Override
+            public int maxReceiveTick() {
+                int customReceive = customEnergyReceiveTick();
+                return customReceive == -1 ? super.maxReceiveTick() : customReceive;
+            }
+
+            @Override
+            public int maxExtractTick() {
+                int customExtract = customEnergyExtractTick();
+                return customExtract == -1 ? super.maxExtractTick() : customExtract;
+            }
+
+            @Override
             public void updated() {
                 updateBlockState();
             }
         };
         this.hasEnergy = true;
+        this.initBatterySlots();
     }
 
     public BasicEnergyStorage getEnergyStorage() {
@@ -409,7 +621,8 @@ public class IndRebBlockEntity extends BlockEntity implements IHasSlot {
 
     public int getRedstonePower() {
         if (level == null) return 0;
-        return level.getDirectSignalTo(getBlockPos());
+        int power = level.getDirectSignalTo(getBlockPos());
+        return invertRedstone ? 15 - power : power;
     }
 
     public int getCooldown() {
@@ -427,7 +640,7 @@ public class IndRebBlockEntity extends BlockEntity implements IHasSlot {
         return false;
     }
 
-    protected boolean setActive(boolean active) {
+    public boolean setActive(boolean active) {
         if (isActivate) {
             assert level != null;
             if (getActive() != active) {

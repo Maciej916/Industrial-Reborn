@@ -7,9 +7,7 @@ import com.maciej916.indreb.common.entity.block.FluidStorage;
 import com.maciej916.indreb.common.entity.block.IndRebBlockEntity;
 import com.maciej916.indreb.common.entity.slot.IndRebSlot;
 import com.maciej916.indreb.common.entity.slot.SlotBattery;
-import com.maciej916.indreb.common.enums.EnergyTier;
-import com.maciej916.indreb.common.enums.GuiSlotType;
-import com.maciej916.indreb.common.enums.InventorySlotType;
+import com.maciej916.indreb.common.enums.*;
 import com.maciej916.indreb.common.interfaces.block.IStateFacing;
 import com.maciej916.indreb.common.interfaces.entity.IElectricSlot;
 import com.maciej916.indreb.common.interfaces.entity.IExpCollector;
@@ -43,7 +41,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
-import static com.maciej916.indreb.common.enums.EnumEnergyType.RECEIVE;
+import static com.maciej916.indreb.common.enums.EnergyType.RECEIVE;
 
 public class BlockEntityFluidEnricher extends IndRebBlockEntity implements IEnergyBlock, IExpCollector, ISupportUpgrades {
 
@@ -66,7 +64,7 @@ public class BlockEntityFluidEnricher extends IndRebBlockEntity implements IEner
 
     public BlockEntityFluidEnricher(BlockPos pWorldPosition, BlockState pBlockState) {
         super(ModBlockEntities.FLUID_ENRICHER, pWorldPosition, pBlockState);
-        createEnergyStorage(0, ServerConfig.fluid_enricher_energy_capacity.get(), ServerConfig.basic_tier_transfer.get(), 0, RECEIVE);
+        createEnergyStorage(0, ServerConfig.fluid_enricher_energy_capacity.get(), EnergyType.RECEIVE, EnergyTier.BASIC);
     }
 
     @Override
@@ -79,7 +77,7 @@ public class BlockEntityFluidEnricher extends IndRebBlockEntity implements IEner
 
     @Override
     public ArrayList<IElectricSlot> addBatterySlot(ArrayList<IElectricSlot> slots) {
-        slots.add(new SlotBattery(0, 152, 62, false, List.of(EnergyTier.STANDARD)));
+        slots.add(new SlotBattery(0, 152, 62, false));
         return super.addBatterySlot(slots);
     }
 
@@ -106,11 +104,6 @@ public class BlockEntityFluidEnricher extends IndRebBlockEntity implements IEner
 
     private boolean isValidInput(final ItemStack stack) {
         if (stack.isEmpty()) return false;
-
-        System.out.println("isValidInput");
-        System.out.println(stack);
-        System.out.println(getRawRecipe(stack));
-
         return getRawRecipe(stack).isPresent();
     }
 
@@ -122,6 +115,7 @@ public class BlockEntityFluidEnricher extends IndRebBlockEntity implements IEner
     public void tickOperate(BlockState state) {
         active = false;
         boolean updateState = false;
+        getEnergyStorage().updateConsumed(0);
 
         final ItemStack inputStack = getStackHandler().getStackInSlot(INPUT_SLOT);
         final ItemStack drainBucketUp = getStackHandler().getStackInSlot(DRAIN_BUCKET_UP);
@@ -165,14 +159,15 @@ public class BlockEntityFluidEnricher extends IndRebBlockEntity implements IEner
                     progress.setData(0, recipe.getDuration());
                 }
 
-                float progressSpeed = getSpeedFactor();
+                progress.setProgressMax(getSpeedFactor() * recipe.getDuration());
                 int energyCost = (int) (recipe.getPowerCost() * getEnergyUsageFactor());
 
                 if (canWork(inputStack)) {
                     if (getEnergyStorage().consumeEnergy(energyCost, true) == energyCost && progress.getProgress() <= progress.getProgressMax()) {
                         active = true;
-                        progress.incProgress(progressSpeed);
+                        progress.incProgress(1);
                         getEnergyStorage().consumeEnergy(energyCost, false);
+                        getEnergyStorage().updateConsumed(energyCost);
                     }
 
                     if (progress.getProgress() >= progress.getProgressMax()) {
@@ -306,4 +301,8 @@ public class BlockEntityFluidEnricher extends IndRebBlockEntity implements IEner
         super.onBreak();
     }
 
+    @Override
+    public List<UpgradeType> getSupportedUpgrades() {
+        return List.of(UpgradeType.OVERCLOCKER, UpgradeType.TRANSFORMER, UpgradeType.ENERGY_STORAGE, UpgradeType.EJECTOR, UpgradeType.PULLING, UpgradeType.REDSTONE_SIGNAL_INVERTER, UpgradeType.FLUID_PULLING, UpgradeType.FLUID_EJECTOR);
+    }
 }

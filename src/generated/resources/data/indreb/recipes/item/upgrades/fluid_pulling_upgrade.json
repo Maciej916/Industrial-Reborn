@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "indreb",
+  "pattern": [
+    "trt",
+    " e ",
+    "t t"
+  ],
+  "key": {
+    "t": {
+      "tag": "forge:plates/tin"
+    },
+    "e": {
+      "item": "indreb:electric_motor"
+    },
+    "r": {
+      "item": "indreb:treetap"
+    }
+  },
+  "result": {
+    "item": "indreb:fluid_pulling_upgrade"
+  }
+}

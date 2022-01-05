@@ -2,6 +2,7 @@ package com.maciej916.indreb.common.registries;
 
 import com.maciej916.indreb.common.block.impl.battery_box.BlockEntityBatteryBox;
 import com.maciej916.indreb.common.block.impl.cable.BlockEntityCable;
+import com.maciej916.indreb.common.block.impl.charge_pad.BlockEntityChargePad;
 import com.maciej916.indreb.common.block.impl.generators.crystalline_generator.BlockEntityCrystallineGenerator;
 import com.maciej916.indreb.common.block.impl.generators.generator.BlockEntityGenerator;
 import com.maciej916.indreb.common.block.impl.generators.geo_generator.BlockEntityGeoGenerator;
@@ -20,6 +21,7 @@ import com.maciej916.indreb.common.block.impl.machines.fluid_enricher.BlockEntit
 import com.maciej916.indreb.common.block.impl.machines.iron_furnace.BlockEntityIronFurnace;
 import com.maciej916.indreb.common.block.impl.machines.recycler.BlockEntityRecycler;
 import com.maciej916.indreb.common.block.impl.machines.sawmill.BlockEntitySawmill;
+import com.maciej916.indreb.common.block.impl.transformer.BlockEntityTransformer;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraftforge.event.RegistryEvent;
@@ -51,11 +53,11 @@ public final class ModBlockEntities {
 
     public static BlockEntityType<BlockEntityAlloySmelter> ALLOY_SMELTER;
 
-
-
     public static BlockEntityType<BlockEntityCable> CABLE;
     public static BlockEntityType<BlockEntityBatteryBox> BATTERY_BOX;
     public static BlockEntityType<BlockEntityLuminator> LUMINATOR;
+    public static BlockEntityType<BlockEntityTransformer> TRANSFORMER;
+    public static BlockEntityType<BlockEntityChargePad> CHARGE_PAD;
 
     @SubscribeEvent
     public static void registerTileEntities(RegistryEvent.Register<BlockEntityType<?>> event) {
@@ -83,6 +85,8 @@ public final class ModBlockEntities {
         CABLE = registerTileEntity("cable", BlockEntityType.Builder.of(BlockEntityCable::new, ModBlocks.TIN_CABLE.getBlock(), ModBlocks.TIN_CABLE_INSULATED.getBlock(), ModBlocks.COPPER_CABLE.getBlock(), ModBlocks.COPPER_CABLE_INSULATED.getBlock()).build(null));
         BATTERY_BOX = registerTileEntity("battery_box", BlockEntityType.Builder.of(BlockEntityBatteryBox::new, ModBlocks.BATTERY_BOX.getBlock(), ModBlocks.CESU.getBlock(), ModBlocks.MFE.getBlock(), ModBlocks.MFSU.getBlock()).build(null));
         LUMINATOR = registerTileEntity("luminator", BlockEntityType.Builder.of(BlockEntityLuminator::new, ModBlocks.LUMINATOR.getBlock()).build(null));
+        TRANSFORMER = registerTileEntity("transformer", BlockEntityType.Builder.of(BlockEntityTransformer::new, ModBlocks.LV_TRANSFORMER.getBlock(), ModBlocks.MV_TRANSFORMER.getBlock(), ModBlocks.HV_TRANSFORMER.getBlock(), ModBlocks.EV_TRANSFORMER.getBlock()).build(null));
+        CHARGE_PAD = registerTileEntity("charge_pad", BlockEntityType.Builder.of(BlockEntityChargePad::new, ModBlocks.CHARGE_PAD_BATTERY_BOX.getBlock(), ModBlocks.CHARGE_PAD_CESU.getBlock(), ModBlocks.CHARGE_PAD_MFE.getBlock(), ModBlocks.CHARGE_PAD_MFSU.getBlock()).build(null));
 
 
 

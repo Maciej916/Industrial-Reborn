@@ -79,6 +79,14 @@
     ]
   },
 
+  "tile.charge_pad": {
+    "sounds": [
+      {
+        "name": "indreb:charge_pad"
+      }
+    ]
+  },
+
 
 
 
@@ -103,6 +111,14 @@
     "sounds": [
       {
         "name": "indreb:electric_wrench"
+      }
+    ]
+  },
+
+  "item.painter": {
+    "sounds": [
+      {
+        "name": "indreb:painter"
       }
     ]
   }

@@ -8,7 +8,7 @@ public class BlockUtil {
 
     public static BlockBehaviour.Properties BLOCK_MACHINE = BlockBehaviour.Properties
             .of(Material.METAL)
-            .strength(5F, 6F)
+            .strength(2F, 3F)
             .sound(SoundType.METAL)
             .lightLevel(state -> state.getValue(BlockStateHelper.activeProperty) ? 14 : 0);
 

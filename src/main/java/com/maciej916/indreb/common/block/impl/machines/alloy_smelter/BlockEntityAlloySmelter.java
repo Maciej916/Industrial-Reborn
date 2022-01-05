@@ -6,9 +6,7 @@ import com.maciej916.indreb.common.entity.block.BlockEntityProgress;
 import com.maciej916.indreb.common.entity.block.IndRebBlockEntity;
 import com.maciej916.indreb.common.entity.slot.IndRebSlot;
 import com.maciej916.indreb.common.entity.slot.SlotBattery;
-import com.maciej916.indreb.common.enums.EnergyTier;
-import com.maciej916.indreb.common.enums.GuiSlotType;
-import com.maciej916.indreb.common.enums.InventorySlotType;
+import com.maciej916.indreb.common.enums.*;
 import com.maciej916.indreb.common.interfaces.entity.IElectricSlot;
 import com.maciej916.indreb.common.interfaces.entity.IExpCollector;
 import com.maciej916.indreb.common.interfaces.entity.ISupportUpgrades;
@@ -29,9 +27,10 @@ import net.minecraftforge.items.wrapper.RangedWrapper;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
-import java.util.*;
-
-import static com.maciej916.indreb.common.enums.EnumEnergyType.RECEIVE;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Optional;
 
 public class BlockEntityAlloySmelter extends IndRebBlockEntity implements IEnergyBlock, IExpCollector, ISupportUpgrades {
 
@@ -59,7 +58,7 @@ public class BlockEntityAlloySmelter extends IndRebBlockEntity implements IEnerg
 
     public BlockEntityAlloySmelter(BlockPos pWorldPosition, BlockState pBlockState) {
         super(ModBlockEntities.ALLOY_SMELTER, pWorldPosition, pBlockState);
-        createEnergyStorage(0, ServerConfig.alloy_smelter_energy_capacity.get(), EnergyTier.STANDARD.getBasicTransfer(), 0, RECEIVE);
+        createEnergyStorage(0, ServerConfig.alloy_smelter_energy_capacity.get(), EnergyType.RECEIVE, EnergyTier.STANDARD);
     }
 
     @Override
@@ -73,7 +72,7 @@ public class BlockEntityAlloySmelter extends IndRebBlockEntity implements IEnerg
 
     @Override
     public ArrayList<IElectricSlot> addBatterySlot(ArrayList<IElectricSlot> slots) {
-        slots.add(new SlotBattery(0, 152, 62, false, List.of(EnergyTier.STANDARD)));
+        slots.add(new SlotBattery(0, 152, 62, false));
         return super.addBatterySlot(slots);
     }
 
@@ -97,6 +96,7 @@ public class BlockEntityAlloySmelter extends IndRebBlockEntity implements IEnerg
     @Override
     public void tickOperate(BlockState state) {
         active = false;
+        getEnergyStorage().updateConsumed(0);
 
         final ItemStack inputStack0 = getStackHandler().getStackInSlot(INPUT_SLOT_0);
         final ItemStack inputStack1 = getStackHandler().getStackInSlot(INPUT_SLOT_1);
@@ -126,11 +126,15 @@ public class BlockEntityAlloySmelter extends IndRebBlockEntity implements IEnerg
                 progress.setData(0, duration);
             }
 
-            if (getEnergyStorage().consumeEnergy(energyCostPerTick, true) == energyCostPerTick && progress.getProgress() <= progress.getProgressMax()) {
+            progress.setProgressMax(getSpeedFactor() * duration);
+            int energyCost = (int) (energyCostPerTick * getEnergyUsageFactor());
+
+            if (getEnergyStorage().consumeEnergy(energyCost, true) == energyCost && progress.getProgress() <= progress.getProgressMax()) {
                 if (progress.getProgress() <= progress.getProgressMax()) {
                     active = true;
                     progress.incProgress(1 + (heatLevel.getPercentProgress() / 100f));
-                    getEnergyStorage().consumeEnergy(energyCostPerTick, false);
+                    getEnergyStorage().consumeEnergy(energyCost, false);
+                    getEnergyStorage().updateConsumed(energyCost);
                 }
             }
 
@@ -257,5 +261,10 @@ public class BlockEntityAlloySmelter extends IndRebBlockEntity implements IEnerg
     public void onBreak() {
         for (LazyOptional<?> capability : capabilities) capability.invalidate();
         super.onBreak();
+    }
+
+    @Override
+    public List<UpgradeType> getSupportedUpgrades() {
+        return List.of(UpgradeType.OVERCLOCKER, UpgradeType.TRANSFORMER, UpgradeType.ENERGY_STORAGE, UpgradeType.EJECTOR, UpgradeType.PULLING, UpgradeType.REDSTONE_SIGNAL_INVERTER);
     }
 }

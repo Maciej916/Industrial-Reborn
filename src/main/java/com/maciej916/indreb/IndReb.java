@@ -1,6 +1,9 @@
 package com.maciej916.indreb;
 
 import com.maciej916.indreb.common.network.ModNetworking;
+import com.maciej916.indreb.common.proxy.ClientProxy;
+import com.maciej916.indreb.common.proxy.IProxy;
+import com.maciej916.indreb.common.proxy.ServerProxy;
 import com.maciej916.indreb.common.registries.Config;
 import com.maciej916.indreb.common.registries.ModFluids;
 import com.maciej916.indreb.common.registries.ModGeneration;
@@ -8,6 +11,7 @@ import com.maciej916.indreb.datagen.DataGenerators;
 import com.maciej916.indreb.integration.top.TOPPlugin;
 import mcjty.theoneprobe.TheOneProbe;
 import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.fml.InterModComms;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.ModLoadingContext;
@@ -26,6 +30,7 @@ import java.util.stream.Collectors;
 public class IndReb {
     public static final String MODID = "indreb";
     public static final Logger LOGGER = LogManager.getLogger();
+    public static final IProxy PROXY = DistExecutor.runForDist(() -> ClientProxy::new, () -> ServerProxy::new);
 
     public IndReb() {
 //        final ModLoadingContext modLoadingContext = ModLoadingContext.get();
@@ -43,6 +48,7 @@ public class IndReb {
     }
 
     private void onCommonSetup(final FMLCommonSetupEvent event) {
+        PROXY.init();
         ModNetworking.setup();
         ModGeneration.init();
 
