@@ -11,6 +11,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 
+
 public class TOPEnergyProvider implements IProbeInfoProvider {
 
     @Override
@@ -24,13 +25,18 @@ public class TOPEnergyProvider implements IProbeInfoProvider {
         if (blockEntity instanceof IndRebBlockEntity entity) {
             BasicEnergyStorage energy = entity.getEnergyStorage();
             if (energy != null) {
+
+                Color filledColor = new Color(76, 178, 13);
+                Color alternateFilledColor = new Color(49, 114, 6);
+                Color borderColor = new Color(49, 64, 6);
+
                 IProbeInfo horizontalPane = iProbeInfo.horizontal(iProbeInfo.defaultLayoutStyle().alignment(ElementAlignment.ALIGN_CENTER));
                 horizontalPane.progress(energy.energyStored(), energy.maxEnergy(), iProbeInfo.defaultProgressStyle()
                         .numberFormat(NumberFormat.COMPACT)
                         .suffix(" / " + TextComponentUtil.getFormattedEnergyUnit(energy.maxEnergy()) + " IE")
-                        .borderColor(0xff555555)
-                        .filledColor(0xffdd0000)
-                        .alternateFilledColor(0xff430000));
+                        .borderColor(borderColor)
+                        .filledColor(filledColor)
+                        .alternateFilledColor(alternateFilledColor));
             }
         }
     }

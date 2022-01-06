@@ -6,9 +6,11 @@ import com.maciej916.indreb.common.enums.ModArmorMaterials;
 import com.maciej916.indreb.common.enums.UpgradeType;
 import com.maciej916.indreb.common.item.base.*;
 import com.maciej916.indreb.common.item.impl.*;
+import com.maciej916.indreb.common.item.impl.armor.NightVisionGoggles;
 import com.maciej916.indreb.common.item.impl.bronze.*;
-import com.maciej916.indreb.common.item.impl.nano.ItemNanoArmour;
+import com.maciej916.indreb.common.item.impl.nano.ItemNanoArmor;
 import com.maciej916.indreb.common.item.impl.nano.ItemNanosaber;
+import com.maciej916.indreb.common.item.impl.nano.NanoHelmet;
 import com.maciej916.indreb.common.item.impl.tools.*;
 import com.maciej916.indreb.common.item.impl.treetap.ElectricTreetap;
 import com.maciej916.indreb.common.item.impl.treetap.Treetap;
@@ -264,13 +266,13 @@ public final class ModItems {
 
         ADVANCED_ALLOY = registerItem(new MaterialItem(), "advanced_alloy");
 
-        NIGHTVISION_GOGGLES = registerItem(new BaseArmour(ModArmorMaterials.NIGHTVISION, EquipmentSlot.HEAD), "nightvision_goggles");
-        RUBBER_BOOTS = registerItem(new BaseArmour(ModArmorMaterials.RUBBER, EquipmentSlot.FEET), "rubber_boots");
+        NIGHTVISION_GOGGLES = registerItem(new NightVisionGoggles(), "nightvision_goggles");
+        RUBBER_BOOTS = registerItem(new BaseArmor(ModArmorMaterials.RUBBER, EquipmentSlot.FEET), "rubber_boots");
 
-        BRONZE_HELMET = registerItem(new BaseArmour(ModArmorMaterials.BRONZE, EquipmentSlot.HEAD), "bronze_helmet");
-        BRONZE_CHESTPLATE = registerItem(new BaseArmour(ModArmorMaterials.BRONZE, EquipmentSlot.CHEST), "bronze_chestplate");
-        BRONZE_LEGGINGS = registerItem(new BaseArmour(ModArmorMaterials.BRONZE, EquipmentSlot.LEGS), "bronze_leggings");
-        BRONZE_BOOTS = registerItem(new BaseArmour(ModArmorMaterials.BRONZE, EquipmentSlot.FEET), "bronze_boots");
+        BRONZE_HELMET = registerItem(new BaseArmor(ModArmorMaterials.BRONZE, EquipmentSlot.HEAD), "bronze_helmet");
+        BRONZE_CHESTPLATE = registerItem(new BaseArmor(ModArmorMaterials.BRONZE, EquipmentSlot.CHEST), "bronze_chestplate");
+        BRONZE_LEGGINGS = registerItem(new BaseArmor(ModArmorMaterials.BRONZE, EquipmentSlot.LEGS), "bronze_leggings");
+        BRONZE_BOOTS = registerItem(new BaseArmor(ModArmorMaterials.BRONZE, EquipmentSlot.FEET), "bronze_boots");
 
         BRONZE_SWORD = registerItem(new BronzeSword(), "bronze_sword");
         BRONZE_PICKAXE = registerItem(new BronzePickaxe(), "bronze_pickaxe");
@@ -278,10 +280,10 @@ public final class ModItems {
         BRONZE_SHOVEL = registerItem(new BronzeShovel(), "bronze_shovel");
         BRONZE_HOE = registerItem(new BronzeHoe(), "bronze_hoe");
 
-        NANO_HELMET = registerItem(new ItemNanoArmour(EquipmentSlot.HEAD), "nano_helmet");
-        NANO_CHESTPLATE = registerItem(new ItemNanoArmour(EquipmentSlot.CHEST), "nano_chestplate");
-        NANO_LEGGINGS = registerItem(new ItemNanoArmour(EquipmentSlot.LEGS), "nano_leggings");
-        NANO_BOOTS = registerItem(new ItemNanoArmour(EquipmentSlot.FEET), "nano_boots");
+        NANO_HELMET = registerItem(new NanoHelmet(EquipmentSlot.HEAD), "nano_helmet");
+        NANO_CHESTPLATE = registerItem(new ItemNanoArmor(EquipmentSlot.CHEST), "nano_chestplate");
+        NANO_LEGGINGS = registerItem(new ItemNanoArmor(EquipmentSlot.LEGS), "nano_leggings");
+        NANO_BOOTS = registerItem(new ItemNanoArmor(EquipmentSlot.FEET), "nano_boots");
         NANO_SABER = registerItem(new ItemNanosaber(), "nano_saber");
 
         SMALL_POWER_UNIT = registerItem(new DummyItem(CreativeModeTab.TAB_REDSTONE), "small_power_unit");

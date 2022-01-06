@@ -399,5 +399,8 @@
   "ie.indreb.last_consumed": "Consuming: %s",
   "ie.indreb.total_consumed": "Total consumed: %s",
 
+  "_comment": "Keys",
+  "key.indreb.night_vision": "Toggle Night Vision",
+
   "test.indreb.test": "%s"
 }

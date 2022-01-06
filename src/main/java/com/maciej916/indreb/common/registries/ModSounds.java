@@ -31,6 +31,8 @@ public final class ModSounds {
     public static SoundEvent ELECTRIC_WRENCH;
     public static SoundEvent PAINTER;
 
+    public static SoundEvent NIGHT_VISION;
+
 
     @SubscribeEvent
     public static void registerSounds(RegistryEvent.Register<SoundEvent> event) {
@@ -51,6 +53,8 @@ public final class ModSounds {
         WRENCH = registerSound("item.wrench");
         ELECTRIC_WRENCH = registerSound("item.electric_wrench");
         PAINTER = registerSound("item.painter");
+
+        NIGHT_VISION = registerSound("player.night_vision");
     }
 
     public static SoundEvent registerSound(String name) {

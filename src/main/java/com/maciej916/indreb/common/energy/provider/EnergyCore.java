@@ -188,6 +188,10 @@ public class EnergyCore extends CapabilityFluidHandler implements IEnergyCore, I
                 CompoundTag tag = en.getStack().getOrCreateTag();
                 tag.putInt("energyStored", en.getEnergy().energyStored());
 
+                if (en.getStack().getItem() instanceof IElectricItem electricItem) {
+                    electricItem.tickElectric(en.getStack());
+                }
+
                 chargeLeft -= distributed;
                 if (chargeLeft > 0 && --size > 0) {
                     chargeSplit = chargeLeft / size;
@@ -219,6 +223,10 @@ public class EnergyCore extends CapabilityFluidHandler implements IEnergyCore, I
 
                 CompoundTag tag = en.getStack().getOrCreateTag();
                 tag.putInt("energyStored", en.getEnergy().energyStored());
+
+                if (en.getStack().getItem() instanceof IElectricItem electricItem) {
+                    electricItem.tickElectric(en.getStack());
+                }
 
                 addEnergyReceivedBlock(pos, distributed);
                 distributeLeft -= distributed;

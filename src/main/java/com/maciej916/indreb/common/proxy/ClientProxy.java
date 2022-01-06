@@ -1,5 +1,6 @@
 package com.maciej916.indreb.common.proxy;
 
+import com.maciej916.indreb.common.client.keys.ModKeys;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.player.LocalPlayer;
@@ -8,7 +9,7 @@ public class ClientProxy implements IProxy {
 
     @Override
     public void init() {
-
+        ModKeys.register();
     }
 
     @Override

@@ -196,13 +196,15 @@ public class ElectricArmorItem extends ArmorItem implements IElectricItem {
     @Override
     public void inventoryTick(ItemStack stack, Level level, Entity entity, int p_41407_, boolean p_41408_) {
         if (!level.isClientSide()) {
-            if (level.getGameTime() % 20 == 0) {
-                IEnergy energy = getEnergy(stack);
-                if (energy != null) {
-                    CompoundTag tag = stack.getOrCreateTag();
-                    tag.putBoolean("active", energy.energyStored() > 0);
-                }
-            }
+            tickElectric(stack);
+        }
+    }
+
+    @Override
+    public void tickElectric(ItemStack stack) {
+        CompoundTag tag = stack.getOrCreateTag();
+        if (tag.getAllKeys().contains("energyStored")) {
+            tag.putBoolean("active", tag.getInt("energyStored") > 0);
         }
     }
 }

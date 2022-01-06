@@ -1,6 +1,7 @@
 package com.maciej916.indreb.common.network.packet.energy;
 
 import com.maciej916.indreb.IndReb;
+import com.maciej916.indreb.common.proxy.ModProxy;
 import com.maciej916.indreb.common.registries.ModCapabilities;
 import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.nbt.CompoundTag;
@@ -28,7 +29,7 @@ public class PacketSyncNetwork {
 
     public void handle(Supplier<NetworkEvent.Context> ctx) {
         ctx.get().enqueueWork(() -> {
-            LocalPlayer player = IndReb.PROXY.getLocalPlayer();
+            LocalPlayer player = ModProxy.PROXY.getLocalPlayer();
             if (player != null) {
                 Level level = player.getLevel();
                 level.getCapability(ModCapabilities.ENERGY_CORE).ifPresent(iEnergyCore -> {

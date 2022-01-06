@@ -8,9 +8,9 @@ import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
 
-public class BaseArmour extends ArmorItem {
+public class BaseArmor extends ArmorItem {
 
-    public BaseArmour(ArmorMaterial material, EquipmentSlot slot) {
+    public BaseArmor(ArmorMaterial material, EquipmentSlot slot) {
         super(material, slot, new Properties().tab(ModItemGroups.MAIN_ITEM_GROUP));
     }
 

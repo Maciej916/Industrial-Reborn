@@ -1,6 +1,7 @@
 package com.maciej916.indreb.common.network.packet;
 
 import com.maciej916.indreb.IndReb;
+import com.maciej916.indreb.common.proxy.ModProxy;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.core.BlockPos;
@@ -31,7 +32,7 @@ public class PacketParticle {
 
     public void handle(Supplier<NetworkEvent.Context> ctx) {
         ctx.get().enqueueWork(() -> {
-            LocalPlayer player = IndReb.PROXY.getLocalPlayer();
+            LocalPlayer player = ModProxy.PROXY.getLocalPlayer();
             if (player != null) {
                 Level level = player.getLevel();
                 Random random = player.getRandom();

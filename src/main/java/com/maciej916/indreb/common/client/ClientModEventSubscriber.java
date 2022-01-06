@@ -21,10 +21,12 @@ import com.maciej916.indreb.common.block.impl.machines.iron_furnace.ScreenIronFu
 import com.maciej916.indreb.common.block.impl.machines.recycler.ScreenRecycler;
 import com.maciej916.indreb.common.block.impl.machines.sawmill.ScreenSawmill;
 import com.maciej916.indreb.common.block.impl.transformer.ScreenTransformer;
+import com.maciej916.indreb.common.client.keys.impl.NightVisionHandler;
 import com.maciej916.indreb.common.client.renderer.EnergyInfoRenderer;
 import com.maciej916.indreb.common.item.base.ElectricItem;
 import com.maciej916.indreb.common.item.impl.nano.ItemNanosaber;
 import com.maciej916.indreb.common.item.impl.upgrade.ItemDirectionalUpgrade;
+import com.maciej916.indreb.common.proxy.ModProxy;
 import com.maciej916.indreb.common.registries.ModBlocks;
 import com.maciej916.indreb.common.registries.ModContainers;
 import com.maciej916.indreb.common.registries.ModItems;
@@ -37,11 +39,14 @@ import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.level.FoliageColor;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.client.event.InputEvent;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
@@ -119,8 +124,4 @@ public final class ClientModEventSubscriber {
 			ItemProperties.register(ModItems.ADVANCED_FLUID_PULLING_UPGRADE, new ResourceLocation(IndReb.MODID, "direction"), (stack, level, living, id) -> ItemDirectionalUpgrade.getDirection(stack));
 		});
 	}
-
-
-
-
 }

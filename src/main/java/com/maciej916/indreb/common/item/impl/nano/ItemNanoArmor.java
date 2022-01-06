@@ -6,9 +6,9 @@ import com.maciej916.indreb.common.enums.ModArmorMaterials;
 import com.maciej916.indreb.common.item.base.ElectricArmorItem;
 import net.minecraft.world.entity.EquipmentSlot;
 
-public class ItemNanoArmour extends ElectricArmorItem {
+public class ItemNanoArmor extends ElectricArmorItem {
 
-    public ItemNanoArmour(EquipmentSlot slot) {
+    public ItemNanoArmor(EquipmentSlot slot) {
         super(ModArmorMaterials.NANO, slot, new Properties(), 0, 1000000, EnergyType.RECEIVE, EnergyTier.ADVANCED);
     }
 
