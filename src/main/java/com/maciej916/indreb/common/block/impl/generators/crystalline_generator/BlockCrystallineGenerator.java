@@ -7,12 +7,9 @@ import com.maciej916.indreb.common.enums.EnumLang;
 import com.maciej916.indreb.common.interfaces.block.IHasContainer;
 import com.maciej916.indreb.common.interfaces.block.IStateActive;
 import com.maciej916.indreb.common.interfaces.block.IStateFacing;
-import com.maciej916.indreb.common.util.BlockStateHelper;
 import com.maciej916.indreb.common.util.TextComponentUtil;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.Direction;
-import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TextComponent;
 import net.minecraft.network.chat.TranslatableComponent;
@@ -24,12 +21,9 @@ import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
 
 import javax.annotation.Nullable;
 import java.util.List;
-import java.util.Random;
 
 public class BlockCrystallineGenerator extends BlockElectricMachine implements IStateFacing, IHasContainer, IStateActive {
 
@@ -43,6 +37,7 @@ public class BlockCrystallineGenerator extends BlockElectricMachine implements I
         return new BlockEntityCrystallineGenerator(pos, state);
     }
 
+    @Override
     public ContainerCrystallineGenerator getContainer(int windowId, Level level, BlockPos pos, Inventory playerInventory, Player playerEntity) {
         return new ContainerCrystallineGenerator(windowId, level, pos, playerInventory, playerEntity);
     }

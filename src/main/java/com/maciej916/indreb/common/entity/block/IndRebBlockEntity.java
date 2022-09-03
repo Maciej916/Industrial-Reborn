@@ -1,7 +1,5 @@
 package com.maciej916.indreb.common.entity.block;
 
-import com.google.common.collect.Lists;
-import com.google.common.collect.Maps;
 import com.maciej916.indreb.common.energy.impl.BasicEnergyStorage;
 import com.maciej916.indreb.common.energy.interfaces.IEnergy;
 import com.maciej916.indreb.common.entity.slot.IndRebSlot;
@@ -31,6 +29,7 @@ import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.Containers;
 import net.minecraft.world.entity.ExperienceOrb;
 import net.minecraft.world.entity.player.Player;
@@ -40,21 +39,19 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.material.Fluids;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fluids.capability.CapabilityFluidHandler;
 import net.minecraftforge.fluids.capability.IFluidHandler;
-import net.minecraftforge.fluids.capability.IFluidHandlerItem;
 import net.minecraftforge.items.*;
+import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.tags.IReverseTag;
 import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import java.util.*;
-import java.util.concurrent.atomic.AtomicInteger;
-import java.util.stream.Collectors;
 
 import static com.maciej916.indreb.common.registries.ModTags.*;
 
@@ -71,11 +68,11 @@ public class IndRebBlockEntity extends BlockEntity implements IHasSlot {
     private ItemStackHandler batteryHandler;
     private final ArrayList<ElectricSlotHandler> batteryHandlers = new ArrayList<>();
 
-    private ArrayList<IElectricSlot> upgradeSlot = new ArrayList<>();
+    private final ArrayList<IElectricSlot> upgradeSlot = new ArrayList<>();
     private ItemStackHandler upgradesHandler;
     private final ArrayList<UpgradeSlotHandler> upgradeHandlers = new ArrayList<>();
 
-    Block block;
+    private Block block;
     protected int tickCounter = 0;
     private int cooldown = 0;
     private boolean invertRedstone = false;
@@ -92,7 +89,7 @@ public class IndRebBlockEntity extends BlockEntity implements IHasSlot {
     private SoundEvent soundEvent = null;
     private SoundInstance activeSound;
 
-    private final Map<ResourceLocation, Integer> recipesUsed = Maps.newHashMap();
+    private final Map<ResourceLocation, Integer> recipesUsed = new HashMap<>();
 
 
     float speedFactor = 1f;
@@ -190,7 +187,7 @@ public class IndRebBlockEntity extends BlockEntity implements IHasSlot {
 
         for (int i = 0; i < upgradesHandler.getSlots(); i++) {
             ItemStack stack = upgradesHandler.getStackInSlot(i);
-            CompoundTag tag  = stack.getOrCreateTag();
+            CompoundTag tag = stack.getOrCreateTag();
             if (!stack.isEmpty() && stack.getItem() instanceof ItemUpgrade itemUpgrade) {
                 if (itemUpgrade.getUpgradeType() == UpgradeType.OVERCLOCKER) {
                     countSpeed += stack.getCount();
@@ -219,7 +216,7 @@ public class IndRebBlockEntity extends BlockEntity implements IHasSlot {
 
                         ArrayList<Direction> directions = new ArrayList<>();
                         if (direction == -1) {
-                            directions.addAll(Arrays.stream(Constants.DIRECTIONS).collect(Collectors.toList()));
+                            directions.addAll(Arrays.stream(Constants.DIRECTIONS).toList());
                         } else {
                             directions.add(Direction.from3DDataValue(direction));
                         }
@@ -461,7 +458,7 @@ public class IndRebBlockEntity extends BlockEntity implements IHasSlot {
                 itemHandlers.add(new SlotItemHandlerOutput(this, stackHandler, sl.getSlotId(), sl.getXPosition(), sl.getYPosition()));
             } else if (sl.getInventorySlotType() == InventorySlotType.DISABLED) {
                 itemHandlers.add(new SlotItemHandlerDisabled(stackHandler, sl.getSlotId(), sl.getXPosition(), sl.getYPosition()));
-            }else {
+            } else {
                 itemHandlers.add(new SlotItemHandler(stackHandler, sl.getSlotId(), sl.getXPosition(), sl.getYPosition()));
             }
         });
@@ -497,7 +494,8 @@ public class IndRebBlockEntity extends BlockEntity implements IHasSlot {
         this.batteryHandler = new ItemStackHandler(slots.size()) {
             @Override
             public boolean isItemValid(final int slot, @Nonnull final ItemStack stack) {
-                return stack.getItem().getTags().contains(ELECTRICS_RES);
+                return ForgeRegistries.ITEMS.tags().getReverseTag(stack.getItem()).map(IReverseTag::getTagKeys)
+                        .map(tagKeyStream -> tagKeyStream.map(TagKey::location).toList()).orElse(new ArrayList<>()).contains(ELECTRICS_RES);
             }
 
             @Override
@@ -586,7 +584,7 @@ public class IndRebBlockEntity extends BlockEntity implements IHasSlot {
     }
 
     public List<UpgradeType> getSupportedUpgrades() {
-      return new ArrayList<>();
+        return new ArrayList<>();
     }
 
     public void initUpgradeHandler() {
@@ -681,7 +679,7 @@ public class IndRebBlockEntity extends BlockEntity implements IHasSlot {
     }
 
     public void collectExp(Player player) {
-        List<Recipe<?>> list = Lists.newArrayList();
+        List<Recipe<?>> list = new ArrayList<>();
 
         for(Map.Entry<ResourceLocation, Integer> entry : this.recipesUsed.entrySet()) {
             player.level.getRecipeManager().byKey(entry.getKey()).ifPresent((recipe -> {
@@ -841,7 +839,6 @@ public class IndRebBlockEntity extends BlockEntity implements IHasSlot {
         }
     }
 
-    @Override
     public CompoundTag save(CompoundTag tag) {
 
         if (hasInventory) {

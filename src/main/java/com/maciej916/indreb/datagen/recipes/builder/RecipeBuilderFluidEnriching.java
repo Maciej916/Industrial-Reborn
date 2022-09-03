@@ -8,18 +8,16 @@ import net.minecraft.advancements.AdvancementRewards;
 import net.minecraft.advancements.CriterionTriggerInstance;
 import net.minecraft.advancements.RequirementsStrategy;
 import net.minecraft.advancements.critereon.RecipeUnlockedTrigger;
-import net.minecraft.core.Registry;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.tags.FluidTags;
-import net.minecraft.tags.Tag;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.material.Fluid;
 import net.minecraftforge.fluids.FluidStack;
+import net.minecraftforge.registries.ForgeRegistries;
 
 import javax.annotation.Nullable;
 import java.util.function.Consumer;
@@ -32,7 +30,7 @@ public class RecipeBuilderFluidEnriching {
     private int ingredientCount;
 
     private FluidStack fluidInput;
-    private FluidStack fluidResult;
+    private final FluidStack fluidResult;
 
     private int duration;
     private int powerCost;
@@ -62,7 +60,7 @@ public class RecipeBuilderFluidEnriching {
         return setIngredient(Ingredient.of(item), count);
     }
 
-    public RecipeBuilderFluidEnriching setIngredient(Tag<Item> tag, int count) {
+    public RecipeBuilderFluidEnriching setIngredient(TagKey<Item> tag, int count) {
         return setIngredient(Ingredient.of(tag), count);
     }
 
@@ -125,14 +123,14 @@ public class RecipeBuilderFluidEnriching {
             json.add("ingredient", serializeIngredient(builder.ingredient, builder.ingredientCount));
 
             JsonObject fluid = new JsonObject();
-            fluid.addProperty("fluid", Registry.FLUID.getKey(builder.fluidInput.getFluid()).toString());
+            fluid.addProperty("fluid", ForgeRegistries.FLUIDS.getKey(builder.fluidInput.getFluid()).toString());
             if (builder.fluidInput.getAmount() > 1) {
                 fluid.addProperty("amount", builder.fluidInput.getAmount());
             }
             json.add("fluid_ingredient", fluid);
 
             JsonObject result = new JsonObject();
-            result.addProperty("fluid", Registry.FLUID.getKey(builder.fluidResult.getFluid()).toString());
+            result.addProperty("fluid", ForgeRegistries.FLUIDS.getKey(builder.fluidResult.getFluid()).toString());
             if (builder.fluidInput.getAmount() > 1) {
                 result.addProperty("amount", builder.fluidResult.getAmount());
             }

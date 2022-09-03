@@ -8,15 +8,15 @@ import net.minecraft.advancements.AdvancementRewards;
 import net.minecraft.advancements.CriterionTriggerInstance;
 import net.minecraft.advancements.RequirementsStrategy;
 import net.minecraft.advancements.critereon.RecipeUnlockedTrigger;
-import net.minecraft.core.Registry;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.tags.Tag;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.level.ItemLike;
+import net.minecraftforge.registries.ForgeRegistries;
 
 import javax.annotation.Nullable;
 import java.util.function.Consumer;
@@ -60,7 +60,7 @@ public class RecipeBuilderCanning {
         return setFirstIngredient(Ingredient.of(item), count);
     }
 
-    public RecipeBuilderCanning setFirstIngredient(Tag<Item> tag, int count) {
+    public RecipeBuilderCanning setFirstIngredient(TagKey<Item> tag, int count) {
         return setFirstIngredient(Ingredient.of(tag), count);
     }
 
@@ -74,7 +74,7 @@ public class RecipeBuilderCanning {
         return setSecondIngredient(Ingredient.of(item), count);
     }
 
-    public RecipeBuilderCanning setSecondIngredient(Tag<Item> tag, int count) {
+    public RecipeBuilderCanning setSecondIngredient(TagKey<Item> tag, int count) {
         return setSecondIngredient(Ingredient.of(tag), count);
     }
 
@@ -133,7 +133,7 @@ public class RecipeBuilderCanning {
             json.add("ingredient_to", serializeIngredient(builder.secondIngredient, builder.secondIngredientCount));
 
             JsonObject result = new JsonObject();
-            result.addProperty("item", Registry.ITEM.getKey(builder.result.getItem()).toString());
+            result.addProperty("item", ForgeRegistries.ITEMS.getKey(builder.result.getItem()).toString());
             if (builder.result.getCount() > 1) {
                 result.addProperty("count", builder.result.getCount());
             }

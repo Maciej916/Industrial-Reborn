@@ -25,7 +25,7 @@ public class WIPItem extends BaseItem {
     }
 
     @Override
-    public Rarity getRarity(ItemStack p_41461_) {
+    public Rarity getRarity(ItemStack pStack) {
         return Rarity.create("wip", ChatFormatting.DARK_RED);
     }
 }

@@ -3,9 +3,6 @@ package com.maciej916.indreb.common.enums;
 import com.maciej916.indreb.common.config.ServerConfig;
 import net.minecraft.ChatFormatting;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public enum EnergyTier {
     BASIC("Basic", EnumLang.TIER_BASIC, 1, ChatFormatting.GREEN, ServerConfig.basic_tier_transfer.get()),
     STANDARD("Standard", EnumLang.TIER_STANDARD,2, ChatFormatting.YELLOW, ServerConfig.standard_tier_transfer.get()),

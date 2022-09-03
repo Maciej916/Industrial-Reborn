@@ -36,6 +36,7 @@ public class BlockCompressor extends BlockElectricMachine implements IStateFacin
         return new BlockEntityCompressor(pos, state);
     }
 
+    @Override
     public ContainerCompressor getContainer(int windowId, Level level, BlockPos pos, Inventory playerInventory, Player playerEntity) {
         return new ContainerCompressor(windowId, level, pos, playerInventory, playerEntity);
     }

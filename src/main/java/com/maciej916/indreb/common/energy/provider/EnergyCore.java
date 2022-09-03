@@ -2,7 +2,6 @@ package com.maciej916.indreb.common.energy.provider;
 
 import com.maciej916.indreb.common.block.impl.charge_pad.BlockEntityChargePad;
 import com.maciej916.indreb.common.block.impl.transformer.BlockEntityTransformer;
-import com.maciej916.indreb.common.block.impl.transformer.BlockTransformer;
 import com.maciej916.indreb.common.energy.impl.BasicEnergyStorage;
 import com.maciej916.indreb.common.energy.interfaces.IEnergy;
 import com.maciej916.indreb.common.energy.interfaces.IEnergyCore;
@@ -12,7 +11,6 @@ import com.maciej916.indreb.common.energy.provider.comparator.EnergyReceiveCompa
 import com.maciej916.indreb.common.entity.block.IndRebBlockEntity;
 import com.maciej916.indreb.common.enums.EnergyTier;
 import com.maciej916.indreb.common.enums.EnergyType;
-import com.maciej916.indreb.common.enums.TransformerMode;
 import com.maciej916.indreb.common.interfaces.item.IElectricItem;
 import com.maciej916.indreb.common.network.ModNetworking;
 import com.maciej916.indreb.common.network.packet.PacketParticle;
@@ -55,6 +53,7 @@ public class EnergyCore extends CapabilityFluidHandler implements IEnergyCore, I
         this.networks = new EnergyNetworks(world);
     }
 
+    @Override
     public EnergyNetworks getNetworks() {
         return networks;
     }
@@ -83,7 +82,6 @@ public class EnergyCore extends CapabilityFluidHandler implements IEnergyCore, I
         }
     }
 
-
     private final HashMap<BlockPos, Integer> energyExtractedBlock = new HashMap<>();
 
     public int getEnergyExtractedBlock(BlockPos pos) {
@@ -97,9 +95,6 @@ public class EnergyCore extends CapabilityFluidHandler implements IEnergyCore, I
             energyExtractedBlock.put(pos, amount);
         }
     }
-
-
-
 
     private final HashMap<EnergyNetwork, Integer> energyReceivedNetwork = new HashMap<>();
 
@@ -244,8 +239,8 @@ public class EnergyCore extends CapabilityFluidHandler implements IEnergyCore, I
      */
     private void transferInternal() {
         for (int i = this.energyBlocks.size() - 1; i >= 0; i--) {
-        BlockPos pos = this.energyBlocks.get(i);
-        if (pos == null) continue;
+            BlockPos pos = this.energyBlocks.get(i);
+            if (pos == null) continue;
             BlockEntity be = world.getBlockEntity(pos);
             if (be instanceof IndRebBlockEntity ibe) {
                 BasicEnergyStorage energyStorage = ibe.getEnergyStorage();
@@ -273,7 +268,7 @@ public class EnergyCore extends CapabilityFluidHandler implements IEnergyCore, I
                                             if (e.canExtractEnergy() && energyStorage.canReceiveEnergy() && energyStorage.maxReceive() > 0) {
                                                 if (e.energyTier().getLvl() <= energyStorage.energyTier().getLvl()) {
                                                     dischargeMax.addAndGet(e.maxExtract());
-                                                    transferDischarge.add(new EnergyExtractComparator(e , stack));
+                                                    transferDischarge.add(new EnergyExtractComparator(e, stack));
                                                 } else {
                                                     createExplosion(pos, energyStorage.energyTier().getLvl());
                                                 }

@@ -1,7 +1,6 @@
 package com.maciej916.indreb.common.registries;
 
-import com.maciej916.indreb.common.receipe.impl.*;
-import com.maciej916.indreb.datagen.recipes.machines.FluidEnriching;
+import com.maciej916.indreb.common.recipe.impl.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.item.crafting.RecipeSerializer;

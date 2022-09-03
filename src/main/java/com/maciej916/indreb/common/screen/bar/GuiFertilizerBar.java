@@ -9,6 +9,7 @@ import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.resources.ResourceLocation;
+import org.jetbrains.annotations.NotNull;
 
 public class GuiFertilizerBar extends GuiProgress {
 
@@ -17,7 +18,7 @@ public class GuiFertilizerBar extends GuiProgress {
     }
 
     @Override
-    public ResourceLocation getResourceLocation() {
+    public @NotNull ResourceLocation getResourceLocation() {
         return new ResourceLocation(IndReb.MODID, "textures/gui/container/common.png");
     }
 

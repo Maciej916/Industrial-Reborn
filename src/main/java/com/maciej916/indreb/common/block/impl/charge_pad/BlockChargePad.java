@@ -11,8 +11,6 @@ import com.maciej916.indreb.common.util.TextComponentUtil;
 import com.maciej916.indreb.common.util.wrench.WrenchHelper;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.Direction;
-import net.minecraft.core.particles.DustParticleOptions;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TranslatableComponent;
@@ -51,6 +49,7 @@ public class BlockChargePad extends IndRebEntityBlock implements IStateFacing, I
         return new BlockEntityChargePad(pos, state);
     }
 
+    @Override
     public ContainerChargePad getContainer(int windowId, Level level, BlockPos pos, Inventory playerInventory, Player playerEntity) {
         return new ContainerChargePad(windowId, level, pos, playerInventory, playerEntity);
     }

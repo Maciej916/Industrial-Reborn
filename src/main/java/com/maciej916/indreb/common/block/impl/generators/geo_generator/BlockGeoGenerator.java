@@ -1,14 +1,12 @@
 package com.maciej916.indreb.common.block.impl.generators.geo_generator;
 
 import com.maciej916.indreb.common.block.BlockElectricMachine;
-import com.maciej916.indreb.common.capabilities.FluidHandler;
 import com.maciej916.indreb.common.config.ServerConfig;
 import com.maciej916.indreb.common.enums.EnergyTier;
 import com.maciej916.indreb.common.enums.EnumLang;
 import com.maciej916.indreb.common.interfaces.block.IHasContainer;
 import com.maciej916.indreb.common.interfaces.block.IStateActive;
 import com.maciej916.indreb.common.interfaces.block.IStateFacing;
-import com.maciej916.indreb.common.item.impl.FluidCell;
 import com.maciej916.indreb.common.util.CapabilityUtil;
 import com.maciej916.indreb.common.util.TextComponentUtil;
 import net.minecraft.ChatFormatting;
@@ -20,9 +18,7 @@ import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.BucketItem;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
@@ -50,6 +46,7 @@ public class BlockGeoGenerator extends BlockElectricMachine implements IStateFac
         return new BlockEntityGeoGenerator(pos, state);
     }
 
+    @Override
     public ContainerGeoGenerator getContainer(int windowId, Level level, BlockPos pos, Inventory playerInventory, Player playerEntity) {
         return new ContainerGeoGenerator(windowId, level, pos, playerInventory, playerEntity);
     }

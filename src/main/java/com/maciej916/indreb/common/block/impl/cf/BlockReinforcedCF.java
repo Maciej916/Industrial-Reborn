@@ -24,9 +24,11 @@ public class BlockReinforcedCF extends AbstractGlassBlock {
         super(Properties.of(Material.WOOD, MaterialColor.WOOL).strength(2.0F, 3.0F).sound(SoundType.WOOL).randomTicks().noOcclusion());
     }
 
+    @Override
     public VoxelShape getCollisionShape(BlockState p_54015_, BlockGetter p_54016_, BlockPos p_54017_, CollisionContext p_54018_) {
         return SHAPE;
     }
+
     @Override
     public void tick(BlockState pState, ServerLevel pLevel, BlockPos pPos, Random pRandom) {
 

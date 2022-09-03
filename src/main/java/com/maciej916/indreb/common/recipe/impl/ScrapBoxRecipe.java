@@ -1,4 +1,4 @@
-package com.maciej916.indreb.common.receipe.impl;
+package com.maciej916.indreb.common.recipe.impl;
 
 import com.google.gson.JsonObject;
 import com.maciej916.indreb.common.interfaces.receipe.IBaseRecipe;
@@ -10,7 +10,6 @@ import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.GsonHelper;
 import net.minecraft.world.Container;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeSerializer;
@@ -29,12 +28,12 @@ public class ScrapBoxRecipe implements IBaseRecipe {
 
     public static final ScrapBoxRecipe.Serializer SERIALIZER = new ScrapBoxRecipe.Serializer();
 
-    public Cache<Ingredient> ingredient;
-    public ResourceLocation recipeId;
-    public ItemStack result;
-    public float weight;
+    private final ResourceLocation recipeId;
+    private Cache<Ingredient> ingredient;
+    private ItemStack result;
+    private float weight;
 
-    private static HashMap<ItemStack, Float> resultMap = new HashMap<>();;
+    private static final HashMap<ItemStack, Float> resultMap = new HashMap<>();
     private static float totalWeight;
 
     public ScrapBoxRecipe(ResourceLocation recipeId) {
@@ -68,7 +67,7 @@ public class ScrapBoxRecipe implements IBaseRecipe {
 
     @Override
     public RecipeType<?> getType() {
-        return ModRecipeType.SCRAP_BOX;
+        return ModRecipeType.SCRAP_BOX.get();
     }
 
     @Override
@@ -111,9 +110,9 @@ public class ScrapBoxRecipe implements IBaseRecipe {
         }
 
         for (int j = 0; j < total.size(); j++) {
-          if (total.get(j) >= random) {
-              return items.get(j);
-          }
+            if (total.get(j) >= random) {
+                return items.get(j);
+            }
         }
 
         return ItemStack.EMPTY;

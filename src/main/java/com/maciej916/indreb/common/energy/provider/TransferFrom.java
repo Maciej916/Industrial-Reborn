@@ -17,6 +17,7 @@ public class TransferFrom extends EnergyComparator<TransferFrom> {
         this.maxExtract = maxExtract;
     }
 
+    @Override
     public IEnergy getEnergy() {
         return energy;
     }

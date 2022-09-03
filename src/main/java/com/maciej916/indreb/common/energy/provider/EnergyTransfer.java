@@ -9,10 +9,10 @@ import java.util.List;
 
 public class EnergyTransfer {
 
-    BlockEntity be;
-    IEnergy energy;
-    BlockPos pos;
-    HashSet<EnergyNetwork> networksTo;
+    private final BlockEntity be;
+    private final IEnergy energy;
+    private final BlockPos pos;
+    private final HashSet<EnergyNetwork> networksTo;
 
 
     public EnergyTransfer(BlockEntity be, IEnergy energy, BlockPos pos, EnergyNetwork transmitter) {
@@ -43,8 +43,7 @@ public class EnergyTransfer {
 
             int transferBase = energy.maxExtract() / networksTo.size();
             int powerLeft = Math.max(energy.maxExtract() - otherMaxReceive, 0);
-            int transferThis = transferBase + powerLeft;
-            return transferThis;
+            return (transferBase + powerLeft);
         }
     }
 

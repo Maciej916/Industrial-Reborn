@@ -1,4 +1,4 @@
-package com.maciej916.indreb.common.receipe;
+package com.maciej916.indreb.common.recipe;
 
 import com.maciej916.indreb.common.interfaces.receipe.IChanceRecipe;
 import com.maciej916.indreb.common.util.Cache;
@@ -13,17 +13,17 @@ import java.util.List;
 
 public abstract class BasicChanceRecipe implements IChanceRecipe {
 
-    public ResourceLocation recipeId;
-    public Ingredient ingredient;
-    public Cache<NonNullList<Ingredient>> ingredientList;
-    public int ingredientCount;
+    protected final ResourceLocation recipeId;
+    protected Ingredient ingredient;
+    protected Cache<NonNullList<Ingredient>> ingredientList;
+    protected int ingredientCount;
 
-    public ItemStack result;
-    public RecipeChanceResult bonusResult;
+    protected ItemStack result;
+    protected RecipeChanceResult bonusResult;
 
-    public float experience;
-    public int duration;
-    public int powerCost;
+    protected float experience;
+    protected int duration;
+    protected int powerCost;
 
     public BasicChanceRecipe(ResourceLocation recipeId) {
         this.recipeId = recipeId;
@@ -50,7 +50,6 @@ public abstract class BasicChanceRecipe implements IChanceRecipe {
         return recipeId;
     }
 
-
     @Override
     public boolean canCraftInDimensions(int pWidth, int pHeight) {
         return true;
@@ -71,14 +70,17 @@ public abstract class BasicChanceRecipe implements IChanceRecipe {
         return bonusResult.rollResult();
     }
 
+    @Override
     public float getExperience() {
         return experience;
     }
 
+    @Override
     public int getDuration() {
         return duration;
     }
 
+    @Override
     public int getPowerCost() {
         return powerCost;
     }

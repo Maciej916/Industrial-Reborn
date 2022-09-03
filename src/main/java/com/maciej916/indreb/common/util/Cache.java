@@ -7,7 +7,7 @@ public class Cache<T> {
     private T t;
     private final Supplier<T> supplier;
 
-    Cache(Supplier<T> supplier) {
+    private Cache(Supplier<T> supplier) {
         this.supplier = supplier;
     }
 

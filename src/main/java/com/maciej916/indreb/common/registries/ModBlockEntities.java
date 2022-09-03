@@ -87,9 +87,6 @@ public final class ModBlockEntities {
         LUMINATOR = registerTileEntity("luminator", BlockEntityType.Builder.of(BlockEntityLuminator::new, ModBlocks.LUMINATOR.getBlock()).build(null));
         TRANSFORMER = registerTileEntity("transformer", BlockEntityType.Builder.of(BlockEntityTransformer::new, ModBlocks.LV_TRANSFORMER.getBlock(), ModBlocks.MV_TRANSFORMER.getBlock(), ModBlocks.HV_TRANSFORMER.getBlock(), ModBlocks.EV_TRANSFORMER.getBlock()).build(null));
         CHARGE_PAD = registerTileEntity("charge_pad", BlockEntityType.Builder.of(BlockEntityChargePad::new, ModBlocks.CHARGE_PAD_BATTERY_BOX.getBlock(), ModBlocks.CHARGE_PAD_CESU.getBlock(), ModBlocks.CHARGE_PAD_MFE.getBlock(), ModBlocks.CHARGE_PAD_MFSU.getBlock()).build(null));
-
-
-
     }
 
     private static <T extends BlockEntity> BlockEntityType<T> registerTileEntity(String name, BlockEntityType<T> tileEntityType) {

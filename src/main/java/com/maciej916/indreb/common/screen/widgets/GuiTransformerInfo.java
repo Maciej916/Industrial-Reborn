@@ -1,22 +1,15 @@
 package com.maciej916.indreb.common.screen.widgets;
 
-import com.maciej916.indreb.IndReb;
 import com.maciej916.indreb.common.block.impl.transformer.BlockEntityTransformer;
 import com.maciej916.indreb.common.enums.EnumLang;
 import com.maciej916.indreb.common.enums.TransformerMode;
 import com.maciej916.indreb.common.interfaces.screen.IGuiWrapper;
-import com.maciej916.indreb.common.screen.text.GuiRGBText;
 import com.maciej916.indreb.common.util.GuiUtil;
 import com.maciej916.indreb.common.util.TextComponentUtil;
 import com.mojang.blaze3d.vertex.PoseStack;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.screens.Screen;
-import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TranslatableComponent;
 
 import java.awt.*;
-
-import static com.maciej916.indreb.IndReb.MODID;
 
 public class GuiTransformerInfo extends GuiElement {
 

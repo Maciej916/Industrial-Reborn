@@ -17,12 +17,11 @@ import net.minecraft.core.Direction;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
-import net.minecraftforge.client.event.RenderLevelLastEvent;
-
+import net.minecraftforge.client.event.RenderLevelStageEvent;
 
 public class EnergyInfoRenderer {
 
-    public static void render(RenderLevelLastEvent event) {
+    public static void render(RenderLevelStageEvent event) {
         LocalPlayer player = Minecraft.getInstance().player;
 
         assert player != null;

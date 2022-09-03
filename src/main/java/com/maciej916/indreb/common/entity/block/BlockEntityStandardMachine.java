@@ -67,7 +67,7 @@ public class BlockEntityStandardMachine extends IndRebBlockEntity implements IEn
         return getRecipe(stack).isPresent();
     }
 
-    boolean canWork(ItemStack inputStack, ItemStack outputStack, ItemStack resultStack, ItemStack bonusStack) {
+    private boolean canWork(ItemStack inputStack, ItemStack outputStack, ItemStack resultStack, ItemStack bonusStack) {
         return isValidInput(inputStack) &&
                 inputStack.getCount() >= recipe.getIngredientCount() &&
                 (outputStack.isEmpty() || (resultStack.getCount() + outputStack.getCount() <= outputStack.getMaxStackSize() &&
@@ -217,7 +217,7 @@ public class BlockEntityStandardMachine extends IndRebBlockEntity implements IEn
         return true;
     }
 
-    ArrayList<LazyOptional<?>> capabilities = new ArrayList<>(Arrays.asList(
+    private final ArrayList<LazyOptional<?>> capabilities = new ArrayList<>(Arrays.asList(
             LazyOptional.of(this::getStackHandler),
             LazyOptional.of(() -> new RangedWrapper(getStackHandler(), INPUT_SLOT, INPUT_SLOT + 1)),
             LazyOptional.of(() -> new RangedWrapper(getStackHandler(), OUTPUT_SLOT, BONUS_SLOT + 1))
@@ -228,15 +228,10 @@ public class BlockEntityStandardMachine extends IndRebBlockEntity implements IEn
     public <T> LazyOptional<T> getCapability(@Nonnull final Capability<T> cap, @Nullable final Direction side) {
         if (cap == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY) {
             if (side == null) return capabilities.get(0).cast();
-            switch (side) {
-                case DOWN: return capabilities.get(2).cast();
-                case UP:
-                case NORTH:
-                case SOUTH:
-                case WEST:
-                case EAST: return capabilities.get(1).cast();
-                default: return capabilities.get(0).cast();
-            }
+            return switch (side) {
+                case DOWN -> capabilities.get(2).cast();
+                case UP, NORTH, SOUTH, WEST, EAST -> capabilities.get(1).cast();
+            };
         }
 
         return super.getCapability(cap, side);

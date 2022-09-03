@@ -283,7 +283,7 @@ public class BlockEntityFermenter extends IndRebBlockEntity implements IEnergyBl
         return super.insertItemForSlot(slot, stack, simulate);
     }
 
-    ArrayList<LazyOptional<?>> capabilities = new ArrayList<>(Arrays.asList(
+    private final ArrayList<LazyOptional<?>> capabilities = new ArrayList<>(Arrays.asList(
             LazyOptional.of(this::getStackHandler),
             LazyOptional.of(() -> new RangedWrapper(getStackHandler(), FILL_BUCKET_UP, DRAIN_BUCKET_UP + 1)),
             LazyOptional.of(() -> new RangedWrapper(getStackHandler(), FILL_BUCKET_DOWN, DRAIN_BUCKET_DOWN + 1)),
@@ -316,7 +316,6 @@ public class BlockEntityFermenter extends IndRebBlockEntity implements IEnergyBl
             return switch (side) {
                 case DOWN -> capabilities.get(2).cast();
                 case UP, NORTH, SOUTH, WEST, EAST -> capabilities.get(1).cast();
-                default -> capabilities.get(0).cast();
             };
         }
 

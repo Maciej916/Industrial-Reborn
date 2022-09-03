@@ -7,6 +7,7 @@ import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.RecipeProvider;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
@@ -31,7 +32,7 @@ public class Sawing extends RecipeProvider {
                 .save(consumer,"rubber_log_rubber_planks");
 
         RecipeBuilderSawing.builder(Items.STICK, 6)
-                .setIngredient(Ingredient.of(ItemTags.bind("minecraft:planks")), 1)
+                .setIngredient(Ingredient.of(ItemTags.create(new ResourceLocation("planks"))), 1)
                 .setBonus(ModItems.SAWDUST, 1,25)
                 .addCriterion("item", InventoryChangeTrigger.TriggerInstance.hasItems(Items.STICK))
                 .setGroup("sawing")
@@ -44,7 +45,7 @@ public class Sawing extends RecipeProvider {
                 .save(consumer,"stick_sawdust");
 
         RecipeBuilderSawing.builder(Items.OAK_PLANKS, 6)
-                .setIngredient(Ingredient.of(ItemTags.bind("minecraft:oak_logs")), 1)
+                .setIngredient(Ingredient.of(ItemTags.create(new ResourceLocation("oak_logs"))), 1)
                 .setBonus(ModItems.SAWDUST, 1,25)
                 .setExperience(0.2F)
                 .addCriterion("item", InventoryChangeTrigger.TriggerInstance.hasItems(Items.OAK_LOG))
@@ -52,7 +53,7 @@ public class Sawing extends RecipeProvider {
                 .save(consumer,"oak_log_oak_planks");
 
         RecipeBuilderSawing.builder(Items.SPRUCE_PLANKS, 6)
-                .setIngredient(Ingredient.of(ItemTags.bind("minecraft:spruce_logs")), 1)
+                .setIngredient(Ingredient.of(ItemTags.create(new ResourceLocation("spruce_logs"))), 1)
                 .setBonus(ModItems.SAWDUST, 1,25)
                 .setExperience(0.2F)
                 .addCriterion("item", InventoryChangeTrigger.TriggerInstance.hasItems(Items.SPRUCE_PLANKS))
@@ -60,7 +61,7 @@ public class Sawing extends RecipeProvider {
                 .save(consumer,"spruce_log_spruce_planks");
 
         RecipeBuilderSawing.builder(Items.BIRCH_PLANKS, 6)
-                .setIngredient(Ingredient.of(ItemTags.bind("minecraft:birch_logs")), 1)
+                .setIngredient(Ingredient.of(ItemTags.create(new ResourceLocation("birch_logs"))), 1)
                 .setBonus(ModItems.SAWDUST, 1,25)
                 .setExperience(0.2F)
                 .addCriterion("item", InventoryChangeTrigger.TriggerInstance.hasItems(Items.BIRCH_PLANKS))
@@ -68,7 +69,7 @@ public class Sawing extends RecipeProvider {
                 .save(consumer,"birch_log_birch_planks");
 
         RecipeBuilderSawing.builder(Items.JUNGLE_PLANKS, 6)
-                .setIngredient(Ingredient.of(ItemTags.bind("minecraft:jungle_logs")), 1)
+                .setIngredient(Ingredient.of(ItemTags.create(new ResourceLocation("jungle_logs"))), 1)
                 .setBonus(ModItems.SAWDUST, 1,25)
                 .setExperience(0.2F)
                 .addCriterion("item", InventoryChangeTrigger.TriggerInstance.hasItems(Items.JUNGLE_PLANKS))
@@ -76,7 +77,7 @@ public class Sawing extends RecipeProvider {
                 .save(consumer,"jungle_log_jungle_planks");
 
         RecipeBuilderSawing.builder(Items.ACACIA_PLANKS, 6)
-                .setIngredient(Ingredient.of(ItemTags.bind("minecraft:acacia_logs")), 1)
+                .setIngredient(Ingredient.of(ItemTags.create(new ResourceLocation("acacia_logs"))), 1)
                 .setBonus(ModItems.SAWDUST, 1,25)
                 .setExperience(0.2F)
                 .addCriterion("item", InventoryChangeTrigger.TriggerInstance.hasItems(Items.ACACIA_PLANKS))
@@ -84,7 +85,7 @@ public class Sawing extends RecipeProvider {
                 .save(consumer,"acacia_log_acacia_planks");
 
         RecipeBuilderSawing.builder(Items.DARK_OAK_PLANKS, 6)
-                .setIngredient(Ingredient.of(ItemTags.bind("minecraft:dark_oak_logs")), 1)
+                .setIngredient(Ingredient.of(ItemTags.create(new ResourceLocation("dark_oak_logs"))), 1)
                 .setBonus(ModItems.SAWDUST, 1,25)
                 .setExperience(0.2F)
                 .addCriterion("item", InventoryChangeTrigger.TriggerInstance.hasItems(Items.DARK_OAK_PLANKS))

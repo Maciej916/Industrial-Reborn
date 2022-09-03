@@ -1,11 +1,10 @@
-package com.maciej916.indreb.common.receipe.impl;
+package com.maciej916.indreb.common.recipe.impl;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.maciej916.indreb.common.interfaces.receipe.IBaseRecipe;
 import com.maciej916.indreb.common.registries.ModRecipeType;
 import com.maciej916.indreb.common.util.Cache;
-import com.maciej916.indreb.common.util.RecipeUtil;
 import net.minecraft.core.NonNullList;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
@@ -23,17 +22,16 @@ import net.minecraftforge.registries.ForgeRegistryEntry;
 
 import javax.annotation.Nullable;
 import java.util.*;
-import java.util.stream.Collectors;
 
 public class RecyclingRecipe implements IBaseRecipe {
 
     public static final RecyclingRecipe.Serializer SERIALIZER = new RecyclingRecipe.Serializer();
 
-    public ResourceLocation recipeId;
-    public Cache<NonNullList<Ingredient>> ingredientList;
+    private final ResourceLocation recipeId;
+    private Cache<NonNullList<Ingredient>> ingredientList;
     private final HashSet<Ingredient> excluded = new HashSet<>();
-    public ItemStack result;
-    public float chance;
+    private ItemStack result;
+    private float chance;
 
     public RecyclingRecipe(ResourceLocation recipeId) {
         this.recipeId = recipeId;
@@ -71,7 +69,7 @@ public class RecyclingRecipe implements IBaseRecipe {
 
     @Override
     public RecipeType<?> getType() {
-        return ModRecipeType.RECYCLING;
+        return ModRecipeType.RECYCLING.get();
     }
 
     @Override
@@ -171,9 +169,7 @@ public class RecyclingRecipe implements IBaseRecipe {
             buffer.writeFloat(recipe.chance);
             buffer.writeItemStack(recipe.result, false);
             buffer.writeByte(recipe.excluded.size());
-            recipe.excluded.forEach((ingredient) -> {
-                ingredient.toNetwork(buffer);
-            });
+            recipe.excluded.forEach((ingredient) -> ingredient.toNetwork(buffer));
         }
     }
 }

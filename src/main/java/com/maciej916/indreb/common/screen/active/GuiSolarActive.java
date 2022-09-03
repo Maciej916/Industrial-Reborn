@@ -4,6 +4,7 @@ import com.maciej916.indreb.IndReb;
 import com.maciej916.indreb.common.enums.GuiSprite;
 import com.maciej916.indreb.common.interfaces.screen.IGuiWrapper;
 import net.minecraft.resources.ResourceLocation;
+import org.jetbrains.annotations.NotNull;
 
 public class GuiSolarActive extends GuiActive {
 
@@ -12,7 +13,7 @@ public class GuiSolarActive extends GuiActive {
     }
 
     @Override
-    public ResourceLocation getResourceLocation() {
+    public @NotNull ResourceLocation getResourceLocation() {
         return new ResourceLocation(IndReb.MODID, "textures/gui/container/process.png");
     }
 }

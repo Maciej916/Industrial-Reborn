@@ -18,6 +18,4 @@ public class ContainerCrystallineGenerator extends IndRebContainer {
         super(ModContainers.CRYSTALLINE_GENERATOR, windowId, world, pos, playerInventory, player);
 
     }
-
-
 }

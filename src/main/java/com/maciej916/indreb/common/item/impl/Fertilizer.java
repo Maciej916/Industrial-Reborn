@@ -3,14 +3,13 @@ package com.maciej916.indreb.common.item.impl;
 import com.maciej916.indreb.common.item.base.BaseItem;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.Holder;
 import net.minecraft.core.particles.ParticleTypes;
-import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.UseOnContext;
-import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.biome.Biome;
@@ -19,10 +18,9 @@ import net.minecraft.world.level.block.BaseCoralWallFanBlock;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.BonemealableBlock;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraftforge.registries.ForgeRegistries;
 
 import javax.annotation.Nullable;
-import java.util.Objects;
-import java.util.Optional;
 import java.util.Random;
 
 public class Fertilizer extends BaseItem {
@@ -31,11 +29,11 @@ public class Fertilizer extends BaseItem {
         super(new Properties());
     }
 
-    public InteractionResult useOn(UseOnContext p_40637_) {
-        Level level = p_40637_.getLevel();
-        BlockPos blockpos = p_40637_.getClickedPos();
-        BlockPos blockpos1 = blockpos.relative(p_40637_.getClickedFace());
-        if (applyBonemeal(p_40637_.getItemInHand(), level, blockpos, p_40637_.getPlayer())) {
+    public InteractionResult useOn(UseOnContext pContext) {
+        Level level = pContext.getLevel();
+        BlockPos blockpos = pContext.getClickedPos();
+        BlockPos blockpos1 = blockpos.relative(pContext.getClickedFace());
+        if (applyBonemeal(pContext.getItemInHand(), level, blockpos, pContext.getPlayer())) {
             if (!level.isClientSide) {
                 level.levelEvent(1505, blockpos, 0);
             }
@@ -43,8 +41,8 @@ public class Fertilizer extends BaseItem {
             return InteractionResult.sidedSuccess(level.isClientSide);
         } else {
             BlockState blockstate = level.getBlockState(blockpos);
-            boolean flag = blockstate.isFaceSturdy(level, blockpos, p_40637_.getClickedFace());
-            if (flag && growWaterPlant(p_40637_.getItemInHand(), level, blockpos1, p_40637_.getClickedFace())) {
+            boolean flag = blockstate.isFaceSturdy(level, blockpos, pContext.getClickedFace());
+            if (flag && growWaterPlant(pContext.getItemInHand(), level, blockpos1, pContext.getClickedFace())) {
                 if (!level.isClientSide) {
                     level.levelEvent(1505, blockpos1, 0);
                 }
@@ -67,8 +65,7 @@ public class Fertilizer extends BaseItem {
         BlockState blockstate = p_40629_.getBlockState(p_40630_);
         int hook = net.minecraftforge.event.ForgeEventFactory.onApplyBonemeal(player, p_40629_, p_40630_, blockstate, p_40628_);
         if (hook != 0) return hook > 0;
-        if (blockstate.getBlock() instanceof BonemealableBlock) {
-            BonemealableBlock bonemealableblock = (BonemealableBlock)blockstate.getBlock();
+        if (blockstate.getBlock() instanceof BonemealableBlock bonemealableblock) {
             if (bonemealableblock.isValidBonemealTarget(p_40629_, p_40630_, blockstate, p_40629_.isClientSide)) {
                 if (p_40629_ instanceof ServerLevel) {
                     if (bonemealableblock.isBonemealSuccess(p_40629_, p_40629_.random, p_40630_, blockstate)) {
@@ -87,9 +84,7 @@ public class Fertilizer extends BaseItem {
 
     public static boolean growWaterPlant(ItemStack p_40632_, Level p_40633_, BlockPos p_40634_, @Nullable Direction p_40635_) {
         if (p_40633_.getBlockState(p_40634_).is(Blocks.WATER) && p_40633_.getFluidState(p_40634_).getAmount() == 8) {
-            if (!(p_40633_ instanceof ServerLevel)) {
-                return true;
-            } else {
+            if (p_40633_ instanceof ServerLevel) {
                 Random random = p_40633_.getRandom();
 
                 label76:
@@ -104,12 +99,12 @@ public class Fertilizer extends BaseItem {
                         }
                     }
 
-                    Optional<ResourceKey<Biome>> optional = p_40633_.getBiomeName(blockpos);
-                    if (Objects.equals(optional, Optional.of(Biomes.WARM_OCEAN))) {
+                    Holder<Biome> biome = p_40633_.getBiome(blockpos);
+                    if (biome.is(Biomes.WARM_OCEAN)) {
                         if (i == 0 && p_40635_ != null && p_40635_.getAxis().isHorizontal()) {
-                            blockstate = BlockTags.WALL_CORALS.getRandomElement(p_40633_.random).defaultBlockState().setValue(BaseCoralWallFanBlock.FACING, p_40635_);
+                            blockstate = ForgeRegistries.BLOCKS.tags().getTag(BlockTags.WALL_CORALS).getRandomElement(p_40633_.random).orElseThrow().defaultBlockState().setValue(BaseCoralWallFanBlock.FACING, p_40635_);
                         } else if (random.nextInt(4) == 0) {
-                            blockstate = BlockTags.UNDERWATER_BONEMEALS.getRandomElement(random).defaultBlockState();
+                            blockstate = ForgeRegistries.BLOCKS.tags().getTag(BlockTags.UNDERWATER_BONEMEALS).getRandomElement(random).orElseThrow().defaultBlockState();
                         }
                     }
 
@@ -130,8 +125,8 @@ public class Fertilizer extends BaseItem {
                 }
 
                 p_40632_.shrink(1);
-                return true;
             }
+            return true;
         } else {
             return false;
         }

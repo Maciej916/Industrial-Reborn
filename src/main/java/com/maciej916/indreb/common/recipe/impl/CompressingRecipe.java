@@ -1,8 +1,8 @@
-package com.maciej916.indreb.common.receipe.impl;
+package com.maciej916.indreb.common.recipe.impl;
 
 import com.google.gson.JsonObject;
-import com.maciej916.indreb.common.receipe.BasicChanceRecipe;
-import com.maciej916.indreb.common.receipe.RecipeChanceResult;
+import com.maciej916.indreb.common.recipe.BasicChanceRecipe;
+import com.maciej916.indreb.common.recipe.RecipeChanceResult;
 import com.maciej916.indreb.common.registries.ModRecipeType;
 import com.maciej916.indreb.common.util.Cache;
 import com.maciej916.indreb.common.util.RecipeUtil;
@@ -18,11 +18,11 @@ import net.minecraftforge.registries.ForgeRegistryEntry;
 
 import javax.annotation.Nullable;
 
-public class SawingRecipe extends BasicChanceRecipe {
+public class CompressingRecipe extends BasicChanceRecipe {
 
     public static final Serializer SERIALIZER = new Serializer();
 
-    public SawingRecipe(ResourceLocation recipeId) {
+    public CompressingRecipe(ResourceLocation recipeId) {
         super(recipeId);
     }
 
@@ -33,14 +33,14 @@ public class SawingRecipe extends BasicChanceRecipe {
 
     @Override
     public RecipeType<?> getType() {
-        return ModRecipeType.SAWING;
+        return ModRecipeType.COMPRESSING.get();
     }
 
-    public static class Serializer extends ForgeRegistryEntry<RecipeSerializer<?>> implements RecipeSerializer<SawingRecipe> {
+    public static class Serializer extends ForgeRegistryEntry<RecipeSerializer<?>> implements RecipeSerializer<CompressingRecipe> {
 
         @Override
-        public SawingRecipe fromJson(ResourceLocation recipeId, JsonObject json) {
-            SawingRecipe recipe = new SawingRecipe(recipeId);
+        public CompressingRecipe fromJson(ResourceLocation recipeId, JsonObject json) {
+            CompressingRecipe recipe = new CompressingRecipe(recipeId);
 
             recipe.ingredient = Ingredient.fromJson(json.get("ingredient"));
 
@@ -67,8 +67,8 @@ public class SawingRecipe extends BasicChanceRecipe {
 
         @Nullable
         @Override
-        public SawingRecipe fromNetwork(ResourceLocation recipeId, FriendlyByteBuf buffer) {
-            SawingRecipe recipe = new SawingRecipe(recipeId);
+        public CompressingRecipe fromNetwork(ResourceLocation recipeId, FriendlyByteBuf buffer) {
+            CompressingRecipe recipe = new CompressingRecipe(recipeId);
 
             recipe.result = buffer.readItem();
             recipe.bonusResult = RecipeChanceResult.read(buffer);
@@ -83,7 +83,7 @@ public class SawingRecipe extends BasicChanceRecipe {
         }
 
         @Override
-        public void toNetwork(FriendlyByteBuf buffer, SawingRecipe recipe) {
+        public void toNetwork(FriendlyByteBuf buffer, CompressingRecipe recipe) {
             buffer.writeItemStack(recipe.result, false);
             RecipeChanceResult.write(buffer, recipe.bonusResult);
             buffer.writeFloat(recipe.experience);

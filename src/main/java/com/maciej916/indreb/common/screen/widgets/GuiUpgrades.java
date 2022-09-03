@@ -6,6 +6,7 @@ import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.Minecraft;
 import net.minecraft.resources.ResourceLocation;
+import org.jetbrains.annotations.NotNull;
 
 public class GuiUpgrades extends GuiElement {
 
@@ -21,7 +22,7 @@ public class GuiUpgrades extends GuiElement {
     }
 
     @Override
-    public ResourceLocation getResourceLocation() {
+    public @NotNull ResourceLocation getResourceLocation() {
         return new ResourceLocation(IndReb.MODID, "textures/gui/container/common.png");
     }
 }

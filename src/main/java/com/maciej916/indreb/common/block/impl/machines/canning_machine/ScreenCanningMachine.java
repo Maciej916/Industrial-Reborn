@@ -1,10 +1,8 @@
 package com.maciej916.indreb.common.block.impl.machines.canning_machine;
 
 import com.maciej916.indreb.IndReb;
-import com.maciej916.indreb.common.block.impl.machines.alloy_smelter.BlockEntityAlloySmelter;
 import com.maciej916.indreb.common.screen.BetterScreen;
 import com.maciej916.indreb.common.screen.progress.GuiProgressArrow;
-import com.maciej916.indreb.common.screen.progress.GuiProgressExtracting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;

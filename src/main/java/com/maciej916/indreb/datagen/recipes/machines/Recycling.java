@@ -6,12 +6,10 @@ import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.RecipeProvider;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.ItemTags;
-import net.minecraft.world.item.CreativeModeTab;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
-import net.minecraft.world.level.block.Blocks;
 
 import java.util.function.Consumer;
 
@@ -26,7 +24,7 @@ public class Recycling extends RecipeProvider {
 
         RecipeBuilderRecycling.builder(ModItems.SCRAP)
 
-                .addExcluded(Ingredient.of(ItemTags.bind("indreb:electrics")))
+                .addExcluded(Ingredient.of(ItemTags.create(new ResourceLocation("indreb", "electrics"))))
 
                 .addExcluded(Ingredient.of(Items.STICK))
                 .addExcluded(Ingredient.of(Items.SNOWBALL))

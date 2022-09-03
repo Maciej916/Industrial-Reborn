@@ -11,7 +11,7 @@ import com.maciej916.indreb.common.interfaces.entity.IElectricSlot;
 import com.maciej916.indreb.common.interfaces.entity.IExpCollector;
 import com.maciej916.indreb.common.interfaces.entity.ISupportUpgrades;
 import com.maciej916.indreb.common.interfaces.entity.ITileSound;
-import com.maciej916.indreb.common.receipe.impl.CanningRecipe;
+import com.maciej916.indreb.common.recipe.impl.CanningRecipe;
 import com.maciej916.indreb.common.registries.ModBlockEntities;
 import com.maciej916.indreb.common.registries.ModRecipeType;
 import com.maciej916.indreb.common.registries.ModSounds;
@@ -67,7 +67,7 @@ public class BlockEntityCanningMachine extends IndRebBlockEntity implements IEne
     }
 
     protected Optional<CanningRecipe> getRecipe(ItemStack... input) {
-        return level.getRecipeManager().getRecipeFor(ModRecipeType.CANNING, new SimpleContainer(input), level);
+        return level.getRecipeManager().getRecipeFor(ModRecipeType.CANNING.get(), new SimpleContainer(input), level);
     }
 
     protected ItemStack getRecipeResult(ItemStack stack) {
@@ -87,7 +87,7 @@ public class BlockEntityCanningMachine extends IndRebBlockEntity implements IEne
         return false;
     }
 
-    boolean canWork(ItemStack outputStack, ItemStack resultStack) {
+    private boolean canWork(ItemStack outputStack, ItemStack resultStack) {
         return outputStack.isEmpty() || (resultStack.getCount() + outputStack.getCount() <= outputStack.getMaxStackSize());
     }
 
@@ -197,7 +197,7 @@ public class BlockEntityCanningMachine extends IndRebBlockEntity implements IEne
         return super.save(tag);
     }
 
-    ArrayList<LazyOptional<?>> capabilities = new ArrayList<>(Arrays.asList(
+    private final ArrayList<LazyOptional<?>> capabilities = new ArrayList<>(Arrays.asList(
             LazyOptional.of(this::getStackHandler),
             LazyOptional.of(() -> new RangedWrapper(getStackHandler(), INPUT_SLOT_0, INPUT_SLOT_1 + 1)),
             LazyOptional.of(() -> new RangedWrapper(getStackHandler(), OUTPUT_SLOT, OUTPUT_SLOT + 1))

@@ -36,7 +36,7 @@ public class FluidItem extends BaseItem {
     }
 
     @Override
-    public boolean isEnchantable(ItemStack p_41456_) {
+    public boolean isEnchantable(ItemStack stack) {
         return false;
     }
 
@@ -44,7 +44,6 @@ public class FluidItem extends BaseItem {
     public boolean isBookEnchantable(ItemStack stack, ItemStack book) {
         return false;
     }
-
 
     @Override
     public boolean hasContainerItem(ItemStack stack) {

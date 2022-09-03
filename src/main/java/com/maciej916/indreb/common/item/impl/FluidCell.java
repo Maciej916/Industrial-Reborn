@@ -100,7 +100,7 @@ public class FluidCell extends FluidItem {
                             SoundEvent soundevent = fluid.getAttributes().getFillSound();
 
                             if (soundevent == null) {
-                                soundevent = fluid.is(FluidTags.LAVA) ? SoundEvents.BUCKET_FILL_LAVA : SoundEvents.BUCKET_FILL;
+                                soundevent = fluid.isSame(Fluids.LAVA) ? SoundEvents.BUCKET_FILL_LAVA : SoundEvents.BUCKET_FILL; // suitable replacement for `fluid.is(FluidTags.LAVA)`?
                             }
 
                             player.playSound(soundevent, 1F, 1F);

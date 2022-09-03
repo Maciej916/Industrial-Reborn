@@ -1,31 +1,23 @@
 package com.maciej916.indreb.integration.jei.category.impl;
 
-import com.maciej916.indreb.common.receipe.impl.ExtrudingRecipe;
+import com.maciej916.indreb.common.recipe.impl.ExtrudingRecipe;
 import com.maciej916.indreb.common.registries.ModBlocks;
 import com.maciej916.indreb.common.registries.ModRecipeSerializer;
 import com.maciej916.indreb.common.util.GuiUtil;
 import com.maciej916.indreb.integration.jei.category.AbstractRecipeCategory;
 import com.mojang.blaze3d.vertex.PoseStack;
 import mezz.jei.api.constants.VanillaTypes;
-import mezz.jei.api.gui.IRecipeLayout;
-import mezz.jei.api.gui.drawable.IDrawable;
+import mezz.jei.api.forge.ForgeTypes;
+import mezz.jei.api.gui.builder.IRecipeLayoutBuilder;
 import mezz.jei.api.gui.drawable.IDrawableAnimated;
-import mezz.jei.api.gui.ingredient.IGuiFluidStackGroup;
-import mezz.jei.api.gui.ingredient.IGuiItemStackGroup;
-import mezz.jei.api.gui.ingredient.ITooltipCallback;
+import mezz.jei.api.gui.ingredient.IRecipeSlotsView;
 import mezz.jei.api.helpers.IGuiHelper;
-import mezz.jei.api.ingredients.IIngredients;
-import net.minecraft.network.chat.Component;
+import mezz.jei.api.recipe.IFocusGroup;
+import mezz.jei.api.recipe.RecipeIngredientRole;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.material.Fluids;
-import net.minecraft.world.level.material.LavaFluid;
 import net.minecraftforge.fluids.FluidStack;
-
-import javax.annotation.Nullable;
-import java.util.ArrayList;
-import java.util.List;
 
 import static com.maciej916.indreb.common.util.Constants.*;
 
@@ -33,8 +25,8 @@ public class ExtrudingCategory extends AbstractRecipeCategory<ExtrudingRecipe> {
 
     public static final ResourceLocation UID = ModRecipeSerializer.EXTRUDING.getRegistryName();
 
-    protected IDrawableAnimated progress;
-    protected IDrawableAnimated energy;
+    private IDrawableAnimated progress;
+    private IDrawableAnimated energy;
 
     public ExtrudingCategory(IGuiHelper guiHelper) {
         super(
@@ -43,41 +35,24 @@ public class ExtrudingCategory extends AbstractRecipeCategory<ExtrudingRecipe> {
                 "extruding",
                 guiHelper,
                 () -> guiHelper.createDrawable(JEI_LARGE, 0, 55, 152, 54),
-                () -> guiHelper.createDrawableIngredient(new ItemStack(ModBlocks.EXTRUDER))
+                () -> guiHelper.createDrawableIngredient(VanillaTypes.ITEM_STACK, new ItemStack(ModBlocks.EXTRUDER))
         );
     }
 
     @Override
-    public void setIngredients(ExtrudingRecipe recipe, IIngredients ingredients) {
-        ArrayList<FluidStack> fluidInputList = new ArrayList<>();
-        FluidStack water = new FluidStack(Fluids.WATER, 1000);
-        FluidStack lava = new FluidStack(Fluids.LAVA, 1000);
-        fluidInputList.add(water);
-        fluidInputList.add(lava);
-        ingredients.setInputs(VanillaTypes.FLUID, fluidInputList);
-        ingredients.setOutput(VanillaTypes.ITEM, recipe.getResultItem());
-    }
-
-    @Override
-    public void setRecipe(IRecipeLayout recipeLayout, ExtrudingRecipe recipe, IIngredients ingredients) {
-        IGuiItemStackGroup guiItemStacks = recipeLayout.getItemStacks();
-        IGuiFluidStackGroup guiFluidStacks = recipeLayout.getFluidStacks();
-
-        guiFluidStacks.init(0, false, 11, 12, 8, 29, 8000, false, null);
-        guiFluidStacks.init(1, false, 52,12, 8, 29, 8000, false, null);
-
-        guiFluidStacks.set(0, new FluidStack(Fluids.WATER, Math.max(recipe.getWaterCost(), 1)));
-        guiFluidStacks.set(1, new FluidStack(Fluids.LAVA, Math.max(recipe.getLavaCost(), 1)));
-
-        guiItemStacks.init(2, false, 102, 18);
-        guiItemStacks.set(ingredients);
-
+    public void setRecipe(IRecipeLayoutBuilder builder, ExtrudingRecipe recipe, IFocusGroup focuses) {
         this.progress = guiHelper.drawableBuilder(PROCESS, 25, 51, 24, 16).buildAnimated(recipe.getDuration(), IDrawableAnimated.StartDirection.LEFT, false);
         this.energy = guiHelper.drawableBuilder(JEI, 249, 0, 7, 37).buildAnimated(200, IDrawableAnimated.StartDirection.TOP, true);
+
+        builder.addSlot(RecipeIngredientRole.CATALYST, 11, 12).setFluidRenderer(8000, false, 8, 29)
+                .addIngredient(ForgeTypes.FLUID_STACK, new FluidStack(Fluids.WATER, Math.max(recipe.getWaterCost(), 1)));
+        builder.addSlot(RecipeIngredientRole.CATALYST, 52, 12).setFluidRenderer(8000, false, 8, 29)
+                .addIngredient(ForgeTypes.FLUID_STACK, new FluidStack(Fluids.LAVA, Math.max(recipe.getLavaCost(), 1)));
+        builder.addSlot(RecipeIngredientRole.OUTPUT, 103, 19).addItemStack(recipe.getResultItem());
     }
 
     @Override
-    public void draw(ExtrudingRecipe recipe, PoseStack poseStack, double mouseX, double mouseY) {
+    public void draw(ExtrudingRecipe recipe, IRecipeSlotsView recipeSlotsView, PoseStack poseStack, double mouseX, double mouseY) {
         this.progress.draw(poseStack, halfX - 6, 19);
         this.energy.draw(poseStack, halfX + 58, 7);
 

@@ -25,7 +25,7 @@ import java.util.concurrent.ThreadLocalRandom;
 @Mod.EventBusSubscriber(value = Dist.CLIENT, modid = IndReb.MODID)
 public class SoundHandler {
 
-    private static Long2ObjectMap<SoundInstance> soundMap = new Long2ObjectOpenHashMap<>();
+    private static final Long2ObjectMap<SoundInstance> soundMap = new Long2ObjectOpenHashMap<>();
     private static SoundEngine soundEngine;
 
     @SubscribeEvent

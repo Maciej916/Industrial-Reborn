@@ -1,18 +1,14 @@
 package com.maciej916.indreb.common.screen.widgets;
 
-import com.maciej916.indreb.IndReb;
 import com.maciej916.indreb.common.interfaces.screen.IGuiWrapper;
-import com.maciej916.indreb.common.screen.PanelScreen;
-import com.maciej916.indreb.common.util.TextComponentUtil;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.components.AbstractWidget;
 import net.minecraft.client.gui.narration.NarrationElementOutput;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.TextComponent;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.resources.ResourceLocation;
-import org.antlr.v4.runtime.misc.NotNull;
+import org.jetbrains.annotations.NotNull;
 
 public abstract class GuiElement extends AbstractWidget {
 

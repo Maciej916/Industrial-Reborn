@@ -10,7 +10,7 @@ import com.maciej916.indreb.common.enums.*;
 import com.maciej916.indreb.common.interfaces.entity.IElectricSlot;
 import com.maciej916.indreb.common.interfaces.entity.IExpCollector;
 import com.maciej916.indreb.common.interfaces.entity.ISupportUpgrades;
-import com.maciej916.indreb.common.receipe.impl.AlloySmeltingRecipe;
+import com.maciej916.indreb.common.recipe.impl.AlloySmeltingRecipe;
 import com.maciej916.indreb.common.registries.ModBlockEntities;
 import com.maciej916.indreb.common.registries.ModRecipeType;
 import net.minecraft.core.BlockPos;
@@ -54,8 +54,6 @@ public class BlockEntityAlloySmelter extends IndRebBlockEntity implements IEnerg
     private ItemStack cachedOutput = ItemStack.EMPTY;
     private boolean cachedWork;
 
-
-
     public BlockEntityAlloySmelter(BlockPos pWorldPosition, BlockState pBlockState) {
         super(ModBlockEntities.ALLOY_SMELTER, pWorldPosition, pBlockState);
         createEnergyStorage(0, ServerConfig.alloy_smelter_energy_capacity.get(), EnergyType.RECEIVE, EnergyTier.STANDARD);
@@ -78,7 +76,7 @@ public class BlockEntityAlloySmelter extends IndRebBlockEntity implements IEnerg
 
     protected Optional<AlloySmeltingRecipe> getRecipe(ItemStack... input) {
         if (level == null) return Optional.empty();
-        return level.getRecipeManager().getRecipeFor(ModRecipeType.ALLOY_SMELTING, new SimpleContainer(input), level);
+        return level.getRecipeManager().getRecipeFor(ModRecipeType.ALLOY_SMELTING.get(), new SimpleContainer(input), level);
     }
 
     protected ItemStack getRecipeResult(ItemStack... stack) {
@@ -89,7 +87,7 @@ public class BlockEntityAlloySmelter extends IndRebBlockEntity implements IEnerg
         return getRecipe(stack).isPresent();
     }
 
-    boolean canWork(ItemStack inputStack0, ItemStack inputStack1, ItemStack inputStack2, ItemStack outputStack, ItemStack resultStack) {
+    private boolean canWork(ItemStack inputStack0, ItemStack inputStack1, ItemStack inputStack2, ItemStack outputStack, ItemStack resultStack) {
         return isValidInput(inputStack0, inputStack1, inputStack2) && (outputStack.isEmpty() || (resultStack.getCount() + outputStack.getCount() <= outputStack.getMaxStackSize() && resultStack.getItem() == outputStack.getItem()));
     }
 
@@ -237,8 +235,7 @@ public class BlockEntityAlloySmelter extends IndRebBlockEntity implements IEnerg
         return true;
     }
 
-
-    ArrayList<LazyOptional<?>> capabilities = new ArrayList<>(Arrays.asList(
+    private final ArrayList<LazyOptional<?>> capabilities = new ArrayList<>(Arrays.asList(
             LazyOptional.of(this::getStackHandler),
             LazyOptional.of(() -> new RangedWrapper(getStackHandler(), INPUT_SLOT_0, INPUT_SLOT_2 + 1)),
             LazyOptional.of(() -> new RangedWrapper(getStackHandler(), OUTPUT_SLOT, OUTPUT_SLOT + 1))

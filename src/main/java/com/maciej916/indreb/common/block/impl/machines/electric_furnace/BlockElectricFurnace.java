@@ -42,6 +42,7 @@ public class BlockElectricFurnace extends BlockElectricMachine implements IState
         return new BlockEntityElectricFurnace(pos, state);
     }
 
+    @Override
     public ContainerElectricFurnace getContainer(int windowId, Level level, BlockPos pos, Inventory playerInventory, Player playerEntity) {
         return new ContainerElectricFurnace(windowId, level, pos, playerInventory, playerEntity);
     }

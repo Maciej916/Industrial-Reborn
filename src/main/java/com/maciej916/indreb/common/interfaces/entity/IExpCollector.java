@@ -7,7 +7,7 @@ public interface IExpCollector {
 
     default boolean hasExpButton() {
         return true;
-    };
+    }
     float getExperience(Recipe<?> recipe);
     void collectExp(Player playerEntity);
     Runnable collectExp();

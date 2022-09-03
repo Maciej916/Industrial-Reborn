@@ -17,6 +17,7 @@ public class TransferTo extends EnergyComparator<TransferTo> {
         this.leftReceive = leftReceive;
     }
 
+    @Override
     public IEnergy getEnergy() {
         return energy;
     }

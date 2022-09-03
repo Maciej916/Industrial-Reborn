@@ -1,6 +1,6 @@
 package com.maciej916.indreb.common.interfaces.receipe;
 
-import com.maciej916.indreb.common.receipe.ChanceResult;
+import com.maciej916.indreb.common.recipe.ChanceResult;
 import net.minecraft.world.item.ItemStack;
 
 import java.util.List;
@@ -13,7 +13,7 @@ public interface IChanceRecipe extends IBaseRecipe {
 
     default ItemStack getBonusItem() {
         if (getChanceResults().size() == 0) return null;
-        return getChanceResults().get(0).getStack();
+        return getChanceResults().get(0).stack();
     }
 
     default ChanceResult getBonus() {

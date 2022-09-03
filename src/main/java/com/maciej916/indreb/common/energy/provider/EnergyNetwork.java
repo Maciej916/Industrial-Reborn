@@ -23,7 +23,7 @@ public class EnergyNetwork implements IEnergy, INBTSerializable<CompoundTag> {
 
     private EnergyTier energyTier;
 
-    public float r,g,b;
+    public float r, g, b;
 
     public EnergyNetwork() {
         initColor();

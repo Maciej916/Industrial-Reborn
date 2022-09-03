@@ -5,13 +5,12 @@ import com.maciej916.indreb.common.interfaces.entity.IProgress;
 import com.maciej916.indreb.common.interfaces.screen.IGuiWrapper;
 import com.maciej916.indreb.common.screen.widgets.GuiElement;
 import com.maciej916.indreb.common.util.GuiUtil;
-import com.maciej916.indreb.common.util.TextComponentUtil;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.network.chat.TranslatableComponent;
 
 public class GuiTextHeat extends GuiElement {
 
-    IProgress progress;
+    private final IProgress progress;
 
     public GuiTextHeat(IGuiWrapper wrapper, int width, int height, int leftOffset, int topOffset, IProgress progress) {
         super(wrapper, width, height, leftOffset, topOffset);

@@ -1,8 +1,8 @@
-package com.maciej916.indreb.common.receipe.impl;
+package com.maciej916.indreb.common.recipe.impl;
 
 import com.google.gson.JsonObject;
-import com.maciej916.indreb.common.receipe.BasicChanceRecipe;
-import com.maciej916.indreb.common.receipe.RecipeChanceResult;
+import com.maciej916.indreb.common.recipe.BasicChanceRecipe;
+import com.maciej916.indreb.common.recipe.RecipeChanceResult;
 import com.maciej916.indreb.common.registries.ModRecipeType;
 import com.maciej916.indreb.common.util.Cache;
 import com.maciej916.indreb.common.util.RecipeUtil;
@@ -18,11 +18,11 @@ import net.minecraftforge.registries.ForgeRegistryEntry;
 
 import javax.annotation.Nullable;
 
-public class ExtractingRecipe extends BasicChanceRecipe {
+public class CrushingRecipe extends BasicChanceRecipe {
 
     public static final Serializer SERIALIZER = new Serializer();
 
-    public ExtractingRecipe(ResourceLocation recipeId) {
+    public CrushingRecipe(ResourceLocation recipeId) {
         super(recipeId);
     }
 
@@ -33,14 +33,14 @@ public class ExtractingRecipe extends BasicChanceRecipe {
 
     @Override
     public RecipeType<?> getType() {
-        return ModRecipeType.EXTRACTING;
+        return ModRecipeType.CRUSHING.get();
     }
 
-    public static class Serializer extends ForgeRegistryEntry<RecipeSerializer<?>> implements RecipeSerializer<ExtractingRecipe> {
+    public static class Serializer extends ForgeRegistryEntry<RecipeSerializer<?>> implements RecipeSerializer<CrushingRecipe> {
 
         @Override
-        public ExtractingRecipe fromJson(ResourceLocation recipeId, JsonObject json) {
-            ExtractingRecipe recipe = new ExtractingRecipe(recipeId);
+        public CrushingRecipe fromJson(ResourceLocation recipeId, JsonObject json) {
+            CrushingRecipe recipe = new CrushingRecipe(recipeId);
 
             recipe.ingredient = Ingredient.fromJson(json.get("ingredient"));
 
@@ -67,8 +67,8 @@ public class ExtractingRecipe extends BasicChanceRecipe {
 
         @Nullable
         @Override
-        public ExtractingRecipe fromNetwork(ResourceLocation recipeId, FriendlyByteBuf buffer) {
-            ExtractingRecipe recipe = new ExtractingRecipe(recipeId);
+        public CrushingRecipe fromNetwork(ResourceLocation recipeId, FriendlyByteBuf buffer) {
+            CrushingRecipe recipe = new CrushingRecipe(recipeId);
 
             recipe.result = buffer.readItem();
             recipe.bonusResult = RecipeChanceResult.read(buffer);
@@ -83,7 +83,7 @@ public class ExtractingRecipe extends BasicChanceRecipe {
         }
 
         @Override
-        public void toNetwork(FriendlyByteBuf buffer, ExtractingRecipe recipe) {
+        public void toNetwork(FriendlyByteBuf buffer, CrushingRecipe recipe) {
             buffer.writeItemStack(recipe.result, false);
             RecipeChanceResult.write(buffer, recipe.bonusResult);
             buffer.writeFloat(recipe.experience);

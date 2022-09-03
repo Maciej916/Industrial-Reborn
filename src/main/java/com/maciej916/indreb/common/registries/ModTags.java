@@ -1,13 +1,6 @@
 package com.maciej916.indreb.common.registries;
 
-import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.tags.ItemTags;
-import net.minecraft.tags.StaticTagHelper;
-import net.minecraft.tags.StaticTags;
-import net.minecraft.tags.Tag;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.level.block.Block;
 
 import static com.maciej916.indreb.IndReb.MODID;
 

@@ -42,6 +42,7 @@ public class BlockSolarGenerator extends BlockElectricMachine implements IHasCon
         return new BlockEntitySolarGenerator(pos, state);
     }
 
+    @Override
     public ContainerSolarGenerator getContainer(int windowId, Level level, BlockPos pos, Inventory playerInventory, Player playerEntity) {
         return new ContainerSolarGenerator(windowId, level, pos, playerInventory, playerEntity);
     }

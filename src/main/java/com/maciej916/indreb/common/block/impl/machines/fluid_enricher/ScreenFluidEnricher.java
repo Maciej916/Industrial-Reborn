@@ -1,12 +1,9 @@
 package com.maciej916.indreb.common.block.impl.machines.fluid_enricher;
 
 import com.maciej916.indreb.IndReb;
-import com.maciej916.indreb.common.block.impl.machines.extruder.BlockEntityExtruder;
 import com.maciej916.indreb.common.screen.BetterScreen;
-import com.maciej916.indreb.common.screen.bar.GuiFertilizerBar;
 import com.maciej916.indreb.common.screen.bar.GuiFluidBarVertical;
 import com.maciej916.indreb.common.screen.progress.GuiProgressArrow;
-import com.maciej916.indreb.common.screen.progress.GuiProgressExtracting;
 import com.maciej916.indreb.common.screen.progress.GuiProgressFill;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;

@@ -11,7 +11,9 @@ import com.maciej916.indreb.common.util.wrench.WrenchHelper;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TranslatableComponent;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.MenuProvider;
@@ -31,8 +33,12 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraftforge.network.NetworkHooks;
+import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.tags.IReverseTag;
 
 import javax.annotation.Nullable;
+import java.util.ArrayList;
+import java.util.List;
 
 public class IndRebBlock extends Block {
 
@@ -69,8 +75,10 @@ public class IndRebBlock extends Block {
 
     @Override
     public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult trace) {
+        List<ResourceLocation> itemTags = ForgeRegistries.ITEMS.tags().getReverseTag(player.getItemInHand(player.getUsedItemHand()).getItem())
+                .map(IReverseTag::getTagKeys).map(tagKeyStream -> tagKeyStream.map(TagKey::location).toList()).orElse(new ArrayList<>());
 
-        if (WrenchHelper.hasAction(this) && player.getItemInHand(player.getUsedItemHand()).getItem().getTags().contains(ModTags.WRENCH_RES)) {
+        if (WrenchHelper.hasAction(this) && itemTags.contains(ModTags.WRENCH_RES)) {
             return InteractionResult.PASS;
         }
 
@@ -110,8 +118,6 @@ public class IndRebBlock extends Block {
 
         super.setPlacedBy(pLevel, pPos, pState, pPlacer, pStack);
     }
-
-
 
     @Override
     public void onRemove(BlockState pState, Level pLevel, BlockPos pPos, BlockState pNewState, boolean pIsMoving) {

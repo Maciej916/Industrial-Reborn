@@ -27,22 +27,27 @@ public class IndRebSlot implements ISlot {
         this.guiY = guiY;
     }
 
+    @Override
     public int getSlotId() {
         return slotId;
     }
 
+    @Override
     public int getXPosition() {
         return xPosition;
     }
 
+    @Override
     public int getYPosition() {
         return yPosition;
     }
 
+    @Override
     public InventorySlotType getInventorySlotType() {
         return invSlotType;
     }
 
+    @Override
     public GuiSlotType guiSlotType() {
         return guiSlotType;
     }

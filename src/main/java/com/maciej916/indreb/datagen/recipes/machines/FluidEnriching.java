@@ -2,16 +2,13 @@ package com.maciej916.indreb.datagen.recipes.machines;
 
 import com.maciej916.indreb.common.fluids.*;
 import com.maciej916.indreb.common.registries.ModItems;
-import com.maciej916.indreb.datagen.recipes.builder.RecipeBuilderCanning;
 import com.maciej916.indreb.datagen.recipes.builder.RecipeBuilderFluidEnriching;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.RecipeProvider;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.material.Fluids;
-import net.minecraftforge.common.Tags;
 
 import java.util.function.Consumer;
 

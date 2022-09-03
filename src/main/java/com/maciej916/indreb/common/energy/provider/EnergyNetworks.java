@@ -54,7 +54,7 @@ public class EnergyNetworks implements IEnergyNetworks, INBTSerializable<Compoun
     }
 
     public List<EnergyNetwork> getConnectedNetworks(EnergyNetwork en) {
-        List<EnergyNetwork> networksChecked = new ArrayList();
+        List<EnergyNetwork> networksChecked = new ArrayList<>();
         for (BlockPos pos : en.getTransmitters()) {
             EnergyNetwork enP = getNetwork(pos);
             if (!networksChecked.contains(enP)) {
@@ -152,6 +152,7 @@ public class EnergyNetworks implements IEnergyNetworks, INBTSerializable<Compoun
 
         removeNetwork(network);
     }
+
     public EnergyNetwork recheckConnections(HashSet<BlockPos> allConnections, EnergyNetwork oldNet, EnergyNetwork newNet, BlockPos pos) {
         newNet.add(newNet.getConnections(), pos);
 

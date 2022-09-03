@@ -1,7 +1,6 @@
 package com.maciej916.indreb.common.screen;
 
 import com.maciej916.indreb.common.container.IndRebContainer;
-import com.maciej916.indreb.common.screen.bar.GuiFertilizerBar;
 import com.maciej916.indreb.common.screen.button.GuiExpButton;
 import com.maciej916.indreb.common.screen.widgets.GuiElement;
 import com.maciej916.indreb.common.screen.widgets.GuiUpgrades;
@@ -16,11 +15,11 @@ import java.util.List;
 
 public class PanelScreen <T extends IndRebContainer> extends BaseScreen<T> {
 
-    private List<AbstractWidget> component;
+    private final List<AbstractWidget> component;
 
     public PanelScreen(T container, Inventory inventory, Component component) {
         super(container, inventory, component);
-        this.component = new ArrayList();
+        this.component = new ArrayList<>();
     }
 
     protected void clearComponent() {

@@ -11,6 +11,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Rarity;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraftforge.registries.ForgeRegistries;
 
 public class MiningDrill extends DiggerElectricItem {
 
@@ -41,7 +42,7 @@ public class MiningDrill extends DiggerElectricItem {
 
     @Override
     public float getDestroySpeed(ItemStack itemStack, BlockState blockState) {
-        return (BlockTags.MINEABLE_WITH_PICKAXE.contains(blockState.getBlock()) || BlockTags.MINEABLE_WITH_SHOVEL.contains(blockState.getBlock())) && getEnergy(itemStack).consumeEnergy(getMineCost(), true) > 1 ? this.speed : 1.0F;
+        return (ForgeRegistries.BLOCKS.tags().getTag(BlockTags.MINEABLE_WITH_PICKAXE).contains(blockState.getBlock()) || ForgeRegistries.BLOCKS.tags().getTag(BlockTags.MINEABLE_WITH_SHOVEL).contains(blockState.getBlock())) && getEnergy(itemStack).consumeEnergy(getMineCost(), true) > 1 ? this.speed : 1.0F;
     }
 
     @Override

@@ -204,7 +204,7 @@ public final class ModBlocks {
         RUBBER_LOG = registerBlock(new RubberLog(), "rubber_log");
         RUBBER_WOOD = registerBlock(new RubberWood(), "rubber_wood");
         RUBBER_LEAVES = registerBlock(new RubberLeaves(), "rubber_leaves");
-        RUBBER_PLANKS = registerBlock(new RybberPlanks(), "rubber_planks");
+        RUBBER_PLANKS = registerBlock(new RubberPlanks(), "rubber_planks");
         RUBBER_SAPLING = registerBlock(new RubberSapling(new RubberTree()), "rubber_sapling");
         RUBBER_STAIRS = registerBlock(new RubberStairs(), "rubber_stairs");
         RUBBER_SLAB = registerBlock(new RubberSlab(), "rubber_slab");

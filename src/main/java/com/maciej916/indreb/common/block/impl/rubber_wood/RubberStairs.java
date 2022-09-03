@@ -10,7 +10,7 @@ import net.minecraft.world.level.material.MaterialColor;
 public class RubberStairs extends StairBlock {
 
     public RubberStairs() {
-        super(ModBlocks.RUBBER_PLANKS.getBlock().defaultBlockState(), BlockBehaviour.Properties.of(Material.WOOD, MaterialColor.COLOR_BROWN).strength(2.0F, 3.0F).sound(SoundType.WOOD));
+        super(() -> ModBlocks.RUBBER_PLANKS.getBlock().defaultBlockState(), BlockBehaviour.Properties.of(Material.WOOD, MaterialColor.COLOR_BROWN).strength(2.0F, 3.0F).sound(SoundType.WOOD));
     }
 
 }

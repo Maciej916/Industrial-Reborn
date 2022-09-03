@@ -54,6 +54,7 @@ public class BlockTransformer extends IndRebEntityBlock implements IStateFacing,
         return new BlockEntityTransformer(pos, state);
     }
 
+    @Override
     public ContainerTransformer getContainer(int windowId, Level level, BlockPos pos, Inventory playerInventory, Player playerEntity) {
         return new ContainerTransformer(windowId, level, pos, playerInventory, playerEntity);
     }

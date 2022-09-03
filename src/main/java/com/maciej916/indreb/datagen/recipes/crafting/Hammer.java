@@ -29,49 +29,49 @@ public class Hammer extends RecipeProvider {
 
         ShapelessRecipeBuilder.shapeless(ModItems.COPPER_PLATE)
                 .requires(ModItems.HAMMER)
-                .requires(ItemTags.bind("forge:ingots/copper"))
+                .requires(ItemTags.create(new ResourceLocation("forge", "ingots/copper")))
                 .group(MODID)
                 .unlockedBy("copper_ingot", InventoryChangeTrigger.TriggerInstance.hasItems(Items.COPPER_INGOT))
                 .save(consumer, saveResource("copper_plate"));
 
         ShapelessRecipeBuilder.shapeless(ModItems.TIN_PLATE)
                 .requires(ModItems.HAMMER)
-                .requires(ItemTags.bind("forge:ingots/tin"))
+                .requires(ItemTags.create(new ResourceLocation("forge", "ingots/tin")))
                 .group(MODID)
                 .unlockedBy("tin_ingot", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.TIN_INGOT))
                 .save(consumer, new ResourceLocation(MODID, "hammer/tin_plate"));
 
         ShapelessRecipeBuilder.shapeless(ModItems.GOLD_PLATE)
                 .requires(ModItems.HAMMER)
-                .requires(ItemTags.bind("forge:ingots/gold"))
+                .requires(ItemTags.create(new ResourceLocation("forge", "ingots/gold")))
                 .group(MODID)
                 .unlockedBy("gold_ingot", InventoryChangeTrigger.TriggerInstance.hasItems(Items.GOLD_INGOT))
                 .save(consumer, new ResourceLocation(MODID, "hammer/gold_plate"));
 
         ShapelessRecipeBuilder.shapeless(ModItems.IRON_PLATE)
                 .requires(ModItems.HAMMER)
-                .requires(ItemTags.bind("forge:ingots/iron"))
+                .requires(ItemTags.create(new ResourceLocation("forge", "ingots/iron")))
                 .group(MODID)
                 .unlockedBy("iron_ingot", InventoryChangeTrigger.TriggerInstance.hasItems(Items.IRON_INGOT))
                 .save(consumer, new ResourceLocation(MODID, "hammer/iron_plate"));
 
         ShapelessRecipeBuilder.shapeless(ModItems.BRONZE_PLATE)
                 .requires(ModItems.HAMMER)
-                .requires(ItemTags.bind("forge:alloys/bronze"))
+                .requires(ItemTags.create(new ResourceLocation("forge", "alloys/bronze")))
                 .group(MODID)
                 .unlockedBy("iron_ingot", InventoryChangeTrigger.TriggerInstance.hasItems(Items.IRON_INGOT))
                 .save(consumer, new ResourceLocation(MODID, "hammer/bronze_plate"));
 
         ShapelessRecipeBuilder.shapeless(ModItems.STEEL_PLATE)
                 .requires(ModItems.HAMMER)
-                .requires(ItemTags.bind("forge:ingots/steel"))
+                .requires(ItemTags.create(new ResourceLocation("forge", "ingots/steel")))
                 .group(MODID)
                 .unlockedBy("steel_ingot", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.STEEL_INGOT))
                 .save(consumer, new ResourceLocation(MODID, "hammer/steel_plate"));
 
         ShapelessRecipeBuilder.shapeless(ModItems.LEAD_PLATE)
                 .requires(ModItems.HAMMER)
-                .requires(ItemTags.bind("forge:ingots/lead"))
+                .requires(ItemTags.create(new ResourceLocation("forge", ":ingots/lead")))
                 .group(MODID)
                 .unlockedBy("iron", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.LEAD_PLATE))
                 .save(consumer, new ResourceLocation(MODID, "hammer/lead_plate"));

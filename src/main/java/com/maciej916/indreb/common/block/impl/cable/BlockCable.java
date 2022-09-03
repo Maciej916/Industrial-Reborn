@@ -1,7 +1,6 @@
 package com.maciej916.indreb.common.block.impl.cable;
 
 import com.maciej916.indreb.common.block.VoxelBlock;
-import com.maciej916.indreb.common.block.impl.battery_box.BlockEntityBatteryBox;
 import com.maciej916.indreb.common.enums.EnumLang;
 import com.maciej916.indreb.common.registries.ModCapabilities;
 import com.maciej916.indreb.common.tier.CableTier;
