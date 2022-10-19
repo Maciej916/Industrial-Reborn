@@ -71,7 +71,7 @@ public class Hammer extends RecipeProvider {
 
         ShapelessRecipeBuilder.shapeless(ModItems.LEAD_PLATE)
                 .requires(ModItems.HAMMER)
-                .requires(ItemTags.create(new ResourceLocation("forge", ":ingots/lead")))
+                .requires(ItemTags.create(new ResourceLocation("forge", "ingots/lead")))
                 .group(MODID)
                 .unlockedBy("iron", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.LEAD_PLATE))
                 .save(consumer, new ResourceLocation(MODID, "hammer/lead_plate"));
