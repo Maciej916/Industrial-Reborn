@@ -54,6 +54,7 @@ public class BlockBatteryBox extends IndRebEntityBlock implements IStateFacing, 
         return new BlockEntityBatteryBox(pos, state);
     }
 
+    @Override
     public ContainerBatteryBox getContainer(int windowId, Level level, BlockPos pos, Inventory playerInventory, Player playerEntity) {
         return new ContainerBatteryBox(windowId, level, pos, playerInventory, playerEntity);
     }

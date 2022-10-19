@@ -9,8 +9,8 @@ import net.minecraft.client.Minecraft;
 
 public class GuiActive extends GuiElement {
 
-    boolean active;
-    GuiSprite progressType;
+    private final boolean active;
+    private final GuiSprite progressType;
 
     public GuiActive(IGuiWrapper wrapper, GuiSprite progressType, int leftOffset, int topOffset, boolean active) {
         super(wrapper, progressType.getWidth(), progressType.getHeight(), leftOffset, topOffset);

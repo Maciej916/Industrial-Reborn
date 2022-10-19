@@ -79,7 +79,7 @@ public class BlockEntityIronFurnace extends IndRebBlockEntity implements IExpCol
         if (cachedInputStack.getItem() != inputStack.getItem()) {
             cachedInputStack = inputStack.copy();
             if (inputStack.getItem() != Items.AIR && getRecipe(inputStack).isPresent()) {
-                furnaceRecipe = getRecipe(cachedInputStack).get();
+                furnaceRecipe = getRecipe(cachedInputStack).orElseThrow();
                 resultStack = getRecipeResult(inputStack);
             } else {
                 furnaceRecipe = null;
@@ -186,7 +186,7 @@ public class BlockEntityIronFurnace extends IndRebBlockEntity implements IExpCol
         return false;
     }
 
-    ArrayList<LazyOptional<?>> capabilities = new ArrayList<>(Arrays.asList(
+    private final ArrayList<LazyOptional<?>> capabilities = new ArrayList<>(Arrays.asList(
             LazyOptional.of(this::getStackHandler),
             LazyOptional.of(() -> new RangedWrapper(getStackHandler(), FUEL_SLOT, FUEL_SLOT + 1)),
             LazyOptional.of(() -> new RangedWrapper(getStackHandler(), INPUT_SLOT, INPUT_SLOT + 1)),

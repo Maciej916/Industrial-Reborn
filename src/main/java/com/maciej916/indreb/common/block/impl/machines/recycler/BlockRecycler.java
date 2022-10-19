@@ -27,7 +27,6 @@ import java.util.List;
 
 public class BlockRecycler extends BlockElectricMachine implements IStateFacing, IHasContainer, IStateActive {
 
-
     public BlockRecycler() {
         super(EnergyTier.BASIC,12, 0);
     }

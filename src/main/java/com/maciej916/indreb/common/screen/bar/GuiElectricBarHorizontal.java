@@ -7,13 +7,10 @@ import com.maciej916.indreb.common.interfaces.screen.IGuiWrapper;
 import com.maciej916.indreb.common.screen.progress.GuiProgress;
 import com.maciej916.indreb.common.util.TextComponentUtil;
 import com.mojang.blaze3d.vertex.PoseStack;
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.Screen;
-import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.resources.ResourceLocation;
-
-import java.util.Arrays;
+import org.jetbrains.annotations.NotNull;
 
 public class GuiElectricBarHorizontal extends GuiProgress {
 
@@ -22,7 +19,7 @@ public class GuiElectricBarHorizontal extends GuiProgress {
     }
 
     @Override
-    public ResourceLocation getResourceLocation() {
+    public @NotNull ResourceLocation getResourceLocation() {
         return new ResourceLocation(IndReb.MODID, "textures/gui/container/common.png");
     }
 

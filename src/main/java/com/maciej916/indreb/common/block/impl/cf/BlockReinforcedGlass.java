@@ -11,6 +11,4 @@ public class BlockReinforcedGlass extends AbstractGlassBlock {
         super(Properties.of(Material.GLASS, MaterialColor.COLOR_BROWN).strength(10.0F, 10000000000F).sound(SoundType.GLASS).noOcclusion());
     }
 
-
-
 }

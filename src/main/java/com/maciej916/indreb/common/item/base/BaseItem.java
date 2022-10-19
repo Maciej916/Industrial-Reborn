@@ -2,21 +2,14 @@ package com.maciej916.indreb.common.item.base;
 
 import com.maciej916.indreb.IndReb;
 import com.maciej916.indreb.common.registries.ModItemGroups;
-import it.unimi.dsi.fastutil.Hash;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Rarity;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.ColorHandlerEvent;
-import net.minecraftforge.common.ForgeSpawnEggItem;
 import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
 
 public class BaseItem extends Item {
     public static final HashMap<BaseItem, int[]> COLORED_ITEMS = new HashMap<>();

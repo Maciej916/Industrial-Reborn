@@ -125,6 +125,12 @@ public class BlockEntityCrystallineGenerator extends IndRebBlockEntity implement
     }
 
     @Override
+    protected void saveAdditional(CompoundTag tag) {
+        super.saveAdditional(tag);
+        save(tag);
+    }
+
+    @Override
     public ArrayList<IElectricSlot> addBatterySlot(ArrayList<IElectricSlot> slots) {
         slots.add(new SlotBattery(0, 152, 62, true));
         return super.addBatterySlot(slots);
@@ -140,7 +146,7 @@ public class BlockEntityCrystallineGenerator extends IndRebBlockEntity implement
         return true;
     }
 
-    ArrayList<LazyOptional<?>> capabilities = new ArrayList<>(Arrays.asList(
+    private final ArrayList<LazyOptional<?>> capabilities = new ArrayList<>(Arrays.asList(
             LazyOptional.of(this::getStackHandler),
             LazyOptional.of(() -> new RangedWrapper(getStackHandler(), INPUT_SLOT, INPUT_SLOT + 1))
     ));

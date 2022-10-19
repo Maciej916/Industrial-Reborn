@@ -2,7 +2,7 @@ package com.maciej916.indreb.common.block.impl.machines.crusher;
 
 import com.maciej916.indreb.common.config.ServerConfig;
 import com.maciej916.indreb.common.entity.block.BlockEntityStandardMachine;
-import com.maciej916.indreb.common.receipe.impl.CrushingRecipe;
+import com.maciej916.indreb.common.recipe.impl.CrushingRecipe;
 import com.maciej916.indreb.common.registries.ModBlockEntities;
 import com.maciej916.indreb.common.registries.ModRecipeType;
 import com.maciej916.indreb.common.registries.ModSounds;
@@ -22,7 +22,7 @@ public class BlockEntityCrusher extends BlockEntityStandardMachine {
 
     @Override
     protected Optional<CrushingRecipe> getRecipe(ItemStack input) {
-        return level.getRecipeManager().getRecipeFor(ModRecipeType.CRUSHING, new SimpleContainer(input), level);
+        return level.getRecipeManager().getRecipeFor(ModRecipeType.CRUSHING.get(), new SimpleContainer(input), level);
     }
 
     @Override

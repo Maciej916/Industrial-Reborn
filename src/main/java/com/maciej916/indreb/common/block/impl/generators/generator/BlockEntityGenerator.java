@@ -52,7 +52,6 @@ public class BlockEntityGenerator extends IndRebBlockEntity implements ICooldown
         return super.addInventorySlot(slots);
     }
 
-
     @Override
     public void tickOperate(BlockState state) {
         progressBurn.clearChanged();
@@ -142,7 +141,7 @@ public class BlockEntityGenerator extends IndRebBlockEntity implements ICooldown
         return true;
     }
 
-    ArrayList<LazyOptional<?>> capabilities = new ArrayList<>(Arrays.asList(
+    private final ArrayList<LazyOptional<?>> capabilities = new ArrayList<>(Arrays.asList(
             LazyOptional.of(this::getStackHandler),
             LazyOptional.of(() -> new RangedWrapper(getStackHandler(), INPUT_SLOT, INPUT_SLOT + 1))
     ));

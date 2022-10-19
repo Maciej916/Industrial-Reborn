@@ -26,9 +26,8 @@ public class PacketReqSyncEnergy {
         ctx.get().enqueueWork(() -> {
             ServerPlayer player = ctx.get().getSender();
             if (player != null) {
-                player.level.getCapability(ModCapabilities.ENERGY_CORE).ifPresent(iEnergyCore -> {
-                    ModNetworking.INSTANCE.send(PacketDistributor.PLAYER.with(() -> player), new PacketSyncEnergy(iEnergyCore.getNetworkTag(null)));
-                });
+                player.level.getCapability(ModCapabilities.ENERGY_CORE).ifPresent(iEnergyCore ->
+                        ModNetworking.INSTANCE.send(PacketDistributor.PLAYER.with(() -> player), new PacketSyncEnergy(iEnergyCore.getNetworkTag(null))));
             }
         });
         ctx.get().setPacketHandled(true);

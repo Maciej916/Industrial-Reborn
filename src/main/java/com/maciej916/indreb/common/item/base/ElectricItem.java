@@ -76,6 +76,7 @@ public class ElectricItem extends BaseItem implements IElectricItem {
         return Math.round(13.0F - ((1 - getChargeRatio(pStack)) * 13.0F));
     }
 
+    @Override
     public int getBarColor(ItemStack pStack) {
         return Mth.hsvToRgb(0, 1.0F, 1.0F);
     }
@@ -132,9 +133,7 @@ public class ElectricItem extends BaseItem implements IElectricItem {
     @Override
     public void readShareTag(ItemStack stack, @org.jetbrains.annotations.Nullable CompoundTag nbt) {
         if (nbt != null) {
-            CapabilityUtil.getCapabilityHelper(stack, ModCapabilities.ENERGY).ifPresent(iEnergy -> {
-                iEnergy.setEnergy(nbt.getInt("energyStored"));
-            });
+            CapabilityUtil.getCapabilityHelper(stack, ModCapabilities.ENERGY).ifPresent(iEnergy -> iEnergy.setEnergy(nbt.getInt("energyStored")));
         }
         super.readShareTag(stack, nbt);
     }

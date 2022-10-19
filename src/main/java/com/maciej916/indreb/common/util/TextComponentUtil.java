@@ -3,15 +3,13 @@ package com.maciej916.indreb.common.util;
 import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.network.chat.TranslatableComponent;
 
-import java.awt.*;
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import java.util.*;
-import java.util.List;
 
 public class TextComponentUtil {
 
-    private static DecimalFormat df = new DecimalFormat("###,##0");
+    private static final DecimalFormat df = new DecimalFormat("###,##0");
 
     private static final NavigableMap<Long, String> suffixes = new TreeMap<>();
     static {
@@ -34,7 +32,7 @@ public class TextComponentUtil {
         String suffix = e.getValue();
 
         long truncated = value / (divideBy / 10);
-        boolean hasDecimal = truncated < 100 && (truncated / 10d) != (truncated / 10);
+        boolean hasDecimal = truncated < 100 && (truncated / 10d) != (truncated / 10d);
         return hasDecimal ? (truncated / 10d) + suffix : (truncated / 10) + suffix;
     }
 

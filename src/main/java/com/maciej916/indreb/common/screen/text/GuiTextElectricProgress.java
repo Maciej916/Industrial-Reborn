@@ -11,7 +11,7 @@ import net.minecraft.network.chat.TranslatableComponent;
 
 public class GuiTextElectricProgress extends GuiElement {
 
-    IProgress progress;
+    private final IProgress progress;
 
     public GuiTextElectricProgress(IGuiWrapper wrapper, int width, int height, int leftOffset, int topOffset, IProgress progress) {
         super(wrapper, width, height, leftOffset, topOffset);

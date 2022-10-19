@@ -9,10 +9,11 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.resources.ResourceLocation;
+import org.jetbrains.annotations.NotNull;
 
 public class GuiCooldown extends GuiElement {
 
-    ICooldown be = (ICooldown) getWrapper().getBlockEntity();
+    private final ICooldown be = (ICooldown) getWrapper().getBlockEntity();
 
     public GuiCooldown(IGuiWrapper wrapper) {
         super(wrapper, 20, 16, 156, -15);
@@ -43,7 +44,7 @@ public class GuiCooldown extends GuiElement {
     }
 
     @Override
-    public ResourceLocation getResourceLocation() {
+    public @NotNull ResourceLocation getResourceLocation() {
         return new ResourceLocation(IndReb.MODID, "textures/gui/container/common.png");
     }
 }

@@ -3,20 +3,16 @@ package com.maciej916.indreb.datagen.recipes.machines;
 import com.maciej916.indreb.common.registries.ModBlocks;
 import com.maciej916.indreb.common.registries.ModItems;
 import com.maciej916.indreb.datagen.recipes.builder.RecipeBuilderCompressing;
-import com.maciej916.indreb.datagen.recipes.builder.RecipeBuilderCrushing;
-import com.maciej916.indreb.datagen.recipes.builder.RecipeBuilderExtracting;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.RecipeProvider;
-import net.minecraft.data.recipes.ShapedRecipeBuilder;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 
 import java.util.function.Consumer;
-
-import static com.maciej916.indreb.IndReb.MODID;
 
 public class Compressing extends RecipeProvider {
 
@@ -28,63 +24,63 @@ public class Compressing extends RecipeProvider {
     protected void buildCraftingRecipes(Consumer<FinishedRecipe> consumer) {
 
         RecipeBuilderCompressing.builder(Items.IRON_BLOCK, 1)
-                .setIngredient(Ingredient.of(ItemTags.bind("forge:ingots/iron")), 9)
+                .setIngredient(Ingredient.of(ItemTags.create(new ResourceLocation("forge", "ingots/iron"))), 9)
                 .setExperience(0.3F)
                 .addCriterion("item", InventoryChangeTrigger.TriggerInstance.hasItems(Items.IRON_INGOT))
                 .setGroup("compressing/block")
                 .save(consumer,"iron_ingot_iron_block");
 
         RecipeBuilderCompressing.builder(Items.GOLD_BLOCK, 1)
-                .setIngredient(Ingredient.of(ItemTags.bind("forge:ingots/gold")), 9)
+                .setIngredient(Ingredient.of(ItemTags.create(new ResourceLocation("forge", "ingots/gold"))), 9)
                 .setExperience(0.4F)
                 .addCriterion("item", InventoryChangeTrigger.TriggerInstance.hasItems(Items.GOLD_INGOT))
                 .setGroup("compressing/block")
                 .save(consumer,"gold_ingot_gold_ore");
 
         RecipeBuilderCompressing.builder(Items.DIAMOND_BLOCK, 1)
-                .setIngredient(Ingredient.of(ItemTags.bind("forge:gems/diamond")), 9)
+                .setIngredient(Ingredient.of(ItemTags.create(new ResourceLocation("forge", "gems/diamond"))), 9)
                 .setExperience(0.8F)
                 .addCriterion("item", InventoryChangeTrigger.TriggerInstance.hasItems(Items.DIAMOND))
                 .setGroup("compressing/block")
                 .save(consumer,"diamond_diamond_block");
 
         RecipeBuilderCompressing.builder(Items.EMERALD_BLOCK, 1)
-                .setIngredient(Ingredient.of(ItemTags.bind("forge:gems/emerald")), 9)
+                .setIngredient(Ingredient.of(ItemTags.create(new ResourceLocation("forge", "gems/emerald"))), 9)
                 .setExperience(0.6F)
                 .addCriterion("item", InventoryChangeTrigger.TriggerInstance.hasItems(Items.EMERALD))
                 .setGroup("compressing/block")
                 .save(consumer,"emerald_emerald_block");
 
         RecipeBuilderCompressing.builder(Items.COPPER_BLOCK, 1)
-                .setIngredient(Ingredient.of(ItemTags.bind("forge:ingots/copper")), 9)
+                .setIngredient(Ingredient.of(ItemTags.create(new ResourceLocation("forge", "ingots/copper"))), 9)
                 .setExperience(0.3F)
                 .addCriterion("item", InventoryChangeTrigger.TriggerInstance.hasItems(Items.COPPER_BLOCK))
                 .setGroup("compressing/block")
                 .save(consumer,"copper_copper_block");
 
         RecipeBuilderCompressing.builder(ModBlocks.TIN_BLOCK, 1)
-                .setIngredient(Ingredient.of(ItemTags.bind("forge:ingots/tin")), 9)
+                .setIngredient(Ingredient.of(ItemTags.create(new ResourceLocation("forge", "ingots/tin"))), 9)
                 .setExperience(0.3F)
                 .addCriterion("item", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.TIN_INGOT))
                 .setGroup("compressing/block")
                 .save(consumer,"tin_tin_block");
 
         RecipeBuilderCompressing.builder(ModBlocks.SILVER_BLOCK, 1)
-                .setIngredient(Ingredient.of(ItemTags.bind("forge:ingots/silver")), 9)
+                .setIngredient(Ingredient.of(ItemTags.create(new ResourceLocation("forge", "ingots/silver"))), 9)
                 .setExperience(0.3F)
                 .addCriterion("item", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.SILVER_INGOT))
                 .setGroup("compressing/block")
                 .save(consumer,"silver_block");
 
         RecipeBuilderCompressing.builder(ModBlocks.BRONZE_BLOCK, 1)
-                .setIngredient(Ingredient.of(ItemTags.bind("forge:alloys/bronze")), 9)
+                .setIngredient(Ingredient.of(ItemTags.create(new ResourceLocation("forge", "alloys/bronze"))), 9)
                 .setExperience(0.3F)
                 .addCriterion("item", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.BRONZE_INGOT))
                 .setGroup("compressing/block")
                 .save(consumer,"bronze_block");
 
         RecipeBuilderCompressing.builder(ModBlocks.STEEL_BLOCK, 1)
-                .setIngredient(Ingredient.of(ItemTags.bind("forge:ingots/steel")), 9)
+                .setIngredient(Ingredient.of(ItemTags.create(new ResourceLocation("forge", "ingots/steel"))), 9)
                 .setExperience(0.3F)
                 .addCriterion("item", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.STEEL_INGOT))
                 .setGroup("compressing/block")

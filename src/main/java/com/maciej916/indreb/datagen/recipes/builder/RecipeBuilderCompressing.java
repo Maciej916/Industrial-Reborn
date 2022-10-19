@@ -2,23 +2,23 @@ package com.maciej916.indreb.datagen.recipes.builder;
 
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import com.maciej916.indreb.common.receipe.ChanceResult;
-import com.maciej916.indreb.common.receipe.RecipeChanceResult;
+import com.maciej916.indreb.common.recipe.ChanceResult;
+import com.maciej916.indreb.common.recipe.RecipeChanceResult;
 import com.maciej916.indreb.common.registries.ModRecipeSerializer;
 import net.minecraft.advancements.Advancement;
 import net.minecraft.advancements.AdvancementRewards;
 import net.minecraft.advancements.CriterionTriggerInstance;
 import net.minecraft.advancements.RequirementsStrategy;
 import net.minecraft.advancements.critereon.RecipeUnlockedTrigger;
-import net.minecraft.core.Registry;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.tags.Tag;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.level.ItemLike;
+import net.minecraftforge.registries.ForgeRegistries;
 
 import javax.annotation.Nullable;
 import java.util.function.Consumer;
@@ -63,7 +63,7 @@ public class RecipeBuilderCompressing {
         return setIngredient(Ingredient.of(item), count);
     }
 
-    public RecipeBuilderCompressing setIngredient(Tag<Item> tag, int count) {
+    public RecipeBuilderCompressing setIngredient(TagKey<Item> tag, int count) {
         return setIngredient(Ingredient.of(tag), count);
     }
 
@@ -121,7 +121,7 @@ public class RecipeBuilderCompressing {
             json.add("ingredient", serializeIngredient(builder.ingredient, builder.ingredientCount));
 
             JsonObject result = new JsonObject();
-            result.addProperty("item", Registry.ITEM.getKey(builder.result.getItem()).toString());
+            result.addProperty("item", ForgeRegistries.ITEMS.getKey(builder.result.getItem()).toString());
             if (builder.result.getCount() > 1) {
                 result.addProperty("count", builder.result.getCount());
             }
@@ -130,9 +130,9 @@ public class RecipeBuilderCompressing {
             if (builder.bonusResult.getResults().size() > 0) {
                 JsonObject bonusJSON = new JsonObject();
                 ChanceResult bonusResult = builder.bonusResult.getResults().get(0);
-                bonusJSON.addProperty("item", Registry.ITEM.getKey(bonusResult.getStack().getItem()).toString());
+                bonusJSON.addProperty("item", ForgeRegistries.ITEMS.getKey(bonusResult.stack().getItem()).toString());
                 bonusJSON.addProperty("count", bonusResult.getCount());
-                bonusJSON.addProperty("chance", bonusResult.getChance());
+                bonusJSON.addProperty("chance", bonusResult.chance());
                 json.add("bonus_result", bonusJSON);
             }
 

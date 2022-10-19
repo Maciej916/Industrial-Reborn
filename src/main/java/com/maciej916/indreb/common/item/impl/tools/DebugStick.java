@@ -26,9 +26,8 @@ public class DebugStick extends IEMeter {
     @Override
     public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
         if (!level.isClientSide()) {
-            level.getCapability(ModCapabilities.ENERGY_CORE).ifPresent(iEnergyCore -> {
-                ModNetworking.INSTANCE.send(PacketDistributor.PLAYER.with(() -> (ServerPlayer) player), new PacketSyncEnergy(iEnergyCore.getNetworkTag(null)));
-            });
+            level.getCapability(ModCapabilities.ENERGY_CORE).ifPresent(iEnergyCore ->
+                    ModNetworking.INSTANCE.send(PacketDistributor.PLAYER.with(() -> (ServerPlayer) player), new PacketSyncEnergy(iEnergyCore.getNetworkTag(null))));
         }
         return super.use(level, player, hand);
     }

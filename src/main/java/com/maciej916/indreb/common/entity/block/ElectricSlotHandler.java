@@ -1,19 +1,21 @@
 package com.maciej916.indreb.common.entity.block;
 
-import com.maciej916.indreb.common.energy.impl.BasicEnergyStorage;
 import com.maciej916.indreb.common.energy.interfaces.IEnergy;
-import com.maciej916.indreb.common.enums.EnergyTier;
 import com.maciej916.indreb.common.enums.EnergyType;
 import com.maciej916.indreb.common.enums.InventorySlotType;
 import com.maciej916.indreb.common.interfaces.item.IElectricItem;
 import com.maciej916.indreb.common.registries.ModTags;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.SlotItemHandler;
+import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.tags.IReverseTag;
 
 import javax.annotation.Nonnull;
+import java.util.ArrayList;
 import java.util.List;
-
 
 public class ElectricSlotHandler extends SlotItemHandler {
 
@@ -36,13 +38,15 @@ public class ElectricSlotHandler extends SlotItemHandler {
             }
         }
 
+        List<ResourceLocation> itemTags = ForgeRegistries.ITEMS.tags().getReverseTag(stack.getItem()).map(IReverseTag::getTagKeys)
+                .map(tagKeyStream -> tagKeyStream.map(TagKey::location).toList()).orElse(new ArrayList<>());
         return switch (inventorySlotType) {
-            case ELECTRIC -> stack.getItem().getTags().contains(ModTags.ELECTRICS_RES) || stack.getItem().getTags().contains(ModTags.BATTERIES_RES);
-            case BATTERY -> stack.getItem().getTags().contains(ModTags.BATTERIES_RES);
-            case HELMET -> stack.getItem().getTags().contains(ModTags.HELMET_RES);
-            case CHESTPLATE -> stack.getItem().getTags().contains(ModTags.CHESTPLATE_RES);
-            case LEGGINGS -> stack.getItem().getTags().contains(ModTags.LEGGINGS_RES);
-            case BOOTS -> stack.getItem().getTags().contains(ModTags.BOOTS_RES);
+            case ELECTRIC -> itemTags.contains(ModTags.ELECTRICS_RES) || itemTags.contains(ModTags.BATTERIES_RES);
+            case BATTERY -> itemTags.contains(ModTags.BATTERIES_RES);
+            case HELMET -> itemTags.contains(ModTags.HELMET_RES);
+            case CHESTPLATE -> itemTags.contains(ModTags.CHESTPLATE_RES);
+            case LEGGINGS -> itemTags.contains(ModTags.LEGGINGS_RES);
+            case BOOTS -> itemTags.contains(ModTags.BOOTS_RES);
             default -> false;
         };
     }

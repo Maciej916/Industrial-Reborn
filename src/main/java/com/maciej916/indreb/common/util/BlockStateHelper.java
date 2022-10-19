@@ -112,8 +112,7 @@ public class BlockStateHelper {
     public static BlockState rotate(BlockState state, Rotation rotation) {
         Block block = state.getBlock();
 
-        if (block instanceof IStateFacing) {
-            IStateFacing blockFacing = (IStateFacing) block;
+        if (block instanceof IStateFacing blockFacing) {
             return rotate(blockFacing, blockFacing.getFacingProperty(), state, rotation);
         }
 
@@ -123,8 +122,7 @@ public class BlockStateHelper {
     public static BlockState mirror(BlockState state, Mirror mirror) {
         Block block = state.getBlock();
 
-        if (block instanceof IStateFacing) {
-            IStateFacing blockFacing = (IStateFacing) block;
+        if (block instanceof IStateFacing blockFacing) {
             DirectionProperty property = blockFacing.getFacingProperty();
             return rotate(blockFacing, property, state, mirror.getRotation(state.getValue(property)));
         }

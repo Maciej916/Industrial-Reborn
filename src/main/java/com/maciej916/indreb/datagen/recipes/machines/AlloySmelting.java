@@ -6,6 +6,7 @@ import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.RecipeProvider;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
@@ -32,9 +33,9 @@ public class AlloySmelting extends RecipeProvider {
 
 
         RecipeBuilderAlloySmelting.builder(ModItems.MIXED_METAL_INGOT, 2)
-                .addIngredient(Ingredient.of(ItemTags.bind("forge:ingots/iron")), 3)
-                .addIngredient(Ingredient.of(ItemTags.bind("forge:alloys/bronze")), 3)
-                .addIngredient(Ingredient.of(ItemTags.bind("forge:ingots/tin")), 3)
+                .addIngredient(Ingredient.of(ItemTags.create(new ResourceLocation("forge", "ingots/iron"))), 3)
+                .addIngredient(Ingredient.of(ItemTags.create(new ResourceLocation("forge", "alloys/bronze"))), 3)
+                .addIngredient(Ingredient.of(ItemTags.create(new ResourceLocation("forge", "ingots/tin"))), 3)
                 .setExperience(0.5F)
                 .addCriterion("bronze_plate", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.BRONZE_PLATE))
                 .addCriterion("iron_plate", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.IRON_PLATE))
@@ -44,8 +45,8 @@ public class AlloySmelting extends RecipeProvider {
 
 
         RecipeBuilderAlloySmelting.builder(ModItems.STEEL_INGOT, 1)
-                .addIngredient(Ingredient.of(ItemTags.bind("forge:ingots/iron")), 1)
-                .addIngredient(Ingredient.of(ItemTags.bind("forge:dusts/coal")), 3)
+                .addIngredient(Ingredient.of(ItemTags.create(new ResourceLocation("forge", "ingots/iron"))), 1)
+                .addIngredient(Ingredient.of(ItemTags.create(new ResourceLocation("forge", "dusts/coal"))), 3)
                 .setExperience(0.5F)
                 .addCriterion("coal_dust", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.COAL_DUST))
                 .addCriterion("iron_ingot", InventoryChangeTrigger.TriggerInstance.hasItems(Items.IRON_INGOT))

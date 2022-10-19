@@ -2,6 +2,7 @@ package com.maciej916.indreb.common.registries;
 
 import com.maciej916.indreb.IndReb;
 import com.maciej916.indreb.common.config.CommonConfig;
+import net.minecraft.core.Holder;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.levelgen.GenerationStep;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
@@ -12,16 +13,15 @@ import net.minecraftforge.fml.common.Mod;
 
 import java.util.HashSet;
 import java.util.List;
-import java.util.function.Supplier;
 
 import static net.minecraft.world.level.levelgen.GenerationStep.Decoration.VEGETAL_DECORATION;
 
 @Mod.EventBusSubscriber(modid = IndReb.MODID, bus = Mod.EventBusSubscriber.Bus.FORGE)
 public final class ModGeneration {
 
-    public static final HashSet<PlacedFeature> OVERWORLD_ORES = new HashSet<>();
-    public static final HashSet<PlacedFeature> NETHER_ORES  = new HashSet<>();
-    public static final HashSet<PlacedFeature> END_ORES = new HashSet<>();
+    public static final HashSet<Holder<PlacedFeature>> OVERWORLD_ORES = new HashSet<>();
+    public static final HashSet<Holder<PlacedFeature>> NETHER_ORES  = new HashSet<>();
+    public static final HashSet<Holder<PlacedFeature>> END_ORES = new HashSet<>();
 
     public static void init() {
         ModConfiguredFeatures.init();
@@ -52,13 +52,13 @@ public final class ModGeneration {
     }
 
     public static void addVegetal(ResourceLocation res, BiomeGenerationSettingsBuilder gen) {
-        List<Supplier<PlacedFeature>> vege = gen.getFeatures(VEGETAL_DECORATION);
+        List<Holder<PlacedFeature>> vege = gen.getFeatures(VEGETAL_DECORATION);
         if (CommonConfig.worldgen_rubber_tree_enabled.get()) {
             String biome = res.toString();
             if (CommonConfig.worldgen_rubber_tree_chance_biomes_rich.get().contains(biome)) {
-                vege.add(() -> ModPlacedFeatures.RUBBER_TREE_RICH);
+                vege.add(ModPlacedFeatures.RUBBER_TREE_RICH);
             } else if (CommonConfig.worldgen_rubber_tree_chance_biomes.get().contains(biome)) {
-                vege.add(() -> ModPlacedFeatures.RUBBER_TREE_STANDARD);
+                vege.add(ModPlacedFeatures.RUBBER_TREE_STANDARD);
             }
         }
     }
@@ -77,13 +77,13 @@ public final class ModGeneration {
         registerEndOres();
         registerOverworldOres();
 
-        List<Supplier<PlacedFeature>> features = gen.getFeatures(GenerationStep.Decoration.UNDERGROUND_ORES);
+        List<Holder<PlacedFeature>> features = gen.getFeatures(GenerationStep.Decoration.UNDERGROUND_ORES);
 
 
         switch(event.getCategory()) {
-            case NETHER -> NETHER_ORES.forEach(ore -> features.add(() -> ore));
-            case THEEND -> END_ORES.forEach(ore -> features.add(() -> ore));
-            default -> OVERWORLD_ORES.forEach(ore -> features.add(() -> ore));
+            case NETHER -> features.addAll(NETHER_ORES);
+            case THEEND -> features.addAll(END_ORES);
+            default -> features.addAll(OVERWORLD_ORES);
         }
 
     }

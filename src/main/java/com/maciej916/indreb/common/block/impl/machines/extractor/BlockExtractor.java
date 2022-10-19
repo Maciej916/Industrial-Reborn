@@ -36,6 +36,7 @@ public class BlockExtractor extends BlockElectricMachine implements IStateFacing
         return new BlockEntityExtractor(pos, state);
     }
 
+    @Override
     public ContainerExtractor getContainer(int windowId, Level level, BlockPos pos, Inventory playerInventory, Player playerEntity) {
         return new ContainerExtractor(windowId, level, pos, playerInventory, playerEntity);
     }

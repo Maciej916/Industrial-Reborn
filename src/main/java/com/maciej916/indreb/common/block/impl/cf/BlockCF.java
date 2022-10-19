@@ -3,12 +3,9 @@ package com.maciej916.indreb.common.block.impl.cf;
 import com.maciej916.indreb.common.registries.ModBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.world.entity.Entity;
 import net.minecraft.world.level.BlockGetter;
-import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.AbstractGlassBlock;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.Material;
@@ -27,6 +24,7 @@ public class BlockCF extends AbstractGlassBlock {
         super(Properties.of(Material.WOOD, MaterialColor.WOOL).strength(0.5F, 3.0F).sound(SoundType.WOOL).randomTicks().noOcclusion());
     }
 
+    @Override
     public VoxelShape getCollisionShape(BlockState p_54015_, BlockGetter p_54016_, BlockPos p_54017_, CollisionContext p_54018_) {
         return SHAPE;
     }

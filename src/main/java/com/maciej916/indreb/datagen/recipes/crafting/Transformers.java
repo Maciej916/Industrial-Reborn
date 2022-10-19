@@ -10,7 +10,6 @@ import net.minecraft.data.recipes.ShapedRecipeBuilder;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.level.block.Blocks;
 
 import java.util.function.Consumer;
 
@@ -33,7 +32,7 @@ public class Transformers extends RecipeProvider {
                 .pattern("pcp")
                 .pattern("bob")
                 .pattern("pcp")
-                .define('p', ItemTags.bind("minecraft:planks"))
+                .define('p', ItemTags.create(new ResourceLocation("planks")))
                 .define('c', ModBlocks.COPPER_CABLE_INSULATED)
                 .define('o', ModItems.COIL)
                 .define('b', ModItems.BRONZE_PLATE)

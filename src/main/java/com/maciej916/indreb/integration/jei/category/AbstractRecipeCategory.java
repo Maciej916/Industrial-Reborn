@@ -3,10 +3,12 @@ package com.maciej916.indreb.integration.jei.category;
 import com.maciej916.indreb.IndReb;
 import com.maciej916.indreb.common.util.Cache;
 import com.mojang.blaze3d.vertex.PoseStack;
-import mezz.jei.api.gui.IRecipeLayout;
+import mezz.jei.api.gui.builder.IRecipeLayoutBuilder;
 import mezz.jei.api.gui.drawable.IDrawable;
+import mezz.jei.api.gui.ingredient.IRecipeSlotsView;
 import mezz.jei.api.helpers.IGuiHelper;
-import mezz.jei.api.ingredients.IIngredients;
+import mezz.jei.api.recipe.IFocusGroup;
+import mezz.jei.api.recipe.RecipeType;
 import mezz.jei.api.recipe.category.IRecipeCategory;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TranslatableComponent;
@@ -46,10 +48,17 @@ public abstract class AbstractRecipeCategory<T> implements IRecipeCategory<T> {
     }
 
     @Override
+    public RecipeType<T> getRecipeType() {
+        return new RecipeType<>(uid, recipeClass);
+    }
+
+    @SuppressWarnings("removal")
+    @Override
     public ResourceLocation getUid() {
         return uid;
     }
 
+    @SuppressWarnings("removal")
     @Override
     public Class<? extends T> getRecipeClass() {
         return recipeClass;
@@ -71,11 +80,8 @@ public abstract class AbstractRecipeCategory<T> implements IRecipeCategory<T> {
     }
 
     @Override
-    public abstract void setIngredients(T recipe, IIngredients ingredients);
+    public abstract void setRecipe(IRecipeLayoutBuilder builder, T recipe, IFocusGroup focuses);
 
     @Override
-    public abstract void setRecipe(IRecipeLayout recipeLayout, T recipe, IIngredients ingredients);
-
-    @Override
-    public abstract void draw(T recipe, PoseStack matrixStack, double mouseX, double mouseY);
+    public abstract void draw(T recipe, IRecipeSlotsView recipeSlotsView, PoseStack poseStack, double mouseX, double mouseY);
 }

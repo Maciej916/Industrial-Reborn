@@ -2,7 +2,7 @@ package com.maciej916.indreb.common.block.impl.machines.compressor;
 
 import com.maciej916.indreb.common.config.ServerConfig;
 import com.maciej916.indreb.common.entity.block.BlockEntityStandardMachine;
-import com.maciej916.indreb.common.receipe.impl.CompressingRecipe;
+import com.maciej916.indreb.common.recipe.impl.CompressingRecipe;
 import com.maciej916.indreb.common.registries.ModBlockEntities;
 import com.maciej916.indreb.common.registries.ModRecipeType;
 import com.maciej916.indreb.common.registries.ModSounds;
@@ -22,7 +22,7 @@ public class BlockEntityCompressor extends BlockEntityStandardMachine {
 
     @Override
     protected Optional<CompressingRecipe> getRecipe(ItemStack input) {
-        return level.getRecipeManager().getRecipeFor(ModRecipeType.COMPRESSING, new SimpleContainer(input), level);
+        return level.getRecipeManager().getRecipeFor(ModRecipeType.COMPRESSING.get(), new SimpleContainer(input), level);
     }
 
     @Override

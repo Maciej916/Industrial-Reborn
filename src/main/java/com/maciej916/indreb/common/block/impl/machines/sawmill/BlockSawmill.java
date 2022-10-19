@@ -36,6 +36,7 @@ public class BlockSawmill extends BlockElectricMachine implements IStateFacing, 
         return new BlockEntitySawmill(pos, state);
     }
 
+    @Override
     public ContainerSawmill getContainer(int windowId, Level level, BlockPos pos, Inventory playerInventory, Player playerEntity) {
         return new ContainerSawmill(windowId, level, pos, playerInventory, playerEntity);
     }

@@ -1,9 +1,7 @@
-package com.maciej916.indreb.common.receipe.impl;
+package com.maciej916.indreb.common.recipe.impl;
 
 import com.google.gson.JsonObject;
 import com.maciej916.indreb.common.interfaces.receipe.IBaseRecipe;
-import com.maciej916.indreb.common.receipe.RecipeChanceResult;
-import com.maciej916.indreb.common.registries.ModItems;
 import com.maciej916.indreb.common.registries.ModRecipeType;
 import com.maciej916.indreb.common.util.Cache;
 import com.maciej916.indreb.common.util.RecipeUtil;
@@ -21,15 +19,12 @@ import net.minecraft.world.level.Level;
 import net.minecraftforge.registries.ForgeRegistryEntry;
 
 import javax.annotation.Nullable;
-import java.text.DecimalFormat;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Random;
 
 public class CanningRecipe implements IBaseRecipe {
 
     public static final CanningRecipe.Serializer SERIALIZER = new CanningRecipe.Serializer();
 
+    private final ResourceLocation recipeId;
     private Cache<NonNullList<Ingredient>> ingredientList;
 
     private Ingredient firstIngredient;
@@ -37,8 +32,6 @@ public class CanningRecipe implements IBaseRecipe {
 
     private Ingredient secondIngredient;
     private int secondIngredientCount;
-
-    private ResourceLocation recipeId;
 
     private ItemStack result;
 
@@ -84,7 +77,7 @@ public class CanningRecipe implements IBaseRecipe {
 
     @Override
     public RecipeType<?> getType() {
-        return ModRecipeType.CANNING;
+        return ModRecipeType.CANNING.get();
     }
 
     @Override
@@ -178,7 +171,6 @@ public class CanningRecipe implements IBaseRecipe {
 
         @Override
         public void toNetwork(FriendlyByteBuf buffer, CanningRecipe recipe) {
-
             recipe.firstIngredient.toNetwork(buffer);
             buffer.writeInt(recipe.firstIngredientCount);
             recipe.secondIngredient.toNetwork(buffer);

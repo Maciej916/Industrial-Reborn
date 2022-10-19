@@ -1,19 +1,14 @@
 package com.maciej916.indreb.common.util.wrench;
 
 import com.maciej916.indreb.common.energy.interfaces.IEnergy;
-import com.maciej916.indreb.common.energy.provider.EnergyNetwork;
 import com.maciej916.indreb.common.entity.block.IndRebBlockEntity;
 import com.maciej916.indreb.common.interfaces.item.IElectricItem;
 import com.maciej916.indreb.common.interfaces.wrench.IWrenchAction;
-import com.maciej916.indreb.common.item.base.ElectricItem;
-import com.maciej916.indreb.common.registries.ModCapabilities;
 import com.maciej916.indreb.common.registries.ModSounds;
 import com.maciej916.indreb.common.util.BlockStateHelper;
-import com.maciej916.indreb.common.util.CapabilityUtil;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.network.chat.TextComponent;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;

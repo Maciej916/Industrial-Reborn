@@ -7,7 +7,7 @@ import net.minecraft.network.chat.Component;
 
 public class GuiText extends GuiElement {
 
-    Component component;
+    private final Component component;
 
     public GuiText(IGuiWrapper wrapper, int width, int height, int leftOffset, int topOffset, Component component) {
         super(wrapper, width, height, leftOffset, topOffset);

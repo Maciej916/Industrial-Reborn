@@ -2,12 +2,12 @@ package com.maciej916.indreb.datagen.recipes.machines;
 
 import com.maciej916.indreb.common.registries.ModBlocks;
 import com.maciej916.indreb.common.registries.ModItems;
-import com.maciej916.indreb.datagen.recipes.builder.RecipeBuilderCrushing;
 import com.maciej916.indreb.datagen.recipes.builder.RecipeBuilderExtracting;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.RecipeProvider;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
@@ -43,7 +43,7 @@ public class Extracting extends RecipeProvider {
                 .save(consumer,"rubber_wood_rubber");
 
         RecipeBuilderExtracting.builder(Items.WHITE_WOOL, 1)
-                .setIngredient(Ingredient.of(ItemTags.bind("minecraft:wool")), 1)
+                .setIngredient(Ingredient.of(ItemTags.create(new ResourceLocation("wool"))), 1)
                 .addCriterion("item", InventoryChangeTrigger.TriggerInstance.hasItems(Items.WHITE_WOOL))
                 .setGroup("extracting")
                 .save(consumer,"any_wool_white_wool");

@@ -7,9 +7,7 @@ import java.util.List;
 
 public class WrenchAction {
 
-    List<IWrenchAction> actions = new ArrayList<>();
-
-    public WrenchAction() {}
+    private final List<IWrenchAction> actions = new ArrayList<>();
 
     public List<IWrenchAction> getActions() {
         return actions;

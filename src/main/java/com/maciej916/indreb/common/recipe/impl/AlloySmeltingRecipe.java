@@ -1,20 +1,15 @@
-package com.maciej916.indreb.common.receipe.impl;
+package com.maciej916.indreb.common.recipe.impl;
 
 import com.google.common.collect.ImmutableMap;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
-import com.maciej916.indreb.common.interfaces.receipe.IBaseRecipe;
+import com.maciej916.indreb.common.interfaces.receipe.IRecipeMultiInput;
 import com.maciej916.indreb.common.registries.ModRecipeType;
-import com.maciej916.indreb.common.util.Cache;
-import com.maciej916.indreb.common.util.RecipeUtil;
-import net.minecraft.core.NonNullList;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.GsonHelper;
 import net.minecraft.world.Container;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.crafting.RecipeType;
@@ -24,20 +19,18 @@ import net.minecraftforge.registries.ForgeRegistryEntry;
 
 import javax.annotation.Nullable;
 import java.util.*;
-import java.util.function.Predicate;
-import java.util.stream.Collectors;
 
-public class AlloySmeltingRecipe implements IBaseRecipe {
+public class AlloySmeltingRecipe implements IRecipeMultiInput {
 
     public static final AlloySmeltingRecipe.Serializer SERIALIZER = new AlloySmeltingRecipe.Serializer();
 
-    public ResourceLocation recipeId;
-    private final HashMap<Ingredient, Integer> ingredients = new LinkedHashMap<>();
+    private final ResourceLocation recipeId;
+    private final HashMap<Ingredient, Integer> ingredientsMap = new LinkedHashMap<>();
     private ItemStack result;
 
-    public float experience;
-    public int duration;
-    public int powerCost;
+    private float experience;
+    private int duration;
+    private int powerCost;
 
     public AlloySmeltingRecipe(ResourceLocation recipeId) {
         this.recipeId = recipeId;
@@ -48,8 +41,9 @@ public class AlloySmeltingRecipe implements IBaseRecipe {
         return true;
     }
 
+    @Override
     public Map<Ingredient, Integer> getIngredientMap() {
-        return ImmutableMap.copyOf(ingredients);
+        return ImmutableMap.copyOf(ingredientsMap);
     }
 
     @Override
@@ -58,7 +52,7 @@ public class AlloySmeltingRecipe implements IBaseRecipe {
     }
 
     public int getIngredientCost(ItemStack stack) {
-        for (Map.Entry<Ingredient, Integer> entry : ingredients.entrySet()) {
+        for (Map.Entry<Ingredient, Integer> entry : ingredientsMap.entrySet()) {
             if (entry.getKey().test(stack)) {
                return entry.getValue();
             }
@@ -68,9 +62,9 @@ public class AlloySmeltingRecipe implements IBaseRecipe {
 
     @Override
     public boolean matches(Container inv, Level worldIn) {
-        if (inv.getContainerSize() == 1 && ingredients.keySet().size() > 1) {
+        if (inv.getContainerSize() == 1 && ingredientsMap.keySet().size() > 1) {
             // Check if item is valid
-            for (Ingredient ingredient : ingredients.keySet()) {
+            for (Ingredient ingredient : ingredientsMap.keySet()) {
                 if (ingredient.test(inv.getItem(0))) {
                     return true;
                 }
@@ -80,7 +74,7 @@ public class AlloySmeltingRecipe implements IBaseRecipe {
             // Check recipe
             int foundIngredients = 0;
             int airSlots = 0;
-            for (Map.Entry<Ingredient, Integer> entry : ingredients.entrySet()) {
+            for (Map.Entry<Ingredient, Integer> entry : ingredientsMap.entrySet()) {
                 Ingredient ingredient = entry.getKey();
                 int count = entry.getValue();
                 for (int slot = 0; slot < inv.getContainerSize(); slot++) {
@@ -95,7 +89,7 @@ public class AlloySmeltingRecipe implements IBaseRecipe {
                 }
             }
 
-            return foundIngredients >= ingredients.entrySet().size() && inv.getContainerSize() - airSlots <= foundIngredients;
+            return foundIngredients >= ingredientsMap.entrySet().size() && inv.getContainerSize() - airSlots <= foundIngredients;
         }
     }
 
@@ -111,7 +105,7 @@ public class AlloySmeltingRecipe implements IBaseRecipe {
 
     @Override
     public RecipeType<?> getType() {
-        return ModRecipeType.ALLOY_SMELTING;
+        return ModRecipeType.ALLOY_SMELTING.get();
     }
 
     @Override
@@ -120,18 +114,21 @@ public class AlloySmeltingRecipe implements IBaseRecipe {
     }
 
     @Override
-    public ItemStack assemble(Container pContainer) {
+    public ItemStack assemble(Container container) {
         return getResultItem().copy();
     }
 
+    @Override
     public float getExperience() {
         return experience;
     }
 
+    @Override
     public int getDuration() {
         return duration;
     }
 
+    @Override
     public int getPowerCost() {
         return powerCost;
     }
@@ -147,7 +144,7 @@ public class AlloySmeltingRecipe implements IBaseRecipe {
                 JsonObject object = (JsonObject) ingredients.get(i);
                 Ingredient item = Ingredient.fromJson(object);
                 int count = GsonHelper.getAsInt(object, "count", 1);
-                recipe.ingredients.put(item, count);
+                recipe.ingredientsMap.put(item, count);
             }
 
             recipe.result = ShapedRecipe.itemStackFromJson(GsonHelper.getAsJsonObject(json, "result"));
@@ -167,7 +164,7 @@ public class AlloySmeltingRecipe implements IBaseRecipe {
             for (int i = 0; i < ingredientCount; ++i) {
                 Ingredient ingredient = Ingredient.fromNetwork(buffer);
                 int count = buffer.readByte();
-                recipe.ingredients.put(ingredient, count);
+                recipe.ingredientsMap.put(ingredient, count);
             }
 
             recipe.result = buffer.readItem();
@@ -180,9 +177,8 @@ public class AlloySmeltingRecipe implements IBaseRecipe {
 
         @Override
         public void toNetwork(FriendlyByteBuf buffer, AlloySmeltingRecipe recipe) {
-
-            buffer.writeByte(recipe.ingredients.size());
-            recipe.ingredients.forEach((ingredient, count) -> {
+            buffer.writeByte(recipe.ingredientsMap.size());
+            recipe.ingredientsMap.forEach((ingredient, count) -> {
                 ingredient.toNetwork(buffer);
                 buffer.writeByte(count);
             });
@@ -191,7 +187,6 @@ public class AlloySmeltingRecipe implements IBaseRecipe {
             buffer.writeFloat(recipe.experience);
             buffer.writeInt(recipe.duration);
             buffer.writeInt(recipe.powerCost);
-
         }
     }
 }

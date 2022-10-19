@@ -6,7 +6,6 @@ import com.maciej916.indreb.common.network.packet.PacketParticle;
 import com.maciej916.indreb.common.network.packet.PacketTransformerMode;
 import com.maciej916.indreb.common.network.packet.energy.PacketReqSyncEnergy;
 import com.maciej916.indreb.common.network.packet.energy.PacketSyncEnergy;
-import com.maciej916.indreb.common.network.packet.energy.PacketSyncNetwork;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.network.NetworkRegistry;
 import net.minecraftforge.network.simple.SimpleChannel;

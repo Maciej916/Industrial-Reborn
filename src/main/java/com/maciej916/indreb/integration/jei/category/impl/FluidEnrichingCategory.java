@@ -1,18 +1,19 @@
 package com.maciej916.indreb.integration.jei.category.impl;
 
-import com.maciej916.indreb.common.receipe.impl.FluidEnrichingRecipe;
+import com.maciej916.indreb.common.recipe.impl.FluidEnrichingRecipe;
 import com.maciej916.indreb.common.registries.ModBlocks;
 import com.maciej916.indreb.common.registries.ModRecipeSerializer;
 import com.maciej916.indreb.common.util.GuiUtil;
 import com.maciej916.indreb.integration.jei.category.AbstractRecipeCategory;
 import com.mojang.blaze3d.vertex.PoseStack;
 import mezz.jei.api.constants.VanillaTypes;
-import mezz.jei.api.gui.IRecipeLayout;
+import mezz.jei.api.forge.ForgeTypes;
+import mezz.jei.api.gui.builder.IRecipeLayoutBuilder;
 import mezz.jei.api.gui.drawable.IDrawableAnimated;
-import mezz.jei.api.gui.ingredient.IGuiFluidStackGroup;
-import mezz.jei.api.gui.ingredient.IGuiItemStackGroup;
+import mezz.jei.api.gui.ingredient.IRecipeSlotsView;
 import mezz.jei.api.helpers.IGuiHelper;
-import mezz.jei.api.ingredients.IIngredients;
+import mezz.jei.api.recipe.IFocusGroup;
+import mezz.jei.api.recipe.RecipeIngredientRole;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.fluids.FluidStack;
@@ -23,8 +24,8 @@ public class FluidEnrichingCategory extends AbstractRecipeCategory<FluidEnrichin
 
     public static final ResourceLocation UID = ModRecipeSerializer.FLUID_ENRICHING.getRegistryName();
 
-    protected IDrawableAnimated progress;
-    protected IDrawableAnimated energy;
+    private IDrawableAnimated progress;
+    private IDrawableAnimated energy;
 
     public FluidEnrichingCategory(IGuiHelper guiHelper) {
         super(
@@ -33,37 +34,24 @@ public class FluidEnrichingCategory extends AbstractRecipeCategory<FluidEnrichin
                 "fluid_enriching",
                 guiHelper,
                 () -> guiHelper.createDrawable(JEI_LARGE, 0, 165, 152, 54),
-                () -> guiHelper.createDrawableIngredient(new ItemStack(ModBlocks.FLUID_ENRICHER))
+                () -> guiHelper.createDrawableIngredient(VanillaTypes.ITEM_STACK, new ItemStack(ModBlocks.FLUID_ENRICHER))
         );
     }
 
     @Override
-    public void setIngredients(FluidEnrichingRecipe recipe, IIngredients ingredients) {
-        ingredients.setInput(VanillaTypes.ITEM, new ItemStack(recipe.getIngredient().getItems()[0].getItem(), recipe.getIngredientCount()));
-        ingredients.setInput(VanillaTypes.FLUID, recipe.getFluidInput());
-        ingredients.setOutput(VanillaTypes.FLUID, recipe.getResult());
-    }
-
-    @Override
-    public void setRecipe(IRecipeLayout recipeLayout, FluidEnrichingRecipe recipe, IIngredients ingredients) {
-        IGuiItemStackGroup guiItemStacks = recipeLayout.getItemStacks();
-        IGuiFluidStackGroup guiFluidStacks = recipeLayout.getFluidStacks();
-
-        guiFluidStacks.init(1, false, 50,12, 8, 29, 8000, false, null);
-        guiFluidStacks.init(2, false, 106,12, 8, 29, 8000, false, null);
-
-        guiFluidStacks.set(1, new FluidStack(recipe.getFluidInput().getFluid(), recipe.getFluidInput().getAmount()));
-        guiFluidStacks.set(2, new FluidStack(recipe.getResult().getFluid(), recipe.getResult().getAmount()));
-
-        guiItemStacks.init(0, true, 7, 18);
-        guiItemStacks.set(0, new ItemStack(recipe.getIngredient().getItems()[0].getItem(), recipe.getIngredientCount()));
-
+    public void setRecipe(IRecipeLayoutBuilder builder, FluidEnrichingRecipe recipe, IFocusGroup focuses) {
         this.progress = guiHelper.drawableBuilder(PROCESS, 25, 0, 24, 16).buildAnimated(recipe.getDuration(), IDrawableAnimated.StartDirection.LEFT, false);
         this.energy = guiHelper.drawableBuilder(JEI, 249, 0, 7, 37).buildAnimated(200, IDrawableAnimated.StartDirection.TOP, true);
+
+        builder.addSlot(RecipeIngredientRole.INPUT, 8, 19).addItemStack(new ItemStack(recipe.getIngredient().getItems()[0].getItem(), recipe.getIngredientCount()));
+        builder.addSlot(RecipeIngredientRole.CATALYST, 50, 12).setFluidRenderer(8000, false, 8, 29)
+                .addIngredient(ForgeTypes.FLUID_STACK, new FluidStack(recipe.getFluidInput().getFluid(), recipe.getFluidInput().getAmount()));
+        builder.addSlot(RecipeIngredientRole.OUTPUT, 106, 12).setFluidRenderer(8000, false, 8, 29)
+                .addIngredient(ForgeTypes.FLUID_STACK, new FluidStack(recipe.getResult().getFluid(), recipe.getResult().getAmount()));
     }
 
     @Override
-    public void draw(FluidEnrichingRecipe recipe, PoseStack poseStack, double mouseX, double mouseY) {
+    public void draw(FluidEnrichingRecipe recipe, IRecipeSlotsView recipeSlotsView, PoseStack poseStack, double mouseX, double mouseY) {
         this.progress.draw(poseStack, halfX - 6, 19);
         this.energy.draw(poseStack, halfX + 58, 7);
 

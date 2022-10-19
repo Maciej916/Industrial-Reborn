@@ -55,7 +55,7 @@ public class ItemNanosaber extends SwordElectricItem {
     }
 
     @Override
-    public void inventoryTick(ItemStack stack, Level level, Entity entity, int p_41407_, boolean p_41408_) {
+    public void inventoryTick(ItemStack stack, Level level, Entity entity, int slotId, boolean isSelected) {
         if (!level.isClientSide()) {
             CompoundTag tag = stack.getOrCreateTag();
             if (level.getGameTime() % 20 == 0) {

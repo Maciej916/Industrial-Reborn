@@ -13,7 +13,7 @@ public interface IEnergy {
 
     default boolean canReceiveEnergy() {
         return canReceiveEnergy(null);
-    };
+    }
 
     boolean canReceiveEnergy(Direction side);
     int maxReceiveTick();
@@ -35,7 +35,7 @@ public interface IEnergy {
 
     default boolean canExtractEnergy() {
         return canExtractEnergy(null);
-    };
+    }
 
     boolean canExtractEnergy(Direction side);
     int maxExtractTick();
@@ -73,6 +73,6 @@ public interface IEnergy {
     EnergyTier energyTier();
     void setEnergyTier(EnergyTier tier);
 
-    default void updated() {};
+    default void updated() {}
 
 }

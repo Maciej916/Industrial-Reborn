@@ -55,10 +55,12 @@ public class BlockEntityProgress implements IProgress, INBTSerializable<Compound
         this.setData(progress, progressMax);
     }
 
+    @Override
     public float getProgress() {
         return progress;
     }
 
+    @Override
     public float getProgressMax() {
         return progressMax;
     }

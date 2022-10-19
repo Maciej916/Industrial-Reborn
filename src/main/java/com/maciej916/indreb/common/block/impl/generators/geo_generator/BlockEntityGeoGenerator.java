@@ -169,7 +169,7 @@ public class BlockEntityGeoGenerator extends IndRebBlockEntity implements ICoold
         return true;
     }
 
-    ArrayList<LazyOptional<?>> capabilities = new ArrayList<>(Arrays.asList(
+    private final ArrayList<LazyOptional<?>> capabilities = new ArrayList<>(Arrays.asList(
             LazyOptional.of(this::getStackHandler),
             LazyOptional.of(() -> new RangedWrapper(getStackHandler(), FILL_BUCKET_UP, FILL_BUCKET_UP + 1)),
             LazyOptional.of(() -> new RangedWrapper(getStackHandler(), FILL_BUCKET_DOWN, FILL_BUCKET_DOWN + 1)),

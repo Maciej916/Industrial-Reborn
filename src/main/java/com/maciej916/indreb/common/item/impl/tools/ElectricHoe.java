@@ -57,6 +57,8 @@ public class ElectricHoe extends DiggerElectricItem {
         super.fillItemCategory(pCategory, pItems);
     }
 
+    @SuppressWarnings("removal")
+    @Override
     public InteractionResult useOn(UseOnContext useOnContext) {
         ItemStack itemstack = useOnContext.getItemInHand();
         IEnergy energy = getEnergy(itemstack);
@@ -94,9 +96,7 @@ public class ElectricHoe extends DiggerElectricItem {
     }
 
     public static Consumer<UseOnContext> changeIntoState(BlockState p_150859_) {
-        return (p_150848_) -> {
-            p_150848_.getLevel().setBlock(p_150848_.getClickedPos(), p_150859_, 11);
-        };
+        return (p_150848_) -> p_150848_.getLevel().setBlock(p_150848_.getClickedPos(), p_150859_, 11);
     }
 
     public static Consumer<UseOnContext> changeIntoStateAndDropItem(BlockState p_150850_, ItemLike p_150851_) {

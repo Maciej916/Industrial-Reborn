@@ -29,9 +29,7 @@ public class NightVisionHandler {
             }
 
             if (found) {
-                player.getCapability(ModCapabilities.PLAYER_CAPABILITY).ifPresent(cap -> {
-                    toggle(cap, player, !cap.getNightVision());
-                });
+                player.getCapability(ModCapabilities.PLAYER_CAPABILITY).ifPresent(cap -> toggle(cap, player, !cap.getNightVision()));
             }
 
         }

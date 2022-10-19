@@ -4,11 +4,11 @@ public interface IEnergyBlock {
 
     default boolean showVertical() {
         return true;
-    };
+    }
 
     default boolean showInGui() {
         return true;
-    };
+    }
 
     default int leftOffsetVertical() {
         return 151;

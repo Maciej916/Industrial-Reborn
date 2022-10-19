@@ -65,9 +65,9 @@ public class Chainsaw extends DiggerElectricItem {
             BlockPos blockpos = useOnContext.getClickedPos();
             Player player = useOnContext.getPlayer();
             BlockState blockstate = level.getBlockState(blockpos);
-            Optional<BlockState> optional = Optional.ofNullable(blockstate.getToolModifiedState(level, blockpos, player, useOnContext.getItemInHand(), net.minecraftforge.common.ToolActions.AXE_STRIP));
-            Optional<BlockState> optional1 = Optional.ofNullable(blockstate.getToolModifiedState(level, blockpos, player, useOnContext.getItemInHand(), net.minecraftforge.common.ToolActions.AXE_SCRAPE));
-            Optional<BlockState> optional2 = Optional.ofNullable(blockstate.getToolModifiedState(level, blockpos, player, useOnContext.getItemInHand(), net.minecraftforge.common.ToolActions.AXE_WAX_OFF));
+            Optional<BlockState> optional = Optional.ofNullable(blockstate.getToolModifiedState(useOnContext, net.minecraftforge.common.ToolActions.AXE_STRIP, false));
+            Optional<BlockState> optional1 = Optional.ofNullable(blockstate.getToolModifiedState(useOnContext, net.minecraftforge.common.ToolActions.AXE_SCRAPE, false));
+            Optional<BlockState> optional2 = Optional.ofNullable(blockstate.getToolModifiedState(useOnContext, net.minecraftforge.common.ToolActions.AXE_WAX_OFF, false));
             Optional<BlockState> optional3 = Optional.empty();
             if (optional.isPresent()) {
                 level.playSound(player, blockpos, SoundEvents.AXE_STRIP, SoundSource.BLOCKS, 1.0F, 1.0F);
@@ -112,7 +112,7 @@ public class Chainsaw extends DiggerElectricItem {
     }
 
     @Override
-    public boolean isEnchantable(ItemStack p_41456_) {
+    public boolean isEnchantable(ItemStack stack) {
         return true;
     }
 }

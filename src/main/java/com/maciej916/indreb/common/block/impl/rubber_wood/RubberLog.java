@@ -5,16 +5,17 @@ import com.maciej916.indreb.common.energy.interfaces.IEnergy;
 import com.maciej916.indreb.common.interfaces.block.IStateAxis;
 import com.maciej916.indreb.common.interfaces.block.IStateRubberLog;
 import com.maciej916.indreb.common.interfaces.item.IElectricItem;
-import com.maciej916.indreb.common.item.base.ElectricItem;
 import com.maciej916.indreb.common.registries.ModItems;
 import com.maciej916.indreb.common.registries.ModSounds;
 import com.maciej916.indreb.common.registries.ModTags;
 import com.maciej916.indreb.common.util.BlockStateHelper;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.Containers;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
@@ -29,8 +30,12 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.Material;
 import net.minecraft.world.level.material.MaterialColor;
 import net.minecraft.world.phys.BlockHitResult;
+import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.tags.IReverseTag;
 
 import javax.annotation.Nullable;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -42,20 +47,14 @@ public class RubberLog extends IndRebBlock implements IStateRubberLog, IStateAxi
 
     @Override
     public BlockState rotate(BlockState state, Rotation rot) {
-        switch(rot) {
-            case COUNTERCLOCKWISE_90:
-            case CLOCKWISE_90:
-                switch(state.getValue(BlockStateHelper.axisProperty)) {
-                    case X:
-                        return state.setValue(BlockStateHelper.axisProperty, Direction.Axis.Z);
-                    case Z:
-                        return state.setValue(BlockStateHelper.axisProperty, Direction.Axis.X);
-                    default:
-                        return state;
-                }
-            default:
-                return state;
-        }
+        return switch (rot) {
+            case COUNTERCLOCKWISE_90, CLOCKWISE_90 -> switch (state.getValue(BlockStateHelper.axisProperty)) {
+                case X -> state.setValue(BlockStateHelper.axisProperty, Direction.Axis.Z);
+                case Z -> state.setValue(BlockStateHelper.axisProperty, Direction.Axis.X);
+                default -> state;
+            };
+            default -> state;
+        };
     }
 
     @Nullable
@@ -66,14 +65,16 @@ public class RubberLog extends IndRebBlock implements IStateRubberLog, IStateAxi
 
     @Override
     public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult trace) {
-        if (player.getItemInHand(hand).getItem().getTags().contains(ModTags.TREETAPS_RES))  {
+        List<ResourceLocation> itemTags = ForgeRegistries.ITEMS.tags().getReverseTag(player.getItemInHand(hand).getItem())
+                .map(IReverseTag::getTagKeys).map(tagKeyStream -> tagKeyStream.map(TagKey::location).toList()).orElse(new ArrayList<>());
+        if (itemTags.contains(ModTags.TREETAPS_RES))  {
             return dropRubber(player, player.getItemInHand(hand), state, level, pos, trace);
         }
         return super.use(state, level, pos, player, hand, trace);
     }
 
     private InteractionResult dropRubber(Player player, ItemStack itemStack, BlockState state, Level level, BlockPos pos, BlockHitResult trace) {
-       if (level.isClientSide()) return InteractionResult.PASS;
+        if (level.isClientSide()) return InteractionResult.PASS;
         Random random = new Random();
 
         if (itemStack.getItem() instanceof IElectricItem electricItem) {

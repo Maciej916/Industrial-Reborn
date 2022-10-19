@@ -5,7 +5,7 @@ import net.minecraft.world.item.ItemStack;
 
 public class EnergyReceiveComparator extends EnergyComparator<EnergyReceiveComparator> {
 
-    ItemStack stack;
+    private final ItemStack stack;
 
     public EnergyReceiveComparator(IEnergy energy, ItemStack stack) {
         super(energy);

@@ -10,7 +10,7 @@ import com.maciej916.indreb.common.enums.*;
 import com.maciej916.indreb.common.interfaces.entity.IElectricSlot;
 import com.maciej916.indreb.common.interfaces.entity.ISupportUpgrades;
 import com.maciej916.indreb.common.interfaces.entity.ITileSound;
-import com.maciej916.indreb.common.receipe.impl.RecyclingRecipe;
+import com.maciej916.indreb.common.recipe.impl.RecyclingRecipe;
 import com.maciej916.indreb.common.registries.ModBlockEntities;
 import com.maciej916.indreb.common.registries.ModItems;
 import com.maciej916.indreb.common.registries.ModRecipeType;
@@ -32,8 +32,6 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import java.util.*;
 
-import static com.maciej916.indreb.common.enums.EnergyType.RECEIVE;
-
 public class BlockEntityRecycler extends IndRebBlockEntity implements IEnergyBlock, ISupportUpgrades, ITileSound {
 
     public static final int INPUT_SLOT = 0;
@@ -52,7 +50,7 @@ public class BlockEntityRecycler extends IndRebBlockEntity implements IEnergyBlo
     }
 
     protected Optional<RecyclingRecipe> getRecipe(ItemStack input) {
-        return level.getRecipeManager().getRecipeFor(ModRecipeType.RECYCLING, new SimpleContainer(input), level);
+        return level.getRecipeManager().getRecipeFor(ModRecipeType.RECYCLING.get(), new SimpleContainer(input), level);
     }
 
     protected ItemStack getRecipeResult(ItemStack stack) {
@@ -64,7 +62,7 @@ public class BlockEntityRecycler extends IndRebBlockEntity implements IEnergyBlo
         return getRecipe(stack).isPresent();
     }
 
-    boolean canWork(ItemStack outputStack, ItemStack resultStack) {
+    private boolean canWork(ItemStack outputStack, ItemStack resultStack) {
         return outputStack.isEmpty() || (resultStack.getCount() + outputStack.getCount() <= outputStack.getMaxStackSize());
     }
 
@@ -178,7 +176,7 @@ public class BlockEntityRecycler extends IndRebBlockEntity implements IEnergyBlo
         return super.save(tag);
     }
 
-    ArrayList<LazyOptional<?>> capabilities = new ArrayList<>(Arrays.asList(
+    private final ArrayList<LazyOptional<?>> capabilities = new ArrayList<>(Arrays.asList(
             LazyOptional.of(this::getStackHandler),
             LazyOptional.of(() -> new RangedWrapper(getStackHandler(), INPUT_SLOT, INPUT_SLOT + 1)),
             LazyOptional.of(() -> new RangedWrapper(getStackHandler(), OUTPUT_SLOT, OUTPUT_SLOT + 1))
@@ -189,15 +187,10 @@ public class BlockEntityRecycler extends IndRebBlockEntity implements IEnergyBlo
     public <T> LazyOptional<T> getCapability(@Nonnull final Capability<T> cap, @Nullable final Direction side) {
         if (cap == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY) {
             if (side == null) return capabilities.get(0).cast();
-            switch (side) {
-                case DOWN: return capabilities.get(2).cast();
-                case UP:
-                case NORTH:
-                case SOUTH:
-                case WEST:
-                case EAST: return capabilities.get(1).cast();
-                default: return capabilities.get(0).cast();
-            }
+            return switch (side) {
+                case DOWN -> capabilities.get(2).cast();
+                case UP, NORTH, SOUTH, WEST, EAST -> capabilities.get(1).cast();
+            };
         }
 
         return super.getCapability(cap, side);

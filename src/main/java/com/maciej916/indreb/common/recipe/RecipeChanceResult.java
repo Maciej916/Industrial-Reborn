@@ -1,4 +1,4 @@
-package com.maciej916.indreb.common.receipe;
+package com.maciej916.indreb.common.recipe;
 
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.world.item.ItemStack;
@@ -9,17 +9,17 @@ import java.util.Random;
 
 public class RecipeChanceResult {
 
-    private List<ChanceResult> results = new ArrayList<>();
+    private final List<ChanceResult> results = new ArrayList<>();
     private int totalWeight = 0;
 
     public RecipeChanceResult(ChanceResult bonusResult) {
         results.add(bonusResult);
-        totalWeight += bonusResult.getChance();
+        totalWeight += bonusResult.chance();
     }
 
     public RecipeChanceResult() {
         for (ChanceResult element : results) {
-            totalWeight += element.getChance();
+            totalWeight += element.chance();
         }
     }
 
@@ -48,10 +48,10 @@ public class RecipeChanceResult {
         }
 
         for (ChanceResult result : results) {
-            if (position < result.getChance()) {
-                return result.getStack().copy();
+            if (position < result.chance()) {
+                return result.stack().copy();
             }
-            position -= result.getChance();
+            position -= result.chance();
         }
 
         throw new IllegalStateException("Should never get here!");
@@ -71,8 +71,8 @@ public class RecipeChanceResult {
     public static FriendlyByteBuf write(FriendlyByteBuf buffer, RecipeChanceResult chanceResult) {
         buffer.writeInt(chanceResult.getResultsCount());
         chanceResult.getResults().forEach((arr) -> {
-            buffer.writeItemStack(arr.getStack(), false);
-            buffer.writeFloat(arr.getChance());
+            buffer.writeItemStack(arr.stack(), false);
+            buffer.writeFloat(arr.chance());
         });
         return buffer;
     }

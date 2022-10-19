@@ -12,6 +12,4 @@ public class TOPPlugin {
         oneProbe.registerProvider(new TOPEnergyProvider());
         oneProbe.registerProvider(new TOPTierProvider());
     }
-
-
 }

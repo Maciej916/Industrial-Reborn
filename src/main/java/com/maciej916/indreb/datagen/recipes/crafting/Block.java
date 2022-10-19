@@ -7,7 +7,6 @@ import net.minecraft.data.DataGenerator;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
-import net.minecraft.data.recipes.ShapelessRecipeBuilder;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Items;
@@ -166,7 +165,7 @@ public class Block extends RecipeProvider {
                 .pattern("pcp")
                 .pattern("gug")
                 .pattern("ggg")
-                .define('p', ItemTags.bind("forge:plates/tin"))
+                .define('p', ItemTags.create(new ResourceLocation("forge", "plates/tin")))
                 .define('c', ModBlocks.TIN_CABLE_INSULATED)
                 .define('u', ModBlocks.TIN_CABLE)
                 .define('g', Items.GLASS)
@@ -181,7 +180,7 @@ public class Block extends RecipeProvider {
         ShapedRecipeBuilder.shaped(ModBlocks.IRON_FENCE, 8)
                 .pattern("iri")
                 .pattern("iri")
-                .define('i', Ingredient.of(ItemTags.bind("forge:ingots/iron")))
+                .define('i', Ingredient.of(ItemTags.create(new ResourceLocation("forge", "ingots/iron"))))
                 .define('r', ModItems.IRON_ROD)
                 .group(MODID)
                 .unlockedBy("iron_ore", InventoryChangeTrigger.TriggerInstance.hasItems(Items.IRON_ORE))

@@ -17,11 +17,11 @@ public class RubberFoliagePlacer extends BlobFoliagePlacer {
     }
 
     @Override
-    protected void createFoliage(LevelSimulatedReader p_161360_, BiConsumer<BlockPos, BlockState> p_161361_, Random p_161362_, TreeConfiguration p_161363_, int p_161364_, FoliagePlacer.FoliageAttachment p_161365_, int p_161366_, int p_161367_, int p_161368_) {
-        for(int i = p_161368_ + 2; i >= p_161368_ - p_161366_ - 1; --i) {
-            int j = Math.max(p_161367_ + p_161365_.radiusOffset() - 1 - i / 2, 0);
-            if (i  >= 1) j = 0;
-            this.placeLeavesRow(p_161360_, p_161361_, p_161362_, p_161363_, p_161365_.pos(), j, i, p_161365_.doubleTrunk());
+    protected void createFoliage(LevelSimulatedReader pLevel, BiConsumer<BlockPos, BlockState> pBlockSetter, Random pRandom, TreeConfiguration pConfig, int pMaxFreeTreeHeight, FoliageAttachment pAttachment, int pFoliageHeight, int pFoliageRadius, int pOffset) {
+        for(int i = pOffset + 2; i >= pOffset - pFoliageHeight - 1; --i) {
+            int j = Math.max(pFoliageRadius + pAttachment.radiusOffset() - 1 - i / 2, 0);
+            if (i >= 1) j = 0;
+            this.placeLeavesRow(pLevel, pBlockSetter, pRandom, pConfig, pAttachment.pos(), j, i, pAttachment.doubleTrunk());
         }
     }
 

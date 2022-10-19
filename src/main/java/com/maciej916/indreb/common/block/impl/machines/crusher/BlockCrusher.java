@@ -36,6 +36,7 @@ public class BlockCrusher extends BlockElectricMachine implements IStateFacing, 
         return new BlockEntityCrusher(pos, state);
     }
 
+    @Override
     public ContainerCrusher getContainer(int windowId, Level level, BlockPos pos, Inventory playerInventory, Player playerEntity) {
         return new ContainerCrusher(windowId, level, pos, playerInventory, playerEntity);
     }

@@ -1,18 +1,15 @@
 package com.maciej916.indreb;
 
 import com.maciej916.indreb.common.network.ModNetworking;
-import com.maciej916.indreb.common.proxy.ClientProxy;
-import com.maciej916.indreb.common.proxy.IProxy;
 import com.maciej916.indreb.common.proxy.ModProxy;
-import com.maciej916.indreb.common.proxy.ServerProxy;
 import com.maciej916.indreb.common.registries.Config;
 import com.maciej916.indreb.common.registries.ModFluids;
 import com.maciej916.indreb.common.registries.ModGeneration;
+import com.maciej916.indreb.common.registries.ModRecipeType;
 import com.maciej916.indreb.datagen.DataGenerators;
 import com.maciej916.indreb.integration.top.TOPPlugin;
 import mcjty.theoneprobe.TheOneProbe;
 import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
@@ -36,6 +33,8 @@ public class IndReb {
         ModFluids.FLUIDS.register(modEventBus);
         ModFluids.FLUID_BLOCKS.register(modEventBus);
         ModFluids.FLUID_ITEMS.register(modEventBus);
+
+        ModRecipeType.RECIPE_TYPES.register(modEventBus);
 
         Config.init();
     }

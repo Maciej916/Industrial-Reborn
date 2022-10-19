@@ -1,37 +1,31 @@
-package com.maciej916.indreb.common.receipe.impl;
+package com.maciej916.indreb.common.recipe.impl;
 
 import com.google.gson.JsonObject;
 import com.maciej916.indreb.common.interfaces.receipe.IBaseRecipe;
-import com.maciej916.indreb.common.receipe.RecipeChanceResult;
 import com.maciej916.indreb.common.registries.ModRecipeType;
-import com.maciej916.indreb.common.util.Cache;
-import com.maciej916.indreb.common.util.RecipeUtil;
 import net.minecraft.core.NonNullList;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.GsonHelper;
 import net.minecraft.world.Container;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.crafting.RecipeType;
-import net.minecraft.world.item.crafting.ShapedRecipe;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.ForgeRegistryEntry;
 
 import javax.annotation.Nullable;
-import java.util.ArrayList;
 import java.util.Objects;
 
 public class FluidEnrichingRecipe implements IBaseRecipe {
 
     public static final FluidEnrichingRecipe.Serializer SERIALIZER = new FluidEnrichingRecipe.Serializer();
-    private ResourceLocation recipeId;
+    private final ResourceLocation recipeId;
 
-    public Ingredient ingredient;
+    private Ingredient ingredient;
     private int ingredientCount;
 
     private FluidStack fluidInput;
@@ -72,7 +66,7 @@ public class FluidEnrichingRecipe implements IBaseRecipe {
 
     @Override
     public RecipeType<?> getType() {
-        return ModRecipeType.FLUID_ENRICHING;
+        return ModRecipeType.FLUID_ENRICHING.get();
     }
 
     @Override

@@ -7,6 +7,7 @@ import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.RecipeProvider;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
@@ -29,7 +30,7 @@ public class Crushing extends RecipeProvider {
                 .save(consumer, "blaze_rod_blaze_powder");
 
         RecipeBuilderCrushing.builder(Items.BONE_MEAL,14)
-                .setIngredient(Ingredient.of(ItemTags.bind("forge:bones")), 1)
+                .setIngredient(Ingredient.of(ItemTags.create(new ResourceLocation("forge", "bones"))), 1)
                 .setExperience(0.1F)
                 .setGroup("crushing")
                 .addCriterion("item", InventoryChangeTrigger.TriggerInstance.hasItems(Items.BONE))
@@ -56,7 +57,7 @@ public class Crushing extends RecipeProvider {
                 .save(consumer, "flint_gunpowder");
 
         RecipeBuilderCrushing.builder(Items.FLINT,1)
-                .setIngredient(Ingredient.of(ItemTags.bind("forge:gravel")), 1)
+                .setIngredient(Ingredient.of(ItemTags.create(new ResourceLocation("forge", "gravel"))), 1)
                 .setExperience(0.1F)
                 .setGroup("crushing")
                 .addCriterion("item", InventoryChangeTrigger.TriggerInstance.hasItems(Items.GRAVEL))
@@ -76,7 +77,7 @@ public class Crushing extends RecipeProvider {
                 .save(consumer, "sugarcane_sugar");
 
         RecipeBuilderCrushing.builder(Items.STRING,4)
-                .setIngredient(Ingredient.of(ItemTags.bind("minecraft:wool")), 1)
+                .setIngredient(Ingredient.of(ItemTags.create(new ResourceLocation("wool"))), 1)
                 .setGroup("crushing")
                 .addCriterion("item", InventoryChangeTrigger.TriggerInstance.hasItems(Items.WHITE_WOOL))
                 .save(consumer, "wool_string");
@@ -153,7 +154,7 @@ public class Crushing extends RecipeProvider {
                 .save(consumer, "copper_ore_crushed_copper");
 
         RecipeBuilderCrushing.builder(ModItems.CRUSHED_TIN,2)
-                .setIngredient(Ingredient.of(ItemTags.bind("forge:ores/tin")), 1)
+                .setIngredient(Ingredient.of(ItemTags.create(new ResourceLocation("forge", "ores/tin"))), 1)
                 .setExperience(0.2F)
                 .setBonus(ModItems.STONE_DUST, 1, 50)
                 .setGroup("crushing/ores")
@@ -161,7 +162,7 @@ public class Crushing extends RecipeProvider {
                 .save(consumer, "tin_ore_crushed_tin");
 
         RecipeBuilderCrushing.builder(ModItems.CRUSHED_LEAD,2)
-                .setIngredient(Ingredient.of(ItemTags.bind("forge:ores/lead")), 1)
+                .setIngredient(Ingredient.of(ItemTags.create(new ResourceLocation("forge", "ores/lead"))), 1)
                 .setExperience(0.2F)
                 .setBonus(ModItems.STONE_DUST, 1, 50)
                 .setGroup("crushing/ores")
@@ -169,7 +170,7 @@ public class Crushing extends RecipeProvider {
                 .save(consumer, "lead_ore_crushed_lead");
 
         RecipeBuilderCrushing.builder(Items.DIAMOND,2)
-                .setIngredient(Ingredient.of(ItemTags.bind("forge:ores/diamond")), 1)
+                .setIngredient(Ingredient.of(ItemTags.create(new ResourceLocation("forge", "ores/diamond"))), 1)
                 .setExperience(0.2F)
                 .setBonus(ModItems.STONE_DUST, 1, 50)
                 .setGroup("crushing/ores")
@@ -177,7 +178,7 @@ public class Crushing extends RecipeProvider {
                 .save(consumer,"diamond_ore_diamond");
 
         RecipeBuilderCrushing.builder(Items.EMERALD,2)
-                .setIngredient(Ingredient.of(ItemTags.bind("forge:ores/emerald")), 1)
+                .setIngredient(Ingredient.of(ItemTags.create(new ResourceLocation("forge", "ores/emerald"))), 1)
                 .setExperience(0.2F)
                 .setBonus(ModItems.STONE_DUST, 1, 50)
                 .setGroup("crushing/ores")
@@ -185,7 +186,7 @@ public class Crushing extends RecipeProvider {
                 .save(consumer, "emerald_ore_emerald");
 
         RecipeBuilderCrushing.builder(ModItems.CRUSHED_GOLD,2)
-                .setIngredient(Ingredient.of(ItemTags.bind("forge:ores/gold")), 1)
+                .setIngredient(Ingredient.of(ItemTags.create(new ResourceLocation("forge", "ores/gold"))), 1)
                 .setExperience(0.2F)
                 .setBonus(ModItems.STONE_DUST, 1, 50)
                 .setGroup("crushing/ores")
@@ -193,7 +194,7 @@ public class Crushing extends RecipeProvider {
                 .save(consumer, "gold_ore_crushed_gold");
 
         RecipeBuilderCrushing.builder(ModItems.CRUSHED_IRON,2)
-                .setIngredient(Ingredient.of(ItemTags.bind("forge:ores/iron")), 1)
+                .setIngredient(Ingredient.of(ItemTags.create(new ResourceLocation("forge", "ores/iron"))), 1)
                 .setExperience(0.2F)
                 .setBonus(ModItems.STONE_DUST, 1, 50)
                 .setGroup("crushing/ores")
@@ -462,13 +463,13 @@ public class Crushing extends RecipeProvider {
                 .save(consumer, "dirt");
 
         RecipeBuilderCrushing.builder(ModItems.BIO_CHAFF,1)
-                .setIngredient(ItemTags.bind("minecraft:saplings"), 4)
+                .setIngredient(ItemTags.create(new ResourceLocation("saplings")), 4)
                 .setGroup("crushing/bio")
                 .addCriterion("oak_sapling", InventoryChangeTrigger.TriggerInstance.hasItems(Items.OAK_SAPLING))
                 .save(consumer, "saplings");
 
         RecipeBuilderCrushing.builder(ModItems.BIO_CHAFF,1)
-                .setIngredient(ItemTags.bind("minecraft:leaves"), 8)
+                .setIngredient(ItemTags.create(new ResourceLocation("leaves")), 8)
                 .setGroup("crushing/bio")
                 .addCriterion("oak_leaves", InventoryChangeTrigger.TriggerInstance.hasItems(Items.OAK_LEAVES))
                 .save(consumer, "leaves");

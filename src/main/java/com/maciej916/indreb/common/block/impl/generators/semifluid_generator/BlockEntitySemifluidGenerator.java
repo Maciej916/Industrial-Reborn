@@ -116,12 +116,10 @@ public class BlockEntitySemifluidGenerator extends IndRebBlockEntity implements 
         if (slot == FILL_BUCKET_UP) {
             LazyOptionalHelper<IFluidHandlerItem> cap = CapabilityUtil.getCapabilityHelper(stack, CapabilityFluidHandler.FLUID_HANDLER_ITEM_CAPABILITY);
             if (cap.isPresent()) {
-                if (cap.getValue().getTanks() > 0 && cap.getValue().getFluidInTank(1).getFluid() == Biogas.STILL_FLUID) {
-                    return true;
-                }
+                return cap.getValue().getTanks() > 0 && cap.getValue().getFluidInTank(1).getFluid() == Biogas.STILL_FLUID;
             }
             return false;
-        };
+        }
         if (slot == FILL_BUCKET_DOWN) return false;
         return super.isItemValidForSlot(slot, stack);
     }
@@ -174,7 +172,7 @@ public class BlockEntitySemifluidGenerator extends IndRebBlockEntity implements 
         return true;
     }
 
-    ArrayList<LazyOptional<?>> capabilities = new ArrayList<>(Arrays.asList(
+    private final ArrayList<LazyOptional<?>> capabilities = new ArrayList<>(Arrays.asList(
             LazyOptional.of(this::getStackHandler),
             LazyOptional.of(() -> new RangedWrapper(getStackHandler(), FILL_BUCKET_UP, FILL_BUCKET_UP + 1)),
             LazyOptional.of(() -> new RangedWrapper(getStackHandler(), FILL_BUCKET_DOWN, FILL_BUCKET_DOWN + 1)),

@@ -12,7 +12,7 @@ import com.maciej916.indreb.common.interfaces.block.IStateFacing;
 import com.maciej916.indreb.common.interfaces.entity.IElectricSlot;
 import com.maciej916.indreb.common.interfaces.entity.IExpCollector;
 import com.maciej916.indreb.common.interfaces.entity.ISupportUpgrades;
-import com.maciej916.indreb.common.receipe.impl.FluidEnrichingRecipe;
+import com.maciej916.indreb.common.recipe.impl.FluidEnrichingRecipe;
 import com.maciej916.indreb.common.registries.ModBlockEntities;
 import com.maciej916.indreb.common.registries.ModRecipeType;
 import com.maciej916.indreb.common.util.BlockEntityUtil;
@@ -40,8 +40,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
-
-import static com.maciej916.indreb.common.enums.EnergyType.RECEIVE;
 
 public class BlockEntityFluidEnricher extends IndRebBlockEntity implements IEnergyBlock, IExpCollector, ISupportUpgrades {
 
@@ -82,11 +80,11 @@ public class BlockEntityFluidEnricher extends IndRebBlockEntity implements IEner
     }
 
     protected Optional<FluidEnrichingRecipe> getRawRecipe(ItemStack input) {
-        return level.getRecipeManager().getRecipeFor(ModRecipeType.FLUID_ENRICHING, new SimpleContainer(input), level);
+        return level.getRecipeManager().getRecipeFor(ModRecipeType.FLUID_ENRICHING.get(), new SimpleContainer(input), level);
     }
 
     protected Optional<FluidEnrichingRecipe> getRecipe(ItemStack input) {
-        List<FluidEnrichingRecipe> recipes = level.getRecipeManager().getAllRecipesFor(ModRecipeType.FLUID_ENRICHING);
+        List<FluidEnrichingRecipe> recipes = level.getRecipeManager().getAllRecipesFor(ModRecipeType.FLUID_ENRICHING.get());
         for (FluidEnrichingRecipe recipe : recipes) {
             if (recipe.matches(new SimpleContainer(input), level)) {
                 if (recipe.getFluidInput().getFluid() == fluidInputStorage.getFluid().getFluid()) {
@@ -107,7 +105,7 @@ public class BlockEntityFluidEnricher extends IndRebBlockEntity implements IEner
         return getRawRecipe(stack).isPresent();
     }
 
-    boolean canWork(ItemStack inputStack) {
+    private boolean canWork(ItemStack inputStack) {
         return inputStack.getCount() >= recipe.getIngredientCount() && (recipe.getResult().getFluid() == fluidOutputStorage.getFluid().getFluid() || fluidOutputStorage.getFluid().isEmpty()) && fluidOutputStorage.fillFluid(recipe.getResult(), true) == recipe.getResult().getAmount();
     }
 
@@ -257,7 +255,7 @@ public class BlockEntityFluidEnricher extends IndRebBlockEntity implements IEner
         return super.insertItemForSlot(slot, stack, simulate);
     }
 
-    ArrayList<LazyOptional<?>> capabilities = new ArrayList<>(Arrays.asList(
+    private final ArrayList<LazyOptional<?>> capabilities = new ArrayList<>(Arrays.asList(
             LazyOptional.of(this::getStackHandler),
             LazyOptional.of(() -> new RangedWrapper(getStackHandler(), INPUT_SLOT, DRAIN_BUCKET_UP + 1)),
             LazyOptional.of(() -> new RangedWrapper(getStackHandler(), DRAIN_BUCKET_DOWN, DRAIN_BUCKET_DOWN + 1)),

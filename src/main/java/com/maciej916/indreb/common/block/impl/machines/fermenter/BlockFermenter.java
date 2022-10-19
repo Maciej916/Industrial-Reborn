@@ -8,7 +8,6 @@ import com.maciej916.indreb.common.fluids.Biomass;
 import com.maciej916.indreb.common.interfaces.block.IHasContainer;
 import com.maciej916.indreb.common.interfaces.block.IStateActive;
 import com.maciej916.indreb.common.interfaces.block.IStateFacing;
-import com.maciej916.indreb.common.item.impl.FluidCell;
 import com.maciej916.indreb.common.util.CapabilityUtil;
 import com.maciej916.indreb.common.util.TextComponentUtil;
 import net.minecraft.ChatFormatting;
@@ -20,15 +19,12 @@ import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
-import net.minecraft.world.item.BucketItem;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fluids.capability.CapabilityFluidHandler;
@@ -39,7 +35,6 @@ import javax.annotation.Nullable;
 import java.util.List;
 
 public class BlockFermenter extends BlockElectricMachine implements IStateFacing, IHasContainer, IStateActive {
-
 
     public BlockFermenter() {
         super(EnergyTier.STANDARD,0, 0);

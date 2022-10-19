@@ -15,7 +15,7 @@ import java.util.List;
 
 public class OverclockerUpgrade extends ItemUpgrade {
 
-    DecimalFormat df = new DecimalFormat("0.00");
+    private final DecimalFormat df = new DecimalFormat("0.00");
 
     public OverclockerUpgrade() {
         super(UpgradeType.OVERCLOCKER);

@@ -33,8 +33,6 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
-import static com.maciej916.indreb.common.enums.EnergyType.RECEIVE;
-
 public class BlockEntityElectricFurnace extends IndRebBlockEntity implements IEnergyBlock, IExpCollector, ISupportUpgrades {
 
     public static final int INPUT_SLOT = 0;
@@ -85,7 +83,7 @@ public class BlockEntityElectricFurnace extends IndRebBlockEntity implements IEn
         if (cachedInputStack.getItem() != inputStack.getItem()) {
             cachedInputStack = inputStack.copy();
             if (inputStack.getItem() != Items.AIR && getRecipe(inputStack).isPresent()) {
-                furnaceRecipe = getRecipe(cachedInputStack).get();
+                furnaceRecipe = getRecipe(cachedInputStack).orElseThrow();
                 resultStack = getRecipeResult(inputStack);
             } else {
                 furnaceRecipe = null;

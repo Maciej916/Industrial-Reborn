@@ -158,7 +158,6 @@ public class ElectricArmorItem extends ArmorItem implements IElectricItem {
         return false;
     }
 
-
     @Override
     public Multimap<Attribute, AttributeModifier> getAttributeModifiers(EquipmentSlot slot, ItemStack stack) {
         if (stack.getItem().equals(this)) {
@@ -194,7 +193,7 @@ public class ElectricArmorItem extends ArmorItem implements IElectricItem {
     }
 
     @Override
-    public void inventoryTick(ItemStack stack, Level level, Entity entity, int p_41407_, boolean p_41408_) {
+    public void inventoryTick(ItemStack stack, Level level, Entity entity, int slotId, boolean isSelected) {
         if (!level.isClientSide()) {
             tickElectric(stack);
         }

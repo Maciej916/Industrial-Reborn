@@ -29,7 +29,7 @@ public class Cutter extends RecipeProvider {
 
         ShapelessRecipeBuilder.shapeless(ModBlocks.COPPER_CABLE, 2)
                 .requires(ModItems.CUTTER)
-                .requires(ItemTags.bind("forge:plates/copper"))
+                .requires(ItemTags.create(new ResourceLocation("forge", "plates/copper")))
                 .group(MODID)
                 .unlockedBy("copper", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.COPPER_PLATE))
                 .save(consumer, saveResource("copper_cable"));
@@ -37,7 +37,7 @@ public class Cutter extends RecipeProvider {
 
         ShapelessRecipeBuilder.shapeless(ModBlocks.TIN_CABLE, 3)
                 .requires(ModItems.CUTTER)
-                .requires(ItemTags.bind("forge:plates/tin"))
+                .requires(ItemTags.create(new ResourceLocation("forge", "plates/tin")))
                 .group(MODID)
                 .unlockedBy("tin", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.TIN_PLATE))
                 .save(consumer, saveResource("tin_cable"));
@@ -45,7 +45,7 @@ public class Cutter extends RecipeProvider {
 
         ShapelessRecipeBuilder.shapeless(ModBlocks.GOLD_CABLE, 3)
                 .requires(ModItems.CUTTER)
-                .requires(ItemTags.bind("forge:plates/gold"))
+                .requires(ItemTags.create(new ResourceLocation("forge", "plates/gold")))
                 .group(MODID)
                 .unlockedBy("gold", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.GOLD_PLATE))
                 .save(consumer, saveResource("gold_cable"));
@@ -53,7 +53,7 @@ public class Cutter extends RecipeProvider {
 
         ShapelessRecipeBuilder.shapeless(ModBlocks.HV_CABLE, 3)
                 .requires(ModItems.CUTTER)
-                .requires(ItemTags.bind("forge:plates/iron"))
+                .requires(ItemTags.create(new ResourceLocation("forge", "plates/iron")))
                 .group(MODID)
                 .unlockedBy("iron", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.IRON_PLATE))
                 .save(consumer, saveResource("hv_cable"));

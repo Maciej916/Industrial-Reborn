@@ -15,7 +15,7 @@ import com.maciej916.indreb.common.interfaces.entity.ITileSound;
 import com.maciej916.indreb.common.interfaces.entity.IElectricSlot;
 import com.maciej916.indreb.common.network.ModNetworking;
 import com.maciej916.indreb.common.network.packet.PacketExtruderRecipe;
-import com.maciej916.indreb.common.receipe.impl.ExtrudingRecipe;
+import com.maciej916.indreb.common.recipe.impl.ExtrudingRecipe;
 import com.maciej916.indreb.common.registries.ModBlockEntities;
 import com.maciej916.indreb.common.registries.ModRecipeType;
 import com.maciej916.indreb.common.registries.ModSounds;
@@ -40,8 +40,6 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 
-import static com.maciej916.indreb.common.enums.EnergyType.RECEIVE;
-
 public class BlockEntityExtruder extends IndRebBlockEntity implements IEnergyBlock, ITileSound, IExpCollector, ISupportUpgrades {
 
     public static final int INPUT_SLOT = 0;
@@ -62,7 +60,7 @@ public class BlockEntityExtruder extends IndRebBlockEntity implements IEnergyBlo
 
     public void setRecipe(int index) {
         if (level != null) {
-            this.recipe = Objects.requireNonNullElseGet(recipes, () -> level.getRecipeManager().getAllRecipesFor(ModRecipeType.EXTRUDING)).get(index);
+            this.recipe = Objects.requireNonNullElseGet(recipes, () -> level.getRecipeManager().getAllRecipesFor(ModRecipeType.EXTRUDING.get())).get(index);
             getStackHandler().setStackInSlot(INPUT_SLOT, this.recipe.getResultItem());
             progress.setBoth(-1);
         }
@@ -106,7 +104,7 @@ public class BlockEntityExtruder extends IndRebBlockEntity implements IEnergyBlo
     }
 
     public void initRecipes() {
-        recipes = Objects.requireNonNull(getLevel()).getRecipeManager().getAllRecipesFor(ModRecipeType.EXTRUDING);
+        recipes = Objects.requireNonNull(getLevel()).getRecipeManager().getAllRecipesFor(ModRecipeType.EXTRUDING.get());
     }
 
     public void changeRecipe(boolean next) {
@@ -227,7 +225,7 @@ public class BlockEntityExtruder extends IndRebBlockEntity implements IEnergyBlo
         return true;
     }
 
-    ArrayList<LazyOptional<?>> capabilities = new ArrayList<>(Arrays.asList(
+    private final ArrayList<LazyOptional<?>> capabilities = new ArrayList<>(Arrays.asList(
             LazyOptional.of(this::getStackHandler),
             LazyOptional.of(() -> new RangedWrapper(getStackHandler(), INPUT_SLOT, INPUT_SLOT + 1)),
             LazyOptional.of(() -> new RangedWrapper(getStackHandler(), OUTPUT_SLOT, OUTPUT_SLOT + 1)),

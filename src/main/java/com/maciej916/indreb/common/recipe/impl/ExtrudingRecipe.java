@@ -1,4 +1,4 @@
-package com.maciej916.indreb.common.receipe.impl;
+package com.maciej916.indreb.common.recipe.impl;
 
 import com.google.gson.JsonObject;
 import com.maciej916.indreb.common.interfaces.receipe.IBaseRecipe;
@@ -23,16 +23,16 @@ public class ExtrudingRecipe implements IBaseRecipe {
 
     public static final ExtrudingRecipe.Serializer SERIALIZER = new ExtrudingRecipe.Serializer();
 
-    public ResourceLocation recipeId;
-    public Ingredient result;
-    public int resultCount;
+    private final ResourceLocation recipeId;
+    private Ingredient result;
+    private int resultCount;
 
-    public int waterCost;
-    public int lavaCost;
+    private int waterCost;
+    private int lavaCost;
 
-    public float experience;
-    public int duration;
-    public int powerCost;
+    private float experience;
+    private int duration;
+    private int powerCost;
 
     public ExtrudingRecipe(ResourceLocation recipeId) {
         this.recipeId = recipeId;
@@ -69,7 +69,7 @@ public class ExtrudingRecipe implements IBaseRecipe {
 
     @Override
     public RecipeType<?> getType() {
-        return ModRecipeType.EXTRUDING;
+        return ModRecipeType.EXTRUDING.get();
     }
 
     @Override
@@ -82,14 +82,17 @@ public class ExtrudingRecipe implements IBaseRecipe {
         return getResultItem().copy();
     }
 
+    @Override
     public float getExperience() {
         return experience;
     }
 
+    @Override
     public int getDuration() {
         return duration;
     }
 
+    @Override
     public int getPowerCost() {
         return powerCost;
     }

@@ -13,7 +13,7 @@ import net.minecraft.network.chat.TranslatableComponent;
 
 public class GuiTextSolar extends GuiElement {
 
-    BlockEntitySolarGenerator be;
+    private final BlockEntitySolarGenerator be;
 
     public GuiTextSolar(IGuiWrapper wrapper, int width, int height, int leftOffset, int topOffset, BlockEntitySolarGenerator be) {
         super(wrapper, width, height, leftOffset, topOffset);

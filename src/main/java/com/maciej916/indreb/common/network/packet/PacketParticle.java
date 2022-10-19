@@ -1,13 +1,10 @@
 package com.maciej916.indreb.common.network.packet;
 
-import com.maciej916.indreb.IndReb;
 import com.maciej916.indreb.common.proxy.ModProxy;
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.FriendlyByteBuf;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.network.NetworkEvent;
 
