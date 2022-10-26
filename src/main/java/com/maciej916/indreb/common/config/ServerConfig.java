@@ -109,7 +109,7 @@ public final class ServerConfig {
 		builder.pop();
 
 		builder.push("semifluid_generator");
-		semifluid_generator_energy_capacity = builder.defineInRange("semifluid_generator_energy_capacity", 2400, 1, Integer.MAX_VALUE);
+		semifluid_generator_energy_capacity = builder.defineInRange("semifluid_generator_energy_capacity", 8000, 1, Integer.MAX_VALUE);
 		semifluid_generator_fluid_capacity = builder.defineInRange("semifluid_generator_fluid_capacity", 8000, 1, Integer.MAX_VALUE);
 		semifluid_generator_tick_generate = builder.defineInRange("semifluid_generator_tick_generate", 25, 1, Integer.MAX_VALUE);
 		builder.pop();

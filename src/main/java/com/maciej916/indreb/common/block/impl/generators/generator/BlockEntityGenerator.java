@@ -65,6 +65,7 @@ public class BlockEntityGenerator extends IndRebBlockEntity implements ICooldown
                 if (progressBurn.getProgress() > 0) {
                     active = true;
                     progressBurn.decProgress(1);
+
                     getEnergyStorage().generateEnergy(ServerConfig.generator_tick_generate.get(), false);
                     getEnergyStorage().updateGenerated(ServerConfig.generator_tick_generate.get());
                 } else {
@@ -73,8 +74,8 @@ public class BlockEntityGenerator extends IndRebBlockEntity implements ICooldown
 
                     if (!inputStack.isEmpty()) {
                         final int burnTime = ForgeHooks.getBurnTime(inputStack, RecipeType.SMELTING);
-                        if (burnTime > 0) {
-                            progressBurn.setBoth(burnTime);
+                        if (burnTime > 1) {
+                            progressBurn.setBoth((int) (burnTime * 0.60));
                             inputStack.shrink(1);
                             active = true;
                         }
