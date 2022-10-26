@@ -1,15 +1,11 @@
-// 1.19.2	2022-10-26T00:27:24.364307	Recipes
-add96954c53a423aaa9d2b0d20ad3510772d0ce1 data/indreb/advancements/recipes/indreb/hammer/bronze_plate.json
-b9651b8c998527e9e4c46083833f9e0b2ceb246c data/indreb/advancements/recipes/indreb/hammer/copper_plate.json
-d46db484b5a327d8439a0fb46ce7ae452c34e8c9 data/indreb/advancements/recipes/indreb/hammer/gold_plate.json
-3c6b8391dae36d969b68872b6b5a21f20110cb48 data/indreb/advancements/recipes/indreb/hammer/iron_plate.json
-45525c045d85b01e9fe8561b0a2eec88ddbf7956 data/indreb/advancements/recipes/indreb/hammer/lead_plate.json
-81a184d7e18440a563732e36160a91a721fb144b data/indreb/advancements/recipes/indreb/hammer/steel_plate.json
-8c269a5833474e9dccab5b8e5d5f548c46538814 data/indreb/advancements/recipes/indreb/hammer/tin_plate.json
-2b3c8ed059f77d79515b24a2dcaea1e723b30240 data/indreb/recipes/hammer/bronze_plate.json
-33c5d0b46c7a203501c134b837e3a28508531e70 data/indreb/recipes/hammer/copper_plate.json
-1781a1e265be23ef26e935f424c3e9d2d34f1bee data/indreb/recipes/hammer/gold_plate.json
-6beb4b1e8ad5534caf35608ddf6419379165e8e9 data/indreb/recipes/hammer/iron_plate.json
-4c8409995f23de46e4064274a87c37efd16588a4 data/indreb/recipes/hammer/lead_plate.json
-77a3655cf35fbae7c24f5899e1c1cc50772ebf86 data/indreb/recipes/hammer/steel_plate.json
-1e1b5d1efdab6af1acf57f2c7f8dd6d45aab8372 data/indreb/recipes/hammer/tin_plate.json
+// 1.19.2	2022-10-26T14:00:57.5705645	Recipes
+e5987e9bc54fd1646313ed54d2a81723aa7d7a41 data/indreb/advancements/recipes/extruding/cobbled_deepslate.json
+9141c7c0915b17001f16f94a224cc6a5e870a9f6 data/indreb/advancements/recipes/extruding/cobblestone.json
+5cfdb2e759bf92f76e4f7edc5cb8f2fd616b29f2 data/indreb/advancements/recipes/extruding/deepslate.json
+fefb51082c4002c2f65b0d1a0b3c5a120633ad92 data/indreb/advancements/recipes/extruding/obsidian.json
+29b9c7f8f23f654f98cb8ed6872059d34d8a69f3 data/indreb/advancements/recipes/extruding/stone.json
+b5fa7e5d79a04e33fe38c6f69c6df3b724ced311 data/indreb/recipes/extruding/cobbled_deepslate.json
+c41e84c04b355aff2f7a9cc5bad5efda5c7190dd data/indreb/recipes/extruding/cobblestone.json
+e4e8cc66a0b55dbfd43b9744c5546dfc2f1507da data/indreb/recipes/extruding/deepslate.json
+8b8f458e57f910ba76cae3198f61cfe298e5f20e data/indreb/recipes/extruding/obsidian.json
+a9532c7796582010f84152da639fdeb6a6b56e9a data/indreb/recipes/extruding/stone.json

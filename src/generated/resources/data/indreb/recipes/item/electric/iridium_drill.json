@@ -9,7 +9,7 @@
       "item": "indreb:energy_crystal"
     },
     "i": {
-      "item": "indreb:iridium_plate"
+      "tag": "forge:plates/iridium"
     }
   },
   "pattern": [

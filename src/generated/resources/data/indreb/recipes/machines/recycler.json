@@ -12,7 +12,7 @@
       "item": "minecraft:glowstone_dust"
     },
     "p": {
-      "item": "indreb:iron_plate"
+      "tag": "forge:plates/iron"
     },
     "s": {
       "item": "minecraft:sand"

@@ -3,7 +3,7 @@
   "group": "indreb",
   "key": {
     "c": {
-      "item": "indreb:copper_plate"
+      "tag": "forge:plates/copper"
     },
     "r": {
       "item": "indreb:rubber"

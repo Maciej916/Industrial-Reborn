@@ -1,1 +1,5 @@
-// 1.19.2	2022-10-26T00:27:24.3617302	Industrial Reborn Tags
+// 1.19.2	2022-10-26T14:00:57.5482932	Industrial Reborn Tags
+202214a0548b4a663e8ea5692e7729ea93830338 data/minecraft/tags/blocks/mineable/axe.json
+4140db78a649115edde2a71aeee0f504748f684d data/minecraft/tags/blocks/mineable/pickaxe.json
+705282b34acec7eb29a63af73d995b1e74e1cd10 data/minecraft/tags/blocks/needs_iron_tool.json
+ce6e467c5c1c3bcace137fb5befca4af768c2ff0 data/minecraft/tags/blocks/needs_stone_tool.json

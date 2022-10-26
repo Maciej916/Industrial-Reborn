@@ -3,7 +3,7 @@
   "group": "indreb",
   "key": {
     "C": {
-      "item": "indreb:coal_dust"
+      "tag": "forge:dusts/coal"
     },
     "E": {
       "item": "indreb:electronic_circuit"

@@ -3,7 +3,7 @@
   "group": "indreb",
   "key": {
     "i": {
-      "item": "indreb:iron_rod"
+      "tag": "forge:rods/iron"
     },
     "w": {
       "item": "minecraft:white_wool"

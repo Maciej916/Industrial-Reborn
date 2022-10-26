@@ -152,6 +152,7 @@ dependencies {
     runtimeOnly(fg.deobf("mezz.jei:jei-${minecraftRelease}-forge:${jeiVersion}"))
 
     implementation fg.deobf("curse.maven:the-one-probe-245211:3965693")
+    implementation fg.deobf("curse.maven:pipez-443900:3920730")
 //    implementation fg.deobf("curse.maven:DimStorage-353882:3927875")
 
 

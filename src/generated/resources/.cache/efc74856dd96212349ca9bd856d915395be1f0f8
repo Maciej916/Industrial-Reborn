@@ -1,4 +1,4 @@
-// 1.19.2	2022-10-26T00:26:44.9177073	Item Models: indreb
+// 1.19.2	2022-10-26T14:00:57.5442926	Item Models: indreb
 f629f0d0e364b02dc84d98ff7bbd87c55c32a21e assets/indreb/models/item/advanced_alloy.json
 df0888ae05d095b7dbd4b54b411496df8d853b49 assets/indreb/models/item/advanced_battery.json
 7877c258fc6729b661e2d51a88530ed2f9ab6c79 assets/indreb/models/item/advanced_charging_battery.json
@@ -197,7 +197,6 @@ eef4f0cab4731409a2d2fb176f2514fe6f6916f0 assets/indreb/models/item/medium_coolan
 54a3c2ad24c3908063ca95406d491eaba591778c assets/indreb/models/item/mfe.json
 83bab8f93d99e31f5792c80a6df832c3400c137e assets/indreb/models/item/mfsu.json
 156fd91797160791c853cdde72ab2e2074d55931 assets/indreb/models/item/mining_drill.json
-609b454b077a7aa4d95647a8b60977330cd806ba assets/indreb/models/item/mining_laser.json
 bdb6961e18c0c78725126bc7e58200cd4553a62c assets/indreb/models/item/mixed_metal_ingot.json
 323611257a13b0c5c22b72cd1742b9989a0f94e6 assets/indreb/models/item/multi_tool.json
 5ce819237e024b5d763df109091abb336db3d9c6 assets/indreb/models/item/mv_transformer.json

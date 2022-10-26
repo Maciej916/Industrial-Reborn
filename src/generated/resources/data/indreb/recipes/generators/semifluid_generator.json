@@ -9,7 +9,7 @@
       "item": "indreb:geo_generator"
     },
     "p": {
-      "item": "indreb:iron_plate"
+      "tag": "forge:plates/iron"
     }
   },
   "pattern": [

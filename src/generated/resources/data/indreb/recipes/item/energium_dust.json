@@ -3,7 +3,7 @@
   "group": "indreb",
   "key": {
     "d": {
-      "item": "indreb:diamond_dust"
+      "tag": "forge:dusts/diamond"
     },
     "r": {
       "item": "minecraft:redstone"

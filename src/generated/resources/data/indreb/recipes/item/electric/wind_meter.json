@@ -3,7 +3,7 @@
   "group": "indreb",
   "key": {
     "b": {
-      "item": "indreb:bronze_plate"
+      "tag": "forge:plates/bronze"
     },
     "s": {
       "item": "indreb:small_power_unit"

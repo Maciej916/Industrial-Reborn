@@ -1,4 +1,4 @@
-// 1.19.2	2022-10-23T00:39:05.8798881	Industrial Reborn tables
+// 1.19.2	2022-10-26T14:00:57.5695661	Industrial Reborn tables
 4d69d20eaec072798db963545f44352b8dbe1169 data/indreb/loot_tables/blocks/advanced_machine_casing.json
 b160a312e42ff14696529f7005f2eac28e6da223 data/indreb/loot_tables/blocks/advanced_solar_generator.json
 243d98286edc497cd7abf998e401451737c79e48 data/indreb/loot_tables/blocks/alloy_smelter.json
@@ -36,6 +36,7 @@ dc21350741ca0435c372ecdafb6adef88b9d0e5c data/indreb/loot_tables/blocks/gold_cab
 6405f9c99258df4a838949220e2a4cb0eb5b9eb9 data/indreb/loot_tables/blocks/iron_fence.json
 c4f3b3cc30f4dbfd59c1300f40edd2cb3cad0e7d data/indreb/loot_tables/blocks/iron_furnace.json
 920eb125a48cfd9bb417568b99ddab3ba70fc569 data/indreb/loot_tables/blocks/iron_scaffolding.json
+b24645a2e7f2d032c74bc869da6cbfc34972d904 data/indreb/loot_tables/blocks/lead_block.json
 f1a72ccbc42b0a067e17b0ff075455f579decaf6 data/indreb/loot_tables/blocks/lead_ore.json
 fc91a7b4c68bb2cbb52e3e37cb8ad06f6e02061c data/indreb/loot_tables/blocks/luminator.json
 3c3012fb8cc88cf9b9ea026775ede91b242a04e2 data/indreb/loot_tables/blocks/lv_transformer.json

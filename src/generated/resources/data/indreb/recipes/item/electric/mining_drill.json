@@ -3,7 +3,7 @@
   "group": "indreb",
   "key": {
     "i": {
-      "item": "indreb:iron_plate"
+      "tag": "forge:plates/iron"
     },
     "p": {
       "item": "indreb:power_unit"

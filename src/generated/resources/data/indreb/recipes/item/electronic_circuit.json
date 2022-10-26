@@ -6,7 +6,7 @@
       "item": "indreb:copper_cable_insulated"
     },
     "i": {
-      "item": "minecraft:iron_ingot"
+      "tag": "forge:ingots/iron"
     },
     "r": {
       "item": "minecraft:redstone"
