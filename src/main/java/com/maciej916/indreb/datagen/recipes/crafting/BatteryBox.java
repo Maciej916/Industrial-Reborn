@@ -28,52 +28,52 @@ public class BatteryBox extends RecipeProvider {
     protected void buildCraftingRecipes(Consumer<FinishedRecipe> consumer) {
 
 
-        ShapedRecipeBuilder.shaped(ModBlocks.BATTERY_BOX)
+        ShapedRecipeBuilder.shaped(ModBlocks.BATTERY_BOX.get())
                 .pattern("pCp")
                 .pattern("BBB")
                 .pattern("ppp")
                 .define('p', ItemTags.create(new ResourceLocation("planks")))
-                .define('C', ModBlocks.COPPER_CABLE_INSULATED)
-                .define('B', ModItems.BATTERY)
+                .define('C', ModBlocks.COPPER_CABLE_INSULATED.get())
+                .define('B', ModItems.BATTERY.get())
                 .group(MODID)
-                .unlockedBy("item", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.BATTERY))
+                .unlockedBy("energy_crystal", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.BATTERY.get()))
                 .save(consumer, saveResource("wooden_battery_box"));
 
 
-        ShapedRecipeBuilder.shaped(ModBlocks.CESU)
+        ShapedRecipeBuilder.shaped(ModBlocks.CESU.get())
                 .pattern("pcp")
                 .pattern("bbb")
                 .pattern("ppp")
                 .define('p', ItemTags.create(new ResourceLocation("forge", "plates/bronze")))
-                .define('c', ModBlocks.COPPER_CABLE)
-                .define('b', ModItems.ADVANCED_BATTERY)
+                .define('c', ModBlocks.COPPER_CABLE.get())
+                .define('b', ModItems.ADVANCED_BATTERY.get())
                 .group(MODID)
-                .unlockedBy("item", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.ADVANCED_BATTERY))
+                .unlockedBy("advanced_battery", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.ADVANCED_BATTERY.get()))
                 .save(consumer, saveResource("cesu"));
 
 
-        ShapedRecipeBuilder.shaped(ModBlocks.MFE)
+        ShapedRecipeBuilder.shaped(ModBlocks.MFE.get())
                 .pattern("geg")
                 .pattern("ece")
                 .pattern("geg")
-                .define('g', ModBlocks.GOLD_CABLE_INSULATED)
-                .define('e', ModItems.ENERGY_CRYSTAL)
-                .define('c', ModBlocks.BASIC_MACHINE_CASING)
+                .define('g', ModBlocks.GOLD_CABLE_INSULATED.get())
+                .define('e', ModItems.ENERGY_CRYSTAL.get())
+                .define('c', ModBlocks.BASIC_MACHINE_CASING.get())
                 .group(MODID)
-                .unlockedBy("item", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.ENERGY_CRYSTAL))
+                .unlockedBy("energy_crystal", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.ENERGY_CRYSTAL.get()))
                 .save(consumer, saveResource("mfe"));
 
 
-        ShapedRecipeBuilder.shaped(ModBlocks.MFSU)
+        ShapedRecipeBuilder.shaped(ModBlocks.MFSU.get())
                 .pattern("lal")
                 .pattern("lml")
                 .pattern("lcl")
-                .define('l', ModItems.LAPOTRON_CRYSTAL)
-                .define('a', ModItems.ADVANCED_CIRCUIT)
-                .define('m', ModBlocks.MFE)
-                .define('c', ModBlocks.ADVANCED_MACHINE_CASING)
+                .define('l', ModItems.LAPOTRON_CRYSTAL.get())
+                .define('a', ModItems.ADVANCED_CIRCUIT.get())
+                .define('m', ModBlocks.MFE.get())
+                .define('c', ModBlocks.ADVANCED_MACHINE_CASING.get())
                 .group(MODID)
-                .unlockedBy("item", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.LAPOTRON_CRYSTAL))
+                .unlockedBy("lapotron_crystal", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.LAPOTRON_CRYSTAL.get()))
                 .save(consumer, saveResource("mfsu"));
 
 

@@ -1,49 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
-  "rewards": {
-    "recipes": [
-      "indreb:charge_pad/charge_pad_cesu"
-    ]
-  },
   "criteria": {
-    "electronic_circuit": {
-      "trigger": "minecraft:inventory_changed",
-      "conditions": {
-        "items": [
-          {
-            "items": [
-              "indreb:electronic_circuit"
-            ]
-          }
-        ]
-      }
-    },
-    "stone_pressure_plate": {
-      "trigger": "minecraft:inventory_changed",
-      "conditions": {
-        "items": [
-          {
-            "items": [
-              "minecraft:stone_pressure_plate"
-            ]
-          }
-        ]
-      }
-    },
-    "rubber": {
-      "trigger": "minecraft:inventory_changed",
-      "conditions": {
-        "items": [
-          {
-            "items": [
-              "indreb:rubber"
-            ]
-          }
-        ]
-      }
-    },
     "cesu": {
-      "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
@@ -52,13 +10,50 @@
             ]
           }
         ]
-      }
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "electronic_circuit": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:electronic_circuit"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
     },
     "has_the_recipe": {
-      "trigger": "minecraft:recipe_unlocked",
       "conditions": {
         "recipe": "indreb:charge_pad/charge_pad_cesu"
-      }
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "rubber": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:rubber"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "stone_pressure_plate": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:stone_pressure_plate"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
     }
   },
   "requirements": [
@@ -69,5 +64,10 @@
       "cesu",
       "has_the_recipe"
     ]
-  ]
+  ],
+  "rewards": {
+    "recipes": [
+      "indreb:charge_pad/charge_pad_cesu"
+    ]
+  }
 }

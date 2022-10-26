@@ -136,7 +136,7 @@ public class RecipeBuilderAlloySmelting {
 
         @Override
         public RecipeSerializer<?> getType() {
-            return ModRecipeSerializer.ALLOY_SMELTING;
+            return ModRecipeSerializer.ALLOY_SMELTING.get();
         }
 
         @Nullable

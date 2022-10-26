@@ -16,7 +16,6 @@ import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.item.crafting.ShapedRecipe;
 import net.minecraft.world.level.Level;
-import net.minecraftforge.registries.ForgeRegistryEntry;
 
 import javax.annotation.Nullable;
 
@@ -50,7 +49,7 @@ public class CanningRecipe implements IBaseRecipe {
 
     @Override
     public ItemStack getResultItem() {
-        return result;
+        return result.copy();
     }
 
     @Override
@@ -71,11 +70,6 @@ public class CanningRecipe implements IBaseRecipe {
     }
 
     @Override
-    public RecipeSerializer<?> getSerializer() {
-        return SERIALIZER;
-    }
-
-    @Override
     public RecipeType<?> getType() {
         return ModRecipeType.CANNING.get();
     }
@@ -87,7 +81,7 @@ public class CanningRecipe implements IBaseRecipe {
 
     @Override
     public ItemStack assemble(Container pContainer) {
-        return getResultItem().copy();
+        return result;
     }
 
     @Override
@@ -121,12 +115,18 @@ public class CanningRecipe implements IBaseRecipe {
         return secondIngredientCount;
     }
 
+
+    @Override
+    public RecipeSerializer<?> getSerializer() {
+        return SERIALIZER;
+    }
+
     @Override
     public NonNullList<Ingredient> getIngredients() {
         return ingredientList.get();
     }
 
-    public static class Serializer extends ForgeRegistryEntry<RecipeSerializer<?>> implements RecipeSerializer<CanningRecipe> {
+    public static class Serializer implements RecipeSerializer<CanningRecipe> {
 
         @Override
         public CanningRecipe fromJson(ResourceLocation recipeId, JsonObject json) {

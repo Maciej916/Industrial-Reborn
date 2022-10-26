@@ -2,5 +2,6 @@
     "parent": "block/leaves",
     "textures": {
         "all": "indreb:block/rubber_wood/rubber_leaves"
-    }
+    },
+    "render_type": "cutout"
 }

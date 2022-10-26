@@ -15,7 +15,6 @@ import net.minecraft.sounds.SoundSource;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.ForgeHooksClient;
 import net.minecraftforge.client.event.sound.PlaySoundEvent;
-import net.minecraftforge.client.event.sound.SoundSetupEvent;
 import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -26,14 +25,6 @@ import java.util.concurrent.ThreadLocalRandom;
 public class SoundHandler {
 
     private static final Long2ObjectMap<SoundInstance> soundMap = new Long2ObjectOpenHashMap<>();
-    private static SoundEngine soundEngine;
-
-    @SubscribeEvent
-    public static void onSoundEngineSetup(SoundSetupEvent event) {
-        if (soundEngine == null) {
-            soundEngine = event.getEngine();
-        }
-    }
 
     @SubscribeEvent(priority = EventPriority.LOWEST)
     public static void onTilePlaySound(PlaySoundEvent event) {
@@ -88,7 +79,7 @@ public class SoundHandler {
         private final int checkInterval = 20 + ThreadLocalRandom.current().nextInt(20);
 
         TileTickableSound(SoundEvent soundEvent, SoundSource category, BlockPos pos, float volume) {
-            super(soundEvent, category);
+            super(soundEvent, category, SoundInstance.createUnseededRandom());
 
             this.x = pos.getX() + 0.5F;
             this.y = pos.getY() + 0.5F;
@@ -110,34 +101,26 @@ public class SoundHandler {
             assert Minecraft.getInstance().level != null;
             if (Minecraft.getInstance().level.getGameTime() % checkInterval == 0) {
                 volume = originalVolume;
-                SoundInstance s = ForgeHooksClient.playSound(soundEngine, this);
+//                SoundInstance s = ForgeHooksClient.playSound(soundEngine, this);
 
-                if (s == this) {
-                    volume = originalVolume * getTileVolumeFactor();
-                } else if (s == null) {
-                    stop();
-                } else {
-                    volume = s.getVolume() * getTileVolumeFactor();
-                }
+
+//                PlaySoundEvent e = new PlaySoundEvent(manager, sound);
+
+
+//                Minecraft.getInstance().getSoundManager().play(this);
+
+//                if (s == this) {
+//                    volume = originalVolume * getTileVolumeFactor();
+//                } else if (s == null) {
+//                    stop();
+//                } else {
+//                    volume = s.getVolume() * getTileVolumeFactor();
+//                }
             }
         }
 
         private float getTileVolumeFactor() {
-            // Pull the TE from the sound position and see if supports muffling upgrades. If it does, calculate what
-            // percentage of the original volume should be muted
-
-//           BlockEntity be =  Minecraft.getInstance().level.getBlockEntity(new BlockPos(getX(), getY(), getZ()));
-
-            float retVolume = 1.0F;
-
-//            if (be instanceof ITileSound) {
-//                retVolume *= ((ITileSound) tile).getVolume();
-//            }
-
-            return retVolume;
+            return 1.0F;
         }
-
-
     }
-
 }

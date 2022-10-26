@@ -1,14 +1,14 @@
 {
   "type": "indreb:sawing",
-  "ingredient": {
-    "item": "minecraft:leather_boots",
-    "count": 1
-  },
-  "result": {
-    "item": "minecraft:leather",
-    "count": 2
-  },
-  "experience": 0.5,
   "duration": 180,
-  "power_cost": 8
+  "experience": 0.5,
+  "ingredient": {
+    "count": 1,
+    "item": "minecraft:leather_boots"
+  },
+  "power_cost": 8,
+  "result": {
+    "count": 2,
+    "item": "minecraft:leather"
+  }
 }

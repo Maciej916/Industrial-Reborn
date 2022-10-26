@@ -18,14 +18,12 @@ import net.minecraft.world.level.block.state.BlockState;
 public class BlockEntityTransformer extends IndRebBlockEntity implements IEnergyBlock {
 
     private final TransformerTier tier;
-
-    private boolean init = false;
     private TransformerMode transformerMode;
     private EnergyTier minTier;
     private EnergyTier maxTier;
 
     public BlockEntityTransformer(BlockPos pWorldPosition, BlockState pBlockState) {
-        super(ModBlockEntities.TRANSFORMER, pWorldPosition, pBlockState);
+        super(ModBlockEntities.TRANSFORMER.get(), pWorldPosition, pBlockState);
         BlockTransformer block = (BlockTransformer) getBlock();
         tier = block.getTransformerTier();
         createEnergyStorage(0, tier.getMaxTier().getBasicTransfer(), EnergyType.TRANSFORMER, tier.getMaxTier());
@@ -94,7 +92,6 @@ public class BlockEntityTransformer extends IndRebBlockEntity implements IEnergy
             this.minTier = tier.getMaxTier();
             this.maxTier = tier.getMinTier();
         }
-        this.init = true;
     }
 
     public void updateMode() {
@@ -119,7 +116,7 @@ public class BlockEntityTransformer extends IndRebBlockEntity implements IEnergy
     public void load(CompoundTag tag) {
         super.load(tag);
         this.transformerMode = TransformerMode.getMode(tag.getInt("transformerMode"));
-        if (!init) initMode();
+        initMode();
     }
 
     @Override

@@ -1,14 +1,14 @@
 {
   "type": "indreb:crushing",
-  "ingredient": {
-    "item": "minecraft:clay",
-    "count": 1
-  },
-  "result": {
-    "item": "minecraft:clay_ball",
-    "count": 2
-  },
-  "experience": 0.1,
   "duration": 180,
-  "power_cost": 8
+  "experience": 0.1,
+  "ingredient": {
+    "count": 1,
+    "item": "minecraft:clay"
+  },
+  "power_cost": 8,
+  "result": {
+    "count": 2,
+    "item": "minecraft:clay_ball"
+  }
 }

@@ -1,14 +1,14 @@
 {
   "type": "indreb:extracting",
-  "ingredient": {
-    "item": "indreb:sticky_resin",
-    "count": 1
-  },
-  "result": {
-    "item": "indreb:rubber",
-    "count": 3
-  },
-  "experience": 0.2,
   "duration": 180,
-  "power_cost": 8
+  "experience": 0.2,
+  "ingredient": {
+    "count": 1,
+    "item": "indreb:sticky_resin"
+  },
+  "power_cost": 8,
+  "result": {
+    "count": 3,
+    "item": "indreb:rubber"
+  }
 }

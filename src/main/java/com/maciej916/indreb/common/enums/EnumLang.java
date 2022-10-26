@@ -1,7 +1,8 @@
 package com.maciej916.indreb.common.enums;
 
 import com.maciej916.indreb.IndReb;
-import net.minecraft.network.chat.TranslatableComponent;
+import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.MutableComponent;
 
 public enum EnumLang {
     GENERIC("generic", ""),
@@ -52,8 +53,8 @@ public enum EnumLang {
         return key;
     }
 
-    public TranslatableComponent getTranslationComponent() {
-        return new TranslatableComponent(key);
+    public MutableComponent getTranslationComponent() {
+        return Component.translatable(key);
     }
 
 }

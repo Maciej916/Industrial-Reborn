@@ -4,11 +4,11 @@ import com.maciej916.indreb.common.config.ServerConfig;
 import com.maciej916.indreb.common.energy.interfaces.IEnergyBlock;
 import com.maciej916.indreb.common.entity.block.BlockEntityProgress;
 import com.maciej916.indreb.common.entity.block.IndRebBlockEntity;
-import com.maciej916.indreb.common.entity.slot.SlotBattery;
 import com.maciej916.indreb.common.entity.slot.IndRebSlot;
+import com.maciej916.indreb.common.entity.slot.SlotBattery;
 import com.maciej916.indreb.common.enums.*;
-import com.maciej916.indreb.common.interfaces.entity.IExpCollector;
 import com.maciej916.indreb.common.interfaces.entity.IElectricSlot;
+import com.maciej916.indreb.common.interfaces.entity.IExpCollector;
 import com.maciej916.indreb.common.interfaces.entity.ISupportUpgrades;
 import com.maciej916.indreb.common.registries.ModBlockEntities;
 import net.minecraft.core.BlockPos;
@@ -22,8 +22,8 @@ import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.item.crafting.SmeltingRecipe;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.common.capabilities.Capability;
+import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.common.util.LazyOptional;
-import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.wrapper.RangedWrapper;
 
 import javax.annotation.Nonnull;
@@ -46,7 +46,7 @@ public class BlockEntityElectricFurnace extends IndRebBlockEntity implements IEn
     private SmeltingRecipe furnaceRecipe;
 
     public BlockEntityElectricFurnace(BlockPos pWorldPosition, BlockState pBlockState) {
-        super(ModBlockEntities.ELECTRIC_FURNACE, pWorldPosition, pBlockState);
+        super(ModBlockEntities.ELECTRIC_FURNACE.get(), pWorldPosition, pBlockState);
         createEnergyStorage(0, ServerConfig.electric_furnace_energy_capacity.get(), EnergyType. RECEIVE, EnergyTier.BASIC);
     }
 
@@ -195,7 +195,7 @@ public class BlockEntityElectricFurnace extends IndRebBlockEntity implements IEn
     @Nonnull
     @Override
     public <T> LazyOptional<T> getCapability(@Nonnull final Capability<T> cap, @Nullable final Direction side) {
-        if (cap == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY) {
+        if (cap == ForgeCapabilities.ITEM_HANDLER) {
             if (side == null) return capabilities.get(0).cast();
             return switch (side) {
                 case UP -> capabilities.get(1).cast();

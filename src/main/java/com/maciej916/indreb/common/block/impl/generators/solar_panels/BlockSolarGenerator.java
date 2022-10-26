@@ -2,14 +2,13 @@ package com.maciej916.indreb.common.block.impl.generators.solar_panels;
 
 import com.maciej916.indreb.common.block.BlockElectricMachine;
 import com.maciej916.indreb.common.enums.EnumLang;
-import com.maciej916.indreb.common.interfaces.block.IHasContainer;
+import com.maciej916.indreb.common.interfaces.block.IHasMenu;
 import com.maciej916.indreb.common.interfaces.block.IStateActive;
 import com.maciej916.indreb.common.tier.SolarGeneratorTier;
 import com.maciej916.indreb.common.util.TextComponentUtil;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -25,7 +24,7 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 import javax.annotation.Nullable;
 import java.util.List;
 
-public class BlockSolarGenerator extends BlockElectricMachine implements IHasContainer, IStateActive {
+public class BlockSolarGenerator extends BlockElectricMachine implements IHasMenu, IStateActive {
 
     private final SolarGeneratorTier solarTier;
     protected final VoxelShape SHAPE;
@@ -43,8 +42,8 @@ public class BlockSolarGenerator extends BlockElectricMachine implements IHasCon
     }
 
     @Override
-    public ContainerSolarGenerator getContainer(int windowId, Level level, BlockPos pos, Inventory playerInventory, Player playerEntity) {
-        return new ContainerSolarGenerator(windowId, level, pos, playerInventory, playerEntity);
+    public MenuSolarGenerator getMenu(int windowId, Level level, BlockPos pos, Inventory playerInventory, Player playerEntity) {
+        return new MenuSolarGenerator(windowId, level, pos, playerInventory, playerEntity);
     }
 
     @Override
@@ -62,8 +61,8 @@ public class BlockSolarGenerator extends BlockElectricMachine implements IHasCon
         super.appendHoverText(pStack, pLevel, pTooltip, pFlag);
 
         pTooltip.add(TextComponentUtil.build(
-                new TranslatableComponent(EnumLang.GENERATE.getTranslationKey()).withStyle(ChatFormatting.GRAY),
-                new TranslatableComponent(EnumLang.POWER_TICK.getTranslationKey(), TextComponentUtil.getFormattedEnergyUnit(solarTier.getDayGenerate())).withStyle(getEnergyTier().getColor())
+                Component.translatable(EnumLang.GENERATE.getTranslationKey()).withStyle(ChatFormatting.GRAY),
+                Component.translatable(EnumLang.POWER_TICK.getTranslationKey(), TextComponentUtil.getFormattedEnergyUnit(solarTier.getDayGenerate())).withStyle(getEnergyTier().getColor())
         ));
     }
 

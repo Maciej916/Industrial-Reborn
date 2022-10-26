@@ -1,13 +1,13 @@
 {
   "type": "indreb:compressing",
+  "duration": 180,
+  "experience": 0.8,
   "ingredient": {
-    "tag": "forge:gems/diamond",
-    "count": 9
+    "count": 9,
+    "tag": "forge:gems/diamond"
   },
+  "power_cost": 8,
   "result": {
     "item": "minecraft:diamond_block"
-  },
-  "experience": 0.8,
-  "duration": 180,
-  "power_cost": 8
+  }
 }

@@ -15,6 +15,7 @@ import com.maciej916.indreb.common.interfaces.item.IElectricItem;
 import com.maciej916.indreb.common.network.ModNetworking;
 import com.maciej916.indreb.common.network.packet.PacketParticle;
 import com.maciej916.indreb.common.registries.ModCapabilities;
+import com.maciej916.indreb.common.util.CapabilityUtil;
 import com.maciej916.indreb.common.util.Constants;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -32,7 +33,6 @@ import net.minecraft.world.phys.AABB;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.capabilities.ICapabilitySerializable;
 import net.minecraftforge.common.util.LazyOptional;
-import net.minecraftforge.fluids.capability.CapabilityFluidHandler;
 import net.minecraftforge.items.ItemStackHandler;
 import net.minecraftforge.network.PacketDistributor;
 
@@ -41,7 +41,7 @@ import javax.annotation.Nullable;
 import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
 
-public class EnergyCore extends CapabilityFluidHandler implements IEnergyCore, ICapabilitySerializable<CompoundTag> {
+public class EnergyCore implements IEnergyCore, ICapabilitySerializable<CompoundTag> {
 
     private final Level world;
     public EnergyNetworks networks;
@@ -124,28 +124,6 @@ public class EnergyCore extends CapabilityFluidHandler implements IEnergyCore, I
         }
     }
 
-    private final HashMap<EnergyNetwork, EnergyTier> energyNetworkTier = new HashMap<>();
-
-    public void setEnergyNetworkTier(EnergyNetwork network, EnergyTier tier) {
-        if (network.getEnergyTier().getLvl() < tier.getLvl()) return;
-        if (energyNetworkTier.containsKey(network)) {
-            EnergyTier currentTier = energyNetworkTier.get(network);
-            if (tier.getLvl() > currentTier.getLvl()) {
-                energyNetworkTier.put(network, tier);
-            }
-        } else {
-            energyNetworkTier.put(network, tier);
-        }
-    }
-
-    public EnergyTier getEnergyNetworkTier(EnergyNetwork network) {
-        return energyNetworkTier.getOrDefault(network, EnergyTier.BASIC);
-    }
-
-    public EnergyTier getEnergyNetworkTier(EnergyNetwork network, EnergyTier def) {
-        return energyNetworkTier.getOrDefault(network, def);
-    }
-
     private void createExplosion(BlockPos pos, int lvl) {
         world.explode(null, pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5, 2, false, Explosion.BlockInteraction.DESTROY);
     }
@@ -177,7 +155,7 @@ public class EnergyCore extends CapabilityFluidHandler implements IEnergyCore, I
                 int maxEnergy = Math.min(chargeSplit, en.getEnergy().maxReceive());
                 int distributed = energyFrom.extractEnergy(maxEnergy, false);
 
-                addEnergyExtractedBlock(pos, distributed);
+//                addEnergyExtractedBlock(pos, distributed);
                 en.getEnergy().receiveEnergy(distributed, false);
 
                 CompoundTag tag = en.getStack().getOrCreateTag();
@@ -223,7 +201,7 @@ public class EnergyCore extends CapabilityFluidHandler implements IEnergyCore, I
                     electricItem.tickElectric(en.getStack());
                 }
 
-                addEnergyReceivedBlock(pos, distributed);
+//                addEnergyReceivedBlock(pos, distributed);
                 distributeLeft -= distributed;
                 if (distributeLeft > 0 && --size > 0) {
                     distributeSplit = distributeLeft / size;
@@ -545,29 +523,29 @@ public class EnergyCore extends CapabilityFluidHandler implements IEnergyCore, I
                             if (be != null) {
                                 be.getCapability(ModCapabilities.ENERGY).ifPresent(energy -> {
                                     if (energy.canReceiveEnergy(oppositeDir)) {
-                                        if (energy.maxReceive() > 0) {
-                                            EnergyTier networkTier = getEnergyNetworkTier(network);
+                                        EnergyTier currentTier = network.getCurrentTier();
 
-                                            if (energy.energyType() == EnergyType.BOTH || energy.energyType() == EnergyType.RECEIVE) {
-                                                if (energy.energyTier().getLvl() >= networkTier.getLvl()) {
+                                        if (energy.energyType() == EnergyType.BOTH || energy.energyType() == EnergyType.RECEIVE) {
+                                            if (energy.energyTier().getLvl() >= currentTier.getLvl()) {
+                                                if (energy.maxReceive() > 0) {
                                                     int leftReceive = Math.max(0, energy.maxReceive() - getEnergyReceivedBlock(relativePos));
                                                     transferTo.add(new TransferTo(energy, relativePos, leftReceive));
-                                                } else {
-                                                    createExplosion(relativePos, networkTier.getLvl());
                                                 }
+                                            } else {
+                                                createExplosion(relativePos, currentTier.getLvl());
                                             }
+                                        }
 
-                                            if (energy.energyType() == EnergyType.TRANSFORMER) {
-                                                BlockEntityTransformer beTransformer = (BlockEntityTransformer) be;
-                                                EnergyTier transformerTier = beTransformer.energyReceiveTier();
-                                                if (Objects.equals(transformerTier.getLvl(), networkTier.getLvl())) {
+                                        if (energy.energyType() == EnergyType.TRANSFORMER) {
+                                            BlockEntityTransformer beTransformer = (BlockEntityTransformer) be;
+                                            EnergyTier transformerTier = beTransformer.energyReceiveTier();
+                                            if ( transformerTier.getLvl() >= currentTier.getLvl()) {
+                                                if (energy.maxReceive() > 0) {
                                                     int leftReceive = Math.max(0, energy.maxReceive() - getEnergyReceivedBlock(relativePos));
                                                     transferTo.add(new TransferTo(energy, relativePos, leftReceive));
-                                                } else {
-                                                    if (transformerTier.getLvl() < networkTier.getLvl()) {
-                                                        createExplosion(relativePos, networkTier.getLvl());
-                                                    }
                                                 }
+                                            } else {
+                                                createExplosion(relativePos, currentTier.getLvl());
                                             }
                                         }
                                     }
@@ -608,16 +586,19 @@ public class EnergyCore extends CapabilityFluidHandler implements IEnergyCore, I
                         if (be != null) {
                             be.getCapability(ModCapabilities.ENERGY).ifPresent(energy -> {
                                 if (energy.canExtractEnergy(oppositeDir)) {
-                                    setEnergyNetworkTier(network, energy.energyTier());
+                                    if (energy.energyType() == EnergyType.EXTRACT) {
 
-                                    if (energy.maxExtract() > 0 && energy.energyType() == EnergyType.EXTRACT) {
-                                        int leftExtract = Math.max(0, energy.maxExtract() - getEnergyExtractedBlock(relativePos));
-                                        if (leftReceive > 0 && leftExtract > 0) {
-                                            EnergyTier networkTier = getEnergyNetworkTier(network);
-                                            if (energy.energyTier().getLvl() <= networkTier.getLvl()) {
-                                                transferFrom.add(new TransferFrom(energy, relativePos, leftExtract));
-                                            } else {
-                                                createExplosion(pos, energy.energyTier().getLvl());
+
+                                        if (energy.maxExtract() > 0) {
+                                            int leftExtract = Math.max(0, energy.maxExtract() - getEnergyExtractedBlock(relativePos));
+                                            if (leftReceive > 0 && leftExtract > 0) {
+                                                network.setCurrentTier(energy.energyTier());
+
+                                                if (energy.energyTier().getLvl() <= network.getEnergyTier().getLvl()) {
+                                                    transferFrom.add(new TransferFrom(energy, relativePos, leftExtract));
+                                                } else {
+                                                    createBurn(network, pos);
+                                                }
                                             }
                                         }
                                     }
@@ -656,16 +637,16 @@ public class EnergyCore extends CapabilityFluidHandler implements IEnergyCore, I
                         BlockEntity be = world.getBlockEntity(relativePos);
                         if (be != null) {
                             be.getCapability(ModCapabilities.ENERGY).ifPresent(energy -> {
-                                EnergyTier networkTier = getEnergyNetworkTier(network, network.getEnergyTier());
-
                                 if (energy.energyType() == EnergyType.BOTH) {
                                     if (energy.canExtractEnergy(oppositeDir)) {
-                                        setEnergyNetworkTier(network, energy.energyTier());
+
 
                                         if (energy.maxExtract() > 0) {
                                             int leftExtract = Math.max(0, energy.maxExtract() - getEnergyReceivedBlock(relativePos));
-                                            if (leftReceive > 0 && leftExtract > 0) {
-                                                if (energy.energyTier().getLvl() <= networkTier.getLvl()) {
+                                                if (leftReceive > 0 && leftExtract > 0) {
+                                                    network.setCurrentTier(energy.energyTier());
+
+                                                    if (energy.energyTier().getLvl() <= network.getCurrentTier().getLvl() && energy.energyTier().getLvl() <= network.energyTier().getLvl()) {
                                                     transferFrom.add(new TransferFrom(energy, relativePos, leftExtract));
                                                 } else {
                                                     createBurn(network, pos);
@@ -680,12 +661,12 @@ public class EnergyCore extends CapabilityFluidHandler implements IEnergyCore, I
                                         BlockEntityTransformer beTransformer = (BlockEntityTransformer) be;
                                         EnergyTier tier = beTransformer.energyExtractTier();
 
-                                        setEnergyNetworkTier(network, tier);
 
                                         int leftExtract = Math.max(0, energy.maxExtract() - getEnergyReceivedBlock(relativePos));
                                         if (leftReceive > 0 && leftExtract > 0) {
-                                            if (tier.getLvl() <= networkTier.getLvl()) {
-                                                setEnergyNetworkTier(network, tier);
+                                            network.setCurrentTier(tier);
+
+                                            if (tier.getLvl() <= network.getCurrentTier().getLvl() && energy.energyTier().getLvl() <= network.energyTier().getLvl()) {
                                                 transferFrom.add(new TransferFrom(energy, relativePos, leftExtract));
                                             } else {
                                                 createBurn(network, pos);
@@ -712,7 +693,10 @@ public class EnergyCore extends CapabilityFluidHandler implements IEnergyCore, I
         energyExtractedBlock.clear();
         energyReceivedNetwork.clear();
         energyExtractedNetwork.clear();
-        energyNetworkTier.clear();
+
+        for (EnergyNetwork network: networks.getNetworks()) {
+            network.resetCurrentTier();
+        }
 
         transferInternal();
         transferTouching();

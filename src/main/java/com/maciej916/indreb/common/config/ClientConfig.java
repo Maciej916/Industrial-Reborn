@@ -4,9 +4,7 @@ import net.minecraftforge.common.ForgeConfigSpec;
 
 public class ClientConfig {
 
-	public static ForgeConfigSpec initClient() {
-		ForgeConfigSpec.Builder builder = new ForgeConfigSpec.Builder();
-
+	public static ForgeConfigSpec register(ForgeConfigSpec.Builder builder) {
 		builder.push("general");
 
 		builder.pop();

@@ -2,6 +2,7 @@ package com.maciej916.indreb.integration.jei.category.impl;
 
 import com.maciej916.indreb.common.recipe.impl.CanningRecipe;
 import com.maciej916.indreb.common.registries.ModBlocks;
+import com.maciej916.indreb.common.registries.ModItems;
 import com.maciej916.indreb.common.registries.ModRecipeSerializer;
 import com.maciej916.indreb.common.util.GuiUtil;
 import com.maciej916.indreb.integration.jei.category.AbstractRecipeCategory;
@@ -20,7 +21,7 @@ import static com.maciej916.indreb.common.util.Constants.*;
 
 public class CanningCategory extends AbstractRecipeCategory<CanningRecipe> {
 
-    public static final ResourceLocation UID = ModRecipeSerializer.CANNING.getRegistryName();
+    public static final ResourceLocation UID = ModRecipeSerializer.CANNING.getId();
 
     private IDrawableAnimated progress;
     private IDrawableAnimated energy;
@@ -32,7 +33,7 @@ public class CanningCategory extends AbstractRecipeCategory<CanningRecipe> {
                 "canning",
                 guiHelper,
                 () -> guiHelper.createDrawable(JEI_LARGE, 0, 110, 152, 54),
-                () -> guiHelper.createDrawableIngredient(VanillaTypes.ITEM_STACK, new ItemStack(ModBlocks.CANNING_MACHINE))
+                () -> guiHelper.createDrawableIngredient(VanillaTypes.ITEM_STACK, new ItemStack(ModBlocks.CANNING_MACHINE.get()))
         );
     }
 

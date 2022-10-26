@@ -2,8 +2,8 @@ package com.maciej916.indreb.common.util;
 
 import com.maciej916.indreb.common.entity.block.FluidStorage;
 import net.minecraft.world.item.ItemStack;
+import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.fluids.FluidStack;
-import net.minecraftforge.fluids.capability.CapabilityFluidHandler;
 import net.minecraftforge.fluids.capability.IFluidHandler;
 import net.minecraftforge.fluids.capability.IFluidHandlerItem;
 import net.minecraftforge.items.ItemStackHandler;
@@ -16,7 +16,7 @@ public final class BlockEntityUtil {
 
             ItemStack newStack = fillBucketUp.copy();
             newStack.setCount(1);
-            IFluidHandlerItem cap = CapabilityUtil.getCapabilityHelper(newStack, CapabilityFluidHandler.FLUID_HANDLER_ITEM_CAPABILITY).getValue();
+            IFluidHandlerItem cap = CapabilityUtil.getCapabilityHelper(newStack, ForgeCapabilities.FLUID_HANDLER_ITEM).getValue();
             if (cap != null) {
                 FluidStack fluid = cap.getFluidInTank(1);
                 if (!fluid.isEmpty()) {
@@ -45,7 +45,7 @@ public final class BlockEntityUtil {
         if (!drainBucketUp.isEmpty() && drainBucketDown.getCount() + 1 <= drainBucketDown.getMaxStackSize()) {
             ItemStack stack = drainBucketUp.copy();
             stack.setCount(1);
-            IFluidHandlerItem cap = CapabilityUtil.getCapabilityHelper(stack, CapabilityFluidHandler.FLUID_HANDLER_ITEM_CAPABILITY).getValue();
+            IFluidHandlerItem cap = CapabilityUtil.getCapabilityHelper(stack, ForgeCapabilities.FLUID_HANDLER_ITEM).getValue();
             if (cap != null) {
                 int amountLeft = cap.getTankCapacity(1) - cap.getFluidInTank(1).getAmount();
                 int amount = Math.min(1000, amountLeft);

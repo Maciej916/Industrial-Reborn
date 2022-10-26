@@ -8,9 +8,9 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
 
-public class ScreenGeoGenerator extends BetterScreen<ContainerGeoGenerator> {
+public class ScreenGeoGenerator extends BetterScreen<MenuGeoGenerator> {
 
-    public ScreenGeoGenerator(ContainerGeoGenerator container, Inventory inv, Component name) {
+    public ScreenGeoGenerator(MenuGeoGenerator container, Inventory inv, Component name) {
         super(container, inv, name);
     }
 

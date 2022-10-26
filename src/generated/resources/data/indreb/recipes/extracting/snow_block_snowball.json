@@ -1,14 +1,14 @@
 {
   "type": "indreb:extracting",
-  "ingredient": {
-    "item": "minecraft:snow_block",
-    "count": 1
-  },
-  "result": {
-    "item": "minecraft:snowball",
-    "count": 4
-  },
-  "experience": 0.0,
   "duration": 180,
-  "power_cost": 8
+  "experience": 0.0,
+  "ingredient": {
+    "count": 1,
+    "item": "minecraft:snow_block"
+  },
+  "power_cost": 8,
+  "result": {
+    "count": 4,
+    "item": "minecraft:snowball"
+  }
 }

@@ -23,7 +23,7 @@ import static com.maciej916.indreb.common.util.Constants.*;
 
 public class ExtrudingCategory extends AbstractRecipeCategory<ExtrudingRecipe> {
 
-    public static final ResourceLocation UID = ModRecipeSerializer.EXTRUDING.getRegistryName();
+    public static final ResourceLocation UID = ModRecipeSerializer.EXTRUDING.getId();
 
     private IDrawableAnimated progress;
     private IDrawableAnimated energy;
@@ -35,7 +35,7 @@ public class ExtrudingCategory extends AbstractRecipeCategory<ExtrudingRecipe> {
                 "extruding",
                 guiHelper,
                 () -> guiHelper.createDrawable(JEI_LARGE, 0, 55, 152, 54),
-                () -> guiHelper.createDrawableIngredient(VanillaTypes.ITEM_STACK, new ItemStack(ModBlocks.EXTRUDER))
+                () -> guiHelper.createDrawableIngredient(VanillaTypes.ITEM_STACK, new ItemStack(ModBlocks.EXTRUDER.get()))
         );
     }
 

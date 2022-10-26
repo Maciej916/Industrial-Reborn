@@ -1,13 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
-  "rewards": {
-    "recipes": [
-      "indreb:battery_box/cesu"
-    ]
-  },
   "criteria": {
-    "item": {
-      "trigger": "minecraft:inventory_changed",
+    "advanced_battery": {
       "conditions": {
         "items": [
           {
@@ -16,19 +10,25 @@
             ]
           }
         ]
-      }
+      },
+      "trigger": "minecraft:inventory_changed"
     },
     "has_the_recipe": {
-      "trigger": "minecraft:recipe_unlocked",
       "conditions": {
         "recipe": "indreb:battery_box/cesu"
-      }
+      },
+      "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "item",
+      "advanced_battery",
       "has_the_recipe"
     ]
-  ]
+  ],
+  "rewards": {
+    "recipes": [
+      "indreb:battery_box/cesu"
+    ]
+  }
 }

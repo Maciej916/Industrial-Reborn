@@ -14,7 +14,6 @@ import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.item.crafting.ShapedRecipe;
-import net.minecraftforge.registries.ForgeRegistryEntry;
 
 import javax.annotation.Nullable;
 
@@ -36,7 +35,7 @@ public class SawingRecipe extends BasicChanceRecipe {
         return ModRecipeType.SAWING.get();
     }
 
-    public static class Serializer extends ForgeRegistryEntry<RecipeSerializer<?>> implements RecipeSerializer<SawingRecipe> {
+    public static class Serializer implements RecipeSerializer<SawingRecipe> {
 
         @Override
         public SawingRecipe fromJson(ResourceLocation recipeId, JsonObject json) {

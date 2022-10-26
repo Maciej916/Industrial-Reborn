@@ -1,15 +1,15 @@
 {
   "type": "minecraft:crafting_shaped",
   "group": "indreb",
+  "key": {
+    "b": {
+      "tag": "forge:ingots/bronze"
+    }
+  },
   "pattern": [
     "b b",
     "b b"
   ],
-  "key": {
-    "b": {
-      "item": "indreb:bronze_ingot"
-    }
-  },
   "result": {
     "item": "indreb:bronze_boots"
   }

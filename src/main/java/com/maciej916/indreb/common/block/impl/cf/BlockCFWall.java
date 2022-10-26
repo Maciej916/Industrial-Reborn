@@ -61,7 +61,7 @@ public class BlockCFWall extends Block {
                 }
 
                 if (!level.isClientSide()) {
-                    level.playSound(null, blockPos.getX(), blockPos.getY(), blockPos.getZ(), ModSounds.PAINTER, SoundSource.PLAYERS, 1.0F, 1.0F);
+                    level.playSound(null, blockPos.getX(), blockPos.getY(), blockPos.getZ(), ModSounds.PAINTER.get(), SoundSource.PLAYERS, 1.0F, 1.0F);
                     level.setBlock(blockPos, painter.getState(), 2);
                     player.getItemInHand(interactionHand).hurtAndBreak(1, player, (i) -> level.playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.ITEM_BREAK, SoundSource.BLOCKS, 0.5F, 0.4F / (random.nextFloat() * 0.4F + 0.8F)));
                 }

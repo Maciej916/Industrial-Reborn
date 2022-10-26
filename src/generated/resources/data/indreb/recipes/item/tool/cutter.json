@@ -1,19 +1,19 @@
 {
   "type": "minecraft:crafting_shaped",
   "group": "indreb",
-  "pattern": [
-    "p p",
-    " p ",
-    "i i"
-  ],
   "key": {
     "i": {
-      "item": "indreb:iron_rod"
+      "tag": "forge:ingots/iron"
     },
     "p": {
       "tag": "forge:plates/iron"
     }
   },
+  "pattern": [
+    "p p",
+    " p ",
+    "i i"
+  ],
   "result": {
     "item": "indreb:cutter"
   }

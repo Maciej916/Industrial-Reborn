@@ -1,15 +1,7 @@
 {
   "type": "minecraft:crafting_shaped",
   "group": "indreb",
-  "pattern": [
-    "pcp",
-    "cbc",
-    "php"
-  ],
   "key": {
-    "p": {
-      "tag": "forge:plates/tin"
-    },
     "b": {
       "item": "indreb:basic_machine_casing"
     },
@@ -18,8 +10,16 @@
     },
     "h": {
       "item": "indreb:heat_conductor"
+    },
+    "p": {
+      "tag": "forge:plates/tin"
     }
   },
+  "pattern": [
+    "pcp",
+    "cbc",
+    "php"
+  ],
   "result": {
     "item": "indreb:fermenter"
   }

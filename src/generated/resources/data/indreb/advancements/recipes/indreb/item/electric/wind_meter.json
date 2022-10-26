@@ -1,25 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
-  "rewards": {
-    "recipes": [
-      "indreb:item/electric/wind_meter"
-    ]
-  },
   "criteria": {
-    "tin_plate": {
-      "trigger": "minecraft:inventory_changed",
-      "conditions": {
-        "items": [
-          {
-            "items": [
-              "indreb:tin_plate"
-            ]
-          }
-        ]
-      }
-    },
     "bronze_plate": {
-      "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
@@ -28,10 +10,16 @@
             ]
           }
         ]
-      }
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "indreb:item/electric/wind_meter"
+      },
+      "trigger": "minecraft:recipe_unlocked"
     },
     "small_power_unit": {
-      "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
@@ -40,13 +28,20 @@
             ]
           }
         ]
-      }
+      },
+      "trigger": "minecraft:inventory_changed"
     },
-    "has_the_recipe": {
-      "trigger": "minecraft:recipe_unlocked",
+    "tin_plate": {
       "conditions": {
-        "recipe": "indreb:item/electric/wind_meter"
-      }
+        "items": [
+          {
+            "items": [
+              "indreb:tin_plate"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
     }
   },
   "requirements": [
@@ -56,5 +51,10 @@
       "small_power_unit",
       "has_the_recipe"
     ]
-  ]
+  ],
+  "rewards": {
+    "recipes": [
+      "indreb:item/electric/wind_meter"
+    ]
+  }
 }

@@ -7,9 +7,9 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
 
-public class ScreenSawmill extends BetterScreen<ContainerSawmill> {
+public class ScreenSawmill extends BetterScreen<MenuSawmill> {
 
-    public ScreenSawmill(ContainerSawmill container, Inventory inv, Component name) {
+    public ScreenSawmill(MenuSawmill container, Inventory inv, Component name) {
         super(container, inv, name);
     }
 

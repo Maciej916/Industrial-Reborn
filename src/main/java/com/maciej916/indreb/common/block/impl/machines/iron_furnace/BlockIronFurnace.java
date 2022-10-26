@@ -1,7 +1,7 @@
 package com.maciej916.indreb.common.block.impl.machines.iron_furnace;
 
 import com.maciej916.indreb.common.block.BlockMachine;
-import com.maciej916.indreb.common.interfaces.block.IHasContainer;
+import com.maciej916.indreb.common.interfaces.block.IHasMenu;
 import com.maciej916.indreb.common.interfaces.block.IStateActive;
 import com.maciej916.indreb.common.interfaces.block.IStateFacing;
 import com.maciej916.indreb.common.util.BlockStateHelper;
@@ -21,7 +21,7 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 import javax.annotation.Nullable;
 import java.util.Random;
 
-public class BlockIronFurnace extends BlockMachine implements IStateFacing, IHasContainer, IStateActive {
+public class BlockIronFurnace extends BlockMachine implements IStateFacing, IHasMenu, IStateActive {
 
     public BlockIronFurnace() {
         super(12, 0);
@@ -34,8 +34,8 @@ public class BlockIronFurnace extends BlockMachine implements IStateFacing, IHas
     }
 
     @Override
-    public ContainerIronFurnace getContainer(int windowId, Level level, BlockPos pos, Inventory playerInventory, Player playerEntity) {
-        return new ContainerIronFurnace(windowId, level, pos, playerInventory, playerEntity);
+    public MenuIronFurnace getMenu(int windowId, Level level, BlockPos pos, Inventory playerInventory, Player playerEntity) {
+        return new MenuIronFurnace(windowId, level, pos, playerInventory, playerEntity);
     }
 
     @OnlyIn(Dist.CLIENT)

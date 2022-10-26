@@ -20,7 +20,7 @@ import java.util.ArrayList;
 public class BlockEntityBatteryBox extends IndRebBlockEntity implements IEnergyBlock {
 
     public BlockEntityBatteryBox(BlockPos pWorldPosition, BlockState pBlockState) {
-        super(ModBlockEntities.BATTERY_BOX, pWorldPosition, pBlockState);
+        super(ModBlockEntities.BATTERY_BOX.get(), pWorldPosition, pBlockState);
 
         BlockBatteryBox block = (BlockBatteryBox) getBlock();
         BatteryBoxTier batteryBoxTier = block.getBatteryBoxTier();

@@ -1,11 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
   "group": "indreb",
-  "pattern": [
-    " i ",
-    "iii",
-    "ipi"
-  ],
   "key": {
     "i": {
       "item": "indreb:iron_plate"
@@ -14,6 +9,11 @@
       "item": "indreb:power_unit"
     }
   },
+  "pattern": [
+    " i ",
+    "iii",
+    "ipi"
+  ],
   "result": {
     "item": "indreb:mining_drill"
   }

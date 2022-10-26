@@ -26,10 +26,9 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraftforge.common.capabilities.Capability;
+import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.common.util.LazyOptional;
-import net.minecraftforge.fluids.capability.CapabilityFluidHandler;
 import net.minecraftforge.fluids.capability.IFluidHandlerItem;
-import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.wrapper.RangedWrapper;
 
 import javax.annotation.Nonnull;
@@ -48,7 +47,7 @@ public class BlockEntityGeoGenerator extends IndRebBlockEntity implements ICoold
     private int cachedLava = 0;
 
     public BlockEntityGeoGenerator(BlockPos pWorldPosition, BlockState pBlockState) {
-        super(ModBlockEntities.GEO_GENERATOR, pWorldPosition, pBlockState);
+        super(ModBlockEntities.GEO_GENERATOR.get(), pWorldPosition, pBlockState);
         createEnergyStorage(0, ServerConfig.geo_generator_energy_capacity.get(), EnergyType.EXTRACT, EnergyTier.BASIC);
     }
 
@@ -113,7 +112,7 @@ public class BlockEntityGeoGenerator extends IndRebBlockEntity implements ICoold
     @Override
     public boolean isItemValidForSlot(int slot, @Nonnull ItemStack stack) {
         if (slot == FILL_BUCKET_UP) {
-            IFluidHandlerItem cap = CapabilityUtil.getCapabilityHelper(stack, CapabilityFluidHandler.FLUID_HANDLER_ITEM_CAPABILITY).getValue();
+            IFluidHandlerItem cap = CapabilityUtil.getCapabilityHelper(stack, ForgeCapabilities.FLUID_HANDLER_ITEM).getValue();
             if (cap != null) {
                 return cap.getTanks() > 0 && cap.getFluidInTank(1).getFluid() == Fluids.LAVA;
             }
@@ -124,7 +123,7 @@ public class BlockEntityGeoGenerator extends IndRebBlockEntity implements ICoold
     @Override
     public ItemStack insertItemForSlot(int slot, @Nonnull ItemStack stack, boolean simulate) {
         if (slot == FILL_BUCKET_UP) {
-            IFluidHandlerItem cap = CapabilityUtil.getCapabilityHelper(stack, CapabilityFluidHandler.FLUID_HANDLER_ITEM_CAPABILITY).getValue();
+            IFluidHandlerItem cap = CapabilityUtil.getCapabilityHelper(stack, ForgeCapabilities.FLUID_HANDLER_ITEM).getValue();
             if (cap != null) {
                 if (cap.getTanks() > 0 && cap.getFluidInTank(1).getFluid() == Fluids.LAVA) {
                     return null;
@@ -161,7 +160,7 @@ public class BlockEntityGeoGenerator extends IndRebBlockEntity implements ICoold
 
     @Override
     public SoundEvent getSoundEvent() {
-        return ModSounds.GEO_GENERATOR;
+        return ModSounds.GEO_GENERATOR.get();
     }
 
     @Override
@@ -179,8 +178,8 @@ public class BlockEntityGeoGenerator extends IndRebBlockEntity implements ICoold
     @Nonnull
     @Override
     public <T> LazyOptional<T> getCapability(@Nonnull final Capability<T> cap, @Nullable final Direction side) {
-        if (cap == CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY) return capabilities.get(3).cast();
-        if (cap == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY) {
+        if (cap == ForgeCapabilities.FLUID_HANDLER) return capabilities.get(3).cast();
+        if (cap == ForgeCapabilities.ITEM_HANDLER) {
             if (side == null) return capabilities.get(0).cast();
             return switch (side) {
                 case DOWN -> capabilities.get(2).cast();

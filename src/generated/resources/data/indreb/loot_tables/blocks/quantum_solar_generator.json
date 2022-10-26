@@ -2,49 +2,49 @@
   "type": "minecraft:block",
   "pools": [
     {
-      "name": "quantum_solar_generator",
-      "rolls": 1.0,
       "bonus_rolls": 0.0,
       "entries": [
         {
           "type": "minecraft:item",
-          "weight": 80,
           "functions": [
             {
               "function": "minecraft:copy_name",
               "source": "block_entity"
             },
             {
-              "function": "minecraft:set_contents",
               "type": "indreb:solar_generator",
               "entries": [
                 {
                   "type": "minecraft:dynamic",
                   "name": "minecraft:contents"
                 }
-              ]
+              ],
+              "function": "minecraft:set_contents"
             }
           ],
-          "name": "indreb:quantum_solar_generator"
+          "name": "indreb:quantum_solar_generator",
+          "weight": 80
         },
         {
           "type": "minecraft:item",
-          "weight": 20,
           "functions": [
             {
-              "function": "minecraft:set_contents",
               "type": "indreb:solar_generator",
               "entries": [
                 {
                   "type": "minecraft:dynamic",
                   "name": "minecraft:contents"
                 }
-              ]
+              ],
+              "function": "minecraft:set_contents"
             }
           ],
-          "name": "indreb:advanced_machine_casing"
+          "name": "indreb:advanced_machine_casing",
+          "weight": 20
         }
-      ]
+      ],
+      "name": "quantum_solar_generator",
+      "rolls": 1.0
     }
   ]
 }

@@ -1,25 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
-  "rewards": {
-    "recipes": [
-      "indreb:cables/copper_cable_insulated"
-    ]
-  },
   "criteria": {
-    "rubber": {
-      "trigger": "minecraft:inventory_changed",
-      "conditions": {
-        "items": [
-          {
-            "items": [
-              "indreb:rubber"
-            ]
-          }
-        ]
-      }
-    },
     "copper_cable": {
-      "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
@@ -28,13 +10,26 @@
             ]
           }
         ]
-      }
+      },
+      "trigger": "minecraft:inventory_changed"
     },
     "has_the_recipe": {
-      "trigger": "minecraft:recipe_unlocked",
       "conditions": {
         "recipe": "indreb:cables/copper_cable_insulated"
-      }
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "rubber": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:rubber"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
     }
   },
   "requirements": [
@@ -43,5 +38,10 @@
       "copper_cable",
       "has_the_recipe"
     ]
-  ]
+  ],
+  "rewards": {
+    "recipes": [
+      "indreb:cables/copper_cable_insulated"
+    ]
+  }
 }

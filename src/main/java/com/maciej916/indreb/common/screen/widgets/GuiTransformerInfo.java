@@ -6,8 +6,8 @@ import com.maciej916.indreb.common.enums.TransformerMode;
 import com.maciej916.indreb.common.interfaces.screen.IGuiWrapper;
 import com.maciej916.indreb.common.util.GuiUtil;
 import com.maciej916.indreb.common.util.TextComponentUtil;
+import net.minecraft.network.chat.Component;
 import com.mojang.blaze3d.vertex.PoseStack;
-import net.minecraft.network.chat.TranslatableComponent;
 
 import java.awt.*;
 
@@ -27,12 +27,12 @@ public class GuiTransformerInfo extends GuiElement {
 
         if (mode == TransformerMode.STEP_UP) {
             int color = new Color(33, 178, 13).getRGB();
-            GuiUtil.renderScaled(pPoseStack, new TranslatableComponent(EnumLang.POWER_TICK.getTranslationKey(), TextComponentUtil.getFormattedLong(be.getTransformerTier().getMinTier().getBasicTransfer())).getString(), getLeftOffset() + 3, getTopOffset() + 2, 0.8f, color, false);
-            GuiUtil.renderScaled(pPoseStack, new TranslatableComponent(EnumLang.POWER_TICK.getTranslationKey(), TextComponentUtil.getFormattedLong(be.getTransformerTier().getMaxTier().getBasicTransfer())).getString(), getLeftOffset() + 3, getTopOffset() + 18, 0.8f, color, false);
+            GuiUtil.renderScaled(pPoseStack, Component.translatable(EnumLang.POWER_TICK.getTranslationKey(), TextComponentUtil.getFormattedLong(be.getTransformerTier().getMinTier().getBasicTransfer())).getString(), getLeftOffset() + 3, getTopOffset() + 2, 0.8f, color, false);
+            GuiUtil.renderScaled(pPoseStack, Component.translatable(EnumLang.POWER_TICK.getTranslationKey(), TextComponentUtil.getFormattedLong(be.getTransformerTier().getMaxTier().getBasicTransfer())).getString(), getLeftOffset() + 3, getTopOffset() + 18, 0.8f, color, false);
         } else {
             int color = new Color(178, 13, 13).getRGB();
-            GuiUtil.renderScaled(pPoseStack, new TranslatableComponent(EnumLang.POWER_TICK.getTranslationKey(), TextComponentUtil.getFormattedLong(be.getTransformerTier().getMaxTier().getBasicTransfer())).getString(), getLeftOffset() + 3, getTopOffset() + 2, 0.8f, color, false);
-            GuiUtil.renderScaled(pPoseStack, new TranslatableComponent(EnumLang.POWER_TICK.getTranslationKey(), TextComponentUtil.getFormattedLong(be.getTransformerTier().getMinTier().getBasicTransfer())).getString(), getLeftOffset() + 3, getTopOffset() + 18, 0.8f, color, false);
+            GuiUtil.renderScaled(pPoseStack, Component.translatable(EnumLang.POWER_TICK.getTranslationKey(), TextComponentUtil.getFormattedLong(be.getTransformerTier().getMaxTier().getBasicTransfer())).getString(), getLeftOffset() + 3, getTopOffset() + 2, 0.8f, color, false);
+            GuiUtil.renderScaled(pPoseStack, Component.translatable(EnumLang.POWER_TICK.getTranslationKey(), TextComponentUtil.getFormattedLong(be.getTransformerTier().getMinTier().getBasicTransfer())).getString(), getLeftOffset() + 3, getTopOffset() + 18, 0.8f, color, false);
         }
 
         super.renderButton(pPoseStack, pMouseX, pMouseY, pPartialTicks);

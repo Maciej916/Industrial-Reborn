@@ -1,9 +1,9 @@
 {
   "type": "minecraft:smelting",
+  "cookingtime": 200,
+  "experience": 1.5,
   "ingredient": {
     "item": "indreb:deepslate_uranium_ore"
   },
-  "result": "indreb:uranium",
-  "experience": 1.5,
-  "cookingtime": 200
+  "result": "indreb:uranium"
 }

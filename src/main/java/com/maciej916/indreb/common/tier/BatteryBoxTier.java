@@ -4,20 +4,18 @@ import com.maciej916.indreb.common.config.ServerConfig;
 import com.maciej916.indreb.common.enums.EnergyTier;
 
 public enum BatteryBoxTier {
-    BASIC(EnergyTier.BASIC, 0, ServerConfig.wooden_battery_box_capacity.get()),
-    STANDARD(EnergyTier.STANDARD, 0, ServerConfig.cesu_capacity.get()),
-    ADVANCED(EnergyTier.ADVANCED, 0, ServerConfig.mfe_capacity.get()),
-    SUPER(EnergyTier.SUPER, 0, ServerConfig.mfsu_capacity.get());
+    BASIC(EnergyTier.BASIC, 0),
+    STANDARD(EnergyTier.STANDARD, 0),
+    ADVANCED(EnergyTier.ADVANCED, 0),
+    SUPER(EnergyTier.SUPER, 0);
 
     private final EnergyTier energyTier;
     private final int energyStored;
-    private final int energyCapacity;
 
 
-    BatteryBoxTier(EnergyTier energyTier, int energyStored, int energyCapacity) {
+    BatteryBoxTier(EnergyTier energyTier, int energyStored) {
         this.energyTier = energyTier;
         this.energyStored = energyStored;
-        this.energyCapacity = energyCapacity;
     }
 
     public EnergyTier getEnergyTier() {
@@ -29,6 +27,12 @@ public enum BatteryBoxTier {
     }
 
     public int getEnergyCapacity() {
-        return energyCapacity;
+        return switch (energyTier) {
+            case BASIC -> ServerConfig.wooden_battery_box_capacity.get();
+            case STANDARD -> ServerConfig.cesu_capacity.get();
+            case ADVANCED -> ServerConfig.mfe_capacity.get();
+            case SUPER -> ServerConfig.mfsu_capacity.get();
+            default -> ServerConfig.wooden_battery_box_capacity.get();
+        };
     }
 }

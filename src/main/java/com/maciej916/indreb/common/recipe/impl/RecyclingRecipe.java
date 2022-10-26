@@ -18,10 +18,12 @@ import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.item.crafting.ShapedRecipe;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraftforge.registries.ForgeRegistryEntry;
 
 import javax.annotation.Nullable;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.List;
 
 public class RecyclingRecipe implements IBaseRecipe {
 
@@ -124,7 +126,7 @@ public class RecyclingRecipe implements IBaseRecipe {
         return items;
     }
 
-    public static class Serializer extends ForgeRegistryEntry<RecipeSerializer<?>> implements RecipeSerializer<RecyclingRecipe> {
+    public static class Serializer implements RecipeSerializer<RecyclingRecipe> {
 
         @Override
         public RecyclingRecipe fromJson(ResourceLocation recipeId, JsonObject json) {

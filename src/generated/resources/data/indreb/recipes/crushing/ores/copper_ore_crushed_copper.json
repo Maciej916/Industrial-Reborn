@@ -1,19 +1,19 @@
 {
   "type": "indreb:crushing",
-  "ingredient": {
-    "item": "minecraft:copper_ore",
-    "count": 1
-  },
-  "result": {
-    "item": "indreb:crushed_copper",
-    "count": 2
-  },
   "bonus_result": {
-    "item": "minecraft:cobblestone",
+    "chance": 50.0,
     "count": 1,
-    "chance": 50.0
+    "item": "minecraft:cobblestone"
   },
-  "experience": 0.2,
   "duration": 180,
-  "power_cost": 8
+  "experience": 0.2,
+  "ingredient": {
+    "count": 1,
+    "item": "minecraft:copper_ore"
+  },
+  "power_cost": 8,
+  "result": {
+    "count": 2,
+    "item": "indreb:crushed_copper"
+  }
 }

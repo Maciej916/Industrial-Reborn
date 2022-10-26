@@ -1,6 +1,9 @@
 package com.maciej916.indreb.datagen.recipes.machines;
 
-import com.maciej916.indreb.common.fluids.*;
+import com.maciej916.indreb.common.fluid.Biomass;
+import com.maciej916.indreb.common.fluid.ConstructionFoam;
+import com.maciej916.indreb.common.fluid.Coolant;
+import com.maciej916.indreb.common.fluid.ReinforcedConstructionFoam;
 import com.maciej916.indreb.common.registries.ModItems;
 import com.maciej916.indreb.datagen.recipes.builder.RecipeBuilderFluidEnriching;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
@@ -22,10 +25,10 @@ public class FluidEnriching extends RecipeProvider {
     protected void buildCraftingRecipes(Consumer<FinishedRecipe> consumer) {
 
         RecipeBuilderFluidEnriching.builder(Biomass.STILL_FLUID.getSource(), 1000)
-                .setIngredient(ModItems.BIO_CHAFF, 1)
+                .setIngredient(ModItems.BIO_CHAFF.get(), 1)
                 .setFluidIngredient(Fluids.WATER, 1000)
                 .setExperience(1.5F)
-                .addCriterion("bio_chaff", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.BIO_CHAFF))
+                .addCriterion("bio_chaff", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.BIO_CHAFF.get()))
                 .setGroup("fluid_enriching")
                 .save(consumer,"biomass");
 
@@ -40,19 +43,19 @@ public class FluidEnriching extends RecipeProvider {
 
 
         RecipeBuilderFluidEnriching.builder(ConstructionFoam.STILL_FLUID.getSource(), 1000)
-                .setIngredient(ModItems.FOAM_POWDER, 1)
+                .setIngredient(ModItems.FOAM_POWDER.get(), 1)
                 .setFluidIngredient(Fluids.WATER, 1000)
                 .setExperience(3.5F)
-                .addCriterion("foam_powder", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.FOAM_POWDER))
+                .addCriterion("foam_powder", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.FOAM_POWDER.get()))
                 .setGroup("fluid_enriching")
                 .save(consumer,"construction_foam");
 
 
         RecipeBuilderFluidEnriching.builder(ReinforcedConstructionFoam.STILL_FLUID.getSource(), 1000)
-                .setIngredient(ModItems.REINFORCED_FOAM_POWDER, 1)
+                .setIngredient(ModItems.REINFORCED_FOAM_POWDER.get(), 1)
                 .setFluidIngredient(Fluids.WATER, 1000)
                 .setExperience(5F)
-                .addCriterion("reinforced_foam_powder", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.REINFORCED_FOAM_POWDER))
+                .addCriterion("reinforced_foam_powder", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.REINFORCED_FOAM_POWDER.get()))
                 .setGroup("fluid_enriching")
                 .save(consumer,"reinforced_construction_foam");
 

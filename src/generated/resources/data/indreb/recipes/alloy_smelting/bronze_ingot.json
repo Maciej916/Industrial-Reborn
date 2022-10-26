@@ -1,20 +1,20 @@
 {
   "type": "indreb:alloy_smelting",
+  "duration": 560,
+  "experience": 0.5,
   "ingredients": [
     {
-      "item": "minecraft:copper_ingot",
-      "count": 3
+      "count": 3,
+      "tag": "forge:ingots/copper"
     },
     {
-      "tag": "forge:ingots/tin",
-      "count": 1
+      "count": 1,
+      "tag": "forge:ingots/tin"
     }
   ],
+  "power_cost": 16,
   "result": {
-    "item": "indreb:bronze_ingot",
-    "count": 4
-  },
-  "experience": 0.5,
-  "duration": 560,
-  "power_cost": 16
+    "count": 4,
+    "item": "indreb:bronze_ingot"
+  }
 }

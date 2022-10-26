@@ -1,18 +1,18 @@
 {
   "type": "minecraft:crafting_shaped",
   "group": "indreb",
-  "pattern": [
-    "P  ",
-    "PP ",
-    "PPP"
-  ],
   "key": {
     "P": {
       "item": "indreb:rubber_planks"
     }
   },
+  "pattern": [
+    "P  ",
+    "PP ",
+    "PPP"
+  ],
   "result": {
-    "item": "indreb:rubber_stairs",
-    "count": 4
+    "count": 4,
+    "item": "indreb:rubber_stairs"
   }
 }

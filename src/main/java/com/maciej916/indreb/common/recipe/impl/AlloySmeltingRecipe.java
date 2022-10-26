@@ -15,10 +15,11 @@ import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.item.crafting.ShapedRecipe;
 import net.minecraft.world.level.Level;
-import net.minecraftforge.registries.ForgeRegistryEntry;
 
 import javax.annotation.Nullable;
-import java.util.*;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 public class AlloySmeltingRecipe implements IRecipeMultiInput {
 
@@ -133,7 +134,7 @@ public class AlloySmeltingRecipe implements IRecipeMultiInput {
         return powerCost;
     }
 
-    public static class Serializer extends ForgeRegistryEntry<RecipeSerializer<?>> implements RecipeSerializer<AlloySmeltingRecipe> {
+    public static class Serializer implements RecipeSerializer<AlloySmeltingRecipe> {
 
         @Override
         public AlloySmeltingRecipe fromJson(ResourceLocation recipeId, JsonObject json) {

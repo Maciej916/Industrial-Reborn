@@ -1,13 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
-  "rewards": {
-    "recipes": [
-      "indreb:smelting/lead_ingot4"
-    ]
-  },
   "criteria": {
-    "item": {
-      "trigger": "minecraft:inventory_changed",
+    "crushed_lead": {
       "conditions": {
         "items": [
           {
@@ -16,19 +10,25 @@
             ]
           }
         ]
-      }
+      },
+      "trigger": "minecraft:inventory_changed"
     },
     "has_the_recipe": {
-      "trigger": "minecraft:recipe_unlocked",
       "conditions": {
         "recipe": "indreb:smelting/lead_ingot4"
-      }
+      },
+      "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "item",
+      "crushed_lead",
       "has_the_recipe"
     ]
-  ]
+  ],
+  "rewards": {
+    "recipes": [
+      "indreb:smelting/lead_ingot4"
+    ]
+  }
 }

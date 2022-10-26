@@ -2,7 +2,9 @@ package com.maciej916.indreb.integration.top.provider;
 
 import com.maciej916.indreb.IndReb;
 import com.maciej916.indreb.common.block.impl.cable.BlockCable;
+import com.maciej916.indreb.common.block.impl.cable.BlockEntityCable;
 import com.maciej916.indreb.common.energy.impl.BasicEnergyStorage;
+import com.maciej916.indreb.common.energy.provider.EnergyNetwork;
 import com.maciej916.indreb.common.entity.block.IndRebBlockEntity;
 import com.maciej916.indreb.common.enums.EnergyTier;
 import mcjty.theoneprobe.api.IProbeHitData;
@@ -10,7 +12,7 @@ import mcjty.theoneprobe.api.IProbeInfo;
 import mcjty.theoneprobe.api.IProbeInfoProvider;
 import mcjty.theoneprobe.api.ProbeMode;
 import net.minecraft.ChatFormatting;
-import net.minecraft.network.chat.TranslatableComponent;
+import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
@@ -32,16 +34,18 @@ public class TOPTierProvider implements IProbeInfoProvider {
             BasicEnergyStorage energy = entity.getEnergyStorage();
             if (energy != null) {
                 iProbeInfo.text(
-                        new TranslatableComponent("top." + IndReb.MODID + ".energy_tier", new TranslatableComponent(energy.energyTier().getLang().getTranslationKey()).withStyle(energy.energyTier().getColor())).withStyle(ChatFormatting.DARK_GRAY)
+                        Component.translatable("top." + IndReb.MODID + ".energy_tier", Component.translatable(energy.energyTier().getLang().getTranslationKey()).withStyle(energy.energyTier().getColor())).withStyle(ChatFormatting.DARK_GRAY)
                 );
             }
         }
 
-        Block block = level.getBlockState(iProbeHitData.getPos()).getBlock();
-        if (block instanceof BlockCable blockCable) {
-            EnergyTier energyTier = blockCable.getCableTier().getEnergyTier();
+        if (blockEntity instanceof BlockEntityCable cable) {
+            EnergyNetwork network = cable.getNetwork();
             iProbeInfo.text(
-                    new TranslatableComponent("top." + IndReb.MODID + ".energy_tier", new TranslatableComponent(energyTier.getLang().getTranslationKey()).withStyle(energyTier.getColor())).withStyle(ChatFormatting.DARK_GRAY)
+                    Component.translatable("top." + IndReb.MODID + ".current_voltage", network.getEnergyFlowing() != null ? Component.translatable(network.getEnergyFlowing().getLang().getTranslationKey()).withStyle(network.getEnergyFlowing().getColor()) : Component.literal("-")).withStyle(ChatFormatting.DARK_GRAY)
+            );
+            iProbeInfo.text(
+                    Component.translatable("top." + IndReb.MODID + ".energy_tier", Component.translatable(network.getEnergyTier().getLang().getTranslationKey()).withStyle(network.getEnergyTier().getColor())).withStyle(ChatFormatting.DARK_GRAY)
             );
         }
     }

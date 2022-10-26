@@ -13,8 +13,6 @@ import net.minecraft.ChatFormatting;
 import net.minecraft.core.NonNullList;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TextComponent;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.util.Mth;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
@@ -92,7 +90,7 @@ public class ElectricItem extends BaseItem implements IElectricItem {
 
     @Override
     public void fillItemCategory(CreativeModeTab tab, NonNullList<ItemStack> list) {
-        if (allowdedIn(tab)) {
+        if (allowedIn(tab)) {
             list.add(new ItemStack(this));
 
             ItemStack full = new ItemStack(this);
@@ -142,16 +140,16 @@ public class ElectricItem extends BaseItem implements IElectricItem {
     public void appendHoverText(ItemStack pStack, @Nullable Level pLevel, List<Component> pTooltipComponents, TooltipFlag pIsAdvanced) {
 
         pTooltipComponents.add(TextComponentUtil.build(
-                new TranslatableComponent(EnumLang.POWER_TIER.getTranslationKey()).withStyle(ChatFormatting.GRAY),
-                new TranslatableComponent(energyTier.getLang().getTranslationKey()).withStyle(energyTier.getColor())
+                Component.translatable(EnumLang.POWER_TIER.getTranslationKey()).withStyle(ChatFormatting.GRAY),
+                Component.translatable(energyTier.getLang().getTranslationKey()).withStyle(energyTier.getColor())
         ));
 
         int energyStored = CapabilityUtil.getCapabilityHelper(pStack, ModCapabilities.ENERGY).getIfPresentElse(IEnergy::energyStored, 0);
         pTooltipComponents.add(TextComponentUtil.build(
-                new TranslatableComponent(EnumLang.STORED.getTranslationKey()).withStyle(ChatFormatting.GRAY),
-                new TranslatableComponent(EnumLang.POWER.getTranslationKey(), TextComponentUtil.getFormattedEnergyUnit(energyStored)).withStyle(energyTier.getColor()),
-                new TextComponent(" / ").withStyle(ChatFormatting.GRAY),
-                new TranslatableComponent(EnumLang.POWER.getTranslationKey(), TextComponentUtil.getFormattedEnergyUnit(maxEnergy)).withStyle(energyTier.getColor())
+                Component.translatable(EnumLang.STORED.getTranslationKey()).withStyle(ChatFormatting.GRAY),
+                Component.translatable(EnumLang.POWER.getTranslationKey(), TextComponentUtil.getFormattedEnergyUnit(energyStored)).withStyle(energyTier.getColor()),
+                Component.literal(" / ").withStyle(ChatFormatting.GRAY),
+                Component.translatable(EnumLang.POWER.getTranslationKey(), TextComponentUtil.getFormattedEnergyUnit(maxEnergy)).withStyle(energyTier.getColor())
         ));
 
         super.appendHoverText(pStack, pLevel, pTooltipComponents, pIsAdvanced);

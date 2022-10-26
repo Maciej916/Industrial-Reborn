@@ -1,25 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
-  "rewards": {
-    "recipes": [
-      "indreb:item/upgrades/fluid_pulling_upgrade"
-    ]
-  },
   "criteria": {
-    "tin_plate": {
-      "trigger": "minecraft:inventory_changed",
-      "conditions": {
-        "items": [
-          {
-            "items": [
-              "indreb:tin_plate"
-            ]
-          }
-        ]
-      }
-    },
     "electric_motor": {
-      "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
@@ -28,10 +10,28 @@
             ]
           }
         ]
-      }
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "indreb:item/upgrades/fluid_pulling_upgrade"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "tin_plate": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:tin_plate"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
     },
     "treetap": {
-      "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
@@ -40,13 +40,8 @@
             ]
           }
         ]
-      }
-    },
-    "has_the_recipe": {
-      "trigger": "minecraft:recipe_unlocked",
-      "conditions": {
-        "recipe": "indreb:item/upgrades/fluid_pulling_upgrade"
-      }
+      },
+      "trigger": "minecraft:inventory_changed"
     }
   },
   "requirements": [
@@ -56,5 +51,10 @@
       "treetap",
       "has_the_recipe"
     ]
-  ]
+  ],
+  "rewards": {
+    "recipes": [
+      "indreb:item/upgrades/fluid_pulling_upgrade"
+    ]
+  }
 }

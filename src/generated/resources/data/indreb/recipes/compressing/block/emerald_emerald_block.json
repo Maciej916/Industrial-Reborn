@@ -1,13 +1,13 @@
 {
   "type": "indreb:compressing",
+  "duration": 180,
+  "experience": 0.6,
   "ingredient": {
-    "tag": "forge:gems/emerald",
-    "count": 9
+    "count": 9,
+    "tag": "forge:gems/emerald"
   },
+  "power_cost": 8,
   "result": {
     "item": "minecraft:emerald_block"
-  },
-  "experience": 0.6,
-  "duration": 180,
-  "power_cost": 8
+  }
 }

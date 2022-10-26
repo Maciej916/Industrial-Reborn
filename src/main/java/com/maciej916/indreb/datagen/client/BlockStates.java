@@ -17,6 +17,7 @@ import net.minecraftforge.client.model.generators.ConfiguredModel;
 import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
+import net.minecraftforge.registries.RegistryObject;
 
 import java.util.function.Function;
 
@@ -36,91 +37,92 @@ public class BlockStates extends BlockStateProvider {
         registerConstructionFoam();
         registerRubberWood();
         registerSimple();
+        registerExplosives();
 
 
 
-        createCubeAll(ModBlocks.REINFORCED_GLASS.getBlock(), "reinforced_glass");
-        createCubeAll(ModBlocks.REINFORCED_STONE.getBlock(), "reinforced_stone");
-        createCubeAll(ModBlocks.LUMINATOR.getBlock(), "machines/luminator");
+        createCubeAll(ModBlocks.REINFORCED_GLASS, "reinforced_glass");
+        createCubeAll(ModBlocks.REINFORCED_STONE, "reinforced_stone");
+        createCubeAll(ModBlocks.LUMINATOR, "machines/luminator");
 
-        stairsBlock((StairBlock) ModBlocks.REINFORCED_STONE_STAIRS.getBlock(), new ResourceLocation(IndReb.MODID, "block/reinforced_stone"));
+        stairsBlock((StairBlock) ModBlocks.REINFORCED_STONE_STAIRS.get(), new ResourceLocation(IndReb.MODID, "block/reinforced_stone"));
 
-        slabBlock((SlabBlock) ModBlocks.REINFORCED_STONE_SLAB.getBlock(),
+        slabBlock((SlabBlock) ModBlocks.REINFORCED_STONE_SLAB.get(),
                 new ResourceLocation(IndReb.MODID, "block/reinforced_stone"),
                 new ResourceLocation(IndReb.MODID, "block/reinforced_stone")
         );
 
-        simpleBlock(ModBlocks.IRON_SCAFFOLDING.getBlock(), models().cubeBottomTop(ModBlocks.IRON_SCAFFOLDING.getBlock().getRegistryName().getPath(),
+        simpleBlock(ModBlocks.IRON_SCAFFOLDING.get(), models().cubeBottomTop(ModBlocks.IRON_SCAFFOLDING.getId().getPath(),
                 new ResourceLocation(IndReb.MODID, "block/iron_scaffolding_sides"),
                 new ResourceLocation(IndReb.MODID, "block/iron_scaffolding_bottomtop"),
                 new ResourceLocation(IndReb.MODID, "block/iron_scaffolding_bottomtop")
         ));
 
-        models().fenceInventory(ModBlocks.IRON_FENCE.getBlock().getRegistryName().getPath(), new ResourceLocation(IndReb.MODID, "block/iron_fence"));
-        fenceBlock((FenceBlock) ModBlocks.IRON_FENCE.getBlock(), new ResourceLocation(IndReb.MODID, "block/iron_fence"));
+        models().fenceInventory(ModBlocks.IRON_FENCE.getId().getPath(), new ResourceLocation(IndReb.MODID, "block/iron_fence"));
+        fenceBlock((FenceBlock) ModBlocks.IRON_FENCE.get(), new ResourceLocation(IndReb.MODID, "block/iron_fence"));
 
     }
 
     private void registerOres() {
-        createCubeAll(ModBlocks.TIN_ORE.getBlock(), "ore/tin");
-        createCubeAll(ModBlocks.DEEPSLATE_TIN_ORE.getBlock(), "ore/deepslate_tin");
-        createCubeAll(ModBlocks.LEAD_ORE.getBlock(), "ore/lead");
-        createCubeAll(ModBlocks.DEEPSLATE_LEAD_ORE.getBlock(), "ore/deepslate_lead");
-        createCubeAll(ModBlocks.DEEPSLATE_URANIUM_ORE.getBlock(), "ore/deepslate_uranium");
+        createCubeAll(ModBlocks.TIN_ORE, "ore/tin");
+        createCubeAll(ModBlocks.DEEPSLATE_TIN_ORE, "ore/deepslate_tin");
+        createCubeAll(ModBlocks.LEAD_ORE, "ore/lead");
+        createCubeAll(ModBlocks.DEEPSLATE_LEAD_ORE, "ore/deepslate_lead");
+        createCubeAll(ModBlocks.DEEPSLATE_URANIUM_ORE, "ore/deepslate_uranium");
     }
 
     private void registerTransformers() {
-        createTransformer(ModBlocks.LV_TRANSFORMER.getBlock(), "lv_transformer");
-        createTransformer(ModBlocks.MV_TRANSFORMER.getBlock(), "mv_transformer");
-        createTransformer(ModBlocks.HV_TRANSFORMER.getBlock(), "hv_transformer");
-        createTransformer(ModBlocks.EV_TRANSFORMER.getBlock(), "ev_transformer");
+        createTransformer(ModBlocks.LV_TRANSFORMER.get(), "lv_transformer");
+        createTransformer(ModBlocks.MV_TRANSFORMER.get(), "mv_transformer");
+        createTransformer(ModBlocks.HV_TRANSFORMER.get(), "hv_transformer");
+        createTransformer(ModBlocks.EV_TRANSFORMER.get(), "ev_transformer");
     }
 
     private void registerChargePad() {
-        createOnlyTopActive(ModBlocks.CHARGE_PAD_BATTERY_BOX.getBlock(), "charge_pad", "battery_box");
-        createOnlyTopActive(ModBlocks.CHARGE_PAD_CESU.getBlock(), "charge_pad", "cesu");
-        createOnlyTopActive(ModBlocks.CHARGE_PAD_MFE.getBlock(), "charge_pad", "mfe");
-        createOnlyTopActive(ModBlocks.CHARGE_PAD_MFSU.getBlock(), "charge_pad", "mfsu");
+        createOnlyTopActive(ModBlocks.CHARGE_PAD_BATTERY_BOX.get(), "charge_pad", "battery_box");
+        createOnlyTopActive(ModBlocks.CHARGE_PAD_CESU.get(), "charge_pad", "cesu");
+        createOnlyTopActive(ModBlocks.CHARGE_PAD_MFE.get(), "charge_pad", "mfe");
+        createOnlyTopActive(ModBlocks.CHARGE_PAD_MFSU.get(), "charge_pad", "mfsu");
     }
 
     private void registerConstructionFoam() {
-        createCubeAll(ModBlocks.CONSTRUCTION_FOAM.getBlock(), "cf/foam");
-        createCubeAll(ModBlocks.REINFORCED_CONSTRUCTION_FOAM.getBlock(), "cf/reinforced_foam");
+        createCubeAll(ModBlocks.CONSTRUCTION_FOAM, "cf/foam");
+        createCubeAll(ModBlocks.REINFORCED_CONSTRUCTION_FOAM, "cf/reinforced_foam");
 
-        createCubeAll(ModBlocks.CONSTRUCTION_FOAM_WALL_WHITE.getBlock(), "cf/wall_white");
-        createCubeAll(ModBlocks.CONSTRUCTION_FOAM_WALL_RED.getBlock(), "cf/wall_red");
-        createCubeAll(ModBlocks.CONSTRUCTION_FOAM_WALL_ORANGE.getBlock(), "cf/wall_orange");
-        createCubeAll(ModBlocks.CONSTRUCTION_FOAM_WALL_PINK.getBlock(), "cf/wall_pink");
-        createCubeAll(ModBlocks.CONSTRUCTION_FOAM_WALL_YELLOW.getBlock(), "cf/wall_yellow");
-        createCubeAll(ModBlocks.CONSTRUCTION_FOAM_WALL_LIME.getBlock(), "cf/wall_lime");
-        createCubeAll(ModBlocks.CONSTRUCTION_FOAM_WALL_GREEN.getBlock(), "cf/wall_green");
-        createCubeAll(ModBlocks.CONSTRUCTION_FOAM_WALL_LIGHT_BLUE.getBlock(), "cf/wall_light_blue");
-        createCubeAll(ModBlocks.CONSTRUCTION_FOAM_WALL_CYAN.getBlock(), "cf/wall_cyan");
-        createCubeAll(ModBlocks.CONSTRUCTION_FOAM_WALL_BLUE.getBlock(), "cf/wall_blue");
-        createCubeAll(ModBlocks.CONSTRUCTION_FOAM_WALL_MAGENTA.getBlock(), "cf/wall_magenta");
-        createCubeAll(ModBlocks.CONSTRUCTION_FOAM_WALL_PURPLE.getBlock(), "cf/wall_purple");
-        createCubeAll(ModBlocks.CONSTRUCTION_FOAM_WALL_BROWN.getBlock(), "cf/wall_brown");
-        createCubeAll(ModBlocks.CONSTRUCTION_FOAM_WALL_GRAY.getBlock(), "cf/wall_gray");
-        createCubeAll(ModBlocks.CONSTRUCTION_FOAM_WALL_LIGHT_GRAY.getBlock(), "cf/wall_light_gray");
-        createCubeAll(ModBlocks.CONSTRUCTION_FOAM_WALL_BLACK.getBlock(), "cf/wall_black");
+        createCubeAll(ModBlocks.CONSTRUCTION_FOAM_WALL_WHITE, "cf/wall_white");
+        createCubeAll(ModBlocks.CONSTRUCTION_FOAM_WALL_RED, "cf/wall_red");
+        createCubeAll(ModBlocks.CONSTRUCTION_FOAM_WALL_ORANGE, "cf/wall_orange");
+        createCubeAll(ModBlocks.CONSTRUCTION_FOAM_WALL_PINK, "cf/wall_pink");
+        createCubeAll(ModBlocks.CONSTRUCTION_FOAM_WALL_YELLOW, "cf/wall_yellow");
+        createCubeAll(ModBlocks.CONSTRUCTION_FOAM_WALL_LIME, "cf/wall_lime");
+        createCubeAll(ModBlocks.CONSTRUCTION_FOAM_WALL_GREEN, "cf/wall_green");
+        createCubeAll(ModBlocks.CONSTRUCTION_FOAM_WALL_LIGHT_BLUE, "cf/wall_light_blue");
+        createCubeAll(ModBlocks.CONSTRUCTION_FOAM_WALL_CYAN, "cf/wall_cyan");
+        createCubeAll(ModBlocks.CONSTRUCTION_FOAM_WALL_BLUE, "cf/wall_blue");
+        createCubeAll(ModBlocks.CONSTRUCTION_FOAM_WALL_MAGENTA, "cf/wall_magenta");
+        createCubeAll(ModBlocks.CONSTRUCTION_FOAM_WALL_PURPLE, "cf/wall_purple");
+        createCubeAll(ModBlocks.CONSTRUCTION_FOAM_WALL_BROWN, "cf/wall_brown");
+        createCubeAll(ModBlocks.CONSTRUCTION_FOAM_WALL_GRAY, "cf/wall_gray");
+        createCubeAll(ModBlocks.CONSTRUCTION_FOAM_WALL_LIGHT_GRAY, "cf/wall_light_gray");
+        createCubeAll(ModBlocks.CONSTRUCTION_FOAM_WALL_BLACK, "cf/wall_black");
     }
 
     private void registerRubberWood() {
-        simpleBlock(ModBlocks.RUBBER_SAPLING.getBlock(), models().cross(ModBlocks.RUBBER_SAPLING.getBlock().getRegistryName().getPath(), new ResourceLocation(IndReb.MODID, "block/rubber_wood/rubber_sapling")));
+        simpleBlock(ModBlocks.RUBBER_SAPLING.get(), models().cross(ModBlocks.RUBBER_SAPLING.getId().getPath(), new ResourceLocation(IndReb.MODID, "block/rubber_wood/rubber_sapling")));
 
 
     }
 
     private void registerSimple() {
-        createCubeAll(ModBlocks.BASIC_MACHINE_CASING.getBlock(), "basic_machine_casing");
-        createCubeAll(ModBlocks.ADVANCED_MACHINE_CASING.getBlock(), "advanced_machine_casing");
+        createCubeAll(ModBlocks.BASIC_MACHINE_CASING, "basic_machine_casing");
+        createCubeAll(ModBlocks.ADVANCED_MACHINE_CASING, "advanced_machine_casing");
 
     }
 
     private void registerGenerators() {
 
 
-        createWithSidesActive(ModBlocks.SEMIFLUID_GENERATOR.getBlock(), "generator", "semifluid_generator");
+        createWithSidesActive(ModBlocks.SEMIFLUID_GENERATOR.get(), "generator", "semifluid_generator");
     }
 
     private void registerMachines() {
@@ -128,10 +130,25 @@ public class BlockStates extends BlockStateProvider {
 
 
 
-        createSimple(ModBlocks.CANNING_MACHINE.getBlock(), "machines", "canning_machine");
-        createWithTopActive(ModBlocks.RECYCLER.getBlock(), "machines", "recycler");
-        createWithSidesActive(ModBlocks.FLUID_ENRICHER.getBlock(), "machines", "fluid_enricher");
-        createWithSidesActive(ModBlocks.FERMENTER.getBlock(), "machines", "fermenter");
+        createSimple(ModBlocks.CANNING_MACHINE.get(), "machines", "canning_machine");
+        createWithTopActive(ModBlocks.RECYCLER.get(), "machines", "recycler");
+        createWithSidesActive(ModBlocks.FLUID_ENRICHER.get(), "machines", "fluid_enricher");
+        createWithSidesActive(ModBlocks.FERMENTER.get(), "machines", "fermenter");
+    }
+
+    private void registerExplosives() {
+        simpleBlock(ModBlocks.INDUSTRIAL_TNT.get(), models().cubeBottomTop(ModBlocks.INDUSTRIAL_TNT.getId().getPath(),
+                new ResourceLocation(IndReb.MODID, "block/explosive/industrial_tnt_side"),
+                new ResourceLocation(IndReb.MODID, "block/explosive/industrial_tnt_bottom"),
+                new ResourceLocation(IndReb.MODID, "block/explosive/industrial_tnt_top")
+        ));
+        simpleBlock(ModBlocks.NUKE.get(), models().cubeBottomTop(ModBlocks.NUKE.getId().getPath(),
+                new ResourceLocation(IndReb.MODID, "block/explosive/nuke_side"),
+                new ResourceLocation(IndReb.MODID, "block/explosive/nuke_bottom"),
+                new ResourceLocation(IndReb.MODID, "block/explosive/nuke_top")
+        ));
+
+
     }
 
 
@@ -209,8 +226,8 @@ public class BlockStates extends BlockStateProvider {
                 .texture("particle", north);
     }
 
-    private void createCubeAll(Block block, String path) {
-        simpleBlock(block, models().cubeAll(block.getRegistryName().getPath(), new ResourceLocation(IndReb.MODID, "block/" + path)));
+    private void createCubeAll(RegistryObject<Block> block, String path) {
+        simpleBlock(block.get(), models().cubeAll(block.getId().getPath(), new ResourceLocation(IndReb.MODID, "block/" + path)));
     }
 
     private void orientedBlock(Block block, Function<BlockState, ModelFile> modelFunc, DirectionProperty directionProperty) {

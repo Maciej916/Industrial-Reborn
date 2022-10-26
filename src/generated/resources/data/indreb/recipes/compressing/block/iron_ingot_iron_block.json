@@ -1,13 +1,13 @@
 {
   "type": "indreb:compressing",
+  "duration": 180,
+  "experience": 0.3,
   "ingredient": {
-    "tag": "forge:ingots/iron",
-    "count": 9
+    "count": 9,
+    "tag": "forge:ingots/iron"
   },
+  "power_cost": 8,
   "result": {
     "item": "minecraft:iron_block"
-  },
-  "experience": 0.3,
-  "duration": 180,
-  "power_cost": 8
+  }
 }

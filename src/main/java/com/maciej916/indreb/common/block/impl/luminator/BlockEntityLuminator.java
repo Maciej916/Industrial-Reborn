@@ -15,7 +15,7 @@ public class BlockEntityLuminator extends IndRebBlockEntity implements IEnergyBl
     private boolean active = false;
 
     public BlockEntityLuminator(BlockPos pWorldPosition, BlockState pBlockState) {
-        super(ModBlockEntities.LUMINATOR, pWorldPosition, pBlockState);
+        super(ModBlockEntities.LUMINATOR.get(), pWorldPosition, pBlockState);
         createEnergyStorage(0, 1, EnergyType.RECEIVE, EnergyTier.ULTRA);
     }
 

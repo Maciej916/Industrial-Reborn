@@ -7,9 +7,9 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
 
-public class ScreenGenerator extends BetterScreen<ContainerGenerator> {
+public class ScreenGenerator extends BetterScreen<MenuGenerator> {
 
-    public ScreenGenerator(ContainerGenerator container, Inventory inv, Component name) {
+    public ScreenGenerator(MenuGenerator container, Inventory inv, Component name) {
         super(container, inv, name);
     }
 

@@ -1,11 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
   "group": "indreb",
-  "pattern": [
-    " ii",
-    "iii",
-    "pi "
-  ],
   "key": {
     "i": {
       "item": "indreb:iron_plate"
@@ -14,6 +9,11 @@
       "item": "indreb:power_unit"
     }
   },
+  "pattern": [
+    " ii",
+    "iii",
+    "pi "
+  ],
   "result": {
     "item": "indreb:chainsaw"
   }

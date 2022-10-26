@@ -19,7 +19,7 @@ import static com.maciej916.indreb.common.util.Constants.JEI;
 
 public class ScrapBoxCategory extends AbstractRecipeCategory<ScrapBoxRecipe> {
 
-    public static final ResourceLocation UID = ModRecipeSerializer.SCRAP_BOX.getRegistryName();
+    public static final ResourceLocation UID = ModRecipeSerializer.SCRAP_BOX.getId();
 
     public ScrapBoxCategory(IGuiHelper guiHelper) {
         super(
@@ -28,13 +28,13 @@ public class ScrapBoxCategory extends AbstractRecipeCategory<ScrapBoxRecipe> {
                 "scrap_box",
                 guiHelper,
                 () -> guiHelper.createDrawable(JEI, 0, 220, 92, 28),
-                () -> guiHelper.createDrawableIngredient(VanillaTypes.ITEM_STACK, new ItemStack(ModItems.SCRAP_BOX))
+                () -> guiHelper.createDrawableIngredient(VanillaTypes.ITEM_STACK, new ItemStack(ModItems.SCRAP_BOX.get()))
         );
     }
 
     @Override
     public void setRecipe(IRecipeLayoutBuilder builder, ScrapBoxRecipe recipe, IFocusGroup focuses) {
-        builder.addSlot(RecipeIngredientRole.INPUT, 9, 6).addItemStack(new ItemStack(ModItems.SCRAP_BOX));
+        builder.addSlot(RecipeIngredientRole.INPUT, 9, 6).addItemStack(new ItemStack(ModItems.SCRAP_BOX.get()));
         builder.addSlot(RecipeIngredientRole.OUTPUT, 65, 6).addItemStack(recipe.getResultItem());
     }
 

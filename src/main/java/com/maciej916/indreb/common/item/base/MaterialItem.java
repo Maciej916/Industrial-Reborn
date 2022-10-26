@@ -7,4 +7,6 @@ public class MaterialItem extends DummyItem {
     public MaterialItem() {
         super(CreativeModeTab.TAB_MATERIALS);
     }
+
+
 }

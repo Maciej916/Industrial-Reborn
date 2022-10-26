@@ -1,25 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
-  "rewards": {
-    "recipes": [
-      "indreb:generators/semifluid_generator"
-    ]
-  },
   "criteria": {
-    "geo_generator": {
-      "trigger": "minecraft:inventory_changed",
-      "conditions": {
-        "items": [
-          {
-            "items": [
-              "indreb:geo_generator"
-            ]
-          }
-        ]
-      }
-    },
     "fluid_cell": {
-      "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
@@ -28,10 +10,28 @@
             ]
           }
         ]
-      }
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "geo_generator": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:geo_generator"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "indreb:generators/semifluid_generator"
+      },
+      "trigger": "minecraft:recipe_unlocked"
     },
     "iron_plate": {
-      "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
@@ -40,13 +40,8 @@
             ]
           }
         ]
-      }
-    },
-    "has_the_recipe": {
-      "trigger": "minecraft:recipe_unlocked",
-      "conditions": {
-        "recipe": "indreb:generators/semifluid_generator"
-      }
+      },
+      "trigger": "minecraft:inventory_changed"
     }
   },
   "requirements": [
@@ -56,5 +51,10 @@
       "iron_plate",
       "has_the_recipe"
     ]
-  ]
+  ],
+  "rewards": {
+    "recipes": [
+      "indreb:generators/semifluid_generator"
+    ]
+  }
 }

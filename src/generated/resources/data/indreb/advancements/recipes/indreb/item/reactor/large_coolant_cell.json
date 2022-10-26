@@ -1,25 +1,13 @@
 {
   "parent": "minecraft:recipes/root",
-  "rewards": {
-    "recipes": [
-      "indreb:item/reactor/large_coolant_cell"
-    ]
-  },
   "criteria": {
-    "tin_plate": {
-      "trigger": "minecraft:inventory_changed",
+    "has_the_recipe": {
       "conditions": {
-        "items": [
-          {
-            "items": [
-              "indreb:tin_plate"
-            ]
-          }
-        ]
-      }
+        "recipe": "indreb:item/reactor/large_coolant_cell"
+      },
+      "trigger": "minecraft:recipe_unlocked"
     },
     "medium_coolant_cell": {
-      "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
@@ -28,13 +16,20 @@
             ]
           }
         ]
-      }
+      },
+      "trigger": "minecraft:inventory_changed"
     },
-    "has_the_recipe": {
-      "trigger": "minecraft:recipe_unlocked",
+    "tin_plate": {
       "conditions": {
-        "recipe": "indreb:item/reactor/large_coolant_cell"
-      }
+        "items": [
+          {
+            "items": [
+              "indreb:tin_plate"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
     }
   },
   "requirements": [
@@ -43,5 +38,10 @@
       "medium_coolant_cell",
       "has_the_recipe"
     ]
-  ]
+  ],
+  "rewards": {
+    "recipes": [
+      "indreb:item/reactor/large_coolant_cell"
+    ]
+  }
 }

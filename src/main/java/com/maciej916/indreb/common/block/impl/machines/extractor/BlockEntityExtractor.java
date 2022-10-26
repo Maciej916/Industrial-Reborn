@@ -17,7 +17,7 @@ import java.util.Optional;
 public class BlockEntityExtractor extends BlockEntityStandardMachine {
 
     public BlockEntityExtractor(BlockPos pWorldPosition, BlockState pBlockState) {
-        super(ModBlockEntities.EXTRACTOR, pWorldPosition, pBlockState, ServerConfig.extractor_energy_capacity.get());
+        super(ModBlockEntities.EXTRACTOR.get(), pWorldPosition, pBlockState, ServerConfig.extractor_energy_capacity.get());
     }
 
     @Override
@@ -27,7 +27,7 @@ public class BlockEntityExtractor extends BlockEntityStandardMachine {
 
     @Override
     public SoundEvent getSoundEvent() {
-        return ModSounds.EXTRACTOR;
+        return ModSounds.EXTRACTOR.get();
     }
 
 }

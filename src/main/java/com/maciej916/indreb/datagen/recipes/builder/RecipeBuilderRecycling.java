@@ -107,7 +107,7 @@ public class RecipeBuilderRecycling {
 
         @Override
         public RecipeSerializer<?> getType() {
-            return ModRecipeSerializer.RECYCLING;
+            return ModRecipeSerializer.RECYCLING.get();
         }
 
         @Nullable

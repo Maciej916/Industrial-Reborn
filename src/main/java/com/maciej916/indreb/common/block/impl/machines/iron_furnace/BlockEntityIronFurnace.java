@@ -20,6 +20,7 @@ import net.minecraft.world.level.block.entity.FurnaceBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.common.ForgeHooks;
 import net.minecraftforge.common.capabilities.Capability;
+import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.wrapper.RangedWrapper;
@@ -46,7 +47,7 @@ public class BlockEntityIronFurnace extends IndRebBlockEntity implements IExpCol
     private SmeltingRecipe furnaceRecipe;
 
     public BlockEntityIronFurnace(BlockPos pWorldPosition, BlockState pBlockState) {
-        super(ModBlockEntities.IRON_FURNACE, pWorldPosition, pBlockState);
+        super(ModBlockEntities.IRON_FURNACE.get(), pWorldPosition, pBlockState);
     }
 
     protected Optional<SmeltingRecipe> getRecipe(ItemStack input) {
@@ -196,7 +197,7 @@ public class BlockEntityIronFurnace extends IndRebBlockEntity implements IExpCol
     @Nonnull
     @Override
     public <T> LazyOptional<T> getCapability(@Nonnull Capability<T> cap, @Nullable Direction side) {
-        if (cap == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY) {
+        if (cap == ForgeCapabilities.ITEM_HANDLER) {
             if (side == null) return capabilities.get(0).cast();
             return switch (side) {
                 case UP -> capabilities.get(2).cast();

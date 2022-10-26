@@ -7,7 +7,8 @@ import com.maciej916.indreb.common.screen.widgets.GuiElement;
 import com.maciej916.indreb.common.util.GuiUtil;
 import com.maciej916.indreb.common.util.TextComponentUtil;
 import com.mojang.blaze3d.vertex.PoseStack;
-import net.minecraft.network.chat.TranslatableComponent;
+import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.MutableComponent;
 
 public class GuiTextElectricProgress extends GuiElement {
 
@@ -21,7 +22,7 @@ public class GuiTextElectricProgress extends GuiElement {
 
     @Override
     public void renderButton(PoseStack pPoseStack, int pMouseX, int pMouseY, float pPartialTicks) {
-        TranslatableComponent component = new TranslatableComponent("gui." + IndReb.MODID + ".energy", TextComponentUtil.getFormattedEnergyUnit(progress.getProgress()), TextComponentUtil.getFormattedEnergyUnit(progress.getProgressMax()));
+        MutableComponent component = Component.translatable("gui." + IndReb.MODID + ".energy", TextComponentUtil.getFormattedEnergyUnit(progress.getProgress()), TextComponentUtil.getFormattedEnergyUnit(progress.getProgressMax()));
         GuiUtil.renderScaled(pPoseStack, component.getString(), getLeftOffset(), getTopOffset(), 0.8f, 4210752, false);
         super.renderButton(pPoseStack, pMouseX, pMouseY, pPartialTicks);
     }

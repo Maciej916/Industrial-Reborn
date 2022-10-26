@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "indreb:tin_ore"
+    "indreb:tin_ore",
+    "indreb:deepslate_lead_ore"
   ]
 }

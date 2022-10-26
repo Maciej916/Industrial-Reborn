@@ -1,28 +1,28 @@
 {
   "type": "minecraft:crafting_shaped",
   "group": "indreb",
+  "key": {
+    "c": {
+      "item": "indreb:compressor"
+    },
+    "d": {
+      "item": "minecraft:dirt"
+    },
+    "g": {
+      "item": "minecraft:glowstone_dust"
+    },
+    "p": {
+      "item": "indreb:iron_plate"
+    },
+    "s": {
+      "item": "minecraft:sand"
+    }
+  },
   "pattern": [
     " g ",
     "dcd",
     "psp"
   ],
-  "key": {
-    "g": {
-      "item": "minecraft:glowstone_dust"
-    },
-    "d": {
-      "item": "minecraft:dirt"
-    },
-    "s": {
-      "item": "minecraft:sand"
-    },
-    "p": {
-      "item": "indreb:iron_plate"
-    },
-    "c": {
-      "item": "indreb:compressor"
-    }
-  },
   "result": {
     "item": "indreb:recycler"
   }

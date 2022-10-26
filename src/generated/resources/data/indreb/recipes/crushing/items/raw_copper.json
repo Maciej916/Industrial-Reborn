@@ -1,14 +1,14 @@
 {
   "type": "indreb:crushing",
-  "ingredient": {
-    "item": "minecraft:raw_copper",
-    "count": 1
-  },
-  "result": {
-    "item": "indreb:crushed_copper",
-    "count": 2
-  },
-  "experience": 0.2,
   "duration": 180,
-  "power_cost": 8
+  "experience": 0.2,
+  "ingredient": {
+    "count": 1,
+    "item": "minecraft:raw_copper"
+  },
+  "power_cost": 8,
+  "result": {
+    "count": 2,
+    "item": "indreb:crushed_copper"
+  }
 }

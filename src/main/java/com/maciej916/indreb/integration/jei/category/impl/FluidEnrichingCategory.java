@@ -22,7 +22,7 @@ import static com.maciej916.indreb.common.util.Constants.*;
 
 public class FluidEnrichingCategory extends AbstractRecipeCategory<FluidEnrichingRecipe> {
 
-    public static final ResourceLocation UID = ModRecipeSerializer.FLUID_ENRICHING.getRegistryName();
+    public static final ResourceLocation UID = ModRecipeSerializer.FLUID_ENRICHING.getId();
 
     private IDrawableAnimated progress;
     private IDrawableAnimated energy;
@@ -34,7 +34,7 @@ public class FluidEnrichingCategory extends AbstractRecipeCategory<FluidEnrichin
                 "fluid_enriching",
                 guiHelper,
                 () -> guiHelper.createDrawable(JEI_LARGE, 0, 165, 152, 54),
-                () -> guiHelper.createDrawableIngredient(VanillaTypes.ITEM_STACK, new ItemStack(ModBlocks.FLUID_ENRICHER))
+                () -> guiHelper.createDrawableIngredient(VanillaTypes.ITEM_STACK, new ItemStack(ModBlocks.FLUID_ENRICHER.get()))
         );
     }
 

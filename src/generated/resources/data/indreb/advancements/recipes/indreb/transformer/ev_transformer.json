@@ -1,37 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
-  "rewards": {
-    "recipes": [
-      "indreb:transformer/ev_transformer"
-    ]
-  },
   "criteria": {
-    "glass_fibre_cable": {
-      "trigger": "minecraft:inventory_changed",
-      "conditions": {
-        "items": [
-          {
-            "items": [
-              "indreb:glass_fibre_cable"
-            ]
-          }
-        ]
-      }
-    },
-    "hv_transformer": {
-      "trigger": "minecraft:inventory_changed",
-      "conditions": {
-        "items": [
-          {
-            "items": [
-              "indreb:hv_transformer"
-            ]
-          }
-        ]
-      }
-    },
     "advanced_circuit": {
-      "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
@@ -40,10 +10,40 @@
             ]
           }
         ]
-      }
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "glass_fibre_cable": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:glass_fibre_cable"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "indreb:transformer/ev_transformer"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "hv_transformer": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:hv_transformer"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
     },
     "lapotron_crystal": {
-      "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
@@ -52,13 +52,8 @@
             ]
           }
         ]
-      }
-    },
-    "has_the_recipe": {
-      "trigger": "minecraft:recipe_unlocked",
-      "conditions": {
-        "recipe": "indreb:transformer/ev_transformer"
-      }
+      },
+      "trigger": "minecraft:inventory_changed"
     }
   },
   "requirements": [
@@ -69,5 +64,10 @@
       "lapotron_crystal",
       "has_the_recipe"
     ]
-  ]
+  ],
+  "rewards": {
+    "recipes": [
+      "indreb:transformer/ev_transformer"
+    ]
+  }
 }

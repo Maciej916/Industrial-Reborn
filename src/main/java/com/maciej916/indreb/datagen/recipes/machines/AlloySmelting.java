@@ -22,33 +22,33 @@ public class AlloySmelting extends RecipeProvider {
     @Override
     protected void buildCraftingRecipes(Consumer<FinishedRecipe> consumer) {
 
-        RecipeBuilderAlloySmelting.builder(ModItems.BRONZE_INGOT, 4)
-                .addIngredient(Ingredient.of(Items.COPPER_INGOT), 3)
-                .addIngredient(Ingredient.of(ModItems.TIN_INGOT), 1)
+        RecipeBuilderAlloySmelting.builder(ModItems.BRONZE_INGOT.get(), 4)
+                .addIngredient(Ingredient.of(ItemTags.create(new ResourceLocation("forge", "ingots/copper"))), 3)
+                .addIngredient(Ingredient.of(ItemTags.create(new ResourceLocation("forge", "ingots/tin"))), 1)
                 .setExperience(0.5F)
                 .addCriterion("item_copper", InventoryChangeTrigger.TriggerInstance.hasItems(Items.COPPER_INGOT))
-                .addCriterion("item_tin", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.TIN_INGOT))
+                .addCriterion("item_tin", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.TIN_INGOT.get()))
                 .setGroup("alloy_smelting")
                 .build(consumer,"bronze_ingot");
 
 
-        RecipeBuilderAlloySmelting.builder(ModItems.MIXED_METAL_INGOT, 2)
+        RecipeBuilderAlloySmelting.builder(ModItems.MIXED_METAL_INGOT.get(), 2)
                 .addIngredient(Ingredient.of(ItemTags.create(new ResourceLocation("forge", "ingots/iron"))), 3)
-                .addIngredient(Ingredient.of(ItemTags.create(new ResourceLocation("forge", "alloys/bronze"))), 3)
+                .addIngredient(Ingredient.of(ItemTags.create(new ResourceLocation("forge", "ingots/bronze"))), 3)
                 .addIngredient(Ingredient.of(ItemTags.create(new ResourceLocation("forge", "ingots/tin"))), 3)
                 .setExperience(0.5F)
-                .addCriterion("bronze_plate", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.BRONZE_PLATE))
-                .addCriterion("iron_plate", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.IRON_PLATE))
-                .addCriterion("tin_plate", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.TIN_PLATE))
+                .addCriterion("bronze_plate", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.BRONZE_PLATE.get()))
+                .addCriterion("iron_plate", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.IRON_PLATE.get()))
+                .addCriterion("tin_plate", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.TIN_PLATE.get()))
                 .setGroup("alloy_smelting")
                 .build(consumer,"mixed_metal_ingot");
 
 
-        RecipeBuilderAlloySmelting.builder(ModItems.STEEL_INGOT, 1)
+        RecipeBuilderAlloySmelting.builder(ModItems.STEEL_INGOT.get(), 1)
                 .addIngredient(Ingredient.of(ItemTags.create(new ResourceLocation("forge", "ingots/iron"))), 1)
                 .addIngredient(Ingredient.of(ItemTags.create(new ResourceLocation("forge", "dusts/coal"))), 3)
                 .setExperience(0.5F)
-                .addCriterion("coal_dust", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.COAL_DUST))
+                .addCriterion("coal_dust", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.COAL_DUST.get()))
                 .addCriterion("iron_ingot", InventoryChangeTrigger.TriggerInstance.hasItems(Items.IRON_INGOT))
                 .setGroup("alloy_smelting")
                 .build(consumer,"steel_ingot");

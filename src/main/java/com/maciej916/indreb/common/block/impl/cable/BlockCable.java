@@ -13,7 +13,6 @@ import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.BlockGetter;
@@ -51,18 +50,18 @@ public class BlockCable extends VoxelBlock implements SimpleWaterloggedBlock, En
     @Override
     public void appendHoverText(ItemStack pStack, @Nullable BlockGetter pLevel, List<Component> pTooltip, TooltipFlag pFlag) {
         pTooltip.add(TextComponentUtil.build(
-                new TranslatableComponent(EnumLang.POWER_TIER.getTranslationKey()).withStyle(ChatFormatting.GRAY),
-                new TranslatableComponent(cableTier.getEnergyTier().getLang().getTranslationKey()).withStyle(cableTier.getEnergyTier().getColor())
+                Component.translatable(EnumLang.POWER_TIER.getTranslationKey()).withStyle(ChatFormatting.GRAY),
+                Component.translatable(cableTier.getEnergyTier().getLang().getTranslationKey()).withStyle(cableTier.getEnergyTier().getColor())
         ));
 
         pTooltip.add(TextComponentUtil.build(
-                new TranslatableComponent(EnumLang.TRANSFER.getTranslationKey()).withStyle(ChatFormatting.GRAY),
-                new TranslatableComponent(EnumLang.POWER_TICK.getTranslationKey(), TextComponentUtil.getFormattedEnergyUnit(cableTier.getEnergyTier().getBasicTransfer())).withStyle(cableTier.getEnergyTier().getColor())
+                Component.translatable(EnumLang.TRANSFER.getTranslationKey()).withStyle(ChatFormatting.GRAY),
+                Component.translatable(EnumLang.POWER_TICK.getTranslationKey(), TextComponentUtil.getFormattedEnergyUnit(cableTier.getEnergyTier().getBasicTransfer())).withStyle(cableTier.getEnergyTier().getColor())
         ));
 
        if (!cableTier.isInsulated()) {
             pTooltip.add(TextComponentUtil.build(
-                    new TranslatableComponent(EnumLang.CABLE_UNISOLATED.getTranslationKey()).withStyle(ChatFormatting.RED)
+                    Component.translatable(EnumLang.CABLE_UNISOLATED.getTranslationKey()).withStyle(ChatFormatting.RED)
             ));
        }
     }

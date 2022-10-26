@@ -1,22 +1,22 @@
 {
   "type": "minecraft:crafting_shaped",
   "group": "indreb",
-  "pattern": [
-    "lal",
-    "lel",
-    "lal"
-  ],
   "key": {
+    "a": {
+      "item": "indreb:advanced_circuit"
+    },
     "e": {
       "item": "indreb:energy_crystal"
     },
     "l": {
       "item": "minecraft:lapis_lazuli"
-    },
-    "a": {
-      "item": "indreb:advanced_circuit"
     }
   },
+  "pattern": [
+    "lal",
+    "lel",
+    "lal"
+  ],
   "result": {
     "item": "indreb:lapotron_crystal"
   }

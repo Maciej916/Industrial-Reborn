@@ -24,13 +24,16 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.common.capabilities.Capability;
+import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.common.util.LazyOptional;
-import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.wrapper.RangedWrapper;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Optional;
 
 public class BlockEntityRecycler extends IndRebBlockEntity implements IEnergyBlock, ISupportUpgrades, ITileSound {
 
@@ -45,7 +48,7 @@ public class BlockEntityRecycler extends IndRebBlockEntity implements IEnergyBlo
 
 
     public BlockEntityRecycler(BlockPos pWorldPosition, BlockState pBlockState) {
-        super(ModBlockEntities.RECYCLER, pWorldPosition, pBlockState);
+        super(ModBlockEntities.RECYCLER.get(), pWorldPosition, pBlockState);
         createEnergyStorage(0, ServerConfig.recycler_energy_capacity.get(), EnergyType.RECEIVE, EnergyTier.BASIC);
     }
 
@@ -91,7 +94,7 @@ public class BlockEntityRecycler extends IndRebBlockEntity implements IEnergyBlo
             progress.setProgressMax(getSpeedFactor() * recipe.getDuration());
             int energyCost = (int) (recipe.getPowerCost() * getEnergyUsageFactor());
 
-            ItemStack resultStack = new ItemStack(ModItems.SCRAP);
+            ItemStack resultStack = new ItemStack(ModItems.SCRAP.get());
             if (canWork(outputStack, resultStack)) {
                 if (getEnergyStorage().consumeEnergy(energyCost, true) == energyCost && progress.getProgress() <= progress.getProgressMax()) {
                     active = true;
@@ -145,7 +148,7 @@ public class BlockEntityRecycler extends IndRebBlockEntity implements IEnergyBlo
 
     @Override
     public SoundEvent getSoundEvent() {
-        return ModSounds.RECYCLER;
+        return ModSounds.RECYCLER.get();
     }
 
     @Override
@@ -185,7 +188,7 @@ public class BlockEntityRecycler extends IndRebBlockEntity implements IEnergyBlo
     @Nonnull
     @Override
     public <T> LazyOptional<T> getCapability(@Nonnull final Capability<T> cap, @Nullable final Direction side) {
-        if (cap == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY) {
+        if (cap == ForgeCapabilities.ITEM_HANDLER) {
             if (side == null) return capabilities.get(0).cast();
             return switch (side) {
                 case DOWN -> capabilities.get(2).cast();

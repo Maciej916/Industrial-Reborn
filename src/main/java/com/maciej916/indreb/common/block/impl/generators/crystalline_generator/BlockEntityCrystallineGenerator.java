@@ -25,6 +25,7 @@ import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.common.ForgeHooks;
 import net.minecraftforge.common.capabilities.Capability;
+import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.wrapper.RangedWrapper;
@@ -42,7 +43,7 @@ public class BlockEntityCrystallineGenerator extends IndRebBlockEntity implement
     public BlockEntityProgress progressBurn = new BlockEntityProgress();
 
     public BlockEntityCrystallineGenerator(BlockPos pWorldPosition, BlockState pBlockState) {
-        super(ModBlockEntities.CRYSTALLINE_GENERATOR, pWorldPosition, pBlockState);
+        super(ModBlockEntities.CRYSTALLINE_GENERATOR.get(), pWorldPosition, pBlockState);
         createEnergyStorage(0, ServerConfig.generator_energy_capacity.get(), EnergyType.EXTRACT, EnergyTier.BASIC);
     }
 
@@ -138,7 +139,7 @@ public class BlockEntityCrystallineGenerator extends IndRebBlockEntity implement
 
     @Override
     public SoundEvent getSoundEvent() {
-        return ModSounds.GENERATOR;
+        return ModSounds.GENERATOR.get();
     }
 
     @Override
@@ -154,7 +155,7 @@ public class BlockEntityCrystallineGenerator extends IndRebBlockEntity implement
     @Nonnull
     @Override
     public <T> LazyOptional<T> getCapability(@Nonnull Capability<T> cap, @Nullable Direction side) {
-        if (cap == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY) return capabilities.get(0).cast();
+        if (cap == ForgeCapabilities.ITEM_HANDLER) return capabilities.get(0).cast();
         return super.getCapability(cap, side);
     }
 

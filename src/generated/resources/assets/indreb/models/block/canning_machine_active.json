@@ -1,9 +1,9 @@
 {
   "parent": "minecraft:block/orientable_with_bottom",
   "textures": {
-    "side": "indreb:block/machines/canning_machine_side",
-    "front": "indreb:block/machines/canning_machine_front_active",
     "bottom": "indreb:block/machines/canning_machine_bottom",
+    "front": "indreb:block/machines/canning_machine_front_active",
+    "side": "indreb:block/machines/canning_machine_side",
     "top": "indreb:block/machines/canning_machine_top"
   }
 }

@@ -7,6 +7,7 @@ import net.minecraft.core.Holder;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.UseOnContext;
@@ -85,7 +86,7 @@ public class Fertilizer extends BaseItem {
     public static boolean growWaterPlant(ItemStack p_40632_, Level p_40633_, BlockPos p_40634_, @Nullable Direction p_40635_) {
         if (p_40633_.getBlockState(p_40634_).is(Blocks.WATER) && p_40633_.getFluidState(p_40634_).getAmount() == 8) {
             if (p_40633_ instanceof ServerLevel) {
-                Random random = p_40633_.getRandom();
+                RandomSource random = p_40633_.getRandom();
 
                 label76:
                 for(int i = 0; i < 128; ++i) {
@@ -155,7 +156,7 @@ public class Fertilizer extends BaseItem {
             }
 
             p_40639_.addParticle(ParticleTypes.HAPPY_VILLAGER, (double)p_40640_.getX() + 0.5D, (double)p_40640_.getY() + 0.5D, (double)p_40640_.getZ() + 0.5D, 0.0D, 0.0D, 0.0D);
-            Random random = p_40639_.getRandom();
+            RandomSource random = p_40639_.getRandom();
 
             for(int i = 0; i < p_40641_; ++i) {
                 double d2 = random.nextGaussian() * 0.02D;

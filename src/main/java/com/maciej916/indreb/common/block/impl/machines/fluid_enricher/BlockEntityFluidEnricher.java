@@ -27,11 +27,10 @@ import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraftforge.common.capabilities.Capability;
+import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.common.util.LazyOptional;
-import net.minecraftforge.fluids.capability.CapabilityFluidHandler;
 import net.minecraftforge.fluids.capability.IFluidHandler;
 import net.minecraftforge.fluids.capability.IFluidHandlerItem;
-import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.wrapper.RangedWrapper;
 
 import javax.annotation.Nonnull;
@@ -61,7 +60,7 @@ public class BlockEntityFluidEnricher extends IndRebBlockEntity implements IEner
     private ItemStack cachedInputStack = ItemStack.EMPTY;
 
     public BlockEntityFluidEnricher(BlockPos pWorldPosition, BlockState pBlockState) {
-        super(ModBlockEntities.FLUID_ENRICHER, pWorldPosition, pBlockState);
+        super(ModBlockEntities.FLUID_ENRICHER.get(), pWorldPosition, pBlockState);
         createEnergyStorage(0, ServerConfig.fluid_enricher_energy_capacity.get(), EnergyType.RECEIVE, EnergyTier.BASIC);
     }
 
@@ -227,7 +226,7 @@ public class BlockEntityFluidEnricher extends IndRebBlockEntity implements IEner
     public boolean isItemValidForSlot(int slot, @Nonnull ItemStack stack) {
         if (slot == INPUT_SLOT) return isValidInput(stack);
         if (slot == DRAIN_BUCKET_UP) {
-            IFluidHandlerItem cap = CapabilityUtil.getCapabilityHelper(stack, CapabilityFluidHandler.FLUID_HANDLER_ITEM_CAPABILITY).getValue();
+            IFluidHandlerItem cap = CapabilityUtil.getCapabilityHelper(stack, ForgeCapabilities.FLUID_HANDLER_ITEM).getValue();
             if (cap != null) {
                 return cap.getTanks() > 0 && cap.getFluidInTank(1).getFluid() == Fluids.EMPTY || (cap.getFluidInTank(1).getFluid() == fluidOutputStorage.getFluid().getFluid() && cap.getFluidInTank(1).getAmount() < cap.getTankCapacity(1));
             }
@@ -243,7 +242,7 @@ public class BlockEntityFluidEnricher extends IndRebBlockEntity implements IEner
         }
 
         if (slot == DRAIN_BUCKET_UP) {
-            IFluidHandlerItem cap = CapabilityUtil.getCapabilityHelper(stack, CapabilityFluidHandler.FLUID_HANDLER_ITEM_CAPABILITY).getValue();
+            IFluidHandlerItem cap = CapabilityUtil.getCapabilityHelper(stack, ForgeCapabilities.FLUID_HANDLER_ITEM).getValue();
             if (cap != null) {
                 if (cap.getTanks() > 0 && cap.getFluidInTank(1).getFluid() == Fluids.EMPTY || (cap.getFluidInTank(1).getFluid() == fluidOutputStorage.getFluid().getFluid() && cap.getFluidInTank(1).getAmount() < cap.getTankCapacity(1))) {
                     return null;
@@ -267,7 +266,7 @@ public class BlockEntityFluidEnricher extends IndRebBlockEntity implements IEner
     @Override
     public <T> LazyOptional<T> getCapability(@Nonnull final Capability<T> cap, @Nullable final Direction side) {
 
-        if (cap == CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY) {
+        if (cap == ForgeCapabilities.FLUID_HANDLER) {
             if (side == null) return LazyOptional.empty();
 
             if (getBlock() instanceof IStateFacing facing) {
@@ -283,7 +282,7 @@ public class BlockEntityFluidEnricher extends IndRebBlockEntity implements IEner
             return LazyOptional.empty();
         }
 
-        if (cap == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY) {
+        if (cap == ForgeCapabilities.ITEM_HANDLER) {
             if (side == null) return capabilities.get(0).cast();
             return switch (side) {
                 case DOWN -> capabilities.get(2).cast();

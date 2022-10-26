@@ -1,13 +1,13 @@
 {
   "type": "indreb:crushing",
+  "duration": 180,
+  "experience": 0.0,
   "ingredient": {
-    "item": "minecraft:beetroot_seeds",
-    "count": 8
+    "count": 8,
+    "item": "minecraft:beetroot_seeds"
   },
+  "power_cost": 8,
   "result": {
     "item": "indreb:bio_chaff"
-  },
-  "experience": 0.0,
-  "duration": 180,
-  "power_cost": 8
+  }
 }

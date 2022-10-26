@@ -1,6 +1,6 @@
 package com.maciej916.indreb.common.screen;
 
-import com.maciej916.indreb.common.container.IndRebContainer;
+import com.maciej916.indreb.common.container.IndRebMenu;
 import com.maciej916.indreb.common.energy.interfaces.IEnergyBlock;
 import com.maciej916.indreb.common.enums.GuiSlotType;
 import com.maciej916.indreb.common.interfaces.entity.ICooldown;
@@ -16,7 +16,7 @@ import com.maciej916.indreb.common.screen.widgets.GuiUpgrades;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.player.Inventory;
 
-public class BetterScreen <T extends IndRebContainer> extends PanelScreen<T> {
+public class BetterScreen <T extends IndRebMenu> extends PanelScreen<T> {
 
     public BetterScreen(T container, Inventory inventory, Component component) {
         super(container, inventory, component);

@@ -6,7 +6,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.components.AbstractWidget;
 import net.minecraft.client.gui.narration.NarrationElementOutput;
 import net.minecraft.client.gui.screens.Screen;
-import net.minecraft.network.chat.TextComponent;
+import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import org.jetbrains.annotations.NotNull;
 
@@ -15,7 +15,7 @@ public abstract class GuiElement extends AbstractWidget {
     private final IGuiWrapper wrapper;
 
     public GuiElement(IGuiWrapper wrapper, int width, int height, int leftOffset, int topOffset) {
-        super(wrapper.getGuiLeft() + leftOffset, wrapper.getGuiTop() + topOffset, width, height, new TextComponent(""));
+        super(wrapper.getGuiLeft() + leftOffset, wrapper.getGuiTop() + topOffset, width, height, Component.literal(""));
         this.wrapper = wrapper;
         this.width = width;
         this.height = height;

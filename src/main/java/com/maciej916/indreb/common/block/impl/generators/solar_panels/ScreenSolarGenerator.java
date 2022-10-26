@@ -8,9 +8,9 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
 
-public class ScreenSolarGenerator extends BetterScreen<ContainerSolarGenerator> {
+public class ScreenSolarGenerator extends BetterScreen<MenuSolarGenerator> {
 
-    public ScreenSolarGenerator(ContainerSolarGenerator container, Inventory inv, Component name) {
+    public ScreenSolarGenerator(MenuSolarGenerator container, Inventory inv, Component name) {
         super(container, inv, name);
     }
 

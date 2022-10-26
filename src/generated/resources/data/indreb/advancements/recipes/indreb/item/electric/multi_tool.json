@@ -1,37 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
-  "rewards": {
-    "recipes": [
-      "indreb:item/electric/multi_tool"
-    ]
-  },
   "criteria": {
-    "carbon_plate": {
-      "trigger": "minecraft:inventory_changed",
-      "conditions": {
-        "items": [
-          {
-            "items": [
-              "indreb:carbon_plate"
-            ]
-          }
-        ]
-      }
-    },
-    "electric_treetap": {
-      "trigger": "minecraft:inventory_changed",
-      "conditions": {
-        "items": [
-          {
-            "items": [
-              "indreb:electric_treetap"
-            ]
-          }
-        ]
-      }
-    },
     "advanced_alloy": {
-      "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
@@ -40,34 +10,10 @@
             ]
           }
         ]
-      }
-    },
-    "energy_crystal": {
-      "trigger": "minecraft:inventory_changed",
-      "conditions": {
-        "items": [
-          {
-            "items": [
-              "indreb:energy_crystal"
-            ]
-          }
-        ]
-      }
-    },
-    "electric_wrench": {
-      "trigger": "minecraft:inventory_changed",
-      "conditions": {
-        "items": [
-          {
-            "items": [
-              "indreb:electric_wrench"
-            ]
-          }
-        ]
-      }
+      },
+      "trigger": "minecraft:inventory_changed"
     },
     "advanced_circuit": {
-      "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
@@ -76,10 +22,22 @@
             ]
           }
         ]
-      }
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "carbon_plate": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:carbon_plate"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
     },
     "electric_hoe": {
-      "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
@@ -88,13 +46,50 @@
             ]
           }
         ]
-      }
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "electric_treetap": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:electric_treetap"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "electric_wrench": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:electric_wrench"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "energy_crystal": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:energy_crystal"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
     },
     "has_the_recipe": {
-      "trigger": "minecraft:recipe_unlocked",
       "conditions": {
         "recipe": "indreb:item/electric/multi_tool"
-      }
+      },
+      "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
@@ -108,5 +103,10 @@
       "electric_hoe",
       "has_the_recipe"
     ]
-  ]
+  ],
+  "rewards": {
+    "recipes": [
+      "indreb:item/electric/multi_tool"
+    ]
+  }
 }

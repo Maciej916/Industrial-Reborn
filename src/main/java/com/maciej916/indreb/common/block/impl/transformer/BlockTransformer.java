@@ -4,7 +4,7 @@ import com.maciej916.indreb.common.block.IndRebEntityBlock;
 import com.maciej916.indreb.common.enums.EnergyTier;
 import com.maciej916.indreb.common.enums.EnumLang;
 import com.maciej916.indreb.common.interfaces.block.IElectricMachine;
-import com.maciej916.indreb.common.interfaces.block.IHasContainer;
+import com.maciej916.indreb.common.interfaces.block.IHasMenu;
 import com.maciej916.indreb.common.interfaces.block.IStateFacing;
 import com.maciej916.indreb.common.tier.TransformerTier;
 import com.maciej916.indreb.common.util.BlockStateHelper;
@@ -13,7 +13,6 @@ import com.maciej916.indreb.common.util.wrench.WrenchHelper;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -28,7 +27,7 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import java.util.List;
 
-public class BlockTransformer extends IndRebEntityBlock implements IStateFacing, IHasContainer, IElectricMachine {
+public class BlockTransformer extends IndRebEntityBlock implements IStateFacing, IHasMenu, IElectricMachine {
 
     private final TransformerTier transformerTier;
 
@@ -55,14 +54,14 @@ public class BlockTransformer extends IndRebEntityBlock implements IStateFacing,
     }
 
     @Override
-    public ContainerTransformer getContainer(int windowId, Level level, BlockPos pos, Inventory playerInventory, Player playerEntity) {
-        return new ContainerTransformer(windowId, level, pos, playerInventory, playerEntity);
+    public MenuTransformer getMenu(int windowId, Level level, BlockPos pos, Inventory playerInventory, Player playerEntity) {
+        return new MenuTransformer(windowId, level, pos, playerInventory, playerEntity);
     }
 
     @Override
     public void appendHoverText(ItemStack pStack, @Nullable BlockGetter pLevel, List<Component> pTooltip, TooltipFlag pFlag) {
-        pTooltip.add(TextComponentUtil.build(new TranslatableComponent(EnumLang.LOW.getTranslationKey(), new TranslatableComponent(transformerTier.getMinTier().getLang().getTranslationKey()).withStyle(transformerTier.getMinTier().getColor())).withStyle(ChatFormatting.GRAY)));
-        pTooltip.add(TextComponentUtil.build(new TranslatableComponent(EnumLang.HIGH.getTranslationKey(), new TranslatableComponent(transformerTier.getMaxTier().getLang().getTranslationKey()).withStyle(transformerTier.getMaxTier().getColor())).withStyle(ChatFormatting.GRAY)));
+        pTooltip.add(TextComponentUtil.build(Component.translatable(EnumLang.LOW.getTranslationKey(), Component.translatable(transformerTier.getMinTier().getLang().getTranslationKey()).withStyle(transformerTier.getMinTier().getColor())).withStyle(ChatFormatting.GRAY)));
+        pTooltip.add(TextComponentUtil.build(Component.translatable(EnumLang.HIGH.getTranslationKey(), Component.translatable(transformerTier.getMaxTier().getLang().getTranslationKey()).withStyle(transformerTier.getMaxTier().getColor())).withStyle(ChatFormatting.GRAY)));
     }
 
     @Override

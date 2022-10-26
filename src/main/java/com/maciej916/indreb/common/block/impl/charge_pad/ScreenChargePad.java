@@ -9,13 +9,12 @@ import com.maciej916.indreb.common.screen.widgets.GuiText;
 import com.maciej916.indreb.common.tier.ChargePadTier;
 import com.maciej916.indreb.common.util.TextComponentUtil;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
 
-public class ScreenChargePad extends BetterScreen<ContainerChargePad> {
+public class ScreenChargePad extends BetterScreen<MenuChargePad> {
 
-    public ScreenChargePad(ContainerChargePad container, Inventory inv, Component name) {
+    public ScreenChargePad(MenuChargePad container, Inventory inv, Component name) {
         super(container, inv, name);
     }
 
@@ -29,8 +28,8 @@ public class ScreenChargePad extends BetterScreen<ContainerChargePad> {
 
         addRenderableOnlyComponent(new GuiTextElectricProgress(this, 50, 10, 90, 24, energyStorage));
         addRenderableOnlyComponent(new GuiText(this, 50, 10, 90, 58, TextComponentUtil.build(
-                new TranslatableComponent(EnumLang.TRANSFER.getTranslationKey()),
-                new TranslatableComponent(EnumLang.POWER_TICK.getTranslationKey(), TextComponentUtil.getFormattedEnergyUnit(chargePadTier.getEnergyTier().getBasicTransfer()))
+                Component.translatable(EnumLang.TRANSFER.getTranslationKey()),
+                Component.translatable(EnumLang.POWER_TICK.getTranslationKey(), TextComponentUtil.getFormattedEnergyUnit(chargePadTier.getEnergyTier().getBasicTransfer()))
         )));
 
         drawComponents(true);

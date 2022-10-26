@@ -4,25 +4,23 @@ import com.maciej916.indreb.common.config.ServerConfig;
 import net.minecraft.ChatFormatting;
 
 public enum EnergyTier {
-    BASIC("Basic", EnumLang.TIER_BASIC, 1, ChatFormatting.GREEN, ServerConfig.basic_tier_transfer.get()),
-    STANDARD("Standard", EnumLang.TIER_STANDARD,2, ChatFormatting.YELLOW, ServerConfig.standard_tier_transfer.get()),
-    ADVANCED("Advanced", EnumLang.TIER_ADVANCED,3, ChatFormatting.RED, ServerConfig.advanced_tier_transfer.get()),
-    SUPER("Super", EnumLang.TIER_SUPER,4, ChatFormatting.BLUE, ServerConfig.super_tier_transfer.get()),
-    ULTRA("Ultra", EnumLang.TIER_ULTRA,5, ChatFormatting.GOLD, ServerConfig.ultra_tier_transfer.get()),
-    CREATIVE("Creative", EnumLang.TIER_CREATIVE,6, ChatFormatting.GRAY, ServerConfig.creative_tier_transfer.get());
+    BASIC("Basic", EnumLang.TIER_BASIC, 1, ChatFormatting.GREEN),
+    STANDARD("Standard", EnumLang.TIER_STANDARD,2, ChatFormatting.YELLOW),
+    ADVANCED("Advanced", EnumLang.TIER_ADVANCED,3, ChatFormatting.RED),
+    SUPER("Super", EnumLang.TIER_SUPER,4, ChatFormatting.BLUE),
+    ULTRA("Ultra", EnumLang.TIER_ULTRA,5, ChatFormatting.GOLD),
+    CREATIVE("Creative", EnumLang.TIER_CREATIVE,6, ChatFormatting.GRAY);
 
     private final String name;
     private final EnumLang lang;
     private final Integer lvl;
     private final ChatFormatting color;
-    private final int basicTransfer;
 
-    EnergyTier(String name, EnumLang lang, Integer lvl, ChatFormatting color, int basicTransfer) {
+    EnergyTier(String name, EnumLang lang, Integer lvl, ChatFormatting color) {
         this.name = name;
         this.lang = lang;
         this.lvl = lvl;
         this.color = color;
-        this.basicTransfer = basicTransfer;
     }
 
     public Integer getLvl() {
@@ -42,7 +40,14 @@ public enum EnergyTier {
     }
 
     public int getBasicTransfer() {
-        return basicTransfer;
+        return switch (getTierFromLvl(lvl)) {
+            case BASIC -> ServerConfig.basic_tier_transfer.get();
+            case STANDARD -> ServerConfig.standard_tier_transfer.get();
+            case ADVANCED -> ServerConfig.advanced_tier_transfer.get();
+            case SUPER -> ServerConfig.super_tier_transfer.get();
+            case ULTRA -> ServerConfig.ultra_tier_transfer.get();
+            case CREATIVE -> ServerConfig.creative_tier_transfer.get();
+        };
     }
 
     public static EnergyTier getTierFromLvl(int lvl) {

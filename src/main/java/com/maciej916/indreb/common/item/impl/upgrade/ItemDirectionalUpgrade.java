@@ -6,7 +6,6 @@ import net.minecraft.ChatFormatting;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.InteractionResultHolder;
@@ -34,7 +33,8 @@ public class ItemDirectionalUpgrade extends ItemUpgrade {
     public void appendHoverText(ItemStack stack, @Nullable Level p_41422_, List<Component> components, TooltipFlag tooltipFlag) {
         CompoundTag tag = stack.getOrCreateTag();
         int currentDir = tag.getAllKeys().contains("Direction") ? tag.getInt("Direction") : -1;
-        components.add(new TranslatableComponent(getUpgradeType().getType() + "." + IndReb.MODID + ".dir", new TranslatableComponent("dir." + IndReb.MODID + "." + (currentDir == -1 ? "all" : Direction.from3DDataValue(currentDir).getName())).withStyle(ChatFormatting.AQUA)).withStyle(ChatFormatting.GRAY));
+        components.add(Component.translatable(getUpgradeType().getType() + "." + IndReb.MODID + ".dir", Component.translatable("dir." + IndReb.MODID + "." + (currentDir == -1 ? "all" : Direction.from3DDataValue(currentDir).getName())).withStyle(ChatFormatting.AQUA)).withStyle(ChatFormatting.GRAY));
+        components.add(Component.translatable(IndReb.MODID + ".change_mode_shift").withStyle(ChatFormatting.GRAY));
 
         super.appendHoverText(stack, p_41422_, components, tooltipFlag);
     }
@@ -49,7 +49,7 @@ public class ItemDirectionalUpgrade extends ItemUpgrade {
             int newDir = currentDir + 1 > 5 ? -1 : currentDir + 1;
             tag.putInt("Direction", newDir);
 
-            player.displayClientMessage(new TranslatableComponent(getUpgradeType().getType() + "." + IndReb.MODID + ".dir", new TranslatableComponent("dir." + IndReb.MODID + "." + (newDir == -1 ? "all" : Direction.from3DDataValue(newDir).getName())).withStyle(ChatFormatting.AQUA)).withStyle(ChatFormatting.GRAY), true);
+            player.displayClientMessage(Component.translatable(getUpgradeType().getType() + "." + IndReb.MODID + ".dir", Component.translatable("dir." + IndReb.MODID + "." + (newDir == -1 ? "all" : Direction.from3DDataValue(newDir).getName())).withStyle(ChatFormatting.AQUA)).withStyle(ChatFormatting.GRAY), true);
         }
 
         return InteractionResultHolder.pass(stack);
@@ -68,7 +68,7 @@ public class ItemDirectionalUpgrade extends ItemUpgrade {
         tag.putInt("Direction", newDir);
 
         if (player != null) {
-            player.displayClientMessage(new TranslatableComponent(getUpgradeType().getType() + "." + IndReb.MODID + ".dir", new TranslatableComponent("dir." + IndReb.MODID + "." +(newDir == -1 ? "all" : Direction.from3DDataValue(newDir).getName())).withStyle(ChatFormatting.AQUA)).withStyle(ChatFormatting.GRAY), true);
+            player.displayClientMessage(Component.translatable(getUpgradeType().getType() + "." + IndReb.MODID + ".dir", Component.translatable("dir." + IndReb.MODID + "." +(newDir == -1 ? "all" : Direction.from3DDataValue(newDir).getName())).withStyle(ChatFormatting.AQUA)).withStyle(ChatFormatting.GRAY), true);
         }
 
         return InteractionResult.SUCCESS;

@@ -1,25 +1,25 @@
 {
   "type": "minecraft:crafting_shaped",
   "group": "indreb",
+  "key": {
+    "a": {
+      "item": "indreb:advanced_circuit"
+    },
+    "c": {
+      "item": "indreb:advanced_machine_casing"
+    },
+    "l": {
+      "item": "indreb:lapotron_crystal"
+    },
+    "m": {
+      "item": "indreb:mfe"
+    }
+  },
   "pattern": [
     "lal",
     "lml",
     "lcl"
   ],
-  "key": {
-    "l": {
-      "item": "indreb:lapotron_crystal"
-    },
-    "a": {
-      "item": "indreb:advanced_circuit"
-    },
-    "m": {
-      "item": "indreb:mfe"
-    },
-    "c": {
-      "item": "indreb:advanced_machine_casing"
-    }
-  },
   "result": {
     "item": "indreb:mfsu"
   }

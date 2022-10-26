@@ -17,7 +17,7 @@ import java.util.Optional;
 public class BlockEntityCrusher extends BlockEntityStandardMachine {
 
     public BlockEntityCrusher(BlockPos pWorldPosition, BlockState pBlockState) {
-        super(ModBlockEntities.CRUSHER, pWorldPosition, pBlockState, ServerConfig.crusher_energy_capacity.get());
+        super(ModBlockEntities.CRUSHER.get(), pWorldPosition, pBlockState, ServerConfig.crusher_energy_capacity.get());
     }
 
     @Override
@@ -27,7 +27,7 @@ public class BlockEntityCrusher extends BlockEntityStandardMachine {
 
     @Override
     public SoundEvent getSoundEvent() {
-        return ModSounds.CRUSHER;
+        return ModSounds.CRUSHER.get();
     }
 
 }

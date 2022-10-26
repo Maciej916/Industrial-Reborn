@@ -21,6 +21,7 @@ public class EnergyNetwork implements IEnergy, INBTSerializable<CompoundTag> {
     private HashSet<BlockPos> electrics = new HashSet<>();
     private HashSet<BlockPos> transmitters = new HashSet<>();
 
+    private EnergyTier currentTier = null;
     private EnergyTier energyTier;
 
     public float r, g, b;
@@ -95,6 +96,24 @@ public class EnergyNetwork implements IEnergy, INBTSerializable<CompoundTag> {
 
     public boolean hasTransmitter(BlockPos pos) {
         return transmitters.contains(pos);
+    }
+
+    public EnergyTier getEnergyFlowing() {
+        return currentTier;
+    }
+
+    public EnergyTier getCurrentTier() {
+        return currentTier != null ? currentTier : EnergyTier.BASIC;
+    }
+
+    public void setCurrentTier(EnergyTier currentTier) {
+        if (this.currentTier == null || this.currentTier.getLvl() < currentTier.getLvl()) {
+            this.currentTier = currentTier;
+        }
+    }
+
+    public void resetCurrentTier() {
+        this.currentTier = null;
     }
 
     @Override

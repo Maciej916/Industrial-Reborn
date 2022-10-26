@@ -1,17 +1,17 @@
 {
   "type": "minecraft:crafting_shaped",
   "group": "indreb",
-  "pattern": [
-    "t t",
-    "ttt"
-  ],
   "key": {
     "t": {
       "tag": "forge:plates/tin"
     }
   },
+  "pattern": [
+    "t t",
+    "ttt"
+  ],
   "result": {
-    "item": "indreb:tin_can",
-    "count": 4
+    "count": 4,
+    "item": "indreb:tin_can"
   }
 }

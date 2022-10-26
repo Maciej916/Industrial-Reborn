@@ -1,11 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
   "group": "indreb",
-  "pattern": [
-    "ccc",
-    "crc",
-    "ccc"
-  ],
   "key": {
     "c": {
       "tag": "forge:plates/copper"
@@ -14,6 +9,11 @@
       "item": "indreb:reactor_plating"
     }
   },
+  "pattern": [
+    "ccc",
+    "crc",
+    "ccc"
+  ],
   "result": {
     "item": "indreb:heat_capacity_reactor_plating"
   }

@@ -26,7 +26,7 @@ public class EnergyInfoRenderer {
 
         assert player != null;
         Item handItem = player.getMainHandItem().getItem();
-        if (handItem == ModItems.IE_METER || handItem == ModItems.DEBUG_STICK) {
+        if (handItem == ModItems.DEBUG_STICK.get()) {
             highlightNetworks(player, event.getPoseStack());
         }
     }

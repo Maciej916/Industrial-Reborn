@@ -1,17 +1,17 @@
 {
   "type": "minecraft:crafting_shaped",
   "group": "indreb",
-  "pattern": [
-    "SSS",
-    "SSS"
-  ],
   "key": {
     "S": {
       "item": "indreb:sticky_resin"
     }
   },
+  "pattern": [
+    "SSS",
+    "SSS"
+  ],
   "result": {
-    "item": "indreb:resin_sheet",
-    "count": 3
+    "count": 3,
+    "item": "indreb:resin_sheet"
   }
 }

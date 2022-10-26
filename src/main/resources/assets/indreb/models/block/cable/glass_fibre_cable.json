@@ -3,5 +3,6 @@
 	"textures": {
 		"wall": "indreb:block/cable/glass_fibre_cable",
 		"particle": "#wall"
-	}
+	},
+	"render_type": "cutout"
 }

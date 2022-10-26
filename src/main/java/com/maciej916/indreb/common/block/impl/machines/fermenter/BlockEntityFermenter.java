@@ -8,8 +8,8 @@ import com.maciej916.indreb.common.entity.block.IndRebBlockEntity;
 import com.maciej916.indreb.common.entity.slot.IndRebSlot;
 import com.maciej916.indreb.common.entity.slot.SlotBattery;
 import com.maciej916.indreb.common.enums.*;
-import com.maciej916.indreb.common.fluids.Biogas;
-import com.maciej916.indreb.common.fluids.Biomass;
+import com.maciej916.indreb.common.fluid.Biogas;
+import com.maciej916.indreb.common.fluid.Biomass;
 import com.maciej916.indreb.common.interfaces.block.IStateFacing;
 import com.maciej916.indreb.common.interfaces.entity.IElectricSlot;
 import com.maciej916.indreb.common.interfaces.entity.ISupportUpgrades;
@@ -24,12 +24,11 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraftforge.common.capabilities.Capability;
+import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.fluids.FluidStack;
-import net.minecraftforge.fluids.capability.CapabilityFluidHandler;
 import net.minecraftforge.fluids.capability.IFluidHandler;
 import net.minecraftforge.fluids.capability.IFluidHandlerItem;
-import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.wrapper.RangedWrapper;
 
 import javax.annotation.Nonnull;
@@ -62,7 +61,7 @@ public class BlockEntityFermenter extends IndRebBlockEntity implements IEnergyBl
     public BlockEntityProgress progressDrain = new BlockEntityProgress(0, 1);
 
     public BlockEntityFermenter(BlockPos pWorldPosition, BlockState pBlockState) {
-        super(ModBlockEntities.FERMENTER, pWorldPosition, pBlockState);
+        super(ModBlockEntities.FERMENTER.get(), pWorldPosition, pBlockState);
         createEnergyStorage(0, ServerConfig.fermenter_energy_capacity.get(), EnergyType.RECEIVE, EnergyTier.STANDARD);
     }
 
@@ -165,7 +164,7 @@ public class BlockEntityFermenter extends IndRebBlockEntity implements IEnergyBl
 
             if (progressWaste.getProgress() >= progressWaste.getProgressMax()) {
                 if (wasteStack.isEmpty()) {
-                    getStackHandler().setStackInSlot(WASTE_SLOT, new ItemStack(ModItems.FERTILIZER));
+                    getStackHandler().setStackInSlot(WASTE_SLOT, new ItemStack(ModItems.FERTILIZER.get()));
                 } else {
                     wasteStack.grow(1);
                 }
@@ -242,14 +241,14 @@ public class BlockEntityFermenter extends IndRebBlockEntity implements IEnergyBl
     @Override
     public boolean isItemValidForSlot(int slot, @Nonnull ItemStack stack) {
         if (slot == FILL_BUCKET_UP) {
-            IFluidHandlerItem cap = CapabilityUtil.getCapabilityHelper(stack, CapabilityFluidHandler.FLUID_HANDLER_ITEM_CAPABILITY).getValue();
+            IFluidHandlerItem cap = CapabilityUtil.getCapabilityHelper(stack, ForgeCapabilities.FLUID_HANDLER_ITEM).getValue();
             if (cap != null) {
                 return cap.getTanks() > 0 && cap.getFluidInTank(1).getFluid() == Biomass.STILL_FLUID;
             }
         }
 
         if (slot == DRAIN_BUCKET_UP) {
-            IFluidHandlerItem cap = CapabilityUtil.getCapabilityHelper(stack, CapabilityFluidHandler.FLUID_HANDLER_ITEM_CAPABILITY).getValue();
+            IFluidHandlerItem cap = CapabilityUtil.getCapabilityHelper(stack, ForgeCapabilities.FLUID_HANDLER_ITEM).getValue();
             if (cap != null) {
                 return cap.getTanks() > 0 && cap.getFluidInTank(1).getFluid() == Fluids.EMPTY;
             }
@@ -261,7 +260,7 @@ public class BlockEntityFermenter extends IndRebBlockEntity implements IEnergyBl
     @Override
     public ItemStack insertItemForSlot(int slot, @Nonnull ItemStack stack, boolean simulate) {
         if (slot == FILL_BUCKET_UP) {
-            IFluidHandlerItem cap = CapabilityUtil.getCapabilityHelper(stack, CapabilityFluidHandler.FLUID_HANDLER_ITEM_CAPABILITY).getValue();
+            IFluidHandlerItem cap = CapabilityUtil.getCapabilityHelper(stack, ForgeCapabilities.FLUID_HANDLER_ITEM).getValue();
             if (cap != null) {
                 if (cap.getTanks() > 0 && cap.getFluidInTank(1).getFluid() == Biomass.STILL_FLUID) {
                     return null;
@@ -271,7 +270,7 @@ public class BlockEntityFermenter extends IndRebBlockEntity implements IEnergyBl
         }
 
         if (slot == DRAIN_BUCKET_UP) {
-            IFluidHandlerItem cap = CapabilityUtil.getCapabilityHelper(stack, CapabilityFluidHandler.FLUID_HANDLER_ITEM_CAPABILITY).getValue();
+            IFluidHandlerItem cap = CapabilityUtil.getCapabilityHelper(stack, ForgeCapabilities.FLUID_HANDLER_ITEM).getValue();
             if (cap != null) {
                 if (cap.getTanks() > 0 && cap.getFluidInTank(1).getFluid() == Fluids.EMPTY) {
                     return null;
@@ -295,7 +294,7 @@ public class BlockEntityFermenter extends IndRebBlockEntity implements IEnergyBl
     @Override
     public <T> LazyOptional<T> getCapability(@Nonnull final Capability<T> cap, @Nullable final Direction side) {
 
-        if (cap == CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY) {
+        if (cap == ForgeCapabilities.FLUID_HANDLER) {
             if (side == null) return LazyOptional.empty();
 
             if (getBlock() instanceof IStateFacing facing) {
@@ -311,7 +310,7 @@ public class BlockEntityFermenter extends IndRebBlockEntity implements IEnergyBl
             return LazyOptional.empty();
         }
 
-        if (cap == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY) {
+        if (cap == ForgeCapabilities.ITEM_HANDLER) {
             if (side == null) return capabilities.get(0).cast();
             return switch (side) {
                 case DOWN -> capabilities.get(2).cast();

@@ -1,11 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
   "group": "indreb",
-  "pattern": [
-    "iii",
-    "ifi",
-    "iii"
-  ],
   "key": {
     "f": {
       "item": "minecraft:furnace"
@@ -14,6 +9,11 @@
       "item": "minecraft:iron_ingot"
     }
   },
+  "pattern": [
+    "iii",
+    "ifi",
+    "iii"
+  ],
   "result": {
     "item": "indreb:iron_furnace"
   }

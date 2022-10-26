@@ -155,7 +155,7 @@ public class RecipeBuilderCrushing {
 
         @Override
         public RecipeSerializer<?> getType() {
-            return ModRecipeSerializer.CRUSHING;
+            return ModRecipeSerializer.CRUSHING.get();
         }
 
         @Nullable

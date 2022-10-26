@@ -1,11 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
   "group": "indreb",
-  "pattern": [
-    "ii ",
-    " i ",
-    " s "
-  ],
   "key": {
     "i": {
       "tag": "forge:plates/iron"
@@ -14,6 +9,11 @@
       "item": "indreb:small_power_unit"
     }
   },
+  "pattern": [
+    "ii ",
+    " i ",
+    " s "
+  ],
   "result": {
     "item": "indreb:electric_hoe"
   }

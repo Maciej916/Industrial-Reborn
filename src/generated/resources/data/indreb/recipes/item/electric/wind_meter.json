@@ -1,22 +1,22 @@
 {
   "type": "minecraft:crafting_shaped",
   "group": "indreb",
-  "pattern": [
-    " t ",
-    "tbt",
-    " ts"
-  ],
   "key": {
-    "t": {
-      "tag": "forge:plates/tin"
-    },
     "b": {
       "item": "indreb:bronze_plate"
     },
     "s": {
       "item": "indreb:small_power_unit"
+    },
+    "t": {
+      "tag": "forge:plates/tin"
     }
   },
+  "pattern": [
+    " t ",
+    "tbt",
+    " ts"
+  ],
   "result": {
     "item": "indreb:wind_meter"
   }

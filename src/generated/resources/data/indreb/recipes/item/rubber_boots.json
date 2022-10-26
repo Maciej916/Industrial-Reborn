@@ -1,11 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
   "group": "indreb",
-  "pattern": [
-    "r r",
-    "r r",
-    "rwr"
-  ],
   "key": {
     "r": {
       "item": "indreb:rubber"
@@ -14,6 +9,11 @@
       "item": "minecraft:white_wool"
     }
   },
+  "pattern": [
+    "r r",
+    "r r",
+    "rwr"
+  ],
   "result": {
     "item": "indreb:rubber_boots"
   }

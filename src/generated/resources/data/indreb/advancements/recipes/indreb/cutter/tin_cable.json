@@ -1,13 +1,13 @@
 {
   "parent": "minecraft:recipes/root",
-  "rewards": {
-    "recipes": [
-      "indreb:cutter/tin_cable"
-    ]
-  },
   "criteria": {
-    "tin": {
-      "trigger": "minecraft:inventory_changed",
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "indreb:cutter/tin_cable"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "tin_plate": {
       "conditions": {
         "items": [
           {
@@ -16,19 +16,19 @@
             ]
           }
         ]
-      }
-    },
-    "has_the_recipe": {
-      "trigger": "minecraft:recipe_unlocked",
-      "conditions": {
-        "recipe": "indreb:cutter/tin_cable"
-      }
+      },
+      "trigger": "minecraft:inventory_changed"
     }
   },
   "requirements": [
     [
-      "tin",
+      "tin_plate",
       "has_the_recipe"
     ]
-  ]
+  ],
+  "rewards": {
+    "recipes": [
+      "indreb:cutter/tin_cable"
+    ]
+  }
 }

@@ -1,13 +1,13 @@
 {
   "type": "indreb:compressing",
+  "duration": 180,
+  "experience": 0.0,
   "ingredient": {
-    "item": "minecraft:quartz",
-    "count": 4
+    "count": 4,
+    "item": "minecraft:quartz"
   },
+  "power_cost": 8,
   "result": {
     "item": "minecraft:quartz_block"
-  },
-  "experience": 0.0,
-  "duration": 180,
-  "power_cost": 8
+  }
 }

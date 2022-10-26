@@ -13,6 +13,7 @@ import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.SimpleContainer;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -57,7 +58,7 @@ public class ScrapBox extends BaseItem {
     }
 
     public static ItemStack openScrap(Level level) {
-        Optional<ScrapBoxRecipe> recipe = level.getRecipeManager().getRecipeFor(ModRecipeType.SCRAP_BOX.get(), new SimpleContainer(new ItemStack(ModItems.SCRAP_BOX)), level);
+        Optional<ScrapBoxRecipe> recipe = level.getRecipeManager().getRecipeFor(ModRecipeType.SCRAP_BOX.get(), new SimpleContainer(new ItemStack(ModItems.SCRAP_BOX.get())), level);
         if (recipe.isPresent()) {
             return recipe.get().getDrop();
         }
@@ -84,7 +85,7 @@ public class ScrapBox extends BaseItem {
         }
 
         stack.shrink(1);
-        source.getLevel().gameEvent(GameEvent.ENTITY_PLACE, source.getPos());
+        source.getLevel().gameEvent(null, GameEvent.ENTITY_PLACE, source.getPos());
         return stack;
     };
 

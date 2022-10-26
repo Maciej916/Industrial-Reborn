@@ -9,7 +9,7 @@ import com.maciej916.indreb.common.interfaces.item.IElectricItem;
 import com.maciej916.indreb.common.item.base.ElectricItem;
 import net.minecraft.ChatFormatting;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.network.chat.TranslatableComponent;
+import net.minecraft.network.chat.Component;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.Entity;
@@ -36,7 +36,7 @@ public class ChargingBattery extends ElectricItem {
             int currentDir = tag.getAllKeys().contains("Mode") ? tag.getInt("Mode") : 1;
             int newMode = currentDir + 1 > 3 ? 0 : currentDir + 1;
             tag.putInt("Mode", newMode);
-            player.displayClientMessage(new TranslatableComponent( "charging." + IndReb.MODID + ".mode", new TranslatableComponent("mode." + IndReb.MODID + "." + newMode).withStyle(ChatFormatting.AQUA)).withStyle(ChatFormatting.GRAY), true);
+            player.displayClientMessage(Component.translatable( "charging." + IndReb.MODID + ".mode", Component.translatable("mode." + IndReb.MODID + "." + newMode).withStyle(ChatFormatting.AQUA)).withStyle(ChatFormatting.GRAY), true);
         }
 
         return InteractionResultHolder.pass(stack);

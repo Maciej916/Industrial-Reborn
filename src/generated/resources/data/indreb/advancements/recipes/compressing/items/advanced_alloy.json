@@ -1,28 +1,23 @@
 {
   "parent": "minecraft:recipes/root",
-  "rewards": {
-    "recipes": [
-      "indreb:compressing/items/advanced_alloy"
-    ]
-  },
   "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "indreb:compressing/items/advanced_alloy"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
     "item": {
-      "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
             "items": [
-              "minecraft:netherite_ingot"
+              "indreb:mixed_metal_ingot"
             ]
           }
         ]
-      }
-    },
-    "has_the_recipe": {
-      "trigger": "minecraft:recipe_unlocked",
-      "conditions": {
-        "recipe": "indreb:compressing/items/advanced_alloy"
-      }
+      },
+      "trigger": "minecraft:inventory_changed"
     }
   },
   "requirements": [
@@ -30,5 +25,10 @@
       "item",
       "has_the_recipe"
     ]
-  ]
+  ],
+  "rewards": {
+    "recipes": [
+      "indreb:compressing/items/advanced_alloy"
+    ]
+  }
 }

@@ -5,8 +5,6 @@ import com.maciej916.indreb.common.enums.UpgradeType;
 import com.maciej916.indreb.common.util.TextComponentUtil;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TextComponent;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
@@ -23,7 +21,7 @@ public class EnergyStorageUpgrade extends ItemUpgrade {
     public void appendHoverText(ItemStack stack, Level level, List<Component> components, TooltipFlag tooltipFlag) {
 
         int amount = 10000 * stack.getCount();
-        components.add(new TranslatableComponent("power." + IndReb.MODID + ".increase", new TextComponent(TextComponentUtil.getFormattedEnergyUnit(amount)).withStyle(ChatFormatting.AQUA)).withStyle(ChatFormatting.GRAY));
+        components.add(Component.translatable("power." + IndReb.MODID + ".increase",Component.literal(TextComponentUtil.getFormattedEnergyUnit(amount)).withStyle(ChatFormatting.AQUA)).withStyle(ChatFormatting.GRAY));
 
         super.appendHoverText(stack, level, components, tooltipFlag);
     }

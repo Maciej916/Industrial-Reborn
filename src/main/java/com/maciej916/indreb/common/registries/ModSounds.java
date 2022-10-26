@@ -2,67 +2,46 @@ package com.maciej916.indreb.common.registries;
 
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
-import net.minecraftforge.event.RegistryEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.RegistryObject;
 
 import static com.maciej916.indreb.IndReb.MODID;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 public final class ModSounds {
 
-    public static SoundEvent GENERATOR;
-    public static SoundEvent GEO_GENERATOR;
-    public static SoundEvent SOLAR_GENERATOR;
-    public static SoundEvent SEMIFLUID_GENERATOR;
-    public static SoundEvent CHARGE_PAD;
+    public static final DeferredRegister<SoundEvent> SOUNDS = DeferredRegister.create(ForgeRegistries.SOUND_EVENTS, MODID);
 
-    public static SoundEvent CRUSHER;
-    public static SoundEvent COMPRESSOR;
-    public static SoundEvent EXTRACTOR;
-    public static SoundEvent SAWMILL;
-    public static SoundEvent RECYCLER;
-    public static SoundEvent CANNING_MACHINE;
+    public static final RegistryObject<SoundEvent> GENERATOR = registerSound("tile.generator");
+    public static final RegistryObject<SoundEvent> GEO_GENERATOR = registerSound("tile.geo_generator");
+    public static final RegistryObject<SoundEvent> SOLAR_GENERATOR = registerSound("tile.solar_generator");
+    public static final RegistryObject<SoundEvent> SEMIFLUID_GENERATOR = registerSound("tile.semifluid_generator");
+    public static final RegistryObject<SoundEvent> CHARGE_PAD = registerSound("tile.charge_pad");
 
+    public static final RegistryObject<SoundEvent> CRUSHER = registerSound("tile.crusher");
+    public static final RegistryObject<SoundEvent> COMPRESSOR = registerSound("tile.compressor");
+    public static final RegistryObject<SoundEvent> EXTRACTOR = registerSound("tile.extractor");
+    public static final RegistryObject<SoundEvent> SAWMILL = registerSound("tile.sawmill");
+    public static final RegistryObject<SoundEvent> RECYCLER = registerSound("tile.recycler");
+    public static final RegistryObject<SoundEvent> CANNING_MACHINE = registerSound("tile.canning_machine");
 
-    public static SoundEvent TREETAP;
-    public static SoundEvent WRENCH;
-    public static SoundEvent ELECTRIC_WRENCH;
-    public static SoundEvent PAINTER;
+    public static final RegistryObject<SoundEvent> TREETAP = registerSound("item.treetap");
+    public static final RegistryObject<SoundEvent> WRENCH = registerSound("item.wrench");
+    public static final RegistryObject<SoundEvent> ELECTRIC_WRENCH = registerSound("item.electric_wrench");
+    public static final RegistryObject<SoundEvent> PAINTER = registerSound("item.painter");
 
-    public static SoundEvent NIGHT_VISION;
+    public static final RegistryObject<SoundEvent> NIGHT_VISION = registerSound("player.night_vision");
 
-
-    @SubscribeEvent
-    public static void registerSounds(RegistryEvent.Register<SoundEvent> event) {
-        GENERATOR = registerSound("tile.generator");
-        GEO_GENERATOR = registerSound("tile.geo_generator");
-        SOLAR_GENERATOR = registerSound("tile.solar_generator");
-        SEMIFLUID_GENERATOR = registerSound("tile.semifluid_generator");
-        CHARGE_PAD = registerSound("tile.charge_pad");
-
-        CRUSHER = registerSound("tile.crusher");
-        COMPRESSOR = registerSound("tile.compressor");
-        EXTRACTOR = registerSound("tile.extractor");
-        SAWMILL = registerSound("tile.sawmill");
-        RECYCLER = registerSound("tile.recycler");
-        CANNING_MACHINE = registerSound("tile.canning_machine");
-
-        TREETAP = registerSound("item.treetap");
-        WRENCH = registerSound("item.wrench");
-        ELECTRIC_WRENCH = registerSound("item.electric_wrench");
-        PAINTER = registerSound("item.painter");
-
-        NIGHT_VISION = registerSound("player.night_vision");
+    private static RegistryObject<SoundEvent> registerSound(String name) {
+        ResourceLocation soundLocation = new ResourceLocation(MODID, name);
+        SoundEvent soundEvent = new SoundEvent(soundLocation);
+        return SOUNDS.register(name, () -> soundEvent);
     }
 
-    public static SoundEvent registerSound(String name) {
-        ResourceLocation shotSoundLocation = new ResourceLocation(MODID, name);
-        SoundEvent soundEvent = new SoundEvent(shotSoundLocation);
-        soundEvent.setRegistryName(shotSoundLocation);
-        ForgeRegistries.SOUND_EVENTS.register(soundEvent);
-        return soundEvent;
+    public static void register(IEventBus eventBus) {
+        SOUNDS.register(eventBus);
     }
-
 }

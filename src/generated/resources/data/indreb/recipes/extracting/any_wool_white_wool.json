@@ -1,13 +1,13 @@
 {
   "type": "indreb:extracting",
+  "duration": 180,
+  "experience": 0.0,
   "ingredient": {
-    "tag": "minecraft:wool",
-    "count": 1
+    "count": 1,
+    "tag": "minecraft:wool"
   },
+  "power_cost": 8,
   "result": {
     "item": "minecraft:white_wool"
-  },
-  "experience": 0.0,
-  "duration": 180,
-  "power_cost": 8
+  }
 }

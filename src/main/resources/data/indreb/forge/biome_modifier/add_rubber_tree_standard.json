@@ -1,0 +1,6 @@
+{
+  "type": "forge:add_features",
+  "biomes": "#minecraft:forest",
+  "features": "indreb:rubber_tree_placed_standard",
+  "step": "vegetal_decoration"
+}

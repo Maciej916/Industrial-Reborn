@@ -1,13 +1,13 @@
 {
   "type": "indreb:crushing",
+  "duration": 180,
+  "experience": 0.1,
   "ingredient": {
-    "tag": "forge:gravel",
-    "count": 1
+    "count": 1,
+    "tag": "forge:gravel"
   },
+  "power_cost": 8,
   "result": {
     "item": "minecraft:flint"
-  },
-  "experience": 0.1,
-  "duration": 180,
-  "power_cost": 8
+  }
 }

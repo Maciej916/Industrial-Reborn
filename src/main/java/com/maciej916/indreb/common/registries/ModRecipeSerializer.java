@@ -1,51 +1,29 @@
 package com.maciej916.indreb.common.registries;
 
 import com.maciej916.indreb.common.recipe.impl.*;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.item.crafting.RecipeSerializer;
-import net.minecraftforge.event.RegistryEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.RegistryObject;
 
 import static com.maciej916.indreb.IndReb.MODID;
 
-@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 public final class ModRecipeSerializer {
+    public static final DeferredRegister<RecipeSerializer<?>> SERIALIZERS = DeferredRegister.create(ForgeRegistries.RECIPE_SERIALIZERS, MODID);
 
-    public static RecipeSerializer<CrushingRecipe> CRUSHING;
-    public static RecipeSerializer<CompressingRecipe> COMPRESSING;
-    public static RecipeSerializer<ExtractingRecipe> EXTRACTING;
-    public static RecipeSerializer<SawingRecipe> SAWING;
-    public static RecipeSerializer<ExtrudingRecipe> EXTRUDING;
-    public static RecipeSerializer<AlloySmeltingRecipe> ALLOY_SMELTING;
-    public static RecipeSerializer<RecyclingRecipe> RECYCLING;
-    public static RecipeSerializer<CanningRecipe> CANNING;
-    public static RecipeSerializer<FluidEnrichingRecipe> FLUID_ENRICHING;
+    public static final RegistryObject<RecipeSerializer<CrushingRecipe>> CRUSHING = SERIALIZERS.register("crushing", () -> CrushingRecipe.SERIALIZER);
+    public static final RegistryObject<RecipeSerializer<CompressingRecipe>> COMPRESSING = SERIALIZERS.register("compressing", () -> CompressingRecipe.SERIALIZER);
+    public static final RegistryObject<RecipeSerializer<ExtractingRecipe>> EXTRACTING = SERIALIZERS.register("extracting", () -> ExtractingRecipe.SERIALIZER);
+    public static final RegistryObject<RecipeSerializer<SawingRecipe>> SAWING = SERIALIZERS.register("sawing", () -> SawingRecipe.SERIALIZER);
+    public static final RegistryObject<RecipeSerializer<ExtrudingRecipe>> EXTRUDING = SERIALIZERS.register("extruding", () -> ExtrudingRecipe.SERIALIZER);
+    public static final RegistryObject<RecipeSerializer<AlloySmeltingRecipe>> ALLOY_SMELTING = SERIALIZERS.register("alloy_smelting", () -> AlloySmeltingRecipe.SERIALIZER);
+    public static final RegistryObject<RecipeSerializer<RecyclingRecipe>> RECYCLING = SERIALIZERS.register("recycling", () -> RecyclingRecipe.SERIALIZER);
+    public static final RegistryObject<RecipeSerializer<CanningRecipe>> CANNING = SERIALIZERS.register("canning", () -> CanningRecipe.SERIALIZER);
+    public static final RegistryObject<RecipeSerializer<FluidEnrichingRecipe>> FLUID_ENRICHING = SERIALIZERS.register("fluid_enriching", () -> FluidEnrichingRecipe.SERIALIZER);
+    public static final RegistryObject<RecipeSerializer<ScrapBoxRecipe>> SCRAP_BOX = SERIALIZERS.register("scrap_box", () -> ScrapBoxRecipe.SERIALIZER);
 
-    public static RecipeSerializer<ScrapBoxRecipe> SCRAP_BOX;
-
-    @SubscribeEvent
-    public static void registerRecipeSerializers(RegistryEvent.Register<RecipeSerializer<?>> event) {
-
-        CRUSHING = registerRecipeSerializer("crushing", CrushingRecipe.SERIALIZER);
-        COMPRESSING = registerRecipeSerializer("compressing", CompressingRecipe.SERIALIZER);
-        EXTRACTING = registerRecipeSerializer("extracting", ExtractingRecipe.SERIALIZER);
-        SAWING = registerRecipeSerializer("sawing", SawingRecipe.SERIALIZER);
-        EXTRUDING = registerRecipeSerializer("extruding", ExtrudingRecipe.SERIALIZER);
-        ALLOY_SMELTING = registerRecipeSerializer("alloy_smelting", AlloySmeltingRecipe.SERIALIZER);
-        RECYCLING = registerRecipeSerializer("recycling", RecyclingRecipe.SERIALIZER);
-        CANNING = registerRecipeSerializer("canning", CanningRecipe.SERIALIZER);
-        FLUID_ENRICHING = registerRecipeSerializer("fluid_enriching", FluidEnrichingRecipe.SERIALIZER);
-
-        SCRAP_BOX = registerRecipeSerializer("scrap_box", ScrapBoxRecipe.SERIALIZER);
+    public static void register(IEventBus eventBus) {
+        SERIALIZERS.register(eventBus);
     }
-
-    private static <S extends RecipeSerializer<T>, T extends Recipe<?>> S registerRecipeSerializer(String name, S recipeSerializer) {
-        recipeSerializer.setRegistryName(new ResourceLocation(MODID, name));
-        ForgeRegistries.RECIPE_SERIALIZERS.register(recipeSerializer);
-        return recipeSerializer;
-    }
-
 }

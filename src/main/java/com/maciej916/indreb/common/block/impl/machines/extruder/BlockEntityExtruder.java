@@ -5,14 +5,14 @@ import com.maciej916.indreb.common.energy.interfaces.IEnergyBlock;
 import com.maciej916.indreb.common.entity.block.BlockEntityProgress;
 import com.maciej916.indreb.common.entity.block.FluidStorage;
 import com.maciej916.indreb.common.entity.block.IndRebBlockEntity;
-import com.maciej916.indreb.common.entity.slot.SlotBattery;
 import com.maciej916.indreb.common.entity.slot.IndRebSlot;
+import com.maciej916.indreb.common.entity.slot.SlotBattery;
 import com.maciej916.indreb.common.enums.*;
 import com.maciej916.indreb.common.interfaces.block.IStateFacing;
+import com.maciej916.indreb.common.interfaces.entity.IElectricSlot;
 import com.maciej916.indreb.common.interfaces.entity.IExpCollector;
 import com.maciej916.indreb.common.interfaces.entity.ISupportUpgrades;
 import com.maciej916.indreb.common.interfaces.entity.ITileSound;
-import com.maciej916.indreb.common.interfaces.entity.IElectricSlot;
 import com.maciej916.indreb.common.network.ModNetworking;
 import com.maciej916.indreb.common.network.packet.PacketExtruderRecipe;
 import com.maciej916.indreb.common.recipe.impl.ExtrudingRecipe;
@@ -28,9 +28,9 @@ import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraftforge.common.capabilities.Capability;
+import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.fluids.capability.CapabilityFluidHandler;
-import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.wrapper.RangedWrapper;
 
 import javax.annotation.Nonnull;
@@ -67,7 +67,7 @@ public class BlockEntityExtruder extends IndRebBlockEntity implements IEnergyBlo
     }
 
     public BlockEntityExtruder(BlockPos pWorldPosition, BlockState pBlockState) {
-        super(ModBlockEntities.EXTRUDER, pWorldPosition, pBlockState);
+        super(ModBlockEntities.EXTRUDER.get(), pWorldPosition, pBlockState);
         createEnergyStorage(0, ServerConfig.extruder_energy_capacity.get(), EnergyType.RECEIVE, EnergyTier.BASIC);
     }
 
@@ -86,7 +86,7 @@ public class BlockEntityExtruder extends IndRebBlockEntity implements IEnergyBlo
 
     @Override
     public SoundEvent getSoundEvent() {
-        return ModSounds.EXTRACTOR;
+        return ModSounds.EXTRACTOR.get();
     }
 
     @Override
@@ -237,7 +237,7 @@ public class BlockEntityExtruder extends IndRebBlockEntity implements IEnergyBlo
     @Override
     public <T> LazyOptional<T> getCapability(@Nonnull final Capability<T> cap, @Nullable final Direction side) {
 
-        if (cap == CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY) {
+        if (cap == ForgeCapabilities.FLUID_HANDLER) {
             if (side == null) return LazyOptional.empty();
 
             if (getBlock() instanceof IStateFacing facing) {
@@ -253,7 +253,7 @@ public class BlockEntityExtruder extends IndRebBlockEntity implements IEnergyBlo
             return LazyOptional.empty();
         }
 
-        if (cap == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY) {
+        if (cap == ForgeCapabilities.ITEM_HANDLER) {
             if (side == null) return capabilities.get(0).cast();
             return switch (side) {
                 case DOWN -> capabilities.get(2).cast();

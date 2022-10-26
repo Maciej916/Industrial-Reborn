@@ -8,7 +8,6 @@ import com.maciej916.indreb.common.util.TextComponentUtil;
 import net.minecraft.ChatFormatting;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -21,8 +20,8 @@ import java.util.List;
 
 public class BlockItemElectric extends BlockItem {
 
-    public BlockItemElectric(Block block) {
-        super(block, new Item.Properties().tab(ModItemGroups.MAIN_ITEM_GROUP));
+    public BlockItemElectric(Block block, Item.Properties properties) {
+        super(block, properties);
     }
 
     @Override
@@ -37,8 +36,8 @@ public class BlockItemElectric extends BlockItem {
                     EnergyTier energyTier = bem.getEnergyTier();
 
                     componentList.add(TextComponentUtil.build(
-                            new TranslatableComponent(EnumLang.STORED.getTranslationKey()).withStyle(ChatFormatting.GRAY),
-                            new TranslatableComponent(EnumLang.POWER.getTranslationKey(), TextComponentUtil.getFormattedEnergyUnit(energy)).withStyle(energyTier.getColor())
+                            Component.translatable(EnumLang.STORED.getTranslationKey()).withStyle(ChatFormatting.GRAY),
+                            Component.translatable(EnumLang.POWER.getTranslationKey(), TextComponentUtil.getFormattedEnergyUnit(energy)).withStyle(energyTier.getColor())
                     ));
                 }
             }

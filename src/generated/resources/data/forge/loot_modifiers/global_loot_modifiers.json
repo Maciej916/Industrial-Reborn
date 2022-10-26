@@ -1,6 +1,6 @@
 {
-  "replace": false,
   "entries": [
-    "indreb:dungeon_loot"
-  ]
+    "indreb:iridium_shard"
+  ],
+  "replace": false
 }

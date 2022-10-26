@@ -1,14 +1,14 @@
 {
   "type": "indreb:sawing",
-  "ingredient": {
-    "item": "minecraft:chest",
-    "count": 1
-  },
-  "result": {
-    "item": "minecraft:oak_planks",
-    "count": 8
-  },
-  "experience": 0.0,
   "duration": 180,
-  "power_cost": 8
+  "experience": 0.0,
+  "ingredient": {
+    "count": 1,
+    "item": "minecraft:chest"
+  },
+  "power_cost": 8,
+  "result": {
+    "count": 8,
+    "item": "minecraft:oak_planks"
+  }
 }

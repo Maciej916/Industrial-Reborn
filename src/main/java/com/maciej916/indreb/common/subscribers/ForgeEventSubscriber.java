@@ -25,9 +25,9 @@ public final class ForgeEventSubscriber {
     }
 
     @SubscribeEvent
-    public static void levelTick(TickEvent.WorldTickEvent event) {
-        if (event.world.isClientSide()) return;
-        event.world.getCapability(ModCapabilities.ENERGY_CORE).ifPresent(IEnergyCore::tick);
+    public static void levelTick(TickEvent.LevelTickEvent event) {
+        if (event.level.isClientSide()) return;
+        event.level.getCapability(ModCapabilities.ENERGY_CORE).ifPresent(IEnergyCore::tick);
     }
 
     @SubscribeEvent
@@ -39,6 +39,6 @@ public final class ForgeEventSubscriber {
 
     @SubscribeEvent
     public static void playerClone(PlayerEvent.Clone event) {
-        event.getOriginal().getCapability(ModCapabilities.PLAYER_CAPABILITY).ifPresent(oldCapability -> event.getPlayer().getCapability(ModCapabilities.PLAYER_CAPABILITY).ifPresent(newCapability -> newCapability.clone(oldCapability)));
+        event.getOriginal().getCapability(ModCapabilities.PLAYER_CAPABILITY).ifPresent(oldCapability -> event.getOriginal().getCapability(ModCapabilities.PLAYER_CAPABILITY).ifPresent(newCapability -> newCapability.clone(oldCapability)));
     }
 }

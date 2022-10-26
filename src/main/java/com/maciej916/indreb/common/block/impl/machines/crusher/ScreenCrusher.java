@@ -7,9 +7,9 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
 
-public class ScreenCrusher extends BetterScreen<ContainerCrusher> {
+public class ScreenCrusher extends BetterScreen<MenuCrusher> {
 
-    public ScreenCrusher(ContainerCrusher container, Inventory inv, Component name) {
+    public ScreenCrusher(MenuCrusher container, Inventory inv, Component name) {
         super(container, inv, name);
     }
 

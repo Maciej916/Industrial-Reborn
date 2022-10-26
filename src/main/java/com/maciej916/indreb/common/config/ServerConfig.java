@@ -74,9 +74,7 @@ public final class ServerConfig {
 
 
 
-	public static ForgeConfigSpec initServer() {
-		ForgeConfigSpec.Builder builder = new ForgeConfigSpec.Builder();
-
+	public static ForgeConfigSpec register(ForgeConfigSpec.Builder builder) {
 		builder.push("general");
 
 		builder.pop();

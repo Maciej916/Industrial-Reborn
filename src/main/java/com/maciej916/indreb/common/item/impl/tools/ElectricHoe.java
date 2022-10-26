@@ -57,7 +57,6 @@ public class ElectricHoe extends DiggerElectricItem {
         super.fillItemCategory(pCategory, pItems);
     }
 
-    @SuppressWarnings("removal")
     @Override
     public InteractionResult useOn(UseOnContext useOnContext) {
         ItemStack itemstack = useOnContext.getItemInHand();
@@ -65,29 +64,27 @@ public class ElectricHoe extends DiggerElectricItem {
         if (energy.energyStored() > 1) {
             Level level = useOnContext.getLevel();
             BlockPos blockpos = useOnContext.getClickedPos();
-            Pair<Predicate<UseOnContext>, Consumer<UseOnContext>> pair = TILLABLES.get(level.getBlockState(blockpos).getBlock());
-            int hook = net.minecraftforge.event.ForgeEventFactory.onHoeUse(useOnContext);
-            if (hook != 0) return hook > 0 ? InteractionResult.SUCCESS : InteractionResult.FAIL;
-            if (useOnContext.getClickedFace() != Direction.DOWN && level.isEmptyBlock(blockpos.above())) {
-                if (pair == null) {
-                    return InteractionResult.PASS;
-                } else {
-                    Predicate<UseOnContext> predicate = pair.getFirst();
-                    Consumer<UseOnContext> consumer = pair.getSecond();
-                    if (predicate.test(useOnContext)) {
-                        Player player = useOnContext.getPlayer();
-                        level.playSound(player, blockpos, SoundEvents.HOE_TILL, SoundSource.BLOCKS, 1.0F, 1.0F);
-                        if (!level.isClientSide) {
-                            consumer.accept(useOnContext);
-                            if (player != null) {
-                                getEnergy(itemstack).consumeEnergy(energyCostTile, false);
-                            }
-                        }
+            BlockState toolModifiedState = level.getBlockState(blockpos).getToolModifiedState(useOnContext, net.minecraftforge.common.ToolActions.HOE_TILL, false);
+            Pair<Predicate<UseOnContext>, Consumer<UseOnContext>> pair = toolModifiedState == null ? null : Pair.of(ctx -> true, changeIntoState(toolModifiedState));
+            if (pair == null) {
+                return InteractionResult.PASS;
+            } else {
+                Predicate<UseOnContext> predicate = pair.getFirst();
+                Consumer<UseOnContext> consumer = pair.getSecond();
+                if (predicate.test(useOnContext)) {
+                    Player player = useOnContext.getPlayer();
 
-                        return InteractionResult.sidedSuccess(level.isClientSide);
-                    } else {
-                        return InteractionResult.PASS;
+                    level.playSound(player, blockpos, SoundEvents.HOE_TILL, SoundSource.BLOCKS, 1.0F, 1.0F);
+                    if (!level.isClientSide) {
+                        consumer.accept(useOnContext);
+                        if (player != null) {
+                            getEnergy(itemstack).consumeEnergy(energyCostTile, false);
+                        }
                     }
+
+                    return InteractionResult.sidedSuccess(level.isClientSide);
+                } else {
+                    return InteractionResult.PASS;
                 }
             }
         }

@@ -10,13 +10,14 @@ import com.mojang.blaze3d.vertex.PoseStack;
 import mezz.jei.api.constants.VanillaTypes;
 import mezz.jei.api.gui.builder.IRecipeLayoutBuilder;
 import mezz.jei.api.gui.drawable.IDrawableAnimated;
-import mezz.jei.api.gui.ingredient.*;
+import mezz.jei.api.gui.ingredient.IRecipeSlotTooltipCallback;
+import mezz.jei.api.gui.ingredient.IRecipeSlotView;
+import mezz.jei.api.gui.ingredient.IRecipeSlotsView;
 import mezz.jei.api.helpers.IGuiHelper;
 import mezz.jei.api.recipe.IFocusGroup;
 import mezz.jei.api.recipe.RecipeIngredientRole;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
@@ -25,11 +26,12 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import static com.maciej916.indreb.common.util.Constants.*;
+import static com.maciej916.indreb.common.util.Constants.JEI;
+import static com.maciej916.indreb.common.util.Constants.PROCESS;
 
 public class ExtractingCategory extends AbstractRecipeCategory<ExtractingRecipe> {
 
-    public static final ResourceLocation UID = ModRecipeSerializer.EXTRACTING.getRegistryName();
+    public static final ResourceLocation UID = ModRecipeSerializer.EXTRACTING.getId();
 
     private IDrawableAnimated progress;
     private IDrawableAnimated energy;
@@ -41,7 +43,7 @@ public class ExtractingCategory extends AbstractRecipeCategory<ExtractingRecipe>
                 "extracting",
                 guiHelper,
                 () -> guiHelper.createDrawable(JEI, 0, 110, 114, 54),
-                () -> guiHelper.createDrawableIngredient(VanillaTypes.ITEM_STACK, new ItemStack(ModBlocks.EXTRACTOR))
+                () -> guiHelper.createDrawableIngredient(VanillaTypes.ITEM_STACK, new ItemStack(ModBlocks.EXTRACTOR.get()))
         );
     }
 
@@ -79,7 +81,7 @@ public class ExtractingCategory extends AbstractRecipeCategory<ExtractingRecipe>
         @Override
         public void onTooltip(IRecipeSlotView recipeSlotView, List<Component> tooltip) {
             if (recipe.hasBonus()) {
-                tooltip.add(new TranslatableComponent(EnumLang.CHANCE.getTranslationKey(), (Math.round(recipe.getBonus().chance() * 100.0) / 100.0) + "%").withStyle(ChatFormatting.BLUE));
+                tooltip.add(Component.translatable(EnumLang.CHANCE.getTranslationKey(), (Math.round(recipe.getBonus().chance() * 100.0) / 100.0) + "%").withStyle(ChatFormatting.BLUE));
             }
         }
     }

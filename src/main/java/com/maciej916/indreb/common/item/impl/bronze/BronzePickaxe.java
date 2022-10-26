@@ -14,7 +14,7 @@ public class BronzePickaxe extends PickaxeItem {
 
     @Override
     public void fillItemCategory(CreativeModeTab pCategory, NonNullList<ItemStack> pItems) {
-        if (pCategory == CreativeModeTab.TAB_COMBAT) pItems.add(new ItemStack(this));
+        if (pCategory == CreativeModeTab.TAB_TOOLS) pItems.add(new ItemStack(this));
         super.fillItemCategory(pCategory, pItems);
     }
 

@@ -20,7 +20,7 @@ public class BlockEntityCable extends BlockEntity implements IEnergyTransmitter 
     private final LazyOptional<IEnergyTransmitter> energyTransmitter = LazyOptional.of(() -> this);
 
     public BlockEntityCable(BlockPos pWorldPosition, BlockState pBlockState) {
-        super(ModBlockEntities.CABLE, pWorldPosition, pBlockState);
+        super(ModBlockEntities.CABLE.get(), pWorldPosition, pBlockState);
     }
 
     @Nonnull

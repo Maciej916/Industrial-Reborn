@@ -15,7 +15,6 @@ import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraftforge.registries.ForgeRegistryEntry;
 
 import javax.annotation.Nullable;
 import java.util.Objects;
@@ -115,7 +114,7 @@ public class FluidEnrichingRecipe implements IBaseRecipe {
         return ingredientCount;
     }
 
-    public static class Serializer extends ForgeRegistryEntry<RecipeSerializer<?>> implements RecipeSerializer<FluidEnrichingRecipe> {
+    public static class Serializer implements RecipeSerializer<FluidEnrichingRecipe> {
 
         @Override
         public FluidEnrichingRecipe fromJson(ResourceLocation recipeId, JsonObject json) {

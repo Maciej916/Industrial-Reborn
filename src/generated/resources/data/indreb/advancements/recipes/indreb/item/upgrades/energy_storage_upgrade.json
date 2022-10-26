@@ -1,25 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
-  "rewards": {
-    "recipes": [
-      "indreb:item/upgrades/energy_storage_upgrade"
-    ]
-  },
   "criteria": {
-    "planks": {
-      "trigger": "minecraft:inventory_changed",
-      "conditions": {
-        "items": [
-          {
-            "items": [
-              "minecraft:oak_planks"
-            ]
-          }
-        ]
-      }
-    },
     "battery": {
-      "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
@@ -28,22 +10,10 @@
             ]
           }
         ]
-      }
-    },
-    "electronic_circuit": {
-      "trigger": "minecraft:inventory_changed",
-      "conditions": {
-        "items": [
-          {
-            "items": [
-              "indreb:electronic_circuit"
-            ]
-          }
-        ]
-      }
+      },
+      "trigger": "minecraft:inventory_changed"
     },
     "copper_cable_insulated": {
-      "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
@@ -52,13 +22,38 @@
             ]
           }
         ]
-      }
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "electronic_circuit": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:electronic_circuit"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
     },
     "has_the_recipe": {
-      "trigger": "minecraft:recipe_unlocked",
       "conditions": {
         "recipe": "indreb:item/upgrades/energy_storage_upgrade"
-      }
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "planks": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:oak_planks"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
     }
   },
   "requirements": [
@@ -69,5 +64,10 @@
       "copper_cable_insulated",
       "has_the_recipe"
     ]
-  ]
+  ],
+  "rewards": {
+    "recipes": [
+      "indreb:item/upgrades/energy_storage_upgrade"
+    ]
+  }
 }

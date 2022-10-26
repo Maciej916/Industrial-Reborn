@@ -2,6 +2,7 @@ package com.maciej916.indreb.integration.jei.category.impl;
 
 import com.maciej916.indreb.common.recipe.impl.AlloySmeltingRecipe;
 import com.maciej916.indreb.common.registries.ModBlocks;
+import com.maciej916.indreb.common.registries.ModItems;
 import com.maciej916.indreb.common.registries.ModRecipeSerializer;
 import com.maciej916.indreb.common.util.GuiUtil;
 import com.maciej916.indreb.integration.jei.category.AbstractRecipeCategory;
@@ -26,7 +27,7 @@ import static com.maciej916.indreb.common.util.Constants.*;
 
 public class AlloySmeltingCategory extends AbstractRecipeCategory<AlloySmeltingRecipe> {
 
-    public static final ResourceLocation UID = ModRecipeSerializer.ALLOY_SMELTING.getRegistryName();
+    public static final ResourceLocation UID = ModRecipeSerializer.ALLOY_SMELTING.getId();
 
     private IDrawableAnimated progress;
     private IDrawableAnimated energy;
@@ -39,13 +40,8 @@ public class AlloySmeltingCategory extends AbstractRecipeCategory<AlloySmeltingR
                 "alloy_smelting",
                 guiHelper,
                 () -> guiHelper.createDrawable(JEI_LARGE, 0, 0, 152, 54),
-                () -> guiHelper.createDrawableIngredient(VanillaTypes.ITEM_STACK, new ItemStack(ModBlocks.ALLOY_SMELTER))
+                () -> guiHelper.createDrawableIngredient(VanillaTypes.ITEM_STACK, new ItemStack(ModBlocks.ALLOY_SMELTER.get()))
         );
-    }
-
-    @Override
-    public RecipeType<AlloySmeltingRecipe> getRecipeType() {
-        return new RecipeType<>(UID, getRecipeClass());
     }
 
     @Override

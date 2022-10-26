@@ -21,8 +21,8 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.common.capabilities.Capability;
+import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.common.util.LazyOptional;
-import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.wrapper.RangedWrapper;
 
 import javax.annotation.Nonnull;
@@ -55,7 +55,7 @@ public class BlockEntityAlloySmelter extends IndRebBlockEntity implements IEnerg
     private boolean cachedWork;
 
     public BlockEntityAlloySmelter(BlockPos pWorldPosition, BlockState pBlockState) {
-        super(ModBlockEntities.ALLOY_SMELTER, pWorldPosition, pBlockState);
+        super(ModBlockEntities.ALLOY_SMELTER.get(), pWorldPosition, pBlockState);
         createEnergyStorage(0, ServerConfig.alloy_smelter_energy_capacity.get(), EnergyType.RECEIVE, EnergyTier.STANDARD);
     }
 
@@ -244,7 +244,7 @@ public class BlockEntityAlloySmelter extends IndRebBlockEntity implements IEnerg
     @Nonnull
     @Override
     public <T> LazyOptional<T> getCapability(@Nonnull final Capability<T> cap, @Nullable final Direction side) {
-        if (cap == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY) {
+        if (cap == ForgeCapabilities.ITEM_HANDLER) {
             return switch (side) {
                 case UP -> capabilities.get(1).cast();
                 case DOWN -> capabilities.get(2).cast();

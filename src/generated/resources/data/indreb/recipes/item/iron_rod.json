@@ -1,17 +1,17 @@
 {
   "type": "minecraft:crafting_shaped",
   "group": "indreb",
-  "pattern": [
-    "i  ",
-    "i  "
-  ],
   "key": {
     "i": {
       "item": "minecraft:iron_ingot"
     }
   },
+  "pattern": [
+    "i  ",
+    "i  "
+  ],
   "result": {
-    "item": "indreb:iron_rod",
-    "count": 4
+    "count": 4,
+    "item": "indreb:iron_rod"
   }
 }

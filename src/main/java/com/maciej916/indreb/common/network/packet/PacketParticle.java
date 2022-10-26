@@ -5,10 +5,10 @@ import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.FriendlyByteBuf;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.network.NetworkEvent;
 
-import java.util.Random;
 import java.util.function.Supplier;
 
 public class PacketParticle {
@@ -32,7 +32,7 @@ public class PacketParticle {
             LocalPlayer player = ModProxy.PROXY.getLocalPlayer();
             if (player != null) {
                 Level level = player.getLevel();
-                Random random = player.getRandom();
+                RandomSource random = player.getRandom();
 
                 for (int i = 0; i < 5; i++) {
                     double x = blockPos.getX() + 0.3 + random.nextDouble() * 0.4;

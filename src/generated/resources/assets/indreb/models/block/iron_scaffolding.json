@@ -1,8 +1,8 @@
 {
   "parent": "minecraft:block/cube_bottom_top",
   "textures": {
-    "side": "indreb:block/iron_scaffolding_sides",
     "bottom": "indreb:block/iron_scaffolding_bottomtop",
+    "side": "indreb:block/iron_scaffolding_sides",
     "top": "indreb:block/iron_scaffolding_bottomtop"
   }
 }

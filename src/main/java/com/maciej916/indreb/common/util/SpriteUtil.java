@@ -5,6 +5,7 @@ import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.inventory.InventoryMenu;
 import net.minecraft.world.level.material.Fluid;
+import net.minecraftforge.client.extensions.common.IClientFluidTypeExtensions;
 import net.minecraftforge.fluids.FluidStack;
 
 import javax.annotation.Nonnull;
@@ -17,7 +18,7 @@ public class SpriteUtil {
 
     public static TextureAtlasSprite getFluidSprite(@Nonnull FluidStack fluidStack) {
         Fluid fluid = fluidStack.getFluid();
-        ResourceLocation spriteLocation = fluid.getAttributes().getStillTexture(fluidStack);
+        ResourceLocation spriteLocation = IClientFluidTypeExtensions.of(fluid).getStillTexture(fluidStack);
         return getSprite(spriteLocation);
     }
 

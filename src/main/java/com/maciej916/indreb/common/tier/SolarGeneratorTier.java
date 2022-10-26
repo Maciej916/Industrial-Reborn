@@ -3,26 +3,23 @@ package com.maciej916.indreb.common.tier;
 import com.maciej916.indreb.common.config.ServerConfig;
 import com.maciej916.indreb.common.enums.EnergyTier;
 
+import java.util.Arrays;
+import java.util.stream.Stream;
+
 public enum SolarGeneratorTier {
-    BASIC(EnergyTier.BASIC, "basic", 8.0D, ServerConfig.solar_generator_energy_capacity.get(), ServerConfig.solar_generator_day_tick_generate.get(), ServerConfig.solar_generator_night_tick_generate.get()),
-    ADVANCED(EnergyTier.STANDARD, "advanced", 10.0D, ServerConfig.advanced_solar_generator_energy_capacity.get(), ServerConfig.advanced_solar_generator_day_tick_generate.get(), ServerConfig.advanced_solar_generator_night_tick_generate.get()),
-    HYBRID(EnergyTier.ADVANCED, "hybrid", 12.0D, ServerConfig.hybrid_solar_generator_energy_capacity.get(), ServerConfig.hybrid_solar_generator_day_tick_generate.get(), ServerConfig.hybrid_solar_generator_night_tick_generate.get()),
-    QUANTUM(EnergyTier.SUPER, "quantum", 14.0D, ServerConfig.quantum_solar_generator_energy_capacity.get(), ServerConfig.quantum_solar_generator_day_tick_generate.get(), ServerConfig.quantum_solar_generator_night_tick_generate.get());
+    BASIC(EnergyTier.BASIC, "basic", 8.0D),
+    ADVANCED(EnergyTier.STANDARD, "advanced", 10.0D),
+    HYBRID(EnergyTier.ADVANCED, "hybrid", 12.0D),
+    QUANTUM(EnergyTier.SUPER, "quantum", 14.0D);
 
     private final EnergyTier energyTier;
     private final String tier;
     private final double height;
-    private final int energyCapacity;
-    private final int dayGenerate;
-    private final int nightGenerate;
 
-    SolarGeneratorTier(EnergyTier energyTier, String tier, double height, int energyCapacity, int dayGenerate, int nightGenerate) {
+    SolarGeneratorTier(EnergyTier energyTier, String tier, double height) {
         this.energyTier = energyTier;
         this.tier = tier;
         this.height = height;
-        this.energyCapacity = energyCapacity;
-        this.dayGenerate = dayGenerate;
-        this.nightGenerate = nightGenerate;
     }
 
     public EnergyTier getEnergyTier() {
@@ -38,14 +35,32 @@ public enum SolarGeneratorTier {
     }
 
     public int getEnergyCapacity() {
-        return energyCapacity;
+        return switch (energyTier) {
+            case BASIC -> ServerConfig.solar_generator_energy_capacity.get();
+            case STANDARD -> ServerConfig.advanced_solar_generator_energy_capacity.get();
+            case ADVANCED -> ServerConfig.hybrid_solar_generator_energy_capacity.get();
+            case SUPER -> ServerConfig.quantum_solar_generator_energy_capacity.get();
+            default -> ServerConfig.solar_generator_energy_capacity.get();
+        };
     }
 
     public int getDayGenerate() {
-        return dayGenerate;
+        return switch (energyTier) {
+            case BASIC -> ServerConfig.solar_generator_day_tick_generate.get();
+            case STANDARD -> ServerConfig.advanced_solar_generator_day_tick_generate.get();
+            case ADVANCED -> ServerConfig.hybrid_solar_generator_day_tick_generate.get();
+            case SUPER -> ServerConfig.quantum_solar_generator_day_tick_generate.get();
+            default -> ServerConfig.solar_generator_day_tick_generate.get();
+        };
     }
 
     public int getNightGenerate() {
-        return nightGenerate;
+        return switch (energyTier) {
+            case BASIC -> ServerConfig.solar_generator_night_tick_generate.get();
+            case STANDARD -> ServerConfig.advanced_solar_generator_night_tick_generate.get();
+            case ADVANCED -> ServerConfig.hybrid_solar_generator_night_tick_generate.get();
+            case SUPER -> ServerConfig.quantum_solar_generator_night_tick_generate.get();
+            default -> ServerConfig.solar_generator_night_tick_generate.get();
+        };
     }
 }

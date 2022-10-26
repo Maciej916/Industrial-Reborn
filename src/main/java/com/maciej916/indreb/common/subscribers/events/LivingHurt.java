@@ -14,7 +14,7 @@ public class LivingHurt {
 
     @SubscribeEvent
     public static void event(LivingHurtEvent event) {
-        if (!event.getSource().isBypassInvul() && event.getEntityLiving() instanceof Player player) {
+        if (!event.getSource().isBypassInvul() && event.getEntity() instanceof Player player) {
             Iterable<ItemStack> stacks = player.getArmorSlots();
             for (ItemStack stack : stacks) {
                 if (stack.getItem() instanceof IElectricItem iei) {

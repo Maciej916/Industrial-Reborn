@@ -7,7 +7,7 @@ import com.maciej916.indreb.common.interfaces.screen.IGuiWrapper;
 import com.maciej916.indreb.common.screen.progress.GuiProgress;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.gui.screens.Screen;
-import net.minecraft.network.chat.TranslatableComponent;
+import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import org.jetbrains.annotations.NotNull;
 
@@ -25,7 +25,7 @@ public class GuiFertilizerBar extends GuiProgress {
     @Override
     public void renderWidgetToolTip(Screen screen, PoseStack pPoseStack, int pMouseX, int pMouseY) {
         if (isHoveredOrFocused()) {
-            screen.renderTooltip(pPoseStack, new TranslatableComponent("gui." + IndReb.MODID + ".waste", getProgress().getPercentProgressString() + "%"), pMouseX, pMouseY);
+            screen.renderTooltip(pPoseStack, Component.translatable("gui." + IndReb.MODID + ".waste", getProgress().getPercentProgressString() + "%"), pMouseX, pMouseY);
         }
     }
 }

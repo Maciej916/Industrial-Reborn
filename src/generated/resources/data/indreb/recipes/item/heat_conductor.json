@@ -1,19 +1,19 @@
 {
   "type": "minecraft:crafting_shaped",
   "group": "indreb",
+  "key": {
+    "c": {
+      "item": "indreb:copper_plate"
+    },
+    "r": {
+      "item": "indreb:rubber"
+    }
+  },
   "pattern": [
     "rcr",
     "rcr",
     "rcr"
   ],
-  "key": {
-    "r": {
-      "item": "indreb:rubber"
-    },
-    "c": {
-      "item": "indreb:copper_plate"
-    }
-  },
   "result": {
     "item": "indreb:heat_conductor"
   }

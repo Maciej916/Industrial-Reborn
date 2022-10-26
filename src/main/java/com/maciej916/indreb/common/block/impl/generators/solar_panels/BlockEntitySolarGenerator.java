@@ -22,7 +22,7 @@ public class BlockEntitySolarGenerator extends IndRebBlockEntity implements IEne
     public int amount = 0;
 
     public BlockEntitySolarGenerator(BlockPos pWorldPosition, BlockState pBlockState) {
-        super(ModBlockEntities.SOLAR_GENERATOR, pWorldPosition, pBlockState);
+        super(ModBlockEntities.SOLAR_GENERATOR.get(), pWorldPosition, pBlockState);
 
         BlockSolarGenerator block = (BlockSolarGenerator) getBlock();
         this.tier = block.getSolarGeneratorTier();
@@ -42,7 +42,7 @@ public class BlockEntitySolarGenerator extends IndRebBlockEntity implements IEne
         amount = 0;
         getEnergyStorage().updateGenerated(0);
 
-        if (level != null &&level.canSeeSky(getBlockPos())) {
+        if (level != null && level.canSeeSky(getBlockPos())) {
             if (level.isDay() && !level.isThundering()) {
                 amount = tier.getDayGenerate();
             }
@@ -89,7 +89,7 @@ public class BlockEntitySolarGenerator extends IndRebBlockEntity implements IEne
 
     @Override
     public SoundEvent getSoundEvent() {
-        return ModSounds.SOLAR_GENERATOR;
+        return ModSounds.SOLAR_GENERATOR.get();
     }
 
     @Override

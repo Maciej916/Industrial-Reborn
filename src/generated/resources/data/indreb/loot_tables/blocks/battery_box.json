@@ -2,8 +2,6 @@
   "type": "minecraft:block",
   "pools": [
     {
-      "name": "battery_box",
-      "rolls": 1.0,
       "bonus_rolls": 0.0,
       "entries": [
         {
@@ -14,19 +12,21 @@
               "source": "block_entity"
             },
             {
-              "function": "minecraft:set_contents",
               "type": "indreb:battery_box",
               "entries": [
                 {
                   "type": "minecraft:dynamic",
                   "name": "minecraft:contents"
                 }
-              ]
+              ],
+              "function": "minecraft:set_contents"
             }
           ],
           "name": "indreb:battery_box"
         }
-      ]
+      ],
+      "name": "battery_box",
+      "rolls": 1.0
     }
   ]
 }

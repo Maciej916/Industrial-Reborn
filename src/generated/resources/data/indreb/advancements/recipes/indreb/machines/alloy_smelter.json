@@ -1,37 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
-  "rewards": {
-    "recipes": [
-      "indreb:machines/alloy_smelter"
-    ]
-  },
   "criteria": {
-    "electric_furnace": {
-      "trigger": "minecraft:inventory_changed",
-      "conditions": {
-        "items": [
-          {
-            "items": [
-              "indreb:electric_furnace"
-            ]
-          }
-        ]
-      }
-    },
-    "basic_machine_casing": {
-      "trigger": "minecraft:inventory_changed",
-      "conditions": {
-        "items": [
-          {
-            "items": [
-              "indreb:basic_machine_casing"
-            ]
-          }
-        ]
-      }
-    },
     "advanced_circuit": {
-      "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
@@ -40,10 +10,40 @@
             ]
           }
         ]
-      }
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "basic_machine_casing": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:basic_machine_casing"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "electric_furnace": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:electric_furnace"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "indreb:machines/alloy_smelter"
+      },
+      "trigger": "minecraft:recipe_unlocked"
     },
     "heat_conductor": {
-      "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
@@ -52,13 +52,8 @@
             ]
           }
         ]
-      }
-    },
-    "has_the_recipe": {
-      "trigger": "minecraft:recipe_unlocked",
-      "conditions": {
-        "recipe": "indreb:machines/alloy_smelter"
-      }
+      },
+      "trigger": "minecraft:inventory_changed"
     }
   },
   "requirements": [
@@ -69,5 +64,10 @@
       "heat_conductor",
       "has_the_recipe"
     ]
-  ]
+  ],
+  "rewards": {
+    "recipes": [
+      "indreb:machines/alloy_smelter"
+    ]
+  }
 }

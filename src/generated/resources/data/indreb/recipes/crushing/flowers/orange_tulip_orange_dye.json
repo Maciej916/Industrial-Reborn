@@ -1,18 +1,18 @@
 {
   "type": "indreb:crushing",
-  "ingredient": {
-    "item": "minecraft:orange_tulip",
-    "count": 1
-  },
-  "result": {
+  "bonus_result": {
+    "chance": 25.0,
+    "count": 1,
     "item": "minecraft:orange_dye"
   },
-  "bonus_result": {
-    "item": "minecraft:orange_dye",
-    "count": 1,
-    "chance": 25.0
-  },
-  "experience": 0.1,
   "duration": 180,
-  "power_cost": 8
+  "experience": 0.1,
+  "ingredient": {
+    "count": 1,
+    "item": "minecraft:orange_tulip"
+  },
+  "power_cost": 8,
+  "result": {
+    "item": "minecraft:orange_dye"
+  }
 }

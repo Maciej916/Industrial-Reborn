@@ -1,38 +1,38 @@
 {
   "parent": "minecraft:item/generated",
-  "textures": {
-    "layer0": "indreb:item/battery/advanced_battery_0"
-  },
   "overrides": [
     {
+      "model": "indreb:item/battery/advanced_battery_0",
       "predicate": {
         "indreb:charge_ratio": 0.0
-      },
-      "model": "indreb:item/battery/advanced_battery_0"
+      }
     },
     {
+      "model": "indreb:item/battery/advanced_battery_1",
       "predicate": {
         "indreb:charge_ratio": 1.0
-      },
-      "model": "indreb:item/battery/advanced_battery_1"
+      }
     },
     {
+      "model": "indreb:item/battery/advanced_battery_2",
       "predicate": {
         "indreb:charge_ratio": 2.0
-      },
-      "model": "indreb:item/battery/advanced_battery_2"
+      }
     },
     {
+      "model": "indreb:item/battery/advanced_battery_3",
       "predicate": {
         "indreb:charge_ratio": 3.0
-      },
-      "model": "indreb:item/battery/advanced_battery_3"
+      }
     },
     {
+      "model": "indreb:item/battery/advanced_battery_4",
       "predicate": {
         "indreb:charge_ratio": 4.0
-      },
-      "model": "indreb:item/battery/advanced_battery_4"
+      }
     }
-  ]
+  ],
+  "textures": {
+    "layer0": "indreb:item/battery/advanced_battery_0"
+  }
 }

@@ -1,11 +1,13 @@
 package com.maciej916.indreb;
 
+import com.maciej916.indreb.common.config.ModConfig;
+import com.maciej916.indreb.common.fluid.ModFluids;
+import com.maciej916.indreb.common.loot.ModLootModifiers;
 import com.maciej916.indreb.common.network.ModNetworking;
 import com.maciej916.indreb.common.proxy.ModProxy;
-import com.maciej916.indreb.common.registries.Config;
-import com.maciej916.indreb.common.registries.ModFluids;
-import com.maciej916.indreb.common.registries.ModGeneration;
-import com.maciej916.indreb.common.registries.ModRecipeType;
+import com.maciej916.indreb.common.registries.*;
+import com.maciej916.indreb.common.world.feature.ModConfiguredFeatures;
+import com.maciej916.indreb.common.world.feature.ModPlacedFeatures;
 import com.maciej916.indreb.datagen.DataGenerators;
 import com.maciej916.indreb.integration.top.TOPPlugin;
 import mcjty.theoneprobe.TheOneProbe;
@@ -23,26 +25,33 @@ public class IndReb {
     public static final Logger LOGGER = LogManager.getLogger();
 
     public IndReb() {
-//        final ModLoadingContext modLoadingContext = ModLoadingContext.get();
-
         final IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
         modEventBus.addListener(this::onCommonSetup);
 
-        DataGenerators.GLM.register(modEventBus);
+        ModBlocks.register(modEventBus);
+        ModItems.register(modEventBus);
 
-        ModFluids.FLUIDS.register(modEventBus);
-        ModFluids.FLUID_BLOCKS.register(modEventBus);
-        ModFluids.FLUID_ITEMS.register(modEventBus);
+        ModFluids.register(modEventBus);
 
-        ModRecipeType.RECIPE_TYPES.register(modEventBus);
+        ModBlockEntities.register(modEventBus);
+        ModMenuTypes.register(modEventBus);
 
-        Config.init();
+        ModRecipeType.register(modEventBus);
+        ModRecipeSerializer.register(modEventBus);
+
+        ModSounds.register(modEventBus);
+
+        ModConfiguredFeatures.register(modEventBus);
+        ModPlacedFeatures.register(modEventBus);
+
+        ModLootModifiers.register(modEventBus);
+
+        ModConfig.register();
     }
 
     private void onCommonSetup(final FMLCommonSetupEvent event) {
         ModProxy.init();
         ModNetworking.init();
-        ModGeneration.init();
 
         if (ModList.get().isLoaded(TheOneProbe.MODID)) {
             TOPPlugin.registerCompatibility();

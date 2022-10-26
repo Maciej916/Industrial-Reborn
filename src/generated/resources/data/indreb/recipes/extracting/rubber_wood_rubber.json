@@ -1,13 +1,13 @@
 {
   "type": "indreb:extracting",
+  "duration": 180,
+  "experience": 0.0,
   "ingredient": {
-    "item": "indreb:rubber_log",
-    "count": 1
+    "count": 1,
+    "item": "indreb:rubber_log"
   },
+  "power_cost": 8,
   "result": {
     "item": "indreb:rubber"
-  },
-  "experience": 0.0,
-  "duration": 180,
-  "power_cost": 8
+  }
 }

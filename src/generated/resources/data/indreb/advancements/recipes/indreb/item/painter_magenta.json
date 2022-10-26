@@ -1,25 +1,13 @@
 {
   "parent": "minecraft:recipes/root",
-  "rewards": {
-    "recipes": [
-      "indreb:item/painter_magenta"
-    ]
-  },
   "criteria": {
-    "painter": {
-      "trigger": "minecraft:inventory_changed",
+    "has_the_recipe": {
       "conditions": {
-        "items": [
-          {
-            "items": [
-              "indreb:painter"
-            ]
-          }
-        ]
-      }
+        "recipe": "indreb:item/painter_magenta"
+      },
+      "trigger": "minecraft:recipe_unlocked"
     },
     "magenta_dye": {
-      "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
@@ -28,13 +16,20 @@
             ]
           }
         ]
-      }
+      },
+      "trigger": "minecraft:inventory_changed"
     },
-    "has_the_recipe": {
-      "trigger": "minecraft:recipe_unlocked",
+    "painter": {
       "conditions": {
-        "recipe": "indreb:item/painter_magenta"
-      }
+        "items": [
+          {
+            "items": [
+              "indreb:painter"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
     }
   },
   "requirements": [
@@ -43,5 +38,10 @@
       "magenta_dye",
       "has_the_recipe"
     ]
-  ]
+  ],
+  "rewards": {
+    "recipes": [
+      "indreb:item/painter_magenta"
+    ]
+  }
 }

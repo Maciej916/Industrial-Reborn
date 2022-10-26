@@ -3,35 +3,36 @@ package com.maciej916.indreb.integration.jei;
 import com.google.common.base.Stopwatch;
 import com.maciej916.indreb.IndReb;
 import com.maciej916.indreb.common.block.impl.machines.alloy_smelter.BlockEntityAlloySmelter;
-import com.maciej916.indreb.common.block.impl.machines.alloy_smelter.ContainerAlloySmelter;
+import com.maciej916.indreb.common.block.impl.machines.alloy_smelter.MenuAlloySmelter;
 import com.maciej916.indreb.common.block.impl.machines.alloy_smelter.ScreenAlloySmelter;
 import com.maciej916.indreb.common.block.impl.machines.canning_machine.BlockEntityCanningMachine;
-import com.maciej916.indreb.common.block.impl.machines.canning_machine.ContainerCanningMachine;
+import com.maciej916.indreb.common.block.impl.machines.canning_machine.MenuCanningMachine;
 import com.maciej916.indreb.common.block.impl.machines.canning_machine.ScreenCanningMachine;
 import com.maciej916.indreb.common.block.impl.machines.compressor.BlockEntityCompressor;
-import com.maciej916.indreb.common.block.impl.machines.compressor.ContainerCompressor;
+import com.maciej916.indreb.common.block.impl.machines.compressor.MenuCompressor;
 import com.maciej916.indreb.common.block.impl.machines.compressor.ScreenCompressor;
 import com.maciej916.indreb.common.block.impl.machines.crusher.BlockEntityCrusher;
-import com.maciej916.indreb.common.block.impl.machines.crusher.ContainerCrusher;
+import com.maciej916.indreb.common.block.impl.machines.crusher.MenuCrusher;
 import com.maciej916.indreb.common.block.impl.machines.crusher.ScreenCrusher;
 import com.maciej916.indreb.common.block.impl.machines.electric_furnace.ScreenElectricFurnace;
 import com.maciej916.indreb.common.block.impl.machines.extractor.BlockEntityExtractor;
-import com.maciej916.indreb.common.block.impl.machines.extractor.ContainerExtractor;
+import com.maciej916.indreb.common.block.impl.machines.extractor.MenuExtractor;
 import com.maciej916.indreb.common.block.impl.machines.extractor.ScreenExtractor;
 import com.maciej916.indreb.common.block.impl.machines.extruder.ScreenExtruder;
 import com.maciej916.indreb.common.block.impl.machines.fluid_enricher.BlockEntityFluidEnricher;
-import com.maciej916.indreb.common.block.impl.machines.fluid_enricher.ContainerFluidEnricher;
+import com.maciej916.indreb.common.block.impl.machines.fluid_enricher.MenuFluidEnricher;
 import com.maciej916.indreb.common.block.impl.machines.fluid_enricher.ScreenFluidEnricher;
 import com.maciej916.indreb.common.block.impl.machines.iron_furnace.ScreenIronFurnace;
 import com.maciej916.indreb.common.block.impl.machines.recycler.BlockEntityRecycler;
-import com.maciej916.indreb.common.block.impl.machines.recycler.ContainerRecycler;
+import com.maciej916.indreb.common.block.impl.machines.recycler.MenuRecycler;
 import com.maciej916.indreb.common.block.impl.machines.recycler.ScreenRecycler;
 import com.maciej916.indreb.common.block.impl.machines.sawmill.BlockEntitySawmill;
-import com.maciej916.indreb.common.block.impl.machines.sawmill.ContainerSawmill;
+import com.maciej916.indreb.common.block.impl.machines.sawmill.MenuSawmill;
 import com.maciej916.indreb.common.block.impl.machines.sawmill.ScreenSawmill;
 import com.maciej916.indreb.common.recipe.impl.*;
 import com.maciej916.indreb.common.registries.ModBlocks;
 import com.maciej916.indreb.common.registries.ModItems;
+import com.maciej916.indreb.common.registries.ModMenuTypes;
 import com.maciej916.indreb.common.registries.ModRecipeType;
 import com.maciej916.indreb.common.screen.GuiHandler;
 import com.maciej916.indreb.common.screen.PanelScreen;
@@ -80,20 +81,19 @@ public class JEIPlugin implements IModPlugin {
 
     @Override
     public void registerRecipeCatalysts(IRecipeCatalystRegistration registration) {
-        registration.addRecipeCatalyst(new ItemStack(ModBlocks.IRON_FURNACE), RecipeTypes.SMELTING);
+        registration.addRecipeCatalyst(new ItemStack(ModBlocks.IRON_FURNACE.get()), RecipeTypes.SMELTING);
 
-        // custom Screen
-        registration.addRecipeCatalyst(new ItemStack(ModBlocks.ELECTRIC_FURNACE), RecipeTypes.SMELTING);
+        registration.addRecipeCatalyst(new ItemStack(ModBlocks.ELECTRIC_FURNACE.get()), RecipeTypes.SMELTING);
 
-        registration.addRecipeCatalyst(new ItemStack(ModBlocks.CRUSHER), CRUSHING_TYPE);
-        registration.addRecipeCatalyst(new ItemStack(ModBlocks.COMPRESSOR), COMPRESSING_TYPE);
-        registration.addRecipeCatalyst(new ItemStack(ModBlocks.EXTRACTOR), EXTRACTING_TYPE);
-        registration.addRecipeCatalyst(new ItemStack(ModBlocks.EXTRUDER), EXTRUDING_TYPE);
-        registration.addRecipeCatalyst(new ItemStack(ModBlocks.SAWMILL), SAWING_TYPE);
-        registration.addRecipeCatalyst(new ItemStack(ModBlocks.ALLOY_SMELTER), ALLOY_SMELTING_TYPE);
-        registration.addRecipeCatalyst(new ItemStack(ModBlocks.RECYCLER), RECYCLING_TYPE);
-        registration.addRecipeCatalyst(new ItemStack(ModBlocks.CANNING_MACHINE), CANNING_TYPE);
-        registration.addRecipeCatalyst(new ItemStack(ModBlocks.FLUID_ENRICHER), FLUID_ENRICHING_TYPE);
+        registration.addRecipeCatalyst(new ItemStack(ModBlocks.CRUSHER.get()), CRUSHING_TYPE);
+        registration.addRecipeCatalyst(new ItemStack(ModBlocks.COMPRESSOR.get()), COMPRESSING_TYPE);
+        registration.addRecipeCatalyst(new ItemStack(ModBlocks.EXTRACTOR.get()), EXTRACTING_TYPE);
+        registration.addRecipeCatalyst(new ItemStack(ModBlocks.EXTRUDER.get()), EXTRUDING_TYPE);
+        registration.addRecipeCatalyst(new ItemStack(ModBlocks.SAWMILL.get()), SAWING_TYPE);
+        registration.addRecipeCatalyst(new ItemStack(ModBlocks.ALLOY_SMELTER.get()), ALLOY_SMELTING_TYPE);
+        registration.addRecipeCatalyst(new ItemStack(ModBlocks.RECYCLER.get()), RECYCLING_TYPE);
+        registration.addRecipeCatalyst(new ItemStack(ModBlocks.CANNING_MACHINE.get()), CANNING_TYPE);
+        registration.addRecipeCatalyst(new ItemStack(ModBlocks.FLUID_ENRICHER.get()), FLUID_ENRICHING_TYPE);
     }
 
     @Override
@@ -121,7 +121,7 @@ public class JEIPlugin implements IModPlugin {
         Stopwatch sw = Stopwatch.createStarted();
 
         IIngredientManager ingredientManager = registration.getIngredientManager();
-        ingredientManager.removeIngredientsAtRuntime(VanillaTypes.ITEM_STACK, List.of(ModItems.DEBUG_STICK.getDefaultInstance()));
+        ingredientManager.removeIngredientsAtRuntime(VanillaTypes.ITEM_STACK, List.of(ModItems.DEBUG_STICK.get().getDefaultInstance()));
 
         registration.addRecipes(CRUSHING_TYPE, recipeManager.getAllRecipesFor(ModRecipeType.CRUSHING.get()));
         registration.addRecipes(COMPRESSING_TYPE, recipeManager.getAllRecipesFor(ModRecipeType.COMPRESSING.get()));
@@ -158,48 +158,48 @@ public class JEIPlugin implements IModPlugin {
 
     @Override
     public void registerRecipeTransferHandlers(IRecipeTransferRegistration registration) {
-        registration.addRecipeTransferHandler(ContainerCrusher.class, CRUSHING_TYPE, BlockEntityCrusher.INPUT_SLOT, 1, 1, 37);
-        registration.addRecipeTransferHandler(ContainerCompressor.class, COMPRESSING_TYPE, BlockEntityCompressor.INPUT_SLOT, 1, 1, 37);
-        registration.addRecipeTransferHandler(ContainerExtractor.class, EXTRACTING_TYPE, BlockEntityExtractor.INPUT_SLOT, 1, 1, 37);
-        registration.addRecipeTransferHandler(ContainerSawmill.class, SAWING_TYPE, BlockEntitySawmill.INPUT_SLOT, 1, 1, 37);
-        registration.addRecipeTransferHandler(ContainerAlloySmelter.class, ALLOY_SMELTING_TYPE, BlockEntityAlloySmelter.INPUT_SLOT_0, 3, 0, 37);
-        registration.addRecipeTransferHandler(ContainerRecycler.class, RECYCLING_TYPE, BlockEntityRecycler.INPUT_SLOT, 1, 1, 37);
-        registration.addRecipeTransferHandler(ContainerCanningMachine.class, CANNING_TYPE, BlockEntityCanningMachine.INPUT_SLOT_0, 2, 1, 37);
-        registration.addRecipeTransferHandler(ContainerFluidEnricher.class, FLUID_ENRICHING_TYPE, BlockEntityFluidEnricher.INPUT_SLOT, 1, 1, 37);
+        registration.addRecipeTransferHandler(MenuCrusher.class, ModMenuTypes.CRUSHER.get(), CRUSHING_TYPE, BlockEntityCrusher.INPUT_SLOT, 1, 1, 37);
+        registration.addRecipeTransferHandler(MenuCompressor.class, ModMenuTypes.COMPRESSOR.get(), COMPRESSING_TYPE, BlockEntityCompressor.INPUT_SLOT, 1, 1, 37);
+        registration.addRecipeTransferHandler(MenuExtractor.class, ModMenuTypes.EXTRACTOR.get(), EXTRACTING_TYPE, BlockEntityExtractor.INPUT_SLOT, 1, 1, 37);
+        registration.addRecipeTransferHandler(MenuSawmill.class, ModMenuTypes.SAWMILL.get(), SAWING_TYPE, BlockEntitySawmill.INPUT_SLOT, 1, 1, 37);
+        registration.addRecipeTransferHandler(MenuAlloySmelter.class, ModMenuTypes.ALLOY_SMELTER.get(), ALLOY_SMELTING_TYPE, BlockEntityAlloySmelter.INPUT_SLOT_0, 3, 0, 37);
+        registration.addRecipeTransferHandler(MenuRecycler.class, ModMenuTypes.RECYCLER.get(), RECYCLING_TYPE, BlockEntityRecycler.INPUT_SLOT, 1, 1, 37);
+        registration.addRecipeTransferHandler(MenuCanningMachine.class, ModMenuTypes.CANNING_MACHINE.get(), CANNING_TYPE, BlockEntityCanningMachine.INPUT_SLOT_0, 2, 1, 37);
+        registration.addRecipeTransferHandler(MenuFluidEnricher.class, ModMenuTypes.FLUID_ENRICHER.get(), FLUID_ENRICHING_TYPE, BlockEntityFluidEnricher.INPUT_SLOT, 1, 1, 37);
     }
 
     @Override
     public void registerItemSubtypes(ISubtypeRegistration registration) {
-        registration.useNbtForSubtypes(ModItems.NANO_SABER);
-        registration.useNbtForSubtypes(ModItems.NANO_HELMET);
-        registration.useNbtForSubtypes(ModItems.NANO_CHESTPLATE);
-        registration.useNbtForSubtypes(ModItems.NANO_LEGGINGS);
-        registration.useNbtForSubtypes(ModItems.NANO_BOOTS);
+        registration.useNbtForSubtypes(ModItems.NANO_SABER.get());
+        registration.useNbtForSubtypes(ModItems.NANO_HELMET.get());
+        registration.useNbtForSubtypes(ModItems.NANO_CHESTPLATE.get());
+        registration.useNbtForSubtypes(ModItems.NANO_LEGGINGS.get());
+        registration.useNbtForSubtypes(ModItems.NANO_BOOTS.get());
 
-        registration.useNbtForSubtypes(ModItems.FLUID_CELL);
-        registration.useNbtForSubtypes(ModItems.FOAM_SPRAYER);
+        registration.useNbtForSubtypes(ModItems.FLUID_CELL.get());
+        registration.useNbtForSubtypes(ModItems.FOAM_SPRAYER.get());
 
-        registration.useNbtForSubtypes(ModItems.ELECTRIC_HOE);
-        registration.useNbtForSubtypes(ModItems.ELECTRIC_WRENCH);
-        registration.useNbtForSubtypes(ModItems.ELECTRIC_TREETAP);
-        registration.useNbtForSubtypes(ModItems.MULTI_TOOL);
+        registration.useNbtForSubtypes(ModItems.ELECTRIC_HOE.get());
+        registration.useNbtForSubtypes(ModItems.ELECTRIC_WRENCH.get());
+        registration.useNbtForSubtypes(ModItems.ELECTRIC_TREETAP.get());
+        registration.useNbtForSubtypes(ModItems.MULTI_TOOL.get());
 
-        registration.useNbtForSubtypes(ModItems.MINING_DRILL);
-        registration.useNbtForSubtypes(ModItems.DIAMOND_DRILL);
-        registration.useNbtForSubtypes(ModItems.IRIDIUM_DRILL);
+        registration.useNbtForSubtypes(ModItems.MINING_DRILL.get());
+        registration.useNbtForSubtypes(ModItems.DIAMOND_DRILL.get());
+        registration.useNbtForSubtypes(ModItems.IRIDIUM_DRILL.get());
 
-        registration.useNbtForSubtypes(ModItems.CHAINSAW);
-        registration.useNbtForSubtypes(ModItems.DIAMOND_CHAINSAW);
-        registration.useNbtForSubtypes(ModItems.IRIDIUM_CHAINSAW);
+        registration.useNbtForSubtypes(ModItems.CHAINSAW.get());
+        registration.useNbtForSubtypes(ModItems.DIAMOND_CHAINSAW.get());
+        registration.useNbtForSubtypes(ModItems.IRIDIUM_CHAINSAW.get());
 
-        registration.useNbtForSubtypes(ModItems.BATTERY);
-        registration.useNbtForSubtypes(ModItems.ADVANCED_BATTERY);
-        registration.useNbtForSubtypes(ModItems.ENERGY_CRYSTAL);
-        registration.useNbtForSubtypes(ModItems.LAPOTRON_CRYSTAL);
+        registration.useNbtForSubtypes(ModItems.BATTERY.get());
+        registration.useNbtForSubtypes(ModItems.ADVANCED_BATTERY.get());
+        registration.useNbtForSubtypes(ModItems.ENERGY_CRYSTAL.get());
+        registration.useNbtForSubtypes(ModItems.LAPOTRON_CRYSTAL.get());
 
-        registration.useNbtForSubtypes(ModItems.CHARGING_BATTERY);
-        registration.useNbtForSubtypes(ModItems.ADVANCED_CHARGING_BATTERY);
-        registration.useNbtForSubtypes(ModItems.CHARGING_ENERGY_CRYSTAL);
-        registration.useNbtForSubtypes(ModItems.CHARGING_LAPOTRON_CRYSTAL);
+        registration.useNbtForSubtypes(ModItems.CHARGING_BATTERY.get());
+        registration.useNbtForSubtypes(ModItems.ADVANCED_CHARGING_BATTERY.get());
+        registration.useNbtForSubtypes(ModItems.CHARGING_ENERGY_CRYSTAL.get());
+        registration.useNbtForSubtypes(ModItems.CHARGING_LAPOTRON_CRYSTAL.get());
     }
 }

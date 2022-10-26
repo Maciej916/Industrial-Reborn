@@ -23,22 +23,22 @@ public class Sawing extends RecipeProvider {
     @Override
     protected void buildCraftingRecipes(Consumer<FinishedRecipe> consumer) {
 
-        RecipeBuilderSawing.builder(ModBlocks.RUBBER_PLANKS, 5)
-                .setIngredient(Ingredient.of(ModBlocks.RUBBER_LOG), 1)
-                .setBonus(ModItems.STICKY_RESIN, 1,50)
+        RecipeBuilderSawing.builder(ModBlocks.RUBBER_PLANKS.get(), 5)
+                .setIngredient(Ingredient.of(ModBlocks.RUBBER_LOG.get()), 1)
+                .setBonus(ModItems.STICKY_RESIN.get(), 1,50)
                 .setExperience(0.2F)
-                .addCriterion("item", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.RUBBER_LOG))
+                .addCriterion("item", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.RUBBER_LOG.get()))
                 .setGroup("sawing")
                 .save(consumer,"rubber_log_rubber_planks");
 
         RecipeBuilderSawing.builder(Items.STICK, 6)
                 .setIngredient(Ingredient.of(ItemTags.create(new ResourceLocation("planks"))), 1)
-                .setBonus(ModItems.SAWDUST, 1,25)
+                .setBonus(ModItems.SAWDUST.get(), 1,25)
                 .addCriterion("item", InventoryChangeTrigger.TriggerInstance.hasItems(Items.STICK))
                 .setGroup("sawing")
                 .save(consumer,"planks_stick");
 
-        RecipeBuilderSawing.builder(ModItems.SAWDUST, 1)
+        RecipeBuilderSawing.builder(ModItems.SAWDUST.get(), 1)
                 .setIngredient(Items.STICK, 1)
                 .addCriterion("item", InventoryChangeTrigger.TriggerInstance.hasItems(Items.STICK))
                 .setGroup("sawing")
@@ -46,7 +46,7 @@ public class Sawing extends RecipeProvider {
 
         RecipeBuilderSawing.builder(Items.OAK_PLANKS, 6)
                 .setIngredient(Ingredient.of(ItemTags.create(new ResourceLocation("oak_logs"))), 1)
-                .setBonus(ModItems.SAWDUST, 1,25)
+                .setBonus(ModItems.SAWDUST.get(), 1,25)
                 .setExperience(0.2F)
                 .addCriterion("item", InventoryChangeTrigger.TriggerInstance.hasItems(Items.OAK_LOG))
                 .setGroup("sawing")
@@ -54,7 +54,7 @@ public class Sawing extends RecipeProvider {
 
         RecipeBuilderSawing.builder(Items.SPRUCE_PLANKS, 6)
                 .setIngredient(Ingredient.of(ItemTags.create(new ResourceLocation("spruce_logs"))), 1)
-                .setBonus(ModItems.SAWDUST, 1,25)
+                .setBonus(ModItems.SAWDUST.get(), 1,25)
                 .setExperience(0.2F)
                 .addCriterion("item", InventoryChangeTrigger.TriggerInstance.hasItems(Items.SPRUCE_PLANKS))
                 .setGroup("sawing")
@@ -62,7 +62,7 @@ public class Sawing extends RecipeProvider {
 
         RecipeBuilderSawing.builder(Items.BIRCH_PLANKS, 6)
                 .setIngredient(Ingredient.of(ItemTags.create(new ResourceLocation("birch_logs"))), 1)
-                .setBonus(ModItems.SAWDUST, 1,25)
+                .setBonus(ModItems.SAWDUST.get(), 1,25)
                 .setExperience(0.2F)
                 .addCriterion("item", InventoryChangeTrigger.TriggerInstance.hasItems(Items.BIRCH_PLANKS))
                 .setGroup("sawing")
@@ -70,7 +70,7 @@ public class Sawing extends RecipeProvider {
 
         RecipeBuilderSawing.builder(Items.JUNGLE_PLANKS, 6)
                 .setIngredient(Ingredient.of(ItemTags.create(new ResourceLocation("jungle_logs"))), 1)
-                .setBonus(ModItems.SAWDUST, 1,25)
+                .setBonus(ModItems.SAWDUST.get(), 1,25)
                 .setExperience(0.2F)
                 .addCriterion("item", InventoryChangeTrigger.TriggerInstance.hasItems(Items.JUNGLE_PLANKS))
                 .setGroup("sawing")
@@ -78,7 +78,7 @@ public class Sawing extends RecipeProvider {
 
         RecipeBuilderSawing.builder(Items.ACACIA_PLANKS, 6)
                 .setIngredient(Ingredient.of(ItemTags.create(new ResourceLocation("acacia_logs"))), 1)
-                .setBonus(ModItems.SAWDUST, 1,25)
+                .setBonus(ModItems.SAWDUST.get(), 1,25)
                 .setExperience(0.2F)
                 .addCriterion("item", InventoryChangeTrigger.TriggerInstance.hasItems(Items.ACACIA_PLANKS))
                 .setGroup("sawing")
@@ -86,7 +86,7 @@ public class Sawing extends RecipeProvider {
 
         RecipeBuilderSawing.builder(Items.DARK_OAK_PLANKS, 6)
                 .setIngredient(Ingredient.of(ItemTags.create(new ResourceLocation("dark_oak_logs"))), 1)
-                .setBonus(ModItems.SAWDUST, 1,25)
+                .setBonus(ModItems.SAWDUST.get(), 1,25)
                 .setExperience(0.2F)
                 .addCriterion("item", InventoryChangeTrigger.TriggerInstance.hasItems(Items.DARK_OAK_PLANKS))
                 .setGroup("sawing")

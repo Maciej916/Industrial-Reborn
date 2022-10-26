@@ -31,7 +31,7 @@ public class RecipeBuilderScrapBox {
     public RecipeBuilderScrapBox(ItemStack result, float weight) {
         this.result = result;
         this.weight = weight;
-        advancementBuilder.addCriterion("scrap_box", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.SCRAP_BOX));
+        advancementBuilder.addCriterion("scrap_box", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.SCRAP_BOX.get()));
     }
 
     public static RecipeBuilderScrapBox builder(ItemLike item) {
@@ -90,7 +90,7 @@ public class RecipeBuilderScrapBox {
 
         @Override
         public RecipeSerializer<?> getType() {
-            return ModRecipeSerializer.SCRAP_BOX;
+            return ModRecipeSerializer.SCRAP_BOX.get();
         }
 
         @Nullable

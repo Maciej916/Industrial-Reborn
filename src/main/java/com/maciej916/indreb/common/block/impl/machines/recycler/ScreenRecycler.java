@@ -7,9 +7,9 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
 
-public class ScreenRecycler extends BetterScreen<ContainerRecycler> {
+public class ScreenRecycler extends BetterScreen<MenuRecycler> {
 
-    public ScreenRecycler(ContainerRecycler container, Inventory inv, Component name) {
+    public ScreenRecycler(MenuRecycler container, Inventory inv, Component name) {
         super(container, inv, name);
     }
 

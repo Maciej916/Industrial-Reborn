@@ -14,7 +14,6 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.stats.Stats;
-import net.minecraft.tags.FluidTags;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.player.Player;
@@ -31,10 +30,11 @@ import net.minecraft.world.level.material.Fluid;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.HitResult;
+import net.minecraftforge.common.SoundAction;
+import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.common.capabilities.ICapabilityProvider;
 import net.minecraftforge.event.ForgeEventFactory;
 import net.minecraftforge.fluids.FluidStack;
-import net.minecraftforge.fluids.capability.CapabilityFluidHandler;
 import net.minecraftforge.registries.ForgeRegistries;
 
 import javax.annotation.Nullable;
@@ -51,9 +51,9 @@ public class FluidCell extends FluidItem {
             for (Fluid fluid : ForgeRegistries.FLUIDS) {
                 if (fluid != Fluids.EMPTY && fluid.isSource(fluid.defaultFluidState())) {
                     ItemStack stack = new ItemStack(this);
-                    FluidHandler cap = (FluidHandler) CapabilityUtil.getCapabilityHelper(stack, CapabilityFluidHandler.FLUID_HANDLER_ITEM_CAPABILITY).getValue();
+                    FluidHandler cap = (FluidHandler) CapabilityUtil.getCapabilityHelper(stack, ForgeCapabilities.FLUID_HANDLER_ITEM).getValue();
                     if (cap != null) {
-                        cap.setFluidStack(new FluidStack(fluid, Math.min(1000, ServerConfig.foam_sprayer_capacity.get())));
+                        cap.setFluidStack(new FluidStack(fluid, 1000));
                         pItems.add(stack);
                     }
                 }
@@ -86,7 +86,7 @@ public class FluidCell extends FluidItem {
         if (level.mayInteract(player, pos) && player.mayUseItemAt(pos1, direction, stack)) {
             BlockState state = level.getBlockState(pos);
 
-            FluidHandler cap = (FluidHandler) CapabilityUtil.getCapabilityHelper(stack, CapabilityFluidHandler.FLUID_HANDLER_ITEM_CAPABILITY).getValue();
+            FluidHandler cap = (FluidHandler) CapabilityUtil.getCapabilityHelper(stack, ForgeCapabilities.FLUID_HANDLER_ITEM).getValue();
             if (cap != null) {
                 if (cap.getFluid().isEmpty()) {
                     if (state.getBlock() instanceof LiquidBlock liquidBlock) {
@@ -97,16 +97,16 @@ public class FluidCell extends FluidItem {
                         Fluid fluid = liquidBlock.getFluid();
                         if (fluid != Fluids.EMPTY) {
                             player.awardStat(Stats.ITEM_USED.get(this));
-                            SoundEvent soundevent = fluid.getAttributes().getFillSound();
+                            SoundEvent soundevent = fluid.getFluidType().getSound(SoundAction.get("fill"));
 
                             if (soundevent == null) {
-                                soundevent = fluid.isSame(Fluids.LAVA) ? SoundEvents.BUCKET_FILL_LAVA : SoundEvents.BUCKET_FILL; // suitable replacement for `fluid.is(FluidTags.LAVA)`?
+                                soundevent = fluid.isSame(Fluids.LAVA) ? SoundEvents.BUCKET_FILL_LAVA : SoundEvents.BUCKET_FILL;
                             }
 
                             player.playSound(soundevent, 1F, 1F);
 
                             ItemStack newStack = new ItemStack(this);
-                            FluidHandler newCap = (FluidHandler) CapabilityUtil.getCapabilityHelper(newStack, CapabilityFluidHandler.FLUID_HANDLER_ITEM_CAPABILITY).getValue();
+                            FluidHandler newCap = (FluidHandler) CapabilityUtil.getCapabilityHelper(newStack, ForgeCapabilities.FLUID_HANDLER_ITEM).getValue();
                             if (newCap != null) {
                                 newCap.setFluidStack(new FluidStack(fluid, Math.min(1000, ServerConfig.foam_sprayer_capacity.get())));
                             }

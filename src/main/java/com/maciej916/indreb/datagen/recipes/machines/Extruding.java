@@ -21,7 +21,7 @@ public class Extruding extends RecipeProvider {
 
         RecipeBuilderExtruding.builder(Blocks.COBBLESTONE, 1)
                 .setDuration(80)
-                .addCriterion("item", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.EXTRUDER))
+                .addCriterion("item", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.EXTRUDER.get()))
                 .setGroup("extruding")
                 .save(consumer,"cobblestone");
 
@@ -29,7 +29,7 @@ public class Extruding extends RecipeProvider {
                 .setDuration(100)
                 .setWaterCost(1000)
                 .setExperience(0.5F)
-                .addCriterion("item", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.EXTRUDER))
+                .addCriterion("item", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.EXTRUDER.get()))
                 .setGroup("extruding")
                 .save(consumer,"stone");
 
@@ -37,7 +37,7 @@ public class Extruding extends RecipeProvider {
                 .setWaterCost(1000)
                 .setLavaCost(1000)
                 .setExperience(3F)
-                .addCriterion("item", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.EXTRUDER))
+                .addCriterion("item", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.EXTRUDER.get()))
                 .setGroup("extruding")
                 .save(consumer,"obsidian");
 
@@ -45,7 +45,7 @@ public class Extruding extends RecipeProvider {
                 .setDuration(100)
                 .setWaterCost(200)
                 .setLavaCost(50)
-                .addCriterion("item", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.EXTRUDER))
+                .addCriterion("item", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.EXTRUDER.get()))
                 .setGroup("extruding")
                 .save(consumer,"cobbled_deepslate");
 
@@ -54,7 +54,7 @@ public class Extruding extends RecipeProvider {
                 .setWaterCost(2000)
                 .setLavaCost(200)
                 .setExperience(0.5F)
-                .addCriterion("item", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.EXTRUDER))
+                .addCriterion("item", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.EXTRUDER.get()))
                 .setGroup("extruding")
                 .save(consumer,"deepslate");
 

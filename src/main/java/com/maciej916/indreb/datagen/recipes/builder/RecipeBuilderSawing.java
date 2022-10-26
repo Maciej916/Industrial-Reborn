@@ -155,7 +155,7 @@ public class RecipeBuilderSawing {
 
         @Override
         public RecipeSerializer<?> getType() {
-            return ModRecipeSerializer.SAWING;
+            return ModRecipeSerializer.SAWING.get();
         }
 
         @Nullable

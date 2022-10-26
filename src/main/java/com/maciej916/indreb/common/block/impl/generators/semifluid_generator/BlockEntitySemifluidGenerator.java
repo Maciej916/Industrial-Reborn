@@ -11,7 +11,7 @@ import com.maciej916.indreb.common.enums.EnergyTier;
 import com.maciej916.indreb.common.enums.EnergyType;
 import com.maciej916.indreb.common.enums.GuiSlotType;
 import com.maciej916.indreb.common.enums.InventorySlotType;
-import com.maciej916.indreb.common.fluids.Biogas;
+import com.maciej916.indreb.common.fluid.Biogas;
 import com.maciej916.indreb.common.interfaces.entity.ICooldown;
 import com.maciej916.indreb.common.interfaces.entity.IElectricSlot;
 import com.maciej916.indreb.common.interfaces.entity.ITileSound;
@@ -27,6 +27,7 @@ import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.common.capabilities.Capability;
+import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.fluids.capability.CapabilityFluidHandler;
 import net.minecraftforge.fluids.capability.IFluidHandlerItem;
@@ -49,7 +50,7 @@ public class BlockEntitySemifluidGenerator extends IndRebBlockEntity implements 
     private int cachedFluid = 0;
 
     public BlockEntitySemifluidGenerator(BlockPos pWorldPosition, BlockState pBlockState) {
-        super(ModBlockEntities.SEMIFLUID_GENERATOR, pWorldPosition, pBlockState);
+        super(ModBlockEntities.SEMIFLUID_GENERATOR.get(), pWorldPosition, pBlockState);
         createEnergyStorage(0, ServerConfig.semifluid_generator_energy_capacity.get(), EnergyType.EXTRACT, EnergyTier.BASIC);
     }
 
@@ -114,7 +115,7 @@ public class BlockEntitySemifluidGenerator extends IndRebBlockEntity implements 
     @Override
     public boolean isItemValidForSlot(int slot, @Nonnull ItemStack stack) {
         if (slot == FILL_BUCKET_UP) {
-            LazyOptionalHelper<IFluidHandlerItem> cap = CapabilityUtil.getCapabilityHelper(stack, CapabilityFluidHandler.FLUID_HANDLER_ITEM_CAPABILITY);
+            LazyOptionalHelper<IFluidHandlerItem> cap = CapabilityUtil.getCapabilityHelper(stack, ForgeCapabilities.FLUID_HANDLER_ITEM);
             if (cap.isPresent()) {
                 return cap.getValue().getTanks() > 0 && cap.getValue().getFluidInTank(1).getFluid() == Biogas.STILL_FLUID;
             }
@@ -127,7 +128,7 @@ public class BlockEntitySemifluidGenerator extends IndRebBlockEntity implements 
     @Override
     public ItemStack insertItemForSlot(int slot, @Nonnull ItemStack stack, boolean simulate) {
         if (slot == FILL_BUCKET_UP) {
-            LazyOptionalHelper<IFluidHandlerItem> cap = CapabilityUtil.getCapabilityHelper(stack, CapabilityFluidHandler.FLUID_HANDLER_ITEM_CAPABILITY);
+            LazyOptionalHelper<IFluidHandlerItem> cap = CapabilityUtil.getCapabilityHelper(stack, ForgeCapabilities.FLUID_HANDLER_ITEM);
             if (cap.isPresent()) {
                 if (cap.getValue().getTanks() > 0 && cap.getValue().getFluidInTank(1).getFluid() == Biogas.STILL_FLUID) {
                     return null;
@@ -164,7 +165,7 @@ public class BlockEntitySemifluidGenerator extends IndRebBlockEntity implements 
 
     @Override
     public SoundEvent getSoundEvent() {
-        return ModSounds.SEMIFLUID_GENERATOR;
+        return ModSounds.SEMIFLUID_GENERATOR.get();
     }
 
     @Override
@@ -182,8 +183,8 @@ public class BlockEntitySemifluidGenerator extends IndRebBlockEntity implements 
     @Nonnull
     @Override
     public <T> LazyOptional<T> getCapability(@Nonnull final Capability<T> cap, @Nullable final Direction side) {
-        if (cap == CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY) return capabilities.get(3).cast();
-        if (cap == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY) {
+        if (cap == ForgeCapabilities.FLUID_HANDLER) return capabilities.get(3).cast();
+        if (cap == ForgeCapabilities.ITEM_HANDLER) {
             if (side == null) return capabilities.get(0).cast();
             return switch (side) {
                 case DOWN -> capabilities.get(2).cast();

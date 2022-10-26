@@ -1,13 +1,13 @@
 {
   "type": "indreb:crushing",
+  "duration": 180,
+  "experience": 0.0,
   "ingredient": {
-    "item": "minecraft:kelp",
-    "count": 32
+    "count": 32,
+    "item": "minecraft:kelp"
   },
+  "power_cost": 8,
   "result": {
     "item": "indreb:bio_chaff"
-  },
-  "experience": 0.0,
-  "duration": 180,
-  "power_cost": 8
+  }
 }

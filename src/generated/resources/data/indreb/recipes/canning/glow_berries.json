@@ -1,18 +1,18 @@
 {
   "type": "indreb:canning",
+  "duration": 180,
+  "experience": 0.2,
   "ingredient_from": {
-    "item": "minecraft:glow_berries",
-    "count": 1
+    "count": 1,
+    "item": "minecraft:glow_berries"
   },
   "ingredient_to": {
-    "item": "indreb:tin_can",
-    "count": 2
+    "count": 2,
+    "item": "indreb:tin_can"
   },
+  "power_cost": 4,
   "result": {
-    "item": "indreb:filled_tin_can",
-    "count": 2
-  },
-  "experience": 0.2,
-  "duration": 180,
-  "power_cost": 4
+    "count": 2,
+    "item": "indreb:filled_tin_can"
+  }
 }

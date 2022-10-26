@@ -1,13 +1,13 @@
 {
   "type": "indreb:compressing",
+  "duration": 180,
+  "experience": 0.0,
   "ingredient": {
-    "item": "minecraft:blaze_powder",
-    "count": 5
+    "count": 5,
+    "item": "minecraft:blaze_powder"
   },
+  "power_cost": 8,
   "result": {
     "item": "minecraft:blaze_rod"
-  },
-  "experience": 0.0,
-  "duration": 180,
-  "power_cost": 8
+  }
 }

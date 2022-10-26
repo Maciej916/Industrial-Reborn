@@ -7,14 +7,14 @@ import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.material.Material;
 
 public enum CableTier {
-    TIN_CABLE(EnergyTier.BASIC, "tin_cable", false, Block.Properties.of(Material.WOOL).strength(0.8F, 0.8F).sound(SoundType.WOOL)),
-    TIN_CABLE_INSULATED(EnergyTier.BASIC, "tin_cable_insulated", true, Block.Properties.of(Material.WOOL).strength(0.8F, 0.8F).sound(SoundType.WOOL)),
-    COPPER_CABLE(EnergyTier.STANDARD, "copper_cable", false, Block.Properties.of(Material.WOOL).strength(0.8F, 0.8F).sound(SoundType.WOOL)),
-    COPPER_CABLE_INSULATED(EnergyTier.STANDARD, "copper_cable_insulated", true, Block.Properties.of(Material.WOOL).strength(0.8F, 0.8F).sound(SoundType.WOOL)),
-    GOLD_CABLE(EnergyTier.ADVANCED, "gold_cable", false, Block.Properties.of(Material.WOOL).strength(0.8F, 0.8F).sound(SoundType.WOOL)),
-    GOLD_CABLE_INSULATED(EnergyTier.ADVANCED, "gold_cable_insulated", true, Block.Properties.of(Material.WOOL).strength(0.8F, 0.8F).sound(SoundType.WOOL)),
-    HV_CABLE(EnergyTier.SUPER, "hv_cable", false, Block.Properties.of(Material.WOOL).strength(0.8F, 0.8F).sound(SoundType.WOOL)),
-    HV_CABLE_INSULATED(EnergyTier.SUPER, "hv_cable_insulated", true, Block.Properties.of(Material.WOOL).strength(0.8F, 0.8F).sound(SoundType.WOOL)),
+    TIN_CABLE(EnergyTier.BASIC, "tin_cable", false, Block.Properties.of(Material.METAL).strength(0.8F, 0.8F).sound(SoundType.WOOL)),
+    TIN_CABLE_INSULATED(EnergyTier.BASIC, "tin_cable_insulated", true, Block.Properties.of(Material.METAL).strength(0.8F, 0.8F).sound(SoundType.WOOL)),
+    COPPER_CABLE(EnergyTier.STANDARD, "copper_cable", false, Block.Properties.of(Material.METAL).strength(0.8F, 0.8F).sound(SoundType.WOOL)),
+    COPPER_CABLE_INSULATED(EnergyTier.STANDARD, "copper_cable_insulated", true, Block.Properties.of(Material.METAL).strength(0.8F, 0.8F).sound(SoundType.WOOL)),
+    GOLD_CABLE(EnergyTier.ADVANCED, "gold_cable", false, Block.Properties.of(Material.METAL).strength(0.8F, 0.8F).sound(SoundType.WOOL)),
+    GOLD_CABLE_INSULATED(EnergyTier.ADVANCED, "gold_cable_insulated", true, Block.Properties.of(Material.METAL).strength(0.8F, 0.8F).sound(SoundType.WOOL)),
+    HV_CABLE(EnergyTier.SUPER, "hv_cable", false, Block.Properties.of(Material.METAL).strength(0.8F, 0.8F).sound(SoundType.WOOL)),
+    HV_CABLE_INSULATED(EnergyTier.SUPER, "hv_cable_insulated", true, Block.Properties.of(Material.METAL).strength(0.8F, 0.8F).sound(SoundType.WOOL)),
     GLASS_FIBRE_CABLE(EnergyTier.ULTRA, "glass_fibre_cable", true, Block.Properties.of(Material.GLASS).strength(0.8F, 0.8F).sound(SoundType.GLASS));
 
     private final EnergyTier energyTier;

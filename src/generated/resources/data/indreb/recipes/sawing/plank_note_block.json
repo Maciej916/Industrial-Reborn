@@ -1,19 +1,19 @@
 {
   "type": "indreb:sawing",
-  "ingredient": {
-    "item": "minecraft:note_block",
-    "count": 1
-  },
-  "result": {
-    "item": "minecraft:oak_planks",
-    "count": 8
-  },
   "bonus_result": {
-    "item": "minecraft:redstone",
+    "chance": 50.0,
     "count": 1,
-    "chance": 50.0
+    "item": "minecraft:redstone"
   },
-  "experience": 0.4,
   "duration": 180,
-  "power_cost": 8
+  "experience": 0.4,
+  "ingredient": {
+    "count": 1,
+    "item": "minecraft:note_block"
+  },
+  "power_cost": 8,
+  "result": {
+    "count": 8,
+    "item": "minecraft:oak_planks"
+  }
 }

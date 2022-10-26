@@ -1,25 +1,25 @@
 {
   "type": "minecraft:crafting_shaped",
   "group": "indreb",
-  "pattern": [
-    "rgr",
-    "lel",
-    "rgr"
-  ],
   "key": {
     "e": {
       "item": "indreb:electronic_circuit"
     },
-    "l": {
-      "item": "minecraft:lapis_lazuli"
-    },
     "g": {
       "item": "minecraft:glowstone_dust"
+    },
+    "l": {
+      "item": "minecraft:lapis_lazuli"
     },
     "r": {
       "item": "minecraft:redstone"
     }
   },
+  "pattern": [
+    "rgr",
+    "lel",
+    "rgr"
+  ],
   "result": {
     "item": "indreb:advanced_circuit"
   }

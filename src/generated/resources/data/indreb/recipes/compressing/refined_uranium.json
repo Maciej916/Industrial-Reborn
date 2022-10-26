@@ -1,13 +1,13 @@
 {
   "type": "indreb:compressing",
+  "duration": 180,
+  "experience": 2.0,
   "ingredient": {
-    "item": "indreb:uranium",
-    "count": 1
+    "count": 1,
+    "item": "indreb:uranium"
   },
+  "power_cost": 8,
   "result": {
     "item": "indreb:refined_uranium"
-  },
-  "experience": 2.0,
-  "duration": 180,
-  "power_cost": 8
+  }
 }

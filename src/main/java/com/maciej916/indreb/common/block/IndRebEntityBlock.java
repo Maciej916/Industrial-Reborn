@@ -2,6 +2,7 @@ package com.maciej916.indreb.common.block;
 
 import com.maciej916.indreb.common.entity.block.IndRebBlockEntity;
 import net.minecraft.core.BlockPos;
+import net.minecraft.world.MenuProvider;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.EntityBlock;
 import net.minecraft.world.level.block.entity.BlockEntity;
@@ -35,6 +36,5 @@ public class IndRebEntityBlock extends IndRebBlock implements EntityBlock {
             }
         };
     }
-
 }
 

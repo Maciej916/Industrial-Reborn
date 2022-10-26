@@ -16,6 +16,7 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.tags.TagKey;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.Containers;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
@@ -90,7 +91,7 @@ public class RubberLog extends IndRebBlock implements IStateRubberLog, IStateAxi
             dropCount = ThreadLocalRandom.current().nextInt(1, 3 + 1);
             BlockPos dropPos = pos.relative(trace.getDirection());
 
-            Containers.dropItemStack(level, dropPos.getX(), dropPos.getY(), dropPos.getZ(), new ItemStack(ModItems.STICKY_RESIN, dropCount));
+            Containers.dropItemStack(level, dropPos.getX(), dropPos.getY(), dropPos.getZ(), new ItemStack(ModItems.STICKY_RESIN.get(), dropCount));
 
             state = this.setWet(state, false);
             state = this.setDry(state, true);
@@ -100,14 +101,14 @@ public class RubberLog extends IndRebBlock implements IStateRubberLog, IStateAxi
             dropCount = ThreadLocalRandom.current().nextInt(0, 1 + 1);
             if (dropCount > 0) {
                 BlockPos dropPos = pos.relative(trace.getDirection());
-                Containers.dropItemStack(level, dropPos.getX(), dropPos.getY(), dropPos.getZ(), new ItemStack(ModItems.STICKY_RESIN, dropCount));
+                Containers.dropItemStack(level, dropPos.getX(), dropPos.getY(), dropPos.getZ(), new ItemStack(ModItems.STICKY_RESIN.get(), dropCount));
             }
             state = this.setDry(state, false);
             level.setBlock(pos, state, 2);
         }
 
         if (dropCount > 0) {
-            level.playSound(null, player.getX(), player.getY(), player.getZ(), ModSounds.TREETAP, SoundSource.NEUTRAL, 1F, 0.8F / (random.nextFloat() * 0.4F + 0.8F));
+            level.playSound(null, player.getX(), player.getY(), player.getZ(), ModSounds.TREETAP.get(), SoundSource.NEUTRAL, 1F, 0.8F / (random.nextFloat() * 0.4F + 0.8F));
             return InteractionResult.SUCCESS;
         }
 
@@ -115,7 +116,7 @@ public class RubberLog extends IndRebBlock implements IStateRubberLog, IStateAxi
     }
 
     @Override
-    public void tick(BlockState pState, ServerLevel pLevel, BlockPos pPos, Random pRandom) {
+    public void tick(BlockState pState, ServerLevel pLevel, BlockPos pPos, RandomSource pRandom) {
         if (isDry(pState)) {
             int count = ThreadLocalRandom.current().nextInt(0, 5 + 1);
             if (count == 0) {

@@ -17,7 +17,7 @@ import java.util.Optional;
 public class BlockEntityCompressor extends BlockEntityStandardMachine {
 
     public BlockEntityCompressor(BlockPos pWorldPosition, BlockState pBlockState) {
-        super(ModBlockEntities.COMPRESSOR, pWorldPosition, pBlockState, ServerConfig.compressor_energy_capacity.get());
+        super(ModBlockEntities.COMPRESSOR.get(), pWorldPosition, pBlockState, ServerConfig.compressor_energy_capacity.get());
     }
 
     @Override
@@ -27,7 +27,7 @@ public class BlockEntityCompressor extends BlockEntityStandardMachine {
 
     @Override
     public SoundEvent getSoundEvent() {
-        return ModSounds.COMPRESSOR;
+        return ModSounds.COMPRESSOR.get();
     }
 
 }

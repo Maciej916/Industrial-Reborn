@@ -10,13 +10,14 @@ import com.mojang.blaze3d.vertex.PoseStack;
 import mezz.jei.api.constants.VanillaTypes;
 import mezz.jei.api.gui.builder.IRecipeLayoutBuilder;
 import mezz.jei.api.gui.drawable.IDrawableAnimated;
-import mezz.jei.api.gui.ingredient.*;
+import mezz.jei.api.gui.ingredient.IRecipeSlotTooltipCallback;
+import mezz.jei.api.gui.ingredient.IRecipeSlotView;
+import mezz.jei.api.gui.ingredient.IRecipeSlotsView;
 import mezz.jei.api.helpers.IGuiHelper;
 import mezz.jei.api.recipe.IFocusGroup;
 import mezz.jei.api.recipe.RecipeIngredientRole;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
@@ -30,7 +31,7 @@ import static com.maciej916.indreb.common.util.Constants.PROCESS;
 
 public class SawingCategory extends AbstractRecipeCategory<SawingRecipe> {
 
-    public static final ResourceLocation UID = ModRecipeSerializer.SAWING.getRegistryName();
+    public static final ResourceLocation UID = ModRecipeSerializer.SAWING.getId();
 
     private IDrawableAnimated progress;
     private IDrawableAnimated energy;
@@ -42,7 +43,7 @@ public class SawingCategory extends AbstractRecipeCategory<SawingRecipe> {
                 "sawing",
                 guiHelper,
                 () -> guiHelper.createDrawable(JEI, 0, 165, 114, 54),
-                () -> guiHelper.createDrawableIngredient(VanillaTypes.ITEM_STACK, new ItemStack(ModBlocks.SAWMILL))
+                () -> guiHelper.createDrawableIngredient(VanillaTypes.ITEM_STACK, new ItemStack(ModBlocks.SAWMILL.get()))
         );
     }
 
@@ -79,7 +80,7 @@ public class SawingCategory extends AbstractRecipeCategory<SawingRecipe> {
 
         @Override
         public void onTooltip(IRecipeSlotView recipeSlotView, List<Component> tooltip) {
-            tooltip.add(new TranslatableComponent(EnumLang.CHANCE.getTranslationKey(), (Math.round(recipe.getBonus().chance() * 100.0) / 100.0) + "%").withStyle(ChatFormatting.BLUE));
+            tooltip.add(Component.translatable(EnumLang.CHANCE.getTranslationKey(), (Math.round(recipe.getBonus().chance() * 100.0) / 100.0) + "%").withStyle(ChatFormatting.BLUE));
         }
     }
 }

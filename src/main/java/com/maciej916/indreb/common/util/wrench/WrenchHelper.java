@@ -19,6 +19,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Rotation;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraftforge.registries.ForgeRegistries;
 
 import java.util.HashMap;
 import java.util.List;
@@ -104,10 +105,10 @@ public class WrenchHelper {
                 if (itemStack.getItem() instanceof IElectricItem electricItem) {
                     IEnergy energy = electricItem.getEnergy(itemStack);
                     energy.consumeEnergy(50, false);
-                    world.playSound(null, pos, ModSounds.ELECTRIC_WRENCH, SoundSource.NEUTRAL, 1F, 0.9F / (new Random().nextFloat() * 0.4F + 0.8F));
+                    world.playSound(null, pos, ModSounds.ELECTRIC_WRENCH.get(), SoundSource.NEUTRAL, 1F, 0.9F / (new Random().nextFloat() * 0.4F + 0.8F));
                 } else {
                     if (itemStack.getDamageValue() + 1 != itemStack.getMaxDamage()) {
-                        world.playSound(null, pos, ModSounds.WRENCH, SoundSource.NEUTRAL, 1F, 0.9F / (new Random().nextFloat() * 0.4F + 0.8F));
+                        world.playSound(null, pos, ModSounds.WRENCH.get(), SoundSource.NEUTRAL, 1F, 0.9F / (new Random().nextFloat() * 0.4F + 0.8F));
                     }
                     itemStack.hurtAndBreak(1, player, (i) -> world.playSound(null, pos, SoundEvents.ITEM_BREAK, SoundSource.NEUTRAL, 0.5F, 0.4F / (new Random().nextFloat() * 0.4F + 0.8F)));
                 }
@@ -132,7 +133,7 @@ public class WrenchHelper {
             if (be instanceof IndRebBlockEntity irb) {
                 if (irb.hasEnergy()) {
                     CompoundTag newTag = new CompoundTag();
-                    newTag.putString("id", drop.getItem().getRegistryName().toString());
+                    newTag.putString("id", ForgeRegistries.ITEMS.getKey(drop.getItem()).toString());
                     newTag.putInt("energy", irb.getEnergyStorage().energyStored());
                     tag.put("BlockEntityTag", newTag);
                 }

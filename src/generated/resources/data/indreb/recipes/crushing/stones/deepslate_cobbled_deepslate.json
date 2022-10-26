@@ -1,18 +1,18 @@
 {
   "type": "indreb:crushing",
-  "ingredient": {
-    "item": "minecraft:deepslate",
-    "count": 1
+  "bonus_result": {
+    "chance": 50.0,
+    "count": 1,
+    "item": "indreb:deepslate_dust"
   },
+  "duration": 180,
+  "experience": 0.0,
+  "ingredient": {
+    "count": 1,
+    "item": "minecraft:deepslate"
+  },
+  "power_cost": 8,
   "result": {
     "item": "minecraft:cobbled_deepslate"
-  },
-  "bonus_result": {
-    "item": "indreb:deepslate_dust",
-    "count": 1,
-    "chance": 50.0
-  },
-  "experience": 0.0,
-  "duration": 180,
-  "power_cost": 8
+  }
 }

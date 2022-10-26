@@ -2,49 +2,49 @@
   "type": "minecraft:block",
   "pools": [
     {
-      "name": "charge_pad_mfsu",
-      "rolls": 1.0,
       "bonus_rolls": 0.0,
       "entries": [
         {
           "type": "minecraft:item",
-          "weight": 80,
           "functions": [
             {
               "function": "minecraft:copy_name",
               "source": "block_entity"
             },
             {
-              "function": "minecraft:set_contents",
               "type": "indreb:charge_pad",
               "entries": [
                 {
                   "type": "minecraft:dynamic",
                   "name": "minecraft:contents"
                 }
-              ]
+              ],
+              "function": "minecraft:set_contents"
             }
           ],
-          "name": "indreb:charge_pad_mfsu"
+          "name": "indreb:charge_pad_mfsu",
+          "weight": 80
         },
         {
           "type": "minecraft:item",
-          "weight": 20,
           "functions": [
             {
-              "function": "minecraft:set_contents",
               "type": "indreb:charge_pad",
               "entries": [
                 {
                   "type": "minecraft:dynamic",
                   "name": "minecraft:contents"
                 }
-              ]
+              ],
+              "function": "minecraft:set_contents"
             }
           ],
-          "name": "indreb:mfsu"
+          "name": "indreb:mfsu",
+          "weight": 20
         }
-      ]
+      ],
+      "name": "charge_pad_mfsu",
+      "rolls": 1.0
     }
   ]
 }

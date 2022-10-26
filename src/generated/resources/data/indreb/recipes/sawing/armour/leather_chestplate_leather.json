@@ -1,14 +1,14 @@
 {
   "type": "indreb:sawing",
-  "ingredient": {
-    "item": "minecraft:leather_chestplate",
-    "count": 1
-  },
-  "result": {
-    "item": "minecraft:leather",
-    "count": 4
-  },
-  "experience": 0.5,
   "duration": 180,
-  "power_cost": 8
+  "experience": 0.5,
+  "ingredient": {
+    "count": 1,
+    "item": "minecraft:leather_chestplate"
+  },
+  "power_cost": 8,
+  "result": {
+    "count": 4,
+    "item": "minecraft:leather"
+  }
 }

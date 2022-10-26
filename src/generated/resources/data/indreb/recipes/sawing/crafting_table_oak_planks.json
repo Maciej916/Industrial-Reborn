@@ -1,14 +1,14 @@
 {
   "type": "indreb:sawing",
-  "ingredient": {
-    "item": "minecraft:crafting_table",
-    "count": 1
-  },
-  "result": {
-    "item": "minecraft:oak_planks",
-    "count": 4
-  },
-  "experience": 0.0,
   "duration": 180,
-  "power_cost": 8
+  "experience": 0.0,
+  "ingredient": {
+    "count": 1,
+    "item": "minecraft:crafting_table"
+  },
+  "power_cost": 8,
+  "result": {
+    "count": 4,
+    "item": "minecraft:oak_planks"
+  }
 }

@@ -30,14 +30,14 @@ public class ScrapBox extends RecipeProvider {
         RecipeBuilderScrapBox.builder(Items.RAW_GOLD).setWeight(0.5F).save(consumer,"raw_gold");
         RecipeBuilderScrapBox.builder(Items.DIAMOND).setWeight(0.2F).save(consumer,"diamond");
         RecipeBuilderScrapBox.builder(Items.EMERALD).setWeight(0.1F).save(consumer,"emerald");
-        RecipeBuilderScrapBox.builder(ModItems.RAW_TIN).setWeight(0.7F).save(consumer,"raw_tin");
-        RecipeBuilderScrapBox.builder(ModItems.RAW_LEAD).setWeight(0.8F).save(consumer,"raw_lead");
-        RecipeBuilderScrapBox.builder(ModItems.SILVER_INGOT).setWeight(0.7F).save(consumer,"silver_ingot");
+        RecipeBuilderScrapBox.builder(ModItems.RAW_TIN.get()).setWeight(0.7F).save(consumer,"raw_tin");
+        RecipeBuilderScrapBox.builder(ModItems.RAW_LEAD.get()).setWeight(0.8F).save(consumer,"raw_lead");
+        RecipeBuilderScrapBox.builder(ModItems.SILVER_INGOT.get()).setWeight(0.7F).save(consumer,"silver_ingot");
         RecipeBuilderScrapBox.builder(Items.STICK).setWeight(4.0F).save(consumer,"stick");
         RecipeBuilderScrapBox.builder(Items.SOUL_SAND).setWeight(1.0F).save(consumer,"soul_sand");
         RecipeBuilderScrapBox.builder(Items.SLIME_BALL).setWeight(0.6F).save(consumer,"slime_ball");
         RecipeBuilderScrapBox.builder(Items.OAK_SIGN).setWeight(1.0F).save(consumer,"oak_sign");
-        RecipeBuilderScrapBox.builder(ModItems.RUBBER).setWeight(0.8F).save(consumer,"rubber");
+        RecipeBuilderScrapBox.builder(ModItems.RUBBER.get()).setWeight(0.8F).save(consumer,"rubber");
         RecipeBuilderScrapBox.builder(Items.ROTTEN_FLESH).setWeight(2.0F).save(consumer,"rotten_flesh");
         RecipeBuilderScrapBox.builder(Items.APPLE).setWeight(2.0F).save(consumer,"apple");
         RecipeBuilderScrapBox.builder(Items.GOLDEN_APPLE).setWeight(0.3F).save(consumer,"golden_apple");
@@ -46,7 +46,7 @@ public class ScrapBox extends RecipeProvider {
         RecipeBuilderScrapBox.builder(Items.GRAVEL).setWeight(3.0F).save(consumer,"gravel");
         RecipeBuilderScrapBox.builder(Items.GRASS_BLOCK).setWeight(3.0F).save(consumer,"grass_block");
         RecipeBuilderScrapBox.builder(Items.SAND).setWeight(3.0F).save(consumer,"sand");
-        RecipeBuilderScrapBox.builder(ModItems.TIN_CAN).setWeight(1.5F).save(consumer,"tin_can");
+        RecipeBuilderScrapBox.builder(ModItems.TIN_CAN.get()).setWeight(1.5F).save(consumer,"tin_can");
         RecipeBuilderScrapBox.builder(Items.CAKE).setWeight(0.5F).save(consumer,"cake");
         RecipeBuilderScrapBox.builder(Items.BREAD).setWeight(1.5F).save(consumer,"bread");
         RecipeBuilderScrapBox.builder(Items.BONE).setWeight(1.0F).save(consumer,"bone");
@@ -68,7 +68,7 @@ public class ScrapBox extends RecipeProvider {
         RecipeBuilderScrapBox.builder(Items.AMETHYST_SHARD).setWeight(0.1F).save(consumer,"amethyst_shard");
         RecipeBuilderScrapBox.builder(Items.QUARTZ).setWeight(0.2F).save(consumer,"quartz");
         RecipeBuilderScrapBox.builder(Items.NETHERITE_SCRAP).setWeight(0.005F).save(consumer,"netherite_scrap");
-        RecipeBuilderScrapBox.builder(ModItems.IRIDIUM_SHARD).setWeight(0.002F).save(consumer,"iridium_shard");
+        RecipeBuilderScrapBox.builder(ModItems.IRIDIUM_SHARD.get()).setWeight(0.002F).save(consumer,"iridium_shard");
 
 
 

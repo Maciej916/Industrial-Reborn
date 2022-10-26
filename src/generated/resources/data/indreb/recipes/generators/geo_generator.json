@@ -1,25 +1,25 @@
 {
   "type": "minecraft:crafting_shaped",
   "group": "indreb",
+  "key": {
+    "C": {
+      "item": "indreb:fluid_cell"
+    },
+    "G": {
+      "item": "indreb:generator"
+    },
+    "P": {
+      "item": "indreb:iron_plate"
+    },
+    "g": {
+      "item": "minecraft:glass"
+    }
+  },
   "pattern": [
     "gCg",
     "gCg",
     "PGP"
   ],
-  "key": {
-    "g": {
-      "item": "minecraft:glass"
-    },
-    "C": {
-      "item": "indreb:fluid_cell"
-    },
-    "P": {
-      "item": "indreb:iron_plate"
-    },
-    "G": {
-      "item": "indreb:generator"
-    }
-  },
   "result": {
     "item": "indreb:geo_generator"
   }

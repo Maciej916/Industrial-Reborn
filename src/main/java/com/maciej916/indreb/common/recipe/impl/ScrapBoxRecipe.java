@@ -16,11 +16,12 @@ import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.item.crafting.ShapedRecipe;
 import net.minecraft.world.level.Level;
-import net.minecraftforge.registries.ForgeRegistryEntry;
 
 import javax.annotation.Nullable;
 import java.text.DecimalFormat;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Random;
 
 public class ScrapBoxRecipe implements IBaseRecipe {
 
@@ -123,7 +124,7 @@ public class ScrapBoxRecipe implements IBaseRecipe {
         return NonNullList.of(ingredient.get());
     }
 
-    public static class Serializer extends ForgeRegistryEntry<RecipeSerializer<?>> implements RecipeSerializer<ScrapBoxRecipe> {
+    public static class Serializer implements RecipeSerializer<ScrapBoxRecipe> {
 
         @Override
         public ScrapBoxRecipe fromJson(ResourceLocation recipeId, JsonObject json) {
@@ -131,7 +132,7 @@ public class ScrapBoxRecipe implements IBaseRecipe {
 
             recipe.weight = GsonHelper.getAsFloat(json, "weight", 1);
             recipe.result = ShapedRecipe.itemStackFromJson(GsonHelper.getAsJsonObject(json, "result"));
-            recipe.ingredient = Cache.create(() -> Ingredient.of(new ItemStack(ModItems.SCRAP_BOX).getItem()));
+            recipe.ingredient = Cache.create(() -> Ingredient.of(new ItemStack(ModItems.SCRAP_BOX.get()).getItem()));
 
             resultMap.put(recipe.result, recipe.weight);
             totalWeight = totalWeight + recipe.weight;
@@ -146,7 +147,7 @@ public class ScrapBoxRecipe implements IBaseRecipe {
 
             recipe.weight = buffer.readFloat();
             recipe.result = buffer.readItem();
-            recipe.ingredient = Cache.create(() -> Ingredient.of(new ItemStack(ModItems.SCRAP_BOX).getItem()));
+            recipe.ingredient = Cache.create(() -> Ingredient.of(new ItemStack(ModItems.SCRAP_BOX.get()).getItem()));
 
             resultMap.put(recipe.result, recipe.weight);
             totalWeight = totalWeight + recipe.weight;

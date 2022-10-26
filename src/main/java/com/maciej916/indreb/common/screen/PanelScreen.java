@@ -1,6 +1,6 @@
 package com.maciej916.indreb.common.screen;
 
-import com.maciej916.indreb.common.container.IndRebContainer;
+import com.maciej916.indreb.common.container.IndRebMenu;
 import com.maciej916.indreb.common.screen.button.GuiExpButton;
 import com.maciej916.indreb.common.screen.widgets.GuiElement;
 import com.maciej916.indreb.common.screen.widgets.GuiUpgrades;
@@ -13,7 +13,7 @@ import net.minecraft.world.entity.player.Inventory;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PanelScreen <T extends IndRebContainer> extends BaseScreen<T> {
+public class PanelScreen <T extends IndRebMenu> extends BaseScreen<T> {
 
     private final List<AbstractWidget> component;
 

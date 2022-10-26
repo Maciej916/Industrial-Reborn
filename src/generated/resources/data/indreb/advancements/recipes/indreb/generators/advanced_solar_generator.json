@@ -1,25 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
-  "rewards": {
-    "recipes": [
-      "indreb:generators/advanced_solar_generator"
-    ]
-  },
   "criteria": {
-    "reinforced_glass": {
-      "trigger": "minecraft:inventory_changed",
-      "conditions": {
-        "items": [
-          {
-            "items": [
-              "indreb:reinforced_glass"
-            ]
-          }
-        ]
-      }
-    },
     "advanced_alloy": {
-      "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
@@ -28,22 +10,10 @@
             ]
           }
         ]
-      }
-    },
-    "solar_generator": {
-      "trigger": "minecraft:inventory_changed",
-      "conditions": {
-        "items": [
-          {
-            "items": [
-              "indreb:solar_generator"
-            ]
-          }
-        ]
-      }
+      },
+      "trigger": "minecraft:inventory_changed"
     },
     "advanced_circuit": {
-      "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
@@ -52,10 +22,10 @@
             ]
           }
         ]
-      }
+      },
+      "trigger": "minecraft:inventory_changed"
     },
     "advanced_machine_casing": {
-      "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
@@ -64,13 +34,38 @@
             ]
           }
         ]
-      }
+      },
+      "trigger": "minecraft:inventory_changed"
     },
     "has_the_recipe": {
-      "trigger": "minecraft:recipe_unlocked",
       "conditions": {
         "recipe": "indreb:generators/advanced_solar_generator"
-      }
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "reinforced_glass": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:reinforced_glass"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "solar_generator": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:solar_generator"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
     }
   },
   "requirements": [
@@ -82,5 +77,10 @@
       "advanced_machine_casing",
       "has_the_recipe"
     ]
-  ]
+  ],
+  "rewards": {
+    "recipes": [
+      "indreb:generators/advanced_solar_generator"
+    ]
+  }
 }

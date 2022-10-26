@@ -9,9 +9,9 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
 
-public class ScreenAlloySmelter extends BetterScreen<ContainerAlloySmelter> {
+public class ScreenAlloySmelter extends BetterScreen<MenuAlloySmelter> {
 
-    public ScreenAlloySmelter(ContainerAlloySmelter container, Inventory inv, Component name) {
+    public ScreenAlloySmelter(MenuAlloySmelter container, Inventory inv, Component name) {
         super(container, inv, name);
     }
 

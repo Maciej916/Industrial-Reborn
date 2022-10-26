@@ -7,9 +7,9 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
 
-public class ScreenExtractor extends BetterScreen<ContainerExtractor> {
+public class ScreenExtractor extends BetterScreen<MenuExtractor> {
 
-    public ScreenExtractor(ContainerExtractor container, Inventory inv, Component name) {
+    public ScreenExtractor(MenuExtractor container, Inventory inv, Component name) {
         super(container, inv, name);
     }
 

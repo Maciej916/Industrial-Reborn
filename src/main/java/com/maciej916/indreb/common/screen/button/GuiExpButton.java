@@ -7,7 +7,7 @@ import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.Screen;
-import net.minecraft.network.chat.TranslatableComponent;
+import net.minecraft.network.chat.Component;
 
 import static com.maciej916.indreb.IndReb.MODID;
 
@@ -20,7 +20,7 @@ public class GuiExpButton extends GuiButton {
     @Override
     public void renderWidgetToolTip(Screen screen, PoseStack pPoseStack, int pMouseX, int pMouseY) {
         if (isHoveredOrFocused()) {
-            screen.renderTooltip(pPoseStack, new TranslatableComponent("gui." + MODID + ".collect_exp"), pMouseX, pMouseY);
+            screen.renderTooltip(pPoseStack, Component.translatable("gui." + MODID + ".collect_exp"), pMouseX, pMouseY);
         }
     }
 

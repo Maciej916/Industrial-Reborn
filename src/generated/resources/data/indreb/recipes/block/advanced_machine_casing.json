@@ -1,25 +1,25 @@
 {
   "type": "minecraft:crafting_shaped",
   "group": "indreb",
-  "pattern": [
-    "scs",
-    "aba",
-    "scs"
-  ],
   "key": {
-    "s": {
-      "item": "indreb:steel_plate"
-    },
-    "c": {
-      "item": "indreb:carbon_plate"
-    },
     "a": {
       "item": "indreb:advanced_alloy"
     },
     "b": {
       "item": "indreb:basic_machine_casing"
+    },
+    "c": {
+      "item": "indreb:carbon_plate"
+    },
+    "s": {
+      "tag": "forge:plates/steel"
     }
   },
+  "pattern": [
+    "scs",
+    "aba",
+    "scs"
+  ],
   "result": {
     "item": "indreb:advanced_machine_casing"
   }

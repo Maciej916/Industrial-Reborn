@@ -7,9 +7,9 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
 
-public class ScreenElectricFurnace extends BetterScreen<ContainerElectricFurnace> {
+public class ScreenElectricFurnace extends BetterScreen<MenuElectricFurnace> {
 
-    public ScreenElectricFurnace(ContainerElectricFurnace container, Inventory inv, Component name) {
+    public ScreenElectricFurnace(MenuElectricFurnace container, Inventory inv, Component name) {
         super(container, inv, name);
     }
 

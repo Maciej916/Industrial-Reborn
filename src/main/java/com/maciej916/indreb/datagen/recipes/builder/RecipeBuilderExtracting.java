@@ -155,7 +155,7 @@ public class RecipeBuilderExtracting {
 
         @Override
         public RecipeSerializer<?> getType() {
-            return ModRecipeSerializer.EXTRACTING;
+            return ModRecipeSerializer.EXTRACTING.get();
         }
 
         @Nullable

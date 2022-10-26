@@ -3,6 +3,7 @@ package com.maciej916.indreb.common.block.impl.cf;
 import com.maciej916.indreb.common.registries.ModBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.AbstractGlassBlock;
 import net.minecraft.world.level.block.Block;
@@ -30,11 +31,11 @@ public class BlockReinforcedCF extends AbstractGlassBlock {
     }
 
     @Override
-    public void tick(BlockState pState, ServerLevel pLevel, BlockPos pPos, Random pRandom) {
+    public void tick(BlockState pState, ServerLevel pLevel, BlockPos pPos, RandomSource pRandom) {
 
         int count = ThreadLocalRandom.current().nextInt(0, 3);
         if (count == 0) {
-            pLevel.setBlock(pPos, ModBlocks.REINFORCED_STONE.getBlock().defaultBlockState(), 2);
+            pLevel.setBlock(pPos, ModBlocks.REINFORCED_STONE.get().defaultBlockState(), 2);
         }
 
         super.tick(pState, pLevel, pPos, pRandom);

@@ -1,16 +1,16 @@
 {
   "type": "minecraft:crafting_shaped",
   "group": "indreb",
+  "key": {
+    "x": {
+      "tag": "forge:ingots/silver"
+    }
+  },
   "pattern": [
     "xxx",
     "xxx",
     "xxx"
   ],
-  "key": {
-    "x": {
-      "item": "indreb:silver_ingot"
-    }
-  },
   "result": {
     "item": "indreb:silver_block"
   }

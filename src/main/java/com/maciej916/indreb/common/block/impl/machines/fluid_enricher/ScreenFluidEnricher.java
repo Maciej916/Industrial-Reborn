@@ -9,9 +9,9 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
 
-public class ScreenFluidEnricher extends BetterScreen<ContainerFluidEnricher> {
+public class ScreenFluidEnricher extends BetterScreen<MenuFluidEnricher> {
 
-    public ScreenFluidEnricher(ContainerFluidEnricher container, Inventory inv, Component name) {
+    public ScreenFluidEnricher(MenuFluidEnricher container, Inventory inv, Component name) {
         super(container, inv, name);
     }
 

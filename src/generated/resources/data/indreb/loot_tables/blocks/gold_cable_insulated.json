@@ -2,8 +2,6 @@
   "type": "minecraft:block",
   "pools": [
     {
-      "name": "gold_cable_insulated",
-      "rolls": 1.0,
       "bonus_rolls": 0.0,
       "entries": [
         {
@@ -14,19 +12,21 @@
               "source": "block_entity"
             },
             {
-              "function": "minecraft:set_contents",
               "type": "indreb:cable",
               "entries": [
                 {
                   "type": "minecraft:dynamic",
                   "name": "minecraft:contents"
                 }
-              ]
+              ],
+              "function": "minecraft:set_contents"
             }
           ],
           "name": "indreb:gold_cable_insulated"
         }
-      ]
+      ],
+      "name": "gold_cable_insulated",
+      "rolls": 1.0
     }
   ]
 }

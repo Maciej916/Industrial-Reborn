@@ -10,7 +10,7 @@
     }
   ],
   "result": {
-    "item": "indreb:copper_cable",
-    "count": 2
+    "count": 2,
+    "item": "indreb:copper_cable"
   }
 }

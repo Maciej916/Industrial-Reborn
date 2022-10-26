@@ -21,12 +21,15 @@ import com.maciej916.indreb.common.block.impl.machines.iron_furnace.ScreenIronFu
 import com.maciej916.indreb.common.block.impl.machines.recycler.ScreenRecycler;
 import com.maciej916.indreb.common.block.impl.machines.sawmill.ScreenSawmill;
 import com.maciej916.indreb.common.block.impl.transformer.ScreenTransformer;
+import com.maciej916.indreb.common.client.keys.ModKeys;
 import com.maciej916.indreb.common.client.renderer.EnergyInfoRenderer;
+import com.maciej916.indreb.common.fluid.*;
 import com.maciej916.indreb.common.item.base.ElectricItem;
+import com.maciej916.indreb.common.item.base.FluidItem;
 import com.maciej916.indreb.common.item.impl.nano.ItemNanosaber;
 import com.maciej916.indreb.common.item.impl.upgrade.ItemDirectionalUpgrade;
 import com.maciej916.indreb.common.registries.ModBlocks;
-import com.maciej916.indreb.common.registries.ModContainers;
+import com.maciej916.indreb.common.registries.ModMenuTypes;
 import com.maciej916.indreb.common.registries.ModItems;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.color.block.BlockColors;
@@ -39,8 +42,10 @@ import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.level.FoliageColor;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.client.event.RegisterKeyMappingsEvent;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
@@ -50,73 +55,83 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 public final class ClientModEventSubscriber {
 
 	@SubscribeEvent
+	public static void onKeyRegister(RegisterKeyMappingsEvent event) {
+		event.register(ModKeys.NIGHT_VISION_KEY);
+	}
+
+	@SubscribeEvent
 	public static void onFMLClientSetupEvent(final FMLClientSetupEvent event) {
 		event.enqueueWork(() -> {
 
 			MinecraftForge.EVENT_BUS.addListener(EnergyInfoRenderer::render);
 
-			MenuScreens.register(ModContainers.GENERATOR, ScreenGenerator::new);
-			MenuScreens.register(ModContainers.SOLAR_GENERATOR, ScreenSolarGenerator::new);
-			MenuScreens.register(ModContainers.GEO_GENERATOR, ScreenGeoGenerator::new);
-			MenuScreens.register(ModContainers.CRYSTALLINE_GENERATOR, ScreenCrystallineGenerator::new);
-			MenuScreens.register(ModContainers.SEMIFLUID_GENERATOR, ScreenSemifluidGenerator::new);
+			MenuScreens.register(ModMenuTypes.GENERATOR.get(), ScreenGenerator::new);
+			MenuScreens.register(ModMenuTypes.SOLAR_GENERATOR.get(), ScreenSolarGenerator::new);
+			MenuScreens.register(ModMenuTypes.GEO_GENERATOR.get(), ScreenGeoGenerator::new);
+			MenuScreens.register(ModMenuTypes.CRYSTALLINE_GENERATOR.get(), ScreenCrystallineGenerator::new);
+			MenuScreens.register(ModMenuTypes.SEMIFLUID_GENERATOR.get(), ScreenSemifluidGenerator::new);
 
-			MenuScreens.register(ModContainers.BATTERY_BOX, ScreenBatteryBox::new);
-			MenuScreens.register(ModContainers.TRANSFORMER, ScreenTransformer::new);
-			MenuScreens.register(ModContainers.CHARGE_PAD, ScreenChargePad::new);
+			MenuScreens.register(ModMenuTypes.BATTERY_BOX.get(), ScreenBatteryBox::new);
+			MenuScreens.register(ModMenuTypes.TRANSFORMER.get(), ScreenTransformer::new);
+			MenuScreens.register(ModMenuTypes.CHARGE_PAD.get(), ScreenChargePad::new);
 
-			MenuScreens.register(ModContainers.IRON_FURNACE, ScreenIronFurnace::new);
-			MenuScreens.register(ModContainers.ELECTRIC_FURNACE, ScreenElectricFurnace::new);
+			MenuScreens.register(ModMenuTypes.IRON_FURNACE.get(), ScreenIronFurnace::new);
+			MenuScreens.register(ModMenuTypes.ELECTRIC_FURNACE.get(), ScreenElectricFurnace::new);
 
-			MenuScreens.register(ModContainers.CRUSHER, ScreenCrusher::new);
-			MenuScreens.register(ModContainers.COMPRESSOR, ScreenCompressor::new);
-			MenuScreens.register(ModContainers.EXTRACTOR, ScreenExtractor::new);
-			MenuScreens.register(ModContainers.SAWMILL, ScreenSawmill::new);
-			MenuScreens.register(ModContainers.EXTRUDER, ScreenExtruder::new);
-			MenuScreens.register(ModContainers.CANNING_MACHINE, ScreenCanningMachine::new);
-			MenuScreens.register(ModContainers.FLUID_ENRICHER, ScreenFluidEnricher::new);
-			MenuScreens.register(ModContainers.RECYCLER, ScreenRecycler::new);
-			MenuScreens.register(ModContainers.ALLOY_SMELTER, ScreenAlloySmelter::new);
-			MenuScreens.register(ModContainers.FERMENTER, ScreenFermenter::new);
+			MenuScreens.register(ModMenuTypes.CRUSHER.get(), ScreenCrusher::new);
+			MenuScreens.register(ModMenuTypes.COMPRESSOR.get(), ScreenCompressor::new);
+			MenuScreens.register(ModMenuTypes.EXTRACTOR.get(), ScreenExtractor::new);
+			MenuScreens.register(ModMenuTypes.SAWMILL.get(), ScreenSawmill::new);
+			MenuScreens.register(ModMenuTypes.EXTRUDER.get(), ScreenExtruder::new);
+			MenuScreens.register(ModMenuTypes.CANNING_MACHINE.get(), ScreenCanningMachine::new);
+			MenuScreens.register(ModMenuTypes.FLUID_ENRICHER.get(), ScreenFluidEnricher::new);
+			MenuScreens.register(ModMenuTypes.RECYCLER.get(), ScreenRecycler::new);
+			MenuScreens.register(ModMenuTypes.ALLOY_SMELTER.get(), ScreenAlloySmelter::new);
+			MenuScreens.register(ModMenuTypes.FERMENTER.get(), ScreenFermenter::new);
 
-
-			ItemBlockRenderTypes.setRenderLayer(ModBlocks.GLASS_FIBRE_CABLE.getBlock(), RenderType.translucent());
-			ItemBlockRenderTypes.setRenderLayer(ModBlocks.RUBBER_SAPLING.getBlock(), RenderType.cutout());
-			ItemBlockRenderTypes.setRenderLayer(ModBlocks.CONSTRUCTION_FOAM.getBlock(), RenderType.cutout());
-			ItemBlockRenderTypes.setRenderLayer(ModBlocks.REINFORCED_CONSTRUCTION_FOAM.getBlock(), RenderType.cutout());
-			ItemBlockRenderTypes.setRenderLayer(ModBlocks.REINFORCED_GLASS.getBlock(), RenderType.cutout());
-			ItemBlockRenderTypes.setRenderLayer(ModBlocks.IRON_SCAFFOLDING.getBlock(), RenderType.cutout());
 
 			BlockColors blockColors = Minecraft.getInstance().getBlockColors();
-			blockColors.register((state, world, pos, tintIndex) -> world != null && pos != null ? BiomeColors.getAverageFoliageColor(world, pos) - 1000: FoliageColor.getEvergreenColor(), ModBlocks.RUBBER_LEAVES.getBlock());
+			blockColors.register((state, world, pos, tintIndex) -> world != null && pos != null ? BiomeColors.getAverageFoliageColor(world, pos) - 1000: FoliageColor.getEvergreenColor(), ModBlocks.RUBBER_LEAVES.get());
+
 			ItemColors itemColors = Minecraft.getInstance().getItemColors();
 			itemColors.register((stack, tintIndex) -> {
 				BlockState BlockState = ((BlockItem)stack.getItem()).getBlock().defaultBlockState();
 				return blockColors.getColor(BlockState, null, null, tintIndex);
-			}, ModBlocks.RUBBER_LEAVES);
+			}, ModBlocks.RUBBER_LEAVES.get());
 
+			itemColors.register((stack, tintIndex) -> ((FluidItem) ModItems.FLUID_CELL.get()).getColor(stack, tintIndex), ModItems.FLUID_CELL.get());
 
+			ItemProperties.register(ModItems.BATTERY.get(), new ResourceLocation(IndReb.MODID, "charge_ratio"), (stack, level, living, id) -> ElectricItem.getChargeRatioModel(stack));
+			ItemProperties.register(ModItems.ADVANCED_BATTERY.get(), new ResourceLocation(IndReb.MODID, "charge_ratio"), (stack, level, living, id) -> ElectricItem.getChargeRatioModel(stack));
+			ItemProperties.register(ModItems.ENERGY_CRYSTAL.get(), new ResourceLocation(IndReb.MODID, "charge_ratio"), (stack, level, living, id) -> ElectricItem.getChargeRatioModel(stack));
+			ItemProperties.register(ModItems.LAPOTRON_CRYSTAL.get(), new ResourceLocation(IndReb.MODID, "charge_ratio"), (stack, level, living, id) -> ElectricItem.getChargeRatioModel(stack));
 
-			ItemProperties.register(ModItems.BATTERY, new ResourceLocation(IndReb.MODID, "charge_ratio"), (stack, level, living, id) -> ElectricItem.getChargeRatioModel(stack));
-			ItemProperties.register(ModItems.ADVANCED_BATTERY, new ResourceLocation(IndReb.MODID, "charge_ratio"), (stack, level, living, id) -> ElectricItem.getChargeRatioModel(stack));
-			ItemProperties.register(ModItems.ENERGY_CRYSTAL, new ResourceLocation(IndReb.MODID, "charge_ratio"), (stack, level, living, id) -> ElectricItem.getChargeRatioModel(stack));
-			ItemProperties.register(ModItems.LAPOTRON_CRYSTAL, new ResourceLocation(IndReb.MODID, "charge_ratio"), (stack, level, living, id) -> ElectricItem.getChargeRatioModel(stack));
+			ItemProperties.register(ModItems.CHARGING_BATTERY.get(), new ResourceLocation(IndReb.MODID, "charge_ratio"), (stack, level, living, id) -> ElectricItem.getChargeRatioModel(stack));
+			ItemProperties.register(ModItems.ADVANCED_CHARGING_BATTERY.get(), new ResourceLocation(IndReb.MODID, "charge_ratio"), (stack, level, living, id) -> ElectricItem.getChargeRatioModel(stack));
+			ItemProperties.register(ModItems.CHARGING_ENERGY_CRYSTAL.get(), new ResourceLocation(IndReb.MODID, "charge_ratio"), (stack, level, living, id) -> ElectricItem.getChargeRatioModel(stack));
+			ItemProperties.register(ModItems.CHARGING_LAPOTRON_CRYSTAL.get(), new ResourceLocation(IndReb.MODID, "charge_ratio"), (stack, level, living, id) -> ElectricItem.getChargeRatioModel(stack));
 
-			ItemProperties.register(ModItems.CHARGING_BATTERY, new ResourceLocation(IndReb.MODID, "charge_ratio"), (stack, level, living, id) -> ElectricItem.getChargeRatioModel(stack));
-			ItemProperties.register(ModItems.ADVANCED_CHARGING_BATTERY, new ResourceLocation(IndReb.MODID, "charge_ratio"), (stack, level, living, id) -> ElectricItem.getChargeRatioModel(stack));
-			ItemProperties.register(ModItems.CHARGING_ENERGY_CRYSTAL, new ResourceLocation(IndReb.MODID, "charge_ratio"), (stack, level, living, id) -> ElectricItem.getChargeRatioModel(stack));
-			ItemProperties.register(ModItems.CHARGING_LAPOTRON_CRYSTAL, new ResourceLocation(IndReb.MODID, "charge_ratio"), (stack, level, living, id) -> ElectricItem.getChargeRatioModel(stack));
+			ItemProperties.register(ModItems.NANO_SABER.get(), new ResourceLocation(IndReb.MODID, "active"), (stack, level, living, id) -> ItemNanosaber.isActivated(stack));
 
-			ItemProperties.register(ModItems.NANO_SABER, new ResourceLocation(IndReb.MODID, "active"), (stack, level, living, id) -> ItemNanosaber.isActivated(stack));
+			ItemProperties.register(ModItems.EJECTOR_UPGRADE.get(), new ResourceLocation(IndReb.MODID, "direction"), (stack, level, living, id) -> ItemDirectionalUpgrade.getDirection(stack));
+			ItemProperties.register(ModItems.PULLING_UPGRADE.get(), new ResourceLocation(IndReb.MODID, "direction"), (stack, level, living, id) -> ItemDirectionalUpgrade.getDirection(stack));
+			ItemProperties.register(ModItems.FLUID_EJECTOR_UPGRADE.get(), new ResourceLocation(IndReb.MODID, "direction"), (stack, level, living, id) -> ItemDirectionalUpgrade.getDirection(stack));
+			ItemProperties.register(ModItems.FLUID_EJECTOR_UPGRADE.get(), new ResourceLocation(IndReb.MODID, "direction"), (stack, level, living, id) -> ItemDirectionalUpgrade.getDirection(stack));
+			ItemProperties.register(ModItems.ADVANCED_EJECTOR_UPGRADE.get(), new ResourceLocation(IndReb.MODID, "direction"), (stack, level, living, id) -> ItemDirectionalUpgrade.getDirection(stack));
+			ItemProperties.register(ModItems.ADVANCED_PULLING_UPGRADE.get(), new ResourceLocation(IndReb.MODID, "direction"), (stack, level, living, id) -> ItemDirectionalUpgrade.getDirection(stack));
+			ItemProperties.register(ModItems.ADVANCED_FLUID_EJECTOR_UPGRADE.get(), new ResourceLocation(IndReb.MODID, "direction"), (stack, level, living, id) -> ItemDirectionalUpgrade.getDirection(stack));
+			ItemProperties.register(ModItems.ADVANCED_FLUID_PULLING_UPGRADE.get(), new ResourceLocation(IndReb.MODID, "direction"), (stack, level, living, id) -> ItemDirectionalUpgrade.getDirection(stack));
 
-			ItemProperties.register(ModItems.EJECTOR_UPGRADE, new ResourceLocation(IndReb.MODID, "direction"), (stack, level, living, id) -> ItemDirectionalUpgrade.getDirection(stack));
-			ItemProperties.register(ModItems.PULLING_UPGRADE, new ResourceLocation(IndReb.MODID, "direction"), (stack, level, living, id) -> ItemDirectionalUpgrade.getDirection(stack));
-			ItemProperties.register(ModItems.FLUID_EJECTOR_UPGRADE, new ResourceLocation(IndReb.MODID, "direction"), (stack, level, living, id) -> ItemDirectionalUpgrade.getDirection(stack));
-			ItemProperties.register(ModItems.FLUID_EJECTOR_UPGRADE, new ResourceLocation(IndReb.MODID, "direction"), (stack, level, living, id) -> ItemDirectionalUpgrade.getDirection(stack));
-			ItemProperties.register(ModItems.ADVANCED_EJECTOR_UPGRADE, new ResourceLocation(IndReb.MODID, "direction"), (stack, level, living, id) -> ItemDirectionalUpgrade.getDirection(stack));
-			ItemProperties.register(ModItems.ADVANCED_PULLING_UPGRADE, new ResourceLocation(IndReb.MODID, "direction"), (stack, level, living, id) -> ItemDirectionalUpgrade.getDirection(stack));
-			ItemProperties.register(ModItems.ADVANCED_FLUID_EJECTOR_UPGRADE, new ResourceLocation(IndReb.MODID, "direction"), (stack, level, living, id) -> ItemDirectionalUpgrade.getDirection(stack));
-			ItemProperties.register(ModItems.ADVANCED_FLUID_PULLING_UPGRADE, new ResourceLocation(IndReb.MODID, "direction"), (stack, level, living, id) -> ItemDirectionalUpgrade.getDirection(stack));
+			ItemBlockRenderTypes.setRenderLayer(Biogas.STILL_FLUID, RenderType.translucent());
+			ItemBlockRenderTypes.setRenderLayer(Biogas.FLOWING_FLUID, RenderType.translucent());
+			ItemBlockRenderTypes.setRenderLayer(Biomass.STILL_FLUID, RenderType.translucent());
+			ItemBlockRenderTypes.setRenderLayer(Biomass.FLOWING_FLUID, RenderType.translucent());
+			ItemBlockRenderTypes.setRenderLayer(ConstructionFoam.STILL_FLUID, RenderType.translucent());
+			ItemBlockRenderTypes.setRenderLayer(ConstructionFoam.FLOWING_FLUID, RenderType.translucent());
+			ItemBlockRenderTypes.setRenderLayer(ReinforcedConstructionFoam.STILL_FLUID, RenderType.translucent());
+			ItemBlockRenderTypes.setRenderLayer(ReinforcedConstructionFoam.FLOWING_FLUID, RenderType.translucent());
+			ItemBlockRenderTypes.setRenderLayer(Coolant.STILL_FLUID, RenderType.translucent());
+			ItemBlockRenderTypes.setRenderLayer(Coolant.FLOWING_FLUID, RenderType.translucent());
 		});
 	}
 }

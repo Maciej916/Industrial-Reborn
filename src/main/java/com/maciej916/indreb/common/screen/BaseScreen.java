@@ -1,6 +1,6 @@
 package com.maciej916.indreb.common.screen;
 
-import com.maciej916.indreb.common.container.IndRebContainer;
+import com.maciej916.indreb.common.container.IndRebMenu;
 import com.maciej916.indreb.common.entity.block.IndRebBlockEntity;
 import com.maciej916.indreb.common.interfaces.screen.IGuiWrapper;
 import com.mojang.blaze3d.systems.RenderSystem;
@@ -11,7 +11,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
 
-public class BaseScreen <T extends IndRebContainer> extends AbstractContainerScreen<T> implements IGuiWrapper {
+public class BaseScreen <T extends IndRebMenu> extends AbstractContainerScreen<T> implements IGuiWrapper {
 
     private final T container;
 
@@ -52,7 +52,7 @@ public class BaseScreen <T extends IndRebContainer> extends AbstractContainerScr
     protected void renderLabels(PoseStack poseStack, int mouseX, int mouseY) {
         super.renderLabels(poseStack, mouseX, mouseY);
 //        this.font.draw(poseStack, this.getTitle(), 8.0F, 6.0F, 4210752);
-//        this.font.draw(poseStack, new TranslatableComponent("container.inventory"), 8.0F, 128.0F, 4210752);
+//        this.font.draw(poseStack, Component.translatable("container.inventory"), 8.0F, 128.0F, 4210752);
     }
 
     public void render(PoseStack poseStack, int mouseX, int mouseY, float partialTicks) {

@@ -138,7 +138,7 @@ public class RecipeBuilderExtruding {
 
         @Override
         public RecipeSerializer<?> getType() {
-            return ModRecipeSerializer.EXTRUDING;
+            return ModRecipeSerializer.EXTRUDING.get();
         }
 
         @Nullable

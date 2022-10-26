@@ -4,7 +4,6 @@ import com.maciej916.indreb.IndReb;
 import com.maciej916.indreb.common.enums.UpgradeType;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
@@ -20,7 +19,7 @@ public class RedstoneSignalInverter extends ItemUpgrade {
     @Override
     public void appendHoverText(ItemStack stack, Level level, List<Component> components, TooltipFlag tooltipFlag) {
 
-        components.add(new TranslatableComponent("redstone." + IndReb.MODID + ".inverter").withStyle(ChatFormatting.GRAY));
+        components.add(Component.translatable("redstone." + IndReb.MODID + ".inverter").withStyle(ChatFormatting.GRAY));
 
         super.appendHoverText(stack, level, components, tooltipFlag);
     }

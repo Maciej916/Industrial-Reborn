@@ -1,6 +1,6 @@
 //package com.maciej916.indreb.common.config;
 //
-//import com.maciej916.indreb.common.registries.Config;
+//import com.maciej916.indreb.common.config.Config;
 //
 //public final class ConfigHelper {
 //

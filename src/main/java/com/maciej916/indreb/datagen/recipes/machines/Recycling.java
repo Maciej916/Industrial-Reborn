@@ -22,7 +22,7 @@ public class Recycling extends RecipeProvider {
     @Override
     protected void buildCraftingRecipes(Consumer<FinishedRecipe> consumer) {
 
-        RecipeBuilderRecycling.builder(ModItems.SCRAP)
+        RecipeBuilderRecycling.builder(ModItems.SCRAP.get())
 
                 .addExcluded(Ingredient.of(ItemTags.create(new ResourceLocation("indreb", "electrics"))))
 
@@ -46,7 +46,7 @@ public class Recycling extends RecipeProvider {
                 .addExcluded(Ingredient.of(Items.BLACK_STAINED_GLASS_PANE))
 
                 .setChance(0.15F)
-                .addCriterion("item", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.SCRAP))
+                .addCriterion("item", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.SCRAP.get()))
                 .setGroup("recycling")
                 .save(consumer,"scrap");
 

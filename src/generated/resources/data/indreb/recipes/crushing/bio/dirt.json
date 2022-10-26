@@ -1,13 +1,13 @@
 {
   "type": "indreb:crushing",
+  "duration": 180,
+  "experience": 0.0,
   "ingredient": {
-    "item": "indreb:bio_chaff",
-    "count": 1
+    "count": 1,
+    "item": "indreb:bio_chaff"
   },
+  "power_cost": 8,
   "result": {
     "item": "minecraft:dirt"
-  },
-  "experience": 0.0,
-  "duration": 180,
-  "power_cost": 8
+  }
 }

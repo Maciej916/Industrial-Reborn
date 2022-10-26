@@ -25,28 +25,28 @@ public class Wood extends RecipeProvider {
     @Override
     protected void buildCraftingRecipes(Consumer<FinishedRecipe> consumer) {
 
-        ShapedRecipeBuilder.shaped(ModBlocks.RUBBER_STAIRS, 4)
+        ShapedRecipeBuilder.shaped(ModBlocks.RUBBER_STAIRS.get(), 4)
                 .pattern("P  ")
                 .pattern("PP ")
                 .pattern("PPP")
-                .define('P', ModBlocks.RUBBER_PLANKS)
+                .define('P', ModBlocks.RUBBER_PLANKS.get())
                 .group(MODID)
-                .unlockedBy("item", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.RUBBER_PLANKS))
+                .unlockedBy("rubber_planks", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.RUBBER_PLANKS.get()))
                 .save(consumer, saveResource("item/rubber_planks_rubber_stairs"));
 
-        ShapedRecipeBuilder.shaped(ModBlocks.RUBBER_SLAB, 6)
+        ShapedRecipeBuilder.shaped(ModBlocks.RUBBER_SLAB.get(), 6)
                 .pattern("PPP")
-                .define('P', ModBlocks.RUBBER_PLANKS)
+                .define('P', ModBlocks.RUBBER_PLANKS.get())
                 .group(MODID)
-                .unlockedBy("item", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.RUBBER_PLANKS))
+                .unlockedBy("rubber_planks", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.RUBBER_PLANKS.get()))
                 .save(consumer, saveResource("rubber_planks_rubber_slab"));
 
-        ShapedRecipeBuilder.shaped(ModBlocks.RUBBER_WOOD, 3)
+        ShapedRecipeBuilder.shaped(ModBlocks.RUBBER_WOOD.get(), 3)
                 .pattern("ww ")
                 .pattern("ww ")
-                .define('w', ModBlocks.RUBBER_LOG)
+                .define('w', ModBlocks.RUBBER_LOG.get())
                 .group(MODID)
-                .unlockedBy("item", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.RUBBER_LOG))
+                .unlockedBy("rubber_log", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.RUBBER_LOG.get()))
                 .save(consumer, saveResource("rubber_wood"));
 
 

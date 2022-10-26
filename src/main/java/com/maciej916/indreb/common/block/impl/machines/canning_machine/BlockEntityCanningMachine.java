@@ -24,8 +24,8 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.common.capabilities.Capability;
+import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.common.util.LazyOptional;
-import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.wrapper.RangedWrapper;
 
 import javax.annotation.Nonnull;
@@ -48,7 +48,7 @@ public class BlockEntityCanningMachine extends IndRebBlockEntity implements IEne
     private ItemStack cachedInputStack1 = ItemStack.EMPTY;
 
     public BlockEntityCanningMachine(BlockPos pWorldPosition, BlockState pBlockState) {
-        super(ModBlockEntities.CANNING_MACHINE, pWorldPosition, pBlockState);
+        super(ModBlockEntities.CANNING_MACHINE.get(), pWorldPosition, pBlockState);
         createEnergyStorage(0, ServerConfig.canning_machine_energy_capacity.get(), EnergyType.RECEIVE, EnergyTier.BASIC);
     }
 
@@ -206,7 +206,7 @@ public class BlockEntityCanningMachine extends IndRebBlockEntity implements IEne
     @Nonnull
     @Override
     public <T> LazyOptional<T> getCapability(@Nonnull final Capability<T> cap, @Nullable final Direction side) {
-        if (cap == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY) {
+        if (cap == ForgeCapabilities.ITEM_HANDLER) {
             if (side == null) return capabilities.get(0).cast();
             return switch (side) {
                 case DOWN -> capabilities.get(2).cast();
@@ -224,7 +224,7 @@ public class BlockEntityCanningMachine extends IndRebBlockEntity implements IEne
 
     @Override
     public SoundEvent getSoundEvent() {
-        return ModSounds.CANNING_MACHINE;
+        return ModSounds.CANNING_MACHINE.get();
     }
 
     @Override

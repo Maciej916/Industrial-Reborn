@@ -1,13 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
-  "rewards": {
-    "recipes": [
-      "indreb:item/small_power_unit"
-    ]
-  },
   "criteria": {
     "battery": {
-      "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
@@ -16,46 +10,10 @@
             ]
           }
         ]
-      }
-    },
-    "electronic_circuit": {
-      "trigger": "minecraft:inventory_changed",
-      "conditions": {
-        "items": [
-          {
-            "items": [
-              "indreb:electronic_circuit"
-            ]
-          }
-        ]
-      }
-    },
-    "electric_motor": {
-      "trigger": "minecraft:inventory_changed",
-      "conditions": {
-        "items": [
-          {
-            "items": [
-              "indreb:electric_motor"
-            ]
-          }
-        ]
-      }
-    },
-    "iron_plate": {
-      "trigger": "minecraft:inventory_changed",
-      "conditions": {
-        "items": [
-          {
-            "items": [
-              "indreb:iron_plate"
-            ]
-          }
-        ]
-      }
+      },
+      "trigger": "minecraft:inventory_changed"
     },
     "copper_cable": {
-      "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
@@ -64,13 +22,50 @@
             ]
           }
         ]
-      }
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "electric_motor": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:electric_motor"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "electronic_circuit": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:electronic_circuit"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
     },
     "has_the_recipe": {
-      "trigger": "minecraft:recipe_unlocked",
       "conditions": {
         "recipe": "indreb:item/small_power_unit"
-      }
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "iron_plate": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:iron_plate"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
     }
   },
   "requirements": [
@@ -82,5 +77,10 @@
       "copper_cable",
       "has_the_recipe"
     ]
-  ]
+  ],
+  "rewards": {
+    "recipes": [
+      "indreb:item/small_power_unit"
+    ]
+  }
 }

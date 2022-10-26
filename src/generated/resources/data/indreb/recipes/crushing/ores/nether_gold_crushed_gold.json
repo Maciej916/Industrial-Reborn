@@ -1,19 +1,19 @@
 {
   "type": "indreb:crushing",
-  "ingredient": {
-    "item": "minecraft:nether_gold_ore",
-    "count": 1
-  },
-  "result": {
-    "item": "indreb:crushed_gold",
-    "count": 3
-  },
   "bonus_result": {
-    "item": "minecraft:netherrack",
+    "chance": 75.0,
     "count": 1,
-    "chance": 75.0
+    "item": "minecraft:netherrack"
   },
-  "experience": 0.4,
   "duration": 180,
-  "power_cost": 8
+  "experience": 0.4,
+  "ingredient": {
+    "count": 1,
+    "item": "minecraft:nether_gold_ore"
+  },
+  "power_cost": 8,
+  "result": {
+    "count": 3,
+    "item": "indreb:crushed_gold"
+  }
 }

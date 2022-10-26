@@ -4,9 +4,9 @@
       "model": "indreb:block/ev_transformer",
       "x": 90
     },
-    "facing=up": {
+    "facing=east": {
       "model": "indreb:block/ev_transformer",
-      "x": -90
+      "y": 90
     },
     "facing=north": {
       "model": "indreb:block/ev_transformer"
@@ -15,13 +15,13 @@
       "model": "indreb:block/ev_transformer",
       "y": 180
     },
+    "facing=up": {
+      "model": "indreb:block/ev_transformer",
+      "x": -90
+    },
     "facing=west": {
       "model": "indreb:block/ev_transformer",
       "y": 270
-    },
-    "facing=east": {
-      "model": "indreb:block/ev_transformer",
-      "y": 90
     }
   }
 }

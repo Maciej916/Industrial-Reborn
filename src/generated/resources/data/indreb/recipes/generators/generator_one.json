@@ -1,22 +1,22 @@
 {
   "type": "minecraft:crafting_shaped",
   "group": "indreb",
-  "pattern": [
-    "R",
-    "M",
-    "f"
-  ],
   "key": {
-    "f": {
-      "item": "minecraft:furnace"
-    },
     "M": {
       "item": "indreb:basic_machine_casing"
     },
     "R": {
       "item": "indreb:battery"
+    },
+    "f": {
+      "item": "minecraft:furnace"
     }
   },
+  "pattern": [
+    "R",
+    "M",
+    "f"
+  ],
   "result": {
     "item": "indreb:generator"
   }

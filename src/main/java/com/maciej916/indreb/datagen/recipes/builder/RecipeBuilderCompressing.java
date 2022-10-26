@@ -155,7 +155,7 @@ public class RecipeBuilderCompressing {
 
         @Override
         public RecipeSerializer<?> getType() {
-            return ModRecipeSerializer.COMPRESSING;
+            return ModRecipeSerializer.COMPRESSING.get();
         }
 
         @Nullable

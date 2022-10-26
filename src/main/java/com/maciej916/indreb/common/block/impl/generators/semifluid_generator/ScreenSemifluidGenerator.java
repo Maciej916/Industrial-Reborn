@@ -8,9 +8,9 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
 
-public class ScreenSemifluidGenerator extends BetterScreen<ContainerSemifluidGenerator> {
+public class ScreenSemifluidGenerator extends BetterScreen<MenuSemifluidGenerator> {
 
-    public ScreenSemifluidGenerator(ContainerSemifluidGenerator container, Inventory inv, Component name) {
+    public ScreenSemifluidGenerator(MenuSemifluidGenerator container, Inventory inv, Component name) {
         super(container, inv, name);
     }
 

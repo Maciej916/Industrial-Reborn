@@ -2,7 +2,7 @@ package com.maciej916.indreb.common.block;
 
 import com.maciej916.indreb.common.energy.interfaces.IEnergyBlock;
 import com.maciej916.indreb.common.entity.block.IndRebBlockEntity;
-import com.maciej916.indreb.common.interfaces.block.IHasContainer;
+import com.maciej916.indreb.common.interfaces.block.IHasMenu;
 import com.maciej916.indreb.common.registries.ModCapabilities;
 import com.maciej916.indreb.common.registries.ModTags;
 import com.maciej916.indreb.common.util.BlockStateHelper;
@@ -10,7 +10,6 @@ import com.maciej916.indreb.common.util.CapabilityUtil;
 import com.maciej916.indreb.common.util.wrench.WrenchHelper;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.tags.TagKey;
@@ -83,20 +82,20 @@ public class IndRebBlock extends Block {
         }
 
         BlockEntity blockEntity = level.getBlockEntity(pos);
-        if (this instanceof IHasContainer hasContainer) {
+        if (this instanceof IHasMenu hasContainer) {
             if (!level.isClientSide) {
                 MenuProvider containerProvider = new MenuProvider() {
                     @Override
                     public Component getDisplayName() {
-                        return new TranslatableComponent(getDescriptionId());
+                        return Component.translatable(getDescriptionId());
                     }
 
                     @Override
                     public AbstractContainerMenu createMenu(int windowId, Inventory playerInventory, Player playerEntity) {
-                        return hasContainer.getContainer(windowId, level, pos, playerInventory, playerEntity);
+                        return hasContainer.getMenu(windowId, level, pos, playerInventory, playerEntity);
                     }
                 };
-                NetworkHooks.openGui((ServerPlayer) player, containerProvider, blockEntity.getBlockPos());
+                NetworkHooks.openScreen((ServerPlayer) player, containerProvider, blockEntity.getBlockPos());
             }
             return InteractionResult.SUCCESS;
         }

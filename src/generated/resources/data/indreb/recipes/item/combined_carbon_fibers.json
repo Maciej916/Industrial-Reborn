@@ -1,14 +1,14 @@
 {
   "type": "minecraft:crafting_shaped",
   "group": "indreb",
-  "pattern": [
-    "cc "
-  ],
   "key": {
     "c": {
       "item": "indreb:carbon_fibers"
     }
   },
+  "pattern": [
+    "cc "
+  ],
   "result": {
     "item": "indreb:combined_carbon_fibers"
   }

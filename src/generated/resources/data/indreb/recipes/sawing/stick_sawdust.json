@@ -1,13 +1,13 @@
 {
   "type": "indreb:sawing",
+  "duration": 180,
+  "experience": 0.0,
   "ingredient": {
-    "item": "minecraft:stick",
-    "count": 1
+    "count": 1,
+    "item": "minecraft:stick"
   },
+  "power_cost": 8,
   "result": {
     "item": "indreb:sawdust"
-  },
-  "experience": 0.0,
-  "duration": 180,
-  "power_cost": 8
+  }
 }

@@ -1,15 +1,7 @@
 {
   "type": "minecraft:crafting_shaped",
   "group": "indreb",
-  "pattern": [
-    "ppp",
-    "cbc",
-    "pep"
-  ],
   "key": {
-    "p": {
-      "tag": "forge:plates/tin"
-    },
     "b": {
       "item": "indreb:basic_machine_casing"
     },
@@ -18,8 +10,16 @@
     },
     "e": {
       "item": "indreb:electronic_circuit"
+    },
+    "p": {
+      "tag": "forge:plates/tin"
     }
   },
+  "pattern": [
+    "ppp",
+    "cbc",
+    "pep"
+  ],
   "result": {
     "item": "indreb:fluid_enricher"
   }

@@ -1,22 +1,22 @@
 {
   "type": "minecraft:crafting_shaped",
   "group": "indreb",
+  "key": {
+    "b": {
+      "item": "minecraft:iron_bars"
+    },
+    "e": {
+      "item": "indreb:electric_motor"
+    },
+    "i": {
+      "tag": "forge:plates/iron"
+    }
+  },
   "pattern": [
     "bib",
     "iei",
     "bib"
   ],
-  "key": {
-    "b": {
-      "item": "minecraft:iron_bars"
-    },
-    "i": {
-      "tag": "forge:plates/iron"
-    },
-    "e": {
-      "item": "indreb:electric_motor"
-    }
-  },
   "result": {
     "item": "indreb:heat_vent"
   }

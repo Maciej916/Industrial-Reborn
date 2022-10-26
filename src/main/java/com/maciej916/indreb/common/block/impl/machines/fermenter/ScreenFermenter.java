@@ -12,9 +12,9 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
 
-public class ScreenFermenter extends BetterScreen<ContainerFermenter> {
+public class ScreenFermenter extends BetterScreen<MenuFermenter> {
 
-    public ScreenFermenter(ContainerFermenter container, Inventory inv, Component name) {
+    public ScreenFermenter(MenuFermenter container, Inventory inv, Component name) {
         super(container, inv, name);
         this.imageHeight = 256;
         this.inventoryLabelY = 94;

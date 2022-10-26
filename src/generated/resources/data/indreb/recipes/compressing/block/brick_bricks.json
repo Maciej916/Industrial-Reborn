@@ -1,13 +1,13 @@
 {
   "type": "indreb:compressing",
+  "duration": 180,
+  "experience": 0.0,
   "ingredient": {
-    "item": "minecraft:brick",
-    "count": 4
+    "count": 4,
+    "item": "minecraft:brick"
   },
+  "power_cost": 8,
   "result": {
     "item": "minecraft:bricks"
-  },
-  "experience": 0.0,
-  "duration": 180,
-  "power_cost": 8
+  }
 }

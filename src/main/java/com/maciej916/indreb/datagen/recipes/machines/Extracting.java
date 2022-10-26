@@ -23,22 +23,22 @@ public class Extracting extends RecipeProvider {
     @Override
     protected void buildCraftingRecipes(Consumer<FinishedRecipe> consumer) {
 
-        RecipeBuilderExtracting.builder(ModItems.RUBBER, 3)
-                .setIngredient(Ingredient.of(ModItems.STICKY_RESIN), 1)
+        RecipeBuilderExtracting.builder(ModItems.RUBBER.get(), 3)
+                .setIngredient(Ingredient.of(ModItems.STICKY_RESIN.get()), 1)
                 .setExperience(0.2F)
-                .addCriterion("item", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.STICKY_RESIN))
+                .addCriterion("item", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.STICKY_RESIN.get()))
                 .setGroup("extracting")
                 .save(consumer,"sticky_resin_rubber");
 
-        RecipeBuilderExtracting.builder(ModItems.RUBBER, 1)
-                .setIngredient(Ingredient.of(ModBlocks.RUBBER_SAPLING), 1)
-                .addCriterion("item", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.RUBBER_SAPLING))
+        RecipeBuilderExtracting.builder(ModItems.RUBBER.get(), 1)
+                .setIngredient(Ingredient.of(ModBlocks.RUBBER_SAPLING.get()), 1)
+                .addCriterion("item", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.RUBBER_SAPLING.get()))
                 .setGroup("extracting")
                 .save(consumer,"rubber_sapling_rubber");
 
-        RecipeBuilderExtracting.builder(ModItems.RUBBER, 1)
-                .setIngredient(Ingredient.of(ModBlocks.RUBBER_LOG), 1)
-                .addCriterion("item", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.RUBBER_LOG))
+        RecipeBuilderExtracting.builder(ModItems.RUBBER.get(), 1)
+                .setIngredient(Ingredient.of(ModBlocks.RUBBER_LOG.get()), 1)
+                .addCriterion("item", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.RUBBER_LOG.get()))
                 .setGroup("extracting")
                 .save(consumer,"rubber_wood_rubber");
 
@@ -75,9 +75,9 @@ public class Extracting extends RecipeProvider {
                 .save(consumer,"bricks_brick");
 
         RecipeBuilderExtracting.builder(Items.OAK_PLANKS, 1)
-                .setIngredient(Ingredient.of(ModBlocks.RUBBER_PLANKS), 1)
-                .setBonus(ModItems.RUBBER, 1, 10)
-                .addCriterion("item", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.RUBBER_PLANKS))
+                .setIngredient(Ingredient.of(ModBlocks.RUBBER_PLANKS.get()), 1)
+                .setBonus(ModItems.RUBBER.get(), 1, 10)
+                .addCriterion("item", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.RUBBER_PLANKS.get()))
                 .setGroup("extracting")
                 .save(consumer,"rubber_planks_oak_planks");
 

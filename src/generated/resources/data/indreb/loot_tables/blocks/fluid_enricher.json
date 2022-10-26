@@ -2,49 +2,49 @@
   "type": "minecraft:block",
   "pools": [
     {
-      "name": "fluid_enricher",
-      "rolls": 1.0,
       "bonus_rolls": 0.0,
       "entries": [
         {
           "type": "minecraft:item",
-          "weight": 80,
           "functions": [
             {
               "function": "minecraft:copy_name",
               "source": "block_entity"
             },
             {
-              "function": "minecraft:set_contents",
               "type": "indreb:fluid_enricher",
               "entries": [
                 {
                   "type": "minecraft:dynamic",
                   "name": "minecraft:contents"
                 }
-              ]
+              ],
+              "function": "minecraft:set_contents"
             }
           ],
-          "name": "indreb:fluid_enricher"
+          "name": "indreb:fluid_enricher",
+          "weight": 80
         },
         {
           "type": "minecraft:item",
-          "weight": 20,
           "functions": [
             {
-              "function": "minecraft:set_contents",
               "type": "indreb:fluid_enricher",
               "entries": [
                 {
                   "type": "minecraft:dynamic",
                   "name": "minecraft:contents"
                 }
-              ]
+              ],
+              "function": "minecraft:set_contents"
             }
           ],
-          "name": "indreb:basic_machine_casing"
+          "name": "indreb:basic_machine_casing",
+          "weight": 20
         }
-      ]
+      ],
+      "name": "fluid_enricher",
+      "rolls": 1.0
     }
   ]
 }

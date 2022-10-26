@@ -10,14 +10,14 @@ import com.mojang.blaze3d.vertex.PoseStack;
 import mezz.jei.api.constants.VanillaTypes;
 import mezz.jei.api.gui.builder.IRecipeLayoutBuilder;
 import mezz.jei.api.gui.drawable.IDrawableAnimated;
-import mezz.jei.api.gui.ingredient.*;
+import mezz.jei.api.gui.ingredient.IRecipeSlotTooltipCallback;
+import mezz.jei.api.gui.ingredient.IRecipeSlotView;
+import mezz.jei.api.gui.ingredient.IRecipeSlotsView;
 import mezz.jei.api.helpers.IGuiHelper;
 import mezz.jei.api.recipe.IFocusGroup;
 import mezz.jei.api.recipe.RecipeIngredientRole;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TextComponent;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
@@ -31,7 +31,7 @@ import static com.maciej916.indreb.common.util.Constants.PROCESS;
 
 public class RecyclingCategory extends AbstractRecipeCategory<RecyclingRecipe> {
 
-    public static final ResourceLocation UID = ModRecipeSerializer.RECYCLING.getRegistryName();
+    public static final ResourceLocation UID = ModRecipeSerializer.RECYCLING.getId();
 
     private IDrawableAnimated progress;
     private IDrawableAnimated energy;
@@ -43,7 +43,7 @@ public class RecyclingCategory extends AbstractRecipeCategory<RecyclingRecipe> {
                 "recycling",
                 guiHelper,
                 () -> guiHelper.createDrawable(JEI, 117, 0, 114, 54),
-                () -> guiHelper.createDrawableIngredient(VanillaTypes.ITEM_STACK, new ItemStack(ModBlocks.RECYCLER))
+                () -> guiHelper.createDrawableIngredient(VanillaTypes.ITEM_STACK, new ItemStack(ModBlocks.RECYCLER.get()))
         );
     }
 
@@ -73,7 +73,7 @@ public class RecyclingCategory extends AbstractRecipeCategory<RecyclingRecipe> {
 
         @Override
         public void onTooltip(IRecipeSlotView recipeSlotView, List<Component> tooltip) {
-            tooltip.add(new TranslatableComponent(EnumLang.CHANCE.getTranslationKey(), new TextComponent((Math.round(recipe.getChance() * 100.0) / 100.0) + "%").withStyle(ChatFormatting.YELLOW)).withStyle(ChatFormatting.DARK_GRAY));
+            tooltip.add(Component.translatable(EnumLang.CHANCE.getTranslationKey(),Component.literal((Math.round(recipe.getChance() * 100.0) / 100.0) + "%").withStyle(ChatFormatting.YELLOW)).withStyle(ChatFormatting.DARK_GRAY));
         }
     }
 }

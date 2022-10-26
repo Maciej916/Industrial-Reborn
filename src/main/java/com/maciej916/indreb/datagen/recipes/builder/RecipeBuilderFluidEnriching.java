@@ -154,7 +154,7 @@ public class RecipeBuilderFluidEnriching {
 
         @Override
         public RecipeSerializer<?> getType() {
-            return ModRecipeSerializer.FLUID_ENRICHING;
+            return ModRecipeSerializer.FLUID_ENRICHING.get();
         }
 
         @Nullable

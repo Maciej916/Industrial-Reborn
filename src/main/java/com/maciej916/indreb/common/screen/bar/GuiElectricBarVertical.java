@@ -3,13 +3,13 @@ package com.maciej916.indreb.common.screen.bar;
 import com.maciej916.indreb.IndReb;
 import com.maciej916.indreb.common.energy.impl.BasicEnergyStorage;
 import com.maciej916.indreb.common.entity.block.IndRebBlockEntity;
+import com.maciej916.indreb.common.enums.GuiSprite;
 import com.maciej916.indreb.common.interfaces.screen.IGuiWrapper;
 import com.maciej916.indreb.common.screen.progress.GuiProgress;
-import com.maciej916.indreb.common.enums.GuiSprite;
 import com.maciej916.indreb.common.util.TextComponentUtil;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.gui.screens.Screen;
-import net.minecraft.network.chat.TranslatableComponent;
+import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import org.jetbrains.annotations.NotNull;
 
@@ -61,7 +61,7 @@ public class GuiElectricBarVertical extends GuiProgress {
 //
 //            });
 
-            screen.renderTooltip(pPoseStack, new TranslatableComponent("gui." + IndReb.MODID + ".energy", TextComponentUtil.getFormattedEnergyUnit(getProgress().getProgress()), TextComponentUtil.getFormattedEnergyUnit(getProgress().getProgressMax())), pMouseX, pMouseY);
+            screen.renderTooltip(pPoseStack, Component.translatable("gui." + IndReb.MODID + ".energy", TextComponentUtil.getFormattedEnergyUnit(getProgress().getProgress()), TextComponentUtil.getFormattedEnergyUnit(getProgress().getProgressMax())), pMouseX, pMouseY);
         }
     }
 }

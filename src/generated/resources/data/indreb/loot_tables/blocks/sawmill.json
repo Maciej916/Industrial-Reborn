@@ -2,49 +2,49 @@
   "type": "minecraft:block",
   "pools": [
     {
-      "name": "sawmill",
-      "rolls": 1.0,
       "bonus_rolls": 0.0,
       "entries": [
         {
           "type": "minecraft:item",
-          "weight": 80,
           "functions": [
             {
               "function": "minecraft:copy_name",
               "source": "block_entity"
             },
             {
-              "function": "minecraft:set_contents",
               "type": "indreb:sawmill",
               "entries": [
                 {
                   "type": "minecraft:dynamic",
                   "name": "minecraft:contents"
                 }
-              ]
+              ],
+              "function": "minecraft:set_contents"
             }
           ],
-          "name": "indreb:sawmill"
+          "name": "indreb:sawmill",
+          "weight": 80
         },
         {
           "type": "minecraft:item",
-          "weight": 20,
           "functions": [
             {
-              "function": "minecraft:set_contents",
               "type": "indreb:sawmill",
               "entries": [
                 {
                   "type": "minecraft:dynamic",
                   "name": "minecraft:contents"
                 }
-              ]
+              ],
+              "function": "minecraft:set_contents"
             }
           ],
-          "name": "indreb:basic_machine_casing"
+          "name": "indreb:basic_machine_casing",
+          "weight": 20
         }
-      ]
+      ],
+      "name": "sawmill",
+      "rolls": 1.0
     }
   ]
 }

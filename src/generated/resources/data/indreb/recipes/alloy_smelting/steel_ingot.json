@@ -1,19 +1,19 @@
 {
   "type": "indreb:alloy_smelting",
+  "duration": 560,
+  "experience": 0.5,
   "ingredients": [
     {
-      "tag": "forge:ingots/iron",
-      "count": 1
+      "count": 1,
+      "tag": "forge:ingots/iron"
     },
     {
-      "tag": "forge:dusts/coal",
-      "count": 3
+      "count": 3,
+      "tag": "forge:dusts/coal"
     }
   ],
+  "power_cost": 16,
   "result": {
     "item": "indreb:steel_ingot"
-  },
-  "experience": 0.5,
-  "duration": 560,
-  "power_cost": 16
+  }
 }

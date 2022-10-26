@@ -10,7 +10,7 @@
     }
   ],
   "result": {
-    "item": "indreb:hv_cable",
-    "count": 3
+    "count": 3,
+    "item": "indreb:hv_cable"
   }
 }

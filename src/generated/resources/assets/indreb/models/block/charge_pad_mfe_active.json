@@ -1,9 +1,9 @@
 {
   "parent": "minecraft:block/orientable_with_bottom",
   "textures": {
-    "side": "indreb:block/charge_pad/mfe_side",
-    "front": "indreb:block/charge_pad/mfe_front",
     "bottom": "indreb:block/charge_pad/mfe_bottom",
+    "front": "indreb:block/charge_pad/mfe_front",
+    "side": "indreb:block/charge_pad/mfe_side",
     "top": "indreb:block/charge_pad/mfe_top_active"
   }
 }

@@ -1,18 +1,18 @@
 {
   "type": "indreb:fluid_enriching",
-  "ingredient": {
-    "item": "indreb:reinforced_foam_powder",
-    "count": 1
-  },
-  "fluid_ingredient": {
-    "fluid": "minecraft:water",
-    "amount": 1000
-  },
-  "result": {
-    "fluid": "indreb:reinforced_construction_foam",
-    "amount": 1000
-  },
-  "experience": 5.0,
   "duration": 180,
-  "power_cost": 8
+  "experience": 5.0,
+  "fluid_ingredient": {
+    "amount": 1000,
+    "fluid": "minecraft:water"
+  },
+  "ingredient": {
+    "count": 1,
+    "item": "indreb:reinforced_foam_powder"
+  },
+  "power_cost": 8,
+  "result": {
+    "amount": 1000,
+    "fluid": "indreb:reinforced_construction_foam"
+  }
 }

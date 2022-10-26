@@ -1,13 +1,13 @@
 {
   "parent": "minecraft:recipes/root",
-  "rewards": {
-    "recipes": [
-      "indreb:blasting/tin_ingot"
-    ]
-  },
   "criteria": {
-    "item": {
-      "trigger": "minecraft:inventory_changed",
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "indreb:blasting/tin_ingot"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "tin_ore": {
       "conditions": {
         "items": [
           {
@@ -16,19 +16,19 @@
             ]
           }
         ]
-      }
-    },
-    "has_the_recipe": {
-      "trigger": "minecraft:recipe_unlocked",
-      "conditions": {
-        "recipe": "indreb:blasting/tin_ingot"
-      }
+      },
+      "trigger": "minecraft:inventory_changed"
     }
   },
   "requirements": [
     [
-      "item",
+      "tin_ore",
       "has_the_recipe"
     ]
-  ]
+  ],
+  "rewards": {
+    "recipes": [
+      "indreb:blasting/tin_ingot"
+    ]
+  }
 }

@@ -2,8 +2,8 @@ package com.maciej916.indreb.common.item.impl;
 
 import com.maciej916.indreb.common.capabilities.FluidHandler;
 import com.maciej916.indreb.common.config.ServerConfig;
-import com.maciej916.indreb.common.fluids.ConstructionFoam;
-import com.maciej916.indreb.common.fluids.ReinforcedConstructionFoam;
+import com.maciej916.indreb.common.fluid.ConstructionFoam;
+import com.maciej916.indreb.common.fluid.ReinforcedConstructionFoam;
 import com.maciej916.indreb.common.item.base.FluidItem;
 import com.maciej916.indreb.common.registries.ModBlocks;
 import com.maciej916.indreb.common.registries.ModItemGroups;
@@ -22,9 +22,9 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.Fluid;
+import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.common.capabilities.ICapabilityProvider;
 import net.minecraftforge.fluids.FluidStack;
-import net.minecraftforge.fluids.capability.CapabilityFluidHandler;
 import net.minecraftforge.fluids.capability.IFluidHandler;
 import net.minecraftforge.registries.ForgeRegistries;
 
@@ -44,7 +44,7 @@ public class FoamSprayer extends FluidItem {
             for (Fluid fluid : ForgeRegistries.FLUIDS) {
                 if (fluid == ConstructionFoam.STILL_FLUID || fluid == ReinforcedConstructionFoam.STILL_FLUID) {
                     ItemStack stack = new ItemStack(this);
-                    FluidHandler cap = (FluidHandler) CapabilityUtil.getCapabilityHelper(stack, CapabilityFluidHandler.FLUID_HANDLER_ITEM_CAPABILITY).getValue();
+                    FluidHandler cap = (FluidHandler) CapabilityUtil.getCapabilityHelper(stack, ForgeCapabilities.FLUID_HANDLER_ITEM).getValue();
                     if (cap != null) {
                         cap.setFluidStack(new FluidStack(fluid, ServerConfig.foam_sprayer_capacity.get()));
                         pItems.add(stack);
@@ -71,10 +71,10 @@ public class FoamSprayer extends FluidItem {
 
         if (onContext.getPlayer() != null) {
             Player player = onContext.getPlayer();
-            FluidHandler cap = (FluidHandler) CapabilityUtil.getCapabilityHelper(stack, CapabilityFluidHandler.FLUID_HANDLER_ITEM_CAPABILITY).getValue();
+            FluidHandler cap = (FluidHandler) CapabilityUtil.getCapabilityHelper(stack, ForgeCapabilities.FLUID_HANDLER_ITEM).getValue();
             if (cap != null) {
                 FluidStack fluid = cap.getFluidInTank(0);
-                BlockState block = fluid.getFluid() == ConstructionFoam.STILL_FLUID ? ModBlocks.CONSTRUCTION_FOAM.getBlock().defaultBlockState() : fluid.getFluid() == ReinforcedConstructionFoam.STILL_FLUID ? ModBlocks.REINFORCED_CONSTRUCTION_FOAM.getBlock().defaultBlockState() : Blocks.AIR.defaultBlockState();
+                BlockState block = fluid.getFluid() == ConstructionFoam.STILL_FLUID ? ModBlocks.CONSTRUCTION_FOAM.get().defaultBlockState() : fluid.getFluid() == ReinforcedConstructionFoam.STILL_FLUID ? ModBlocks.REINFORCED_CONSTRUCTION_FOAM.get().defaultBlockState() : Blocks.AIR.defaultBlockState();
                 if (block.getBlock() != Blocks.AIR && fluid.getAmount() >= 100) {
                     List<BlockPos> validLocations;
 
@@ -189,7 +189,7 @@ public class FoamSprayer extends FluidItem {
     }
 
     public static float getFillRatio(ItemStack stack) {
-        return CapabilityUtil.getCapabilityHelper(stack, CapabilityFluidHandler.FLUID_HANDLER_ITEM_CAPABILITY).getIfPresentElse(e -> (float) e.getFluidInTank(1).getAmount() / e.getTankCapacity(1), 0f);
+        return CapabilityUtil.getCapabilityHelper(stack, ForgeCapabilities.FLUID_HANDLER_ITEM).getIfPresentElse(e -> (float) e.getFluidInTank(1).getAmount() / e.getTankCapacity(1), 0f);
     }
 
     @Override

@@ -1,13 +1,13 @@
 {
   "type": "indreb:compressing",
+  "duration": 180,
+  "experience": 0.1,
   "ingredient": {
-    "item": "minecraft:lapis_lazuli",
-    "count": 9
+    "count": 9,
+    "item": "minecraft:lapis_lazuli"
   },
+  "power_cost": 8,
   "result": {
     "item": "minecraft:lapis_block"
-  },
-  "experience": 0.1,
-  "duration": 180,
-  "power_cost": 8
+  }
 }

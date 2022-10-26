@@ -11,7 +11,7 @@ import mezz.jei.api.recipe.IFocusGroup;
 import mezz.jei.api.recipe.RecipeType;
 import mezz.jei.api.recipe.category.IRecipeCategory;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TranslatableComponent;
+import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.resources.ResourceLocation;
 
 import java.util.function.Supplier;
@@ -23,7 +23,7 @@ public abstract class AbstractRecipeCategory<T> implements IRecipeCategory<T> {
     protected final Cache<IDrawable> background;
     protected final Cache<IDrawable> icon;
 
-    protected final TranslatableComponent localizedName;
+    protected final MutableComponent localizedName;
     protected final IGuiHelper guiHelper;
 
     private final Class<? extends T> recipeClass;
@@ -39,7 +39,7 @@ public abstract class AbstractRecipeCategory<T> implements IRecipeCategory<T> {
         this.uid = uid;
         this.background = Cache.create(background);
         this.icon = Cache.create(icon);
-        this.localizedName = new TranslatableComponent(key(unlocalizedName));
+        this.localizedName = Component.translatable(key(unlocalizedName));
         this.guiHelper = guiHelper;
         this.recipeClass = recipeClass;
 
@@ -50,18 +50,6 @@ public abstract class AbstractRecipeCategory<T> implements IRecipeCategory<T> {
     @Override
     public RecipeType<T> getRecipeType() {
         return new RecipeType<>(uid, recipeClass);
-    }
-
-    @SuppressWarnings("removal")
-    @Override
-    public ResourceLocation getUid() {
-        return uid;
-    }
-
-    @SuppressWarnings("removal")
-    @Override
-    public Class<? extends T> getRecipeClass() {
-        return recipeClass;
     }
 
     @Override

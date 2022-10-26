@@ -9,8 +9,8 @@ import com.maciej916.indreb.common.enums.EnergyTier;
 import com.maciej916.indreb.common.enums.EnergyType;
 import com.maciej916.indreb.common.enums.InventorySlotType;
 import com.maciej916.indreb.common.enums.UpgradeType;
-import com.maciej916.indreb.common.interfaces.entity.*;
 import com.maciej916.indreb.common.interfaces.block.IStateActive;
+import com.maciej916.indreb.common.interfaces.entity.*;
 import com.maciej916.indreb.common.item.impl.upgrade.ItemUpgrade;
 import com.maciej916.indreb.common.network.ModNetworking;
 import com.maciej916.indreb.common.network.packet.PacketExperience;
@@ -40,11 +40,13 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.common.capabilities.Capability;
+import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.fluids.FluidStack;
-import net.minecraftforge.fluids.capability.CapabilityFluidHandler;
 import net.minecraftforge.fluids.capability.IFluidHandler;
-import net.minecraftforge.items.*;
+import net.minecraftforge.items.IItemHandler;
+import net.minecraftforge.items.ItemStackHandler;
+import net.minecraftforge.items.SlotItemHandler;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.tags.IReverseTag;
 import org.jetbrains.annotations.NotNull;
@@ -53,7 +55,7 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import java.util.*;
 
-import static com.maciej916.indreb.common.registries.ModTags.*;
+import static com.maciej916.indreb.common.registries.ModTags.ELECTRICS_RES;
 
 public class IndRebBlockEntity extends BlockEntity implements IHasSlot {
 
@@ -249,11 +251,11 @@ public class IndRebBlockEntity extends BlockEntity implements IHasSlot {
 
     public void pullItems(ArrayList<Direction> directions, int count) {
         for (Direction dir : directions) {
-            IItemHandler myHandler = CapabilityUtil.getCapabilityHelper(this, CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, dir).getValue();
+            IItemHandler myHandler = CapabilityUtil.getCapabilityHelper(this, ForgeCapabilities.ITEM_HANDLER, dir).getValue();
             if (myHandler != null) {
                 BlockEntity blockEntity = level.getBlockEntity(getBlockPos().relative(dir));
                 if (blockEntity != null) {
-                    IItemHandler otherHandler = CapabilityUtil.getCapabilityHelper(blockEntity, CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, dir.getOpposite()).getValue();
+                    IItemHandler otherHandler = CapabilityUtil.getCapabilityHelper(blockEntity, ForgeCapabilities.ITEM_HANDLER, dir.getOpposite()).getValue();
                     if (otherHandler != null) {
                         for (int i = 0; i < otherHandler.getSlots(); i++) {
                             int amount = Math.min(otherHandler.getStackInSlot(i).getCount(), count);
@@ -282,11 +284,11 @@ public class IndRebBlockEntity extends BlockEntity implements IHasSlot {
 
     public void ejectItems(ArrayList<Direction> directions, int count) {
         for (Direction dir : directions) {
-            IItemHandler myHandler = CapabilityUtil.getCapabilityHelper(this, CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, dir).getValue();
+            IItemHandler myHandler = CapabilityUtil.getCapabilityHelper(this, ForgeCapabilities.ITEM_HANDLER, dir).getValue();
             if (myHandler != null) {
                 BlockEntity blockEntity = level.getBlockEntity(getBlockPos().relative(dir));
                 if (blockEntity != null) {
-                    IItemHandler otherHandler = CapabilityUtil.getCapabilityHelper(blockEntity, CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, dir.getOpposite()).getValue();
+                    IItemHandler otherHandler = CapabilityUtil.getCapabilityHelper(blockEntity, ForgeCapabilities.ITEM_HANDLER, dir.getOpposite()).getValue();
                     if (otherHandler != null) {
                         for (int i = 0; i < myHandler.getSlots(); i++) {
                             int amount = Math.min(myHandler.getStackInSlot(i).getCount(), count);
@@ -315,11 +317,11 @@ public class IndRebBlockEntity extends BlockEntity implements IHasSlot {
 
     public void pullFluids(ArrayList<Direction> directions, int count) {
         for (Direction dir : directions) {
-            IFluidHandler myHandler = CapabilityUtil.getCapabilityHelper(this, CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY, dir).getValue();
+            IFluidHandler myHandler = CapabilityUtil.getCapabilityHelper(this, ForgeCapabilities.FLUID_HANDLER, dir).getValue();
             if (myHandler != null) {
                 BlockEntity blockEntity = level.getBlockEntity(getBlockPos().relative(dir));
                 if (blockEntity != null) {
-                    IFluidHandler otherHandler = CapabilityUtil.getCapabilityHelper(blockEntity, CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY, dir.getOpposite()).getValue();
+                    IFluidHandler otherHandler = CapabilityUtil.getCapabilityHelper(blockEntity, ForgeCapabilities.FLUID_HANDLER, dir.getOpposite()).getValue();
                     if (otherHandler != null) {
                         for (int i = 0; i < otherHandler.getTanks(); i++) {
                             FluidStack stack = otherHandler.getFluidInTank(i);
@@ -354,11 +356,11 @@ public class IndRebBlockEntity extends BlockEntity implements IHasSlot {
 
     public void ejectFluids(ArrayList<Direction> directions, int count) {
         for (Direction dir : directions) {
-            IFluidHandler myHandler = CapabilityUtil.getCapabilityHelper(this, CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY, dir).getValue();
+            IFluidHandler myHandler = CapabilityUtil.getCapabilityHelper(this, ForgeCapabilities.FLUID_HANDLER, dir).getValue();
             if (myHandler != null) {
                 BlockEntity blockEntity = level.getBlockEntity(getBlockPos().relative(dir));
                 if (blockEntity != null) {
-                    IFluidHandler otherHandler = CapabilityUtil.getCapabilityHelper(blockEntity, CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY, dir.getOpposite()).getValue();
+                    IFluidHandler otherHandler = CapabilityUtil.getCapabilityHelper(blockEntity, ForgeCapabilities.FLUID_HANDLER, dir.getOpposite()).getValue();
                     if (otherHandler != null) {
                         for (int i = 0; i < myHandler.getTanks(); i++) {
                             FluidStack stack = myHandler.getFluidInTank(i);

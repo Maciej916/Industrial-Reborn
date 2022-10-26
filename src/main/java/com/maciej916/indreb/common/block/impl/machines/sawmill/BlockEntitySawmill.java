@@ -17,7 +17,7 @@ import java.util.Optional;
 public class BlockEntitySawmill extends BlockEntityStandardMachine {
 
     public BlockEntitySawmill(BlockPos pWorldPosition, BlockState pBlockState) {
-        super(ModBlockEntities.SAWMILL, pWorldPosition, pBlockState, ServerConfig.sawmill_energy_capacity.get());
+        super(ModBlockEntities.SAWMILL.get(), pWorldPosition, pBlockState, ServerConfig.sawmill_energy_capacity.get());
     }
 
     @Override
@@ -27,7 +27,7 @@ public class BlockEntitySawmill extends BlockEntityStandardMachine {
 
     @Override
     public SoundEvent getSoundEvent() {
-        return ModSounds.SAWMILL;
+        return ModSounds.SAWMILL.get();
     }
 
 }

@@ -1,13 +1,13 @@
 {
   "parent": "minecraft:recipes/root",
-  "rewards": {
-    "recipes": [
-      "indreb:blasting/lead_ingot3"
-    ]
-  },
   "criteria": {
-    "item": {
-      "trigger": "minecraft:inventory_changed",
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "indreb:blasting/lead_ingot3"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "raw_lead": {
       "conditions": {
         "items": [
           {
@@ -16,19 +16,19 @@
             ]
           }
         ]
-      }
-    },
-    "has_the_recipe": {
-      "trigger": "minecraft:recipe_unlocked",
-      "conditions": {
-        "recipe": "indreb:blasting/lead_ingot3"
-      }
+      },
+      "trigger": "minecraft:inventory_changed"
     }
   },
   "requirements": [
     [
-      "item",
+      "raw_lead",
       "has_the_recipe"
     ]
-  ]
+  ],
+  "rewards": {
+    "recipes": [
+      "indreb:blasting/lead_ingot3"
+    ]
+  }
 }

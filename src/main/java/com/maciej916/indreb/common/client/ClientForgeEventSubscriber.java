@@ -1,12 +1,14 @@
 package com.maciej916.indreb.common.client;
 
 import com.maciej916.indreb.IndReb;
+import com.maciej916.indreb.common.client.keys.ModKeys;
 import com.maciej916.indreb.common.client.keys.impl.NightVisionHandler;
 import com.maciej916.indreb.common.proxy.ModProxy;
 import net.minecraft.client.Minecraft;
 import net.minecraft.world.entity.player.Player;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.InputEvent;
+import net.minecraftforge.client.event.RegisterKeyMappingsEvent;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
@@ -15,7 +17,7 @@ import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 public final class ClientForgeEventSubscriber {
 
 	@SubscribeEvent
-	public static void clientKeyInput(InputEvent.KeyInputEvent event) {
+	public static void clientKeyInput(InputEvent.Key event) {
 		Minecraft minecraft = ModProxy.PROXY.getClient();
 
 		NightVisionHandler.toggleNightVision(minecraft.player);

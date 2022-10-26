@@ -11,6 +11,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.level.block.Blocks;
 
 import java.util.function.Consumer;
 
@@ -58,33 +59,40 @@ public class Compressing extends RecipeProvider {
                 .setGroup("compressing/block")
                 .save(consumer,"copper_copper_block");
 
-        RecipeBuilderCompressing.builder(ModBlocks.TIN_BLOCK, 1)
+        RecipeBuilderCompressing.builder(ModBlocks.TIN_BLOCK.get(), 1)
                 .setIngredient(Ingredient.of(ItemTags.create(new ResourceLocation("forge", "ingots/tin"))), 9)
                 .setExperience(0.3F)
-                .addCriterion("item", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.TIN_INGOT))
+                .addCriterion("item", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.TIN_INGOT.get()))
                 .setGroup("compressing/block")
                 .save(consumer,"tin_tin_block");
 
-        RecipeBuilderCompressing.builder(ModBlocks.SILVER_BLOCK, 1)
+        RecipeBuilderCompressing.builder(ModBlocks.SILVER_BLOCK.get(), 1)
                 .setIngredient(Ingredient.of(ItemTags.create(new ResourceLocation("forge", "ingots/silver"))), 9)
                 .setExperience(0.3F)
-                .addCriterion("item", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.SILVER_INGOT))
+                .addCriterion("item", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.SILVER_INGOT.get()))
                 .setGroup("compressing/block")
                 .save(consumer,"silver_block");
 
-        RecipeBuilderCompressing.builder(ModBlocks.BRONZE_BLOCK, 1)
-                .setIngredient(Ingredient.of(ItemTags.create(new ResourceLocation("forge", "alloys/bronze"))), 9)
+        RecipeBuilderCompressing.builder(ModBlocks.BRONZE_BLOCK.get(), 1)
+                .setIngredient(Ingredient.of(ItemTags.create(new ResourceLocation("forge", "ingots/bronze"))), 9)
                 .setExperience(0.3F)
-                .addCriterion("item", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.BRONZE_INGOT))
+                .addCriterion("item", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.BRONZE_INGOT.get()))
                 .setGroup("compressing/block")
                 .save(consumer,"bronze_block");
 
-        RecipeBuilderCompressing.builder(ModBlocks.STEEL_BLOCK, 1)
+        RecipeBuilderCompressing.builder(ModBlocks.STEEL_BLOCK.get(), 1)
                 .setIngredient(Ingredient.of(ItemTags.create(new ResourceLocation("forge", "ingots/steel"))), 9)
                 .setExperience(0.3F)
-                .addCriterion("item", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.STEEL_INGOT))
+                .addCriterion("item", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.STEEL_INGOT.get()))
                 .setGroup("compressing/block")
                 .save(consumer,"steel_block");
+
+        RecipeBuilderCompressing.builder(ModBlocks.LEAD_BLOCK.get(), 1)
+                .setIngredient(Ingredient.of(ItemTags.create(new ResourceLocation("forge", "ingots/lead"))), 9)
+                .setExperience(0.3F)
+                .addCriterion("item", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.LEAD_INGOT.get()))
+                .setGroup("compressing/block")
+                .save(consumer,"lead_block");
 
         RecipeBuilderCompressing.builder(Items.REDSTONE_BLOCK, 1)
                 .setIngredient(Ingredient.of(Items.REDSTONE), 9)
@@ -201,62 +209,62 @@ public class Compressing extends RecipeProvider {
                 .setGroup("compressing/items")
                 .save(consumer,"blaze_powder_blaze_rod");
 
-        RecipeBuilderCompressing.builder(Items.NETHER_BRICK, 1)
+        RecipeBuilderCompressing.builder(Blocks.NETHERITE_BLOCK, 1)
                 .setIngredient(Ingredient.of(Items.NETHERITE_INGOT), 9)
                 .setExperience(0.5F)
                 .addCriterion("item", InventoryChangeTrigger.TriggerInstance.hasItems(Items.NETHERITE_INGOT))
                 .setGroup("compressing/block")
                 .save(consumer,"netherite_ingot_netherite_block");
 
-        RecipeBuilderCompressing.builder(ModItems.ADVANCED_ALLOY, 1)
-                .setIngredient(Ingredient.of(ModItems.MIXED_METAL_INGOT), 1)
-                .addCriterion("item", InventoryChangeTrigger.TriggerInstance.hasItems(Items.NETHERITE_INGOT))
+        RecipeBuilderCompressing.builder(ModItems.ADVANCED_ALLOY.get(), 1)
+                .setIngredient(Ingredient.of(ModItems.MIXED_METAL_INGOT.get()), 1)
+                .addCriterion("item", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.MIXED_METAL_INGOT.get()))
                 .setGroup("compressing/items")
                 .save(consumer,"advanced_alloy");
 
-        RecipeBuilderCompressing.builder(ModItems.CARBON_PLATE, 1)
-                .setIngredient(Ingredient.of(ModItems.COMBINED_CARBON_FIBERS), 1)
-                .addCriterion("item", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.COMBINED_CARBON_FIBERS))
+        RecipeBuilderCompressing.builder(ModItems.CARBON_PLATE.get(), 1)
+                .setIngredient(Ingredient.of(ModItems.COMBINED_CARBON_FIBERS.get()), 1)
+                .addCriterion("item", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.COMBINED_CARBON_FIBERS.get()))
                 .setGroup("compressing/items")
                 .save(consumer,"carbon_plate");
 
-        RecipeBuilderCompressing.builder(ModItems.ENERGY_CRYSTAL, 1)
-                .setIngredient(Ingredient.of(ModItems.ENERGIUM_DUST), 9)
+        RecipeBuilderCompressing.builder(ModItems.ENERGY_CRYSTAL.get(), 1)
+                .setIngredient(Ingredient.of(ModItems.ENERGIUM_DUST.get()), 9)
                 .setExperience(5.0f)
-                .addCriterion("item", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.ENERGIUM_DUST))
+                .addCriterion("item", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.ENERGIUM_DUST.get()))
                 .setGroup("compressing/dust")
                 .save(consumer,"energium_dust");
 
         RecipeBuilderCompressing.builder(Items.STONE, 1)
-                .setIngredient(Ingredient.of(ModItems.STONE_DUST), 4)
+                .setIngredient(Ingredient.of(ModItems.STONE_DUST.get()), 4)
                 .addCriterion("stone", InventoryChangeTrigger.TriggerInstance.hasItems(Items.STONE))
                 .setGroup("compressing/dust")
                 .save(consumer,"stone");
 
         RecipeBuilderCompressing.builder(Items.DEEPSLATE, 1)
-                .setIngredient(Ingredient.of(ModItems.DEEPSLATE_DUST), 4)
+                .setIngredient(Ingredient.of(ModItems.DEEPSLATE_DUST.get()), 4)
                 .addCriterion("deepslate", InventoryChangeTrigger.TriggerInstance.hasItems(Items.DEEPSLATE))
                 .setGroup("compressing/dust")
                 .save(consumer,"deepslate");
 
-        RecipeBuilderCompressing.builder(ModItems.IRIDIUM, 1)
-                .setIngredient(Ingredient.of(ModItems.IRIDIUM_SHARD), 9)
-                .addCriterion("iridium_shard", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.IRIDIUM_SHARD))
+        RecipeBuilderCompressing.builder(ModItems.IRIDIUM.get(), 1)
+                .setIngredient(Ingredient.of(ModItems.IRIDIUM_SHARD.get()), 9)
+                .addCriterion("iridium_shard", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.IRIDIUM_SHARD.get()))
                 .setExperience(1F)
                 .setGroup("compressing")
                 .save(consumer,"iridium");
 
         RecipeBuilderCompressing.builder(Items.MOSS_BLOCK,1)
-                .setIngredient(Ingredient.of(ModItems.BIO_CHAFF), 1)
+                .setIngredient(Ingredient.of(ModItems.BIO_CHAFF.get()), 1)
                 .setGroup("compressing")
-                .addCriterion("iridium", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.BIO_CHAFF))
+                .addCriterion("iridium", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.BIO_CHAFF.get()))
                 .save(consumer, "moss_block");
 
-        RecipeBuilderCompressing.builder(ModItems.REFINED_URANIUM,1)
-                .setIngredient(Ingredient.of(ModItems.URANIUM), 1)
+        RecipeBuilderCompressing.builder(ModItems.REFINED_URANIUM.get(),1)
+                .setIngredient(Ingredient.of(ModItems.URANIUM.get()), 1)
                 .setGroup("compressing")
                 .setExperience(2F)
-                .addCriterion("uranium", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.URANIUM))
+                .addCriterion("uranium", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.URANIUM.get()))
                 .save(consumer, "refined_uranium");
 
     }

@@ -1,18 +1,18 @@
 {
   "type": "indreb:fluid_enriching",
-  "ingredient": {
-    "item": "indreb:bio_chaff",
-    "count": 1
-  },
-  "fluid_ingredient": {
-    "fluid": "minecraft:water",
-    "amount": 1000
-  },
-  "result": {
-    "fluid": "indreb:biomass",
-    "amount": 1000
-  },
-  "experience": 1.5,
   "duration": 180,
-  "power_cost": 8
+  "experience": 1.5,
+  "fluid_ingredient": {
+    "amount": 1000,
+    "fluid": "minecraft:water"
+  },
+  "ingredient": {
+    "count": 1,
+    "item": "indreb:bio_chaff"
+  },
+  "power_cost": 8,
+  "result": {
+    "amount": 1000,
+    "fluid": "indreb:biomass"
+  }
 }

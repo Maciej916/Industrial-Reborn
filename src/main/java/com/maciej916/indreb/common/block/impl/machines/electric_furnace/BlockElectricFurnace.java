@@ -4,7 +4,7 @@ import com.maciej916.indreb.common.block.BlockElectricMachine;
 import com.maciej916.indreb.common.config.ServerConfig;
 import com.maciej916.indreb.common.enums.EnergyTier;
 import com.maciej916.indreb.common.enums.EnumLang;
-import com.maciej916.indreb.common.interfaces.block.IHasContainer;
+import com.maciej916.indreb.common.interfaces.block.IHasMenu;
 import com.maciej916.indreb.common.interfaces.block.IStateActive;
 import com.maciej916.indreb.common.interfaces.block.IStateFacing;
 import com.maciej916.indreb.common.util.BlockStateHelper;
@@ -12,7 +12,6 @@ import com.maciej916.indreb.common.util.TextComponentUtil;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.entity.player.Inventory;
@@ -30,7 +29,7 @@ import javax.annotation.Nullable;
 import java.util.List;
 import java.util.Random;
 
-public class BlockElectricFurnace extends BlockElectricMachine implements IStateFacing, IHasContainer, IStateActive {
+public class BlockElectricFurnace extends BlockElectricMachine implements IStateFacing, IHasMenu, IStateActive {
 
     public BlockElectricFurnace() {
         super(EnergyTier.BASIC,12, 0);
@@ -43,8 +42,8 @@ public class BlockElectricFurnace extends BlockElectricMachine implements IState
     }
 
     @Override
-    public ContainerElectricFurnace getContainer(int windowId, Level level, BlockPos pos, Inventory playerInventory, Player playerEntity) {
-        return new ContainerElectricFurnace(windowId, level, pos, playerInventory, playerEntity);
+    public MenuElectricFurnace getMenu(int windowId, Level level, BlockPos pos, Inventory playerInventory, Player playerEntity) {
+        return new MenuElectricFurnace(windowId, level, pos, playerInventory, playerEntity);
     }
 
     @OnlyIn(Dist.CLIENT)
@@ -64,13 +63,13 @@ public class BlockElectricFurnace extends BlockElectricMachine implements IState
         super.appendHoverText(pStack, pLevel, pTooltip, pFlag);
 
         pTooltip.add(TextComponentUtil.build(
-                new TranslatableComponent(EnumLang.ACCEPT.getTranslationKey()).withStyle(ChatFormatting.GRAY),
-                new TranslatableComponent(EnumLang.POWER_TICK.getTranslationKey(), TextComponentUtil.getFormattedEnergyUnit(ServerConfig.basic_tier_transfer.get())).withStyle(getEnergyTier().getColor())
+                Component.translatable(EnumLang.ACCEPT.getTranslationKey()).withStyle(ChatFormatting.GRAY),
+                Component.translatable(EnumLang.POWER_TICK.getTranslationKey(), TextComponentUtil.getFormattedEnergyUnit(ServerConfig.basic_tier_transfer.get())).withStyle(getEnergyTier().getColor())
         ));
 
         pTooltip.add(TextComponentUtil.build(
-                new TranslatableComponent(EnumLang.CAPACITY.getTranslationKey()).withStyle(ChatFormatting.GRAY),
-                new TranslatableComponent(EnumLang.POWER.getTranslationKey(), TextComponentUtil.getFormattedEnergyUnit(ServerConfig.electric_furnace_energy_capacity.get())).withStyle(getEnergyTier().getColor())
+                Component.translatable(EnumLang.CAPACITY.getTranslationKey()).withStyle(ChatFormatting.GRAY),
+                Component.translatable(EnumLang.POWER.getTranslationKey(), TextComponentUtil.getFormattedEnergyUnit(ServerConfig.electric_furnace_energy_capacity.get())).withStyle(getEnergyTier().getColor())
         ));
     }
 }

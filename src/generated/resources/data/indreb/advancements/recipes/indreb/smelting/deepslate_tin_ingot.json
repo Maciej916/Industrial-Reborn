@@ -1,13 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
-  "rewards": {
-    "recipes": [
-      "indreb:smelting/deepslate_tin_ingot"
-    ]
-  },
   "criteria": {
-    "item": {
-      "trigger": "minecraft:inventory_changed",
+    "deepslate_tin_ore": {
       "conditions": {
         "items": [
           {
@@ -16,19 +10,25 @@
             ]
           }
         ]
-      }
+      },
+      "trigger": "minecraft:inventory_changed"
     },
     "has_the_recipe": {
-      "trigger": "minecraft:recipe_unlocked",
       "conditions": {
         "recipe": "indreb:smelting/deepslate_tin_ingot"
-      }
+      },
+      "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "item",
+      "deepslate_tin_ore",
       "has_the_recipe"
     ]
-  ]
+  ],
+  "rewards": {
+    "recipes": [
+      "indreb:smelting/deepslate_tin_ingot"
+    ]
+  }
 }

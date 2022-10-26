@@ -1,11 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
   "group": "indreb",
-  "pattern": [
-    " g ",
-    "ghg",
-    " g "
-  ],
   "key": {
     "g": {
       "tag": "forge:plates/gold"
@@ -14,6 +9,11 @@
       "item": "indreb:heat_exchanger"
     }
   },
+  "pattern": [
+    " g ",
+    "ghg",
+    " g "
+  ],
   "result": {
     "item": "indreb:component_heat_exchanger"
   }

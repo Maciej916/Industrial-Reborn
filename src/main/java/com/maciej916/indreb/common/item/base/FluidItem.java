@@ -2,34 +2,36 @@ package com.maciej916.indreb.common.item.base;
 
 import com.maciej916.indreb.common.util.CapabilityUtil;
 import net.minecraft.ChatFormatting;
+import net.minecraft.client.color.item.ItemColor;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TextComponent;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.material.Fluids;
+import net.minecraftforge.client.extensions.common.IClientFluidTypeExtensions;
+import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.fluids.FluidStack;
-import net.minecraftforge.fluids.capability.CapabilityFluidHandler;
+import net.minecraftforge.fluids.FluidUtil;
 import net.minecraftforge.fluids.capability.IFluidHandlerItem;
+import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nullable;
 import java.util.List;
 
-public class FluidItem extends BaseItem {
+public class FluidItem extends BaseItem implements ItemColor {
     public FluidItem(Properties properties) {
         super(properties.setNoRepair());
     }
 
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> list, TooltipFlag tooltipFlag) {
-        IFluidHandlerItem cap = CapabilityUtil.getCapabilityHelper(stack, CapabilityFluidHandler.FLUID_HANDLER_ITEM_CAPABILITY).getValue();
+        IFluidHandlerItem cap = CapabilityUtil.getCapabilityHelper(stack, ForgeCapabilities.FLUID_HANDLER_ITEM).getValue();
         if (cap != null) {
             FluidStack fluidStack = cap.getFluidInTank(1);
             if (fluidStack.getFluid() != Fluids.EMPTY) {
-                list.add(new TextComponent("< " + fluidStack.getAmount() + " mB, ").append(new TranslatableComponent(fluidStack.getFluid().getAttributes().getTranslationKey())).append(" >").withStyle(ChatFormatting.GRAY));
+                list.add(Component.literal("< " + fluidStack.getAmount() + " mB, ").append(Component.translatable(fluidStack.getFluid().getFluidType().getDescriptionId())).append(" >").withStyle(ChatFormatting.GRAY));
             } else {
-                list.add(new TranslatableComponent("item.indreb.empty_fluid").withStyle(ChatFormatting.GRAY));
+                list.add(Component.translatable("item.indreb.empty_fluid").withStyle(ChatFormatting.GRAY));
             }
         }
         super.appendHoverText(stack, level, list, tooltipFlag);
@@ -45,9 +47,10 @@ public class FluidItem extends BaseItem {
         return false;
     }
 
+
     @Override
-    public boolean hasContainerItem(ItemStack stack) {
-        IFluidHandlerItem cap = CapabilityUtil.getCapabilityHelper(stack, CapabilityFluidHandler.FLUID_HANDLER_ITEM_CAPABILITY).getValue();
+    public boolean hasCraftingRemainingItem(ItemStack stack) {
+        IFluidHandlerItem cap = CapabilityUtil.getCapabilityHelper(stack, ForgeCapabilities.FLUID_HANDLER_ITEM).getValue();
         if (cap != null) {
             return cap.getFluidInTank(0).getFluid() != Fluids.EMPTY;
         }
@@ -55,8 +58,8 @@ public class FluidItem extends BaseItem {
     }
 
     @Override
-    public ItemStack getContainerItem(ItemStack stack) {
-        IFluidHandlerItem cap = CapabilityUtil.getCapabilityHelper(stack, CapabilityFluidHandler.FLUID_HANDLER_ITEM_CAPABILITY).getValue();
+    public ItemStack getCraftingRemainingItem(ItemStack stack) {
+        IFluidHandlerItem cap = CapabilityUtil.getCapabilityHelper(stack, ForgeCapabilities.FLUID_HANDLER_ITEM).getValue();
         if (cap != null) {
             if (cap.getFluidInTank(0).getFluid() != Fluids.EMPTY) {
                 return new ItemStack(this);
@@ -67,10 +70,23 @@ public class FluidItem extends BaseItem {
 
 
     public FluidStack getFluidStack(ItemStack stack) {
-        IFluidHandlerItem cap = CapabilityUtil.getCapabilityHelper(stack, CapabilityFluidHandler.FLUID_HANDLER_ITEM_CAPABILITY).getValue();
+        IFluidHandlerItem cap = CapabilityUtil.getCapabilityHelper(stack, ForgeCapabilities.FLUID_HANDLER_ITEM).getValue();
         if (cap != null) {
             return cap.getFluidInTank(0);
         }
         return FluidStack.EMPTY;
+    }
+
+    @Override
+    public int getColor(@NotNull ItemStack stack, int tintIndex) {
+        if (tintIndex != 1) return 0xFFFFFFFF;
+        IFluidHandlerItem cap = CapabilityUtil.getCapabilityHelper(stack, ForgeCapabilities.FLUID_HANDLER_ITEM).getValue();
+        if (cap != null) {
+            FluidStack fluidStack = cap.getFluidInTank(1);
+            if (fluidStack.getFluid() != Fluids.EMPTY) {
+                return IClientFluidTypeExtensions.of(fluidStack.getFluid()).getTintColor(fluidStack);
+            }
+        }
+        return 0xFFFFFFFF;
     }
 }

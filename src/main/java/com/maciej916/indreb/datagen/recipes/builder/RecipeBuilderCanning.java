@@ -157,7 +157,7 @@ public class RecipeBuilderCanning {
 
         @Override
         public RecipeSerializer<?> getType() {
-            return ModRecipeSerializer.CANNING;
+            return ModRecipeSerializer.CANNING.get();
         }
 
         @Nullable

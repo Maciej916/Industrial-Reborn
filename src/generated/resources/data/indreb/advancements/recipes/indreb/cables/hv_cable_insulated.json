@@ -1,25 +1,13 @@
 {
   "parent": "minecraft:recipes/root",
-  "rewards": {
-    "recipes": [
-      "indreb:cables/hv_cable_insulated"
-    ]
-  },
   "criteria": {
-    "rubber": {
-      "trigger": "minecraft:inventory_changed",
+    "has_the_recipe": {
       "conditions": {
-        "items": [
-          {
-            "items": [
-              "indreb:rubber"
-            ]
-          }
-        ]
-      }
+        "recipe": "indreb:cables/hv_cable_insulated"
+      },
+      "trigger": "minecraft:recipe_unlocked"
     },
     "hv_cable": {
-      "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
@@ -28,13 +16,20 @@
             ]
           }
         ]
-      }
+      },
+      "trigger": "minecraft:inventory_changed"
     },
-    "has_the_recipe": {
-      "trigger": "minecraft:recipe_unlocked",
+    "rubber": {
       "conditions": {
-        "recipe": "indreb:cables/hv_cable_insulated"
-      }
+        "items": [
+          {
+            "items": [
+              "indreb:rubber"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
     }
   },
   "requirements": [
@@ -43,5 +38,10 @@
       "hv_cable",
       "has_the_recipe"
     ]
-  ]
+  ],
+  "rewards": {
+    "recipes": [
+      "indreb:cables/hv_cable_insulated"
+    ]
+  }
 }

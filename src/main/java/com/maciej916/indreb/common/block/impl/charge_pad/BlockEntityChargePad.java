@@ -22,7 +22,7 @@ import java.util.ArrayList;
 public class BlockEntityChargePad extends IndRebBlockEntity implements IEnergyBlock, ITileSound {
 
     public BlockEntityChargePad(BlockPos pWorldPosition, BlockState pBlockState) {
-        super(ModBlockEntities.CHARGE_PAD, pWorldPosition, pBlockState);
+        super(ModBlockEntities.CHARGE_PAD.get(), pWorldPosition, pBlockState);
 
         BlockChargePad block = (BlockChargePad) getBlock();
         ChargePadTier chargePadTier = block.getChargePadTier();
@@ -60,6 +60,6 @@ public class BlockEntityChargePad extends IndRebBlockEntity implements IEnergyBl
 
     @Override
     public SoundEvent getSoundEvent() {
-        return ModSounds.CHARGE_PAD;
+        return ModSounds.CHARGE_PAD.get();
     }
 }

@@ -1,14 +1,14 @@
 {
   "type": "indreb:crushing",
-  "ingredient": {
-    "item": "indreb:iridium",
-    "count": 1
-  },
-  "result": {
-    "item": "indreb:iridium_shard",
-    "count": 9
-  },
-  "experience": 1.0,
   "duration": 180,
-  "power_cost": 8
+  "experience": 1.0,
+  "ingredient": {
+    "count": 1,
+    "item": "indreb:iridium"
+  },
+  "power_cost": 8,
+  "result": {
+    "count": 9,
+    "item": "indreb:iridium_shard"
+  }
 }

@@ -9,7 +9,7 @@ public class ClientProxy implements IProxy {
 
     @Override
     public void init() {
-        ModKeys.register();
+//        ModKeys.register();
     }
 
     @Override

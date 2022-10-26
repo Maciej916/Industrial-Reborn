@@ -1,11 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
   "group": "indreb",
-  "pattern": [
-    "t t",
-    " l ",
-    "t t"
-  ],
   "key": {
     "l": {
       "item": "minecraft:lever"
@@ -14,6 +9,11 @@
       "tag": "forge:plates/tin"
     }
   },
+  "pattern": [
+    "t t",
+    " l ",
+    "t t"
+  ],
   "result": {
     "item": "indreb:redstone_signal_inverter_upgrade"
   }

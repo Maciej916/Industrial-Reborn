@@ -10,13 +10,12 @@ import com.maciej916.indreb.common.tier.BatteryBoxTier;
 import com.maciej916.indreb.common.util.TextComponentUtil;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
 
-public class ScreenBatteryBox extends BetterScreen<ContainerBatteryBox> {
+public class ScreenBatteryBox extends BetterScreen<MenuBatteryBox> {
 
-    public ScreenBatteryBox(ContainerBatteryBox container, Inventory inv, Component name) {
+    public ScreenBatteryBox(MenuBatteryBox container, Inventory inv, Component name) {
         super(container, inv, name);
         this.imageHeight = 266;
         this.inventoryLabelY = 104;
@@ -32,8 +31,8 @@ public class ScreenBatteryBox extends BetterScreen<ContainerBatteryBox> {
 
         addRenderableOnlyComponent(new GuiTextElectricProgress(this, 50, 10, 90, 24, energyStorage));
         addRenderableOnlyComponent(new GuiText(this, 50, 10, 90, 58, TextComponentUtil.build(
-                new TranslatableComponent(EnumLang.TRANSFER.getTranslationKey()),
-                new TranslatableComponent(EnumLang.POWER_TICK.getTranslationKey(), TextComponentUtil.getFormattedEnergyUnit(batteryBoxTier.getEnergyTier().getBasicTransfer()))
+                Component.translatable(EnumLang.TRANSFER.getTranslationKey()),
+                Component.translatable(EnumLang.POWER_TICK.getTranslationKey(), TextComponentUtil.getFormattedEnergyUnit(batteryBoxTier.getEnergyTier().getBasicTransfer()))
         )));
 
         drawComponents(true);

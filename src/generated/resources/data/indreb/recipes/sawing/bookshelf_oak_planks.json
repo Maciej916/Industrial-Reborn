@@ -1,19 +1,19 @@
 {
   "type": "indreb:sawing",
-  "ingredient": {
-    "item": "minecraft:bookshelf",
-    "count": 1
-  },
-  "result": {
-    "item": "minecraft:oak_planks",
-    "count": 6
-  },
   "bonus_result": {
-    "item": "minecraft:book",
+    "chance": 100.0,
     "count": 3,
-    "chance": 100.0
+    "item": "minecraft:book"
   },
-  "experience": 0.2,
   "duration": 180,
-  "power_cost": 8
+  "experience": 0.2,
+  "ingredient": {
+    "count": 1,
+    "item": "minecraft:bookshelf"
+  },
+  "power_cost": 8,
+  "result": {
+    "count": 6,
+    "item": "minecraft:oak_planks"
+  }
 }
