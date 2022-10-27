@@ -30,6 +30,7 @@ public class Recycling extends RecipeProvider {
                 .addExcluded(Ingredient.of(ItemTags.create(new ResourceLocation("forge", "rods/wooden"))))
 
                 .addExcluded(Ingredient.of(Items.SNOWBALL))
+                .addExcluded(Ingredient.of(ModItems.SCRAP.get()))
 
                 .setChance(0.15F)
                 .addCriterion("scrap", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.SCRAP.get()))

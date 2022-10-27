@@ -1,0 +1,13 @@
+{
+  "type": "indreb:extracting",
+  "duration": 180,
+  "experience": 0.0,
+  "ingredient": {
+    "count": 1,
+    "item": "minecraft:mud"
+  },
+  "power_cost": 8,
+  "result": {
+    "item": "minecraft:dirt"
+  }
+}

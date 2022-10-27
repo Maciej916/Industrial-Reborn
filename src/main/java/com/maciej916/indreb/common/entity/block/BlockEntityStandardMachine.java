@@ -192,7 +192,7 @@ public class BlockEntityStandardMachine extends IndRebBlockEntity implements IEn
     public ArrayList<IndRebSlot> addInventorySlot(ArrayList<IndRebSlot> slots) {
         slots.add(new IndRebSlot(INPUT_SLOT, 48, 35, InventorySlotType.INPUT, GuiSlotType.NORMAL, 47, 34));
         slots.add(new IndRebSlot(OUTPUT_SLOT, 108, 24, InventorySlotType.OUTPUT, GuiSlotType.LARGE, 103, 19));
-        slots.add(new IndRebSlot(BONUS_SLOT, 108, 50, InventorySlotType.NORMAL, GuiSlotType.NORMAL, 107, 49));
+        slots.add(new IndRebSlot(BONUS_SLOT, 108, 50, InventorySlotType.BONUS, GuiSlotType.NORMAL, 107, 49));
         return super.addInventorySlot(slots);
     }
 

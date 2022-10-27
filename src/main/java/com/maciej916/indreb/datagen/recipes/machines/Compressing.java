@@ -281,6 +281,12 @@ public class Compressing extends RecipeProvider {
                 .addCriterion("deepslate_dust", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.DEEPSLATE_DUST.get()))
                 .save(consumer, "deepslate");
 
+        RecipeBuilderCompressing.builder(Items.PACKED_MUD,1)
+                .setIngredient(Ingredient.of(Items.MUD), 1)
+                .setGroup("compressing/block")
+                .addCriterion("mud", InventoryChangeTrigger.TriggerInstance.hasItems(Items.MUD))
+                .save(consumer, "packed_mud");
+
     }
 
 }

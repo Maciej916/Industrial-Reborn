@@ -81,6 +81,12 @@ public class Extracting extends RecipeProvider {
                 .setGroup("extracting")
                 .save(consumer,"rubber_planks_oak_planks");
 
+        RecipeBuilderExtracting.builder(Items.DIRT, 1)
+                .setIngredient(Ingredient.of(Items.MUD), 1)
+                .addCriterion("rubber_planks", InventoryChangeTrigger.TriggerInstance.hasItems(Items.MUD))
+                .setGroup("extracting")
+                .save(consumer,"mud_dirt");
+
 
     }
 

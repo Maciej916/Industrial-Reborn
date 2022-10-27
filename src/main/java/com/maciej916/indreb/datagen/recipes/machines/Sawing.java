@@ -100,6 +100,22 @@ public class Sawing extends RecipeProvider {
                 .setGroup("sawing")
                 .save(consumer,"mangrove_log_mangrove_planks");
 
+        RecipeBuilderSawing.builder(Items.CRIMSON_PLANKS, 6)
+                .setIngredient(Ingredient.of(Items.CRIMSON_STEM), 1)
+                .setBonus(Items.NETHERRACK, 1,15)
+                .setExperience(0.4F)
+                .addCriterion("crimson_planks", InventoryChangeTrigger.TriggerInstance.hasItems(Items.CRIMSON_PLANKS))
+                .setGroup("sawing")
+                .save(consumer,"crimson_stem_crimson_planks");
+
+        RecipeBuilderSawing.builder(Items.WARPED_PLANKS, 6)
+                .setIngredient(Ingredient.of(Items.WARPED_STEM), 1)
+                .setBonus(Items.NETHERRACK, 1,15)
+                .setExperience(0.4F)
+                .addCriterion("warped_planks", InventoryChangeTrigger.TriggerInstance.hasItems(Items.WARPED_PLANKS))
+                .setGroup("sawing")
+                .save(consumer,"warped_stem_warped_planks");
+
 
         RecipeBuilderSawing.builder(Items.LEATHER, 3)
                 .setIngredient(Items.SADDLE, 1)

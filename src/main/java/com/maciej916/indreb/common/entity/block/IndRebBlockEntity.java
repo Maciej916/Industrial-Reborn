@@ -154,6 +154,8 @@ public class IndRebBlockEntity extends BlockEntity implements IHasSlot {
     }
 
     public void tickServer(BlockState state) {
+        if (level == null) return;
+
         if (tickCounter == 20) {
             tickCounter = 0;
         } else {
@@ -250,32 +252,57 @@ public class IndRebBlockEntity extends BlockEntity implements IHasSlot {
     }
 
     public void pullItems(ArrayList<Direction> directions, int count) {
-        for (Direction dir : directions) {
-            IItemHandler myHandler = CapabilityUtil.getCapabilityHelper(this, ForgeCapabilities.ITEM_HANDLER, dir).getValue();
-            if (myHandler != null) {
-                BlockEntity blockEntity = level.getBlockEntity(getBlockPos().relative(dir));
-                if (blockEntity != null) {
-                    IItemHandler otherHandler = CapabilityUtil.getCapabilityHelper(blockEntity, ForgeCapabilities.ITEM_HANDLER, dir.getOpposite()).getValue();
-                    if (otherHandler != null) {
-                        for (int i = 0; i < otherHandler.getSlots(); i++) {
-                            int amount = Math.min(otherHandler.getStackInSlot(i).getCount(), count);
-                            ItemStack extractItem = otherHandler.extractItem(i, amount, true);
-                            boolean found = false;
-                            if (!extractItem.isEmpty()) {
-                                for (int j = 0; j < myHandler.getSlots(); j++) {
-                                    ItemStack insertItem = myHandler.insertItem(j, extractItem, true);
-                                    if (insertItem.isEmpty()) {
-                                        otherHandler.extractItem(i, amount, false);
-                                        myHandler.insertItem(j, extractItem, false);
-                                        found = true;
-                                        break;
+        IItemHandler myHandler = CapabilityUtil.getCapabilityHelper(this, ForgeCapabilities.ITEM_HANDLER).getValue();
+        if (myHandler != null) {
+            for (int i = 0; i < myHandler.getSlots(); i++) {
+                if (item.get(i).getInventorySlotType() == InventorySlotType.INPUT) {
+                    boolean found = false;
+
+                    for (Direction dir : directions) {
+                        BlockEntity blockEntity = level.getBlockEntity(getBlockPos().relative(dir));
+                        if (blockEntity != null) {
+                            if (blockEntity instanceof IndRebBlockEntity ibe) {
+                                IItemHandler otherHandler = CapabilityUtil.getCapabilityHelper(blockEntity, ForgeCapabilities.ITEM_HANDLER).getValue();
+                                if (otherHandler != null) {
+                                    for (int j = 0; j < ibe.item.size(); j++) {
+                                        if (ibe.item.get(j).getInventorySlotType() == InventorySlotType.OUTPUT || ibe.item.get(j).getInventorySlotType() == InventorySlotType.BONUS) {
+                                            int amount = Math.min(otherHandler.getStackInSlot(j).getCount(), count);
+                                            ItemStack extractItem = otherHandler.extractItem(j, amount, true);
+                                            if (!extractItem.isEmpty()) {
+                                                ItemStack insertItem = myHandler.insertItem(i, extractItem, true);
+                                                if (insertItem.isEmpty()) {
+                                                    otherHandler.extractItem(j, amount, false);
+                                                    myHandler.insertItem(i, extractItem, false);
+                                                    found = true;
+                                                    break;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            } else {
+                                IItemHandler otherHandler = CapabilityUtil.getCapabilityHelper(blockEntity, ForgeCapabilities.ITEM_HANDLER, dir.getOpposite()).getValue();
+                                if (otherHandler != null) {
+                                    for (int j = 0; j < otherHandler.getSlots(); j++) {
+                                        int amount = Math.min(otherHandler.getStackInSlot(j).getCount(), count);
+                                        ItemStack extractItem = otherHandler.extractItem(j, amount, true);
+                                        if (!extractItem.isEmpty()) {
+                                            ItemStack insertItem = myHandler.insertItem(i, extractItem, true);
+                                            if (insertItem.isEmpty()) {
+                                                otherHandler.extractItem(j, amount, false);
+                                                myHandler.insertItem(i, extractItem, false);
+                                                found = true;
+                                                break;
+                                            }
+                                        }
                                     }
                                 }
                             }
-                            if (found) {
-                                break;
-                            }
                         }
+                    }
+
+                    if (found) {
+                        break;
                     }
                 }
             }
@@ -283,32 +310,59 @@ public class IndRebBlockEntity extends BlockEntity implements IHasSlot {
     }
 
     public void ejectItems(ArrayList<Direction> directions, int count) {
-        for (Direction dir : directions) {
-            IItemHandler myHandler = CapabilityUtil.getCapabilityHelper(this, ForgeCapabilities.ITEM_HANDLER, dir).getValue();
-            if (myHandler != null) {
-                BlockEntity blockEntity = level.getBlockEntity(getBlockPos().relative(dir));
-                if (blockEntity != null) {
-                    IItemHandler otherHandler = CapabilityUtil.getCapabilityHelper(blockEntity, ForgeCapabilities.ITEM_HANDLER, dir.getOpposite()).getValue();
-                    if (otherHandler != null) {
-                        for (int i = 0; i < myHandler.getSlots(); i++) {
-                            int amount = Math.min(myHandler.getStackInSlot(i).getCount(), count);
-                            ItemStack extractItem = myHandler.extractItem(i, amount, true);
-                            boolean found = false;
-                            if (!extractItem.isEmpty()) {
-                                for (int j = 0; j < otherHandler.getSlots(); j++) {
-                                    ItemStack insertItem = otherHandler.insertItem(j, extractItem, true);
-                                    if (insertItem.isEmpty()) {
-                                        myHandler.extractItem(i, amount, false);
-                                        otherHandler.insertItem(j, extractItem, false);
-                                        found = true;
-                                        break;
+        IItemHandler myHandler = CapabilityUtil.getCapabilityHelper(this, ForgeCapabilities.ITEM_HANDLER).getValue();
+        if (myHandler != null) {
+            for (int i = 0; i < myHandler.getSlots(); i++) {
+                if (item.get(i).getInventorySlotType() == InventorySlotType.OUTPUT || item.get(i).getInventorySlotType() == InventorySlotType.BONUS) {
+                    boolean found = false;
+
+                    for (Direction dir : directions) {
+                        BlockEntity blockEntity = level.getBlockEntity(getBlockPos().relative(dir));
+                        if (blockEntity != null) {
+                            if (blockEntity instanceof IndRebBlockEntity ibe) {
+                                IItemHandler otherHandler = CapabilityUtil.getCapabilityHelper(blockEntity, ForgeCapabilities.ITEM_HANDLER).getValue();
+                                if (otherHandler != null) {
+                                    int amount = Math.min(myHandler.getStackInSlot(i).getCount(), count);
+                                    ItemStack extractItem = myHandler.extractItem(i, amount, true);
+
+                                    if (!extractItem.isEmpty()) {
+                                        for (int j = 0; j < ibe.item.size(); j++) {
+                                            if (ibe.item.get(j).getInventorySlotType() == InventorySlotType.INPUT) {
+                                                ItemStack insertItem = otherHandler.insertItem(j, extractItem, true);
+                                                if (insertItem.isEmpty()) {
+                                                    myHandler.extractItem(i, amount, false);
+                                                    otherHandler.insertItem(j, extractItem, false);
+                                                    found = true;
+                                                    break;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            } else {
+                                IItemHandler otherHandler = CapabilityUtil.getCapabilityHelper(blockEntity, ForgeCapabilities.ITEM_HANDLER, dir.getOpposite()).getValue();
+                                if (otherHandler != null) {
+                                    int amount = Math.min(myHandler.getStackInSlot(i).getCount(), count);
+                                    ItemStack extractItem = myHandler.extractItem(i, amount, true);
+
+                                    if (!extractItem.isEmpty()) {
+                                        for (int j = 0; j < otherHandler.getSlots(); j++) {
+                                            ItemStack insertItem = otherHandler.insertItem(j, extractItem, true);
+                                            if (insertItem.isEmpty()) {
+                                                myHandler.extractItem(i, amount, false);
+                                                otherHandler.insertItem(j, extractItem, false);
+                                                found = true;
+                                                break;
+                                            }
+                                        }
                                     }
                                 }
                             }
-                            if (found) {
-                                break;
-                            }
                         }
+                    }
+
+                    if (found) {
+                        break;
                     }
                 }
             }
