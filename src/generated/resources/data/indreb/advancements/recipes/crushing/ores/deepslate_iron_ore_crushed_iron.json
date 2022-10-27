@@ -1,13 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_the_recipe": {
-      "conditions": {
-        "recipe": "indreb:crushing/ores/deepslate_iron_ore_crushed_iron"
-      },
-      "trigger": "minecraft:recipe_unlocked"
-    },
-    "item": {
+    "deepslate_iron_ore": {
       "conditions": {
         "items": [
           {
@@ -18,11 +12,17 @@
         ]
       },
       "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "indreb:crushing/ores/deepslate_iron_ore_crushed_iron"
+      },
+      "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "item",
+      "deepslate_iron_ore",
       "has_the_recipe"
     ]
   ],

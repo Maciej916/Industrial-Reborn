@@ -1,13 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_the_recipe": {
-      "conditions": {
-        "recipe": "indreb:compressing/dust/energium_dust"
-      },
-      "trigger": "minecraft:recipe_unlocked"
-    },
-    "item": {
+    "energium_dust": {
       "conditions": {
         "items": [
           {
@@ -18,11 +12,17 @@
         ]
       },
       "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "indreb:compressing/dust/energium_dust"
+      },
+      "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "item",
+      "energium_dust",
       "has_the_recipe"
     ]
   ],

@@ -7,7 +7,7 @@
       },
       "trigger": "minecraft:recipe_unlocked"
     },
-    "item": {
+    "red_sandstone": {
       "conditions": {
         "items": [
           {
@@ -22,7 +22,7 @@
   },
   "requirements": [
     [
-      "item",
+      "red_sandstone",
       "has_the_recipe"
     ]
   ],

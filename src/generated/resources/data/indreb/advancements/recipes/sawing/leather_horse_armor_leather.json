@@ -7,7 +7,7 @@
       },
       "trigger": "minecraft:recipe_unlocked"
     },
-    "item": {
+    "leather_horse_armor": {
       "conditions": {
         "items": [
           {
@@ -22,7 +22,7 @@
   },
   "requirements": [
     [
-      "item",
+      "leather_horse_armor",
       "has_the_recipe"
     ]
   ],

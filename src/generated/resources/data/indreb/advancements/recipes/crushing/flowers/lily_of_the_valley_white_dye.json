@@ -7,7 +7,7 @@
       },
       "trigger": "minecraft:recipe_unlocked"
     },
-    "item": {
+    "lily_of_the_valley": {
       "conditions": {
         "items": [
           {
@@ -22,7 +22,7 @@
   },
   "requirements": [
     [
-      "item",
+      "lily_of_the_valley",
       "has_the_recipe"
     ]
   ],

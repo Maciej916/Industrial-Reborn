@@ -1,13 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_the_recipe": {
-      "conditions": {
-        "recipe": "indreb:crushing/flowers/dandelion_yellow_dye"
-      },
-      "trigger": "minecraft:recipe_unlocked"
-    },
-    "item": {
+    "dandelion": {
       "conditions": {
         "items": [
           {
@@ -18,11 +12,17 @@
         ]
       },
       "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "indreb:crushing/flowers/dandelion_yellow_dye"
+      },
+      "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "item",
+      "dandelion",
       "has_the_recipe"
     ]
   ],

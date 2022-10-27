@@ -1,13 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_the_recipe": {
-      "conditions": {
-        "recipe": "indreb:sawing/bookshelf_oak_planks"
-      },
-      "trigger": "minecraft:recipe_unlocked"
-    },
-    "item": {
+    "bookshelf": {
       "conditions": {
         "items": [
           {
@@ -18,11 +12,17 @@
         ]
       },
       "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "indreb:sawing/bookshelf_oak_planks"
+      },
+      "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "item",
+      "bookshelf",
       "has_the_recipe"
     ]
   ],

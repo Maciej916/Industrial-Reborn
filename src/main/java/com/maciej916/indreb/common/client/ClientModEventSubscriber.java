@@ -51,6 +51,8 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 
+import java.util.Objects;
+
 @EventBusSubscriber(modid = IndReb.MODID, bus = EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
 public final class ClientModEventSubscriber {
 
@@ -88,6 +90,13 @@ public final class ClientModEventSubscriber {
 			MenuScreens.register(ModMenuTypes.RECYCLER.get(), ScreenRecycler::new);
 			MenuScreens.register(ModMenuTypes.ALLOY_SMELTER.get(), ScreenAlloySmelter::new);
 			MenuScreens.register(ModMenuTypes.FERMENTER.get(), ScreenFermenter::new);
+
+			//	TODO Change in model
+			ItemBlockRenderTypes.setRenderLayer(ModBlocks.REINFORCED_GLASS.get(), RenderType.translucent());
+			ItemBlockRenderTypes.setRenderLayer(ModBlocks.RUBBER_SAPLING.get(), RenderType.cutout());
+			ItemBlockRenderTypes.setRenderLayer(ModBlocks.IRON_SCAFFOLDING.get(), RenderType.cutout());
+			ItemBlockRenderTypes.setRenderLayer(ModBlocks.CONSTRUCTION_FOAM.get(), RenderType.cutout());
+			ItemBlockRenderTypes.setRenderLayer(ModBlocks.REINFORCED_CONSTRUCTION_FOAM.get(), RenderType.cutout());
 
 
 			BlockColors blockColors = Minecraft.getInstance().getBlockColors();

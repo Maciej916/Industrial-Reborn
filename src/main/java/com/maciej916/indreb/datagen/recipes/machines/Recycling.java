@@ -25,28 +25,14 @@ public class Recycling extends RecipeProvider {
         RecipeBuilderRecycling.builder(ModItems.SCRAP.get())
 
                 .addExcluded(Ingredient.of(ItemTags.create(new ResourceLocation("indreb", "electrics"))))
+                .addExcluded(Ingredient.of(ItemTags.create(new ResourceLocation("forge", "glass_panes"))))
+                .addExcluded(Ingredient.of(ItemTags.create(new ResourceLocation("forge", "rods/all_metals"))))
+                .addExcluded(Ingredient.of(ItemTags.create(new ResourceLocation("forge", "rods/wooden"))))
 
-                .addExcluded(Ingredient.of(Items.STICK))
                 .addExcluded(Ingredient.of(Items.SNOWBALL))
-                .addExcluded(Ingredient.of(Items.GLASS_PANE))
-                .addExcluded(Ingredient.of(Items.WHITE_STAINED_GLASS_PANE))
-                .addExcluded(Ingredient.of(Items.ORANGE_STAINED_GLASS_PANE))
-                .addExcluded(Ingredient.of(Items.MAGENTA_STAINED_GLASS_PANE))
-                .addExcluded(Ingredient.of(Items.LIGHT_BLUE_STAINED_GLASS_PANE))
-                .addExcluded(Ingredient.of(Items.LIME_STAINED_GLASS_PANE))
-                .addExcluded(Ingredient.of(Items.PINK_STAINED_GLASS_PANE))
-                .addExcluded(Ingredient.of(Items.GRAY_STAINED_GLASS_PANE))
-                .addExcluded(Ingredient.of(Items.LIGHT_GRAY_STAINED_GLASS_PANE))
-                .addExcluded(Ingredient.of(Items.CYAN_STAINED_GLASS_PANE))
-                .addExcluded(Ingredient.of(Items.PURPLE_STAINED_GLASS_PANE))
-                .addExcluded(Ingredient.of(Items.BLUE_STAINED_GLASS_PANE))
-                .addExcluded(Ingredient.of(Items.BROWN_STAINED_GLASS_PANE))
-                .addExcluded(Ingredient.of(Items.GREEN_STAINED_GLASS_PANE))
-                .addExcluded(Ingredient.of(Items.RED_STAINED_GLASS_PANE))
-                .addExcluded(Ingredient.of(Items.BLACK_STAINED_GLASS_PANE))
 
                 .setChance(0.15F)
-                .addCriterion("item", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.SCRAP.get()))
+                .addCriterion("scrap", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.SCRAP.get()))
                 .setGroup("recycling")
                 .save(consumer,"scrap");
 

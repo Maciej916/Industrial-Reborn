@@ -26,58 +26,58 @@ public class Extracting extends RecipeProvider {
         RecipeBuilderExtracting.builder(ModItems.RUBBER.get(), 3)
                 .setIngredient(Ingredient.of(ModItems.STICKY_RESIN.get()), 1)
                 .setExperience(0.2F)
-                .addCriterion("item", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.STICKY_RESIN.get()))
+                .addCriterion("sticky_resin", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.STICKY_RESIN.get()))
                 .setGroup("extracting")
                 .save(consumer,"sticky_resin_rubber");
 
         RecipeBuilderExtracting.builder(ModItems.RUBBER.get(), 1)
                 .setIngredient(Ingredient.of(ModBlocks.RUBBER_SAPLING.get()), 1)
-                .addCriterion("item", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.RUBBER_SAPLING.get()))
+                .addCriterion("rubber_sapling", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.RUBBER_SAPLING.get()))
                 .setGroup("extracting")
                 .save(consumer,"rubber_sapling_rubber");
 
         RecipeBuilderExtracting.builder(ModItems.RUBBER.get(), 1)
                 .setIngredient(Ingredient.of(ModBlocks.RUBBER_LOG.get()), 1)
-                .addCriterion("item", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.RUBBER_LOG.get()))
+                .addCriterion("rubber_log", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.RUBBER_LOG.get()))
                 .setGroup("extracting")
                 .save(consumer,"rubber_wood_rubber");
 
         RecipeBuilderExtracting.builder(Items.WHITE_WOOL, 1)
                 .setIngredient(Ingredient.of(ItemTags.create(new ResourceLocation("wool"))), 1)
-                .addCriterion("item", InventoryChangeTrigger.TriggerInstance.hasItems(Items.WHITE_WOOL))
+                .addCriterion("white_wool", InventoryChangeTrigger.TriggerInstance.hasItems(Items.WHITE_WOOL))
                 .setGroup("extracting")
                 .save(consumer,"any_wool_white_wool");
 
         RecipeBuilderExtracting.builder(Items.CLAY_BALL, 4)
                 .setIngredient(Ingredient.of(Items.CLAY), 1)
-                .addCriterion("item", InventoryChangeTrigger.TriggerInstance.hasItems(Items.CLAY))
+                .addCriterion("clay", InventoryChangeTrigger.TriggerInstance.hasItems(Items.CLAY))
                 .setGroup("extracting")
                 .save(consumer,"clay_clay_ball");
 
         RecipeBuilderExtracting.builder(Items.SNOWBALL, 4)
                 .setIngredient(Ingredient.of(Items.SNOW_BLOCK), 1)
-                .addCriterion("item", InventoryChangeTrigger.TriggerInstance.hasItems(Items.SNOW_BLOCK))
+                .addCriterion("SNow_block", InventoryChangeTrigger.TriggerInstance.hasItems(Items.SNOW_BLOCK))
                 .setGroup("extracting")
                 .save(consumer,"snow_block_snowball");
 
         RecipeBuilderExtracting.builder(Items.NETHER_BRICK, 4)
                 .setIngredient(Ingredient.of(Items.NETHER_BRICKS), 1)
                 .setExperience(0.1F)
-                .addCriterion("item", InventoryChangeTrigger.TriggerInstance.hasItems(Items.NETHER_BRICKS))
+                .addCriterion("nether_bricks", InventoryChangeTrigger.TriggerInstance.hasItems(Items.NETHER_BRICKS))
                 .setGroup("extracting")
                 .save(consumer,"nether_bricks_nether_brick");
 
         RecipeBuilderExtracting.builder(Items.BRICK, 4)
                 .setIngredient(Ingredient.of(Items.BRICKS), 1)
                 .setExperience(0.1F)
-                .addCriterion("item", InventoryChangeTrigger.TriggerInstance.hasItems(Items.BRICKS))
+                .addCriterion("bricks", InventoryChangeTrigger.TriggerInstance.hasItems(Items.BRICKS))
                 .setGroup("extracting")
                 .save(consumer,"bricks_brick");
 
         RecipeBuilderExtracting.builder(Items.OAK_PLANKS, 1)
                 .setIngredient(Ingredient.of(ModBlocks.RUBBER_PLANKS.get()), 1)
                 .setBonus(ModItems.RUBBER.get(), 1, 10)
-                .addCriterion("item", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.RUBBER_PLANKS.get()))
+                .addCriterion("rubber_planks", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.RUBBER_PLANKS.get()))
                 .setGroup("extracting")
                 .save(consumer,"rubber_planks_oak_planks");
 

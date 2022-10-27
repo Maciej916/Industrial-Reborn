@@ -1,13 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_the_recipe": {
-      "conditions": {
-        "recipe": "indreb:compressing/block/clay_ball_clay"
-      },
-      "trigger": "minecraft:recipe_unlocked"
-    },
-    "item": {
+    "clay_ball": {
       "conditions": {
         "items": [
           {
@@ -18,11 +12,17 @@
         ]
       },
       "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "indreb:compressing/block/clay_ball_clay"
+      },
+      "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "item",
+      "clay_ball",
       "has_the_recipe"
     ]
   ],
