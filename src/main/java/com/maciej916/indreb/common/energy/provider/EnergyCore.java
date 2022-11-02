@@ -639,14 +639,13 @@ public class EnergyCore implements IEnergyCore, ICapabilitySerializable<Compound
                             be.getCapability(ModCapabilities.ENERGY).ifPresent(energy -> {
                                 if (energy.energyType() == EnergyType.BOTH) {
                                     if (energy.canExtractEnergy(oppositeDir)) {
-
-
                                         if (energy.maxExtract() > 0) {
-                                            int leftExtract = Math.max(0, energy.maxExtract() - getEnergyReceivedBlock(relativePos));
-                                                if (leftReceive > 0 && leftExtract > 0) {
-                                                    network.setCurrentTier(energy.energyTier());
+                                            int leftExtract = Math.max(0, energy.maxExtract() - getEnergyExtractedBlock(relativePos));
 
-                                                    if (energy.energyTier().getLvl() <= network.getCurrentTier().getLvl() && energy.energyTier().getLvl() <= network.energyTier().getLvl()) {
+                                            if (leftReceive > 0 && leftExtract > 0) {
+                                                network.setCurrentTier(energy.energyTier());
+
+                                                if (energy.energyTier().getLvl() <= network.getCurrentTier().getLvl() && energy.energyTier().getLvl() <= network.energyTier().getLvl()) {
                                                     transferFrom.add(new TransferFrom(energy, relativePos, leftExtract));
                                                 } else {
                                                     createBurn(network, pos);
@@ -661,12 +660,11 @@ public class EnergyCore implements IEnergyCore, ICapabilitySerializable<Compound
                                         BlockEntityTransformer beTransformer = (BlockEntityTransformer) be;
                                         EnergyTier tier = beTransformer.energyExtractTier();
 
-
-                                        int leftExtract = Math.max(0, energy.maxExtract() - getEnergyReceivedBlock(relativePos));
+                                        int leftExtract = Math.max(0, energy.maxExtract() - getEnergyExtractedBlock(relativePos));
                                         if (leftReceive > 0 && leftExtract > 0) {
                                             network.setCurrentTier(tier);
 
-                                            if (tier.getLvl() <= network.getCurrentTier().getLvl() && energy.energyTier().getLvl() <= network.energyTier().getLvl()) {
+                                            if (tier.getLvl() <= network.getCurrentTier().getLvl()) {
                                                 transferFrom.add(new TransferFrom(energy, relativePos, leftExtract));
                                             } else {
                                                 createBurn(network, pos);

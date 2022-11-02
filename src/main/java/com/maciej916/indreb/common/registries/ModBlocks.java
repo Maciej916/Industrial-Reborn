@@ -5,6 +5,7 @@ import com.maciej916.indreb.common.block.BlockOre;
 import com.maciej916.indreb.common.block.BlockResource;
 import com.maciej916.indreb.common.block.BlockSheet;
 import com.maciej916.indreb.common.block.BlockWIP;
+import com.maciej916.indreb.common.block.impl.BlockIndustrialTNT;
 import com.maciej916.indreb.common.block.impl.BlockIronFence;
 import com.maciej916.indreb.common.block.impl.BlockIronScaffolding;
 import com.maciej916.indreb.common.block.impl.battery_box.BlockBatteryBox;
@@ -27,8 +28,11 @@ import com.maciej916.indreb.common.block.impl.machines.extruder.BlockExtruder;
 import com.maciej916.indreb.common.block.impl.machines.fermenter.BlockFermenter;
 import com.maciej916.indreb.common.block.impl.machines.fluid_enricher.BlockFluidEnricher;
 import com.maciej916.indreb.common.block.impl.machines.iron_furnace.BlockIronFurnace;
+import com.maciej916.indreb.common.block.impl.machines.matter_fabricator.BlockMatterFabricator;
+import com.maciej916.indreb.common.block.impl.machines.ore_washing_plant.BlockOreWashingPlant;
 import com.maciej916.indreb.common.block.impl.machines.recycler.BlockRecycler;
 import com.maciej916.indreb.common.block.impl.machines.sawmill.BlockSawmill;
+import com.maciej916.indreb.common.block.impl.machines.thermal_centrifuge.BlockThermalCentrifuge;
 import com.maciej916.indreb.common.block.impl.rubber_wood.*;
 import com.maciej916.indreb.common.block.impl.transformer.BlockTransformer;
 import com.maciej916.indreb.common.world.feature.tree.RubberTreeGrower;
@@ -60,6 +64,9 @@ public final class ModBlocks {
     public static final RegistryObject<Block> LEAD_ORE = registerBlock("lead_ore", () -> new BlockOre());
     public static final RegistryObject<Block> DEEPSLATE_LEAD_ORE = registerBlock("deepslate_lead_ore", () -> new BlockOre());
     public static final RegistryObject<Block> DEEPSLATE_URANIUM_ORE = registerBlock("deepslate_uranium_ore", () -> new BlockOre());
+    public static final RegistryObject<Block> URANIUM_ORE = registerBlock("uranium_ore", () -> new BlockOre());
+    public static final RegistryObject<Block> SILVER_ORE = registerBlock("silver_ore", () -> new BlockOre());
+    public static final RegistryObject<Block> DEEPSLATE_SILVER_ORE = registerBlock("deepslate_silver_ore", () -> new BlockOre());
 
     public static final RegistryObject<Block> RUBBER_LOG = registerBlock("rubber_log", () -> new RubberLog());
     public static final RegistryObject<Block> RUBBER_WOOD = registerBlock("rubber_wood", () -> new RubberWood());
@@ -158,7 +165,21 @@ public final class ModBlocks {
     public static final RegistryObject<Block> ALLOY_SMELTER = registerBlock("alloy_smelter", () -> new BlockAlloySmelter());
     public static final RegistryObject<Block> FERMENTER = registerBlock("fermenter", () -> new BlockFermenter());
 
-    public static final RegistryObject<Block> INDUSTRIAL_TNT = registerBlock("industrial_tnt", () -> new BlockWIP());
+
+    public static final RegistryObject<Block> ORE_WASHING_PLANT = registerBlock("ore_washing_plant", () -> new BlockOreWashingPlant());
+
+
+    public static final RegistryObject<Block> THERMAL_CENTRIFUGE = registerBlock("thermal_centrifuge", () -> new BlockThermalCentrifuge());
+
+    public static final RegistryObject<Block> MATTER_FABRICATOR = registerBlock("matter_fabricator", () -> new BlockMatterFabricator());
+
+    public static final RegistryObject<Block> PATTERN_STORAGE = registerBlock("pattern_storage", () -> new BlockWIP());
+    public static final RegistryObject<Block> SCANNER = registerBlock("scanner", () -> new BlockWIP());
+    public static final RegistryObject<Block> REPLICATOR = registerBlock("replicator", () -> new BlockWIP());
+    public static final RegistryObject<Block> TELEPORTER = registerBlock("teleporter", () -> new BlockWIP());
+
+
+    public static final RegistryObject<Block> INDUSTRIAL_TNT = registerBlock("industrial_tnt", () -> new BlockIndustrialTNT());
     public static final RegistryObject<Block> NUKE = registerBlock("nuke", () -> new BlockWIP());
 
 

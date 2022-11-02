@@ -28,6 +28,144 @@ public class Upgrades extends RecipeProvider {
     @Override
     protected void buildCraftingRecipes(Consumer<FinishedRecipe> consumer) {
 
+//        // BASE
+//
+//        ShapedRecipeBuilder.shaped(ModItems.UPGRADE_BASE.get(), 3)
+//                .pattern("sas")
+//                .pattern("aca")
+//                .pattern("sas")
+//                .define('c', ModItems.ELECTRONIC_CIRCUIT.get())
+//                .define('a', ModBlocks.TIN_CABLE_INSULATED.get())
+//                .define('s', ItemTags.create(new ResourceLocation("forge", "plates/tin")))
+//                .group(MODID)
+//                .unlockedBy("electronic_circuit", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.ELECTRONIC_CIRCUIT.get()))
+//                .unlockedBy("tin_cable_insulated", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.TIN_CABLE_INSULATED.get()))
+//                .unlockedBy("tin_plate", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.TIN_PLATE.get()))
+//                .save(consumer, saveResource("upgrade_base_tici"));
+//
+//        ShapedRecipeBuilder.shaped(ModItems.UPGRADE_BASE.get(), 6)
+//                .pattern("sas")
+//                .pattern("aca")
+//                .pattern("sas")
+//                .define('c', ModItems.ELECTRONIC_CIRCUIT.get())
+//                .define('a', ModBlocks.COPPER_CABLE_INSULATED.get())
+//                .define('s', ItemTags.create(new ResourceLocation("forge", "plates/tin")))
+//                .group(MODID)
+//                .unlockedBy("electronic_circuit", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.ELECTRONIC_CIRCUIT.get()))
+//                .unlockedBy("copper_cable_insulated", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.COPPER_CABLE_INSULATED.get()))
+//                .unlockedBy("tin_plate", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.TIN_PLATE.get()))
+//                .save(consumer, saveResource("upgrade_base_coci"));
+//
+//        ShapedRecipeBuilder.shaped(ModItems.UPGRADE_BASE.get(), 8)
+//                .pattern("sas")
+//                .pattern("aca")
+//                .pattern("sas")
+//                .define('c', ModItems.ELECTRONIC_CIRCUIT.get())
+//                .define('a', ModBlocks.GOLD_CABLE_INSULATED.get())
+//                .define('s', ItemTags.create(new ResourceLocation("forge", "plates/tin")))
+//                .group(MODID)
+//                .unlockedBy("electronic_circuit", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.ELECTRONIC_CIRCUIT.get()))
+//                .unlockedBy("gold_cable_insulated", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.GOLD_CABLE_INSULATED.get()))
+//                .unlockedBy("tin_plate", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.TIN_PLATE.get()))
+//                .save(consumer, saveResource("upgrade_base_goci"));
+//
+//        ShapedRecipeBuilder.shaped(ModItems.UPGRADE_BASE.get(), 12)
+//                .pattern("sas")
+//                .pattern("aca")
+//                .pattern("sas")
+//                .define('c', ModItems.ELECTRONIC_CIRCUIT.get())
+//                .define('a', ModBlocks.HV_CABLE_INSULATED.get())
+//                .define('s', ItemTags.create(new ResourceLocation("forge", "plates/tin")))
+//                .group(MODID)
+//                .unlockedBy("electronic_circuit", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.ELECTRONIC_CIRCUIT.get()))
+//                .unlockedBy("hv_cable_insulated", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.HV_CABLE_INSULATED.get()))
+//                .unlockedBy("tin_plate", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.TIN_PLATE.get()))
+//                .save(consumer, saveResource("upgrade_base_hvci"));
+//
+//        ShapedRecipeBuilder.shaped(ModItems.UPGRADE_BASE.get(), 16)
+//                .pattern("sas")
+//                .pattern("aca")
+//                .pattern("sas")
+//                .define('c', ModItems.ELECTRONIC_CIRCUIT.get())
+//                .define('a', ModBlocks.GLASS_FIBRE_CABLE.get())
+//                .define('s', ItemTags.create(new ResourceLocation("forge", "plates/tin")))
+//                .group(MODID)
+//                .unlockedBy("electronic_circuit", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.ELECTRONIC_CIRCUIT.get()))
+//                .unlockedBy("glass_fibre_cable", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.GLASS_FIBRE_CABLE.get()))
+//                .unlockedBy("tin_plate", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.TIN_PLATE.get()))
+//                .save(consumer, saveResource("upgrade_base_gfci"));
+//
+//        // Advanced base
+//
+//        ShapedRecipeBuilder.shaped(ModItems.ADVANCED_UPGRADE_BASE.get(), 3)
+//                .pattern("sas")
+//                .pattern("aca")
+//                .pattern("sas")
+//                .define('c', ModItems.ADVANCED_CIRCUIT.get())
+//                .define('a', ModBlocks.TIN_CABLE_INSULATED.get())
+//                .define('s', ItemTags.create(new ResourceLocation("forge", "plates/tin")))
+//                .group(MODID)
+//                .unlockedBy("advanced_circuit", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.ADVANCED_CIRCUIT.get()))
+//                .unlockedBy("tin_cable_insulated", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.TIN_CABLE_INSULATED.get()))
+//                .unlockedBy("tin_plate", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.TIN_PLATE.get()))
+//                .save(consumer, saveResource("advanced_upgrade_base_tici"));
+//
+//        ShapedRecipeBuilder.shaped(ModItems.ADVANCED_UPGRADE_BASE.get(), 6)
+//                .pattern("sas")
+//                .pattern("aca")
+//                .pattern("sas")
+//                .define('c', ModItems.ADVANCED_CIRCUIT.get())
+//                .define('a', ModBlocks.COPPER_CABLE_INSULATED.get())
+//                .define('s', ItemTags.create(new ResourceLocation("forge", "plates/tin")))
+//                .group(MODID)
+//                .unlockedBy("advanced_circuit", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.ADVANCED_CIRCUIT.get()))
+//                .unlockedBy("copper_cable_insulated", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.COPPER_CABLE_INSULATED.get()))
+//                .unlockedBy("tin_plate", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.TIN_PLATE.get()))
+//                .save(consumer, saveResource("advanced_upgrade_base_coci"));
+//
+//        ShapedRecipeBuilder.shaped(ModItems.ADVANCED_UPGRADE_BASE.get(), 8)
+//                .pattern("sas")
+//                .pattern("aca")
+//                .pattern("sas")
+//                .define('c', ModItems.ADVANCED_CIRCUIT.get())
+//                .define('a', ModBlocks.GOLD_CABLE_INSULATED.get())
+//                .define('s', ItemTags.create(new ResourceLocation("forge", "plates/tin")))
+//                .group(MODID)
+//                .unlockedBy("advanced_circuit", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.ADVANCED_CIRCUIT.get()))
+//                .unlockedBy("gold_cable_insulated", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.GOLD_CABLE_INSULATED.get()))
+//                .unlockedBy("tin_plate", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.TIN_PLATE.get()))
+//                .save(consumer, saveResource("advanced_upgrade_base_goci"));
+//
+//        ShapedRecipeBuilder.shaped(ModItems.ADVANCED_UPGRADE_BASE.get(), 12)
+//                .pattern("sas")
+//                .pattern("aca")
+//                .pattern("sas")
+//                .define('c', ModItems.ADVANCED_CIRCUIT.get())
+//                .define('a', ModBlocks.HV_CABLE_INSULATED.get())
+//                .define('s', ItemTags.create(new ResourceLocation("forge", "plates/tin")))
+//                .group(MODID)
+//                .unlockedBy("advanced_circuit", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.ADVANCED_CIRCUIT.get()))
+//                .unlockedBy("hv_cable_insulated", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.HV_CABLE_INSULATED.get()))
+//                .unlockedBy("tin_plate", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.TIN_PLATE.get()))
+//                .save(consumer, saveResource("advanced_upgrade_base_hvci"));
+//
+//        ShapedRecipeBuilder.shaped(ModItems.ADVANCED_UPGRADE_BASE.get(), 16)
+//                .pattern("sas")
+//                .pattern("aca")
+//                .pattern("sas")
+//                .define('c', ModItems.ADVANCED_CIRCUIT.get())
+//                .define('a', ModBlocks.GLASS_FIBRE_CABLE.get())
+//                .define('s', ItemTags.create(new ResourceLocation("forge", "plates/tin")))
+//                .group(MODID)
+//                .unlockedBy("advanced_circuit", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.ADVANCED_CIRCUIT.get()))
+//                .unlockedBy("glass_fibre_cable", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.GLASS_FIBRE_CABLE.get()))
+//                .unlockedBy("tin_plate", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.TIN_PLATE.get()))
+//                .save(consumer, saveResource("advanced_upgrade_base_gfci"));
+
+
+
+        // Upgrades
+
         ShapedRecipeBuilder.shaped(ModItems.OVERCLOCKER_UPGRADE.get(), 2)
                     .pattern("ccc")
                     .pattern("aea")

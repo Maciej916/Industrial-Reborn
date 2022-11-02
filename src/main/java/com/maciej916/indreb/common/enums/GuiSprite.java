@@ -9,6 +9,7 @@ public enum GuiSprite {
     SMELTING(16,16, 50, 0, 16,16,67, 0, 0, 0),
     SOLAR_SUN(16,16, 50, 17, 16,16,67, 17, 0, 0),
     RECYCLER(24,16,0, 85, 24,16,25, 85, 0, 0),
+    ORE_WASHING(19,19,0, 102, 19,19,20, 102, 0, 0),
 
     ELECTRIC_VERTICAL(18,49,0, 0, 10,41,19, 0, 4, 4),
     ELECTRIC_HORIZONTAL(49,18,30, 0, 41,10,30, 19, 4, 4),
@@ -24,7 +25,8 @@ public enum GuiSprite {
     EXP_ICON(16,16, 0, 48, 0,0,0,0,3, 3),
     FORWARD_ICON(12,12, 40, 26, 0,0,0,0,0, 0),
     BACKWARD_ICON(12,12, 40, 39, 0,0,0,0,0, 0),
-    TRANSFORMER_ICON(16,16, 0, 65, 0,0,0,0,2, 2);
+    TRANSFORMER_ICON(16,16, 0, 65, 0,0,0,0,2, 2),
+    INFO_ICON(16,16, 0, 82, 0,0,0,0,3, 3);
 
 
     private final int width;

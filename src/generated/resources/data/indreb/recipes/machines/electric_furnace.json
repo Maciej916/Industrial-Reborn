@@ -1,6 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
-  "group": "indreb",
+  "group": "indreb_machines",
   "key": {
     "I": {
       "item": "indreb:iron_furnace"

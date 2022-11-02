@@ -13,8 +13,8 @@ import static com.maciej916.indreb.IndReb.MODID;
 
 public class GuiExpButton extends GuiButton {
 
-    public GuiExpButton(IGuiWrapper wrapper, IExpCollector leftClick) {
-        super(wrapper, -19, 5, GuiSprite.LEFT_BUTTON, leftClick.collectExp(), null);
+    public GuiExpButton(IGuiWrapper wrapper, IExpCollector leftClick, int topOffset) {
+        super(wrapper, -19, topOffset, GuiSprite.LEFT_BUTTON, leftClick.collectExp(), null);
     }
 
     @Override

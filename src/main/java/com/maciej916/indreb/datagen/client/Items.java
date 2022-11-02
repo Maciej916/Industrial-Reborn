@@ -24,9 +24,12 @@ public class Items extends ItemModelProvider {
         registerRaw();
         registerIngots();
         registerRods();
-        registerCrushed();
         registerPlates();
+
         registerDusts();
+        registerPurified();
+        registerChunk();
+
         registerPainter();
         registerConstructionFoam();
         registerTools();
@@ -71,13 +74,17 @@ public class Items extends ItemModelProvider {
         createWithBlock(ModItems.DEEPSLATE_TIN_ORE, "deepslate_tin_ore");
         createWithBlock(ModItems.LEAD_ORE, "lead_ore");
         createWithBlock(ModItems.DEEPSLATE_LEAD_ORE, "deepslate_lead_ore");
+        createWithBlock(ModItems.URANIUM_ORE, "uranium_ore");
         createWithBlock(ModItems.DEEPSLATE_URANIUM_ORE, "deepslate_uranium_ore");
+        createWithBlock(ModItems.SILVER_ORE, "silver_ore");
+        createWithBlock(ModItems.DEEPSLATE_SILVER_ORE, "deepslate_silver_ore");
     }
 
     protected void registerRaw() {
         createGeneratedTexture(ModItems.RAW_TIN, "raw/tin");
         createGeneratedTexture(ModItems.RAW_LEAD, "raw/lead");
-        createGeneratedTexture(ModItems.URANIUM, "raw/uranium");
+        createGeneratedTexture(ModItems.RAW_URANIUM, "raw/uranium");
+        createGeneratedTexture(ModItems.RAW_SILVER, "raw/silver");
     }
 
     protected void registerIngots() {
@@ -87,19 +94,11 @@ public class Items extends ItemModelProvider {
         createGeneratedTexture(ModItems.SILVER_INGOT, "ingot/silver");
         createGeneratedTexture(ModItems.STEEL_INGOT, "ingot/steel");
         createGeneratedTexture(ModItems.LEAD_INGOT, "ingot/lead");
-        createGeneratedTexture(ModItems.REFINED_URANIUM, "ingot/uranium");
+        createGeneratedTexture(ModItems.URANIUM_INGOT, "ingot/uranium");
     }
 
     protected void registerRods() {
         createGeneratedTexture(ModItems.IRON_ROD, "rod/iron");
-    }
-
-    protected void registerCrushed() {
-        createGeneratedTexture(ModItems.CRUSHED_TIN, "crushed/tin");
-        createGeneratedTexture(ModItems.CRUSHED_COPPER, "crushed/copper");
-        createGeneratedTexture(ModItems.CRUSHED_GOLD, "crushed/gold");
-        createGeneratedTexture(ModItems.CRUSHED_IRON, "crushed/iron");
-        createGeneratedTexture(ModItems.CRUSHED_LEAD, "crushed/lead");
     }
 
     protected void registerPlates() {
@@ -119,9 +118,38 @@ public class Items extends ItemModelProvider {
         createGeneratedTexture(ModItems.COAL_DUST, "dust/coal");
         createGeneratedTexture(ModItems.DIAMOND_DUST, "dust/diamond");
         createGeneratedTexture(ModItems.ENERGIUM_DUST, "dust/energium");
-        createGeneratedTexture(ModItems.SILVER_DUST, "dust/silver");
         createGeneratedTexture(ModItems.SAWDUST, "dust/sawdust");
+        createGeneratedTexture(ModItems.SULFUR_DUST, "dust/sulfur");
+        createGeneratedTexture(ModItems.MUD_PILE, "dust/mud_pile");
+
+        createGeneratedTexture(ModItems.TIN_DUST, "dust/tin");
+        createGeneratedTexture(ModItems.COPPER_DUST, "dust/copper");
+        createGeneratedTexture(ModItems.IRON_DUST, "dust/iron");
+        createGeneratedTexture(ModItems.GOLD_DUST, "dust/gold");
+        createGeneratedTexture(ModItems.LEAD_DUST, "dust/lead");
+        createGeneratedTexture(ModItems.URANIUM_DUST, "dust/uranium");
+        createGeneratedTexture(ModItems.SILVER_DUST, "dust/silver");
    }
+
+    protected void registerPurified() {
+        createGeneratedTexture(ModItems.PURIFIED_TIN, "purified/tin");
+        createGeneratedTexture(ModItems.PURIFIED_COPPER, "purified/copper");
+        createGeneratedTexture(ModItems.PURIFIED_IRON, "purified/iron");
+        createGeneratedTexture(ModItems.PURIFIED_GOLD, "purified/gold");
+        createGeneratedTexture(ModItems.PURIFIED_LEAD, "purified/lead");
+        createGeneratedTexture(ModItems.PURIFIED_URANIUM, "purified/uranium");
+        createGeneratedTexture(ModItems.PURIFIED_SILVER, "purified/silver");
+    }
+
+    protected void registerChunk() {
+        createGeneratedTexture(ModItems.TIN_CHUNK, "chunk/tin");
+        createGeneratedTexture(ModItems.COPPER_CHUNK, "chunk/copper");
+        createGeneratedTexture(ModItems.IRON_CHUNK, "chunk/iron");
+        createGeneratedTexture(ModItems.GOLD_CHUNK, "chunk/gold");
+        createGeneratedTexture(ModItems.LEAD_CHUNK, "chunk/lead");
+        createGeneratedTexture(ModItems.URANIUM_CHUNK, "chunk/uranium");
+        createGeneratedTexture(ModItems.SILVER_CHUNK, "chunk/silver");
+    }
 
     protected void registerPainter() {
         createHandheldTexture(ModItems.PAINTER, "tool/painter/painter");
@@ -194,6 +222,8 @@ public class Items extends ItemModelProvider {
         createHandheldTexture(ModItems.IE_METER, "tool/electric/ie_meter");
         createHandheldTexture(ModItems.ELECTRIC_HOE, "tool/electric/electric_hoe");
         createHandheldTexture(ModItems.MULTI_TOOL, "tool/electric/multi_tool");
+        createGeneratedTexture(ModItems.BASIC_TRANSPORTER, "tool/electric/basic_transporter");
+        createGeneratedTexture(ModItems.ADVANCED_TRANSPORTER, "tool/electric/advanced_transporter");
     }
 
     protected void registerBatteries() {
@@ -267,11 +297,18 @@ public class Items extends ItemModelProvider {
         createWithBlock(ModItems.EXTRACTOR, "machines/extractor");
         createWithBlock(ModItems.SAWMILL, "machines/sawmill");
         createWithBlock(ModItems.EXTRUDER, "machines/extruder");
-        createWithBlock(ModItems.ALLOY_SMELTER, "machines/alloy_smelter");
+
         createWithBlock(ModItems.CANNING_MACHINE, "canning_machine");
-        createWithBlock(ModItems.RECYCLER, "recycler");
+
         createWithBlock(ModItems.FLUID_ENRICHER, "fluid_enricher");
         createWithBlock(ModItems.FERMENTER, "fermenter");
+
+        createWithBlock(ModItems.RECYCLER, "recycler");
+        createWithBlock(ModItems.ORE_WASHING_PLANT, "ore_washing_plant");
+
+        createWithBlock(ModItems.ALLOY_SMELTER, "alloy_smelter");
+        createWithBlock(ModItems.MATTER_FABRICATOR, "matter_fabricator");
+        createWithBlock(ModItems.THERMAL_CENTRIFUGE, "thermal_centrifuge");
     }
 
     protected void registerBatteryBox() {
@@ -300,6 +337,7 @@ public class Items extends ItemModelProvider {
         createGeneratedTexture(ModItems.FOAM_POWDER, "crafting/foam_powder");
         createGeneratedTexture(ModItems.REINFORCED_FOAM_POWDER, "crafting/reinforced_foam_powder");
         createGeneratedTexture(ModItems.HEAT_CONDUCTOR, "crafting/heat_conductor");
+        createGeneratedTexture(ModItems.MEMORY_CARD, "crafting/memory_card");
     }
 
     protected void registerCables() {
@@ -319,6 +357,8 @@ public class Items extends ItemModelProvider {
     }
 
     protected void registerUpgrades() {
+//        createGeneratedTexture(ModItems.UPGRADE_BASE, "upgrade/base");
+//        createGeneratedTexture(ModItems.ADVANCED_UPGRADE_BASE, "upgrade/advanced_base");
         createGeneratedTexture(ModItems.OVERCLOCKER_UPGRADE, "upgrade/overclocker");
         createGeneratedTexture(ModItems.TRANSFORMER_UPGRADE, "upgrade/transformer");
         createGeneratedTexture(ModItems.ENERGY_STORAGE_UPGRADE, "upgrade/energy_storage");

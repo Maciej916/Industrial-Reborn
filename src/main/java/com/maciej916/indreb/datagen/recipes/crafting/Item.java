@@ -87,7 +87,7 @@ public class Item extends RecipeProvider {
         ShapedRecipeBuilder.shaped(ModItems.CARBON_FIBERS.get())
                 .pattern("cc ")
                 .pattern("cc ")
-                .define('c', ModItems.COAL_DUST.get())
+                .define('c', ItemTags.create(new ResourceLocation("forge", "dusts/coal")))
                 .group(MODID)
                 .unlockedBy("item", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.COAL_DUST.get()))
                 .save(consumer, saveResource("carbon_fibers"));
@@ -131,7 +131,7 @@ public class Item extends RecipeProvider {
                 .define('r', ModItems.BATTERY.get())
                 .define('e', ModItems.ELECTRONIC_CIRCUIT.get())
                 .define('m', ModItems.ELECTRIC_MOTOR.get())
-                .define('i', ModItems.IRON_PLATE.get())
+                .define('i', ItemTags.create(new ResourceLocation("forge", "plates/iron")))
                 .define('c', ModBlocks.COPPER_CABLE.get())
                 .group(MODID)
                 .unlockedBy("battery", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.BATTERY.get()))
@@ -148,7 +148,7 @@ public class Item extends RecipeProvider {
                 .define('r', ModItems.BATTERY.get())
                 .define('e', ModItems.ELECTRONIC_CIRCUIT.get())
                 .define('m', ModItems.ELECTRIC_MOTOR.get())
-                .define('i', ModItems.IRON_PLATE.get())
+                .define('i', ItemTags.create(new ResourceLocation("forge", "plates/iron")))
                 .define('c', ModBlocks.COPPER_CABLE.get())
                 .group(MODID)
                 .unlockedBy("battery", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.BATTERY.get()))
@@ -240,15 +240,34 @@ public class Item extends RecipeProvider {
                 .unlockedBy("copper_plate", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.COPPER_PLATE.get()))
                 .save(consumer, saveResource("heat_conductor"));
 
-        ShapelessRecipeBuilder.shapeless(ModItems.FERTILIZER.get(), 1)
-                .requires(ModItems.SCRAP.get())
-                .requires(Items.BONE_MEAL)
+//        ShapelessRecipeBuilder.shapeless(ModItems.FERTILIZER.get(), 1)
+//                .requires(ModItems.SCRAP.get())
+//                .requires(Items.BONE_MEAL)
+//                .group(MODID)
+//                .unlockedBy("scrap", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.SCRAP.get()))
+//                .unlockedBy("bone_meal", InventoryChangeTrigger.TriggerInstance.hasItems(Items.BONE_MEAL))
+//                .save(consumer, saveResource("fertilizer"));
+
+        ShapedRecipeBuilder.shaped(Items.MUD, 1)
+                .pattern("mm ")
+                .pattern("mm ")
+                .define('m', ModItems.MUD_PILE.get())
                 .group(MODID)
-                .unlockedBy("scrap", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.SCRAP.get()))
-                .unlockedBy("bone_meal", InventoryChangeTrigger.TriggerInstance.hasItems(Items.BONE_MEAL))
-                .save(consumer, saveResource("fertilizer"));
+                .unlockedBy("mud_pile", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.MUD_PILE.get()))
+                .save(consumer, saveResource("mud"));
 
-
+        ShapedRecipeBuilder.shaped(ModItems.MEMORY_CARD.get(), 1)
+                .pattern("aia")
+                .pattern("ici")
+                .pattern("aia")
+                .define('i', ItemTags.create(new ResourceLocation("forge", "plates/iron")))
+                .define('c', ModItems.ELECTRONIC_CIRCUIT.get())
+                .define('a', Items.AMETHYST_SHARD)
+                .group(MODID)
+                .unlockedBy("iron_plate", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.IRON_PLATE.get()))
+                .unlockedBy("electronic_circuit", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.ELECTRONIC_CIRCUIT.get()))
+                .unlockedBy("AMETHYST_SHARD", InventoryChangeTrigger.TriggerInstance.hasItems(Items.AMETHYST_SHARD))
+                .save(consumer, saveResource("memory_card"));
 
 
 

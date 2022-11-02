@@ -22,6 +22,8 @@ public final class ModRecipeSerializer {
     public static final RegistryObject<RecipeSerializer<CanningRecipe>> CANNING = SERIALIZERS.register("canning", () -> CanningRecipe.SERIALIZER);
     public static final RegistryObject<RecipeSerializer<FluidEnrichingRecipe>> FLUID_ENRICHING = SERIALIZERS.register("fluid_enriching", () -> FluidEnrichingRecipe.SERIALIZER);
     public static final RegistryObject<RecipeSerializer<ScrapBoxRecipe>> SCRAP_BOX = SERIALIZERS.register("scrap_box", () -> ScrapBoxRecipe.SERIALIZER);
+    public static final RegistryObject<RecipeSerializer<OreWashingRecipe>> ORE_WASHING = SERIALIZERS.register("ore_washing", () -> OreWashingRecipe.SERIALIZER);
+    public static final RegistryObject<RecipeSerializer<ThermalCentrifugingRecipe>> THERMAL_CENTRIFUGING = SERIALIZERS.register("thermal_centrifuging", () -> ThermalCentrifugingRecipe.SERIALIZER);
 
     public static void register(IEventBus eventBus) {
         SERIALIZERS.register(eventBus);

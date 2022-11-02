@@ -1,0 +1,13 @@
+{
+  "type": "indreb:crushing",
+  "duration": 180,
+  "experience": 0.2,
+  "ingredient": {
+    "count": 1,
+    "item": "indreb:purified_gold"
+  },
+  "power_cost": 8,
+  "result": {
+    "item": "indreb:gold_dust"
+  }
+}

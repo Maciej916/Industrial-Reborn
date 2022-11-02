@@ -34,8 +34,8 @@ public class Armour extends RecipeProvider {
                 .pattern("bbb")
                 .pattern("b b")
                 .define('b', Ingredient.of(ItemTags.create(new ResourceLocation("forge", "ingots/bronze"))))
-                .group(MODID)
-                .unlockedBy("item", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.BRONZE_INGOT.get()))
+                .group(MODID + "_armour")
+                .unlockedBy("bronze_ingot", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.BRONZE_INGOT.get()))
                 .save(consumer, saveResource("bronze_helmet"));
 
 
@@ -44,8 +44,8 @@ public class Armour extends RecipeProvider {
                 .pattern("bbb")
                 .pattern("bbb")
                 .define('b', Ingredient.of(ItemTags.create(new ResourceLocation("forge", "ingots/bronze"))))
-                .group(MODID)
-                .unlockedBy("item", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.BRONZE_INGOT.get()))
+                .group(MODID + "_armour")
+                .unlockedBy("bronze_ingot", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.BRONZE_INGOT.get()))
                 .save(consumer, saveResource("bronze_chestplate"));
 
 
@@ -54,8 +54,8 @@ public class Armour extends RecipeProvider {
                 .pattern("b b")
                 .pattern("b b")
                 .define('b', Ingredient.of(ItemTags.create(new ResourceLocation("forge", "ingots/bronze"))))
-                .group(MODID)
-                .unlockedBy("item", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.BRONZE_INGOT.get()))
+                .group(MODID + "_armour")
+                .unlockedBy("bronze_ingot", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.BRONZE_INGOT.get()))
                 .save(consumer, saveResource("bronze_leggings"));
 
 
@@ -63,8 +63,8 @@ public class Armour extends RecipeProvider {
                 .pattern("b b")
                 .pattern("b b")
                 .define('b', Ingredient.of(ItemTags.create(new ResourceLocation("forge", "ingots/bronze"))))
-                .group(MODID)
-                .unlockedBy("item", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.BRONZE_INGOT.get()))
+                .group(MODID + "_armour")
+                .unlockedBy("bronze_ingot", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.BRONZE_INGOT.get()))
                 .save(consumer, saveResource("bronze_boots"));
 
 
@@ -74,7 +74,7 @@ public class Armour extends RecipeProvider {
                 .pattern("rwr")
                 .define('r', ModItems.RUBBER.get())
                 .define('w', Items.WHITE_WOOL)
-                .group(MODID)
+                .group(MODID + "_armour")
                 .unlockedBy("rubber", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.RUBBER.get()))
                 .unlockedBy("white_wool", InventoryChangeTrigger.TriggerInstance.hasItems(Items.WHITE_WOOL))
                 .save(consumer, saveResource("rubber_boots"));
@@ -89,7 +89,7 @@ public class Armour extends RecipeProvider {
                 .define('g', ModBlocks.REINFORCED_GLASS.get())
                 .define('r', ModItems.RUBBER.get())
                 .define('a', ModItems.ADVANCED_CIRCUIT.get())
-                .group(MODID)
+                .group(MODID + "_armour")
                 .unlockedBy("advanced_battery", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.ADVANCED_BATTERY.get()))
                 .unlockedBy("luminator", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.LUMINATOR.get()))
                 .unlockedBy("reinforced_glass", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.REINFORCED_GLASS.get()))
@@ -103,7 +103,7 @@ public class Armour extends RecipeProvider {
                 .define('c', ModItems.CARBON_PLATE.get())
                 .define('e', ModItems.ENERGY_CRYSTAL.get())
                 .define('n', ModItems.NIGHTVISION_GOGGLES.get())
-                .group(MODID)
+                .group(MODID + "_armour")
                 .unlockedBy("carbon_plate", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.CARBON_PLATE.get()))
                 .unlockedBy("energy_crystal", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.ENERGY_CRYSTAL.get()))
                 .unlockedBy("nightvision_goggles", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.NIGHTVISION_GOGGLES.get()))
@@ -116,7 +116,7 @@ public class Armour extends RecipeProvider {
                 .pattern("ccc")
                 .define('c', ModItems.CARBON_PLATE.get())
                 .define('e', ModItems.ENERGY_CRYSTAL.get())
-                .group(MODID)
+                .group(MODID + "_armour")
                 .unlockedBy("carbon_plate", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.CARBON_PLATE.get()))
                 .unlockedBy("energy_crystal", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.ENERGY_CRYSTAL.get()))
                 .save(consumer, saveResource("nano_chestplate"));
@@ -128,7 +128,7 @@ public class Armour extends RecipeProvider {
                 .pattern("c c")
                 .define('c', ModItems.CARBON_PLATE.get())
                 .define('e', ModItems.ENERGY_CRYSTAL.get())
-                .group(MODID)
+                .group(MODID + "_armour")
                 .unlockedBy("carbon_plate", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.CARBON_PLATE.get()))
                 .unlockedBy("energy_crystal", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.ENERGY_CRYSTAL.get()))
                 .save(consumer, saveResource("nano_leggings"));
@@ -139,7 +139,7 @@ public class Armour extends RecipeProvider {
                 .pattern("cec")
                 .define('c', ModItems.CARBON_PLATE.get())
                 .define('e', ModItems.ENERGY_CRYSTAL.get())
-                .group(MODID)
+                .group(MODID + "_armour")
                 .unlockedBy("carbon_plate", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.CARBON_PLATE.get()))
                 .unlockedBy("energy_crystal", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.ENERGY_CRYSTAL.get()))
                 .save(consumer, saveResource("nano_boots"));

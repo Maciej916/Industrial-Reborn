@@ -24,7 +24,11 @@ public final class ModRecipeType {
     public static final RegistryObject<RecipeType<CanningRecipe>> CANNING = registerType("canning");
     public static final RegistryObject<RecipeType<FluidEnrichingRecipe>> FLUID_ENRICHING = registerType("fluid_enriching");
 
+    public static final RegistryObject<RecipeType<OreWashingRecipe>> ORE_WASHING = registerType("ore_washing");
+
     public static final RegistryObject<RecipeType<ScrapBoxRecipe>> SCRAP_BOX = registerType("scrap_box");
+
+    public static final RegistryObject<RecipeType<ThermalCentrifugingRecipe>> THERMAL_CENTRIFUGING = registerType("thermal_centrifuging");
 
     private static <T extends Recipe<?>> RegistryObject<RecipeType<T>> registerType(final String key) {
         return RECIPE_TYPES.register(key, () -> new RecipeType<>() {

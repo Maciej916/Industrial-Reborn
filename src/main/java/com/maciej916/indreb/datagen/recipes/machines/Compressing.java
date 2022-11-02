@@ -260,12 +260,12 @@ public class Compressing extends RecipeProvider {
                 .addCriterion("iridium", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.BIO_CHAFF.get()))
                 .save(consumer, "moss_block");
 
-        RecipeBuilderCompressing.builder(ModItems.REFINED_URANIUM.get(),1)
-                .setIngredient(Ingredient.of(ModItems.URANIUM.get()), 1)
+        RecipeBuilderCompressing.builder(ModItems.URANIUM_INGOT.get(),1)
+                .setIngredient(Ingredient.of(ItemTags.create(new ResourceLocation("forge", "raw_materials/uranium"))), 1)
                 .setGroup("compressing")
                 .setExperience(2F)
-                .addCriterion("uranium", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.URANIUM.get()))
-                .save(consumer, "refined_uranium");
+                .addCriterion("raw_uranium", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.RAW_URANIUM.get()))
+                .save(consumer, "uranium_ingot");
 
         RecipeBuilderCompressing.builder(Items.STONE,1)
                 .setIngredient(Ingredient.of(ItemTags.create(new ResourceLocation("forge", "dusts/stone"))), 4)

@@ -143,7 +143,7 @@ public class BlockEntityStandardMachine extends IndRebBlockEntity implements IEn
                         inputStack.shrink(recipe.getIngredientCount());
                         getStackHandler().setStackInSlot(INPUT_SLOT, inputStack.copy());
 
-                        this.setRecipeUsed(recipe);
+                        this.addRecipeUsed(recipe);
 
                         progress.setBoth(-1);
                         rolledChance = false;

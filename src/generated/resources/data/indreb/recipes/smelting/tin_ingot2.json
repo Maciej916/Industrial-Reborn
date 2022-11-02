@@ -3,7 +3,7 @@
   "cookingtime": 200,
   "experience": 0.8,
   "ingredient": {
-    "item": "indreb:crushed_tin"
+    "item": "indreb:tin_dust"
   },
   "result": "indreb:tin_ingot"
 }

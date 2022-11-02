@@ -27,6 +27,8 @@ public final class ModSounds {
     public static final RegistryObject<SoundEvent> SAWMILL = registerSound("tile.sawmill");
     public static final RegistryObject<SoundEvent> RECYCLER = registerSound("tile.recycler");
     public static final RegistryObject<SoundEvent> CANNING_MACHINE = registerSound("tile.canning_machine");
+    public static final RegistryObject<SoundEvent> MATTER_FABRICATOR = registerSound("tile.matter_fabricator");
+    public static final RegistryObject<SoundEvent> ORE_WASHING_PLANT = registerSound("tile.ore_washing_plant");
 
     public static final RegistryObject<SoundEvent> TREETAP = registerSound("item.treetap");
     public static final RegistryObject<SoundEvent> WRENCH = registerSound("item.wrench");
@@ -34,6 +36,8 @@ public final class ModSounds {
     public static final RegistryObject<SoundEvent> PAINTER = registerSound("item.painter");
 
     public static final RegistryObject<SoundEvent> NIGHT_VISION = registerSound("player.night_vision");
+
+    public static final RegistryObject<SoundEvent> MATTER_FABRICATOR_AMPLIFIED = registerSound("extra.matter_fabricator_amplified");
 
     private static RegistryObject<SoundEvent> registerSound(String name) {
         ResourceLocation soundLocation = new ResourceLocation(MODID, name);

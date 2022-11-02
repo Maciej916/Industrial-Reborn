@@ -1,6 +1,8 @@
 package com.maciej916.indreb.common.subscribers;
 
 import com.maciej916.indreb.IndReb;
+import net.minecraftforge.client.event.RegisterColorHandlersEvent;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 
 
@@ -16,5 +18,4 @@ public final class ModEventSubscriber {
 //            ConfigHelper.bakeCommon();
 //        }
 //    }
-
 }

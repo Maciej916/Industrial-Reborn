@@ -9,6 +9,7 @@ import com.maciej916.indreb.common.interfaces.entity.ISupportUpgrades;
 import com.maciej916.indreb.common.screen.bar.GuiElectricBarHorizontal;
 import com.maciej916.indreb.common.screen.bar.GuiElectricBarVertical;
 import com.maciej916.indreb.common.screen.button.GuiExpButton;
+import com.maciej916.indreb.common.screen.button.GuiInfoButton;
 import com.maciej916.indreb.common.screen.slot.GuiItemSlot;
 import com.maciej916.indreb.common.screen.slot.GuiSlot;
 import com.maciej916.indreb.common.screen.widgets.GuiCooldown;
@@ -53,9 +54,21 @@ public class BetterScreen <T extends IndRebMenu> extends PanelScreen<T> {
             }
         });
 
+
+        // Left side
+        int topLeftOffset = 5;
+
+        if (getBlockEntity() instanceof ISupportUpgrades supportUpgrades) {
+            if (supportUpgrades.hasUpgrades()) {
+                addRenderableComponent(new GuiInfoButton(this, supportUpgrades, topLeftOffset));
+                topLeftOffset += 24;
+            }
+        }
+
         if (getBlockEntity() instanceof IExpCollector expCollector) {
             if (expCollector.hasExpButton()) {
-                addRenderableComponent(new GuiExpButton(this, expCollector));
+                addRenderableComponent(new GuiExpButton(this, expCollector, topLeftOffset));
+                topLeftOffset += 24;
             }
         }
     }

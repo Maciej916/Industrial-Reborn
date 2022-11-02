@@ -1,6 +1,6 @@
 {
   "type": "forge:add_features",
-  "biomes": "#minecraft:swamp",
+  "biomes": "#forge:is_swamp",
   "features": "indreb:rubber_tree_rich_placed",
   "step": "vegetal_decoration"
 }

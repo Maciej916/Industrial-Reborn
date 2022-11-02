@@ -9,7 +9,7 @@
       "item": "minecraft:glass"
     },
     "s": {
-      "item": "indreb:silver_dust"
+      "tag": "forge:dusts/silver"
     }
   },
   "pattern": [

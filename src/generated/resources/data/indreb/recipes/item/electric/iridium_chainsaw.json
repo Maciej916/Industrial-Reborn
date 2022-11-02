@@ -1,6 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
-  "group": "indreb",
+  "group": "indreb_item_electric",
   "key": {
     "c": {
       "item": "indreb:diamond_chainsaw"

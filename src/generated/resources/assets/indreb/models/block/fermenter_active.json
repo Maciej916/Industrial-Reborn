@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:block/cube",
   "textures": {
-    "down": "indreb:block/machines/fermenter_bottom",
-    "east": "indreb:block/machines/fermenter_leftright_active",
-    "north": "indreb:block/machines/fermenter_front_active",
-    "particle": "indreb:block/machines/fermenter_front_active",
-    "south": "indreb:block/machines/fermenter_back",
-    "up": "indreb:block/machines/fermenter_top",
-    "west": "indreb:block/machines/fermenter_leftright_active"
+    "down": "indreb:block/machines/basic/fermenter_bottom",
+    "east": "indreb:block/machines/basic/fermenter_leftright_active",
+    "north": "indreb:block/machines/basic/fermenter_front_active",
+    "particle": "indreb:block/machines/basic/fermenter_front_active",
+    "south": "indreb:block/machines/basic/fermenter_back",
+    "up": "indreb:block/machines/basic/fermenter_top",
+    "west": "indreb:block/machines/basic/fermenter_leftright_active"
   }
 }

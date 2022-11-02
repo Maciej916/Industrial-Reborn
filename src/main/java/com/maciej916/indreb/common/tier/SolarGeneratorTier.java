@@ -8,9 +8,9 @@ import java.util.stream.Stream;
 
 public enum SolarGeneratorTier {
     BASIC(EnergyTier.BASIC, "basic", 8.0D),
-    ADVANCED(EnergyTier.STANDARD, "advanced", 10.0D),
-    HYBRID(EnergyTier.ADVANCED, "hybrid", 12.0D),
-    QUANTUM(EnergyTier.SUPER, "quantum", 14.0D);
+    ADVANCED(EnergyTier.STANDARD, "advanced", 8.0D),
+    HYBRID(EnergyTier.ADVANCED, "hybrid", 8.0D),
+    QUANTUM(EnergyTier.SUPER, "quantum", 8.0D);
 
     private final EnergyTier energyTier;
     private final String tier;

@@ -6,7 +6,7 @@
       "item": "indreb:iron_furnace"
     },
     "P": {
-      "item": "indreb:iron_plate"
+      "tag": "forge:plates/iron"
     },
     "R": {
       "item": "indreb:battery"

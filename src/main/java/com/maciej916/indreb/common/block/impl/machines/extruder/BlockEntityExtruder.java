@@ -30,7 +30,6 @@ import net.minecraft.world.level.material.Fluids;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.common.util.LazyOptional;
-import net.minecraftforge.fluids.capability.CapabilityFluidHandler;
 import net.minecraftforge.items.wrapper.RangedWrapper;
 
 import javax.annotation.Nonnull;
@@ -172,7 +171,7 @@ public class BlockEntityExtruder extends IndRebBlockEntity implements IEnergyBlo
 
         if (progress.getProgress() > 0 && progress.getProgress() >= progress.getProgressMax()) {
             progress.setBoth(-1);
-            this.setRecipeUsed(recipe);
+            this.addRecipeUsed(recipe);
 
             if (recipe.getWaterCost() > 0) waterStorage.takeFluid(recipe.getWaterCost(), false);
             if (recipe.getLavaCost() > 0) lavaStorage.takeFluid(recipe.getLavaCost(), false);
@@ -271,6 +270,6 @@ public class BlockEntityExtruder extends IndRebBlockEntity implements IEnergyBlo
 
     @Override
     public List<UpgradeType> getSupportedUpgrades() {
-        return List.of(UpgradeType.OVERCLOCKER, UpgradeType.TRANSFORMER, UpgradeType.ENERGY_STORAGE, UpgradeType.EJECTOR, UpgradeType.PULLING, UpgradeType.REDSTONE_SIGNAL_INVERTER, UpgradeType.FLUID_PULLING, UpgradeType.FLUID_EJECTOR);
+        return List.of(UpgradeType.OVERCLOCKER, UpgradeType.TRANSFORMER, UpgradeType.ENERGY_STORAGE, UpgradeType.EJECTOR, UpgradeType.PULLING, UpgradeType.REDSTONE_SIGNAL_INVERTER, UpgradeType.FLUID_PULLING);
     }
 }

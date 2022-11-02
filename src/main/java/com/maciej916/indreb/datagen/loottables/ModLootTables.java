@@ -76,7 +76,10 @@ public class ModLootTables extends LootTableProvider {
         tables.put(ModBlocks.DEEPSLATE_TIN_ORE.get().getLootTable(), createOreDrop(ModBlocks.DEEPSLATE_TIN_ORE.get(), ModItems.RAW_TIN.get()).setParamSet(LootContextParamSets.BLOCK).build());
         tables.put(ModBlocks.LEAD_ORE.get().getLootTable(), createOreDrop(ModBlocks.LEAD_ORE.get(), ModItems.RAW_LEAD.get()).setParamSet(LootContextParamSets.BLOCK).build());
         tables.put(ModBlocks.DEEPSLATE_LEAD_ORE.get().getLootTable(), createOreDrop(ModBlocks.DEEPSLATE_LEAD_ORE.get(), ModItems.RAW_LEAD.get()).setParamSet(LootContextParamSets.BLOCK).build());
-        tables.put(ModBlocks.DEEPSLATE_URANIUM_ORE.get().getLootTable(), createOreDrop(ModBlocks.DEEPSLATE_URANIUM_ORE.get(), ModItems.URANIUM.get()).setParamSet(LootContextParamSets.BLOCK).build());
+        tables.put(ModBlocks.URANIUM_ORE.get().getLootTable(), createOreDrop(ModBlocks.URANIUM_ORE.get(), ModItems.RAW_URANIUM.get()).setParamSet(LootContextParamSets.BLOCK).build());
+        tables.put(ModBlocks.DEEPSLATE_URANIUM_ORE.get().getLootTable(), createOreDrop(ModBlocks.DEEPSLATE_URANIUM_ORE.get(), ModItems.RAW_URANIUM.get()).setParamSet(LootContextParamSets.BLOCK).build());
+        tables.put(ModBlocks.SILVER_ORE.get().getLootTable(), createOreDrop(ModBlocks.SILVER_ORE.get(), ModItems.RAW_SILVER.get()).setParamSet(LootContextParamSets.BLOCK).build());
+        tables.put(ModBlocks.DEEPSLATE_SILVER_ORE.get().getLootTable(), createOreDrop(ModBlocks.DEEPSLATE_SILVER_ORE.get(), ModItems.RAW_SILVER.get()).setParamSet(LootContextParamSets.BLOCK).build());
 
         tables.put(ModBlocks.TIN_BLOCK.get().getLootTable(), createStandardTable("tin_block", ModBlocks.TIN_BLOCK.get()).setParamSet(LootContextParamSets.BLOCK).build());
         tables.put(ModBlocks.SILVER_BLOCK.get().getLootTable(), createStandardTable("silver_block", ModBlocks.SILVER_BLOCK.get()).setParamSet(LootContextParamSets.BLOCK).build());
@@ -116,8 +119,10 @@ public class ModLootTables extends LootTableProvider {
         tables.put(ModBlocks.FLUID_ENRICHER.get().getLootTable(), createBlockEntityTableBreakable("fluid_enricher", ModBlocks.FLUID_ENRICHER.get(), ModBlockEntities.FLUID_ENRICHER.get(), ModBlocks.BASIC_MACHINE_CASING.get()).setParamSet(LootContextParamSets.BLOCK).build());
         tables.put(ModBlocks.RECYCLER.get().getLootTable(), createBlockEntityTableBreakable("recycler", ModBlocks.RECYCLER.get(), ModBlockEntities.RECYCLER.get(), ModBlocks.BASIC_MACHINE_CASING.get()).setParamSet(LootContextParamSets.BLOCK).build());
         tables.put(ModBlocks.FERMENTER.get().getLootTable(), createBlockEntityTableBreakable("fermenter", ModBlocks.FERMENTER.get(), ModBlockEntities.FERMENTER.get(), ModBlocks.BASIC_MACHINE_CASING.get()).setParamSet(LootContextParamSets.BLOCK).build());
-
         tables.put(ModBlocks.ALLOY_SMELTER.get().getLootTable(), createBlockEntityTableBreakable("alloy_smelter", ModBlocks.ALLOY_SMELTER.get(), ModBlockEntities.ALLOY_SMELTER.get(), ModBlocks.BASIC_MACHINE_CASING.get()).setParamSet(LootContextParamSets.BLOCK).build());
+        tables.put(ModBlocks.MATTER_FABRICATOR.get().getLootTable(), createBlockEntityTableBreakable("matter_fabricator", ModBlocks.MATTER_FABRICATOR.get(), ModBlockEntities.MATTER_FABRICATOR.get(), ModBlocks.ADVANCED_MACHINE_CASING.get()).setParamSet(LootContextParamSets.BLOCK).build());
+        tables.put(ModBlocks.ORE_WASHING_PLANT.get().getLootTable(), createBlockEntityTableBreakable("ore_washing_plant", ModBlocks.ORE_WASHING_PLANT.get(), ModBlockEntities.ORE_WASHING_PLANT.get(), ModBlocks.BASIC_MACHINE_CASING.get()).setParamSet(LootContextParamSets.BLOCK).build());
+        tables.put(ModBlocks.THERMAL_CENTRIFUGE.get().getLootTable(), createBlockEntityTableBreakable("thermal_centrifuge", ModBlocks.THERMAL_CENTRIFUGE.get(), ModBlockEntities.THERMAL_CENTRIFUGE.get(), ModBlocks.ADVANCED_MACHINE_CASING.get()).setParamSet(LootContextParamSets.BLOCK).build());
 
         tables.put(ModBlocks.BATTERY_BOX.get().getLootTable(), createBlockEntityTable("battery_box", ModBlocks.BATTERY_BOX.get(), ModBlockEntities.BATTERY_BOX.get()).setParamSet(LootContextParamSets.BLOCK).build());
         tables.put(ModBlocks.CESU.get().getLootTable(), createBlockEntityTable("cesu", ModBlocks.CESU.get(), ModBlockEntities.BATTERY_BOX.get()).setParamSet(LootContextParamSets.BLOCK).build());
@@ -145,6 +150,23 @@ public class ModLootTables extends LootTableProvider {
         tables.put(ModBlocks.MV_TRANSFORMER.get().getLootTable(), createStandardTable("mv_transformer", ModBlocks.MV_TRANSFORMER.get()).setParamSet(LootContextParamSets.BLOCK).build());
         tables.put(ModBlocks.HV_TRANSFORMER.get().getLootTable(), createStandardTable("hv_transformer", ModBlocks.HV_TRANSFORMER.get()).setParamSet(LootContextParamSets.BLOCK).build());
         tables.put(ModBlocks.EV_TRANSFORMER.get().getLootTable(), createStandardTable("ev_transformer", ModBlocks.EV_TRANSFORMER.get()).setParamSet(LootContextParamSets.BLOCK).build());
+
+        tables.put(ModBlocks.CONSTRUCTION_FOAM_WALL_WHITE.get().getLootTable(), createStandardTable("construction_foam_wall_white", ModBlocks.CONSTRUCTION_FOAM_WALL_WHITE.get()).setParamSet(LootContextParamSets.BLOCK).build());
+        tables.put(ModBlocks.CONSTRUCTION_FOAM_WALL_RED.get().getLootTable(), createStandardTable("construction_foam_wall_red", ModBlocks.CONSTRUCTION_FOAM_WALL_RED.get()).setParamSet(LootContextParamSets.BLOCK).build());
+        tables.put(ModBlocks.CONSTRUCTION_FOAM_WALL_ORANGE.get().getLootTable(), createStandardTable("construction_foam_wall_orange", ModBlocks.CONSTRUCTION_FOAM_WALL_ORANGE.get()).setParamSet(LootContextParamSets.BLOCK).build());
+        tables.put(ModBlocks.CONSTRUCTION_FOAM_WALL_PINK.get().getLootTable(), createStandardTable("construction_foam_wall_pink", ModBlocks.CONSTRUCTION_FOAM_WALL_PINK.get()).setParamSet(LootContextParamSets.BLOCK).build());
+        tables.put(ModBlocks.CONSTRUCTION_FOAM_WALL_YELLOW.get().getLootTable(), createStandardTable("construction_foam_wall_yellow", ModBlocks.CONSTRUCTION_FOAM_WALL_YELLOW.get()).setParamSet(LootContextParamSets.BLOCK).build());
+        tables.put(ModBlocks.CONSTRUCTION_FOAM_WALL_LIME.get().getLootTable(), createStandardTable("construction_foam_wall_lime", ModBlocks.CONSTRUCTION_FOAM_WALL_LIME.get()).setParamSet(LootContextParamSets.BLOCK).build());
+        tables.put(ModBlocks.CONSTRUCTION_FOAM_WALL_GREEN.get().getLootTable(), createStandardTable("construction_foam_wall_green", ModBlocks.CONSTRUCTION_FOAM_WALL_GREEN.get()).setParamSet(LootContextParamSets.BLOCK).build());
+        tables.put(ModBlocks.CONSTRUCTION_FOAM_WALL_LIGHT_BLUE.get().getLootTable(), createStandardTable("construction_foam_wall_light_blue", ModBlocks.CONSTRUCTION_FOAM_WALL_LIGHT_BLUE.get()).setParamSet(LootContextParamSets.BLOCK).build());
+        tables.put(ModBlocks.CONSTRUCTION_FOAM_WALL_CYAN.get().getLootTable(), createStandardTable("construction_foam_wall_cyan", ModBlocks.CONSTRUCTION_FOAM_WALL_CYAN.get()).setParamSet(LootContextParamSets.BLOCK).build());
+        tables.put(ModBlocks.CONSTRUCTION_FOAM_WALL_BLUE.get().getLootTable(), createStandardTable("construction_foam_wall_blue", ModBlocks.CONSTRUCTION_FOAM_WALL_BLUE.get()).setParamSet(LootContextParamSets.BLOCK).build());
+        tables.put(ModBlocks.CONSTRUCTION_FOAM_WALL_MAGENTA.get().getLootTable(), createStandardTable("construction_foam_wall_magenta", ModBlocks.CONSTRUCTION_FOAM_WALL_MAGENTA.get()).setParamSet(LootContextParamSets.BLOCK).build());
+        tables.put(ModBlocks.CONSTRUCTION_FOAM_WALL_PURPLE.get().getLootTable(), createStandardTable("construction_foam_wall_purple", ModBlocks.CONSTRUCTION_FOAM_WALL_PURPLE.get()).setParamSet(LootContextParamSets.BLOCK).build());
+        tables.put(ModBlocks.CONSTRUCTION_FOAM_WALL_BROWN.get().getLootTable(), createStandardTable("construction_foam_wall_brown", ModBlocks.CONSTRUCTION_FOAM_WALL_BROWN.get()).setParamSet(LootContextParamSets.BLOCK).build());
+        tables.put(ModBlocks.CONSTRUCTION_FOAM_WALL_GRAY.get().getLootTable(), createStandardTable("construction_foam_wall_gray", ModBlocks.CONSTRUCTION_FOAM_WALL_GRAY.get()).setParamSet(LootContextParamSets.BLOCK).build());
+        tables.put(ModBlocks.CONSTRUCTION_FOAM_WALL_LIGHT_GRAY.get().getLootTable(), createStandardTable("construction_foam_wall_light_gray", ModBlocks.CONSTRUCTION_FOAM_WALL_LIGHT_GRAY.get()).setParamSet(LootContextParamSets.BLOCK).build());
+        tables.put(ModBlocks.CONSTRUCTION_FOAM_WALL_BLACK.get().getLootTable(), createStandardTable("construction_foam_wall_black", ModBlocks.CONSTRUCTION_FOAM_WALL_BLACK.get()).setParamSet(LootContextParamSets.BLOCK).build());
 
         writeTables(cache, tables);
     }

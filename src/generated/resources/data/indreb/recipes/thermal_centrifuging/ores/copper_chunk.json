@@ -1,0 +1,18 @@
+{
+  "type": "indreb:thermal_centrifuging",
+  "duration": 500,
+  "experience": 0.1,
+  "ingredient": {
+    "count": 1,
+    "tag": "forge:ores/copper"
+  },
+  "power_cost": 48,
+  "result_1": {
+    "count": 4,
+    "item": "indreb:copper_chunk"
+  },
+  "result_2": {
+    "item": "indreb:stone_dust"
+  },
+  "temperature": 1085
+}

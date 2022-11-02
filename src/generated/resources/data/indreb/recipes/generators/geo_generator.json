@@ -9,7 +9,7 @@
       "item": "indreb:generator"
     },
     "P": {
-      "item": "indreb:iron_plate"
+      "tag": "forge:plates/iron"
     },
     "g": {
       "item": "minecraft:glass"

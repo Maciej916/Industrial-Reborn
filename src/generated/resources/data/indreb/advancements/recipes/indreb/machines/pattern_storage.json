@@ -1,0 +1,86 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "advanced_circuit": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:advanced_circuit"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "advanced_machine_casing": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:advanced_machine_casing"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "basic_transporter": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:basic_transporter"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "chest": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:chest"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "indreb:machines/pattern_storage"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "reinforced_stone": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:reinforced_stone"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "reinforced_stone",
+      "basic_transporter",
+      "advanced_machine_casing",
+      "advanced_circuit",
+      "chest",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "indreb:machines/pattern_storage"
+    ]
+  }
+}

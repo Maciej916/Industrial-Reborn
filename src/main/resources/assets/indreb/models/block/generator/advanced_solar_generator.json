@@ -2,7 +2,7 @@
     "parent": "block/slab",
 	"elements": [
 		{   "from": [ 0, 0, 0 ],
-			"to": [ 16, 10, 16 ],
+			"to": [ 16, 8, 16 ],
 			"faces": {
 				"down":  { "texture": "#bottom" },
 				"up":    { "texture": "#top" },

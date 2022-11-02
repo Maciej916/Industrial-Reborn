@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "crushed_copper": {
+    "copper_dust": {
       "conditions": {
         "items": [
           {
             "items": [
-              "indreb:crushed_copper"
+              "indreb:copper_dust"
             ]
           }
         ]
@@ -22,7 +22,7 @@
   },
   "requirements": [
     [
-      "crushed_copper",
+      "copper_dust",
       "has_the_recipe"
     ]
   ],

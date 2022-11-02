@@ -3,22 +3,22 @@
   "chance": 0.15,
   "excluded": [
     {
-      "item": "indreb:scrap"
+      "tag": "forge:glass_panes"
     },
     {
       "tag": "forge:rods/wooden"
     },
     {
-      "tag": "forge:glass_panes"
+      "tag": "forge:rods/all_metals"
     },
     {
-      "tag": "forge:rods/all_metals"
+      "item": "minecraft:snowball"
     },
     {
       "tag": "indreb:electrics"
     },
     {
-      "item": "minecraft:snowball"
+      "item": "indreb:scrap"
     }
   ],
   "result": {

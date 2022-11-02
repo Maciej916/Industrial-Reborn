@@ -162,7 +162,7 @@ public class BlockEntityAlloySmelter extends IndRebBlockEntity implements IEnerg
                     getStackHandler().setStackInSlot(INPUT_SLOT_2, inputStack2.copy());
                 }
 
-                this.setRecipeUsed(recipe);
+                this.addRecipeUsed(recipe);
                 progress.setBoth(-1);
             }
         } else {

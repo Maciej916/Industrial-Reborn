@@ -36,4 +36,6 @@ public class BlockElectricMachine extends BlockMachine implements IElectricMachi
                 Component.translatable(tier.getLang().getTranslationKey()).withStyle(tier.getColor())
         ));
     }
+
+
 }

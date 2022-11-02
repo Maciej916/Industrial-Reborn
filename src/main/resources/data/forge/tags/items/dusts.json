@@ -7,6 +7,11 @@
     "#forge:dusts/tin",
     "#forge:dusts/coal",
     "#forge:dusts/wood",
-    "#forge:dusts/lead"
+    "#forge:dusts/lead",
+    "#forge:dusts/diamond",
+    "#forge:dusts/stone",
+    "#forge:dusts/deepslate",
+    "#forge:dusts/silver",
+    "#forge:dusts/sulfur"
   ]
 }

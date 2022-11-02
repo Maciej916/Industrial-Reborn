@@ -113,7 +113,7 @@ public class BlockEntityElectricFurnace extends IndRebBlockEntity implements IEn
 
                     inputStack.shrink(1);
                     getStackHandler().setStackInSlot(INPUT_SLOT, inputStack.copy());
-                    this.setRecipeUsed(furnaceRecipe);
+                    this.addRecipeUsed(furnaceRecipe);
                     progress.setProgress(-1);
                 }
             }

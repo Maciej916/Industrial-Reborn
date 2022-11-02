@@ -46,6 +46,16 @@ public final class ModFluids {
     public static RegistryObject<FluidType> BIOMASS_TYPE = FLUID_TYPES.register("biomass", Biomass::FluidType);
     public static RegistryObject<LiquidBlock> LIQUID_BIOMASS = FLUID_BLOCKS.register("liquid_biomass", Biomass::Block);
 
+    public static RegistryObject<FlowingFluid> MATTER = FLUIDS.register("matter",  Matter::Fluid);
+    public static RegistryObject<FlowingFluid> FLOWING_MATTER = FLUIDS.register("flowing_matter", Matter::FlowingFluid);
+    public static RegistryObject<FluidType> MATTER_TYPE = FLUID_TYPES.register("matter", Matter::FluidType);
+    public static RegistryObject<LiquidBlock> LIQUID_MATTER = FLUID_BLOCKS.register("liquid_matter", Matter::Block);
+
+    public static RegistryObject<FlowingFluid> SULFURIC_ACID = FLUIDS.register("sulfuric_acid",  SulfuricAcid::Fluid);
+    public static RegistryObject<FlowingFluid> FLOWING_SULFURIC_ACID = FLUIDS.register("flowing_sulfuric_acid", SulfuricAcid::FlowingFluid);
+    public static RegistryObject<FluidType> SULFURIC_ACID_TYPE = FLUID_TYPES.register("sulfuric_acid", SulfuricAcid::FluidType);
+    public static RegistryObject<LiquidBlock> LIQUID_SULFURIC_ACID = FLUID_BLOCKS.register("liquid_sulfuric_acid", SulfuricAcid::Block);
+
     public static void register(IEventBus eventBus) {
         FLUIDS.register(eventBus);
         FLUID_TYPES.register(eventBus);

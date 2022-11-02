@@ -21,5 +21,4 @@ public class BaseArmor extends ArmorItem {
 
         super.fillItemCategory(pCategory, pItems);
     }
-
 }

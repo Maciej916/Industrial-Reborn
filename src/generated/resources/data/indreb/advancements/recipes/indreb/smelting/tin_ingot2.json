@@ -1,28 +1,28 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "crushed_tin": {
-      "conditions": {
-        "items": [
-          {
-            "items": [
-              "indreb:crushed_tin"
-            ]
-          }
-        ]
-      },
-      "trigger": "minecraft:inventory_changed"
-    },
     "has_the_recipe": {
       "conditions": {
         "recipe": "indreb:smelting/tin_ingot2"
       },
       "trigger": "minecraft:recipe_unlocked"
+    },
+    "tin_dust": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:tin_dust"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
     }
   },
   "requirements": [
     [
-      "crushed_tin",
+      "tin_dust",
       "has_the_recipe"
     ]
   ],

@@ -225,6 +225,7 @@ public class BlockEntityFluidEnricher extends IndRebBlockEntity implements IEner
     @Override
     public boolean isItemValidForSlot(int slot, @Nonnull ItemStack stack) {
         if (slot == INPUT_SLOT) return isValidInput(stack);
+
         if (slot == DRAIN_BUCKET_UP) {
             IFluidHandlerItem cap = CapabilityUtil.getCapabilityHelper(stack, ForgeCapabilities.FLUID_HANDLER_ITEM).getValue();
             if (cap != null) {

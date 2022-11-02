@@ -70,7 +70,7 @@ public class AlloySmeltingCategory extends AbstractRecipeCategory<AlloySmeltingR
     public void draw(AlloySmeltingRecipe recipe, IRecipeSlotsView recipeSlotsView, PoseStack poseStack, double mouseX, double mouseY) {
         this.progress.draw(poseStack, halfX - 6, 19);
         this.energy.draw(poseStack, halfX + 58, 7);
-        this.fire.draw(poseStack, halfX - 49, 27);
+        this.fire.draw(poseStack, halfX - 50, 27);
 
         if (recipe.getExperience() > 0) {
             GuiUtil.renderScaled(poseStack, recipe.getExperience() + " XP", 0, 0, 0.75f, 0x7E7E7E, false);

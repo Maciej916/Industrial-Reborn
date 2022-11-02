@@ -25,6 +25,7 @@ import java.util.concurrent.ThreadLocalRandom;
 public class SoundHandler {
 
     private static final Long2ObjectMap<SoundInstance> soundMap = new Long2ObjectOpenHashMap<>();
+    private static final Long2ObjectMap<SoundInstance> soundMapExtra = new Long2ObjectOpenHashMap<>();
 
     @SubscribeEvent(priority = EventPriority.LOWEST)
     public static void onTilePlaySound(PlaySoundEvent event) {
@@ -40,8 +41,12 @@ public class SoundHandler {
 
         if (event.getName().startsWith("tile.")) {
             BlockPos pos = new BlockPos(resultSound.getX() - 0.5, resultSound.getY() - 0.5, resultSound.getZ() - 0.5);
-
             soundMap.put(pos.asLong(), resultSound);
+        }
+
+        if (event.getName().startsWith("extra.")) {
+            BlockPos pos = new BlockPos(resultSound.getX() - 0.5, resultSound.getY() - 0.5, resultSound.getZ() - 0.5);
+            soundMapExtra.put(pos.asLong(), resultSound);
         }
     }
 
@@ -53,24 +58,41 @@ public class SoundHandler {
         playSound(SimpleSoundInstance.forUI(sound, 1, 1F));
     }
 
-    public static SoundInstance startTileSound(SoundEvent soundEvent, SoundSource category, float volume, BlockPos pos) {
-        SoundInstance s = soundMap.get(pos.asLong());
+    public static SoundInstance startTileSound(Long2ObjectMap<SoundInstance> map, SoundEvent soundEvent, SoundSource category, float volume, BlockPos pos) {
+        SoundInstance s = map.get(pos.asLong());
+
         if (s == null || !Minecraft.getInstance().getSoundManager().isActive(s)) {
             s = new TileTickableSound(soundEvent, category, pos, volume);
             playSound(s);
-            s = soundMap.get(pos.asLong());
+            s = map.get(pos.asLong());
         }
 
         return s;
     }
 
-    public static void stopTileSound(BlockPos pos) {
+    public static SoundInstance startTileSound(SoundEvent soundEvent, SoundSource category, float volume, BlockPos pos) {
+        return startTileSound(soundMap, soundEvent, category, volume, pos);
+    }
+
+    public static SoundInstance startExtraSound(SoundEvent soundEvent, SoundSource category, float volume, BlockPos pos) {
+        return startTileSound(soundMapExtra, soundEvent, category, volume, pos);
+    }
+
+    public static void stopTileSound(Long2ObjectMap<SoundInstance> map, BlockPos pos) {
         long posKey = pos.asLong();
-        SoundInstance s = soundMap.get(posKey);
+        SoundInstance s = map.get(posKey);
         if (s != null) {
             Minecraft.getInstance().getSoundManager().stop(s);
-            soundMap.remove(posKey);
+            map.remove(posKey);
         }
+    }
+
+    public static void stopTileSound(BlockPos pos) {
+        stopTileSound(soundMap, pos);
+    }
+
+    public static void stopExtraSound(BlockPos pos) {
+        stopTileSound(soundMapExtra, pos);
     }
 
     private static class TileTickableSound extends AbstractTickableSoundInstance {

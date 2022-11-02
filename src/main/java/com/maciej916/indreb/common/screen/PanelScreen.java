@@ -2,6 +2,7 @@ package com.maciej916.indreb.common.screen;
 
 import com.maciej916.indreb.common.container.IndRebMenu;
 import com.maciej916.indreb.common.screen.button.GuiExpButton;
+import com.maciej916.indreb.common.screen.button.GuiInfoButton;
 import com.maciej916.indreb.common.screen.widgets.GuiElement;
 import com.maciej916.indreb.common.screen.widgets.GuiUpgrades;
 import com.mojang.blaze3d.vertex.PoseStack;
@@ -60,6 +61,10 @@ public class PanelScreen <T extends IndRebMenu> extends BaseScreen<T> {
 
             if (widget instanceof GuiExpButton guiExpButton) {
                 extraAreas.add(new Rect2i(guiExpButton.x, guiExpButton.y, guiExpButton.getWidth(), guiExpButton.getHeight()));
+            }
+
+            if (widget instanceof GuiInfoButton guiInfoButton) {
+                extraAreas.add(new Rect2i(guiInfoButton.x, guiInfoButton.y, guiInfoButton.getWidth(), guiInfoButton.getHeight()));
             }
 
         }

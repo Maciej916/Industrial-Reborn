@@ -1,0 +1,15 @@
+{
+  "type": "indreb:thermal_centrifuging",
+  "duration": 500,
+  "experience": 0.1,
+  "ingredient": {
+    "count": 3,
+    "tag": "forge:raw_materials/silver"
+  },
+  "power_cost": 48,
+  "result_1": {
+    "count": 8,
+    "item": "indreb:silver_chunk"
+  },
+  "temperature": 961
+}

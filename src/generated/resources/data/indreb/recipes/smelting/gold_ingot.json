@@ -3,7 +3,7 @@
   "cookingtime": 200,
   "experience": 0.8,
   "ingredient": {
-    "item": "indreb:crushed_gold"
+    "item": "indreb:gold_dust"
   },
   "result": "minecraft:gold_ingot"
 }

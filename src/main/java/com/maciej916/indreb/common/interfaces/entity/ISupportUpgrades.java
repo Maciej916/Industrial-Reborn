@@ -6,6 +6,7 @@ import java.util.List;
 
 public interface ISupportUpgrades {
 
+    boolean hasUpgrades();
     List<UpgradeType> getSupportedUpgrades();
 
 }

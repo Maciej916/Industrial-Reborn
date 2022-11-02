@@ -9,6 +9,7 @@ import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
 import net.minecraft.data.recipes.ShapelessRecipeBuilder;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Items;
 
 import java.util.function.Consumer;
@@ -67,7 +68,7 @@ public class Cables extends RecipeProvider {
                 .pattern("ggg")
                 .define('g', Items.GLASS)
                 .define('e', ModItems.ENERGIUM_DUST.get())
-                .define('s', ModItems.SILVER_DUST.get())
+                .define('s', ItemTags.create(new ResourceLocation("forge", "dusts/silver")))
                 .group(MODID)
                 .unlockedBy("energium", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.ENERGIUM_DUST.get()))
                 .unlockedBy("silver_dust", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.SILVER_DUST.get()))

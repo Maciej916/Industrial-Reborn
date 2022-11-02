@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "indreb_machines",
+  "key": {
+    "b": {
+      "item": "indreb:basic_machine_casing"
+    },
+    "c": {
+      "item": "minecraft:bucket"
+    },
+    "e": {
+      "item": "indreb:electronic_circuit"
+    },
+    "m": {
+      "item": "indreb:electric_motor"
+    },
+    "p": {
+      "tag": "forge:plates/iron"
+    }
+  },
+  "pattern": [
+    "ppp",
+    "cbc",
+    "mem"
+  ],
+  "result": {
+    "item": "indreb:ore_washing_plant"
+  }
+}

@@ -18,17 +18,22 @@ import com.maciej916.indreb.common.block.impl.machines.extruder.ScreenExtruder;
 import com.maciej916.indreb.common.block.impl.machines.fermenter.ScreenFermenter;
 import com.maciej916.indreb.common.block.impl.machines.fluid_enricher.ScreenFluidEnricher;
 import com.maciej916.indreb.common.block.impl.machines.iron_furnace.ScreenIronFurnace;
+import com.maciej916.indreb.common.block.impl.machines.matter_fabricator.ScreenMatterFabricator;
+import com.maciej916.indreb.common.block.impl.machines.ore_washing_plant.ScreenOreWashingPlant;
 import com.maciej916.indreb.common.block.impl.machines.recycler.ScreenRecycler;
 import com.maciej916.indreb.common.block.impl.machines.sawmill.ScreenSawmill;
+import com.maciej916.indreb.common.block.impl.machines.thermal_centrifuge.ScreenThermalCentrifuge;
 import com.maciej916.indreb.common.block.impl.transformer.ScreenTransformer;
 import com.maciej916.indreb.common.client.keys.ModKeys;
 import com.maciej916.indreb.common.client.renderer.EnergyInfoRenderer;
+import com.maciej916.indreb.common.client.renderer.ITntRenderer;
 import com.maciej916.indreb.common.fluid.*;
 import com.maciej916.indreb.common.item.base.ElectricItem;
 import com.maciej916.indreb.common.item.base.FluidItem;
 import com.maciej916.indreb.common.item.impl.nano.ItemNanosaber;
 import com.maciej916.indreb.common.item.impl.upgrade.ItemDirectionalUpgrade;
 import com.maciej916.indreb.common.registries.ModBlocks;
+import com.maciej916.indreb.common.registries.ModEntityTypes;
 import com.maciej916.indreb.common.registries.ModMenuTypes;
 import com.maciej916.indreb.common.registries.ModItems;
 import net.minecraft.client.Minecraft;
@@ -38,6 +43,7 @@ import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.client.renderer.BiomeColors;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.BlockItem;
@@ -45,15 +51,17 @@ import net.minecraft.world.level.FoliageColor;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.client.event.RegisterColorHandlersEvent;
 import net.minecraftforge.client.event.RegisterKeyMappingsEvent;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 
 import java.util.Objects;
 
-@EventBusSubscriber(modid = IndReb.MODID, bus = EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
+@Mod.EventBusSubscriber(modid = IndReb.MODID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
 public final class ClientModEventSubscriber {
 
 	@SubscribeEvent
@@ -61,11 +69,25 @@ public final class ClientModEventSubscriber {
 		event.register(ModKeys.NIGHT_VISION_KEY);
 	}
 
+
+	@SubscribeEvent
+	public static void registerBlockColor(RegisterColorHandlersEvent.Block event) {
+		event.register((state, world, pos, tintIndex) -> world != null && pos != null ? BiomeColors.getAverageFoliageColor(world, pos) - 1000 : FoliageColor.getEvergreenColor(), ModBlocks.RUBBER_LEAVES.get());
+	}
+
+	@SubscribeEvent
+	public static void registerItemColor(RegisterColorHandlersEvent.Item event) {
+		event.register((stack, tintIndex) -> event.getBlockColors().getColor(((BlockItem)stack.getItem()).getBlock().defaultBlockState(), null, null, tintIndex), ModBlocks.RUBBER_LEAVES.get());
+		event.register((stack, tintIndex) -> ((FluidItem) ModItems.FLUID_CELL.get()).getColor(stack, tintIndex), ModItems.FLUID_CELL.get());
+	}
+
 	@SubscribeEvent
 	public static void onFMLClientSetupEvent(final FMLClientSetupEvent event) {
 		event.enqueueWork(() -> {
 
 			MinecraftForge.EVENT_BUS.addListener(EnergyInfoRenderer::render);
+
+			EntityRenderers.register(ModEntityTypes.PRIMED_ITNT.get(), ITntRenderer::new);
 
 			MenuScreens.register(ModMenuTypes.GENERATOR.get(), ScreenGenerator::new);
 			MenuScreens.register(ModMenuTypes.SOLAR_GENERATOR.get(), ScreenSolarGenerator::new);
@@ -90,6 +112,9 @@ public final class ClientModEventSubscriber {
 			MenuScreens.register(ModMenuTypes.RECYCLER.get(), ScreenRecycler::new);
 			MenuScreens.register(ModMenuTypes.ALLOY_SMELTER.get(), ScreenAlloySmelter::new);
 			MenuScreens.register(ModMenuTypes.FERMENTER.get(), ScreenFermenter::new);
+			MenuScreens.register(ModMenuTypes.ORE_WASHING_PLANT.get(), ScreenOreWashingPlant::new);
+			MenuScreens.register(ModMenuTypes.MATTER_FABRICATOR.get(), ScreenMatterFabricator::new);
+			MenuScreens.register(ModMenuTypes.THERMAL_CENTRIFUGE.get(), ScreenThermalCentrifuge::new);
 
 			//	TODO Change in model
 			ItemBlockRenderTypes.setRenderLayer(ModBlocks.REINFORCED_GLASS.get(), RenderType.translucent());
@@ -97,18 +122,6 @@ public final class ClientModEventSubscriber {
 			ItemBlockRenderTypes.setRenderLayer(ModBlocks.IRON_SCAFFOLDING.get(), RenderType.cutout());
 			ItemBlockRenderTypes.setRenderLayer(ModBlocks.CONSTRUCTION_FOAM.get(), RenderType.cutout());
 			ItemBlockRenderTypes.setRenderLayer(ModBlocks.REINFORCED_CONSTRUCTION_FOAM.get(), RenderType.cutout());
-
-
-			BlockColors blockColors = Minecraft.getInstance().getBlockColors();
-			blockColors.register((state, world, pos, tintIndex) -> world != null && pos != null ? BiomeColors.getAverageFoliageColor(world, pos) - 1000: FoliageColor.getEvergreenColor(), ModBlocks.RUBBER_LEAVES.get());
-
-			ItemColors itemColors = Minecraft.getInstance().getItemColors();
-			itemColors.register((stack, tintIndex) -> {
-				BlockState BlockState = ((BlockItem)stack.getItem()).getBlock().defaultBlockState();
-				return blockColors.getColor(BlockState, null, null, tintIndex);
-			}, ModBlocks.RUBBER_LEAVES.get());
-
-			itemColors.register((stack, tintIndex) -> ((FluidItem) ModItems.FLUID_CELL.get()).getColor(stack, tintIndex), ModItems.FLUID_CELL.get());
 
 			ItemProperties.register(ModItems.BATTERY.get(), new ResourceLocation(IndReb.MODID, "charge_ratio"), (stack, level, living, id) -> ElectricItem.getChargeRatioModel(stack));
 			ItemProperties.register(ModItems.ADVANCED_BATTERY.get(), new ResourceLocation(IndReb.MODID, "charge_ratio"), (stack, level, living, id) -> ElectricItem.getChargeRatioModel(stack));

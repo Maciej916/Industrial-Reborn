@@ -1,6 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
-  "group": "indreb",
+  "group": "indreb_armour",
   "key": {
     "r": {
       "item": "indreb:rubber"

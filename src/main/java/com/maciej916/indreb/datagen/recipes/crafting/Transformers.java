@@ -35,7 +35,7 @@ public class Transformers extends RecipeProvider {
                 .define('p', ItemTags.create(new ResourceLocation("planks")))
                 .define('c', ModBlocks.COPPER_CABLE_INSULATED.get())
                 .define('o', ModItems.COIL.get())
-                .define('b', ModItems.BRONZE_PLATE.get())
+                .define('b', ItemTags.create(new ResourceLocation("forge", "plates/bronze")))
                 .group(MODID)
                 .unlockedBy("oak_planks", InventoryChangeTrigger.TriggerInstance.hasItems(Items.OAK_PLANKS))
                 .unlockedBy("copper_cable_insulated", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.COPPER_CABLE_INSULATED.get()))

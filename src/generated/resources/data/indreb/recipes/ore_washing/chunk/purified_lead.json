@@ -1,0 +1,20 @@
+{
+  "type": "indreb:ore_washing",
+  "duration": 500,
+  "experience": 0.1,
+  "fluid_ingredient": {
+    "amount": 250,
+    "fluid": "indreb:sulfuric_acid"
+  },
+  "ingredient": {
+    "count": 1,
+    "item": "indreb:lead_chunk"
+  },
+  "power_cost": 16,
+  "result_1": {
+    "item": "indreb:purified_lead"
+  },
+  "result_2": {
+    "item": "indreb:mud_pile"
+  }
+}

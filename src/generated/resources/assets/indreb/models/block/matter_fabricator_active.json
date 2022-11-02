@@ -1,0 +1,9 @@
+{
+  "parent": "minecraft:block/orientable_with_bottom",
+  "textures": {
+    "bottom": "indreb:block/machines/advanced/matter_fabricator_bottom",
+    "front": "indreb:block/machines/advanced/matter_fabricator_front_active",
+    "side": "indreb:block/machines/advanced/matter_fabricator_side",
+    "top": "indreb:block/machines/advanced/matter_fabricator_top"
+  }
+}

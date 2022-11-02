@@ -87,7 +87,29 @@
     ]
   },
 
+  "tile.matter_fabricator": {
+    "sounds": [
+      {
+        "name": "indreb:matter_fabricator"
+      }
+    ]
+  },
 
+  "extra.matter_fabricator_amplified": {
+    "sounds": [
+      {
+        "name": "indreb:matter_fabricator_amplified"
+      }
+    ]
+  },
+
+  "tile.ore_washing_plant": {
+    "sounds": [
+      {
+        "name": "indreb:ore_washing_plant"
+      }
+    ]
+  },
 
   "item.treetap": {
     "sounds": [

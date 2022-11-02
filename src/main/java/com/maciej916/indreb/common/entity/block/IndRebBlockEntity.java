@@ -748,7 +748,7 @@ public class IndRebBlockEntity extends BlockEntity implements IHasSlot {
         this.recipesUsed.clear();
     }
 
-    public void setRecipeUsed(@Nullable Recipe<?> recipe) {
+    public void addRecipeUsed(@Nullable Recipe<?> recipe) {
         if (recipe != null) {
             this.recipesUsed.compute(recipe.getId(), (key, val) -> 1 + (val == null ? 0 : val));
         }

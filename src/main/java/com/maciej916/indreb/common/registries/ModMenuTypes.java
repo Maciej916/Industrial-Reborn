@@ -17,8 +17,11 @@ import com.maciej916.indreb.common.block.impl.machines.extruder.MenuExtruder;
 import com.maciej916.indreb.common.block.impl.machines.fermenter.MenuFermenter;
 import com.maciej916.indreb.common.block.impl.machines.fluid_enricher.MenuFluidEnricher;
 import com.maciej916.indreb.common.block.impl.machines.iron_furnace.MenuIronFurnace;
+import com.maciej916.indreb.common.block.impl.machines.matter_fabricator.MenuMatterFabricator;
+import com.maciej916.indreb.common.block.impl.machines.ore_washing_plant.MenuOreWashingPlant;
 import com.maciej916.indreb.common.block.impl.machines.recycler.MenuRecycler;
 import com.maciej916.indreb.common.block.impl.machines.sawmill.MenuSawmill;
+import com.maciej916.indreb.common.block.impl.machines.thermal_centrifuge.MenuThermalCentrifuge;
 import com.maciej916.indreb.common.block.impl.transformer.MenuTransformer;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.MenuType;
@@ -60,6 +63,10 @@ public final class ModMenuTypes {
     public static final RegistryObject<MenuType<MenuFermenter>> FERMENTER = registerMenuType("fermenter",  MenuFermenter::new);
 
     public static final RegistryObject<MenuType<MenuAlloySmelter>> ALLOY_SMELTER = registerMenuType("alloy_smelter",  MenuAlloySmelter::new);
+
+    public static final RegistryObject<MenuType<MenuOreWashingPlant>> ORE_WASHING_PLANT = registerMenuType("ore_washing_plant",  MenuOreWashingPlant::new);
+    public static final RegistryObject<MenuType<MenuMatterFabricator>> MATTER_FABRICATOR = registerMenuType("matter_fabricator",  MenuMatterFabricator::new);
+    public static final RegistryObject<MenuType<MenuThermalCentrifuge>> THERMAL_CENTRIFUGE = registerMenuType("thermal_centrifuge",  MenuThermalCentrifuge::new);
 
     private static <T extends AbstractContainerMenu> RegistryObject<MenuType<T>> registerMenuType(String name, IContainerFactory<T> factory) {
         return MENUS.register(name, () -> IForgeMenuType.create(factory));

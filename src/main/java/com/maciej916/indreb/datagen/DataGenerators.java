@@ -32,6 +32,7 @@ public class DataGenerators {
         generator.addProvider(event.includeServer(), new ItemElectric(generator));
         generator.addProvider(event.includeServer(), new ItemTool(generator));
         generator.addProvider(event.includeServer(), new ItemPainter(generator));
+        generator.addProvider(event.includeServer(), new ItemExplosive(generator));
         generator.addProvider(event.includeServer(), new Wood(generator));
         generator.addProvider(event.includeServer(), new Armour(generator));
         generator.addProvider(event.includeServer(), new Machines(generator));
@@ -50,6 +51,8 @@ public class DataGenerators {
         generator.addProvider(event.includeServer(), new ScrapBox(generator));
         generator.addProvider(event.includeServer(), new Canning(generator));
         generator.addProvider(event.includeServer(), new FluidEnriching(generator));
+        generator.addProvider(event.includeServer(), new OreWashing(generator));
+        generator.addProvider(event.includeServer(), new ThermalCentrifuging(generator));
 
         generator.addProvider(event.includeServer(), new ModLootTables(generator));
 

@@ -1,6 +1,7 @@
 package com.maciej916.indreb.common.enums;
 
 public enum GuiSlotType {
+    NORMAL_BLANK(18,18, 84, 46),
     NORMAL(18,18, 84, 27),
     LARGE(26,26, 84, 0),
     BATTERY(18,18, 103, 27),

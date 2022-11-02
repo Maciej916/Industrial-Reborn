@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "crushed_gold": {
+    "gold_dust": {
       "conditions": {
         "items": [
           {
             "items": [
-              "indreb:crushed_gold"
+              "indreb:gold_dust"
             ]
           }
         ]
@@ -22,7 +22,7 @@
   },
   "requirements": [
     [
-      "crushed_gold",
+      "gold_dust",
       "has_the_recipe"
     ]
   ],

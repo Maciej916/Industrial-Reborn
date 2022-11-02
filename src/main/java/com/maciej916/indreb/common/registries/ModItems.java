@@ -42,7 +42,10 @@ public final class ModItems {
     public static final RegistryObject<Item> DEEPSLATE_TIN_ORE = fromBlock(ModBlocks.DEEPSLATE_TIN_ORE);
     public static final RegistryObject<Item> LEAD_ORE = fromBlock(ModBlocks.LEAD_ORE);
     public static final RegistryObject<Item> DEEPSLATE_LEAD_ORE = fromBlock(ModBlocks.DEEPSLATE_LEAD_ORE);
+    public static final RegistryObject<Item> URANIUM_ORE = fromBlock(ModBlocks.URANIUM_ORE);
     public static final RegistryObject<Item> DEEPSLATE_URANIUM_ORE = fromBlock(ModBlocks.DEEPSLATE_URANIUM_ORE);
+    public static final RegistryObject<Item> SILVER_ORE = fromBlock(ModBlocks.SILVER_ORE);
+    public static final RegistryObject<Item> DEEPSLATE_SILVER_ORE = fromBlock(ModBlocks.DEEPSLATE_SILVER_ORE);
 
     public static final RegistryObject<Item> RUBBER_LOG = fromBlock(ModBlocks.RUBBER_LOG);
     public static final RegistryObject<Item> RUBBER_WOOD = fromBlock(ModBlocks.RUBBER_WOOD);
@@ -138,18 +141,29 @@ public final class ModItems {
     public static final RegistryObject<Item> CANNING_MACHINE = fromBlockElectric(ModBlocks.CANNING_MACHINE);
     public static final RegistryObject<Item> FLUID_ENRICHER = fromBlockElectric(ModBlocks.FLUID_ENRICHER);
     public static final RegistryObject<Item> RECYCLER = fromBlockElectric(ModBlocks.RECYCLER);
-    public static final RegistryObject<Item> ALLOY_SMELTER = fromBlockElectric(ModBlocks.ALLOY_SMELTER);
     public static final RegistryObject<Item> FERMENTER = fromBlockElectric(ModBlocks.FERMENTER);
 
+    public static final RegistryObject<Item> THERMAL_CENTRIFUGE = fromBlock(ModBlocks.THERMAL_CENTRIFUGE);
+    public static final RegistryObject<Item> ORE_WASHING_PLANT = fromBlock(ModBlocks.ORE_WASHING_PLANT);
+
+    public static final RegistryObject<Item> ALLOY_SMELTER = fromBlockElectric(ModBlocks.ALLOY_SMELTER);
+
+    public static final RegistryObject<Item> TELEPORTER = fromBlock(ModBlocks.TELEPORTER);
+    public static final RegistryObject<Item> REPLICATOR = fromBlock(ModBlocks.REPLICATOR);
+    public static final RegistryObject<Item> SCANNER = fromBlock(ModBlocks.SCANNER);
+    public static final RegistryObject<Item> PATTERN_STORAGE = fromBlock(ModBlocks.PATTERN_STORAGE);
+    public static final RegistryObject<Item> MATTER_FABRICATOR = fromBlock(ModBlocks.MATTER_FABRICATOR);
 
     public static final RegistryObject<Item> INDUSTRIAL_TNT = fromBlock(ModBlocks.INDUSTRIAL_TNT);
     public static final RegistryObject<Item> NUKE = fromBlock(ModBlocks.NUKE);
 
 
 
+
     public static final RegistryObject<Item> RAW_TIN =  registerItem("raw_tin", () -> new MaterialItem());
     public static final RegistryObject<Item> RAW_LEAD =  registerItem("raw_lead", () -> new MaterialItem());
-    public static final RegistryObject<Item> URANIUM =  registerItem("uranium", () -> new MaterialItem());
+    public static final RegistryObject<Item> RAW_URANIUM =  registerItem("raw_uranium", () -> new MaterialItem());
+    public static final RegistryObject<Item> RAW_SILVER =  registerItem("raw_silver", () -> new MaterialItem());
 
     public static final RegistryObject<Item> TIN_INGOT =  registerItem("tin_ingot", () -> new MaterialItem());
     public static final RegistryObject<Item> BRONZE_INGOT =  registerItem("bronze_ingot", () -> new MaterialItem());
@@ -157,21 +171,40 @@ public final class ModItems {
     public static final RegistryObject<Item> MIXED_METAL_INGOT =  registerItem("mixed_metal_ingot", () -> new MaterialItem());
     public static final RegistryObject<Item> SILVER_INGOT =  registerItem("silver_ingot", () -> new MaterialItem());
     public static final RegistryObject<Item> LEAD_INGOT =  registerItem("lead_ingot", () -> new MaterialItem());
-    public static final RegistryObject<Item> REFINED_URANIUM =  registerItem("refined_uranium", () -> new MaterialItem());
+    public static final RegistryObject<Item> URANIUM_INGOT =  registerItem("uranium_ingot", () -> new MaterialItem());
 
-    public static final RegistryObject<Item> CRUSHED_TIN =  registerItem("crushed_tin", () -> new MaterialItem());
-    public static final RegistryObject<Item> CRUSHED_COPPER =  registerItem("crushed_copper", () -> new MaterialItem());
-    public static final RegistryObject<Item> CRUSHED_IRON =  registerItem("crushed_iron", () -> new MaterialItem());
-    public static final RegistryObject<Item> CRUSHED_GOLD =  registerItem("crushed_gold", () -> new MaterialItem());
-    public static final RegistryObject<Item> CRUSHED_LEAD =  registerItem("crushed_lead", () -> new MaterialItem());
+    public static final RegistryObject<Item> TIN_DUST =  registerItem("tin_dust", () -> new MaterialItem());
+    public static final RegistryObject<Item> COPPER_DUST =  registerItem("copper_dust", () -> new MaterialItem());
+    public static final RegistryObject<Item> IRON_DUST =  registerItem("iron_dust", () -> new MaterialItem());
+    public static final RegistryObject<Item> GOLD_DUST =  registerItem("gold_dust", () -> new MaterialItem());
+    public static final RegistryObject<Item> LEAD_DUST =  registerItem("lead_dust", () -> new MaterialItem());
+    public static final RegistryObject<Item> URANIUM_DUST =  registerItem("uranium_dust", () -> new MaterialItem());
+    public static final RegistryObject<Item> SILVER_DUST =  registerItem("silver_dust", () -> new MaterialItem());
+
+    public static final RegistryObject<Item> PURIFIED_TIN =  registerItem("purified_tin", () -> new MaterialItem());
+    public static final RegistryObject<Item> PURIFIED_COPPER =  registerItem("purified_copper", () -> new MaterialItem());
+    public static final RegistryObject<Item> PURIFIED_IRON =  registerItem("purified_iron", () -> new MaterialItem());
+    public static final RegistryObject<Item> PURIFIED_GOLD =  registerItem("purified_gold", () -> new MaterialItem());
+    public static final RegistryObject<Item> PURIFIED_LEAD =  registerItem("purified_lead", () -> new MaterialItem());
+    public static final RegistryObject<Item> PURIFIED_URANIUM =  registerItem("purified_uranium", () -> new MaterialItem());
+    public static final RegistryObject<Item> PURIFIED_SILVER =  registerItem("purified_silver", () -> new MaterialItem());
+
+    public static final RegistryObject<Item> TIN_CHUNK =  registerItem("tin_chunk", () -> new MaterialItem());
+    public static final RegistryObject<Item> COPPER_CHUNK =  registerItem("copper_chunk", () -> new MaterialItem());
+    public static final RegistryObject<Item> IRON_CHUNK =  registerItem("iron_chunk", () -> new MaterialItem());
+    public static final RegistryObject<Item> GOLD_CHUNK =  registerItem("gold_chunk", () -> new MaterialItem());
+    public static final RegistryObject<Item> LEAD_CHUNK =  registerItem("lead_chunk", () -> new MaterialItem());
+    public static final RegistryObject<Item> URANIUM_CHUNK =  registerItem("uranium_chunk", () -> new MaterialItem());
+    public static final RegistryObject<Item> SILVER_CHUNK =  registerItem("silver_chunk", () -> new MaterialItem());
 
     public static final RegistryObject<Item> COAL_DUST =  registerItem("coal_dust", () -> new MaterialItem());
     public static final RegistryObject<Item> DIAMOND_DUST =  registerItem("diamond_dust", () -> new MaterialItem());
     public static final RegistryObject<Item> ENERGIUM_DUST =  registerItem("energium_dust", () -> new MaterialItem());
-    public static final RegistryObject<Item> SILVER_DUST =  registerItem("silver_dust", () -> new MaterialItem());
     public static final RegistryObject<Item> STONE_DUST =  registerItem("stone_dust", () -> new MaterialItem());
     public static final RegistryObject<Item> DEEPSLATE_DUST =  registerItem("deepslate_dust", () -> new MaterialItem());
     public static final RegistryObject<Item> SAWDUST =  registerItem("sawdust", () -> new MaterialItem());
+    public static final RegistryObject<Item> SULFUR_DUST =  registerItem("sulfur_dust", () -> new MaterialItem());
+    public static final RegistryObject<Item> MUD_PILE =  registerItem("mud_pile", () -> new MaterialItem());
 
     public static final RegistryObject<Item> STICKY_RESIN =  registerItem("sticky_resin", () -> new MaterialItem());
     public static final RegistryObject<Item> RUBBER =  registerItem("rubber", () -> new MaterialItem());
@@ -258,6 +291,10 @@ public final class ModItems {
     public static final RegistryObject<Item> DEBUG_STICK =  registerItem("debug_stick", () -> new DebugStick());
     public static final RegistryObject<Item> MULTI_TOOL =  registerItem("multi_tool", () -> new MultiTool(Tiers.DIAMOND,-3, 0.0F, 0, 300000, 800, 1400, 500, EnergyType.RECEIVE, EnergyTier.ADVANCED));
 
+    public static final RegistryObject<Item> BASIC_TRANSPORTER =  registerItem("basic_transporter", () -> new WIPItem());
+    public static final RegistryObject<Item> ADVANCED_TRANSPORTER =  registerItem("advanced_transporter", () -> new WIPItem());
+
+    public static final RegistryObject<Item> MEMORY_CARD =  registerItem("memory_card", () -> new WIPItem());
     public static final RegistryObject<Item> BIO_CHAFF =  registerItem("bio_chaff", () -> new MaterialItem());
     public static final RegistryObject<Item> FERTILIZER =  registerItem("fertilizer", () -> new Fertilizer());
     public static final RegistryObject<Item> HEAT_CONDUCTOR =  registerItem("heat_conductor", () -> new MaterialItem());
@@ -288,6 +325,8 @@ public final class ModItems {
     public static final RegistryObject<Item> CHARGING_ENERGY_CRYSTAL =  registerItem("charging_energy_crystal", () -> new ChargingBattery(4000000, EnergyType.BOTH, EnergyTier.ADVANCED));
     public static final RegistryObject<Item> CHARGING_LAPOTRON_CRYSTAL =  registerItem("charging_lapotron_crystal", () -> new ChargingBattery(40000000, EnergyType.BOTH, EnergyTier.SUPER));
 
+//    public static final RegistryObject<Item> UPGRADE_BASE =  registerItem("upgrade_base", () -> new ItemUpgradeBase());
+//    public static final RegistryObject<Item> ADVANCED_UPGRADE_BASE =  registerItem("advanced_upgrade_base", () -> new ItemUpgradeBase());
     public static final RegistryObject<Item> OVERCLOCKER_UPGRADE =  registerItem("overclocker_upgrade", () -> new OverclockerUpgrade());
     public static final RegistryObject<Item> TRANSFORMER_UPGRADE =  registerItem("transformer_upgrade", () -> new TransformerUpgrade());
     public static final RegistryObject<Item> ENERGY_STORAGE_UPGRADE =  registerItem("energy_storage_upgrade", () -> new EnergyStorageUpgrade());
@@ -304,7 +343,6 @@ public final class ModItems {
     public static final RegistryObject<Item> SMALL_COOLANT_CELL =  registerItem("small_coolant_cell", () -> new WIPItem());
     public static final RegistryObject<Item> MEDIUM_COOLANT_CELL =  registerItem("medium_coolant_cell", () -> new WIPItem());
     public static final RegistryObject<Item> LARGE_COOLANT_CELL =  registerItem("large_coolant_cell", () -> new WIPItem());
-
 
     public static final RegistryObject<Item> HEAT_VENT =  registerItem("heat_vent", () -> new WIPItem());
     public static final RegistryObject<Item> OVERCLOCKED_HEAT_VENT =  registerItem("overclocked_heat_vent", () -> new WIPItem());
@@ -340,7 +378,6 @@ public final class ModItems {
     public static final RegistryObject<Item> FUEL_ROD_MOX_DUAL_DEPLETED =  registerItem("fuel_rod_mox_dual_depleted", () -> new WIPItem());
     public static final RegistryObject<Item> FUEL_ROD_MOX_QUAD =  registerItem("fuel_rod_mox_quad", () -> new WIPItem());
     public static final RegistryObject<Item> FUEL_ROD_MOX_QUAD_DEPLETED =  registerItem("fuel_rod_mox_quad_depleted", () -> new WIPItem());
-
 
     private static <T extends Item> RegistryObject<T> registerItem(String name, Supplier<T> item) {
         return ITEMS.register(name, item);

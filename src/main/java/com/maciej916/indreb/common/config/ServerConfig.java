@@ -71,8 +71,14 @@ public final class ServerConfig {
 	public static ForgeConfigSpec.IntValue fluid_cell_capacity;
 	public static ForgeConfigSpec.IntValue foam_sprayer_capacity;
 
+	public static ForgeConfigSpec.IntValue ore_washing_plant_energy_capacity;
+	public static ForgeConfigSpec.IntValue ore_washing_plant_fluid_capacity;
 
+	public static ForgeConfigSpec.IntValue matter_fabricator_energy_capacity;
+	public static ForgeConfigSpec.IntValue matter_fabricator_matter_capacity;
 
+	public static ForgeConfigSpec.IntValue thermal_centrifuge_energy_capacity;
+	public static ForgeConfigSpec.IntValue thermal_centrifuge_temp_cost;
 
 	public static ForgeConfigSpec register(ForgeConfigSpec.Builder builder) {
 		builder.push("general");
@@ -169,6 +175,24 @@ public final class ServerConfig {
 		builder.push("cell");
 		fluid_cell_capacity = builder.defineInRange("fluid_cell_capacity", 1000, 1, Integer.MAX_VALUE);
 		foam_sprayer_capacity = builder.defineInRange("foam_sprayer_capacity", 8000, 1, Integer.MAX_VALUE);
+		builder.pop();
+
+
+		builder.push("ore_washing_plant");
+		ore_washing_plant_energy_capacity = builder.defineInRange("ore_washing_plant_energy_capacity", 16000, 1, Integer.MAX_VALUE);
+		ore_washing_plant_fluid_capacity = builder.defineInRange("ore_washing_plant_fluid_capacity", 8000, 1, Integer.MAX_VALUE);
+		builder.pop();
+
+
+		builder.push("matter_fabricator");
+		matter_fabricator_energy_capacity = builder.defineInRange("matter_fabricator_energy_capacity", 1000000, 1, Integer.MAX_VALUE);
+		matter_fabricator_matter_capacity = builder.defineInRange("matter_fabricator_matter_capacity", 1000, 1, Integer.MAX_VALUE);
+		builder.pop();
+
+
+		builder.push("thermal_centrifuge");
+		thermal_centrifuge_energy_capacity = builder.defineInRange("thermal_centrifuge_energy_capacity", 48000, 1, Integer.MAX_VALUE);
+		thermal_centrifuge_temp_cost = builder.defineInRange("thermal_centrifuge_temp_cost", 48, 1, Integer.MAX_VALUE);
 		builder.pop();
 
 

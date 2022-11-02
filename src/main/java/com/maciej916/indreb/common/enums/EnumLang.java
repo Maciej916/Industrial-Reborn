@@ -36,6 +36,16 @@ public enum EnumLang {
     HEAT("heat", "gui"),
     ARMOUR("armour", "gui"),
 
+    SUPPORTED_UPGRADES("supported_upgrades", "gui"),
+    OVERCLOCKER_UPGRADE("overclocker_upgrade", "item"),
+    TRANSFORMER_UPGRADE("transformer_upgrade", "item"),
+    ENERGY_STORAGE_UPGRADE("energy_storage_upgrade", "item"),
+    REDSTONE_SIGNAL_INVERTER_UPGRADE("redstone_signal_inverter_upgrade", "item"),
+    EJECTOR_UPGRADE("ejector_upgrade", "item"),
+    PULLING_UPGRADE("pulling_upgrade", "item"),
+    FLUID_EJECTOR_UPGRADE("fluid_ejector_upgrade", "item"),
+    FLUID_PULLING_UPGRADE("fluid_pulling_upgrade", "item"),
+
     CHANCE("chance", "jei");
 
 

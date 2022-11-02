@@ -3,6 +3,7 @@
   "values": [
     "#forge:ores/tin",
     "#forge:ores/lead",
-    "#forge:ores/uranium"
+    "#forge:ores/uranium",
+    "#forge:ores/silver"
   ]
 }

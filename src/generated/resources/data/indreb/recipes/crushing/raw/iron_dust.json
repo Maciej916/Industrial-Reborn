@@ -1,0 +1,14 @@
+{
+  "type": "indreb:crushing",
+  "duration": 180,
+  "experience": 0.2,
+  "ingredient": {
+    "count": 3,
+    "tag": "forge:raw_materials/iron"
+  },
+  "power_cost": 8,
+  "result": {
+    "count": 4,
+    "item": "indreb:iron_dust"
+  }
+}

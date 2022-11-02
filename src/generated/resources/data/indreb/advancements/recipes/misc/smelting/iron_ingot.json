@@ -1,28 +1,28 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "crushed_iron": {
-      "conditions": {
-        "items": [
-          {
-            "items": [
-              "indreb:crushed_iron"
-            ]
-          }
-        ]
-      },
-      "trigger": "minecraft:inventory_changed"
-    },
     "has_the_recipe": {
       "conditions": {
         "recipe": "indreb:smelting/iron_ingot"
       },
       "trigger": "minecraft:recipe_unlocked"
+    },
+    "iron_dust": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:iron_dust"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
     }
   },
   "requirements": [
     [
-      "crushed_iron",
+      "iron_dust",
       "has_the_recipe"
     ]
   ],

@@ -27,7 +27,7 @@ import java.util.List;
 public class BlockRecycler extends BlockElectricMachine implements IStateFacing, IHasMenu, IStateActive {
 
     public BlockRecycler() {
-        super(EnergyTier.BASIC,12, 0);
+        super(EnergyTier.BASIC,0, 0);
     }
 
     @Override

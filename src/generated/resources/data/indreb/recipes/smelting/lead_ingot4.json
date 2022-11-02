@@ -3,7 +3,7 @@
   "cookingtime": 200,
   "experience": 0.7,
   "ingredient": {
-    "item": "indreb:crushed_lead"
+    "item": "indreb:lead_dust"
   },
   "result": "indreb:lead_ingot"
 }

@@ -19,8 +19,11 @@ import com.maciej916.indreb.common.block.impl.machines.extruder.BlockEntityExtru
 import com.maciej916.indreb.common.block.impl.machines.fermenter.BlockEntityFermenter;
 import com.maciej916.indreb.common.block.impl.machines.fluid_enricher.BlockEntityFluidEnricher;
 import com.maciej916.indreb.common.block.impl.machines.iron_furnace.BlockEntityIronFurnace;
+import com.maciej916.indreb.common.block.impl.machines.matter_fabricator.BlockEntityMatterFabricator;
+import com.maciej916.indreb.common.block.impl.machines.ore_washing_plant.BlockEntityOreWashingPlant;
 import com.maciej916.indreb.common.block.impl.machines.recycler.BlockEntityRecycler;
 import com.maciej916.indreb.common.block.impl.machines.sawmill.BlockEntitySawmill;
+import com.maciej916.indreb.common.block.impl.machines.thermal_centrifuge.BlockEntityThermalCentrifuge;
 import com.maciej916.indreb.common.block.impl.transformer.BlockEntityTransformer;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
@@ -63,6 +66,10 @@ public final class ModBlockEntities {
     public static final RegistryObject<BlockEntityType<BlockEntityLuminator>> LUMINATOR = BLOCK_ENTITIES.register("luminator", () -> BlockEntityType.Builder.of(BlockEntityLuminator::new, ModBlocks.LUMINATOR.get()).build(null));
     public static final RegistryObject<BlockEntityType<BlockEntityTransformer>> TRANSFORMER = BLOCK_ENTITIES.register("transformer", () -> BlockEntityType.Builder.of(BlockEntityTransformer::new, ModBlocks.LV_TRANSFORMER.get(), ModBlocks.MV_TRANSFORMER.get(), ModBlocks.HV_TRANSFORMER.get(), ModBlocks.EV_TRANSFORMER.get()).build(null));
     public static final RegistryObject<BlockEntityType<BlockEntityChargePad>> CHARGE_PAD = BLOCK_ENTITIES.register("charge_pad", () -> BlockEntityType.Builder.of(BlockEntityChargePad::new, ModBlocks.CHARGE_PAD_BATTERY_BOX.get(), ModBlocks.CHARGE_PAD_CESU.get(), ModBlocks.CHARGE_PAD_MFE.get(), ModBlocks.CHARGE_PAD_MFSU.get()).build(null));
+
+    public static final RegistryObject<BlockEntityType<BlockEntityOreWashingPlant>> ORE_WASHING_PLANT = BLOCK_ENTITIES.register("ore_washing_plant", () -> BlockEntityType.Builder.of(BlockEntityOreWashingPlant::new, ModBlocks.ORE_WASHING_PLANT.get()).build(null));
+    public static final RegistryObject<BlockEntityType<BlockEntityMatterFabricator>> MATTER_FABRICATOR = BLOCK_ENTITIES.register("matter_fabricator", () -> BlockEntityType.Builder.of(BlockEntityMatterFabricator::new, ModBlocks.MATTER_FABRICATOR.get()).build(null));
+    public static final RegistryObject<BlockEntityType<BlockEntityThermalCentrifuge>> THERMAL_CENTRIFUGE = BLOCK_ENTITIES.register("thermal_centrifuge", () -> BlockEntityType.Builder.of(BlockEntityThermalCentrifuge::new, ModBlocks.THERMAL_CENTRIFUGE.get()).build(null));
 
     public static void register(IEventBus eventBus) {
         BLOCK_ENTITIES.register(eventBus);

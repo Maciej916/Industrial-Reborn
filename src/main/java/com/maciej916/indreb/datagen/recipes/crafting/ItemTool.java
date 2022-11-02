@@ -33,20 +33,18 @@ public class ItemTool extends RecipeProvider {
                 .pattern("CCC")
                 .pattern(" C ")
                 .define('C', ItemTags.create(new ResourceLocation("forge", "ingots/copper")))
-                .group(MODID)
+                .group(MODID + "_tool")
                 .unlockedBy("item", InventoryChangeTrigger.TriggerInstance.hasItems(Items.COPPER_INGOT))
                 .save(consumer, saveResource("wrench"));
-
 
         ShapedRecipeBuilder.shaped(ModItems.TREETAP.get())
                 .pattern(" p ")
                 .pattern("ppp")
                 .pattern("p  ")
                 .define('p', ItemTags.create(new ResourceLocation("planks")))
-                .group(MODID)
+                .group(MODID + "_tool")
                 .unlockedBy("item", InventoryChangeTrigger.TriggerInstance.hasItems(Items.OAK_PLANKS))
                 .save(consumer, saveResource("treetap"));
-
 
         ShapedRecipeBuilder.shaped(ModItems.HAMMER.get())
                 .pattern(" ii")
@@ -54,7 +52,7 @@ public class ItemTool extends RecipeProvider {
                 .pattern(" ii")
                 .define('i', ItemTags.create(new ResourceLocation("forge", "ingots/iron")))
                 .define('S', ItemTags.create(new ResourceLocation("forge", "rods/wooden")))
-                .group(MODID)
+                .group(MODID + "_tool")
                 .unlockedBy("item", InventoryChangeTrigger.TriggerInstance.hasItems(Items.IRON_INGOT))
                 .save(consumer, saveResource("hammer"));
 
@@ -64,10 +62,9 @@ public class ItemTool extends RecipeProvider {
                 .pattern("i i")
                 .define('i', ItemTags.create(new ResourceLocation("forge", "ingots/iron")))
                 .define('p', ItemTags.create(new ResourceLocation("forge", "plates/iron")))
-                .group(MODID)
+                .group(MODID + "_tool")
                 .unlockedBy("item", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.IRON_ROD.get()))
                 .save(consumer, saveResource("cutter"));
-
 
         ShapedRecipeBuilder.shaped(ModItems.BRONZE_AXE.get())
                 .pattern("bb ")
@@ -75,7 +72,7 @@ public class ItemTool extends RecipeProvider {
                 .pattern(" s ")
                 .define('b', ItemTags.create(new ResourceLocation("forge", "ingots/bronze")))
                 .define('s', ItemTags.create(new ResourceLocation("forge", "rods/wooden")))
-                .group(MODID)
+                .group(MODID + "_tool")
                 .unlockedBy("item", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.BRONZE_INGOT.get()))
                 .save(consumer, saveResource("bronze_axe"));
 
@@ -85,10 +82,9 @@ public class ItemTool extends RecipeProvider {
                 .pattern(" s ")
                 .define('b', ItemTags.create(new ResourceLocation("forge", "ingots/bronze")))
                 .define('s', ItemTags.create(new ResourceLocation("forge", "rods/wooden")))
-                .group(MODID)
+                .group(MODID + "_tool")
                 .unlockedBy("item", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.BRONZE_INGOT.get()))
                 .save(consumer, saveResource("bronze_pickaxe"));
-
 
         ShapedRecipeBuilder.shaped(ModItems.BRONZE_SHOVEL.get())
                 .pattern(" b ")
@@ -96,10 +92,9 @@ public class ItemTool extends RecipeProvider {
                 .pattern(" s ")
                 .define('b', ItemTags.create(new ResourceLocation("forge", "ingots/bronze")))
                 .define('s', ItemTags.create(new ResourceLocation("forge", "rods/wooden")))
-                .group(MODID)
+                .group(MODID + "_tool")
                 .unlockedBy("item", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.BRONZE_INGOT.get()))
                 .save(consumer, saveResource("bronze_shovel"));
-
 
         ShapedRecipeBuilder.shaped(ModItems.BRONZE_HOE.get())
                 .pattern("bb ")
@@ -107,10 +102,9 @@ public class ItemTool extends RecipeProvider {
                 .pattern(" s ")
                 .define('b', ItemTags.create(new ResourceLocation("forge", "ingots/bronze")))
                 .define('s', ItemTags.create(new ResourceLocation("forge", "rods/wooden")))
-                .group(MODID)
+                .group(MODID + "_tool")
                 .unlockedBy("item", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.BRONZE_INGOT.get()))
                 .save(consumer, saveResource("bronze_hoe"));
-
 
         ShapedRecipeBuilder.shaped(ModItems.BRONZE_SWORD.get())
                 .pattern("b")
@@ -118,7 +112,7 @@ public class ItemTool extends RecipeProvider {
                 .pattern("s")
                 .define('b', ItemTags.create(new ResourceLocation("forge", "ingots/bronze")))
                 .define('s', ItemTags.create(new ResourceLocation("forge", "rods/wooden")))
-                .group(MODID)
+                .group(MODID + "_tool")
                 .unlockedBy("item", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.BRONZE_INGOT.get()))
                 .save(consumer, saveResource("bronze_sword"));
 
@@ -130,7 +124,7 @@ public class ItemTool extends RecipeProvider {
                 .define('g', Items.GLOWSTONE_DUST)
                 .define('c', ModBlocks.COPPER_CABLE_INSULATED.get())
                 .define('e', ModItems.ELECTRONIC_CIRCUIT.get())
-                .group(MODID)
+                .group(MODID + "_tool")
                 .unlockedBy("glowstone_dust", InventoryChangeTrigger.TriggerInstance.hasItems(Items.GLOWSTONE_DUST))
                 .unlockedBy("copper_cable_insulated", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.COPPER_CABLE_INSULATED.get()))
                 .unlockedBy("electronic_circuit", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.ELECTRONIC_CIRCUIT.get()))

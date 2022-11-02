@@ -11,7 +11,10 @@ import com.maciej916.indreb.common.world.feature.ModPlacedFeatures;
 import com.maciej916.indreb.datagen.DataGenerators;
 import com.maciej916.indreb.integration.top.TOPPlugin;
 import mcjty.theoneprobe.TheOneProbe;
+import net.minecraftforge.client.event.RegisterColorHandlersEvent;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
@@ -34,6 +37,7 @@ public class IndReb {
         ModFluids.register(modEventBus);
 
         ModBlockEntities.register(modEventBus);
+        ModEntityTypes.register(modEventBus);
         ModMenuTypes.register(modEventBus);
 
         ModRecipeType.register(modEventBus);

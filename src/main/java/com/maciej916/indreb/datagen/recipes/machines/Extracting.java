@@ -87,6 +87,12 @@ public class Extracting extends RecipeProvider {
                 .setGroup("extracting")
                 .save(consumer,"mud_dirt");
 
+        RecipeBuilderExtracting.builder(ModItems.SULFUR_DUST.get(), 1)
+                .setIngredient(Ingredient.of(Items.GUNPOWDER), 1)
+                .addCriterion("gunpowder", InventoryChangeTrigger.TriggerInstance.hasItems(Items.GUNPOWDER))
+                .setGroup("extracting")
+                .save(consumer,"sulfur_dust");
+
 
     }
 

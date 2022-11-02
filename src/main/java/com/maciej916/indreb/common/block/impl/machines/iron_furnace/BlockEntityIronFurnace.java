@@ -22,7 +22,6 @@ import net.minecraftforge.common.ForgeHooks;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.common.util.LazyOptional;
-import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.wrapper.RangedWrapper;
 
 import javax.annotation.Nonnull;
@@ -113,7 +112,7 @@ public class BlockEntityIronFurnace extends IndRebBlockEntity implements IExpCol
                             inputStack.shrink(1);
                             getStackHandler().setStackInSlot(INPUT_SLOT, inputStack);
 
-                            this.setRecipeUsed(furnaceRecipe);
+                            this.addRecipeUsed(furnaceRecipe);
 
                             smelting.setBoth(-1);
                         }

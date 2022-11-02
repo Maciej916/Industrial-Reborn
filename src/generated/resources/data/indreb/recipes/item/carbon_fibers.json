@@ -3,7 +3,7 @@
   "group": "indreb",
   "key": {
     "c": {
-      "item": "indreb:coal_dust"
+      "tag": "forge:dusts/coal"
     }
   },
   "pattern": [

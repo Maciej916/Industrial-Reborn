@@ -238,7 +238,6 @@ public class Block extends RecipeProvider {
                 .unlockedBy("reinforced_stone", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.REINFORCED_STONE.get()))
                 .save(consumer, saveResource("reinforced_stone_stairs"));
 
-
     }
 
 }

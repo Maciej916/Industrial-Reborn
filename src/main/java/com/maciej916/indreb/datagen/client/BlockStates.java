@@ -68,7 +68,10 @@ public class BlockStates extends BlockStateProvider {
         createCubeAll(ModBlocks.DEEPSLATE_TIN_ORE, "ore/deepslate_tin");
         createCubeAll(ModBlocks.LEAD_ORE, "ore/lead");
         createCubeAll(ModBlocks.DEEPSLATE_LEAD_ORE, "ore/deepslate_lead");
+        createCubeAll(ModBlocks.URANIUM_ORE, "ore/uranium");
         createCubeAll(ModBlocks.DEEPSLATE_URANIUM_ORE, "ore/deepslate_uranium");
+        createCubeAll(ModBlocks.SILVER_ORE, "ore/silver");
+        createCubeAll(ModBlocks.DEEPSLATE_SILVER_ORE, "ore/deepslate_silver");
     }
 
     private void registerTransformers() {
@@ -127,13 +130,15 @@ public class BlockStates extends BlockStateProvider {
 
     private void registerMachines() {
 
+        createWithSidesActive(ModBlocks.FLUID_ENRICHER.get(), "machines/basic", "fluid_enricher");
+        createSimple(ModBlocks.CANNING_MACHINE.get(), "machines/basic", "canning_machine");
+        createWithSidesActive(ModBlocks.FERMENTER.get(), "machines/basic", "fermenter");
+        createWithTopActive(ModBlocks.RECYCLER.get(), "machines/basic", "recycler");
+        createWithSidesActive(ModBlocks.ORE_WASHING_PLANT.get(), "machines/basic", "ore_washing_plant");
+        createSimple(ModBlocks.ALLOY_SMELTER.get(), "machines/basic", "alloy_smelter");
 
-
-
-        createSimple(ModBlocks.CANNING_MACHINE.get(), "machines", "canning_machine");
-        createWithTopActive(ModBlocks.RECYCLER.get(), "machines", "recycler");
-        createWithSidesActive(ModBlocks.FLUID_ENRICHER.get(), "machines", "fluid_enricher");
-        createWithSidesActive(ModBlocks.FERMENTER.get(), "machines", "fermenter");
+        createSimple(ModBlocks.MATTER_FABRICATOR.get(), "machines/advanced", "matter_fabricator");
+        createWithSidesActive(ModBlocks.THERMAL_CENTRIFUGE.get(), "machines/advanced", "thermal_centrifuge");
     }
 
     private void registerExplosives() {

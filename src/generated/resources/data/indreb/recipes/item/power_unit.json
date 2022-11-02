@@ -9,7 +9,7 @@
       "item": "indreb:electronic_circuit"
     },
     "i": {
-      "item": "indreb:iron_plate"
+      "tag": "forge:plates/iron"
     },
     "m": {
       "item": "indreb:electric_motor"
