@@ -20,7 +20,7 @@ public class BlockEntityLuminator extends IndRebBlockEntity implements IEnergyBl
     }
 
     @Override
-    public void tickOperate(BlockState state) {
+    public void tickWork(BlockState state) {
         active = false;
         getEnergyStorage().updateConsumed(0);
 

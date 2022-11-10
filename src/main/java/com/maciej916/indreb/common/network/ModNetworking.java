@@ -1,9 +1,6 @@
 package com.maciej916.indreb.common.network;
 
-import com.maciej916.indreb.common.network.packet.PacketExperience;
-import com.maciej916.indreb.common.network.packet.PacketExtruderRecipe;
-import com.maciej916.indreb.common.network.packet.PacketParticle;
-import com.maciej916.indreb.common.network.packet.PacketTransformerMode;
+import com.maciej916.indreb.common.network.packet.*;
 import com.maciej916.indreb.common.network.packet.energy.PacketReqSyncEnergy;
 import com.maciej916.indreb.common.network.packet.energy.PacketSyncEnergy;
 import net.minecraft.resources.ResourceLocation;
@@ -30,5 +27,15 @@ public class ModNetworking {
 
         INSTANCE.registerMessage(nextID(), PacketReqSyncEnergy.class, PacketReqSyncEnergy::toBytes, PacketReqSyncEnergy::new, PacketReqSyncEnergy::handle);
         INSTANCE.registerMessage(nextID(), PacketSyncEnergy.class, PacketSyncEnergy::toBytes, PacketSyncEnergy::new, PacketSyncEnergy::handle);
+
+        INSTANCE.registerMessage(nextID(), PacketScannerCleanScan.class, PacketScannerCleanScan::toBytes, PacketScannerCleanScan::new, PacketScannerCleanScan::handle);
+        INSTANCE.registerMessage(nextID(), PacketScannerSaveScan.class, PacketScannerSaveScan::toBytes, PacketScannerSaveScan::new, PacketScannerSaveScan::handle);
+        INSTANCE.registerMessage(nextID(), PacketPatternStoragePage.class, PacketPatternStoragePage::toBytes, PacketPatternStoragePage::new, PacketPatternStoragePage::handle);
+        INSTANCE.registerMessage(nextID(), PacketPatternStorageAction.class, PacketPatternStorageAction::toBytes, PacketPatternStorageAction::new, PacketPatternStorageAction::handle);
+        INSTANCE.registerMessage(nextID(), PacketReplicatorPage.class, PacketReplicatorPage::toBytes, PacketReplicatorPage::new, PacketReplicatorPage::handle);
+        INSTANCE.registerMessage(nextID(), PacketReplicatorStop.class, PacketReplicatorStop::toBytes, PacketReplicatorStop::new, PacketReplicatorStop::handle);
+        INSTANCE.registerMessage(nextID(), PacketReplicatorSingleRun.class, PacketReplicatorSingleRun::toBytes, PacketReplicatorSingleRun::new, PacketReplicatorSingleRun::handle);
+        INSTANCE.registerMessage(nextID(), PacketReplicatorRepeatRun.class, PacketReplicatorRepeatRun::toBytes, PacketReplicatorRepeatRun::new, PacketReplicatorRepeatRun::handle);
+        INSTANCE.registerMessage(nextID(), PacketMetalFormerChangeMode.class, PacketMetalFormerChangeMode::toBytes, PacketMetalFormerChangeMode::new, PacketMetalFormerChangeMode::handle);
     }
 }

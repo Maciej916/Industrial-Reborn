@@ -111,6 +111,38 @@
     ]
   },
 
+  "tile.metal_former": {
+    "sounds": [
+      {
+        "name": "indreb:metal_former"
+      }
+    ]
+  },
+
+  "tile.replicator": {
+    "sounds": [
+      {
+        "name": "indreb:replicator"
+      }
+    ]
+  },
+
+  "tile.scanner": {
+    "sounds": [
+      {
+        "name": "indreb:scanner"
+      }
+    ]
+  },
+
+  "tile.thermal_centrifuge": {
+    "sounds": [
+      {
+        "name": "indreb:thermal_centrifuge"
+      }
+    ]
+  },
+
   "item.treetap": {
     "sounds": [
       {

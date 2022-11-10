@@ -10,12 +10,15 @@
     },
     "i": {
       "tag": "forge:plates/iron"
+    },
+    "p": {
+      "item": "indreb:carbon_plate"
     }
   },
   "pattern": [
     "aia",
     "ici",
-    "aia"
+    "pip"
   ],
   "result": {
     "item": "indreb:memory_card"

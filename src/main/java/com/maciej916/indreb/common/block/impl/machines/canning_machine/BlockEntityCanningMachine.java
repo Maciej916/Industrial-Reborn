@@ -92,7 +92,7 @@ public class BlockEntityCanningMachine extends IndRebBlockEntity implements IEne
     }
 
     @Override
-    public void tickOperate(BlockState state) {
+    public void tickWork(BlockState state) {
         active = false;
         getEnergyStorage().updateConsumed(0);
 
@@ -217,9 +217,9 @@ public class BlockEntityCanningMachine extends IndRebBlockEntity implements IEne
     }
 
     @Override
-    public void onBreak() {
+    public void onBreakServer() {
         for (LazyOptional<?> capability : capabilities) capability.invalidate();
-        super.onBreak();
+        super.onBreakServer();
     }
 
     @Override

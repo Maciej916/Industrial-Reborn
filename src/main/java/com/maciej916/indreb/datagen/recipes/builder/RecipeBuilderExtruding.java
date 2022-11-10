@@ -10,6 +10,8 @@ import net.minecraft.advancements.RequirementsStrategy;
 import net.minecraft.advancements.critereon.RecipeUnlockedTrigger;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.TagKey;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeSerializer;
@@ -23,31 +25,39 @@ import static com.maciej916.indreb.IndReb.MODID;
 
 public class RecipeBuilderExtruding {
 
-
+    private Ingredient ingredient;
+    private int ingredientCount;
     private final ItemStack result;
-
-    public int waterCost;
-    public int lavaCost;
-
     private int duration;
     private int powerCost;
     private float experience;
     private final Advancement.Builder advancementBuilder = Advancement.Builder.advancement();
     private String group = "";
 
-    public RecipeBuilderExtruding(ItemStack result, int duration, int waterCost, int lavaCost, int powerCost, float experience) {
+    public RecipeBuilderExtruding(ItemStack result, int duration, int powerCost, float experience) {
         this.result = result;
         this.duration = duration;
-        this.waterCost = waterCost;
-        this.lavaCost = lavaCost;
         this.powerCost = powerCost;
         this.experience = experience;
     }
 
     public static RecipeBuilderExtruding builder(ItemLike item, int resultCount) {
-        return new RecipeBuilderExtruding(new ItemStack(item, resultCount), 180, 0, 0, 8, 0);
+        return new RecipeBuilderExtruding(new ItemStack(item, resultCount), 180, 8, 0);
     }
 
+    public RecipeBuilderExtruding setIngredient(Ingredient ingredient, int count) {
+        this.ingredient = ingredient;
+        this.ingredientCount = count;
+        return this;
+    }
+
+    public RecipeBuilderExtruding setIngredient(ItemLike item, int count) {
+        return setIngredient(Ingredient.of(item), count);
+    }
+
+    public RecipeBuilderExtruding setIngredient(TagKey<Item> tag, int count) {
+        return setIngredient(Ingredient.of(tag), count);
+    }
 
     public RecipeBuilderExtruding setDuration(int duration) {
         this.duration = duration;
@@ -56,16 +66,6 @@ public class RecipeBuilderExtruding {
 
     public RecipeBuilderExtruding setPowerCost(int powerCost) {
         this.powerCost = powerCost;
-        return this;
-    }
-
-    public RecipeBuilderExtruding setWaterCost(int waterCost) {
-        this.waterCost = waterCost;
-        return this;
-    }
-
-    public RecipeBuilderExtruding setLavaCost(int lavaCost) {
-        this.lavaCost = lavaCost;
         return this;
     }
 
@@ -110,6 +110,8 @@ public class RecipeBuilderExtruding {
         @Override
         public void serializeRecipeData(JsonObject json) {
 
+            json.add("ingredient", serializeIngredient(builder.ingredient, builder.ingredientCount));
+
             JsonObject result = new JsonObject();
             result.addProperty("item", ForgeRegistries.ITEMS.getKey(builder.result.getItem()).toString());
             if (builder.result.getCount() > 1) {
@@ -120,8 +122,6 @@ public class RecipeBuilderExtruding {
             json.addProperty("experience", builder.experience);
             json.addProperty("duration", builder.duration);
             json.addProperty("power_cost", builder.powerCost);
-            json.addProperty("water_cost", builder.waterCost);
-            json.addProperty("lava_cost", builder.lavaCost);
 
         }
 

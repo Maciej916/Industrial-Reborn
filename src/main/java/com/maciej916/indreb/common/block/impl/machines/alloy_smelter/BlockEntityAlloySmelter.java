@@ -92,7 +92,7 @@ public class BlockEntityAlloySmelter extends IndRebBlockEntity implements IEnerg
     }
 
     @Override
-    public void tickOperate(BlockState state) {
+    public void tickWork(BlockState state) {
         active = false;
         getEnergyStorage().updateConsumed(0);
 
@@ -245,6 +245,7 @@ public class BlockEntityAlloySmelter extends IndRebBlockEntity implements IEnerg
     @Override
     public <T> LazyOptional<T> getCapability(@Nonnull final Capability<T> cap, @Nullable final Direction side) {
         if (cap == ForgeCapabilities.ITEM_HANDLER) {
+            if (side == null) return capabilities.get(0).cast();
             return switch (side) {
                 case UP -> capabilities.get(1).cast();
                 case DOWN -> capabilities.get(2).cast();
@@ -255,9 +256,9 @@ public class BlockEntityAlloySmelter extends IndRebBlockEntity implements IEnerg
     }
 
     @Override
-    public void onBreak() {
+    public void onBreakServer() {
         for (LazyOptional<?> capability : capabilities) capability.invalidate();
-        super.onBreak();
+        super.onBreakServer();
     }
 
     @Override

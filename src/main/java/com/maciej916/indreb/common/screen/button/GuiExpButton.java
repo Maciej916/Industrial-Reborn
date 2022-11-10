@@ -5,22 +5,32 @@ import com.maciej916.indreb.common.interfaces.entity.IExpCollector;
 import com.maciej916.indreb.common.interfaces.screen.IGuiWrapper;
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.PoseStack;
+import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
+
+import java.util.List;
 
 import static com.maciej916.indreb.IndReb.MODID;
 
 public class GuiExpButton extends GuiButton {
 
-    public GuiExpButton(IGuiWrapper wrapper, IExpCollector leftClick, int topOffset) {
-        super(wrapper, -19, topOffset, GuiSprite.LEFT_BUTTON, leftClick.collectExp(), null);
+    IExpCollector expCollector;
+
+    public GuiExpButton(IGuiWrapper wrapper, IExpCollector expCollector, int topOffset) {
+        super(wrapper, -19, topOffset, GuiSprite.LEFT_BUTTON, expCollector.collectExp(), null);
+        this.expCollector = expCollector;
     }
 
     @Override
     public void renderWidgetToolTip(Screen screen, PoseStack pPoseStack, int pMouseX, int pMouseY) {
         if (isHoveredOrFocused()) {
-            screen.renderTooltip(pPoseStack, Component.translatable("gui." + MODID + ".collect_exp"), pMouseX, pMouseY);
+            screen.renderComponentTooltip(pPoseStack,
+                    List.of(
+                            Component.translatable("gui." + MODID + ".collect_exp").withStyle(ChatFormatting.GREEN),
+                            Component.literal(expCollector.getStoredExperience() + " EXP")
+                    ), pMouseX, pMouseY);
         }
     }
 

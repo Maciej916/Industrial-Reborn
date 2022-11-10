@@ -1,0 +1,73 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "basic_machine_casing": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:basic_machine_casing"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "coil": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:coil"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "electronic_circuit": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:electronic_circuit"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "indreb:machines/metal_former"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "tool_box": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:tool_box"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "coil",
+      "tool_box",
+      "basic_machine_casing",
+      "electronic_circuit",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "indreb:machines/metal_former"
+    ]
+  }
+}

@@ -123,6 +123,7 @@ public class ModLootTables extends LootTableProvider {
         tables.put(ModBlocks.MATTER_FABRICATOR.get().getLootTable(), createBlockEntityTableBreakable("matter_fabricator", ModBlocks.MATTER_FABRICATOR.get(), ModBlockEntities.MATTER_FABRICATOR.get(), ModBlocks.ADVANCED_MACHINE_CASING.get()).setParamSet(LootContextParamSets.BLOCK).build());
         tables.put(ModBlocks.ORE_WASHING_PLANT.get().getLootTable(), createBlockEntityTableBreakable("ore_washing_plant", ModBlocks.ORE_WASHING_PLANT.get(), ModBlockEntities.ORE_WASHING_PLANT.get(), ModBlocks.BASIC_MACHINE_CASING.get()).setParamSet(LootContextParamSets.BLOCK).build());
         tables.put(ModBlocks.THERMAL_CENTRIFUGE.get().getLootTable(), createBlockEntityTableBreakable("thermal_centrifuge", ModBlocks.THERMAL_CENTRIFUGE.get(), ModBlockEntities.THERMAL_CENTRIFUGE.get(), ModBlocks.ADVANCED_MACHINE_CASING.get()).setParamSet(LootContextParamSets.BLOCK).build());
+        tables.put(ModBlocks.METAL_FORMER.get().getLootTable(), createBlockEntityTableBreakable("metal_former", ModBlocks.METAL_FORMER.get(), ModBlockEntities.METAL_FORMER.get(), ModBlocks.BASIC_MACHINE_CASING.get()).setParamSet(LootContextParamSets.BLOCK).build());
 
         tables.put(ModBlocks.BATTERY_BOX.get().getLootTable(), createBlockEntityTable("battery_box", ModBlocks.BATTERY_BOX.get(), ModBlockEntities.BATTERY_BOX.get()).setParamSet(LootContextParamSets.BLOCK).build());
         tables.put(ModBlocks.CESU.get().getLootTable(), createBlockEntityTable("cesu", ModBlocks.CESU.get(), ModBlockEntities.BATTERY_BOX.get()).setParamSet(LootContextParamSets.BLOCK).build());
@@ -167,6 +168,16 @@ public class ModLootTables extends LootTableProvider {
         tables.put(ModBlocks.CONSTRUCTION_FOAM_WALL_GRAY.get().getLootTable(), createStandardTable("construction_foam_wall_gray", ModBlocks.CONSTRUCTION_FOAM_WALL_GRAY.get()).setParamSet(LootContextParamSets.BLOCK).build());
         tables.put(ModBlocks.CONSTRUCTION_FOAM_WALL_LIGHT_GRAY.get().getLootTable(), createStandardTable("construction_foam_wall_light_gray", ModBlocks.CONSTRUCTION_FOAM_WALL_LIGHT_GRAY.get()).setParamSet(LootContextParamSets.BLOCK).build());
         tables.put(ModBlocks.CONSTRUCTION_FOAM_WALL_BLACK.get().getLootTable(), createStandardTable("construction_foam_wall_black", ModBlocks.CONSTRUCTION_FOAM_WALL_BLACK.get()).setParamSet(LootContextParamSets.BLOCK).build());
+
+        tables.put(ModBlocks.YELLOW_STRIPES_BLOCK_LEFT.get().getLootTable(), createStandardTable("yellow_stripes_block_left", ModBlocks.YELLOW_STRIPES_BLOCK_LEFT.get()).setParamSet(LootContextParamSets.BLOCK).build());
+        tables.put(ModBlocks.YELLOW_STRIPES_BLOCK_RIGHT.get().getLootTable(), createStandardTable("yellow_stripes_block_right", ModBlocks.YELLOW_STRIPES_BLOCK_RIGHT.get()).setParamSet(LootContextParamSets.BLOCK).build());
+        tables.put(ModBlocks.RADIOACTIVE_HAZARD_SIGN_BLOCK.get().getLootTable(), createStandardTable("radioactive_hazard_sign_block", ModBlocks.RADIOACTIVE_HAZARD_SIGN_BLOCK.get()).setParamSet(LootContextParamSets.BLOCK).build());
+        tables.put(ModBlocks.BIO_HAZARD_SIGN_BLOCK.get().getLootTable(), createStandardTable("bio_hazard_sign_block", ModBlocks.BIO_HAZARD_SIGN_BLOCK.get()).setParamSet(LootContextParamSets.BLOCK).build());
+        tables.put(ModBlocks.FIRE_HAZARD_SIGN_BLOCK.get().getLootTable(), createStandardTable("fire_hazard_sign_block", ModBlocks.FIRE_HAZARD_SIGN_BLOCK.get()).setParamSet(LootContextParamSets.BLOCK).build());
+        tables.put(ModBlocks.ACID_HAZARD_SIGN_BLOCK.get().getLootTable(), createStandardTable("acid_hazard_sign_block", ModBlocks.ACID_HAZARD_SIGN_BLOCK.get()).setParamSet(LootContextParamSets.BLOCK).build());
+        tables.put(ModBlocks.MAGIC_HAZARD_SIGN_BLOCK.get().getLootTable(), createStandardTable("magic_hazard_sign_block", ModBlocks.MAGIC_HAZARD_SIGN_BLOCK.get()).setParamSet(LootContextParamSets.BLOCK).build());
+        tables.put(ModBlocks.FROST_HAZARD_SIGN_BLOCK.get().getLootTable(), createStandardTable("frost_hazard_sign_block", ModBlocks.FROST_HAZARD_SIGN_BLOCK.get()).setParamSet(LootContextParamSets.BLOCK).build());
+        tables.put(ModBlocks.NOISE_HAZARD_SIGN_BLOCK.get().getLootTable(), createStandardTable("noise_hazard_sign_block", ModBlocks.NOISE_HAZARD_SIGN_BLOCK.get()).setParamSet(LootContextParamSets.BLOCK).build());
 
         writeTables(cache, tables);
     }

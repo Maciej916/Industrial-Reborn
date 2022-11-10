@@ -116,7 +116,6 @@ public class ItemTool extends RecipeProvider {
                 .unlockedBy("item", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.BRONZE_INGOT.get()))
                 .save(consumer, saveResource("bronze_sword"));
 
-
         ShapedRecipeBuilder.shaped(ModItems.IE_METER.get())
                 .pattern(" g ")
                 .pattern("cec")
@@ -129,6 +128,17 @@ public class ItemTool extends RecipeProvider {
                 .unlockedBy("copper_cable_insulated", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.COPPER_CABLE_INSULATED.get()))
                 .unlockedBy("electronic_circuit", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.ELECTRONIC_CIRCUIT.get()))
                 .save(consumer, saveResource("ie_meter"));
+
+        ShapedRecipeBuilder.shaped(ModItems.TOOL_BOX.get())
+                .pattern("bcb")
+                .pattern("bbb")
+                .pattern("   ")
+                .define('c', Items.CHEST)
+                .define('b', ItemTags.create(new ResourceLocation("forge", "plates/bronze")))
+                .group(MODID + "_tool")
+                .unlockedBy("chest", InventoryChangeTrigger.TriggerInstance.hasItems(Items.CHEST))
+                .unlockedBy("bronze_plate", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.BRONZE_PLATE.get()))
+                .save(consumer, saveResource("tool_box"));
 
 
     }

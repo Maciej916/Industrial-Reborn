@@ -11,6 +11,8 @@ import com.maciej916.indreb.common.interfaces.entity.IElectricSlot;
 import com.maciej916.indreb.common.interfaces.entity.IExpCollector;
 import com.maciej916.indreb.common.interfaces.entity.ISupportUpgrades;
 import com.maciej916.indreb.common.interfaces.entity.ITileSound;
+import com.maciej916.indreb.common.interfaces.receipe.IBaseRecipe;
+import com.maciej916.indreb.common.interfaces.receipe.IChanceRecipe;
 import com.maciej916.indreb.common.recipe.impl.ThermalCentrifugingRecipe;
 import com.maciej916.indreb.common.registries.ModBlockEntities;
 import com.maciej916.indreb.common.registries.ModRecipeType;
@@ -22,6 +24,7 @@ import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.capabilities.ForgeCapabilities;
@@ -57,6 +60,11 @@ public class BlockEntityThermalCentrifuge extends IndRebBlockEntity implements I
 
     protected Optional<ThermalCentrifugingRecipe> getRecipe(ItemStack input) {
         return level.getRecipeManager().getRecipeFor(ModRecipeType.THERMAL_CENTRIFUGING.get(), new SimpleContainer(input), level);
+    }
+
+    @Override
+    public float getExperience(Recipe<?> recipe) {
+        return ((IBaseRecipe) recipe).getExperience();
     }
 
     private boolean isValidInput(final ItemStack stack) {
@@ -114,7 +122,7 @@ public class BlockEntityThermalCentrifuge extends IndRebBlockEntity implements I
     }
 
     @Override
-    public void tickOperate(BlockState state) {
+    public void tickWork(BlockState state) {
         active = false;
         boolean decHeat = false;
         boolean updateState = false;
@@ -251,7 +259,7 @@ public class BlockEntityThermalCentrifuge extends IndRebBlockEntity implements I
 
     @Override
     public SoundEvent getSoundEvent() {
-        return ModSounds.ORE_WASHING_PLANT.get();
+        return ModSounds.THERMAL_CENTRIFUGE.get();
     }
 
     @Override
@@ -303,9 +311,9 @@ public class BlockEntityThermalCentrifuge extends IndRebBlockEntity implements I
     }
 
     @Override
-    public void onBreak() {
+    public void onBreakServer() {
         for (LazyOptional<?> capability : capabilities) capability.invalidate();
-        super.onBreak();
+        super.onBreakServer();
     }
 
     @Override

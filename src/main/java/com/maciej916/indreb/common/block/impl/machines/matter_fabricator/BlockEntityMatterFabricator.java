@@ -33,6 +33,8 @@ import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.Fluids;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.common.util.LazyOptional;
@@ -80,7 +82,7 @@ public class BlockEntityMatterFabricator extends IndRebBlockEntity implements IE
     }
 
     @Override
-    public void tickOperate(BlockState state) {
+    public void tickWork(BlockState state) {
         active = false;
         boolean updateState = false;
         getEnergyStorage().updateConsumed(0);
@@ -107,7 +109,7 @@ public class BlockEntityMatterFabricator extends IndRebBlockEntity implements IE
             updateState = true;
         }
 
-        if (getEnergyStorage().energyStored() > 0 && fluidMatterStorage.getFluidAmount() < fluidMatterStorage.getCapacity()) {
+        if (getEnergyStorage().energyStored() > 0 && fluidMatterStorage.getFluidAmount() + ServerConfig.matter_fabricator_produce_run.get() <= fluidMatterStorage.getCapacity()) {
             if (progress.getProgress() == -1) {
                 progress.setData(0, 1000000);
             }
@@ -140,7 +142,7 @@ public class BlockEntityMatterFabricator extends IndRebBlockEntity implements IE
             }
 
             if (progress.getProgress() >= progress.getProgressMax()) {
-                fluidMatterStorage.fill(new FluidStack(Matter.STILL_FLUID, 1), IFluidHandler.FluidAction.EXECUTE);
+                fluidMatterStorage.fill(new FluidStack(Matter.STILL_FLUID, ServerConfig.matter_fabricator_produce_run.get()), IFluidHandler.FluidAction.EXECUTE);
                 progress.setBoth(-1);
             }
         }
@@ -161,6 +163,7 @@ public class BlockEntityMatterFabricator extends IndRebBlockEntity implements IE
         super.tickClient(state);
     }
 
+    @OnlyIn(Dist.CLIENT)
     private void handleAmplifiedSound() {
         if (progressAmplifier.getProgress() > 0) {
             if (canPlaySound() && !isRemoved()) {
@@ -180,6 +183,13 @@ public class BlockEntityMatterFabricator extends IndRebBlockEntity implements IE
                 activeSoundAmplified = null;
             }
         }
+    }
+
+    @Override
+    public void onBreakClient() {
+        SoundHandler.stopExtraSound(getBlockPos());
+        activeSoundAmplified = null;
+        super.onBreakClient();
     }
 
     @Override
@@ -273,18 +283,14 @@ public class BlockEntityMatterFabricator extends IndRebBlockEntity implements IE
     }
 
     @Override
-    public void onBreak() {
+    public void onBreakServer() {
         for (LazyOptional<?> capability : capabilities) capability.invalidate();
-
-        SoundHandler.stopExtraSound(getBlockPos());
-        activeSoundAmplified = null;
-
-        super.onBreak();
+        super.onBreakServer();
     }
 
     @Override
     public List<UpgradeType> getSupportedUpgrades() {
-        return List.of(UpgradeType.EJECTOR, UpgradeType.PULLING, UpgradeType.REDSTONE_SIGNAL_INVERTER, UpgradeType.FLUID_EJECTOR);
+        return List.of(UpgradeType.EJECTOR, UpgradeType.PULLING, UpgradeType.REDSTONE_SIGNAL_INVERTER, UpgradeType.TRANSFORMER, UpgradeType.FLUID_EJECTOR);
     }
 
     @Override

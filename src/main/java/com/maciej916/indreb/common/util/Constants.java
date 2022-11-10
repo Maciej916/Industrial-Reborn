@@ -11,6 +11,7 @@ public class Constants {
     public static final CableTier[] CABLE_TIERS = CableTier.values();
 
     public static final ResourceLocation JEI = new ResourceLocation(IndReb.MODID, "textures/gui/container/jei.png");
+    public static final ResourceLocation JEI_2 = new ResourceLocation(IndReb.MODID, "textures/gui/container/jei_2.png");
     public static final ResourceLocation JEI_LARGE = new ResourceLocation(IndReb.MODID, "textures/gui/container/jei_large.png");
     public static final ResourceLocation JEI_LARGE_2 = new ResourceLocation(IndReb.MODID, "textures/gui/container/jei_large2.png");
     public static final ResourceLocation COMMON = new ResourceLocation(IndReb.MODID, "textures/gui/container/common.png");

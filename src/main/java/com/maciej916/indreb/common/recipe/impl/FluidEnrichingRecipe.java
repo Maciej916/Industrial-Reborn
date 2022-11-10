@@ -95,7 +95,7 @@ public class FluidEnrichingRecipe implements IBaseRecipe {
 
     @Override
     public NonNullList<Ingredient> getIngredients() {
-        return null;
+        return NonNullList.create();
     }
 
     public FluidStack getFluidInput() {

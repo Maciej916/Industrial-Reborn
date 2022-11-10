@@ -12,6 +12,7 @@
     "#forge:dusts/stone",
     "#forge:dusts/deepslate",
     "#forge:dusts/silver",
-    "#forge:dusts/sulfur"
+    "#forge:dusts/sulfur",
+    "#forge:dusts/lapis"
   ]
 }

@@ -249,18 +249,18 @@ public class Machines extends RecipeProvider {
                 .pattern("hmh")
                 .define('g', ModItems.REINFORCED_GLASS.get())
                 .define('s', ModItems.REINFORCED_STONE.get())
-                .define('t', ModItems.TELEPORTER.get())
+                .define('t', ModItems.TELEPORT_ANCHOR.get())
                 .define('h', ModItems.HV_TRANSFORMER.get())
                 .define('m', ModItems.MFE.get())
                 .group(MODID + "_machines")
                 .unlockedBy("reinforced_glass", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.REINFORCED_GLASS.get()))
                 .unlockedBy("reinforced_stone", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.REINFORCED_STONE.get()))
-                .unlockedBy("teleporter", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.TELEPORTER.get()))
+                .unlockedBy("teleport_anchor", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.TELEPORT_ANCHOR.get()))
                 .unlockedBy("hv_transformer", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.HV_TRANSFORMER.get()))
                 .unlockedBy("mfe", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.MFE.get()))
                 .save(consumer, saveResource("replicator"));
 
-        ShapedRecipeBuilder.shaped(ModBlocks.TELEPORTER.get())
+        ShapedRecipeBuilder.shaped(ModBlocks.TELEPORT_ANCHOR.get())
                 .pattern("ctc")
                 .pattern("gag")
                 .pattern("cdc")
@@ -275,7 +275,7 @@ public class Machines extends RecipeProvider {
                 .unlockedBy("glass_fibre_cable", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.GLASS_FIBRE_CABLE.get()))
                 .unlockedBy("diamond", InventoryChangeTrigger.TriggerInstance.hasItems(Items.DIAMOND))
                 .unlockedBy("advanced_machine_casing", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.ADVANCED_MACHINE_CASING.get()))
-                .save(consumer, saveResource("teleporter"));
+                .save(consumer, saveResource("teleport_anchor"));
 
         ShapedRecipeBuilder.shaped(ModBlocks.PATTERN_STORAGE.get())
                 .pattern("rrr")
@@ -309,8 +309,20 @@ public class Machines extends RecipeProvider {
                 .unlockedBy("advanced_circuit", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.ADVANCED_CIRCUIT.get()))
                 .save(consumer, saveResource("matter_fabricator"));
 
-
-
+        ShapedRecipeBuilder.shaped(ModBlocks.METAL_FORMER.get())
+                .pattern(" c ")
+                .pattern("tbt")
+                .pattern("hhh")
+                .define('h', ModItems.COIL.get())
+                .define('t', ModItems.TOOL_BOX.get())
+                .define('b', ModItems.BASIC_MACHINE_CASING.get())
+                .define('c', ModItems.ELECTRONIC_CIRCUIT.get())
+                .group(MODID + "_machines")
+                .unlockedBy("coil", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.COIL.get()))
+                .unlockedBy("tool_box", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.TOOL_BOX.get()))
+                .unlockedBy("basic_machine_casing", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.BASIC_MACHINE_CASING.get()))
+                .unlockedBy("electronic_circuit", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.ELECTRONIC_CIRCUIT.get()))
+                .save(consumer, saveResource("metal_former"));
 
     }
 

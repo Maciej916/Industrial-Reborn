@@ -94,14 +94,14 @@ public class BlockCable extends VoxelBlock implements SimpleWaterloggedBlock, En
     }
 
     @Override
-    public void onRemove(BlockState state, Level pLevel, BlockPos pos, BlockState newState, boolean pIsMoving) {
-        if (pLevel.isClientSide()) return;
+    public void onRemove(BlockState blockState, Level level, BlockPos blockPos, BlockState newState, boolean isMoving) {
+        if (level.isClientSide()) return;
 
-        if (newState.getBlock() != state.getBlock()) {
-            CapabilityUtil.getCapabilityHelper(pLevel, ModCapabilities.ENERGY_CORE).ifPresent(e -> e.getNetworks().onRemove(pos));
+        if (newState.getBlock() != blockState.getBlock()) {
+            CapabilityUtil.getCapabilityHelper(level, ModCapabilities.ENERGY_CORE).ifPresent(e -> e.getNetworks().onRemove(blockPos));
         }
 
-        super.onRemove(state, pLevel, pos, newState, pIsMoving);
+        super.onRemove(blockState, level, blockPos, newState, isMoving);
     }
 
     @Override

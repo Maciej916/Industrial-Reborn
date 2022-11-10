@@ -26,4 +26,6 @@ public class SlotItemHandlerDisabled extends SlotItemHandler {
     public int getMaxStackSize() {
         return 1;
     }
+
+
 }

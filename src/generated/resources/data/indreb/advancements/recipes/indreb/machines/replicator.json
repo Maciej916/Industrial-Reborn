@@ -55,12 +55,12 @@
       },
       "trigger": "minecraft:inventory_changed"
     },
-    "teleporter": {
+    "teleport_anchor": {
       "conditions": {
         "items": [
           {
             "items": [
-              "indreb:teleporter"
+              "indreb:teleport_anchor"
             ]
           }
         ]
@@ -72,7 +72,7 @@
     [
       "reinforced_glass",
       "reinforced_stone",
-      "teleporter",
+      "teleport_anchor",
       "hv_transformer",
       "mfe",
       "has_the_recipe"

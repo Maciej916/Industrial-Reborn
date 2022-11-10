@@ -2,6 +2,7 @@ package com.maciej916.indreb.datagen.tags;
 
 import com.maciej916.indreb.IndReb;
 import com.maciej916.indreb.common.registries.ModBlocks;
+import com.maciej916.indreb.common.registries.ModTags;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.tags.BlockTagsProvider;
 import net.minecraft.tags.BlockTags;
@@ -34,7 +35,7 @@ public class Tags extends BlockTagsProvider {
                 .add(ModBlocks.ADVANCED_SOLAR_GENERATOR.get())
                 .add(ModBlocks.HYBRID_SOLAR_GENERATOR.get())
                 .add(ModBlocks.QUANTUM_SOLAR_GENERATOR.get())
-                .add(ModBlocks.CRYSTALLINE_GENERATOR.get())
+//                .add(ModBlocks.CRYSTALLINE_GENERATOR.get())
                 .add(ModBlocks.SEMIFLUID_GENERATOR.get())
 
                 .add(ModBlocks.CESU.get())
@@ -60,7 +61,8 @@ public class Tags extends BlockTagsProvider {
                 .add(ModBlocks.PATTERN_STORAGE.get())
                 .add(ModBlocks.SCANNER.get())
                 .add(ModBlocks.REPLICATOR.get())
-                .add(ModBlocks.TELEPORTER.get())
+                .add(ModBlocks.TELEPORT_ANCHOR.get())
+                .add(ModBlocks.METAL_FORMER.get())
 
 
                 .add(ModBlocks.COPPER_CABLE.get())
@@ -124,6 +126,17 @@ public class Tags extends BlockTagsProvider {
                 .add(ModBlocks.CONSTRUCTION_FOAM_WALL_GRAY.get())
                 .add(ModBlocks.CONSTRUCTION_FOAM_WALL_LIGHT_GRAY.get())
                 .add(ModBlocks.CONSTRUCTION_FOAM_WALL_BLACK.get())
+
+                .add(ModBlocks.YELLOW_STRIPES_BLOCK_LEFT.get())
+                .add(ModBlocks.YELLOW_STRIPES_BLOCK_RIGHT.get())
+                .add(ModBlocks.RADIOACTIVE_HAZARD_SIGN_BLOCK.get())
+                .add(ModBlocks.BIO_HAZARD_SIGN_BLOCK.get())
+                .add(ModBlocks.EXPLOSION_HAZARD_SIGN_BLOCK.get())
+                .add(ModBlocks.FIRE_HAZARD_SIGN_BLOCK.get())
+                .add(ModBlocks.ACID_HAZARD_SIGN_BLOCK.get())
+                .add(ModBlocks.MAGIC_HAZARD_SIGN_BLOCK.get())
+                .add(ModBlocks.FROST_HAZARD_SIGN_BLOCK.get())
+                .add(ModBlocks.NOISE_HAZARD_SIGN_BLOCK.get())
         ;
 
         tag(BlockTags.NEEDS_STONE_TOOL)
@@ -133,7 +146,7 @@ public class Tags extends BlockTagsProvider {
                 .add(ModBlocks.ADVANCED_SOLAR_GENERATOR.get())
                 .add(ModBlocks.HYBRID_SOLAR_GENERATOR.get())
                 .add(ModBlocks.QUANTUM_SOLAR_GENERATOR.get())
-                .add(ModBlocks.CRYSTALLINE_GENERATOR.get())
+//                .add(ModBlocks.CRYSTALLINE_GENERATOR.get())
                 .add(ModBlocks.SEMIFLUID_GENERATOR.get())
 
                 .add(ModBlocks.CESU.get())
@@ -159,7 +172,8 @@ public class Tags extends BlockTagsProvider {
                 .add(ModBlocks.PATTERN_STORAGE.get())
                 .add(ModBlocks.SCANNER.get())
                 .add(ModBlocks.REPLICATOR.get())
-                .add(ModBlocks.TELEPORTER.get())
+                .add(ModBlocks.TELEPORT_ANCHOR.get())
+                .add(ModBlocks.METAL_FORMER.get())
 
                 .add(ModBlocks.COPPER_CABLE.get())
                 .add(ModBlocks.COPPER_CABLE_INSULATED.get())
@@ -200,6 +214,17 @@ public class Tags extends BlockTagsProvider {
                 .add(ModBlocks.MV_TRANSFORMER.get())
                 .add(ModBlocks.HV_TRANSFORMER.get())
                 .add(ModBlocks.EV_TRANSFORMER.get())
+
+                .add(ModBlocks.YELLOW_STRIPES_BLOCK_LEFT.get())
+                .add(ModBlocks.YELLOW_STRIPES_BLOCK_RIGHT.get())
+                .add(ModBlocks.RADIOACTIVE_HAZARD_SIGN_BLOCK.get())
+                .add(ModBlocks.BIO_HAZARD_SIGN_BLOCK.get())
+                .add(ModBlocks.EXPLOSION_HAZARD_SIGN_BLOCK.get())
+                .add(ModBlocks.FIRE_HAZARD_SIGN_BLOCK.get())
+                .add(ModBlocks.ACID_HAZARD_SIGN_BLOCK.get())
+                .add(ModBlocks.MAGIC_HAZARD_SIGN_BLOCK.get())
+                .add(ModBlocks.FROST_HAZARD_SIGN_BLOCK.get())
+                .add(ModBlocks.NOISE_HAZARD_SIGN_BLOCK.get())
         ;
 
         tag(BlockTags.NEEDS_IRON_TOOL)
@@ -207,6 +232,8 @@ public class Tags extends BlockTagsProvider {
                 .add(ModBlocks.DEEPSLATE_LEAD_ORE.get())
                 .add(ModBlocks.DEEPSLATE_URANIUM_ORE.get())
         ;
+
+
     }
 
     @Override

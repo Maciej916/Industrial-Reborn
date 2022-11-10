@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "indreb:scanner/nether_quartz_ore"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "nether_quartz_ore": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:nether_quartz_ore"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "nether_quartz_ore",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "indreb:scanner/nether_quartz_ore"
+    ]
+  }
+}

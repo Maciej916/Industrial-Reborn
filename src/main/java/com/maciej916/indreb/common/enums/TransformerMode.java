@@ -10,14 +10,14 @@ public enum TransformerMode {
         this.mode = mode;
     }
 
-    public int getMode() {
+    public int getModeFromId() {
         return mode;
     }
 
-    public static TransformerMode getMode(int i) {
+    public static TransformerMode getModeFromId(int i) {
         TransformerMode[] currencies = TransformerMode.values();
         for (TransformerMode mode : currencies) {
-            if (mode.getMode() == i) {
+            if (mode.getModeFromId() == i) {
                 return mode;
             }
         }

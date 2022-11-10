@@ -51,7 +51,7 @@ public class Cutter extends RecipeProvider {
                 .save(consumer, saveResource("gold_cable"));
 
 
-        ShapelessRecipeBuilder.shapeless(ModBlocks.HV_CABLE.get(), 3)
+        ShapelessRecipeBuilder.shapeless(ModBlocks.HV_CABLE.get(), 4)
                 .requires(ModItems.CUTTER.get())
                 .requires(ItemTags.create(new ResourceLocation("forge", "plates/iron")))
                 .group(MODID)

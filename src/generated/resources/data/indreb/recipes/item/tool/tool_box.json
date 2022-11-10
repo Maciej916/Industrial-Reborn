@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "indreb_tool",
+  "key": {
+    "b": {
+      "tag": "forge:plates/bronze"
+    },
+    "c": {
+      "item": "minecraft:chest"
+    }
+  },
+  "pattern": [
+    "bcb",
+    "bbb",
+    "   "
+  ],
+  "result": {
+    "item": "indreb:tool_box"
+  }
+}

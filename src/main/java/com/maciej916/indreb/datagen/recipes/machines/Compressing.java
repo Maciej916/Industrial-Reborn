@@ -287,6 +287,41 @@ public class Compressing extends RecipeProvider {
                 .addCriterion("mud", InventoryChangeTrigger.TriggerInstance.hasItems(Items.MUD))
                 .save(consumer, "packed_mud");
 
+        RecipeBuilderCompressing.builder(Items.AMETHYST_BLOCK,1)
+                .setIngredient(Ingredient.of(ItemTags.create(new ResourceLocation("forge", "gems/amethyst"))), 4)
+                .setGroup("compressing/block")
+                .addCriterion("amethyst_shard", InventoryChangeTrigger.TriggerInstance.hasItems(Items.AMETHYST_SHARD))
+                .save(consumer, "amethyst_block");
+
+        RecipeBuilderCompressing.builder(Blocks.RAW_COPPER_BLOCK,1)
+                .setIngredient(Ingredient.of(ItemTags.create(new ResourceLocation("forge", "raw_materials/copper"))), 9)
+                .setGroup("compressing/block")
+                .addCriterion("raw_copper", InventoryChangeTrigger.TriggerInstance.hasItems(Items.RAW_COPPER))
+                .save(consumer, "raw_copper_block");
+
+        RecipeBuilderCompressing.builder(Blocks.RAW_GOLD_BLOCK,1)
+                .setIngredient(Ingredient.of(ItemTags.create(new ResourceLocation("forge", "raw_materials/gold"))), 9)
+                .setGroup("compressing/block")
+                .addCriterion("raw_gold", InventoryChangeTrigger.TriggerInstance.hasItems(Items.RAW_GOLD))
+                .save(consumer, "raw_gold_block");
+
+        RecipeBuilderCompressing.builder(Blocks.RAW_IRON_BLOCK,1)
+                .setIngredient(Ingredient.of(ItemTags.create(new ResourceLocation("forge", "raw_materials/iron"))), 9)
+                .setGroup("compressing/block")
+                .addCriterion("raw_iron", InventoryChangeTrigger.TriggerInstance.hasItems(Items.RAW_IRON))
+                .save(consumer, "raw_iron_block");
+
+        RecipeBuilderCompressing.builder(Items.RED_SANDSTONE, 1)
+                .setIngredient(Ingredient.of(Items.RED_SAND), 4)
+                .addCriterion("sand", InventoryChangeTrigger.TriggerInstance.hasItems(Items.RED_SAND))
+                .setGroup("compressing/block")
+                .save(consumer,"red_sandstone");
+
+        RecipeBuilderCompressing.builder(ModItems.LAPIS_LAZULI_PLATE.get(), 1)
+                .setIngredient(ItemTags.create(new ResourceLocation("forge", "dusts/lapis")), 1)
+                .addCriterion("lapis_lazuli_dust", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.LAPIS_LAZULI_DUST.get()))
+                .setGroup("compressing/plate")
+                .save(consumer,"lapis_lazuli_plate");
     }
 
 }

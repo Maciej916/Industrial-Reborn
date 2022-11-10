@@ -19,9 +19,13 @@ import com.maciej916.indreb.common.block.impl.machines.fermenter.ScreenFermenter
 import com.maciej916.indreb.common.block.impl.machines.fluid_enricher.ScreenFluidEnricher;
 import com.maciej916.indreb.common.block.impl.machines.iron_furnace.ScreenIronFurnace;
 import com.maciej916.indreb.common.block.impl.machines.matter_fabricator.ScreenMatterFabricator;
+import com.maciej916.indreb.common.block.impl.machines.metal_former.ScreenMetalFormer;
 import com.maciej916.indreb.common.block.impl.machines.ore_washing_plant.ScreenOreWashingPlant;
+import com.maciej916.indreb.common.block.impl.machines.pattern_storage.ScreenPatternStorage;
 import com.maciej916.indreb.common.block.impl.machines.recycler.ScreenRecycler;
+import com.maciej916.indreb.common.block.impl.machines.replicator.ScreenReplicator;
 import com.maciej916.indreb.common.block.impl.machines.sawmill.ScreenSawmill;
+import com.maciej916.indreb.common.block.impl.machines.scanner.ScreenScanner;
 import com.maciej916.indreb.common.block.impl.machines.thermal_centrifuge.ScreenThermalCentrifuge;
 import com.maciej916.indreb.common.block.impl.transformer.ScreenTransformer;
 import com.maciej916.indreb.common.client.keys.ModKeys;
@@ -30,15 +34,13 @@ import com.maciej916.indreb.common.client.renderer.ITntRenderer;
 import com.maciej916.indreb.common.fluid.*;
 import com.maciej916.indreb.common.item.base.ElectricItem;
 import com.maciej916.indreb.common.item.base.FluidItem;
+import com.maciej916.indreb.common.item.impl.MemoryCardItem;
 import com.maciej916.indreb.common.item.impl.nano.ItemNanosaber;
 import com.maciej916.indreb.common.item.impl.upgrade.ItemDirectionalUpgrade;
 import com.maciej916.indreb.common.registries.ModBlocks;
 import com.maciej916.indreb.common.registries.ModEntityTypes;
 import com.maciej916.indreb.common.registries.ModMenuTypes;
 import com.maciej916.indreb.common.registries.ModItems;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.color.block.BlockColors;
-import net.minecraft.client.color.item.ItemColors;
 import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.client.renderer.BiomeColors;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
@@ -48,18 +50,13 @@ import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.level.FoliageColor;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.RegisterColorHandlersEvent;
 import net.minecraftforge.client.event.RegisterKeyMappingsEvent;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
-
-import java.util.Objects;
 
 @Mod.EventBusSubscriber(modid = IndReb.MODID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
 public final class ClientModEventSubscriber {
@@ -78,7 +75,7 @@ public final class ClientModEventSubscriber {
 	@SubscribeEvent
 	public static void registerItemColor(RegisterColorHandlersEvent.Item event) {
 		event.register((stack, tintIndex) -> event.getBlockColors().getColor(((BlockItem)stack.getItem()).getBlock().defaultBlockState(), null, null, tintIndex), ModBlocks.RUBBER_LEAVES.get());
-		event.register((stack, tintIndex) -> ((FluidItem) ModItems.FLUID_CELL.get()).getColor(stack, tintIndex), ModItems.FLUID_CELL.get());
+		event.register(new FluidItem.Colors(), ModItems.FLUID_CELL.get());
 	}
 
 	@SubscribeEvent
@@ -115,6 +112,10 @@ public final class ClientModEventSubscriber {
 			MenuScreens.register(ModMenuTypes.ORE_WASHING_PLANT.get(), ScreenOreWashingPlant::new);
 			MenuScreens.register(ModMenuTypes.MATTER_FABRICATOR.get(), ScreenMatterFabricator::new);
 			MenuScreens.register(ModMenuTypes.THERMAL_CENTRIFUGE.get(), ScreenThermalCentrifuge::new);
+			MenuScreens.register(ModMenuTypes.PATTERN_STORAGE.get(), ScreenPatternStorage::new);
+			MenuScreens.register(ModMenuTypes.SCANNER.get(), ScreenScanner::new);
+			MenuScreens.register(ModMenuTypes.REPLICATOR.get(), ScreenReplicator::new);
+			MenuScreens.register(ModMenuTypes.METAL_FORMER.get(), ScreenMetalFormer::new);
 
 			//	TODO Change in model
 			ItemBlockRenderTypes.setRenderLayer(ModBlocks.REINFORCED_GLASS.get(), RenderType.translucent());

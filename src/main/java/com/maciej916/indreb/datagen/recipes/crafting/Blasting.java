@@ -79,6 +79,10 @@ public class Blasting extends RecipeProvider {
         SimpleCookingRecipeBuilder.blasting(Ingredient.of(ModBlocks.DEEPSLATE_URANIUM_ORE.get()), ModItems.URANIUM_INGOT.get(), 1.5f, 100)
                 .unlockedBy("deepslate_uranium_ore", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.DEEPSLATE_URANIUM_ORE.get()))
                 .save(consumer, saveResource("uranium"));
+
+        SimpleCookingRecipeBuilder.blasting(Ingredient.of(ModItems.URANIUM_DUST.get()), ModItems.URANIUM_INGOT.get(), 1.5f, 100)
+                .unlockedBy("uranium_dust", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.URANIUM_DUST.get()))
+                .save(consumer, saveResource("uranium2"));
     }
 
 }

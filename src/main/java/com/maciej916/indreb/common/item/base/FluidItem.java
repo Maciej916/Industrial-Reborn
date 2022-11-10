@@ -18,7 +18,7 @@ import org.jetbrains.annotations.NotNull;
 import javax.annotation.Nullable;
 import java.util.List;
 
-public class FluidItem extends BaseItem implements ItemColor {
+public class FluidItem extends BaseItem {
     public FluidItem(Properties properties) {
         super(properties.setNoRepair());
     }
@@ -77,16 +77,18 @@ public class FluidItem extends BaseItem implements ItemColor {
         return FluidStack.EMPTY;
     }
 
-    @Override
-    public int getColor(@NotNull ItemStack stack, int tintIndex) {
-        if (tintIndex != 1) return 0xFFFFFFFF;
-        IFluidHandlerItem cap = CapabilityUtil.getCapabilityHelper(stack, ForgeCapabilities.FLUID_HANDLER_ITEM).getValue();
-        if (cap != null) {
-            FluidStack fluidStack = cap.getFluidInTank(1);
-            if (fluidStack.getFluid() != Fluids.EMPTY) {
-                return IClientFluidTypeExtensions.of(fluidStack.getFluid()).getTintColor(fluidStack);
+    public static class Colors implements ItemColor {
+        @Override
+        public int getColor(@NotNull ItemStack stack, int tintIndex) {
+            if (tintIndex != 1) return 0xFFFFFFFF;
+            IFluidHandlerItem cap = CapabilityUtil.getCapabilityHelper(stack, ForgeCapabilities.FLUID_HANDLER_ITEM).getValue();
+            if (cap != null) {
+                FluidStack fluidStack = cap.getFluidInTank(1);
+                if (fluidStack.getFluid() != Fluids.EMPTY) {
+                    return IClientFluidTypeExtensions.of(fluidStack.getFluid()).getTintColor(fluidStack);
+                }
             }
+            return 0xFFFFFFFF;
         }
-        return 0xFFFFFFFF;
     }
 }

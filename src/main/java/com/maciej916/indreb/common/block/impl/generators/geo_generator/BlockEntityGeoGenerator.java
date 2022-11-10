@@ -59,7 +59,7 @@ public class BlockEntityGeoGenerator extends IndRebBlockEntity implements ICoold
     }
 
     @Override
-    public void tickOperate(BlockState state) {
+    public void tickWork(BlockState state) {
         active = false;
         boolean updateState = false;
         getEnergyStorage().updateGenerated(0);
@@ -190,8 +190,8 @@ public class BlockEntityGeoGenerator extends IndRebBlockEntity implements ICoold
     }
 
     @Override
-    public void onBreak() {
+    public void onBreakServer() {
         for (LazyOptional<?> capability : capabilities) capability.invalidate();
-        super.onBreak();
+        super.onBreakServer();
     }
 }

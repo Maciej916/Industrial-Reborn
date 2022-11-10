@@ -72,7 +72,7 @@ public class BlockEntityElectricFurnace extends IndRebBlockEntity implements IEn
     }
 
     @Override
-    public void tickOperate(BlockState state) {
+    public void tickWork(BlockState state) {
         progress.clearChanged();
         active = false;
         getEnergyStorage().updateConsumed(0);
@@ -207,9 +207,9 @@ public class BlockEntityElectricFurnace extends IndRebBlockEntity implements IEn
     }
 
     @Override
-    public void onBreak() {
+    public void onBreakServer() {
         for (LazyOptional<?> capability : capabilities) capability.invalidate();
-        super.onBreak();
+        super.onBreakServer();
     }
 
     @Override

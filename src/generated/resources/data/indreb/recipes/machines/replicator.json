@@ -15,7 +15,7 @@
       "item": "indreb:reinforced_stone"
     },
     "t": {
-      "item": "indreb:teleporter"
+      "item": "indreb:teleport_anchor"
     }
   },
   "pattern": [

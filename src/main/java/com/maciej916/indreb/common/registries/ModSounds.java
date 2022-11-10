@@ -29,6 +29,10 @@ public final class ModSounds {
     public static final RegistryObject<SoundEvent> CANNING_MACHINE = registerSound("tile.canning_machine");
     public static final RegistryObject<SoundEvent> MATTER_FABRICATOR = registerSound("tile.matter_fabricator");
     public static final RegistryObject<SoundEvent> ORE_WASHING_PLANT = registerSound("tile.ore_washing_plant");
+    public static final RegistryObject<SoundEvent> METAL_FORMER = registerSound("tile.metal_former");
+    public static final RegistryObject<SoundEvent> REPLICATOR = registerSound("tile.replicator");
+    public static final RegistryObject<SoundEvent> SCANNER = registerSound("tile.scanner");
+    public static final RegistryObject<SoundEvent> THERMAL_CENTRIFUGE = registerSound("tile.thermal_centrifuge");
 
     public static final RegistryObject<SoundEvent> TREETAP = registerSound("item.treetap");
     public static final RegistryObject<SoundEvent> WRENCH = registerSound("item.wrench");

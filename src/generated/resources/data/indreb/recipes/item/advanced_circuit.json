@@ -9,7 +9,7 @@
       "item": "minecraft:glowstone_dust"
     },
     "l": {
-      "item": "minecraft:lapis_lazuli"
+      "tag": "forge:plates/lapis"
     },
     "r": {
       "item": "minecraft:redstone"

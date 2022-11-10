@@ -12,6 +12,7 @@ import com.maciej916.indreb.common.interfaces.entity.IElectricSlot;
 import com.maciej916.indreb.common.interfaces.entity.IExpCollector;
 import com.maciej916.indreb.common.interfaces.entity.ISupportUpgrades;
 import com.maciej916.indreb.common.interfaces.entity.ITileSound;
+import com.maciej916.indreb.common.interfaces.receipe.IBaseRecipe;
 import com.maciej916.indreb.common.recipe.impl.OreWashingRecipe;
 import com.maciej916.indreb.common.registries.ModBlockEntities;
 import com.maciej916.indreb.common.registries.ModRecipeType;
@@ -25,6 +26,7 @@ import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraftforge.common.capabilities.Capability;
@@ -82,6 +84,11 @@ public class BlockEntityOreWashingPlant extends IndRebBlockEntity implements IEn
         return Optional.empty();
     }
 
+    @Override
+    public float getExperience(Recipe<?> recipe) {
+        return ((OreWashingRecipe) recipe).getExperience();
+    }
+
     private boolean isValidInput(final ItemStack stack) {
         if (stack.isEmpty()) return false;
         return getRawRecipe(stack).isPresent();
@@ -137,7 +144,7 @@ public class BlockEntityOreWashingPlant extends IndRebBlockEntity implements IEn
     }
 
     @Override
-    public void tickOperate(BlockState state) {
+    public void tickWork(BlockState state) {
         active = false;
         boolean updateState = false;
         getEnergyStorage().updateConsumed(0);
@@ -342,9 +349,9 @@ public class BlockEntityOreWashingPlant extends IndRebBlockEntity implements IEn
     }
 
     @Override
-    public void onBreak() {
+    public void onBreakServer() {
         for (LazyOptional<?> capability : capabilities) capability.invalidate();
-        super.onBreak();
+        super.onBreakServer();
     }
 
     @Override

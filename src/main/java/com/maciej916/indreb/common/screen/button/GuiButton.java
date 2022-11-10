@@ -16,8 +16,8 @@ public class GuiButton extends GuiElement {
 
     private final GuiSprite buttonSprite;
 
-    private final Runnable onLeftClick;
-    private final Runnable onRightClick;
+    protected final Runnable onLeftClick;
+    protected final Runnable onRightClick;
 
     public GuiButton(IGuiWrapper wrapper, int leftOffset, int topOffset, GuiSprite buttonSprite, @Nullable Runnable onLeftClick, @Nullable Runnable onRightClick) {
         super(wrapper, buttonSprite.getWidth(), buttonSprite.getHeight(), leftOffset, topOffset);
@@ -45,7 +45,7 @@ public class GuiButton extends GuiElement {
         return false;
     }
 
-    private boolean onLeftClick() {
+    protected boolean onLeftClick() {
         if (onLeftClick != null) {
             onLeftClick.run();
             playDownSound(Minecraft.getInstance().getSoundManager());

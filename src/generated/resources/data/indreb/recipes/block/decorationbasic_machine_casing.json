@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "indreb_decoration",
+  "ingredients": [
+    {
+      "tag": "indreb:base_machine_sign"
+    }
+  ],
+  "result": {
+    "item": "indreb:basic_machine_casing"
+  }
+}

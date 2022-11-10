@@ -1,12 +1,24 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "AMETHYST_SHARD": {
+    "amethyst_shard": {
       "conditions": {
         "items": [
           {
             "items": [
               "minecraft:amethyst_shard"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "carbon_plate": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:carbon_plate"
             ]
           }
         ]
@@ -48,7 +60,8 @@
     [
       "iron_plate",
       "electronic_circuit",
-      "AMETHYST_SHARD",
+      "carbon_plate",
+      "amethyst_shard",
       "has_the_recipe"
     ]
   ],

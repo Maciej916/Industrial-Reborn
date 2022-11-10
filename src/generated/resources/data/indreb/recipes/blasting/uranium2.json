@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:blasting",
+  "cookingtime": 100,
+  "experience": 1.5,
+  "ingredient": {
+    "item": "indreb:uranium_dust"
+  },
+  "result": "indreb:uranium_ingot"
+}

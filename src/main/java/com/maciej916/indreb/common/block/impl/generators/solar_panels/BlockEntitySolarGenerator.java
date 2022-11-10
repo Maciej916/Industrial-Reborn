@@ -37,7 +37,7 @@ public class BlockEntitySolarGenerator extends IndRebBlockEntity implements IEne
     }
 
     @Override
-    public void tickOperate(BlockState state) {
+    public void tickWork(BlockState state) {
         active = false;
         amount = 0;
         getEnergyStorage().updateGenerated(0);

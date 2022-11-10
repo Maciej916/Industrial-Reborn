@@ -18,7 +18,6 @@ public class BaseScreen <T extends IndRebMenu> extends AbstractContainerScreen<T
     public BaseScreen(T container, Inventory inventory, Component component) {
         super(container, inventory, component);
         this.container = container;
-        this.imageHeight = 234;
     }
 
     public T getContainer() {
@@ -35,13 +34,6 @@ public class BaseScreen <T extends IndRebMenu> extends AbstractContainerScreen<T
         return null;
     }
 
-    @Override
-    protected void init() {
-        super.init();
-        this.leftPos = (this.width - this.imageWidth) / 2;
-        this.topPos = ((this.height - this.imageHeight) / 2) + 34;
-    }
-
     protected void renderBg(PoseStack poseStack, float partialTicks, int mouseX, int mouseY) {
         RenderSystem.setShader(GameRenderer::getPositionTexShader);
         RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
@@ -51,8 +43,6 @@ public class BaseScreen <T extends IndRebMenu> extends AbstractContainerScreen<T
 
     protected void renderLabels(PoseStack poseStack, int mouseX, int mouseY) {
         super.renderLabels(poseStack, mouseX, mouseY);
-//        this.font.draw(poseStack, this.getTitle(), 8.0F, 6.0F, 4210752);
-//        this.font.draw(poseStack, Component.translatable("container.inventory"), 8.0F, 128.0F, 4210752);
     }
 
     public void render(PoseStack poseStack, int mouseX, int mouseY, float partialTicks) {

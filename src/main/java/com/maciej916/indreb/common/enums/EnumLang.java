@@ -36,6 +36,11 @@ public enum EnumLang {
     HEAT("heat", "gui"),
     ARMOUR("armour", "gui"),
 
+    REPLICATION_ITEM("scanner.replication_item", "gui"),
+    REPLICATION_EMPTY("scanner.replication_empty", "gui"),
+    MATTER_COST("scanner.matter_cost", "gui"),
+    ENERGY_COST("scanner.energy_cost", "gui"),
+
     SUPPORTED_UPGRADES("supported_upgrades", "gui"),
     OVERCLOCKER_UPGRADE("overclocker_upgrade", "item"),
     TRANSFORMER_UPGRADE("transformer_upgrade", "item"),
@@ -45,6 +50,16 @@ public enum EnumLang {
     PULLING_UPGRADE("pulling_upgrade", "item"),
     FLUID_EJECTOR_UPGRADE("fluid_ejector_upgrade", "item"),
     FLUID_PULLING_UPGRADE("fluid_pulling_upgrade", "item"),
+
+    LAST_PATTERN("last_pattern", "tooltip"),
+    NEXT_PATTERN("next_pattern", "tooltip"),
+    EXPORT_MEMORY("export_memory", "tooltip"),
+    IMPORT_MEMORY("import_memory", "tooltip"),
+    CLEAR_PATTERN("clear_pattern", "tooltip"),
+    SAVE_PATTERN("save_pattern", "tooltip"),
+    STOP_REPLICATION("stop_replication", "tooltip"),
+    SINGLE_RUN("single_run", "tooltip"),
+    REPEAT_RUN("repeat_run", "tooltip"),
 
     CHANCE("chance", "jei");
 

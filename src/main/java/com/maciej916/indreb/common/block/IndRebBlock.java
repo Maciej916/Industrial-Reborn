@@ -119,19 +119,23 @@ public class IndRebBlock extends Block {
     }
 
     @Override
-    public void onRemove(BlockState pState, Level pLevel, BlockPos pPos, BlockState pNewState, boolean pIsMoving) {
-        if (pState.getBlock() != pNewState.getBlock() && pState.hasBlockEntity()) {
-            BlockEntity be = pLevel.getBlockEntity(pPos);
+    public void onRemove(BlockState blockState, Level level, BlockPos blockPos, BlockState newState, boolean isMoving) {
+        if (blockState.getBlock() != newState.getBlock() && blockState.hasBlockEntity()) {
+            BlockEntity be = level.getBlockEntity(blockPos);
             if (be instanceof IndRebBlockEntity ibe) {
-                ibe.onBreak();
+                if (level.isClientSide()) {
+                    ibe.onBreakClient();
+                } else {
+                    ibe.onBreakServer();
+                }
             }
 
             if (be instanceof IEnergyBlock) {
-                CapabilityUtil.getCapabilityHelper(pLevel, ModCapabilities.ENERGY_CORE).ifPresent(e -> e.removeEnergyBlock(pPos));
+                CapabilityUtil.getCapabilityHelper(level, ModCapabilities.ENERGY_CORE).ifPresent(e -> e.removeEnergyBlock(blockPos));
             }
         }
 
-        super.onRemove(pState, pLevel, pPos, pNewState, pIsMoving);
+        super.onRemove(blockState, level, blockPos, newState, isMoving);
     }
 
     @Override

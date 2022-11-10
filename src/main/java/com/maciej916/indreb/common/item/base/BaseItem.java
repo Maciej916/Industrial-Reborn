@@ -12,7 +12,7 @@ import net.minecraftforge.fml.common.Mod;
 import java.util.HashMap;
 
 public class BaseItem extends Item {
-    public static final HashMap<BaseItem, int[]> COLORED_ITEMS = new HashMap<>();
+public static final HashMap<BaseItem, int[]> COLORED_ITEMS = new HashMap<>();
 
     public BaseItem(Properties properties) {
         super(properties.tab(ModItemGroups.MAIN_ITEM_GROUP));

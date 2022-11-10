@@ -73,7 +73,7 @@ public class BlockChargePad extends IndRebEntityBlock implements IStateFacing, I
     }
 
     @OnlyIn(Dist.CLIENT)
-    public void animateTick(BlockState stateIn, Level worldIn, BlockPos pos, Random rand) {
+    public void animateTick(BlockState stateIn, Level worldIn, BlockPos pos, RandomSource rand) {
         if (stateIn.getValue(BlockStateHelper.activeProperty)) {
             RandomSource random = worldIn.getRandom();
             for (int i = 0; i < 20; i++) {

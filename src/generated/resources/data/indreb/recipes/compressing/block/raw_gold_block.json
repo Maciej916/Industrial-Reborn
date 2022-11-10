@@ -1,0 +1,13 @@
+{
+  "type": "indreb:compressing",
+  "duration": 180,
+  "experience": 0.0,
+  "ingredient": {
+    "count": 9,
+    "tag": "forge:raw_materials/gold"
+  },
+  "power_cost": 8,
+  "result": {
+    "item": "minecraft:raw_gold_block"
+  }
+}

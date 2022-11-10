@@ -4,6 +4,7 @@ import com.maciej916.indreb.datagen.client.BlockStates;
 import com.maciej916.indreb.datagen.client.Items;
 import com.maciej916.indreb.datagen.loottables.DungeonLootModifier;
 import com.maciej916.indreb.datagen.loottables.ModLootTables;
+import com.maciej916.indreb.datagen.recipes.advanced_crafting.shaped.ItemsA;
 import com.maciej916.indreb.datagen.recipes.crafting.*;
 import com.maciej916.indreb.datagen.recipes.machines.*;
 import com.maciej916.indreb.datagen.tags.Tags;
@@ -19,6 +20,9 @@ public class DataGenerators {
     @SubscribeEvent
     public static void gatherData(GatherDataEvent event) {
         DataGenerator generator = event.getGenerator();
+
+        // TEST
+        generator.addProvider(event.includeServer(), new ItemsA(generator));
 
         generator.addProvider(event.includeServer(), new Cables(generator));
         generator.addProvider(event.includeServer(), new Cutter(generator));
@@ -40,12 +44,13 @@ public class DataGenerators {
         generator.addProvider(event.includeServer(), new Reactor(generator));
         generator.addProvider(event.includeServer(), new Transformers(generator));
         generator.addProvider(event.includeServer(), new ChargePads(generator));
+        generator.addProvider(event.includeServer(), new Decoration(generator));
 
         generator.addProvider(event.includeServer(), new Crushing(generator));
         generator.addProvider(event.includeServer(), new Extracting(generator));
         generator.addProvider(event.includeServer(), new Compressing(generator));
         generator.addProvider(event.includeServer(), new Sawing(generator));
-        generator.addProvider(event.includeServer(), new Extruding(generator));
+        generator.addProvider(event.includeServer(), new FluidExtruding(generator));
         generator.addProvider(event.includeServer(), new AlloySmelting(generator));
         generator.addProvider(event.includeServer(), new Recycling(generator));
         generator.addProvider(event.includeServer(), new ScrapBox(generator));
@@ -53,6 +58,10 @@ public class DataGenerators {
         generator.addProvider(event.includeServer(), new FluidEnriching(generator));
         generator.addProvider(event.includeServer(), new OreWashing(generator));
         generator.addProvider(event.includeServer(), new ThermalCentrifuging(generator));
+        generator.addProvider(event.includeServer(), new Scanner(generator));
+        generator.addProvider(event.includeServer(), new Rolling(generator));
+        generator.addProvider(event.includeServer(), new Cutting(generator));
+        generator.addProvider(event.includeServer(), new Extruding(generator));
 
         generator.addProvider(event.includeServer(), new ModLootTables(generator));
 

@@ -22,8 +22,8 @@ public class ScreenExtruder extends BetterScreen<MenuExtruder> {
 
         BlockEntityExtruder be = (BlockEntityExtruder) getBlockEntity();
 
-        addRenderableComponent(new GuiForwardButton(this, 99, 61, be.prevRecipe()));
-        addRenderableComponent(new GuiBackwardButton(this, 65, 61, be.nextRecipe()));
+        addRenderableComponent(new GuiForwardButton(this, 99, 61, be.prevRecipe(), null));
+        addRenderableComponent(new GuiBackwardButton(this, 65, 61, be.nextRecipe(), null));
         addRenderableOnlyComponent(new GuiProgressExtracting(this, 76, 35, be.progress));
         addRenderableOnlyComponent(new GuiFluidBarVertical(this, 44, 18, be.lavaStorage));
         addRenderableOnlyComponent(new GuiFluidBarVertical(this, 7, 18, be.waterStorage));

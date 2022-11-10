@@ -15,7 +15,7 @@ import com.maciej916.indreb.common.interfaces.entity.ISupportUpgrades;
 import com.maciej916.indreb.common.interfaces.entity.ITileSound;
 import com.maciej916.indreb.common.network.ModNetworking;
 import com.maciej916.indreb.common.network.packet.PacketExtruderRecipe;
-import com.maciej916.indreb.common.recipe.impl.ExtrudingRecipe;
+import com.maciej916.indreb.common.recipe.impl.FluidExtrudingRecipe;
 import com.maciej916.indreb.common.registries.ModBlockEntities;
 import com.maciej916.indreb.common.registries.ModRecipeType;
 import com.maciej916.indreb.common.registries.ModSounds;
@@ -52,14 +52,14 @@ public class BlockEntityExtruder extends IndRebBlockEntity implements IEnergyBlo
     public BlockEntityProgress progress = new BlockEntityProgress();
 
     protected int recipeIndex = 0;
-    protected static List<ExtrudingRecipe> recipes;
-    protected ExtrudingRecipe recipe;
+    protected static List<FluidExtrudingRecipe> recipes;
+    protected FluidExtrudingRecipe recipe;
 
     private boolean active = false;
 
     public void setRecipe(int index) {
         if (level != null) {
-            this.recipe = Objects.requireNonNullElseGet(recipes, () -> level.getRecipeManager().getAllRecipesFor(ModRecipeType.EXTRUDING.get())).get(index);
+            this.recipe = Objects.requireNonNullElseGet(recipes, () -> level.getRecipeManager().getAllRecipesFor(ModRecipeType.FLUID_EXTRUDING.get())).get(index);
             getStackHandler().setStackInSlot(INPUT_SLOT, this.recipe.getResultItem());
             progress.setBoth(-1);
         }
@@ -103,7 +103,7 @@ public class BlockEntityExtruder extends IndRebBlockEntity implements IEnergyBlo
     }
 
     public void initRecipes() {
-        recipes = Objects.requireNonNull(getLevel()).getRecipeManager().getAllRecipesFor(ModRecipeType.EXTRUDING.get());
+        recipes = Objects.requireNonNull(getLevel()).getRecipeManager().getAllRecipesFor(ModRecipeType.FLUID_EXTRUDING.get());
     }
 
     public void changeRecipe(boolean next) {
@@ -122,7 +122,7 @@ public class BlockEntityExtruder extends IndRebBlockEntity implements IEnergyBlo
     }
 
     @Override
-    public void tickOperate(BlockState state) {
+    public void tickWork(BlockState state) {
         active = false;
         getEnergyStorage().updateConsumed(0);
 
@@ -216,7 +216,7 @@ public class BlockEntityExtruder extends IndRebBlockEntity implements IEnergyBlo
 
     @Override
     public float getExperience(Recipe<?> recipe) {
-        return ((ExtrudingRecipe) recipe).getExperience();
+        return ((FluidExtrudingRecipe) recipe).getExperience();
     }
 
     @Override
@@ -263,9 +263,9 @@ public class BlockEntityExtruder extends IndRebBlockEntity implements IEnergyBlo
     }
 
     @Override
-    public void onBreak() {
+    public void onBreakServer() {
         for (LazyOptional<?> capability : capabilities) capability.invalidate();
-        super.onBreak();
+        super.onBreakServer();
     }
 
     @Override

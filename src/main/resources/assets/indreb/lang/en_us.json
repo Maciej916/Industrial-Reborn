@@ -31,6 +31,22 @@
   "gui.indreb.can_operate_in": "Can operate in %ss",
   "gui.indreb.can_operate": "This machine is ready!",
 
+  "gui.indreb.scanner.replication_cost": "Replication cost:",
+  "gui.indreb.scanner.replication_empty": "Empty",
+  "gui.indreb.scanner.item": "Name:",
+  "gui.indreb.scanner.matter_cost": "Matter:",
+  "gui.indreb.scanner.energy_cost": "Energy:",
+  "gui.indreb.scanner.no_power": "Error: No power",
+  "gui.indreb.scanner.idle": "Idle...",
+  "gui.indreb.scanner.no_storage": "Error: No storage",
+  "gui.indreb.scanner.progress": "Scan progress: %s",
+  "gui.indreb.scanner.result": "Scan complete",
+  "gui.indreb.scanner.already_recorded": "Error: Already stored",
+  "gui.indreb.scanner.transfer_no_storage": "Error: No storage",
+  "gui.indreb.replicator.waiting": "Waiting...",
+  "gui.indreb.replicator.single_run": "> Progress: %s",
+  "gui.indreb.replicator.repeat_run": ">> Progress: %s",
+
   "_comment": "Block",
   "block.indreb.generator": "Generator",
   "block.indreb.geo_generator": "Geothermal Generator",
@@ -57,8 +73,9 @@
   "block.indreb.thermal_centrifuge": "Thermal Centrifuge",
   "block.indreb.scanner": "Scanner",
   "block.indreb.replicator": "Replicator",
-  "block.indreb.teleporter": "Teleporter",
+  "block.indreb.teleport_anchor": "Teleport Anchor",
   "block.indreb.pattern_storage": "Pattern Storage",
+  "block.indreb.metal_former": "Metal Former",
 
   "block.indreb.tin_ore": "Tin Ore",
   "block.indreb.deepslate_tin_ore": "Deepslate Tin Ore",
@@ -106,6 +123,17 @@
   "block.indreb.reinforced_stone_slab": "Reinforced Stone Slab",
   "block.indreb.reinforced_stone_stairs": "Reinforced Stone Stairs",
 
+  "block.indreb.yellow_stripes_block_left": "Yellow Stripes Block (Left)",
+  "block.indreb.yellow_stripes_block_right": "Yellow Stripes Block (Right)",
+  "block.indreb.radioactive_hazard_sign_block": "Radioactive Hazard Sign Block",
+  "block.indreb.bio_hazard_sign_block": "Bio Hazard Sign Block",
+  "block.indreb.explosion_hazard_sign_block": "Explosion Hazard Sign Block",
+  "block.indreb.fire_hazard_sign_block": "Fire Hazard Sign Block",
+  "block.indreb.acid_hazard_sign_block": "Acid Hazard Sign Block",
+  "block.indreb.magic_hazard_sign_block": "Magic Hazard Sign Block",
+  "block.indreb.frost_hazard_sign_block": "Frost Hazard Sign Block",
+  "block.indreb.noise_hazard_sign_block": "Noise Hazard Sign Block",
+
   "block.indreb.iron_scaffolding": "Iron Scaffolding",
   "block.indreb.iron_fence": "Iron Fence",
 
@@ -148,6 +176,7 @@
   "item.indreb.sulfur_dust": "Sulfur Dust",
   "item.indreb.mud_pile": "Mud Pile",
   "item.indreb.memory_card": "Memory Card",
+  "item.indreb.lapis_lazuli_dust": "Lapis Lazuli Dust",
 
   "item.indreb.basic_transporter": "Basic Transporter",
   "item.indreb.advanced_transporter": "Advanced Transporter",
@@ -173,6 +202,7 @@
   "item.indreb.bronze_plate": "Bronze Plate",
   "item.indreb.steel_plate": "Steel Plate",
   "item.indreb.iridium_plate": "Iridium Plate",
+  "item.indreb.lapis_lazuli_plate": "Lapis Lazuli Plate",
 
   "item.indreb.coal_dust": "Coal Dust",
   "item.indreb.diamond_dust": "Diamond Dust",
@@ -273,6 +303,7 @@
   "item.indreb.wrench": "Wrench",
   "item.indreb.hammer": "Hammer",
   "item.indreb.cutter": "Cutter",
+  "item.indreb.tool_box": "Tool Box",
 
   "item.indreb.charging_battery": "Charging Battery",
   "item.indreb.advanced_charging_battery": "Advanced Charging Battery",
@@ -371,7 +402,7 @@
   "jei.indreb.compressing": "Compressing",
   "jei.indreb.extracting": "Extracting",
   "jei.indreb.sawing": "Sawing",
-  "jei.indreb.extruding": "Extruding",
+  "jei.indreb.fluid_extruding": "Fluid Extruding",
   "jei.indreb.alloy_smelting": "Alloy Smelting",
   "jei.indreb.recycling": "Recycling",
   "jei.indreb.scrap_box": "Scrap Box",
@@ -379,6 +410,10 @@
   "jei.indreb.fluid_enriching": "Fluid Enriching",
   "jei.indreb.ore_washing": "Ore Washing",
   "jei.indreb.thermal_centrifuging": "Thermal Centrifuging",
+  "jei.indreb.scanner": "Scanner",
+  "jei.indreb.extruding": "Extruding",
+  "jei.indreb.rolling": "Rolling",
+  "jei.indreb.cutting": "Cutting",
 
   "jei.indreb.chance": "Chance: %s",
 
@@ -412,8 +447,17 @@
   "tooltip.indreb.stored_capacity": "Stored: %s Capacity: %s",
   "tooltip.indreb.low": "Low power tier: %s",
   "tooltip.indreb.high": "High power tier: %s",
-
   "tooltip.indreb.cable_unisolated": "This cable can electrocute you!",
+  "tooltip.indreb.clear_pattern": "Clear Scan Result",
+  "tooltip.indreb.save_pattern": "Save Scan Result",
+  "tooltip.indreb.last_pattern": "Previous Pattern",
+  "tooltip.indreb.next_pattern": "Next Pattern",
+  "tooltip.indreb.export_memory": "Export Pattern To Memory Card",
+  "tooltip.indreb.import_memory": "Import Pattern From Memory Card",
+  "tooltip.indreb.stop_replication": "Stop Replication",
+  "tooltip.indreb.single_run": "Single Run",
+  "tooltip.indreb.repeat_run": "Repeat Run",
+
 
   "_comment": "Upgrade",
   "item.indreb.overclocker_upgrade": "Overclocker Upgrade",

@@ -1,0 +1,13 @@
+{
+  "type": "indreb:scanner",
+  "duration": 500,
+  "experience": 5.0,
+  "item": {
+    "item": "minecraft:lapis_ore"
+  },
+  "power_cost": 256,
+  "replication": {
+    "energy_cost": 16,
+    "matter_cost": 68
+  }
+}

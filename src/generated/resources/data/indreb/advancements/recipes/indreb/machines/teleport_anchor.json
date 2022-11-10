@@ -1,0 +1,86 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "advanced_circuit": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:advanced_circuit"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "advanced_machine_casing": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:advanced_machine_casing"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "basic_transporter": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:basic_transporter"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "diamond": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:diamond"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "glass_fibre_cable": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:glass_fibre_cable"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "indreb:machines/teleport_anchor"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "advanced_circuit",
+      "basic_transporter",
+      "glass_fibre_cable",
+      "diamond",
+      "advanced_machine_casing",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "indreb:machines/teleport_anchor"
+    ]
+  }
+}

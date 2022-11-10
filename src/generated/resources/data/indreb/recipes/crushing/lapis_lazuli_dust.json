@@ -1,0 +1,13 @@
+{
+  "type": "indreb:crushing",
+  "duration": 180,
+  "experience": 0.4,
+  "ingredient": {
+    "count": 1,
+    "tag": "forge:gems/lapis"
+  },
+  "power_cost": 8,
+  "result": {
+    "item": "indreb:lapis_lazuli_dust"
+  }
+}

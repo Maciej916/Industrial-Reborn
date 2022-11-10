@@ -43,7 +43,8 @@ public class BlockEntityCrystallineGenerator extends IndRebBlockEntity implement
     public BlockEntityProgress progressBurn = new BlockEntityProgress();
 
     public BlockEntityCrystallineGenerator(BlockPos pWorldPosition, BlockState pBlockState) {
-        super(ModBlockEntities.CRYSTALLINE_GENERATOR.get(), pWorldPosition, pBlockState);
+//        super(ModBlockEntities.CRYSTALLINE_GENERATOR.get(), pWorldPosition, pBlockState);
+        super(null, pWorldPosition, pBlockState);
         createEnergyStorage(0, ServerConfig.generator_energy_capacity.get(), EnergyType.EXTRACT, EnergyTier.BASIC);
     }
 
@@ -55,7 +56,7 @@ public class BlockEntityCrystallineGenerator extends IndRebBlockEntity implement
 
 
     @Override
-    public void tickOperate(BlockState state) {
+    public void tickWork(BlockState state) {
         progressBurn.clearChanged();
         active = false;
 
@@ -160,8 +161,8 @@ public class BlockEntityCrystallineGenerator extends IndRebBlockEntity implement
     }
 
     @Override
-    public void onBreak() {
+    public void onBreakServer() {
         for (LazyOptional<?> capability : capabilities) capability.invalidate();
-        super.onBreak();
+        super.onBreakServer();
     }
 }

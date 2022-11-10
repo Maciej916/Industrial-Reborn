@@ -2,6 +2,7 @@ package com.maciej916.indreb.datagen.recipes.crafting;
 
 import com.maciej916.indreb.common.registries.ModBlocks;
 import com.maciej916.indreb.common.registries.ModItems;
+import com.maciej916.indreb.common.registries.ModTags;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.recipes.FinishedRecipe;
@@ -57,7 +58,7 @@ public class ItemElectric extends RecipeProvider {
                 .pattern("lel")
                 .pattern("lal")
                 .define('e', ModItems.ENERGY_CRYSTAL.get())
-                .define('l', Items.LAPIS_LAZULI)
+                .define('l', ModTags.FORGE_PLATES_LAPIS)
                 .define('a', ModItems.ADVANCED_CIRCUIT.get())
                 .group(MODID + "_item_electric")
                 .unlockedBy("energy_crystal", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.ENERGY_CRYSTAL.get()))

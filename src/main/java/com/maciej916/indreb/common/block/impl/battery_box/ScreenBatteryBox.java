@@ -17,7 +17,8 @@ public class ScreenBatteryBox extends BetterScreen<MenuBatteryBox> {
 
     public ScreenBatteryBox(MenuBatteryBox container, Inventory inv, Component name) {
         super(container, inv, name);
-        this.imageHeight = 266;
+        this.topPos = 0;
+        this.imageHeight = 198;
         this.inventoryLabelY = 104;
     }
 

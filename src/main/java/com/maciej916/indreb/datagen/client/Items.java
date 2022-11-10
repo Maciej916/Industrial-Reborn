@@ -25,6 +25,7 @@ public class Items extends ItemModelProvider {
         registerIngots();
         registerRods();
         registerPlates();
+        registerDecoration();
 
         registerDusts();
         registerPurified();
@@ -40,6 +41,7 @@ public class Items extends ItemModelProvider {
         registerRubber();
         registerGenerators();
         registerMachines();
+        registerMisc();
         registerBatteryBox();
         registerCrafting();
         registerCables();
@@ -110,6 +112,7 @@ public class Items extends ItemModelProvider {
         createGeneratedTexture(ModItems.STEEL_PLATE, "plate/steel");
         createGeneratedTexture(ModItems.COPPER_PLATE, "plate/copper");
         createGeneratedTexture(ModItems.LEAD_PLATE, "plate/lead");
+        createGeneratedTexture(ModItems.LAPIS_LAZULI_PLATE, "plate/lapis_lazuli");
     }
 
     protected void registerDusts() {
@@ -121,6 +124,7 @@ public class Items extends ItemModelProvider {
         createGeneratedTexture(ModItems.SAWDUST, "dust/sawdust");
         createGeneratedTexture(ModItems.SULFUR_DUST, "dust/sulfur");
         createGeneratedTexture(ModItems.MUD_PILE, "dust/mud_pile");
+        createGeneratedTexture(ModItems.LAPIS_LAZULI_DUST, "dust/lapis_lazuli");
 
         createGeneratedTexture(ModItems.TIN_DUST, "dust/tin");
         createGeneratedTexture(ModItems.COPPER_DUST, "dust/copper");
@@ -206,6 +210,7 @@ public class Items extends ItemModelProvider {
         createHandheldTexture(ModItems.TREETAP, "tool/treetap");
         createHandheldTexture(ModItems.FOAM_SPRAYER, "tool/foam_sprayer");
         createHandheldTexture(ModItems.DEBUG_STICK, "tool/debug_stick");
+        createHandheldTexture(ModItems.TOOL_BOX, "tool/tool_box");
     }
 
     protected void registerElectricTools() {
@@ -297,18 +302,36 @@ public class Items extends ItemModelProvider {
         createWithBlock(ModItems.EXTRACTOR, "machines/extractor");
         createWithBlock(ModItems.SAWMILL, "machines/sawmill");
         createWithBlock(ModItems.EXTRUDER, "machines/extruder");
-
         createWithBlock(ModItems.CANNING_MACHINE, "canning_machine");
-
         createWithBlock(ModItems.FLUID_ENRICHER, "fluid_enricher");
         createWithBlock(ModItems.FERMENTER, "fermenter");
-
         createWithBlock(ModItems.RECYCLER, "recycler");
         createWithBlock(ModItems.ORE_WASHING_PLANT, "ore_washing_plant");
-
         createWithBlock(ModItems.ALLOY_SMELTER, "alloy_smelter");
+        createWithBlock(ModItems.METAL_FORMER, "metal_former");
+
         createWithBlock(ModItems.MATTER_FABRICATOR, "matter_fabricator");
         createWithBlock(ModItems.THERMAL_CENTRIFUGE, "thermal_centrifuge");
+        createWithBlock(ModItems.SCANNER, "scanner");
+        createWithBlock(ModItems.REPLICATOR, "replicator");
+    }
+
+    protected void registerMisc() {
+        createWithBlock(ModItems.PATTERN_STORAGE, "pattern_storage");
+        createWithBlock(ModItems.TELEPORT_ANCHOR, "teleport_anchor");
+    }
+
+    protected void registerDecoration() {
+        createWithBlock(ModItems.YELLOW_STRIPES_BLOCK_LEFT, "yellow_stripes_block_left");
+        createWithBlock(ModItems.YELLOW_STRIPES_BLOCK_RIGHT, "yellow_stripes_block_right");
+        createWithBlock(ModItems.RADIOACTIVE_HAZARD_SIGN_BLOCK, "radioactive_hazard_sign_block");
+        createWithBlock(ModItems.BIO_HAZARD_SIGN_BLOCK, "bio_hazard_sign_block");
+        createWithBlock(ModItems.EXPLOSION_HAZARD_SIGN_BLOCK, "explosion_hazard_sign_block");
+        createWithBlock(ModItems.FIRE_HAZARD_SIGN_BLOCK, "fire_hazard_sign_block");
+        createWithBlock(ModItems.ACID_HAZARD_SIGN_BLOCK, "acid_hazard_sign_block");
+        createWithBlock(ModItems.MAGIC_HAZARD_SIGN_BLOCK, "magic_hazard_sign_block");
+        createWithBlock(ModItems.FROST_HAZARD_SIGN_BLOCK, "frost_hazard_sign_block");
+        createWithBlock(ModItems.NOISE_HAZARD_SIGN_BLOCK, "noise_hazard_sign_block");
     }
 
     protected void registerBatteryBox() {

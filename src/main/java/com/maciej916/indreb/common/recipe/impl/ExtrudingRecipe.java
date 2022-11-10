@@ -2,6 +2,7 @@ package com.maciej916.indreb.common.recipe.impl;
 
 import com.google.gson.JsonObject;
 import com.maciej916.indreb.common.interfaces.receipe.IBaseRecipe;
+import com.maciej916.indreb.common.interfaces.receipe.IRecipeSingleIngredient;
 import com.maciej916.indreb.common.registries.ModRecipeType;
 import com.maciej916.indreb.common.util.Cache;
 import com.maciej916.indreb.common.util.RecipeUtil;
@@ -14,21 +15,19 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.crafting.RecipeType;
+import net.minecraft.world.item.crafting.ShapedRecipe;
 import net.minecraft.world.level.Level;
 
 import javax.annotation.Nullable;
 
-public class ExtrudingRecipe implements IBaseRecipe {
+public class ExtrudingRecipe implements IRecipeSingleIngredient {
 
     public static final ExtrudingRecipe.Serializer SERIALIZER = new ExtrudingRecipe.Serializer();
-
     private final ResourceLocation recipeId;
-    private Ingredient result;
-    private int resultCount;
-
-    private int waterCost;
-    private int lavaCost;
-
+    protected Ingredient ingredient;
+    protected Cache<NonNullList<Ingredient>> ingredientList;
+    protected int ingredientCount;
+    protected ItemStack result;
     private float experience;
     private int duration;
     private int powerCost;
@@ -42,18 +41,14 @@ public class ExtrudingRecipe implements IBaseRecipe {
         return true;
     }
 
-    public Cache<NonNullList<Ingredient>> getIngredientList() {
-        return Cache.create(() -> RecipeUtil.nnListOf(result));
-    }
-
     @Override
     public ItemStack getResultItem() {
-        return result.getItems()[0];
+        return result;
     }
 
     @Override
     public boolean matches(Container inv, Level worldIn) {
-        return result.test(inv.getItem(0));
+        return ingredient.test(inv.getItem(0));
     }
 
     @Override
@@ -96,12 +91,13 @@ public class ExtrudingRecipe implements IBaseRecipe {
         return powerCost;
     }
 
-    public int getWaterCost() {
-        return waterCost;
+    public int getIngredientCount() {
+        return ingredientCount;
     }
 
-    public int getLavaCost() {
-        return lavaCost;
+    @Override
+    public NonNullList<Ingredient> getIngredients() {
+        return ingredientList.get();
     }
 
     public static class Serializer implements RecipeSerializer<ExtrudingRecipe> {
@@ -110,16 +106,17 @@ public class ExtrudingRecipe implements IBaseRecipe {
         public ExtrudingRecipe fromJson(ResourceLocation recipeId, JsonObject json) {
             ExtrudingRecipe recipe = new ExtrudingRecipe(recipeId);
 
-            recipe.result = Ingredient.fromJson(json.get("result"));
+            recipe.ingredient = Ingredient.fromJson(json.get("ingredient"));
 
-            JsonObject ingredient = GsonHelper.getAsJsonObject(json, "result");
-            recipe.resultCount = GsonHelper.getAsInt(ingredient, "count", 1);
+            JsonObject ingredient = GsonHelper.getAsJsonObject(json, "ingredient");
+            recipe.ingredientCount = GsonHelper.getAsInt(ingredient, "count", 1);
 
+            recipe.result = ShapedRecipe.itemStackFromJson(GsonHelper.getAsJsonObject(json, "result"));
             recipe.experience = GsonHelper.getAsFloat(json, "experience", 0);
             recipe.duration = GsonHelper.getAsInt(json, "duration", 180);
             recipe.powerCost = GsonHelper.getAsInt(json, "power_cost", 8);
-            recipe.waterCost = GsonHelper.getAsInt(json, "water_cost", 0);
-            recipe.lavaCost = GsonHelper.getAsInt(json, "lava_cost", 0);
+
+            recipe.ingredientList = Cache.create(() -> RecipeUtil.nnListOf(recipe.ingredient));
 
             return recipe;
         }
@@ -129,26 +126,25 @@ public class ExtrudingRecipe implements IBaseRecipe {
         public ExtrudingRecipe fromNetwork(ResourceLocation recipeId, FriendlyByteBuf buffer) {
             ExtrudingRecipe recipe = new ExtrudingRecipe(recipeId);
 
-            recipe.waterCost = buffer.readInt();
-            recipe.lavaCost = buffer.readInt();
+            recipe.result = buffer.readItem();
             recipe.experience = buffer.readFloat();
             recipe.duration = buffer.readInt();
             recipe.powerCost = buffer.readInt();
-            recipe.result = Ingredient.fromNetwork(buffer);
-            recipe.resultCount = buffer.readInt();
+            recipe.ingredient = Ingredient.fromNetwork(buffer);
+            recipe.ingredientCount = buffer.readInt();
+            recipe.ingredientList = Cache.create(() -> RecipeUtil.nnListOf(recipe.ingredient));
 
             return recipe;
         }
 
         @Override
         public void toNetwork(FriendlyByteBuf buffer, ExtrudingRecipe recipe) {
-            buffer.writeInt(recipe.waterCost);
-            buffer.writeInt(recipe.lavaCost);
+            buffer.writeItemStack(recipe.result, false);
             buffer.writeFloat(recipe.experience);
             buffer.writeInt(recipe.duration);
             buffer.writeInt(recipe.powerCost);
-            recipe.result.toNetwork(buffer);
-            buffer.writeInt(recipe.resultCount);
+            recipe.ingredient.toNetwork(buffer);
+            buffer.writeInt(recipe.ingredientCount);
         }
     }
 }

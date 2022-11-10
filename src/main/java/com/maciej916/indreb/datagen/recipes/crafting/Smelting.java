@@ -80,6 +80,10 @@ public class Smelting extends RecipeProvider {
                 .unlockedBy("deepslate_uranium_ore", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.DEEPSLATE_URANIUM_ORE.get()))
                 .save(consumer, saveResource("uranium"));
 
+        SimpleCookingRecipeBuilder.smelting(Ingredient.of(ModItems.URANIUM_DUST.get()), ModItems.URANIUM_INGOT.get(), 1.5f, 200)
+                .unlockedBy("uranium_dust", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.URANIUM_DUST.get()))
+                .save(consumer, saveResource("uranium2"));
+
     }
 
 }

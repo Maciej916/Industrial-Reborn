@@ -1,0 +1,13 @@
+{
+  "type": "indreb:compressing",
+  "duration": 180,
+  "experience": 0.0,
+  "ingredient": {
+    "count": 1,
+    "tag": "forge:dusts/lapis"
+  },
+  "power_cost": 8,
+  "result": {
+    "item": "indreb:lapis_lazuli_plate"
+  }
+}

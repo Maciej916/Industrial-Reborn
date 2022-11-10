@@ -52,7 +52,7 @@ public class BlockEntityProgress implements IProgress, INBTSerializable<Compound
     }
 
     public void setProgressMax(float progressMax) {
-        this.setData(progress, progressMax);
+        this.setData(progress, Math.max(progressMax, 1));
     }
 
     @Override

@@ -76,9 +76,17 @@ public final class ServerConfig {
 
 	public static ForgeConfigSpec.IntValue matter_fabricator_energy_capacity;
 	public static ForgeConfigSpec.IntValue matter_fabricator_matter_capacity;
+	public static ForgeConfigSpec.IntValue matter_fabricator_produce_run;
 
 	public static ForgeConfigSpec.IntValue thermal_centrifuge_energy_capacity;
 	public static ForgeConfigSpec.IntValue thermal_centrifuge_temp_cost;
+
+	public static ForgeConfigSpec.IntValue scanner_energy_capacity;
+
+	public static ForgeConfigSpec.IntValue replicator_energy_capacity;
+	public static ForgeConfigSpec.IntValue replicator_matter_capacity;
+
+	public static ForgeConfigSpec.IntValue metal_former_energy_capacity;
 
 	public static ForgeConfigSpec register(ForgeConfigSpec.Builder builder) {
 		builder.push("general");
@@ -186,7 +194,8 @@ public final class ServerConfig {
 
 		builder.push("matter_fabricator");
 		matter_fabricator_energy_capacity = builder.defineInRange("matter_fabricator_energy_capacity", 1000000, 1, Integer.MAX_VALUE);
-		matter_fabricator_matter_capacity = builder.defineInRange("matter_fabricator_matter_capacity", 1000, 1, Integer.MAX_VALUE);
+		matter_fabricator_matter_capacity = builder.defineInRange("matter_fabricator_matter_capacity", 10000, 1, Integer.MAX_VALUE);
+		matter_fabricator_produce_run = builder.defineInRange("matter_fabricator_produce_run", 100, 1, Integer.MAX_VALUE);
 		builder.pop();
 
 
@@ -195,6 +204,21 @@ public final class ServerConfig {
 		thermal_centrifuge_temp_cost = builder.defineInRange("thermal_centrifuge_temp_cost", 48, 1, Integer.MAX_VALUE);
 		builder.pop();
 
+
+		builder.push("scanner");
+		scanner_energy_capacity = builder.defineInRange("scanner_energy_capacity", 1000000, 1, Integer.MAX_VALUE);
+		builder.pop();
+
+
+		builder.push("replicator");
+		replicator_energy_capacity = builder.defineInRange("replicator_energy_capacity", 1000000, 1, Integer.MAX_VALUE);
+		replicator_matter_capacity = builder.defineInRange("replicator_matter_capacity", 100000, 1, Integer.MAX_VALUE);
+		builder.pop();
+
+
+		builder.push("metal_former");
+		metal_former_energy_capacity = builder.defineInRange("metal_former_energy_capacity", 4000, 1, Integer.MAX_VALUE);
+		builder.pop();
 
 		return builder.build();
 	}

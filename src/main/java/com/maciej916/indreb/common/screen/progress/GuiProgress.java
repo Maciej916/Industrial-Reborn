@@ -14,7 +14,7 @@ import org.jetbrains.annotations.NotNull;
 public class GuiProgress extends GuiElement {
 
     private final IProgress progress;
-    private final GuiSprite progressType;
+    private GuiSprite progressType;
     private final Direction direction;
     private final boolean reverse;
 
@@ -24,6 +24,10 @@ public class GuiProgress extends GuiElement {
         this.progressType = progressType;
         this.direction = direction;
         this.reverse = reverse;
+    }
+
+    public void setProgressType(GuiSprite progressType) {
+        this.progressType = progressType;
     }
 
     public IProgress getProgress() {

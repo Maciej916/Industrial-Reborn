@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "indreb:block/machines/advanced/replicator_bottom",
+    "east": "indreb:block/machines/advanced/replicator_left",
+    "north": "indreb:block/machines/advanced/replicator_front",
+    "particle": "indreb:block/machines/advanced/replicator_front",
+    "south": "indreb:block/machines/advanced/replicator_back",
+    "up": "indreb:block/machines/advanced/replicator_top",
+    "west": "indreb:block/machines/advanced/replicator_right"
+  }
+}

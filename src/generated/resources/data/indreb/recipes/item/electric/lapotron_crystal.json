@@ -9,7 +9,7 @@
       "item": "indreb:energy_crystal"
     },
     "l": {
-      "item": "minecraft:lapis_lazuli"
+      "tag": "forge:plates/lapis"
     }
   },
   "pattern": [

@@ -12,6 +12,7 @@ import com.maciej916.indreb.common.interfaces.block.IStateFacing;
 import com.maciej916.indreb.common.interfaces.entity.IElectricSlot;
 import com.maciej916.indreb.common.interfaces.entity.IExpCollector;
 import com.maciej916.indreb.common.interfaces.entity.ISupportUpgrades;
+import com.maciej916.indreb.common.interfaces.receipe.IBaseRecipe;
 import com.maciej916.indreb.common.recipe.impl.FluidEnrichingRecipe;
 import com.maciej916.indreb.common.registries.ModBlockEntities;
 import com.maciej916.indreb.common.registries.ModRecipeType;
@@ -109,7 +110,7 @@ public class BlockEntityFluidEnricher extends IndRebBlockEntity implements IEner
     }
 
     @Override
-    public void tickOperate(BlockState state) {
+    public void tickWork(BlockState state) {
         active = false;
         boolean updateState = false;
         getEnergyStorage().updateConsumed(0);
@@ -294,9 +295,9 @@ public class BlockEntityFluidEnricher extends IndRebBlockEntity implements IEner
     }
 
     @Override
-    public void onBreak() {
+    public void onBreakServer() {
         for (LazyOptional<?> capability : capabilities) capability.invalidate();
-        super.onBreak();
+        super.onBreakServer();
     }
 
     @Override

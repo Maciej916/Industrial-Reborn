@@ -53,7 +53,7 @@ public class BlockEntityGenerator extends IndRebBlockEntity implements ICooldown
     }
 
     @Override
-    public void tickOperate(BlockState state) {
+    public void tickWork(BlockState state) {
         progressBurn.clearChanged();
         getEnergyStorage().updateGenerated(0);
         active = false;
@@ -155,8 +155,8 @@ public class BlockEntityGenerator extends IndRebBlockEntity implements ICooldown
     }
 
     @Override
-    public void onBreak() {
+    public void onBreakServer() {
         for (LazyOptional<?> capability : capabilities) capability.invalidate();
-        super.onBreak();
+        super.onBreakServer();
     }
 }

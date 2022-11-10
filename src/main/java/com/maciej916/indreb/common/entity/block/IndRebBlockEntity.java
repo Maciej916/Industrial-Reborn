@@ -11,10 +11,12 @@ import com.maciej916.indreb.common.enums.InventorySlotType;
 import com.maciej916.indreb.common.enums.UpgradeType;
 import com.maciej916.indreb.common.interfaces.block.IStateActive;
 import com.maciej916.indreb.common.interfaces.entity.*;
+import com.maciej916.indreb.common.interfaces.receipe.IRecipeSingleIngredient;
 import com.maciej916.indreb.common.item.impl.upgrade.ItemUpgrade;
 import com.maciej916.indreb.common.network.ModNetworking;
 import com.maciej916.indreb.common.network.packet.PacketExperience;
 import com.maciej916.indreb.common.registries.ModCapabilities;
+import com.maciej916.indreb.common.util.BlockEntityUtil;
 import com.maciej916.indreb.common.util.CapabilityUtil;
 import com.maciej916.indreb.common.util.Constants;
 import com.maciej916.indreb.common.util.SoundHandler;
@@ -54,6 +56,7 @@ import org.jetbrains.annotations.NotNull;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import java.util.*;
+import java.util.concurrent.atomic.AtomicReference;
 
 import static com.maciej916.indreb.common.registries.ModTags.ELECTRICS_RES;
 
@@ -74,13 +77,20 @@ public class IndRebBlockEntity extends BlockEntity implements IHasSlot {
     private ItemStackHandler upgradesHandler;
     private final ArrayList<UpgradeSlotHandler> upgradeHandlers = new ArrayList<>();
 
+
+    protected boolean newUpdateStateTempVar = false;
+
     private Block block;
     protected int tickCounter = 0;
     private int cooldown = 0;
     private boolean invertRedstone = false;
 
     protected boolean isActivate;
-    protected boolean hasCooldown;
+    protected boolean activeState = false;
+    protected boolean shouldUpdateState = false;
+
+
+    protected boolean hasCooldown = false;
     protected boolean hasInventory = false;
     protected boolean hasEnergy = false;
     protected boolean hasBattery = false;
@@ -91,8 +101,8 @@ public class IndRebBlockEntity extends BlockEntity implements IHasSlot {
     private SoundEvent soundEvent = null;
     private SoundInstance activeSound;
 
-    private final Map<ResourceLocation, Integer> recipesUsed = new HashMap<>();
-
+    private Map<ResourceLocation, Integer> recipesUsed = new HashMap<>();
+    private final Map<Integer, ItemStack> cachedInput = new HashMap<>();
 
     float speedFactor = 1f;
     float energyUsageFactor = 1f;
@@ -155,6 +165,8 @@ public class IndRebBlockEntity extends BlockEntity implements IHasSlot {
 
     public void tickServer(BlockState state) {
         if (level == null) return;
+        shouldUpdateState = false;
+        activeState = false;
 
         if (tickCounter == 20) {
             tickCounter = 0;
@@ -173,10 +185,18 @@ public class IndRebBlockEntity extends BlockEntity implements IHasSlot {
             tickUpgrades(state);
         }
 
-        tickOperate(state);
+        tickWork(state);
+
+        if (shouldUpdateState) {
+            updateBlockState();
+        }
+
+        if (activeState != getActive() && newUpdateStateTempVar) {
+            setActiveState(activeState);
+        }
     }
 
-    public void tickOperate(BlockState state) {
+    public void tickWork(BlockState state) {
 
     }
 
@@ -479,12 +499,16 @@ public class IndRebBlockEntity extends BlockEntity implements IHasSlot {
     }
 
     public boolean isItemValidForSlot(final int slot, @Nonnull final ItemStack stack) {
-        return true;
+        return false;
     }
 
     @Nullable
     public ItemStack insertItemForSlot(int slot, @Nonnull ItemStack stack, boolean simulate) {
         return null;
+    }
+
+    public int getCustomSlotLimit(int slot) {
+        return 64;
     }
 
     public void initStackHandler(ArrayList<IndRebSlot> slots) {
@@ -495,17 +519,22 @@ public class IndRebBlockEntity extends BlockEntity implements IHasSlot {
                 return isItemValidForSlot(slot, stack);
             }
 
-            @Nonnull
-            @Override
-            public ItemStack insertItem(int slot, @Nonnull ItemStack stack, boolean simulate) {
-                ItemStack returnedStack = insertItemForSlot(slot, stack, simulate);
-                return Objects.requireNonNullElseGet(returnedStack, () -> super.insertItem(slot, stack, simulate));
-            }
+//            @Nonnull
+//            @Override
+//            public ItemStack insertItem(int slot, @Nonnull ItemStack stack, boolean simulate) {
+//                ItemStack returnedStack = insertItemForSlot(slot, stack, simulate);
+//                return Objects.requireNonNullElseGet(returnedStack, () -> super.insertItem(slot, stack, simulate));
+//            }
 
             @Override
             protected void onContentsChanged(final int slot) {
                 super.onContentsChanged(slot);
                 setChanged();
+            }
+
+            @Override
+            public int getSlotLimit(int slot) {
+                return getCustomSlotLimit(slot);
             }
         };
 
@@ -516,6 +545,10 @@ public class IndRebBlockEntity extends BlockEntity implements IHasSlot {
                 itemHandlers.add(new SlotItemHandlerDisabled(stackHandler, sl.getSlotId(), sl.getXPosition(), sl.getYPosition()));
             } else {
                 itemHandlers.add(new SlotItemHandler(stackHandler, sl.getSlotId(), sl.getXPosition(), sl.getYPosition()));
+            }
+
+            if (sl.getInventorySlotType() == InventorySlotType.INPUT) {
+                cachedInput.put(sl.getSlotId(), stackHandler.getStackInSlot(sl.getSlotId()));
             }
         });
     }
@@ -593,6 +626,9 @@ public class IndRebBlockEntity extends BlockEntity implements IHasSlot {
     public int customEnergyExtractTick() {
         return -1;
     }
+
+
+
 
     public void createEnergyStorage(int energyStored, int maxEnergy, EnergyType energyType, EnergyTier energyTier) {
         this.energyStorage = new BasicEnergyStorage(energyStored, maxEnergy, energyType, energyTier) {
@@ -688,26 +724,32 @@ public class IndRebBlockEntity extends BlockEntity implements IHasSlot {
     }
 
     protected boolean getActive() {
-        if (isActivate) {
-            return ((IStateActive) block).isActive(getBlockState());
-        }
-        return false;
+        if (!isActivate) return false;
+        return ((IStateActive) block).isActive(getBlockState());
     }
 
     public boolean setActive(boolean active) {
-        if (isActivate) {
-            assert level != null;
-            if (getActive() != active) {
-                BlockState state = ((IStateActive) block).setActive(getBlockState(), active);
-                level.setBlockAndUpdate(getBlockPos(), state);
-                return true;
-            }
+        if (!isActivate) return false;
+
+        if (getActive() != active) {
+            BlockState state = ((IStateActive) block).setActive(getBlockState(), active);
+            level.setBlockAndUpdate(getBlockPos(), state);
+            return true;
         }
+
         return false;
     }
 
+    protected void setActiveState(boolean active) {
+        if (isActivate) {
+            this.activeState = active;
+            BlockState state = ((IStateActive) block).setActive(getBlockState(), active);
+            level.setBlockAndUpdate(getBlockPos(), state);
+        }
+    }
+
     protected boolean canPlaySound() {
-        return getActive();
+        return getActive() && soundEvent != null;
     }
 
     private void handleSound() {
@@ -734,6 +776,17 @@ public class IndRebBlockEntity extends BlockEntity implements IHasSlot {
         return 0;
     }
 
+    public float getStoredExperience() {
+        AtomicReference<Float> experience = new AtomicReference<>((float) 0);
+        for(Map.Entry<ResourceLocation, Integer> entry : this.recipesUsed.entrySet()) {
+            level.getRecipeManager().byKey(entry.getKey()).ifPresent((recipe -> {
+                experience.updateAndGet(v -> v + (entry.getValue() * getExperience(recipe)));
+            }));
+        }
+
+        return experience.get();
+    }
+
     public void collectExp(Player player) {
         List<Recipe<?>> list = new ArrayList<>();
 
@@ -746,6 +799,8 @@ public class IndRebBlockEntity extends BlockEntity implements IHasSlot {
 
         player.awardRecipes(list);
         this.recipesUsed.clear();
+
+        updateBlockState();
     }
 
     public void addRecipeUsed(@Nullable Recipe<?> recipe) {
@@ -776,13 +831,13 @@ public class IndRebBlockEntity extends BlockEntity implements IHasSlot {
 
     }
 
-    public void onBreak() {
+    public void onBreakServer() {
         NonNullList<ItemStack> stacks = NonNullList.create();
 
         if (hasInventory) {
-            for (int slot = 0; slot < stackHandler.getSlots(); slot++) {
-                if (item.get(slot).getInventorySlotType() != InventorySlotType.DISABLED) {
-                    stacks.add(stackHandler.getStackInSlot(slot));
+            for (IndRebSlot slot: item) {
+                if (slot.getInventorySlotType() != InventorySlotType.DISABLED) {
+                    stacks.add(stackHandler.getStackInSlot(slot.getSlotId()));
                 }
             }
         }
@@ -800,6 +855,10 @@ public class IndRebBlockEntity extends BlockEntity implements IHasSlot {
         }
 
         Containers.dropContents(getLevel(), getBlockPos(), stacks);
+    }
+
+    public void onBreakClient() {
+
     }
 
     @Nonnull
@@ -830,7 +889,7 @@ public class IndRebBlockEntity extends BlockEntity implements IHasSlot {
 
 
 
-// sync block data its not good because it always sync
+    // sync block data its not good because it always sync
 
     // chunk loads
     @Override
@@ -845,8 +904,13 @@ public class IndRebBlockEntity extends BlockEntity implements IHasSlot {
     }
 
 
-    // on block update
+    // save on disc
+    @Override
+    protected void saveAdditional(CompoundTag tag) {
+        save(tag);
+    }
 
+    // on block update
     @Nullable
     @Override
     public ClientboundBlockEntityDataPacket getUpdatePacket() {
@@ -860,12 +924,30 @@ public class IndRebBlockEntity extends BlockEntity implements IHasSlot {
         }
     }
 
+
     @Override
     public void load(CompoundTag tag) {
         super.load(tag);
 
+        if (isActivate) {
+            this.activeState = tag.getBoolean("activeState");
+        }
+
         if (hasInventory) {
             stackHandler.deserializeNBT(tag.getCompound("inventory"));
+
+//            int i = tag.getInt("cached_input");
+//            for(int j = 0; j < i; ++j) {
+//
+//                this.cachedInput.put(tag.getInt("slotid" + j), new ItemStack(tag.get("item")));
+//
+//                tag.putString("slotid" + i, entry.getKey().toString());
+//                tag.put("item", entry.getValue().serializeNBT());
+//
+//                ResourceLocation resourcelocation = new ResourceLocation(tag.getString("RecipeLocation" + j));
+//                int k = tag.getInt("RecipeAmount" + j);
+//                this.recipesUsed.put(resourcelocation, k);
+//            }
         }
 
         if (hasBattery) {
@@ -885,20 +967,34 @@ public class IndRebBlockEntity extends BlockEntity implements IHasSlot {
         }
 
         if (hasExp) {
-            tag.putShort("RecipesUsedSize", (short)this.recipesUsed.size());
-            int i = 0;
-            for(Map.Entry<ResourceLocation, Integer> entry : this.recipesUsed.entrySet()) {
-                tag.putString("RecipeLocation" + i, entry.getKey().toString());
-                tag.putInt("RecipeAmount" + i, entry.getValue());
-                ++i;
+            int i = tag.getShort("RecipesUsedSize");
+            Map<ResourceLocation, Integer> recipesUsedData = new HashMap<>();
+            for(int j = 0; j < i; ++j) {
+                ResourceLocation resourcelocation = new ResourceLocation(tag.getString("RecipeLocation" + j));
+                int k = tag.getInt("RecipeAmount" + j);
+                recipesUsedData.put(resourcelocation, k);
             }
+            this.recipesUsed = recipesUsedData;
         }
     }
 
     public CompoundTag save(CompoundTag tag) {
 
+        if (isActivate) {
+            tag.putBoolean("activeState", activeState);
+        }
+
         if (hasInventory) {
             tag.put("inventory", stackHandler.serializeNBT());
+
+
+//            tag.putInt("cached_input", this.cachedInput.size());
+//            int i = 0;
+//            for(Map.Entry<Integer, ItemStack> entry : this.cachedInput.entrySet()) {
+//                tag.putInt("slotid" + i, entry.getKey());
+//                tag.put("item", entry.getValue().serializeNBT());
+//                ++i;
+//            }
         }
 
         if (hasBattery) {
@@ -918,19 +1014,49 @@ public class IndRebBlockEntity extends BlockEntity implements IHasSlot {
         }
 
         if (hasExp) {
-            int i = tag.getShort("RecipesUsedSize");
-            for(int j = 0; j < i; ++j) {
-                ResourceLocation resourcelocation = new ResourceLocation(tag.getString("RecipeLocation" + j));
-                int k = tag.getInt("RecipeAmount" + j);
-                this.recipesUsed.put(resourcelocation, k);
+            tag.putShort("RecipesUsedSize", (short)this.recipesUsed.size());
+            int i = 0;
+            for(Map.Entry<ResourceLocation, Integer> entry : this.recipesUsed.entrySet()) {
+                tag.putString("RecipeLocation" + i, entry.getKey().toString());
+                tag.putInt("RecipeAmount" + i, entry.getValue());
+                ++i;
             }
         }
 
         return tag;
     }
 
-    @Override
-    protected void saveAdditional(CompoundTag tag) {
-        save(tag);
+    public boolean inputSlotChanged(int slotId, ItemStack oldStack, ItemStack newStack) {
+        return false;
+    }
+
+    protected boolean checkInputSlotChange(int slotId) {
+        final ItemStack inputStack = getStackHandler().getStackInSlot(slotId);
+
+        if ((cachedInput.get(slotId).getItem() != inputStack.getItem()) || (cachedInput.get(slotId).getCount() != inputStack.getCount())) {
+            ItemStack oldStack = cachedInput.get(slotId) == null ? ItemStack.EMPTY : cachedInput.get(slotId).copy();
+            cachedInput.put(slotId, inputStack.copy());
+            shouldUpdateState = true;
+            return inputSlotChanged(slotId, oldStack, inputStack);
+        }
+        return false;
+    }
+
+    protected boolean fillInternalTank(BlockEntityProgress progress, int upSlotId, int downSlotId, FluidStorage tank) {
+        final ItemStack upStack = getStackHandler().getStackInSlot(upSlotId);
+        final ItemStack downStack = getStackHandler().getStackInSlot(downSlotId);
+
+        if (progress.getProgress() == 0) {
+            boolean filled = BlockEntityUtil.fillTank(upStack, downStack, tank, getStackHandler(), downSlotId);
+            if (filled) {
+                progress.setProgress(1);
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            progress.setProgress(0);
+            return false;
+        }
     }
 }

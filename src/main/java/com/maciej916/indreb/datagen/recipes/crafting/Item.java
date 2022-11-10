@@ -2,6 +2,8 @@ package com.maciej916.indreb.datagen.recipes.crafting;
 
 import com.maciej916.indreb.common.registries.ModBlocks;
 import com.maciej916.indreb.common.registries.ModItems;
+import com.maciej916.indreb.common.registries.ModTags;
+import com.maciej916.indreb.datagen.recipes.builder.RecipeBuilderAdvancedShaped;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.recipes.FinishedRecipe;
@@ -48,7 +50,7 @@ public class Item extends RecipeProvider {
                 .pattern("lel")
                 .pattern("rgr")
                 .define('e', ModItems.ELECTRONIC_CIRCUIT.get())
-                .define('l', Items.LAPIS_LAZULI)
+                .define('l', ModTags.FORGE_PLATES_LAPIS)
                 .define('g', Items.GLOWSTONE_DUST)
                 .define('r', Items.REDSTONE)
                 .group(MODID)
@@ -192,8 +194,6 @@ public class Item extends RecipeProvider {
                 .save(consumer, saveResource("scrap_box"));
 
 
-
-
         ShapedRecipeBuilder.shaped(ModItems.FOAM_POWDER.get(), 1)
                 .pattern("dsd")
                 .pattern("dcd")
@@ -259,18 +259,29 @@ public class Item extends RecipeProvider {
         ShapedRecipeBuilder.shaped(ModItems.MEMORY_CARD.get(), 1)
                 .pattern("aia")
                 .pattern("ici")
-                .pattern("aia")
+                .pattern("pip")
                 .define('i', ItemTags.create(new ResourceLocation("forge", "plates/iron")))
                 .define('c', ModItems.ELECTRONIC_CIRCUIT.get())
                 .define('a', Items.AMETHYST_SHARD)
+                .define('p', ModItems.CARBON_PLATE.get())
                 .group(MODID)
                 .unlockedBy("iron_plate", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.IRON_PLATE.get()))
                 .unlockedBy("electronic_circuit", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.ELECTRONIC_CIRCUIT.get()))
-                .unlockedBy("AMETHYST_SHARD", InventoryChangeTrigger.TriggerInstance.hasItems(Items.AMETHYST_SHARD))
+                .unlockedBy("carbon_plate", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.CARBON_PLATE.get()))
+                .unlockedBy("amethyst_shard", InventoryChangeTrigger.TriggerInstance.hasItems(Items.AMETHYST_SHARD))
                 .save(consumer, saveResource("memory_card"));
 
 
-
+        ShapedRecipeBuilder.shaped(ModItems.FOAM_SPRAYER.get(), 1)
+                .pattern("i  ")
+                .pattern(" i ")
+                .pattern(" ci")
+                .define('i', ItemTags.create(new ResourceLocation("forge", "plates/iron")))
+                .define('c', ModItems.FLUID_CELL.get())
+                .group(MODID)
+                .unlockedBy("iron_plate", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.IRON_PLATE.get()))
+                .unlockedBy("fluid_cell", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.FLUID_CELL.get()))
+                .save(consumer, saveResource("foam_sprayer"));
 
 
 

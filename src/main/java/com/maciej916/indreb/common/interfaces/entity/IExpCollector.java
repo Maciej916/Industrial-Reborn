@@ -9,6 +9,7 @@ public interface IExpCollector {
         return true;
     }
     float getExperience(Recipe<?> recipe);
+    float getStoredExperience();
     void collectExp(Player playerEntity);
     Runnable collectExp();
 }

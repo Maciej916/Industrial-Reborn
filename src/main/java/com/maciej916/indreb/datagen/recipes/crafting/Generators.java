@@ -2,6 +2,7 @@ package com.maciej916.indreb.datagen.recipes.crafting;
 
 import com.maciej916.indreb.common.registries.ModBlocks;
 import com.maciej916.indreb.common.registries.ModItems;
+import com.maciej916.indreb.common.registries.ModTags;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.recipes.FinishedRecipe;
@@ -68,7 +69,7 @@ public class Generators extends RecipeProvider {
                 .pattern("glg")
                 .pattern("EGE")
                 .define('C', ItemTags.create(new ResourceLocation("forge", "dusts/coal")))
-                .define('l', Items.LAPIS_LAZULI)
+                .define('l', ModTags.FORGE_PLATES_LAPIS)
                 .define('g', Items.GLASS)
                 .define('E', ModItems.ELECTRONIC_CIRCUIT.get())
                 .define('G', ModBlocks.GENERATOR.get())

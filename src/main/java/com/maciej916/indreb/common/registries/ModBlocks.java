@@ -12,7 +12,6 @@ import com.maciej916.indreb.common.block.impl.battery_box.BlockBatteryBox;
 import com.maciej916.indreb.common.block.impl.cable.BlockCable;
 import com.maciej916.indreb.common.block.impl.cf.*;
 import com.maciej916.indreb.common.block.impl.charge_pad.BlockChargePad;
-import com.maciej916.indreb.common.block.impl.generators.crystalline_generator.BlockCrystallineGenerator;
 import com.maciej916.indreb.common.block.impl.generators.generator.BlockGenerator;
 import com.maciej916.indreb.common.block.impl.generators.geo_generator.BlockGeoGenerator;
 import com.maciej916.indreb.common.block.impl.generators.semifluid_generator.BlockSemifluidGenerator;
@@ -29,26 +28,24 @@ import com.maciej916.indreb.common.block.impl.machines.fermenter.BlockFermenter;
 import com.maciej916.indreb.common.block.impl.machines.fluid_enricher.BlockFluidEnricher;
 import com.maciej916.indreb.common.block.impl.machines.iron_furnace.BlockIronFurnace;
 import com.maciej916.indreb.common.block.impl.machines.matter_fabricator.BlockMatterFabricator;
+import com.maciej916.indreb.common.block.impl.machines.metal_former.BlockMetalFormer;
 import com.maciej916.indreb.common.block.impl.machines.ore_washing_plant.BlockOreWashingPlant;
+import com.maciej916.indreb.common.block.impl.machines.pattern_storage.BlockPatternStorage;
 import com.maciej916.indreb.common.block.impl.machines.recycler.BlockRecycler;
+import com.maciej916.indreb.common.block.impl.machines.replicator.BlockReplicator;
 import com.maciej916.indreb.common.block.impl.machines.sawmill.BlockSawmill;
+import com.maciej916.indreb.common.block.impl.machines.scanner.BlockScanner;
 import com.maciej916.indreb.common.block.impl.machines.thermal_centrifuge.BlockThermalCentrifuge;
 import com.maciej916.indreb.common.block.impl.rubber_wood.*;
 import com.maciej916.indreb.common.block.impl.transformer.BlockTransformer;
 import com.maciej916.indreb.common.world.feature.tree.RubberTreeGrower;
-import com.maciej916.indreb.common.item.block.BlockItemElectric;
-import com.maciej916.indreb.common.item.block.ItemScaffolding;
 import com.maciej916.indreb.common.tier.*;
-import net.minecraft.world.item.BlockItem;
-import net.minecraft.world.item.CreativeModeTab;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.Material;
 import net.minecraft.world.level.material.MaterialColor;
 import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
@@ -122,6 +119,19 @@ public final class ModBlocks {
     public static final RegistryObject<Block> REINFORCED_STONE_SLAB = registerBlock("reinforced_stone_slab", () -> new BlockReinforcedStoneSlab());
     public static final RegistryObject<Block> REINFORCED_STONE_STAIRS = registerBlock("reinforced_stone_stairs", () -> new BlockReinforcedStoneStairs());
 
+    public static final RegistryObject<Block> YELLOW_STRIPES_BLOCK_LEFT = registerBlock("yellow_stripes_block_left", () -> new BlockResource(1f, 3f));
+    public static final RegistryObject<Block> YELLOW_STRIPES_BLOCK_RIGHT = registerBlock("yellow_stripes_block_right", () -> new BlockResource(1f, 3f));
+    public static final RegistryObject<Block> RADIOACTIVE_HAZARD_SIGN_BLOCK = registerBlock("radioactive_hazard_sign_block", () -> new BlockResource(1f, 3f));
+    public static final RegistryObject<Block> BIO_HAZARD_SIGN_BLOCK = registerBlock("bio_hazard_sign_block", () -> new BlockResource(1f, 3f));
+    public static final RegistryObject<Block> EXPLOSION_HAZARD_SIGN_BLOCK = registerBlock("explosion_hazard_sign_block", () -> new BlockResource(1f, 3f));
+    public static final RegistryObject<Block> FIRE_HAZARD_SIGN_BLOCK = registerBlock("fire_hazard_sign_block", () -> new BlockResource(1f, 3f));
+    public static final RegistryObject<Block> ACID_HAZARD_SIGN_BLOCK = registerBlock("acid_hazard_sign_block", () -> new BlockResource(1f, 3f));
+    public static final RegistryObject<Block> MAGIC_HAZARD_SIGN_BLOCK = registerBlock("magic_hazard_sign_block", () -> new BlockResource(1f, 3f));
+    public static final RegistryObject<Block> FROST_HAZARD_SIGN_BLOCK = registerBlock("frost_hazard_sign_block", () -> new BlockResource(1f, 3f));
+    public static final RegistryObject<Block> NOISE_HAZARD_SIGN_BLOCK = registerBlock("noise_hazard_sign_block", () -> new BlockResource(1f, 3f));
+
+
+
     public static final RegistryObject<Block> IRON_SCAFFOLDING = registerBlock("iron_scaffolding", () -> new BlockIronScaffolding());
     public static final RegistryObject<Block> IRON_FENCE = registerBlock("iron_fence", () -> new BlockIronFence());
 
@@ -133,7 +143,7 @@ public final class ModBlocks {
     public static final RegistryObject<Block> HYBRID_SOLAR_GENERATOR = registerBlock("hybrid_solar_generator", () -> new BlockSolarGenerator(SolarGeneratorTier.HYBRID));
     public static final RegistryObject<Block> QUANTUM_SOLAR_GENERATOR = registerBlock("quantum_solar_generator", () -> new BlockSolarGenerator(SolarGeneratorTier.QUANTUM));
     public static final RegistryObject<Block> GEO_GENERATOR = registerBlock("geo_generator", () -> new BlockGeoGenerator());
-    public static final RegistryObject<Block> CRYSTALLINE_GENERATOR = registerBlock("crystalline_generator", () -> new BlockCrystallineGenerator());
+//    public static final RegistryObject<Block> CRYSTALLINE_GENERATOR = registerBlock("crystalline_generator", () -> new BlockCrystallineGenerator());
     public static final RegistryObject<Block> SEMIFLUID_GENERATOR = registerBlock("semifluid_generator", () -> new BlockSemifluidGenerator());
 
     public static final RegistryObject<Block> BATTERY_BOX = registerBlock("battery_box", () -> new BlockBatteryBox(BatteryBoxTier.BASIC, BlockBehaviour.Properties.of(Material.WOOD).strength(1f, 3f).sound(SoundType.WOOD)));
@@ -164,19 +174,17 @@ public final class ModBlocks {
     public static final RegistryObject<Block> RECYCLER = registerBlock("recycler", () -> new BlockRecycler());
     public static final RegistryObject<Block> ALLOY_SMELTER = registerBlock("alloy_smelter", () -> new BlockAlloySmelter());
     public static final RegistryObject<Block> FERMENTER = registerBlock("fermenter", () -> new BlockFermenter());
-
-
     public static final RegistryObject<Block> ORE_WASHING_PLANT = registerBlock("ore_washing_plant", () -> new BlockOreWashingPlant());
+    public static final RegistryObject<Block> METAL_FORMER = registerBlock("metal_former", () -> new BlockMetalFormer());
 
 
     public static final RegistryObject<Block> THERMAL_CENTRIFUGE = registerBlock("thermal_centrifuge", () -> new BlockThermalCentrifuge());
-
     public static final RegistryObject<Block> MATTER_FABRICATOR = registerBlock("matter_fabricator", () -> new BlockMatterFabricator());
+    public static final RegistryObject<Block> PATTERN_STORAGE = registerBlock("pattern_storage", () -> new BlockPatternStorage());
+    public static final RegistryObject<Block> REPLICATOR = registerBlock("replicator", () -> new BlockReplicator());
+    public static final RegistryObject<Block> TELEPORT_ANCHOR = registerBlock("teleport_anchor", () -> new BlockWIP());
 
-    public static final RegistryObject<Block> PATTERN_STORAGE = registerBlock("pattern_storage", () -> new BlockWIP());
-    public static final RegistryObject<Block> SCANNER = registerBlock("scanner", () -> new BlockWIP());
-    public static final RegistryObject<Block> REPLICATOR = registerBlock("replicator", () -> new BlockWIP());
-    public static final RegistryObject<Block> TELEPORTER = registerBlock("teleporter", () -> new BlockWIP());
+    public static final RegistryObject<Block> SCANNER = registerBlock("scanner", () -> new BlockScanner());
 
 
     public static final RegistryObject<Block> INDUSTRIAL_TNT = registerBlock("industrial_tnt", () -> new BlockIndustrialTNT());

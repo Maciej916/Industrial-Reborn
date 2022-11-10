@@ -18,26 +18,19 @@ import net.minecraft.world.level.block.state.BlockState;
 public class BlockEntityTransformer extends IndRebBlockEntity implements IEnergyBlock {
 
     private final TransformerTier tier;
-    private TransformerMode transformerMode;
-    private EnergyTier minTier;
-    private EnergyTier maxTier;
+    private TransformerMode transformerMode = TransformerMode.STEP_UP;
 
     public BlockEntityTransformer(BlockPos pWorldPosition, BlockState pBlockState) {
         super(ModBlockEntities.TRANSFORMER.get(), pWorldPosition, pBlockState);
+
         BlockTransformer block = (BlockTransformer) getBlock();
         tier = block.getTransformerTier();
         createEnergyStorage(0, tier.getMaxTier().getBasicTransfer(), EnergyType.TRANSFORMER, tier.getMaxTier());
-
-        transformerMode = TransformerMode.STEP_UP;
-        initMode();
     }
 
-    public TransformerTier getTransformerTier() {
-        return tier;
-    }
-
-    public TransformerMode getTransformerMode() {
-        return transformerMode;
+    @Override
+    public void tickWork(BlockState state) {
+        super.tickWork(state);
     }
 
     @Override
@@ -50,7 +43,7 @@ public class BlockEntityTransformer extends IndRebBlockEntity implements IEnergy
         if (side == null) return true;
         IStateFacing blockFacing = (IStateFacing) getBlock();
         Direction facingDirection = blockFacing.getDirection(getBlockState());
-        return (this.transformerMode == TransformerMode.STEP_UP) == (facingDirection == side);
+        return (transformerMode == TransformerMode.STEP_UP) == (facingDirection == side);
     }
 
     @Override
@@ -58,7 +51,7 @@ public class BlockEntityTransformer extends IndRebBlockEntity implements IEnergy
         if (side == null) return true;
         IStateFacing blockFacing = (IStateFacing) getBlock();
         Direction facingDirection = blockFacing.getDirection(getBlockState());
-        return (this.transformerMode == TransformerMode.STEP_UP) == (facingDirection != side);
+        return (transformerMode == TransformerMode.STEP_UP) == (facingDirection != side);
     }
 
     @Override
@@ -76,52 +69,44 @@ public class BlockEntityTransformer extends IndRebBlockEntity implements IEnergy
         return energyReceiveTier().getBasicTransfer();
     }
 
-    public EnergyTier energyExtractTier() {
-        return maxTier;
+    @Override
+    public void load(CompoundTag tag) {
+        super.load(tag);
+        this.transformerMode = TransformerMode.getModeFromId(tag.getInt("transformerMode"));
     }
 
-    public EnergyTier energyReceiveTier() {
-        return minTier;
-    }
-
-    private void initMode() {
-        if (transformerMode == TransformerMode.STEP_UP) {
-            this.minTier = tier.getMinTier();
-            this.maxTier = tier.getMaxTier();
-        } else {
-            this.minTier = tier.getMaxTier();
-            this.maxTier = tier.getMinTier();
-        }
-    }
-
-    public void updateMode() {
-        if (transformerMode == TransformerMode.STEP_UP) {
-            this.minTier = tier.getMaxTier();
-            this.maxTier = tier.getMinTier();
-            this.transformerMode = TransformerMode.STEP_DOWN;
-        } else {
-            this.minTier = tier.getMinTier();
-            this.maxTier = tier.getMaxTier();
-            this.transformerMode = TransformerMode.STEP_UP;
-        }
-
-        this.updateBlockState();
+    @Override
+    public CompoundTag save(CompoundTag tag) {
+        tag.putInt("transformerMode", transformerMode.getModeFromId());
+        return super.save(tag);
     }
 
     public Runnable changeMode() {
         return () -> ModNetworking.INSTANCE.sendToServer(new PacketTransformerMode(getBlockPos()));
     }
 
-    @Override
-    public void load(CompoundTag tag) {
-        super.load(tag);
-        this.transformerMode = TransformerMode.getMode(tag.getInt("transformerMode"));
-        initMode();
+    public void updateMode() {
+        switch (transformerMode) {
+            case STEP_UP -> transformerMode = TransformerMode.STEP_DOWN;
+            case STEP_DOWN -> transformerMode = TransformerMode.STEP_UP;
+        }
+
+        updateBlockState();
     }
 
-    @Override
-    public CompoundTag save(CompoundTag tag) {
-        tag.putInt("transformerMode", transformerMode.getMode());
-        return super.save(tag);
+    public EnergyTier energyExtractTier() {
+        return (transformerMode == TransformerMode.STEP_UP ? tier.getMaxTier() : tier.getMinTier());
+    }
+
+    public EnergyTier energyReceiveTier() {
+        return (transformerMode == TransformerMode.STEP_UP ? tier.getMinTier() : tier.getMaxTier());
+    }
+
+    public TransformerTier getTransformerTier() {
+        return tier;
+    }
+
+    public TransformerMode getTransformerMode() {
+        return transformerMode;
     }
 }

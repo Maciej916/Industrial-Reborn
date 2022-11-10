@@ -685,6 +685,15 @@ public class Crushing extends RecipeProvider {
 
 
 
+    RecipeBuilderCrushing.builder(ModItems.LAPIS_LAZULI_DUST.get(),1)
+                .setIngredient(ItemTags.create(new ResourceLocation("forge", "gems/lapis")), 1)
+                .setExperience(0.4F)
+                .setGroup("crushing")
+                .addCriterion("lapis_lazuli", InventoryChangeTrigger.TriggerInstance.hasItems(Items.LAPIS_LAZULI))
+                .save(consumer, "lapis_lazuli_dust");
+
+
+
 
 //        RecipeBuilderCrushing.builder(ModItems.PURIFIED_IRON_DUST.get(),1)
 //                .setIngredient(Ingredient.of(ItemTags.create(new ResourceLocation("forge", "dusts/iron"))), 1)

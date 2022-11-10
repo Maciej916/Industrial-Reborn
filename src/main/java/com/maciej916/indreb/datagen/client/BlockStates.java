@@ -32,6 +32,8 @@ public class BlockStates extends BlockStateProvider {
         registerOres();
         registerGenerators();
         registerMachines();
+        registerMisc();
+        registerDecoration();
         registerTransformers();
         registerChargePad();
         registerConstructionFoam();
@@ -129,16 +131,47 @@ public class BlockStates extends BlockStateProvider {
     }
 
     private void registerMachines() {
-
         createWithSidesActive(ModBlocks.FLUID_ENRICHER.get(), "machines/basic", "fluid_enricher");
         createSimple(ModBlocks.CANNING_MACHINE.get(), "machines/basic", "canning_machine");
         createWithSidesActive(ModBlocks.FERMENTER.get(), "machines/basic", "fermenter");
         createWithTopActive(ModBlocks.RECYCLER.get(), "machines/basic", "recycler");
         createWithSidesActive(ModBlocks.ORE_WASHING_PLANT.get(), "machines/basic", "ore_washing_plant");
         createSimple(ModBlocks.ALLOY_SMELTER.get(), "machines/basic", "alloy_smelter");
+        createWithTopActive(ModBlocks.METAL_FORMER.get(), "machines/basic", "metal_former");
 
         createSimple(ModBlocks.MATTER_FABRICATOR.get(), "machines/advanced", "matter_fabricator");
         createWithSidesActive(ModBlocks.THERMAL_CENTRIFUGE.get(), "machines/advanced", "thermal_centrifuge");
+        createAllActive(ModBlocks.REPLICATOR.get(), "machines/advanced", "replicator");
+        createSimple(ModBlocks.SCANNER.get(), "machines/advanced", "scanner");
+    }
+
+    private void registerMisc() {
+        simpleBlock(ModBlocks.TELEPORT_ANCHOR.get(), models().cubeBottomTop(ModBlocks.TELEPORT_ANCHOR.getId().getPath(),
+                new ResourceLocation(IndReb.MODID, "block/misc/teleport_anchor_side"),
+                new ResourceLocation(IndReb.MODID, "block/misc/teleport_anchor_bottom"),
+                new ResourceLocation(IndReb.MODID, "block/misc/teleport_anchor_top")
+        ));
+
+        simpleBlock(ModBlocks.PATTERN_STORAGE.get(), models().orientableWithBottom(ModBlocks.PATTERN_STORAGE.getId().getPath(),
+                new ResourceLocation(IndReb.MODID, "block/misc/pattern_storage_side"),
+                new ResourceLocation(IndReb.MODID, "block/misc/pattern_storage_front"),
+                new ResourceLocation(IndReb.MODID, "block/misc/pattern_storage_bottom"),
+                new ResourceLocation(IndReb.MODID, "block/misc/pattern_storage_top")
+        ));
+    }
+
+    private void registerDecoration() {
+        createCubeAll(ModBlocks.YELLOW_STRIPES_BLOCK_LEFT, "decoration/yellow_stripes_block_left");
+        createCubeAll(ModBlocks.YELLOW_STRIPES_BLOCK_RIGHT, "decoration/yellow_stripes_block_right");
+        createBottomTopSides(ModBlocks.RADIOACTIVE_HAZARD_SIGN_BLOCK, "decoration/radioactive_hazard_sign_block", "basic_machine_casing", "basic_machine_casing");
+        createBottomTopSides(ModBlocks.BIO_HAZARD_SIGN_BLOCK, "decoration/bio_hazard_sign_block", "basic_machine_casing", "basic_machine_casing");
+        createBottomTopSides(ModBlocks.EXPLOSION_HAZARD_SIGN_BLOCK, "decoration/explosion_hazard_sign_block", "basic_machine_casing", "basic_machine_casing");
+        createBottomTopSides(ModBlocks.FIRE_HAZARD_SIGN_BLOCK, "decoration/fire_hazard_sign_block", "basic_machine_casing", "basic_machine_casing");
+        createBottomTopSides(ModBlocks.ACID_HAZARD_SIGN_BLOCK, "decoration/acid_hazard_sign_block", "basic_machine_casing", "basic_machine_casing");
+        createBottomTopSides(ModBlocks.MAGIC_HAZARD_SIGN_BLOCK, "decoration/magic_hazard_sign_block", "basic_machine_casing", "basic_machine_casing");
+        createBottomTopSides(ModBlocks.FROST_HAZARD_SIGN_BLOCK, "decoration/frost_hazard_sign_block", "basic_machine_casing", "basic_machine_casing");
+        createBottomTopSides(ModBlocks.NOISE_HAZARD_SIGN_BLOCK, "decoration/noise_hazard_sign_block", "basic_machine_casing", "basic_machine_casing");
+
     }
 
     private void registerExplosives() {
@@ -216,6 +249,18 @@ public class BlockStates extends BlockStateProvider {
         });
     }
 
+    private void createAllActive(Block block, String category, String name) {
+        BlockModelBuilder notActive = cubeWithParticle(name, new ResourceLocation(IndReb.MODID, "block/" + category + "/" + name + "_bottom"), new ResourceLocation(IndReb.MODID, "block/" + category + "/" + name + "_top"), new ResourceLocation(IndReb.MODID, "block/" + category + "/" + name + "_front"), new ResourceLocation(IndReb.MODID, "block/" + category + "/" + name + "_back"), new ResourceLocation(IndReb.MODID, "block/" + category + "/" + name + "_left"), new ResourceLocation(IndReb.MODID, "block/" + category + "/" + name + "_right"));
+        BlockModelBuilder active = cubeWithParticle(name + "_active", new ResourceLocation(IndReb.MODID, "block/" + category + "/" + name + "_bottom"), new ResourceLocation(IndReb.MODID, "block/" + category + "/" + name + "_top_active"), new ResourceLocation(IndReb.MODID, "block/" + category + "/" + name + "_front_active"), new ResourceLocation(IndReb.MODID, "block/" + category + "/" + name + "_back_active"), new ResourceLocation(IndReb.MODID, "block/" + category + "/" + name + "_left_active"), new ResourceLocation(IndReb.MODID, "block/" + category + "/" + name + "_right_active"));
+        orientedBlock(block, state -> {
+            if (state.getValue(BlockStateHelper.activeProperty)) {
+                return active;
+            } else {
+                return notActive;
+            }
+        });
+    }
+
     private void createTransformer(Block block, String name) {
         orientedBlock(block, state -> cubeWithParticle(name, new ResourceLocation(IndReb.MODID, "block/transformer/" + name + "_side"), new ResourceLocation(IndReb.MODID, "block/transformer/" + name + "_side"), new ResourceLocation(IndReb.MODID, "block/transformer/" + name + "_front"), new ResourceLocation(IndReb.MODID, "block/transformer/" + name + "_side"), new ResourceLocation(IndReb.MODID, "block/transformer/" + name + "_side"), new ResourceLocation(IndReb.MODID, "block/transformer/" + name + "_side")), BlockStateHelper.facingProperty);
     }
@@ -233,6 +278,14 @@ public class BlockStates extends BlockStateProvider {
 
     private void createCubeAll(RegistryObject<Block> block, String path) {
         simpleBlock(block.get(), models().cubeAll(block.getId().getPath(), new ResourceLocation(IndReb.MODID, "block/" + path)));
+    }
+
+    private void createBottomTopSides(RegistryObject<Block> block, String side, String top, String bottom) {
+        simpleBlock(block.get(), models().cubeBottomTop(block.getId().getPath(),
+                new ResourceLocation(IndReb.MODID, "block/" + side),
+                new ResourceLocation(IndReb.MODID, "block/" + bottom),
+                new ResourceLocation(IndReb.MODID, "block/" + top)
+        ));
     }
 
     private void orientedBlock(Block block, Function<BlockState, ModelFile> modelFunc, DirectionProperty directionProperty) {
