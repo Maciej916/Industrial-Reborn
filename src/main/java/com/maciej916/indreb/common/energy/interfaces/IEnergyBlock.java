@@ -6,7 +6,7 @@ public interface IEnergyBlock {
         return true;
     }
 
-    default boolean showInGui() {
+    default boolean showBarInGui() {
         return true;
     }
 
