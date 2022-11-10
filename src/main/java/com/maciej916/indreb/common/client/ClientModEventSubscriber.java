@@ -27,6 +27,7 @@ import com.maciej916.indreb.common.block.impl.machines.replicator.ScreenReplicat
 import com.maciej916.indreb.common.block.impl.machines.sawmill.ScreenSawmill;
 import com.maciej916.indreb.common.block.impl.machines.scanner.ScreenScanner;
 import com.maciej916.indreb.common.block.impl.machines.thermal_centrifuge.ScreenThermalCentrifuge;
+import com.maciej916.indreb.common.block.impl.reactor.nuclear_reactor.ScreenNuclearReactor;
 import com.maciej916.indreb.common.block.impl.transformer.ScreenTransformer;
 import com.maciej916.indreb.common.client.keys.ModKeys;
 import com.maciej916.indreb.common.client.renderer.EnergyInfoRenderer;
@@ -117,12 +118,14 @@ public final class ClientModEventSubscriber {
 			MenuScreens.register(ModMenuTypes.REPLICATOR.get(), ScreenReplicator::new);
 			MenuScreens.register(ModMenuTypes.METAL_FORMER.get(), ScreenMetalFormer::new);
 
+			MenuScreens.register(ModMenuTypes.NUCLEAR_REACTOR.get(), ScreenNuclearReactor::new);
+
 			//	TODO Change in model
-			ItemBlockRenderTypes.setRenderLayer(ModBlocks.REINFORCED_GLASS.get(), RenderType.translucent());
-			ItemBlockRenderTypes.setRenderLayer(ModBlocks.RUBBER_SAPLING.get(), RenderType.cutout());
-			ItemBlockRenderTypes.setRenderLayer(ModBlocks.IRON_SCAFFOLDING.get(), RenderType.cutout());
-			ItemBlockRenderTypes.setRenderLayer(ModBlocks.CONSTRUCTION_FOAM.get(), RenderType.cutout());
-			ItemBlockRenderTypes.setRenderLayer(ModBlocks.REINFORCED_CONSTRUCTION_FOAM.get(), RenderType.cutout());
+//			ItemBlockRenderTypes.setRenderLayer(ModBlocks.REINFORCED_GLASS.get(), RenderType.translucent());
+//			ItemBlockRenderTypes.setRenderLayer(ModBlocks.RUBBER_SAPLING.get(), RenderType.cutout());
+//			ItemBlockRenderTypes.setRenderLayer(ModBlocks.IRON_SCAFFOLDING.get(), RenderType.cutout());
+//			ItemBlockRenderTypes.setRenderLayer(ModBlocks.CONSTRUCTION_FOAM.get(), RenderType.cutout());
+//			ItemBlockRenderTypes.setRenderLayer(ModBlocks.REINFORCED_CONSTRUCTION_FOAM.get(), RenderType.cutout());
 
 			ItemProperties.register(ModItems.BATTERY.get(), new ResourceLocation(IndReb.MODID, "charge_ratio"), (stack, level, living, id) -> ElectricItem.getChargeRatioModel(stack));
 			ItemProperties.register(ModItems.ADVANCED_BATTERY.get(), new ResourceLocation(IndReb.MODID, "charge_ratio"), (stack, level, living, id) -> ElectricItem.getChargeRatioModel(stack));
@@ -143,6 +146,7 @@ public final class ClientModEventSubscriber {
 			ItemProperties.register(ModItems.ADVANCED_EJECTOR_UPGRADE.get(), new ResourceLocation(IndReb.MODID, "direction"), (stack, level, living, id) -> ItemDirectionalUpgrade.getDirection(stack));
 			ItemProperties.register(ModItems.ADVANCED_PULLING_UPGRADE.get(), new ResourceLocation(IndReb.MODID, "direction"), (stack, level, living, id) -> ItemDirectionalUpgrade.getDirection(stack));
 			ItemProperties.register(ModItems.ADVANCED_FLUID_EJECTOR_UPGRADE.get(), new ResourceLocation(IndReb.MODID, "direction"), (stack, level, living, id) -> ItemDirectionalUpgrade.getDirection(stack));
+			ItemProperties.register(ModItems.ADVANCED_FLUID_PULLING_UPGRADE.get(), new ResourceLocation(IndReb.MODID, "direction"), (stack, level, living, id) -> ItemDirectionalUpgrade.getDirection(stack));
 			ItemProperties.register(ModItems.ADVANCED_FLUID_PULLING_UPGRADE.get(), new ResourceLocation(IndReb.MODID, "direction"), (stack, level, living, id) -> ItemDirectionalUpgrade.getDirection(stack));
 
 			ItemBlockRenderTypes.setRenderLayer(Biogas.STILL_FLUID, RenderType.translucent());

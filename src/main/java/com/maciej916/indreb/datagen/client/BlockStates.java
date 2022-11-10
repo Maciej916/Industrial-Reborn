@@ -12,11 +12,8 @@ import net.minecraft.world.level.block.SlabBlock;
 import net.minecraft.world.level.block.StairBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
-import net.minecraftforge.client.model.generators.BlockModelBuilder;
-import net.minecraftforge.client.model.generators.ConfiguredModel;
-import net.minecraftforge.client.model.generators.ModelFile;
+import net.minecraftforge.client.model.generators.*;
 import net.minecraftforge.common.data.ExistingFileHelper;
-import net.minecraftforge.client.model.generators.BlockStateProvider;
 import net.minecraftforge.registries.RegistryObject;
 
 import java.util.function.Function;
@@ -43,7 +40,7 @@ public class BlockStates extends BlockStateProvider {
 
 
 
-        createCubeAll(ModBlocks.REINFORCED_GLASS, "reinforced_glass");
+        createCubeAllWithType(ModBlocks.REINFORCED_GLASS, "reinforced_glass", "translucent");
         createCubeAll(ModBlocks.REINFORCED_STONE, "reinforced_stone");
         createCubeAll(ModBlocks.LUMINATOR, "machines/luminator");
 
@@ -58,7 +55,7 @@ public class BlockStates extends BlockStateProvider {
                 new ResourceLocation(IndReb.MODID, "block/iron_scaffolding_sides"),
                 new ResourceLocation(IndReb.MODID, "block/iron_scaffolding_bottomtop"),
                 new ResourceLocation(IndReb.MODID, "block/iron_scaffolding_bottomtop")
-        ));
+        ).renderType("cutout"));
 
         models().fenceInventory(ModBlocks.IRON_FENCE.getId().getPath(), new ResourceLocation(IndReb.MODID, "block/iron_fence"));
         fenceBlock((FenceBlock) ModBlocks.IRON_FENCE.get(), new ResourceLocation(IndReb.MODID, "block/iron_fence"));
@@ -91,8 +88,8 @@ public class BlockStates extends BlockStateProvider {
     }
 
     private void registerConstructionFoam() {
-        createCubeAll(ModBlocks.CONSTRUCTION_FOAM, "cf/foam");
-        createCubeAll(ModBlocks.REINFORCED_CONSTRUCTION_FOAM, "cf/reinforced_foam");
+        createCubeAllWithType(ModBlocks.CONSTRUCTION_FOAM, "cf/foam", "cutout");
+        createCubeAllWithType(ModBlocks.REINFORCED_CONSTRUCTION_FOAM, "cf/reinforced_foam", "cutout");
 
         createCubeAll(ModBlocks.CONSTRUCTION_FOAM_WALL_WHITE, "cf/wall_white");
         createCubeAll(ModBlocks.CONSTRUCTION_FOAM_WALL_RED, "cf/wall_red");
@@ -113,7 +110,7 @@ public class BlockStates extends BlockStateProvider {
     }
 
     private void registerRubberWood() {
-        simpleBlock(ModBlocks.RUBBER_SAPLING.get(), models().cross(ModBlocks.RUBBER_SAPLING.getId().getPath(), new ResourceLocation(IndReb.MODID, "block/rubber_wood/rubber_sapling")));
+        simpleBlock(ModBlocks.RUBBER_SAPLING.get(), models().cross(ModBlocks.RUBBER_SAPLING.getId().getPath(), new ResourceLocation(IndReb.MODID, "block/rubber_wood/rubber_sapling")).renderType("cutout"));
 
 
     }
@@ -278,6 +275,10 @@ public class BlockStates extends BlockStateProvider {
 
     private void createCubeAll(RegistryObject<Block> block, String path) {
         simpleBlock(block.get(), models().cubeAll(block.getId().getPath(), new ResourceLocation(IndReb.MODID, "block/" + path)));
+    }
+
+    private void createCubeAllWithType(RegistryObject<Block> block, String path, String renderTyoe) {
+        simpleBlock(block.get(), models().cubeAll(block.getId().getPath(), new ResourceLocation(IndReb.MODID, "block/" + path)).renderType(renderTyoe));
     }
 
     private void createBottomTopSides(RegistryObject<Block> block, String side, String top, String bottom) {

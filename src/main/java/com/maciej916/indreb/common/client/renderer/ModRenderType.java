@@ -17,17 +17,19 @@ public class ModRenderType extends RenderType {
     public static final RenderType OVERLAY_LINES = RenderType.create("overlay_lines",
             DefaultVertexFormat.POSITION_COLOR, VertexFormat.Mode.LINES, 256,
             false, false,
-            RenderType.CompositeState.builder().setLineState(THICK_LINES)
+            RenderType.CompositeState.builder()
+                    .setLineState(THICK_LINES)
                     .setLayeringState(VIEW_OFFSET_Z_LAYERING)
                     .setShaderState(RENDERTYPE_LINES_SHADER)
                     .setTransparencyState(TRANSLUCENT_TRANSPARENCY)
                     .setTextureState(NO_TEXTURE)
-
 //                    .setDepthTestState(NO_DEPTH_TEST)
-
                     .setCullState(NO_CULL)
                     .setLightmapState(NO_LIGHTMAP)
                     .setWriteMaskState(COLOR_WRITE)
-                    .createCompositeState(false));
+                    .createCompositeState(false)
+            )
+
+            ;
 }
 
