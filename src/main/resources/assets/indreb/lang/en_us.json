@@ -1,12 +1,13 @@
 {
   "_comment": "Global",
   "itemGroup.indreb": "Industrial Reborn",
-
   "indreb.generic": "%s",
+
 
   "_comment": "Energy",
   "energy.indreb.power": "%s IE",
   "energy.indreb.power_tick": "%s IE/t",
+
 
   "_comment": "Tier",
   "tier.indreb.basic": "Basic",
@@ -15,6 +16,7 @@
   "tier.indreb.super": "Super",
   "tier.indreb.ultra": "Ultra",
   "tier.indreb.creative": "Creative",
+
 
   "_comment": "GUI",
   "gui.indreb.energy": "%s / %s IE",
@@ -47,6 +49,7 @@
   "gui.indreb.replicator.single_run": "> Progress: %s",
   "gui.indreb.replicator.repeat_run": ">> Progress: %s",
 
+
   "_comment": "Block",
   "block.indreb.generator": "Generator",
   "block.indreb.geo_generator": "Geothermal Generator",
@@ -56,6 +59,8 @@
   "block.indreb.quantum_solar_generator": "Quantum Solar Panel",
   "block.indreb.crystalline_generator": "Crystalline Generator",
   "block.indreb.semifluid_generator": "Semifluid Generator",
+  "block.indreb.nuclear_reactor": "Nuclear Reactor",
+  "block.indreb.reactor_chamber": "Reactor Chamber",
 
   "block.indreb.iron_furnace": "Iron Furnace",
   "block.indreb.electric_furnace": "Electric Furnace",
@@ -141,6 +146,7 @@
   "block.indreb.recycler": "Recycler",
   "block.indreb.fermenter": "Fermenter",
 
+
   "_comment": "Rubber Wood",
   "block.indreb.rubber_sapling": "Rubber Sapling",
   "block.indreb.rubber_planks": "Rubber Planks",
@@ -163,11 +169,13 @@
   "block.indreb.hv_cable_insulated": "Insulated HV Cable",
   "block.indreb.glass_fibre_cable": "Glass Fibre Cable",
 
+
   "_comment": "Transformer",
   "block.indreb.lv_transformer": "LV Transformer",
   "block.indreb.mv_transformer": "MV Transformer",
   "block.indreb.hv_transformer": "HV Transformer",
   "block.indreb.ev_transformer": "EV Transformer",
+
 
   "_comment": "Item",
   "item.indreb.sticky_resin": "Sticky Resin",
@@ -369,11 +377,13 @@
   "item.indreb.uranium_chunk": "Uranium Chunk",
   "item.indreb.silver_chunk": "Silver Chunk",
 
+
   "_comment": "Battery Box",
   "block.indreb.battery_box": "Battery Box",
   "block.indreb.cesu": "CESU",
   "block.indreb.mfe": "MFE",
   "block.indreb.mfsu": "MFSU",
+
 
   "_comment": "Charge Pad",
   "block.indreb.charge_pad_battery_box": "Charge Pad (Battery Box)",
@@ -381,8 +391,10 @@
   "block.indreb.charge_pad_mfe": "Charge Pad (MFE)",
   "block.indreb.charge_pad_mfsu": "Charge Pad (MFSU)",
 
+
   "_comment": "Energy Converter",
   "block.indreb.wooden_energy_converter": "Wooden Energy Converter",
+
 
   "_comment": "Fluid",
   "fluid_type.indreb.construction_foam": "Construction Foam",
@@ -393,9 +405,11 @@
   "fluid_type.indreb.matter": "Matter",
   "fluid_type.indreb.sulfuric_acid": "Sulfuric Acid",
 
+
   "_comment": "Explosive",
   "block.indreb.industrial_tnt": "Industrial TNT",
   "block.indreb.nuke": "Nuke",
+
 
   "_comment": "JEI",
   "jei.indreb.crushing": "Crushing",
@@ -430,9 +444,9 @@
   "gui.indreb.text_amplifier": "Amplifier:",
   "gui.indreb.supported_upgrades": "Supported Upgrades",
 
+
   "_comment": "Tooltip",
   "tooltip.indreb.wip": "Work in Progress!",
-
   "tooltip.indreb.current_voltage": "Current voltage: %s",
   "tooltip.indreb.power_tier": "Power tier: %s",
   "tooltip.indreb.generate": "Generates: %s",
@@ -500,6 +514,7 @@
   "mode.indreb.2": "Charge Items not in hand",
   "mode.indreb.3": "Charge Item in hand",
 
+
   "_comment": "IE Meter",
   "ie.indreb.desc": "Reads info about cable networks and electric blocks",
   "ie.indreb.network_info": "Energy Network Info",
@@ -512,8 +527,17 @@
   "ie.indreb.last_consumed": "Consuming: %s",
   "ie.indreb.total_consumed": "Total consumed: %s",
 
+
   "_comment": "Keys",
   "key.indreb.night_vision": "Toggle Night Vision",
+
+
+  "_comment": "Chat",
+  "chat.indreb.chamber_place_invalid": "Reactor Chamber must be placed near Nuclear Reactor or another Reactor Chamber",
+  "chat.indreb.chamber_place_no_reactor": "Could not find Nuclear Reactor to attach Chamber",
+  "chat.indreb.chamber_place_too_close": "Reactor Chamber can be attached only to one Nuclear Reactor",
+
+
 
   "test.indreb.test": "%s"
 }

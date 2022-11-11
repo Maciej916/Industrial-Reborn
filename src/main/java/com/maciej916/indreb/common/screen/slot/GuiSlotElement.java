@@ -1,7 +1,9 @@
 package com.maciej916.indreb.common.screen.slot;
 
 import com.maciej916.indreb.IndReb;
+import com.maciej916.indreb.common.entity.slot.IndRebSlot;
 import com.maciej916.indreb.common.enums.GuiSlotType;
+import com.maciej916.indreb.common.interfaces.entity.ISlot;
 import com.maciej916.indreb.common.interfaces.screen.IGuiWrapper;
 import com.maciej916.indreb.common.screen.widgets.GuiElement;
 import com.mojang.blaze3d.systems.RenderSystem;
@@ -9,19 +11,18 @@ import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.Minecraft;
 import net.minecraft.resources.ResourceLocation;
 
-public class GuiSlot extends GuiElement {
+public class GuiSlotElement extends GuiElement {
 
-    private final GuiSlotType slotType;
+    private final ISlot slot;
 
-    public GuiSlot(GuiSlotType slotType, IGuiWrapper wrapper, int leftOffset, int topOffset) {
-        super(wrapper, slotType.getWidth(), slotType.getHeight(), leftOffset, topOffset);
-        this.slotType = slotType;
+    public GuiSlotElement(IGuiWrapper wrapper, ISlot slot) {
+        super(wrapper, slot.guiSlotType().getWidth(), slot.guiSlotType().getHeight(), slot.getGuiX(), slot.getGuiY());
+        this.slot = slot;
     }
 
     public GuiSlotType getSlotType() {
-        return slotType;
+        return slot.guiSlotType();
     }
-
 
     @Override
     protected void renderBg(PoseStack pPoseStack, Minecraft pMinecraft, int pMouseX, int pMouseY) {

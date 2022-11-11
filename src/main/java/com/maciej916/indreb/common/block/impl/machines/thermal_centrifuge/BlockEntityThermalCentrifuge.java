@@ -12,7 +12,6 @@ import com.maciej916.indreb.common.interfaces.entity.IExpCollector;
 import com.maciej916.indreb.common.interfaces.entity.ISupportUpgrades;
 import com.maciej916.indreb.common.interfaces.entity.ITileSound;
 import com.maciej916.indreb.common.interfaces.receipe.IBaseRecipe;
-import com.maciej916.indreb.common.interfaces.receipe.IChanceRecipe;
 import com.maciej916.indreb.common.recipe.impl.ThermalCentrifugingRecipe;
 import com.maciej916.indreb.common.registries.ModBlockEntities;
 import com.maciej916.indreb.common.registries.ModRecipeType;
@@ -83,39 +82,39 @@ public class BlockEntityThermalCentrifuge extends IndRebBlockEntity implements I
                 inputStack.getCount() >= recipe.getIngredientCount() &&
                         resultSize == 1 ? (
                         (
-                                getStackHandler().getStackInSlot(OUTPUT_SLOT_1).isEmpty()
+                                getItemStackHandler().getStackInSlot(OUTPUT_SLOT_1).isEmpty()
                         ) ||
                                 (
-                                        getStackHandler().getStackInSlot(OUTPUT_SLOT_1).getItem() == recipe.getResults().get(0).getItem() &&
-                                                getStackHandler().getStackInSlot(OUTPUT_SLOT_1).getCount() + recipe.getResults().get(0).getCount() <= getStackHandler().getStackInSlot(OUTPUT_SLOT_1).getMaxStackSize()
+                                        getItemStackHandler().getStackInSlot(OUTPUT_SLOT_1).getItem() == recipe.getResults().get(0).getItem() &&
+                                                getItemStackHandler().getStackInSlot(OUTPUT_SLOT_1).getCount() + recipe.getResults().get(0).getCount() <= getItemStackHandler().getStackInSlot(OUTPUT_SLOT_1).getMaxStackSize()
                                 )
                 ) : (
                         (
-                                getStackHandler().getStackInSlot(OUTPUT_SLOT_1).isEmpty() &&
-                                        getStackHandler().getStackInSlot(OUTPUT_SLOT_2).isEmpty()
+                                getItemStackHandler().getStackInSlot(OUTPUT_SLOT_1).isEmpty() &&
+                                        getItemStackHandler().getStackInSlot(OUTPUT_SLOT_2).isEmpty()
                         ) ||
                                 (
                                         (
-                                                getStackHandler().getStackInSlot(OUTPUT_SLOT_1).getItem() == recipe.getResults().get(0).getItem() &&
-                                                        getStackHandler().getStackInSlot(OUTPUT_SLOT_1).getCount() + recipe.getResults().get(0).getCount() <= getStackHandler().getStackInSlot(OUTPUT_SLOT_1).getMaxStackSize()
+                                                getItemStackHandler().getStackInSlot(OUTPUT_SLOT_1).getItem() == recipe.getResults().get(0).getItem() &&
+                                                        getItemStackHandler().getStackInSlot(OUTPUT_SLOT_1).getCount() + recipe.getResults().get(0).getCount() <= getItemStackHandler().getStackInSlot(OUTPUT_SLOT_1).getMaxStackSize()
                                         ) &&
                                                 (
-                                                        getStackHandler().getStackInSlot(OUTPUT_SLOT_2).getItem() == recipe.getResults().get(1).getItem() &&
-                                                                getStackHandler().getStackInSlot(OUTPUT_SLOT_2).getCount() + recipe.getResults().get(1).getCount() <= getStackHandler().getStackInSlot(OUTPUT_SLOT_2).getMaxStackSize()
+                                                        getItemStackHandler().getStackInSlot(OUTPUT_SLOT_2).getItem() == recipe.getResults().get(1).getItem() &&
+                                                                getItemStackHandler().getStackInSlot(OUTPUT_SLOT_2).getCount() + recipe.getResults().get(1).getCount() <= getItemStackHandler().getStackInSlot(OUTPUT_SLOT_2).getMaxStackSize()
                                                 )
                                 ) ||
                                 (
                                         (
-                                                getStackHandler().getStackInSlot(OUTPUT_SLOT_1).getItem() == recipe.getResults().get(0).getItem() &&
-                                                        getStackHandler().getStackInSlot(OUTPUT_SLOT_1).getCount() + recipe.getResults().get(0).getCount() <= getStackHandler().getStackInSlot(OUTPUT_SLOT_1).getMaxStackSize()
+                                                getItemStackHandler().getStackInSlot(OUTPUT_SLOT_1).getItem() == recipe.getResults().get(0).getItem() &&
+                                                        getItemStackHandler().getStackInSlot(OUTPUT_SLOT_1).getCount() + recipe.getResults().get(0).getCount() <= getItemStackHandler().getStackInSlot(OUTPUT_SLOT_1).getMaxStackSize()
                                         ) &&
-                                                getStackHandler().getStackInSlot(OUTPUT_SLOT_2).isEmpty()
+                                                getItemStackHandler().getStackInSlot(OUTPUT_SLOT_2).isEmpty()
                                 ) ||
                                 (
-                                        getStackHandler().getStackInSlot(OUTPUT_SLOT_1).isEmpty() &&
+                                        getItemStackHandler().getStackInSlot(OUTPUT_SLOT_1).isEmpty() &&
                                                 (
-                                                        getStackHandler().getStackInSlot(OUTPUT_SLOT_2).getItem() == recipe.getResults().get(1).getItem() &&
-                                                                getStackHandler().getStackInSlot(OUTPUT_SLOT_2).getCount() + recipe.getResults().get(1).getCount() <= getStackHandler().getStackInSlot(OUTPUT_SLOT_2).getMaxStackSize()
+                                                        getItemStackHandler().getStackInSlot(OUTPUT_SLOT_2).getItem() == recipe.getResults().get(1).getItem() &&
+                                                                getItemStackHandler().getStackInSlot(OUTPUT_SLOT_2).getCount() + recipe.getResults().get(1).getCount() <= getItemStackHandler().getStackInSlot(OUTPUT_SLOT_2).getMaxStackSize()
                                                 )
                                 )
                 );
@@ -128,9 +127,9 @@ public class BlockEntityThermalCentrifuge extends IndRebBlockEntity implements I
         boolean updateState = false;
         getEnergyStorage().updateConsumed(0);
 
-        final ItemStack inputStack = getStackHandler().getStackInSlot(INPUT_SLOT);
-        final ItemStack outputSlot1 = getStackHandler().getStackInSlot(OUTPUT_SLOT_1);
-        final ItemStack outputSlot2 = getStackHandler().getStackInSlot(OUTPUT_SLOT_2);
+        final ItemStack inputStack = getItemStackHandler().getStackInSlot(INPUT_SLOT);
+        final ItemStack outputSlot1 = getItemStackHandler().getStackInSlot(OUTPUT_SLOT_1);
+        final ItemStack outputSlot2 = getItemStackHandler().getStackInSlot(OUTPUT_SLOT_2);
 
         if (cachedInputStack.getItem() != inputStack.getItem()) {
             cachedInputStack = inputStack.copy();
@@ -163,20 +162,20 @@ public class BlockEntityThermalCentrifuge extends IndRebBlockEntity implements I
 
                    if (progress.getProgress() >= progress.getProgressMax()) {
                        inputStack.shrink(recipe.getIngredientCount());
-                       getStackHandler().setStackInSlot(INPUT_SLOT, inputStack.copy());
+                       getItemStackHandler().setStackInSlot(INPUT_SLOT, inputStack.copy());
 
                        List<ItemStack> results = recipe.getResults();
 
                        if (outputSlot1.isEmpty()) {
-                           getStackHandler().setStackInSlot(OUTPUT_SLOT_1, results.get(0).copy());
+                           getItemStackHandler().setStackInSlot(OUTPUT_SLOT_1, results.get(0).copy());
                        } else {
-                           getStackHandler().getStackInSlot(OUTPUT_SLOT_1).grow(results.get(0).getCount());
+                           getItemStackHandler().getStackInSlot(OUTPUT_SLOT_1).grow(results.get(0).getCount());
                        }
 
                        if (outputSlot2.isEmpty() && !results.get(1).isEmpty()) {
-                           getStackHandler().setStackInSlot(OUTPUT_SLOT_2, results.get(1).copy());
+                           getItemStackHandler().setStackInSlot(OUTPUT_SLOT_2, results.get(1).copy());
                        } else {
-                           getStackHandler().getStackInSlot(OUTPUT_SLOT_2).grow(results.get(1).getCount());
+                           getItemStackHandler().getStackInSlot(OUTPUT_SLOT_2).grow(results.get(1).getCount());
                        }
 
                        this.addRecipeUsed(recipe);
@@ -291,9 +290,9 @@ public class BlockEntityThermalCentrifuge extends IndRebBlockEntity implements I
     }
 
     private final ArrayList<LazyOptional<?>> capabilities = new ArrayList<>(Arrays.asList(
-            LazyOptional.of(this::getStackHandler),
-            LazyOptional.of(() -> new RangedWrapper(getStackHandler(), INPUT_SLOT, INPUT_SLOT + 1)),
-            LazyOptional.of(() -> new RangedWrapper(getStackHandler(), OUTPUT_SLOT_1, OUTPUT_SLOT_2))
+            LazyOptional.of(this::getItemStackHandler),
+            LazyOptional.of(() -> new RangedWrapper(getItemStackHandler(), INPUT_SLOT, INPUT_SLOT + 1)),
+            LazyOptional.of(() -> new RangedWrapper(getItemStackHandler(), OUTPUT_SLOT_1, OUTPUT_SLOT_2))
     ));
 
     @Nonnull

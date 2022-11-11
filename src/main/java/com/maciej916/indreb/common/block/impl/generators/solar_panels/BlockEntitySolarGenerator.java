@@ -99,7 +99,7 @@ public class BlockEntitySolarGenerator extends IndRebBlockEntity implements IEne
     }
 
     @Override
-    public boolean showInGui() {
+    public boolean showBarInGui() {
         return false;
     }
 }

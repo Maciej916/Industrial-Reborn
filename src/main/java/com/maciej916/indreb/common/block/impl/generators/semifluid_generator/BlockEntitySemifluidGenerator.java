@@ -29,9 +29,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.common.util.LazyOptional;
-import net.minecraftforge.fluids.capability.CapabilityFluidHandler;
 import net.minecraftforge.fluids.capability.IFluidHandlerItem;
-import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.wrapper.RangedWrapper;
 
 import javax.annotation.Nonnull;
@@ -67,11 +65,11 @@ public class BlockEntitySemifluidGenerator extends IndRebBlockEntity implements 
         boolean updateState = false;
         getEnergyStorage().updateGenerated(0);
 
-        final ItemStack fillBucketUp = getStackHandler().getStackInSlot(FILL_BUCKET_UP);
-        final ItemStack fillBucketDown = getStackHandler().getStackInSlot(FILL_BUCKET_DOWN);
+        final ItemStack fillBucketUp = getItemStackHandler().getStackInSlot(FILL_BUCKET_UP);
+        final ItemStack fillBucketDown = getItemStackHandler().getStackInSlot(FILL_BUCKET_DOWN);
 
         if (progressFill.getProgress() == 0) {
-            boolean filled = BlockEntityUtil.fillTank(fillBucketUp, fillBucketDown, fluidStorage, getStackHandler(), FILL_BUCKET_DOWN);
+            boolean filled = BlockEntityUtil.fillTank(fillBucketUp, fillBucketDown, fluidStorage, getItemStackHandler(), FILL_BUCKET_DOWN);
             if (filled) {
                 progressFill.setProgress(1);
             }
@@ -174,9 +172,9 @@ public class BlockEntitySemifluidGenerator extends IndRebBlockEntity implements 
     }
 
     private final ArrayList<LazyOptional<?>> capabilities = new ArrayList<>(Arrays.asList(
-            LazyOptional.of(this::getStackHandler),
-            LazyOptional.of(() -> new RangedWrapper(getStackHandler(), FILL_BUCKET_UP, FILL_BUCKET_UP + 1)),
-            LazyOptional.of(() -> new RangedWrapper(getStackHandler(), FILL_BUCKET_DOWN, FILL_BUCKET_DOWN + 1)),
+            LazyOptional.of(this::getItemStackHandler),
+            LazyOptional.of(() -> new RangedWrapper(getItemStackHandler(), FILL_BUCKET_UP, FILL_BUCKET_UP + 1)),
+            LazyOptional.of(() -> new RangedWrapper(getItemStackHandler(), FILL_BUCKET_DOWN, FILL_BUCKET_DOWN + 1)),
             LazyOptional.of(() -> this.fluidStorage)
     ));
 

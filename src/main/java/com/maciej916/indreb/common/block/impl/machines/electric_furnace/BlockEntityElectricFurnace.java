@@ -77,8 +77,8 @@ public class BlockEntityElectricFurnace extends IndRebBlockEntity implements IEn
         active = false;
         getEnergyStorage().updateConsumed(0);
 
-        final ItemStack inputStack = getStackHandler().getStackInSlot(INPUT_SLOT);
-        final ItemStack outputStack = getStackHandler().getStackInSlot(OUTPUT_SLOT);
+        final ItemStack inputStack = getItemStackHandler().getStackInSlot(INPUT_SLOT);
+        final ItemStack outputStack = getItemStackHandler().getStackInSlot(OUTPUT_SLOT);
 
         if (cachedInputStack.getItem() != inputStack.getItem()) {
             cachedInputStack = inputStack.copy();
@@ -105,14 +105,14 @@ public class BlockEntityElectricFurnace extends IndRebBlockEntity implements IEn
 
                 if (progress.getProgress() >= progress.getProgressMax()) {
                     if (outputStack.isEmpty()) {
-                        getStackHandler().setStackInSlot(OUTPUT_SLOT, resultStack.copy());
+                        getItemStackHandler().setStackInSlot(OUTPUT_SLOT, resultStack.copy());
                     } else {
                         outputStack.grow(1);
-                        getStackHandler().setStackInSlot(OUTPUT_SLOT, outputStack.copy());
+                        getItemStackHandler().setStackInSlot(OUTPUT_SLOT, outputStack.copy());
                     }
 
                     inputStack.shrink(1);
-                    getStackHandler().setStackInSlot(INPUT_SLOT, inputStack.copy());
+                    getItemStackHandler().setStackInSlot(INPUT_SLOT, inputStack.copy());
                     this.addRecipeUsed(furnaceRecipe);
                     progress.setProgress(-1);
                 }
@@ -187,9 +187,9 @@ public class BlockEntityElectricFurnace extends IndRebBlockEntity implements IEn
     }
 
     ArrayList<LazyOptional<?>> capabilities = new ArrayList<>(Arrays.asList(
-            LazyOptional.of(this::getStackHandler),
-            LazyOptional.of(() -> new RangedWrapper(getStackHandler(), INPUT_SLOT, INPUT_SLOT + 1)),
-            LazyOptional.of(() -> new RangedWrapper(getStackHandler(), OUTPUT_SLOT, OUTPUT_SLOT + 1))
+            LazyOptional.of(this::getItemStackHandler),
+            LazyOptional.of(() -> new RangedWrapper(getItemStackHandler(), INPUT_SLOT, INPUT_SLOT + 1)),
+            LazyOptional.of(() -> new RangedWrapper(getItemStackHandler(), OUTPUT_SLOT, OUTPUT_SLOT + 1))
     ));
 
     @Nonnull

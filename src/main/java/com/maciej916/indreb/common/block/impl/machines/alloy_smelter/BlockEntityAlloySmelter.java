@@ -96,10 +96,10 @@ public class BlockEntityAlloySmelter extends IndRebBlockEntity implements IEnerg
         active = false;
         getEnergyStorage().updateConsumed(0);
 
-        final ItemStack inputStack0 = getStackHandler().getStackInSlot(INPUT_SLOT_0);
-        final ItemStack inputStack1 = getStackHandler().getStackInSlot(INPUT_SLOT_1);
-        final ItemStack inputStack2 = getStackHandler().getStackInSlot(INPUT_SLOT_2);
-        final ItemStack outputStack = getStackHandler().getStackInSlot(OUTPUT_SLOT);
+        final ItemStack inputStack0 = getItemStackHandler().getStackInSlot(INPUT_SLOT_0);
+        final ItemStack inputStack1 = getItemStackHandler().getStackInSlot(INPUT_SLOT_1);
+        final ItemStack inputStack2 = getItemStackHandler().getStackInSlot(INPUT_SLOT_2);
+        final ItemStack outputStack = getItemStackHandler().getStackInSlot(OUTPUT_SLOT);
 
         if (cachedInputStack1 != inputStack0 || cachedInputStack2 != inputStack1 || cachedInputStack3 != inputStack2 || cachedOutput != outputStack) {
             cachedInputStack1 = inputStack0.copy();
@@ -138,28 +138,28 @@ public class BlockEntityAlloySmelter extends IndRebBlockEntity implements IEnerg
 
             if (progress.getProgress() >= progress.getProgressMax()) {
                 if (outputStack.isEmpty()) {
-                    getStackHandler().setStackInSlot(OUTPUT_SLOT, resultStack.copy());
+                    getItemStackHandler().setStackInSlot(OUTPUT_SLOT, resultStack.copy());
                 } else {
                     outputStack.grow(resultStack.getCount());
-                    getStackHandler().setStackInSlot(OUTPUT_SLOT, outputStack.copy());
+                    getItemStackHandler().setStackInSlot(OUTPUT_SLOT, outputStack.copy());
                 }
 
                 int cost0 = this.recipe.getIngredientCost(inputStack0);
                 if (cost0 > 0) {
                     inputStack0.shrink(cost0);
-                    getStackHandler().setStackInSlot(INPUT_SLOT_0, inputStack0.copy());
+                    getItemStackHandler().setStackInSlot(INPUT_SLOT_0, inputStack0.copy());
                 }
 
                 int cost1 = this.recipe.getIngredientCost(inputStack1);
                 if (cost1 > 0) {
                     inputStack1.shrink(cost1);
-                    getStackHandler().setStackInSlot(INPUT_SLOT_1, inputStack1.copy());
+                    getItemStackHandler().setStackInSlot(INPUT_SLOT_1, inputStack1.copy());
                 }
 
                 int cost2 = this.recipe.getIngredientCost(inputStack2);
                 if (cost2 > 0) {
                     inputStack2.shrink(cost2);
-                    getStackHandler().setStackInSlot(INPUT_SLOT_2, inputStack2.copy());
+                    getItemStackHandler().setStackInSlot(INPUT_SLOT_2, inputStack2.copy());
                 }
 
                 this.addRecipeUsed(recipe);
@@ -236,9 +236,9 @@ public class BlockEntityAlloySmelter extends IndRebBlockEntity implements IEnerg
     }
 
     private final ArrayList<LazyOptional<?>> capabilities = new ArrayList<>(Arrays.asList(
-            LazyOptional.of(this::getStackHandler),
-            LazyOptional.of(() -> new RangedWrapper(getStackHandler(), INPUT_SLOT_0, INPUT_SLOT_2 + 1)),
-            LazyOptional.of(() -> new RangedWrapper(getStackHandler(), OUTPUT_SLOT, OUTPUT_SLOT + 1))
+            LazyOptional.of(this::getItemStackHandler),
+            LazyOptional.of(() -> new RangedWrapper(getItemStackHandler(), INPUT_SLOT_0, INPUT_SLOT_2 + 1)),
+            LazyOptional.of(() -> new RangedWrapper(getItemStackHandler(), OUTPUT_SLOT, OUTPUT_SLOT + 1))
     ));
 
     @Nonnull

@@ -10,5 +10,7 @@ public interface ISlot {
     int getYPosition();
     InventorySlotType getInventorySlotType();
     GuiSlotType guiSlotType();
-
+    void setGuiSlotType(GuiSlotType guiSlotType);
+    int getGuiX();
+    int getGuiY();
 }

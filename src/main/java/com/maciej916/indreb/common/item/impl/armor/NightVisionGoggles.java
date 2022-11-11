@@ -11,6 +11,7 @@ public class NightVisionGoggles extends BaseArmor implements IArmorProperties {
         super(ModArmorMaterials.NIGHTVISION, EquipmentSlot.HEAD);
     }
 
+
     @Override
     public boolean supportsNightVision() {
         return true;

@@ -5,18 +5,13 @@ import com.maciej916.indreb.common.interfaces.entity.IExpCollector;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.items.IItemHandler;
-import net.minecraftforge.items.SlotItemHandler;
 import org.jetbrains.annotations.NotNull;
 
-public class SlotItemHandlerOutput extends SlotItemHandler {
+public class SlotItemHandlerOutput extends IndRebSlotItemHandler {
 
-    private final IndRebBlockEntity be;
-
-    public SlotItemHandlerOutput(IndRebBlockEntity be, IItemHandler itemHandler, int index, int xPosition, int yPosition) {
-        super(itemHandler, index, xPosition, yPosition);
-        this.be = be;
+    public SlotItemHandlerOutput(IndRebBlockEntity entity, IItemHandler itemHandler, int index, int xPosition, int yPosition) {
+        super(entity, itemHandler, index, xPosition, yPosition);
     }
-
 
     @Override
     public boolean mayPlace(@NotNull ItemStack stack) {
@@ -24,15 +19,13 @@ public class SlotItemHandlerOutput extends SlotItemHandler {
     }
 
     @Override
-    public void onTake(Player pPlayer, ItemStack pStack) {
-
-        if (!pPlayer.level.isClientSide() && be instanceof IExpCollector iec) {
+    public void onTake(Player player, ItemStack stack) {
+        if (!player.level.isClientSide() && getEntity() instanceof IExpCollector iec) {
             if (!iec.hasExpButton()) {
-                iec.collectExp(pPlayer);
+                iec.collectExp(player);
             }
         }
-
-        super.onTake(pPlayer, pStack);
+        super.onTake(player, stack);
     }
 
 }

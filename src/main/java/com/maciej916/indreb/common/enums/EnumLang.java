@@ -61,6 +61,10 @@ public enum EnumLang {
     SINGLE_RUN("single_run", "tooltip"),
     REPEAT_RUN("repeat_run", "tooltip"),
 
+    CHAMBER_PLACE_INVALID("chamber_place_invalid", "chat"),
+    CHAMBER_PLACE_NO_REACTOR("chamber_place_no_reactor", "chat"),
+    CHAMBER_PLACE_TOO_CLOSE("chamber_place_too_close", "chat"),
+
     CHANCE("chance", "jei");
 
 

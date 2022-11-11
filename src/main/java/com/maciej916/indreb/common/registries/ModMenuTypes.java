@@ -26,6 +26,7 @@ import com.maciej916.indreb.common.block.impl.machines.replicator.MenuReplicator
 import com.maciej916.indreb.common.block.impl.machines.sawmill.MenuSawmill;
 import com.maciej916.indreb.common.block.impl.machines.scanner.MenuScanner;
 import com.maciej916.indreb.common.block.impl.machines.thermal_centrifuge.MenuThermalCentrifuge;
+import com.maciej916.indreb.common.block.impl.reactor.nuclear_reactor.MenuNuclearReactor;
 import com.maciej916.indreb.common.block.impl.transformer.MenuTransformer;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.MenuType;
@@ -74,6 +75,8 @@ public final class ModMenuTypes {
     public static final RegistryObject<MenuType<MenuPatternStorage>> PATTERN_STORAGE = registerMenuType("pattern_storage",  MenuPatternStorage::new);
     public static final RegistryObject<MenuType<MenuScanner>> SCANNER = registerMenuType("scanner",  MenuScanner::new);
     public static final RegistryObject<MenuType<MenuReplicator>> REPLICATOR = registerMenuType("replicator",  MenuReplicator::new);
+
+    public static final RegistryObject<MenuType<MenuNuclearReactor>> NUCLEAR_REACTOR = registerMenuType("nuclear_reactor",  MenuNuclearReactor::new);
 
     private static <T extends AbstractContainerMenu> RegistryObject<MenuType<T>> registerMenuType(String name, IContainerFactory<T> factory) {
         return MENUS.register(name, () -> IForgeMenuType.create(factory));

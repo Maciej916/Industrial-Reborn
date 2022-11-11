@@ -34,7 +34,7 @@ public class BlockEntityTransformer extends IndRebBlockEntity implements IEnergy
     }
 
     @Override
-    public boolean showInGui() {
+    public boolean showBarInGui() {
         return false;
     }
 

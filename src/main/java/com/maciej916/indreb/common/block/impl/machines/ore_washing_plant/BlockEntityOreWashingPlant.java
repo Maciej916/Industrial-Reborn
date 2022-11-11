@@ -12,7 +12,6 @@ import com.maciej916.indreb.common.interfaces.entity.IElectricSlot;
 import com.maciej916.indreb.common.interfaces.entity.IExpCollector;
 import com.maciej916.indreb.common.interfaces.entity.ISupportUpgrades;
 import com.maciej916.indreb.common.interfaces.entity.ITileSound;
-import com.maciej916.indreb.common.interfaces.receipe.IBaseRecipe;
 import com.maciej916.indreb.common.recipe.impl.OreWashingRecipe;
 import com.maciej916.indreb.common.registries.ModBlockEntities;
 import com.maciej916.indreb.common.registries.ModRecipeType;
@@ -105,39 +104,39 @@ public class BlockEntityOreWashingPlant extends IndRebBlockEntity implements IEn
                 inputStack.getCount() >= recipe.getIngredientCount() &&
                 resultSize == 1 ? (
                         (
-                            getStackHandler().getStackInSlot(OUTPUT_SLOT_1).isEmpty()
+                            getItemStackHandler().getStackInSlot(OUTPUT_SLOT_1).isEmpty()
                         ) ||
                         (
-                            getStackHandler().getStackInSlot(OUTPUT_SLOT_1).getItem() == recipe.getResults().get(0).getItem() &&
-                            getStackHandler().getStackInSlot(OUTPUT_SLOT_1).getCount() + recipe.getResults().get(0).getCount() <= getStackHandler().getStackInSlot(OUTPUT_SLOT_1).getMaxStackSize()
+                            getItemStackHandler().getStackInSlot(OUTPUT_SLOT_1).getItem() == recipe.getResults().get(0).getItem() &&
+                            getItemStackHandler().getStackInSlot(OUTPUT_SLOT_1).getCount() + recipe.getResults().get(0).getCount() <= getItemStackHandler().getStackInSlot(OUTPUT_SLOT_1).getMaxStackSize()
                         )
                 ) : (
                         (
-                            getStackHandler().getStackInSlot(OUTPUT_SLOT_1).isEmpty() &&
-                            getStackHandler().getStackInSlot(OUTPUT_SLOT_2).isEmpty()
+                            getItemStackHandler().getStackInSlot(OUTPUT_SLOT_1).isEmpty() &&
+                            getItemStackHandler().getStackInSlot(OUTPUT_SLOT_2).isEmpty()
                         ) ||
                         (
                             (
-                                getStackHandler().getStackInSlot(OUTPUT_SLOT_1).getItem() == recipe.getResults().get(0).getItem() &&
-                                getStackHandler().getStackInSlot(OUTPUT_SLOT_1).getCount() + recipe.getResults().get(0).getCount() <= getStackHandler().getStackInSlot(OUTPUT_SLOT_1).getMaxStackSize()
+                                getItemStackHandler().getStackInSlot(OUTPUT_SLOT_1).getItem() == recipe.getResults().get(0).getItem() &&
+                                getItemStackHandler().getStackInSlot(OUTPUT_SLOT_1).getCount() + recipe.getResults().get(0).getCount() <= getItemStackHandler().getStackInSlot(OUTPUT_SLOT_1).getMaxStackSize()
                             ) &&
                             (
-                                getStackHandler().getStackInSlot(OUTPUT_SLOT_2).getItem() == recipe.getResults().get(1).getItem() &&
-                                getStackHandler().getStackInSlot(OUTPUT_SLOT_2).getCount() + recipe.getResults().get(1).getCount() <= getStackHandler().getStackInSlot(OUTPUT_SLOT_2).getMaxStackSize()
+                                getItemStackHandler().getStackInSlot(OUTPUT_SLOT_2).getItem() == recipe.getResults().get(1).getItem() &&
+                                getItemStackHandler().getStackInSlot(OUTPUT_SLOT_2).getCount() + recipe.getResults().get(1).getCount() <= getItemStackHandler().getStackInSlot(OUTPUT_SLOT_2).getMaxStackSize()
                             )
                         ) ||
                         (
                             (
-                                getStackHandler().getStackInSlot(OUTPUT_SLOT_1).getItem() == recipe.getResults().get(0).getItem() &&
-                                getStackHandler().getStackInSlot(OUTPUT_SLOT_1).getCount() + recipe.getResults().get(0).getCount() <= getStackHandler().getStackInSlot(OUTPUT_SLOT_1).getMaxStackSize()
+                                getItemStackHandler().getStackInSlot(OUTPUT_SLOT_1).getItem() == recipe.getResults().get(0).getItem() &&
+                                getItemStackHandler().getStackInSlot(OUTPUT_SLOT_1).getCount() + recipe.getResults().get(0).getCount() <= getItemStackHandler().getStackInSlot(OUTPUT_SLOT_1).getMaxStackSize()
                             ) &&
-                            getStackHandler().getStackInSlot(OUTPUT_SLOT_2).isEmpty()
+                            getItemStackHandler().getStackInSlot(OUTPUT_SLOT_2).isEmpty()
                         ) ||
                         (
-                            getStackHandler().getStackInSlot(OUTPUT_SLOT_1).isEmpty() &&
+                            getItemStackHandler().getStackInSlot(OUTPUT_SLOT_1).isEmpty() &&
                             (
-                                getStackHandler().getStackInSlot(OUTPUT_SLOT_2).getItem() == recipe.getResults().get(1).getItem() &&
-                                getStackHandler().getStackInSlot(OUTPUT_SLOT_2).getCount() + recipe.getResults().get(1).getCount() <= getStackHandler().getStackInSlot(OUTPUT_SLOT_2).getMaxStackSize()
+                                getItemStackHandler().getStackInSlot(OUTPUT_SLOT_2).getItem() == recipe.getResults().get(1).getItem() &&
+                                getItemStackHandler().getStackInSlot(OUTPUT_SLOT_2).getCount() + recipe.getResults().get(1).getCount() <= getItemStackHandler().getStackInSlot(OUTPUT_SLOT_2).getMaxStackSize()
                             )
                         )
                 );
@@ -149,11 +148,11 @@ public class BlockEntityOreWashingPlant extends IndRebBlockEntity implements IEn
         boolean updateState = false;
         getEnergyStorage().updateConsumed(0);
 
-        final ItemStack fillBucketUp = getStackHandler().getStackInSlot(FILL_BUCKET_UP);
-        final ItemStack fillBucketDown = getStackHandler().getStackInSlot(FILL_BUCKET_DOWN);
-        final ItemStack inputStack = getStackHandler().getStackInSlot(INPUT_SLOT);
-        final ItemStack outputSlot1 = getStackHandler().getStackInSlot(OUTPUT_SLOT_1);
-        final ItemStack outputSlot2 = getStackHandler().getStackInSlot(OUTPUT_SLOT_2);
+        final ItemStack fillBucketUp = getItemStackHandler().getStackInSlot(FILL_BUCKET_UP);
+        final ItemStack fillBucketDown = getItemStackHandler().getStackInSlot(FILL_BUCKET_DOWN);
+        final ItemStack inputStack = getItemStackHandler().getStackInSlot(INPUT_SLOT);
+        final ItemStack outputSlot1 = getItemStackHandler().getStackInSlot(OUTPUT_SLOT_1);
+        final ItemStack outputSlot2 = getItemStackHandler().getStackInSlot(OUTPUT_SLOT_2);
 
         if (cachedInput != fluidStorage.getFluidAmount()) {
             cachedInput = fluidStorage.getFluidAmount();
@@ -161,7 +160,7 @@ public class BlockEntityOreWashingPlant extends IndRebBlockEntity implements IEn
         }
 
         if (progressFill.getProgress() == 0) {
-            boolean filled = BlockEntityUtil.fillTank(fillBucketUp, fillBucketDown, fluidStorage, getStackHandler(), FILL_BUCKET_DOWN);
+            boolean filled = BlockEntityUtil.fillTank(fillBucketUp, fillBucketDown, fluidStorage, getItemStackHandler(), FILL_BUCKET_DOWN);
             if (filled) {
                 progressFill.setProgress(1);
             }
@@ -202,21 +201,21 @@ public class BlockEntityOreWashingPlant extends IndRebBlockEntity implements IEn
 
                     if (progress.getProgress() >= progress.getProgressMax()) {
                         inputStack.shrink(recipe.getIngredientCount());
-                        getStackHandler().setStackInSlot(INPUT_SLOT, inputStack.copy());
+                        getItemStackHandler().setStackInSlot(INPUT_SLOT, inputStack.copy());
                         fluidStorage.drain(recipe.getFluidInput().getAmount(), IFluidHandler.FluidAction.EXECUTE);
 
                         List<ItemStack> results = recipe.getResults();
 
                         if (outputSlot1.isEmpty()) {
-                            getStackHandler().setStackInSlot(OUTPUT_SLOT_1, results.get(0).copy());
+                            getItemStackHandler().setStackInSlot(OUTPUT_SLOT_1, results.get(0).copy());
                         } else {
-                            getStackHandler().getStackInSlot(OUTPUT_SLOT_1).grow(results.get(0).getCount());
+                            getItemStackHandler().getStackInSlot(OUTPUT_SLOT_1).grow(results.get(0).getCount());
                         }
 
                         if (outputSlot2.isEmpty() && !results.get(1).isEmpty()) {
-                            getStackHandler().setStackInSlot(OUTPUT_SLOT_2, results.get(1).copy());
+                            getItemStackHandler().setStackInSlot(OUTPUT_SLOT_2, results.get(1).copy());
                         } else {
-                            getStackHandler().getStackInSlot(OUTPUT_SLOT_2).grow(results.get(1).getCount());
+                            getItemStackHandler().getStackInSlot(OUTPUT_SLOT_2).grow(results.get(1).getCount());
                         }
 
                         this.addRecipeUsed(recipe);
@@ -323,11 +322,11 @@ public class BlockEntityOreWashingPlant extends IndRebBlockEntity implements IEn
     }
 
     private final ArrayList<LazyOptional<?>> capabilities = new ArrayList<>(Arrays.asList(
-            LazyOptional.of(this::getStackHandler),
+            LazyOptional.of(this::getItemStackHandler),
             LazyOptional.of(() -> this.fluidStorage),
-            LazyOptional.of(() -> new RangedWrapper(getStackHandler(), INPUT_SLOT, INPUT_SLOT + 1)),
-            LazyOptional.of(() -> new RangedWrapper(getStackHandler(), FILL_BUCKET_UP, FILL_BUCKET_DOWN)),
-            LazyOptional.of(() -> new RangedWrapper(getStackHandler(), OUTPUT_SLOT_1, OUTPUT_SLOT_2))
+            LazyOptional.of(() -> new RangedWrapper(getItemStackHandler(), INPUT_SLOT, INPUT_SLOT + 1)),
+            LazyOptional.of(() -> new RangedWrapper(getItemStackHandler(), FILL_BUCKET_UP, FILL_BUCKET_DOWN)),
+            LazyOptional.of(() -> new RangedWrapper(getItemStackHandler(), OUTPUT_SLOT_1, OUTPUT_SLOT_2))
     ));
 
     @Nonnull

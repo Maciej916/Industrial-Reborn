@@ -36,6 +36,8 @@ import com.maciej916.indreb.common.block.impl.machines.replicator.BlockReplicato
 import com.maciej916.indreb.common.block.impl.machines.sawmill.BlockSawmill;
 import com.maciej916.indreb.common.block.impl.machines.scanner.BlockScanner;
 import com.maciej916.indreb.common.block.impl.machines.thermal_centrifuge.BlockThermalCentrifuge;
+import com.maciej916.indreb.common.block.impl.reactor.nuclear_reactor.BlockNuclearReactor;
+import com.maciej916.indreb.common.block.impl.reactor.reactor_chanber.BlockReactorChamber;
 import com.maciej916.indreb.common.block.impl.rubber_wood.*;
 import com.maciej916.indreb.common.block.impl.transformer.BlockTransformer;
 import com.maciej916.indreb.common.world.feature.tree.RubberTreeGrower;
@@ -183,8 +185,11 @@ public final class ModBlocks {
     public static final RegistryObject<Block> PATTERN_STORAGE = registerBlock("pattern_storage", () -> new BlockPatternStorage());
     public static final RegistryObject<Block> REPLICATOR = registerBlock("replicator", () -> new BlockReplicator());
     public static final RegistryObject<Block> TELEPORT_ANCHOR = registerBlock("teleport_anchor", () -> new BlockWIP());
-
     public static final RegistryObject<Block> SCANNER = registerBlock("scanner", () -> new BlockScanner());
+
+
+    public static final RegistryObject<Block> NUCLEAR_REACTOR = registerBlock("nuclear_reactor", () -> new BlockNuclearReactor());
+    public static final RegistryObject<Block> REACTOR_CHAMBER = registerBlock("reactor_chamber", () -> new BlockReactorChamber());
 
 
     public static final RegistryObject<Block> INDUSTRIAL_TNT = registerBlock("industrial_tnt", () -> new BlockIndustrialTNT());

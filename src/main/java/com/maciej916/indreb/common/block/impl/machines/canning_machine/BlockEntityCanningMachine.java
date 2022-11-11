@@ -96,9 +96,9 @@ public class BlockEntityCanningMachine extends IndRebBlockEntity implements IEne
         active = false;
         getEnergyStorage().updateConsumed(0);
 
-        final ItemStack inputStack0 = getStackHandler().getStackInSlot(INPUT_SLOT_0);
-        final ItemStack inputStack1 = getStackHandler().getStackInSlot(INPUT_SLOT_1);
-        final ItemStack outputStack = getStackHandler().getStackInSlot(OUTPUT_SLOT);
+        final ItemStack inputStack0 = getItemStackHandler().getStackInSlot(INPUT_SLOT_0);
+        final ItemStack inputStack1 = getItemStackHandler().getStackInSlot(INPUT_SLOT_1);
+        final ItemStack outputStack = getItemStackHandler().getStackInSlot(OUTPUT_SLOT);
 
         if (cachedInputStack0.getItem() != inputStack0.getItem() || cachedInputStack1.getItem() != inputStack1.getItem()) {
             cachedInputStack0 = inputStack0.copy();
@@ -130,16 +130,16 @@ public class BlockEntityCanningMachine extends IndRebBlockEntity implements IEne
                 if (progress.getProgress() >= progress.getProgressMax()) {
 
                     inputStack0.shrink(recipe.getFirstIngredientCount());
-                    getStackHandler().setStackInSlot(INPUT_SLOT_0, inputStack0.copy());
+                    getItemStackHandler().setStackInSlot(INPUT_SLOT_0, inputStack0.copy());
 
                     inputStack1.shrink(recipe.getSecondIngredientCount());
-                    getStackHandler().setStackInSlot(INPUT_SLOT_1, inputStack1.copy());
+                    getItemStackHandler().setStackInSlot(INPUT_SLOT_1, inputStack1.copy());
 
                     if (outputStack.isEmpty()) {
-                        getStackHandler().setStackInSlot(OUTPUT_SLOT, recipe.getResultItem().copy());
+                        getItemStackHandler().setStackInSlot(OUTPUT_SLOT, recipe.getResultItem().copy());
                     } else {
                         outputStack.grow(recipe.getResultItem().getCount());
-                        getStackHandler().setStackInSlot(OUTPUT_SLOT, outputStack.copy());
+                        getItemStackHandler().setStackInSlot(OUTPUT_SLOT, outputStack.copy());
                     }
 
                     progress.setBoth(-1);
@@ -198,9 +198,9 @@ public class BlockEntityCanningMachine extends IndRebBlockEntity implements IEne
     }
 
     private final ArrayList<LazyOptional<?>> capabilities = new ArrayList<>(Arrays.asList(
-            LazyOptional.of(this::getStackHandler),
-            LazyOptional.of(() -> new RangedWrapper(getStackHandler(), INPUT_SLOT_0, INPUT_SLOT_1 + 1)),
-            LazyOptional.of(() -> new RangedWrapper(getStackHandler(), OUTPUT_SLOT, OUTPUT_SLOT + 1))
+            LazyOptional.of(this::getItemStackHandler),
+            LazyOptional.of(() -> new RangedWrapper(getItemStackHandler(), INPUT_SLOT_0, INPUT_SLOT_1 + 1)),
+            LazyOptional.of(() -> new RangedWrapper(getItemStackHandler(), OUTPUT_SLOT, OUTPUT_SLOT + 1))
     ));
 
     @Nonnull

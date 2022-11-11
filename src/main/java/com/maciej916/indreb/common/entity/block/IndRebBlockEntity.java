@@ -2,16 +2,13 @@ package com.maciej916.indreb.common.entity.block;
 
 import com.maciej916.indreb.common.energy.impl.BasicEnergyStorage;
 import com.maciej916.indreb.common.energy.interfaces.IEnergy;
-import com.maciej916.indreb.common.entity.slot.IndRebSlot;
-import com.maciej916.indreb.common.entity.slot.SlotItemHandlerDisabled;
-import com.maciej916.indreb.common.entity.slot.SlotItemHandlerOutput;
+import com.maciej916.indreb.common.entity.slot.*;
 import com.maciej916.indreb.common.enums.EnergyTier;
 import com.maciej916.indreb.common.enums.EnergyType;
 import com.maciej916.indreb.common.enums.InventorySlotType;
 import com.maciej916.indreb.common.enums.UpgradeType;
 import com.maciej916.indreb.common.interfaces.block.IStateActive;
 import com.maciej916.indreb.common.interfaces.entity.*;
-import com.maciej916.indreb.common.interfaces.receipe.IRecipeSingleIngredient;
 import com.maciej916.indreb.common.item.impl.upgrade.ItemUpgrade;
 import com.maciej916.indreb.common.network.ModNetworking;
 import com.maciej916.indreb.common.network.packet.PacketExperience;
@@ -48,7 +45,6 @@ import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fluids.capability.IFluidHandler;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
-import net.minecraftforge.items.SlotItemHandler;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.tags.IReverseTag;
 import org.jetbrains.annotations.NotNull;
@@ -62,19 +58,19 @@ import static com.maciej916.indreb.common.registries.ModTags.ELECTRICS_RES;
 
 public class IndRebBlockEntity extends BlockEntity implements IHasSlot {
 
-    private ItemStackHandler stackHandler;
-    private ArrayList<IndRebSlot> item = new ArrayList<>();
-    private final ArrayList<SlotItemHandler> itemHandlers = new ArrayList<>();
-
-    private ArrayList<IElectricSlot> electricSlot = new ArrayList<>();
     private BasicEnergyStorage energyStorage;
     private final LazyOptional<IEnergy> energy = LazyOptional.of(() -> energyStorage);
 
-    private ItemStackHandler batteryHandler;
+    private ItemStackHandler itemStackHandler;
+    private ArrayList<IndRebSlot> slots = new ArrayList<>();
+    private final ArrayList<IndRebSlotItemHandler> itemHandlers = new ArrayList<>();
+
+    private ItemStackHandler batteryStackHandler;
+    private ArrayList<IElectricSlot> electricSlot = new ArrayList<>();
     private final ArrayList<ElectricSlotHandler> batteryHandlers = new ArrayList<>();
 
-    private final ArrayList<IElectricSlot> upgradeSlot = new ArrayList<>();
-    private ItemStackHandler upgradesHandler;
+    private ItemStackHandler upgradeStackHandler;
+    private ArrayList<IUpgradeSlot> upgradeSlot = new ArrayList<>();
     private final ArrayList<UpgradeSlotHandler> upgradeHandlers = new ArrayList<>();
 
 
@@ -88,7 +84,6 @@ public class IndRebBlockEntity extends BlockEntity implements IHasSlot {
     protected boolean isActivate;
     protected boolean activeState = false;
     protected boolean shouldUpdateState = false;
-
 
     protected boolean hasCooldown = false;
     protected boolean hasInventory = false;
@@ -209,8 +204,8 @@ public class IndRebBlockEntity extends BlockEntity implements IHasSlot {
 
         invertRedstone = false;
 
-        for (int i = 0; i < upgradesHandler.getSlots(); i++) {
-            ItemStack stack = upgradesHandler.getStackInSlot(i);
+        for (int i = 0; i < upgradeStackHandler.getSlots(); i++) {
+            ItemStack stack = upgradeStackHandler.getStackInSlot(i);
             CompoundTag tag = stack.getOrCreateTag();
             if (!stack.isEmpty() && stack.getItem() instanceof ItemUpgrade itemUpgrade) {
                 if (itemUpgrade.getUpgradeType() == UpgradeType.OVERCLOCKER) {
@@ -275,7 +270,7 @@ public class IndRebBlockEntity extends BlockEntity implements IHasSlot {
         IItemHandler myHandler = CapabilityUtil.getCapabilityHelper(this, ForgeCapabilities.ITEM_HANDLER).getValue();
         if (myHandler != null) {
             for (int i = 0; i < myHandler.getSlots(); i++) {
-                if (item.get(i).getInventorySlotType() == InventorySlotType.INPUT) {
+                if (slots.get(i).getInventorySlotType() == InventorySlotType.INPUT) {
                     boolean found = false;
 
                     for (Direction dir : directions) {
@@ -284,8 +279,8 @@ public class IndRebBlockEntity extends BlockEntity implements IHasSlot {
                             if (blockEntity instanceof IndRebBlockEntity ibe) {
                                 IItemHandler otherHandler = CapabilityUtil.getCapabilityHelper(blockEntity, ForgeCapabilities.ITEM_HANDLER).getValue();
                                 if (otherHandler != null) {
-                                    for (int j = 0; j < ibe.item.size(); j++) {
-                                        if (ibe.item.get(j).getInventorySlotType() == InventorySlotType.OUTPUT || ibe.item.get(j).getInventorySlotType() == InventorySlotType.BONUS) {
+                                    for (int j = 0; j < ibe.slots.size(); j++) {
+                                        if (ibe.slots.get(j).getInventorySlotType() == InventorySlotType.OUTPUT || ibe.slots.get(j).getInventorySlotType() == InventorySlotType.BONUS) {
                                             int amount = Math.min(otherHandler.getStackInSlot(j).getCount(), count);
                                             ItemStack extractItem = otherHandler.extractItem(j, amount, true);
                                             if (!extractItem.isEmpty()) {
@@ -333,7 +328,7 @@ public class IndRebBlockEntity extends BlockEntity implements IHasSlot {
         IItemHandler myHandler = CapabilityUtil.getCapabilityHelper(this, ForgeCapabilities.ITEM_HANDLER).getValue();
         if (myHandler != null) {
             for (int i = 0; i < myHandler.getSlots(); i++) {
-                if (item.get(i).getInventorySlotType() == InventorySlotType.OUTPUT || item.get(i).getInventorySlotType() == InventorySlotType.BONUS) {
+                if (slots.get(i).getInventorySlotType() == InventorySlotType.OUTPUT || slots.get(i).getInventorySlotType() == InventorySlotType.BONUS) {
                     boolean found = false;
 
                     for (Direction dir : directions) {
@@ -346,8 +341,8 @@ public class IndRebBlockEntity extends BlockEntity implements IHasSlot {
                                     ItemStack extractItem = myHandler.extractItem(i, amount, true);
 
                                     if (!extractItem.isEmpty()) {
-                                        for (int j = 0; j < ibe.item.size(); j++) {
-                                            if (ibe.item.get(j).getInventorySlotType() == InventorySlotType.INPUT) {
+                                        for (int j = 0; j < ibe.slots.size(); j++) {
+                                            if (ibe.slots.get(j).getInventorySlotType() == InventorySlotType.INPUT) {
                                                 ItemStack insertItem = otherHandler.insertItem(j, extractItem, true);
                                                 if (insertItem.isEmpty()) {
                                                     myHandler.extractItem(i, amount, false);
@@ -512,8 +507,8 @@ public class IndRebBlockEntity extends BlockEntity implements IHasSlot {
     }
 
     public void initStackHandler(ArrayList<IndRebSlot> slots) {
-        this.item = slots;
-        this.stackHandler = new ItemStackHandler(slots.size()) {
+        this.slots = slots;
+        this.itemStackHandler = new ItemStackHandler(slots.size()) {
             @Override
             public boolean isItemValid(final int slot, @Nonnull final ItemStack stack) {
                 return isItemValidForSlot(slot, stack);
@@ -540,29 +535,29 @@ public class IndRebBlockEntity extends BlockEntity implements IHasSlot {
 
         slots.forEach(sl -> {
             if (sl.getInventorySlotType() == InventorySlotType.OUTPUT) {
-                itemHandlers.add(new SlotItemHandlerOutput(this, stackHandler, sl.getSlotId(), sl.getXPosition(), sl.getYPosition()));
+                itemHandlers.add(new SlotItemHandlerOutput(this, itemStackHandler, sl.getSlotId(), sl.getXPosition(), sl.getYPosition()));
             } else if (sl.getInventorySlotType() == InventorySlotType.DISABLED) {
-                itemHandlers.add(new SlotItemHandlerDisabled(stackHandler, sl.getSlotId(), sl.getXPosition(), sl.getYPosition()));
+                itemHandlers.add(new SlotItemHandlerDisabled(this, itemStackHandler, sl.getSlotId(), sl.getXPosition(), sl.getYPosition()));
             } else {
-                itemHandlers.add(new SlotItemHandler(stackHandler, sl.getSlotId(), sl.getXPosition(), sl.getYPosition()));
+                itemHandlers.add(new IndRebSlotItemHandler(this, itemStackHandler, sl.getSlotId(), sl.getXPosition(), sl.getYPosition()));
             }
 
             if (sl.getInventorySlotType() == InventorySlotType.INPUT) {
-                cachedInput.put(sl.getSlotId(), stackHandler.getStackInSlot(sl.getSlotId()));
+                cachedInput.put(sl.getSlotId(), itemStackHandler.getStackInSlot(sl.getSlotId()));
             }
         });
     }
 
-    public ArrayList<IndRebSlot> getItem() {
-        return item;
+    public ArrayList<IndRebSlot> getSlots() {
+        return slots;
     }
 
-    public @NotNull ItemStackHandler getStackHandler() {
-        return stackHandler;
+    public @NotNull ItemStackHandler getItemStackHandler() {
+        return itemStackHandler;
     }
 
     @Override
-    public ArrayList<SlotItemHandler> getItemHandlers() {
+    public ArrayList<IndRebSlotItemHandler> getItemHandlers() {
         return itemHandlers;
     }
 
@@ -580,7 +575,7 @@ public class IndRebBlockEntity extends BlockEntity implements IHasSlot {
 
     public void initBatteryStackHandler(ArrayList<IElectricSlot> slots) {
         this.electricSlot = slots;
-        this.batteryHandler = new ItemStackHandler(slots.size()) {
+        this.batteryStackHandler = new ItemStackHandler(slots.size()) {
             @Override
             public boolean isItemValid(final int slot, @Nonnull final ItemStack stack) {
                 return ForgeRegistries.ITEMS.tags().getReverseTag(stack.getItem()).map(IReverseTag::getTagKeys)
@@ -594,13 +589,11 @@ public class IndRebBlockEntity extends BlockEntity implements IHasSlot {
             }
         };
 
-        slots.forEach(sl -> batteryHandlers.add(
-                new ElectricSlotHandler(batteryHandler, sl.getSlotId(), sl.getXPosition(), sl.getYPosition(), sl.isCharging(), sl.getInventorySlotType(), energyStorage))
-        );
+        slots.forEach(sl -> batteryHandlers.add(new ElectricSlotHandler(this, batteryStackHandler, sl, energyStorage)));
     }
 
-    public ItemStackHandler getBatteryHandler() {
-        return batteryHandler;
+    public ItemStackHandler getBatteryStackHandler() {
+        return batteryStackHandler;
     }
 
     public ArrayList<ElectricSlotHandler> getBatteryHandlers() {
@@ -680,7 +673,7 @@ public class IndRebBlockEntity extends BlockEntity implements IHasSlot {
     }
 
     public void initUpgradeHandler() {
-        this.upgradesHandler = new ItemStackHandler(4) {
+        this.upgradeStackHandler = new ItemStackHandler(4) {
             @Override
             public boolean isItemValid(final int slot, @Nonnull final ItemStack stack) {
                 if (stack.getItem() instanceof ItemUpgrade itemUpgrade) {
@@ -696,9 +689,18 @@ public class IndRebBlockEntity extends BlockEntity implements IHasSlot {
             }
         };
 
+        ArrayList<IUpgradeSlot> upgradeSlots = new ArrayList<>();
+
         for(int i = 0; i < 4; ++i) {
-            upgradeHandlers.add(new UpgradeSlotHandler(upgradesHandler, i, 178, 9 + (i * 18), getSupportedUpgrades()));
+            upgradeSlots.add(new SlotUpgrade(i, 178, 9 + (i * 18)));
+            upgradeHandlers.add(new UpgradeSlotHandler(this, upgradeStackHandler, i, 178, 9 + (i * 18), getSupportedUpgrades()));
         }
+
+        this.upgradeSlot = upgradeSlots;
+    }
+
+    public ArrayList<IUpgradeSlot> getUpgradeSlot() {
+        return upgradeSlot;
     }
 
     public ArrayList<UpgradeSlotHandler> getUpgradeHandlers() {
@@ -827,30 +829,38 @@ public class IndRebBlockEntity extends BlockEntity implements IHasSlot {
         }
     }
 
-    public void onPlace() {
+    public void onPlace(boolean isClient) {
 
+    }
+
+    public void onBreak(boolean isClient) {
+        if (isClient) {
+            onBreakClient();
+        } else {
+            onBreakServer();
+        }
     }
 
     public void onBreakServer() {
         NonNullList<ItemStack> stacks = NonNullList.create();
 
         if (hasInventory) {
-            for (IndRebSlot slot: item) {
+            for (IndRebSlot slot: slots) {
                 if (slot.getInventorySlotType() != InventorySlotType.DISABLED) {
-                    stacks.add(stackHandler.getStackInSlot(slot.getSlotId()));
+                    stacks.add(itemStackHandler.getStackInSlot(slot.getSlotId()));
                 }
             }
         }
 
         if (hasBattery) {
-            for (int slot = 0; slot < batteryHandler.getSlots(); slot++) {
-                stacks.add(batteryHandler.getStackInSlot(slot));
+            for (int slot = 0; slot < batteryStackHandler.getSlots(); slot++) {
+                stacks.add(batteryStackHandler.getStackInSlot(slot));
             }
         }
 
         if (hasUpgrades) {
-            for (int slot = 0; slot < upgradesHandler.getSlots(); slot++) {
-                stacks.add(upgradesHandler.getStackInSlot(slot));
+            for (int slot = 0; slot < upgradeStackHandler.getSlots(); slot++) {
+                stacks.add(upgradeStackHandler.getStackInSlot(slot));
             }
         }
 
@@ -934,28 +944,15 @@ public class IndRebBlockEntity extends BlockEntity implements IHasSlot {
         }
 
         if (hasInventory) {
-            stackHandler.deserializeNBT(tag.getCompound("inventory"));
-
-//            int i = tag.getInt("cached_input");
-//            for(int j = 0; j < i; ++j) {
-//
-//                this.cachedInput.put(tag.getInt("slotid" + j), new ItemStack(tag.get("item")));
-//
-//                tag.putString("slotid" + i, entry.getKey().toString());
-//                tag.put("item", entry.getValue().serializeNBT());
-//
-//                ResourceLocation resourcelocation = new ResourceLocation(tag.getString("RecipeLocation" + j));
-//                int k = tag.getInt("RecipeAmount" + j);
-//                this.recipesUsed.put(resourcelocation, k);
-//            }
+            itemStackHandler.deserializeNBT(tag.getCompound("inventory"));
         }
 
         if (hasBattery) {
-            batteryHandler.deserializeNBT(tag.getCompound("battery"));
+            batteryStackHandler.deserializeNBT(tag.getCompound("battery"));
         }
 
         if (hasUpgrades) {
-            upgradesHandler.deserializeNBT(tag.getCompound("upgrade"));
+            upgradeStackHandler.deserializeNBT(tag.getCompound("upgrade"));
         }
 
         if (hasEnergy) {
@@ -985,24 +982,15 @@ public class IndRebBlockEntity extends BlockEntity implements IHasSlot {
         }
 
         if (hasInventory) {
-            tag.put("inventory", stackHandler.serializeNBT());
-
-
-//            tag.putInt("cached_input", this.cachedInput.size());
-//            int i = 0;
-//            for(Map.Entry<Integer, ItemStack> entry : this.cachedInput.entrySet()) {
-//                tag.putInt("slotid" + i, entry.getKey());
-//                tag.put("item", entry.getValue().serializeNBT());
-//                ++i;
-//            }
+            tag.put("inventory", itemStackHandler.serializeNBT());
         }
 
         if (hasBattery) {
-            tag.put("battery", batteryHandler.serializeNBT());
+            tag.put("battery", batteryStackHandler.serializeNBT());
         }
 
         if (hasUpgrades) {
-            tag.put("upgrade", upgradesHandler.serializeNBT());
+            tag.put("upgrade", upgradeStackHandler.serializeNBT());
         }
 
         if (hasEnergy) {
@@ -1031,7 +1019,7 @@ public class IndRebBlockEntity extends BlockEntity implements IHasSlot {
     }
 
     protected boolean checkInputSlotChange(int slotId) {
-        final ItemStack inputStack = getStackHandler().getStackInSlot(slotId);
+        final ItemStack inputStack = getItemStackHandler().getStackInSlot(slotId);
 
         if ((cachedInput.get(slotId).getItem() != inputStack.getItem()) || (cachedInput.get(slotId).getCount() != inputStack.getCount())) {
             ItemStack oldStack = cachedInput.get(slotId) == null ? ItemStack.EMPTY : cachedInput.get(slotId).copy();
@@ -1043,11 +1031,11 @@ public class IndRebBlockEntity extends BlockEntity implements IHasSlot {
     }
 
     protected boolean fillInternalTank(BlockEntityProgress progress, int upSlotId, int downSlotId, FluidStorage tank) {
-        final ItemStack upStack = getStackHandler().getStackInSlot(upSlotId);
-        final ItemStack downStack = getStackHandler().getStackInSlot(downSlotId);
+        final ItemStack upStack = getItemStackHandler().getStackInSlot(upSlotId);
+        final ItemStack downStack = getItemStackHandler().getStackInSlot(downSlotId);
 
         if (progress.getProgress() == 0) {
-            boolean filled = BlockEntityUtil.fillTank(upStack, downStack, tank, getStackHandler(), downSlotId);
+            boolean filled = BlockEntityUtil.fillTank(upStack, downStack, tank, getItemStackHandler(), downSlotId);
             if (filled) {
                 progress.setProgress(1);
                 return true;

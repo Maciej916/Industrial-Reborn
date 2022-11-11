@@ -21,7 +21,6 @@ import com.maciej916.indreb.common.network.packet.PacketReplicatorSingleRun;
 import com.maciej916.indreb.common.network.packet.PacketReplicatorStop;
 import com.maciej916.indreb.common.registries.ModBlockEntities;
 import com.maciej916.indreb.common.registries.ModSounds;
-import com.maciej916.indreb.common.util.BlockEntityUtil;
 import com.maciej916.indreb.common.util.CapabilityUtil;
 import com.maciej916.indreb.common.util.StackHandlerHelper;
 import net.minecraft.core.BlockPos;
@@ -76,7 +75,7 @@ public class BlockEntityReplicator extends IndRebBlockEntity implements IEnergyB
 
     @Override
     public void tickWork(BlockState state) {
-        final ItemStack memoryStack = getStackHandler().getStackInSlot(MEMORY_SLOT);
+        final ItemStack memoryStack = getItemStackHandler().getStackInSlot(MEMORY_SLOT);
 
         boolean matterTankFilled = fillInternalTank(progressFill, FILL_BUCKET_UP, FILL_BUCKET_DOWN, matterTank);
 
@@ -125,7 +124,7 @@ public class BlockEntityReplicator extends IndRebBlockEntity implements IEnergyB
                             }
 
                             if (progress.getProgress() >= progress.getProgressMax()) {
-                                StackHandlerHelper.incMachineOutputStack(getStackHandler(), OUTPUT_SLOT, result.getResultStack());
+                                StackHandlerHelper.incMachineOutputStack(getItemStackHandler(), OUTPUT_SLOT, result.getResultStack());
                                 progress.setBoth(-1);
 
                                 if (mode == ReplicatorMode.SINGLE_RUN) {
@@ -234,9 +233,9 @@ public class BlockEntityReplicator extends IndRebBlockEntity implements IEnergyB
     }
 
     private final ArrayList<LazyOptional<?>> capabilities = new ArrayList<>(Arrays.asList(
-            LazyOptional.of(this::getStackHandler),
+            LazyOptional.of(this::getItemStackHandler),
             LazyOptional.of(() -> this.matterTank),
-            LazyOptional.of(() -> new RangedWrapper(getStackHandler(), OUTPUT_SLOT, OUTPUT_SLOT + 1))
+            LazyOptional.of(() -> new RangedWrapper(getItemStackHandler(), OUTPUT_SLOT, OUTPUT_SLOT + 1))
     ));
 
     @Nonnull
@@ -348,10 +347,10 @@ public class BlockEntityReplicator extends IndRebBlockEntity implements IEnergyB
 
     private void setItemAndResult() {
         if (scannerResultsCache.size() > 0) {
-            getStackHandler().setStackInSlot(MEMORY_SLOT, scannerResultsCache.get(currentPattern).getResultStack().copy());
+            getItemStackHandler().setStackInSlot(MEMORY_SLOT, scannerResultsCache.get(currentPattern).getResultStack().copy());
             result = scannerResultsCache.get(currentPattern);
         } else {
-            getStackHandler().setStackInSlot(MEMORY_SLOT, ItemStack.EMPTY);
+            getItemStackHandler().setStackInSlot(MEMORY_SLOT, ItemStack.EMPTY);
             result = new ScannerResult();
         }
     }
@@ -388,7 +387,7 @@ public class BlockEntityReplicator extends IndRebBlockEntity implements IEnergyB
 
 
     private boolean canWork() {
-        return getStackHandler().getStackInSlot(OUTPUT_SLOT).isEmpty() || (getStackHandler().getStackInSlot(OUTPUT_SLOT).getCount() < getStackHandler().getStackInSlot(OUTPUT_SLOT).getMaxStackSize() &&  getStackHandler().getStackInSlot(OUTPUT_SLOT).getItem() == result.getResultStack().getItem());
+        return getItemStackHandler().getStackInSlot(OUTPUT_SLOT).isEmpty() || (getItemStackHandler().getStackInSlot(OUTPUT_SLOT).getCount() < getItemStackHandler().getStackInSlot(OUTPUT_SLOT).getMaxStackSize() &&  getItemStackHandler().getStackInSlot(OUTPUT_SLOT).getItem() == result.getResultStack().getItem());
     }
 
 }

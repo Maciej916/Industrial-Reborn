@@ -125,6 +125,12 @@ public class BlockStates extends BlockStateProvider {
 
 
         createWithSidesActive(ModBlocks.SEMIFLUID_GENERATOR.get(), "generator", "semifluid_generator");
+
+
+        createSidesActive(ModBlocks.NUCLEAR_REACTOR.get(), "generator/reactor/nuclear_reactor", "nuclear_reactor");
+        createBottomTop(ModBlocks.REACTOR_CHAMBER.get(), "generator/reactor/reactor_chamber", "reactor_chamber");
+
+
     }
 
     private void registerMachines() {
@@ -172,18 +178,8 @@ public class BlockStates extends BlockStateProvider {
     }
 
     private void registerExplosives() {
-        simpleBlock(ModBlocks.INDUSTRIAL_TNT.get(), models().cubeBottomTop(ModBlocks.INDUSTRIAL_TNT.getId().getPath(),
-                new ResourceLocation(IndReb.MODID, "block/explosive/industrial_tnt_side"),
-                new ResourceLocation(IndReb.MODID, "block/explosive/industrial_tnt_bottom"),
-                new ResourceLocation(IndReb.MODID, "block/explosive/industrial_tnt_top")
-        ));
-        simpleBlock(ModBlocks.NUKE.get(), models().cubeBottomTop(ModBlocks.NUKE.getId().getPath(),
-                new ResourceLocation(IndReb.MODID, "block/explosive/nuke_side"),
-                new ResourceLocation(IndReb.MODID, "block/explosive/nuke_bottom"),
-                new ResourceLocation(IndReb.MODID, "block/explosive/nuke_top")
-        ));
-
-
+        createBottomTop(ModBlocks.INDUSTRIAL_TNT.get(), "explosive/industrial_tnt", "industrial_tnt");
+        createBottomTop(ModBlocks.NUKE.get(), "explosive/nuke", "nuke");
     }
 
 
@@ -193,6 +189,9 @@ public class BlockStates extends BlockStateProvider {
 
 
 
+    // add predefined models
+    // clear this junk
+    // rename machines to machine
 
 
 
@@ -246,6 +245,18 @@ public class BlockStates extends BlockStateProvider {
         });
     }
 
+    private void createSidesActive(Block block, String category, String name) {
+        BlockModelBuilder notActive = cubeWithParticle(name, new ResourceLocation(IndReb.MODID, "block/" + category + "/" + name + "_bottom"), new ResourceLocation(IndReb.MODID, "block/" + category + "/" + name + "_top"), new ResourceLocation(IndReb.MODID, "block/" + category + "/" + name + "_side"), new ResourceLocation(IndReb.MODID, "block/" + category + "/" + name + "_side"), new ResourceLocation(IndReb.MODID, "block/" + category + "/" + name + "_side"), new ResourceLocation(IndReb.MODID, "block/" + category + "/" + name + "_side"));
+        BlockModelBuilder active = cubeWithParticle(name + "_active", new ResourceLocation(IndReb.MODID, "block/" + category + "/" + name + "_bottom"), new ResourceLocation(IndReb.MODID, "block/" + category + "/" + name + "_top"), new ResourceLocation(IndReb.MODID, "block/" + category + "/" + name + "_side_active"), new ResourceLocation(IndReb.MODID, "block/" + category + "/" + name + "_side_active"), new ResourceLocation(IndReb.MODID, "block/" + category + "/" + name + "_side_active"), new ResourceLocation(IndReb.MODID, "block/" + category + "/" + name + "_side_active"));
+        orientedBlock(block, state -> {
+            if (state.getValue(BlockStateHelper.activeProperty)) {
+                return active;
+            } else {
+                return notActive;
+            }
+        });
+    }
+
     private void createAllActive(Block block, String category, String name) {
         BlockModelBuilder notActive = cubeWithParticle(name, new ResourceLocation(IndReb.MODID, "block/" + category + "/" + name + "_bottom"), new ResourceLocation(IndReb.MODID, "block/" + category + "/" + name + "_top"), new ResourceLocation(IndReb.MODID, "block/" + category + "/" + name + "_front"), new ResourceLocation(IndReb.MODID, "block/" + category + "/" + name + "_back"), new ResourceLocation(IndReb.MODID, "block/" + category + "/" + name + "_left"), new ResourceLocation(IndReb.MODID, "block/" + category + "/" + name + "_right"));
         BlockModelBuilder active = cubeWithParticle(name + "_active", new ResourceLocation(IndReb.MODID, "block/" + category + "/" + name + "_bottom"), new ResourceLocation(IndReb.MODID, "block/" + category + "/" + name + "_top_active"), new ResourceLocation(IndReb.MODID, "block/" + category + "/" + name + "_front_active"), new ResourceLocation(IndReb.MODID, "block/" + category + "/" + name + "_back_active"), new ResourceLocation(IndReb.MODID, "block/" + category + "/" + name + "_left_active"), new ResourceLocation(IndReb.MODID, "block/" + category + "/" + name + "_right_active"));
@@ -256,6 +267,14 @@ public class BlockStates extends BlockStateProvider {
                 return notActive;
             }
         });
+    }
+
+    private void createBottomTop(Block block, String category, String name) {
+        simpleBlock(block, models().cubeBottomTop(name,
+                new ResourceLocation(IndReb.MODID, "block/" + category + "/" + name + "_side"),
+                new ResourceLocation(IndReb.MODID, "block/" + category + "/" + name + "_bottom"),
+                new ResourceLocation(IndReb.MODID, "block/" + category + "/" + name + "_top")
+        ));
     }
 
     private void createTransformer(Block block, String name) {

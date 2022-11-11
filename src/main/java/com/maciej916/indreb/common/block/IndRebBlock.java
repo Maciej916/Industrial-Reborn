@@ -104,18 +104,18 @@ public class IndRebBlock extends Block {
     }
 
     @Override
-    public void setPlacedBy(Level pLevel, BlockPos pPos, BlockState pState, @Nullable LivingEntity pPlacer, ItemStack pStack) {
+    public void setPlacedBy(Level level, BlockPos pPos, BlockState pState, @Nullable LivingEntity pPlacer, ItemStack pStack) {
 
-        BlockEntity be = pLevel.getBlockEntity(pPos);
+        BlockEntity be = level.getBlockEntity(pPos);
         if (be instanceof IndRebBlockEntity ibe) {
-            ibe.onPlace();
+            ibe.onPlace(level.isClientSide());
         }
 
         if (be instanceof IEnergyBlock) {
-            CapabilityUtil.getCapabilityHelper(pLevel, ModCapabilities.ENERGY_CORE).ifPresent(e -> e.addEnergyBlock(pPos));
+            CapabilityUtil.getCapabilityHelper(level, ModCapabilities.ENERGY_CORE).ifPresent(e -> e.addEnergyBlock(pPos));
         }
 
-        super.setPlacedBy(pLevel, pPos, pState, pPlacer, pStack);
+        super.setPlacedBy(level, pPos, pState, pPlacer, pStack);
     }
 
     @Override
@@ -123,11 +123,7 @@ public class IndRebBlock extends Block {
         if (blockState.getBlock() != newState.getBlock() && blockState.hasBlockEntity()) {
             BlockEntity be = level.getBlockEntity(blockPos);
             if (be instanceof IndRebBlockEntity ibe) {
-                if (level.isClientSide()) {
-                    ibe.onBreakClient();
-                } else {
-                    ibe.onBreakServer();
-                }
+                ibe.onBreak(level.isClientSide());
             }
 
             if (be instanceof IEnergyBlock) {

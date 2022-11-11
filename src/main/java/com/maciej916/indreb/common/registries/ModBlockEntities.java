@@ -28,6 +28,8 @@ import com.maciej916.indreb.common.block.impl.machines.replicator.BlockEntityRep
 import com.maciej916.indreb.common.block.impl.machines.sawmill.BlockEntitySawmill;
 import com.maciej916.indreb.common.block.impl.machines.scanner.BlockEntityScanner;
 import com.maciej916.indreb.common.block.impl.machines.thermal_centrifuge.BlockEntityThermalCentrifuge;
+import com.maciej916.indreb.common.block.impl.reactor.nuclear_reactor.BlockEntityNuclearReactor;
+import com.maciej916.indreb.common.block.impl.reactor.reactor_chanber.BlockEntityReactorChamber;
 import com.maciej916.indreb.common.block.impl.transformer.BlockEntityTransformer;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
@@ -79,6 +81,9 @@ public final class ModBlockEntities {
     public static final RegistryObject<BlockEntityType<BlockEntityReplicator>> REPLICATOR = BLOCK_ENTITIES.register("replicator", () -> BlockEntityType.Builder.of(BlockEntityReplicator::new, ModBlocks.REPLICATOR.get()).build(null));
     public static final RegistryObject<BlockEntityType<BlockEntityMeralFormer>> METAL_FORMER = BLOCK_ENTITIES.register("metal_former", () -> BlockEntityType.Builder.of(BlockEntityMeralFormer::new, ModBlocks.METAL_FORMER.get()).build(null));
 
+
+    public static final RegistryObject<BlockEntityType<BlockEntityNuclearReactor>> NUCLEAR_REACTOR = BLOCK_ENTITIES.register("nuclear_reactor", () -> BlockEntityType.Builder.of(BlockEntityNuclearReactor::new, ModBlocks.NUCLEAR_REACTOR.get()).build(null));
+    public static final RegistryObject<BlockEntityType<BlockEntityReactorChamber>> REACTOR_CHAMBER = BLOCK_ENTITIES.register("reactor_chamber", () -> BlockEntityType.Builder.of(BlockEntityReactorChamber::new, ModBlocks.REACTOR_CHAMBER.get()).build(null));
 
 
     public static void register(IEventBus eventBus) {

@@ -13,8 +13,6 @@ import com.maciej916.indreb.common.enums.*;
 import com.maciej916.indreb.common.interfaces.entity.IElectricSlot;
 import com.maciej916.indreb.common.interfaces.entity.IExpCollector;
 import com.maciej916.indreb.common.interfaces.entity.ITileSound;
-import com.maciej916.indreb.common.interfaces.receipe.IBaseRecipe;
-import com.maciej916.indreb.common.interfaces.receipe.IRecipeSingleIngredient;
 import com.maciej916.indreb.common.network.ModNetworking;
 import com.maciej916.indreb.common.network.packet.PacketScannerCleanScan;
 import com.maciej916.indreb.common.network.packet.PacketScannerSaveScan;
@@ -67,7 +65,7 @@ public class BlockEntityScanner extends IndRebBlockEntity implements IEnergyBloc
                 Optional<?> optionalRecipe = getRecipe(newStack);
                 if (optionalRecipe.isPresent()) {
                     recipe = (ScannerRecipe) optionalRecipe.get();
-                    ItemStack stack = new ItemStack(getStackHandler().getStackInSlot(INPUT_SLOT).getItem());
+                    ItemStack stack = new ItemStack(getItemStackHandler().getStackInSlot(INPUT_SLOT).getItem());
                     result = new ScannerResult(stack, recipe.getMatterCost(), recipe.getEnergyCost());
                 } else {
                     recipe = null;
@@ -118,7 +116,7 @@ public class BlockEntityScanner extends IndRebBlockEntity implements IEnergyBloc
                     }
 
                     if (progress.getProgress() >= progress.getProgressMax()) {
-                        StackHandlerHelper.shrinkInputStack(getStackHandler(), INPUT_SLOT, 1);
+                        StackHandlerHelper.shrinkInputStack(getItemStackHandler(), INPUT_SLOT, 1);
                         mode = ScannerMode.RESULT;
                         addRecipeUsed(recipe);
                         progress.setBoth(-1);
@@ -234,7 +232,7 @@ public class BlockEntityScanner extends IndRebBlockEntity implements IEnergyBloc
     }
 
     public void saveScan() {
-        final ItemStack memoryStack = getStackHandler().getStackInSlot(MEMORY_SLOT);
+        final ItemStack memoryStack = getItemStackHandler().getStackInSlot(MEMORY_SLOT);
         LazyOptionalHelper<IScannerResult> cap = CapabilityUtil.getCapabilityHelper(memoryStack, ModCapabilities.SCANNER_RESULT);
         boolean success = false;
         boolean alreadyStored = false;

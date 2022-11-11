@@ -81,9 +81,9 @@ public class BlockEntityStandardMachine extends IndRebBlockEntity implements IEn
         active = false;
         getEnergyStorage().updateConsumed(0);
 
-        final ItemStack inputStack = getStackHandler().getStackInSlot(INPUT_SLOT);
-        final ItemStack outputStack = getStackHandler().getStackInSlot(OUTPUT_SLOT);
-        final ItemStack bonusStack = getStackHandler().getStackInSlot(BONUS_SLOT);
+        final ItemStack inputStack = getItemStackHandler().getStackInSlot(INPUT_SLOT);
+        final ItemStack outputStack = getItemStackHandler().getStackInSlot(OUTPUT_SLOT);
+        final ItemStack bonusStack = getItemStackHandler().getStackInSlot(BONUS_SLOT);
 
         if (cachedInputStack.getItem() != inputStack.getItem()) {
             cachedInputStack = inputStack.copy();
@@ -125,23 +125,23 @@ public class BlockEntityStandardMachine extends IndRebBlockEntity implements IEn
 
                     if (bonusStack.isEmpty() || chanceDrop.isEmpty() || (chanceDrop.getCount() + bonusStack.getCount() <= bonusStack.getMaxStackSize() && chanceDrop.getItem() == bonusStack.getItem())) {
                         if (outputStack.isEmpty()) {
-                            getStackHandler().setStackInSlot(OUTPUT_SLOT, resultStack.copy());
+                            getItemStackHandler().setStackInSlot(OUTPUT_SLOT, resultStack.copy());
                         } else {
                             outputStack.grow(resultStack.getCount());
-                            getStackHandler().setStackInSlot(OUTPUT_SLOT, outputStack.copy());
+                            getItemStackHandler().setStackInSlot(OUTPUT_SLOT, outputStack.copy());
                         }
 
                         if (!chanceDrop.isEmpty()) {
                             if (bonusStack.isEmpty()) {
-                                getStackHandler().setStackInSlot(BONUS_SLOT, chanceDrop.copy());
+                                getItemStackHandler().setStackInSlot(BONUS_SLOT, chanceDrop.copy());
                             } else {
                                 bonusStack.grow(chanceDrop.getCount());
-                                getStackHandler().setStackInSlot(BONUS_SLOT, bonusStack.copy());
+                                getItemStackHandler().setStackInSlot(BONUS_SLOT, bonusStack.copy());
                             }
                         }
 
                         inputStack.shrink(recipe.getIngredientCount());
-                        getStackHandler().setStackInSlot(INPUT_SLOT, inputStack.copy());
+                        getItemStackHandler().setStackInSlot(INPUT_SLOT, inputStack.copy());
 
                         this.addRecipeUsed(recipe);
 
@@ -218,9 +218,9 @@ public class BlockEntityStandardMachine extends IndRebBlockEntity implements IEn
     }
 
     private final ArrayList<LazyOptional<?>> capabilities = new ArrayList<>(Arrays.asList(
-            LazyOptional.of(this::getStackHandler),
-            LazyOptional.of(() -> new RangedWrapper(getStackHandler(), INPUT_SLOT, INPUT_SLOT + 1)),
-            LazyOptional.of(() -> new RangedWrapper(getStackHandler(), OUTPUT_SLOT, BONUS_SLOT + 1))
+            LazyOptional.of(this::getItemStackHandler),
+            LazyOptional.of(() -> new RangedWrapper(getItemStackHandler(), INPUT_SLOT, INPUT_SLOT + 1)),
+            LazyOptional.of(() -> new RangedWrapper(getItemStackHandler(), OUTPUT_SLOT, BONUS_SLOT + 1))
     ));
 
     @Nonnull

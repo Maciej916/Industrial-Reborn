@@ -89,16 +89,16 @@ public class BlockEntityFermenter extends IndRebBlockEntity implements IEnergyBl
         boolean updateState = false;
         getEnergyStorage().updateConsumed(0);
 
-        final ItemStack fillBucketUp = getStackHandler().getStackInSlot(FILL_BUCKET_UP);
-        final ItemStack fillBucketDown = getStackHandler().getStackInSlot(FILL_BUCKET_DOWN);
+        final ItemStack fillBucketUp = getItemStackHandler().getStackInSlot(FILL_BUCKET_UP);
+        final ItemStack fillBucketDown = getItemStackHandler().getStackInSlot(FILL_BUCKET_DOWN);
 
-        final ItemStack drainBucketUp = getStackHandler().getStackInSlot(DRAIN_BUCKET_UP);
-        final ItemStack drainBucketDown = getStackHandler().getStackInSlot(DRAIN_BUCKET_DOWN);
+        final ItemStack drainBucketUp = getItemStackHandler().getStackInSlot(DRAIN_BUCKET_UP);
+        final ItemStack drainBucketDown = getItemStackHandler().getStackInSlot(DRAIN_BUCKET_DOWN);
 
-        final ItemStack wasteStack = getStackHandler().getStackInSlot(WASTE_SLOT);
+        final ItemStack wasteStack = getItemStackHandler().getStackInSlot(WASTE_SLOT);
 
         if (progressFill.getProgress() == 0) {
-            boolean filled = BlockEntityUtil.fillTank(fillBucketUp, fillBucketDown, fluidInputStorage, getStackHandler(), FILL_BUCKET_DOWN);
+            boolean filled = BlockEntityUtil.fillTank(fillBucketUp, fillBucketDown, fluidInputStorage, getItemStackHandler(), FILL_BUCKET_DOWN);
             if (filled) {
                 progressFill.setProgress(1);
             }
@@ -116,7 +116,7 @@ public class BlockEntityFermenter extends IndRebBlockEntity implements IEnergyBl
         }
 
         if (progressDrain.getProgress() == 0) {
-            boolean drained = BlockEntityUtil.drainTank(drainBucketUp, drainBucketDown, fluidOutputStorage, getStackHandler(), DRAIN_BUCKET_UP, DRAIN_BUCKET_DOWN);
+            boolean drained = BlockEntityUtil.drainTank(drainBucketUp, drainBucketDown, fluidOutputStorage, getItemStackHandler(), DRAIN_BUCKET_UP, DRAIN_BUCKET_DOWN);
             if (drained) {
                 progressDrain.setProgress(1);
             }
@@ -164,7 +164,7 @@ public class BlockEntityFermenter extends IndRebBlockEntity implements IEnergyBl
 
             if (progressWaste.getProgress() >= progressWaste.getProgressMax()) {
                 if (wasteStack.isEmpty()) {
-                    getStackHandler().setStackInSlot(WASTE_SLOT, new ItemStack(ModItems.FERTILIZER.get()));
+                    getItemStackHandler().setStackInSlot(WASTE_SLOT, new ItemStack(ModItems.FERTILIZER.get()));
                 } else {
                     wasteStack.grow(1);
                 }
@@ -283,9 +283,9 @@ public class BlockEntityFermenter extends IndRebBlockEntity implements IEnergyBl
     }
 
     private final ArrayList<LazyOptional<?>> capabilities = new ArrayList<>(Arrays.asList(
-            LazyOptional.of(this::getStackHandler),
-            LazyOptional.of(() -> new RangedWrapper(getStackHandler(), FILL_BUCKET_UP, DRAIN_BUCKET_UP + 1)),
-            LazyOptional.of(() -> new RangedWrapper(getStackHandler(), FILL_BUCKET_DOWN, DRAIN_BUCKET_DOWN + 1)),
+            LazyOptional.of(this::getItemStackHandler),
+            LazyOptional.of(() -> new RangedWrapper(getItemStackHandler(), FILL_BUCKET_UP, DRAIN_BUCKET_UP + 1)),
+            LazyOptional.of(() -> new RangedWrapper(getItemStackHandler(), FILL_BUCKET_DOWN, DRAIN_BUCKET_DOWN + 1)),
             LazyOptional.of(() -> this.fluidInputStorage),
             LazyOptional.of(() -> this.fluidOutputStorage)
     ));

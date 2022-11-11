@@ -9,7 +9,8 @@ public enum GuiSlotType {
     HELMET(18,18, 122, 27),
     CHESTPLATE(18,18, 141, 27),
     LEGGINGS(18,18, 160, 27),
-    BOOTS(18,18, 179, 27);
+    BOOTS(18,18, 179, 27),
+    DISABLED(18,18, 122, 46);
 
     private final int width;
     private final int height;

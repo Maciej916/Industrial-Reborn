@@ -4,20 +4,17 @@ import com.maciej916.indreb.common.enums.GuiSlotType;
 import com.maciej916.indreb.common.enums.InventorySlotType;
 import com.maciej916.indreb.common.interfaces.entity.ISlot;
 
-import javax.annotation.Nullable;
-
 public class IndRebSlot implements ISlot {
 
     private final int slotId;
     private final int xPosition;
     private final int yPosition;
     private final InventorySlotType invSlotType;
-    private final GuiSlotType guiSlotType;
-
+    private GuiSlotType guiSlotType;
     private final int guiX;
     private final int guiY;
 
-    public IndRebSlot(int slotId, int xPosition, int yPosition, InventorySlotType invSlotType, @Nullable GuiSlotType guiSlotType, int guiX, int guiY) {
+    public IndRebSlot(int slotId, int xPosition, int yPosition, InventorySlotType invSlotType, GuiSlotType guiSlotType, int guiX, int guiY) {
         this.slotId = slotId;
         this.xPosition = xPosition;
         this.yPosition = yPosition;
@@ -50,6 +47,10 @@ public class IndRebSlot implements ISlot {
     @Override
     public GuiSlotType guiSlotType() {
         return guiSlotType;
+    }
+
+    public void setGuiSlotType(GuiSlotType guiSlotType) {
+        this.guiSlotType = guiSlotType;
     }
 
     public int getGuiX() {

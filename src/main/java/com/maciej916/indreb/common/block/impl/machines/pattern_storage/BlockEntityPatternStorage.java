@@ -93,10 +93,10 @@ public class BlockEntityPatternStorage extends IndRebBlockEntity {
 
     @Override
     public void tickWork(BlockState state) {
-        ItemStack patternSlot = getStackHandler().getStackInSlot(MEMORY_SLOT);
+        ItemStack patternSlot = getItemStackHandler().getStackInSlot(MEMORY_SLOT);
         if (patternsStored > 0 && patternSlot.isEmpty()) {
             currentPattern = 0;
-            getStackHandler().setStackInSlot(MEMORY_SLOT, scannerResultMap.get(currentPattern).getResultStack());
+            getItemStackHandler().setStackInSlot(MEMORY_SLOT, scannerResultMap.get(currentPattern).getResultStack());
             shouldUpdateState = true;
         }
     }
@@ -125,13 +125,13 @@ public class BlockEntityPatternStorage extends IndRebBlockEntity {
                 this.currentPattern = this.currentPattern - 1 < 0 ? this.scannerResultMap.size() - 1 : this.currentPattern - 1;
             }
 
-            getStackHandler().setStackInSlot(MEMORY_SLOT, scannerResultMap.get(this.currentPattern).getResultStack());
+            getItemStackHandler().setStackInSlot(MEMORY_SLOT, scannerResultMap.get(this.currentPattern).getResultStack());
             updateBlockState();
         }
     }
 
     public void exportImportPattern(boolean export) {
-        final ItemStack memoryStack = getStackHandler().getStackInSlot(INPUT_SLOT);
+        final ItemStack memoryStack = getItemStackHandler().getStackInSlot(INPUT_SLOT);
         boolean success = false;
         if (!memoryStack.isEmpty()) {
             LazyOptionalHelper<IScannerResult> cap = CapabilityUtil.getCapabilityHelper(memoryStack, ModCapabilities.SCANNER_RESULT);
@@ -146,9 +146,9 @@ public class BlockEntityPatternStorage extends IndRebBlockEntity {
                         this.currentPattern = this.patternsStored == 0 ? 0 : this.currentPattern >= this.patternsStored ? this.patternsStored - 1 : this.currentPattern;
 
                         if (this.patternsStored == 0) {
-                            getStackHandler().setStackInSlot(MEMORY_SLOT, ItemStack.EMPTY);
+                            getItemStackHandler().setStackInSlot(MEMORY_SLOT, ItemStack.EMPTY);
                         } else {
-                            getStackHandler().setStackInSlot(MEMORY_SLOT, this.scannerResultMap.get(this.currentPattern).getResultStack());
+                            getItemStackHandler().setStackInSlot(MEMORY_SLOT, this.scannerResultMap.get(this.currentPattern).getResultStack());
                         }
 
                         success = true;

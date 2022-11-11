@@ -291,6 +291,8 @@ public class Items extends ItemModelProvider {
         createWithBlock(ModItems.QUANTUM_SOLAR_GENERATOR, "generator/quantum_solar_generator");
 //        createWithBlock(ModItems.CRYSTALLINE_GENERATOR, "generator/crystalline_generator");
         createWithBlock(ModItems.SEMIFLUID_GENERATOR, "semifluid_generator");
+        createWithBlock(ModItems.NUCLEAR_REACTOR, "nuclear_reactor");
+        createWithBlock(ModItems.REACTOR_CHAMBER, "reactor_chamber");
     }
 
     protected void registerMachines() {
@@ -312,6 +314,7 @@ public class Items extends ItemModelProvider {
 
         createWithBlock(ModItems.MATTER_FABRICATOR, "matter_fabricator");
         createWithBlock(ModItems.THERMAL_CENTRIFUGE, "thermal_centrifuge");
+
         createWithBlock(ModItems.SCANNER, "scanner");
         createWithBlock(ModItems.REPLICATOR, "replicator");
     }
@@ -449,12 +452,11 @@ public class Items extends ItemModelProvider {
         createGeneratedTexture(ModItems.FUEL_ROD_MOX_QUAD, "reactor/fuel_rod_mox_quad");
         createGeneratedTexture(ModItems.FUEL_ROD_MOX_QUAD_DEPLETED, "reactor/fuel_rod_mox_quad_depleted");
     }
+
     protected void registerExplosive() {
         createWithBlock(ModItems.INDUSTRIAL_TNT, "industrial_tnt");
         createWithBlock(ModItems.NUKE, "nuke");
     }
-
-
 
     private ItemModelBuilder createGeneratedTexture(RegistryObject<Item> item, String path) {
         return singleTexture(item.getId().getPath(), new ResourceLocation("item/generated"),"layer0",new ResourceLocation(IndReb.MODID, "item/" + path));

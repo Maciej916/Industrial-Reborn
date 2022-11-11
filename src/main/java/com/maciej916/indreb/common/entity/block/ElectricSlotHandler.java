@@ -1,8 +1,10 @@
 package com.maciej916.indreb.common.entity.block;
 
 import com.maciej916.indreb.common.energy.interfaces.IEnergy;
+import com.maciej916.indreb.common.entity.slot.IndRebSlotItemHandler;
 import com.maciej916.indreb.common.enums.EnergyType;
 import com.maciej916.indreb.common.enums.InventorySlotType;
+import com.maciej916.indreb.common.interfaces.entity.IElectricSlot;
 import com.maciej916.indreb.common.interfaces.item.IElectricItem;
 import com.maciej916.indreb.common.registries.ModTags;
 import net.minecraft.resources.ResourceLocation;
@@ -17,30 +19,28 @@ import javax.annotation.Nonnull;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ElectricSlotHandler extends SlotItemHandler {
+public class ElectricSlotHandler extends IndRebSlotItemHandler {
 
-    private final boolean charging;
-    private final InventorySlotType inventorySlotType;
+    private final IElectricSlot electricSlot;
     private final IEnergy energyStorage;
 
-    public ElectricSlotHandler(IItemHandler itemHandler, int index, int xPosition, int yPosition, boolean charging, InventorySlotType inventorySlotType, IEnergy energyStorage) {
-        super(itemHandler, index, xPosition, yPosition);
-        this.charging = charging;
-        this.inventorySlotType = inventorySlotType;
+    public ElectricSlotHandler(IndRebBlockEntity be, IItemHandler itemHandler, IElectricSlot electricSlot, IEnergy energyStorage) {
+        super(be, itemHandler, electricSlot.getSlotId(), electricSlot.getXPosition(), electricSlot.getYPosition());
+        this.electricSlot = electricSlot;
         this.energyStorage = energyStorage;
     }
 
     @Override
     public boolean mayPlace(@Nonnull ItemStack stack) {
         if (stack.getItem() instanceof IElectricItem est) {
-            if (est.getEnergyTier().getLvl() > energyStorage.energyTier().getLvl() || (est.getEnergyType() == EnergyType.RECEIVE && !charging) || (est.getEnergyType() == EnergyType.EXTRACT && charging)) {
+            if (est.getEnergyTier().getLvl() > energyStorage.energyTier().getLvl() || (est.getEnergyType() == EnergyType.RECEIVE && !electricSlot.isCharging()) || (est.getEnergyType() == EnergyType.EXTRACT && electricSlot.isCharging())) {
                 return false;
             }
         }
 
         List<ResourceLocation> itemTags = ForgeRegistries.ITEMS.tags().getReverseTag(stack.getItem()).map(IReverseTag::getTagKeys)
                 .map(tagKeyStream -> tagKeyStream.map(TagKey::location).toList()).orElse(new ArrayList<>());
-        return switch (inventorySlotType) {
+        return switch (electricSlot.getInventorySlotType()) {
             case ELECTRIC -> itemTags.contains(ModTags.ELECTRICS_RES) || itemTags.contains(ModTags.BATTERIES_RES);
             case BATTERY -> itemTags.contains(ModTags.BATTERIES_RES);
             case HELMET -> itemTags.contains(ModTags.HELMET_RES);
@@ -52,10 +52,7 @@ public class ElectricSlotHandler extends SlotItemHandler {
     }
 
     public boolean isCharging() {
-        return charging;
+        return electricSlot.isCharging();
     }
 
-    public InventorySlotType getInventorySlotType() {
-        return inventorySlotType;
-    }
 }

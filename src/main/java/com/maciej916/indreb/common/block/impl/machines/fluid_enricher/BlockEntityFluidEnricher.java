@@ -12,7 +12,6 @@ import com.maciej916.indreb.common.interfaces.block.IStateFacing;
 import com.maciej916.indreb.common.interfaces.entity.IElectricSlot;
 import com.maciej916.indreb.common.interfaces.entity.IExpCollector;
 import com.maciej916.indreb.common.interfaces.entity.ISupportUpgrades;
-import com.maciej916.indreb.common.interfaces.receipe.IBaseRecipe;
 import com.maciej916.indreb.common.recipe.impl.FluidEnrichingRecipe;
 import com.maciej916.indreb.common.registries.ModBlockEntities;
 import com.maciej916.indreb.common.registries.ModRecipeType;
@@ -115,9 +114,9 @@ public class BlockEntityFluidEnricher extends IndRebBlockEntity implements IEner
         boolean updateState = false;
         getEnergyStorage().updateConsumed(0);
 
-        final ItemStack inputStack = getStackHandler().getStackInSlot(INPUT_SLOT);
-        final ItemStack drainBucketUp = getStackHandler().getStackInSlot(DRAIN_BUCKET_UP);
-        final ItemStack drainBucketDown = getStackHandler().getStackInSlot(DRAIN_BUCKET_DOWN);
+        final ItemStack inputStack = getItemStackHandler().getStackInSlot(INPUT_SLOT);
+        final ItemStack drainBucketUp = getItemStackHandler().getStackInSlot(DRAIN_BUCKET_UP);
+        final ItemStack drainBucketDown = getItemStackHandler().getStackInSlot(DRAIN_BUCKET_DOWN);
 
         if (cachedInput != fluidInputStorage.getFluidAmount()) {
             cachedInput = fluidInputStorage.getFluidAmount();
@@ -130,7 +129,7 @@ public class BlockEntityFluidEnricher extends IndRebBlockEntity implements IEner
         }
 
         if (progressDrain.getProgress() == 0) {
-            boolean drained = BlockEntityUtil.drainTank(drainBucketUp, drainBucketDown, fluidOutputStorage, getStackHandler(), DRAIN_BUCKET_UP, DRAIN_BUCKET_DOWN);
+            boolean drained = BlockEntityUtil.drainTank(drainBucketUp, drainBucketDown, fluidOutputStorage, getItemStackHandler(), DRAIN_BUCKET_UP, DRAIN_BUCKET_DOWN);
             if (drained) {
                 progressDrain.setProgress(1);
             }
@@ -170,7 +169,7 @@ public class BlockEntityFluidEnricher extends IndRebBlockEntity implements IEner
 
                     if (progress.getProgress() >= progress.getProgressMax()) {
                         inputStack.shrink(1);
-                        getStackHandler().setStackInSlot(INPUT_SLOT, inputStack.copy());
+                        getItemStackHandler().setStackInSlot(INPUT_SLOT, inputStack.copy());
                         fluidInputStorage.drain(recipe.getFluidInput().getAmount(), IFluidHandler.FluidAction.EXECUTE);
                         fluidOutputStorage.fillFluid(recipe.getResult(), false);
 
@@ -257,9 +256,9 @@ public class BlockEntityFluidEnricher extends IndRebBlockEntity implements IEner
     }
 
     private final ArrayList<LazyOptional<?>> capabilities = new ArrayList<>(Arrays.asList(
-            LazyOptional.of(this::getStackHandler),
-            LazyOptional.of(() -> new RangedWrapper(getStackHandler(), INPUT_SLOT, DRAIN_BUCKET_UP + 1)),
-            LazyOptional.of(() -> new RangedWrapper(getStackHandler(), DRAIN_BUCKET_DOWN, DRAIN_BUCKET_DOWN + 1)),
+            LazyOptional.of(this::getItemStackHandler),
+            LazyOptional.of(() -> new RangedWrapper(getItemStackHandler(), INPUT_SLOT, DRAIN_BUCKET_UP + 1)),
+            LazyOptional.of(() -> new RangedWrapper(getItemStackHandler(), DRAIN_BUCKET_DOWN, DRAIN_BUCKET_DOWN + 1)),
             LazyOptional.of(() -> this.fluidInputStorage),
             LazyOptional.of(() -> this.fluidOutputStorage)
     ));

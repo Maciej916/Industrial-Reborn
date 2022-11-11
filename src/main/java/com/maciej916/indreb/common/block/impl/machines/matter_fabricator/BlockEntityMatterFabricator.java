@@ -6,18 +6,12 @@ import com.maciej916.indreb.common.entity.block.BlockEntityProgress;
 import com.maciej916.indreb.common.entity.block.FluidStorage;
 import com.maciej916.indreb.common.entity.block.IndRebBlockEntity;
 import com.maciej916.indreb.common.entity.slot.IndRebSlot;
-import com.maciej916.indreb.common.entity.slot.SlotBattery;
 import com.maciej916.indreb.common.enums.*;
-import com.maciej916.indreb.common.fluid.Biogas;
 import com.maciej916.indreb.common.fluid.Matter;
-import com.maciej916.indreb.common.interfaces.block.IStateFacing;
-import com.maciej916.indreb.common.interfaces.entity.IElectricSlot;
 import com.maciej916.indreb.common.interfaces.entity.ISupportUpgrades;
 import com.maciej916.indreb.common.interfaces.entity.ITileSound;
-import com.maciej916.indreb.common.recipe.impl.RecyclingRecipe;
 import com.maciej916.indreb.common.registries.ModBlockEntities;
 import com.maciej916.indreb.common.registries.ModItems;
-import com.maciej916.indreb.common.registries.ModRecipeType;
 import com.maciej916.indreb.common.registries.ModSounds;
 import com.maciej916.indreb.common.util.BlockEntityUtil;
 import com.maciej916.indreb.common.util.CapabilityUtil;
@@ -29,7 +23,6 @@ import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundSource;
-import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.Fluids;
@@ -47,7 +40,6 @@ import javax.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Optional;
 
 public class BlockEntityMatterFabricator extends IndRebBlockEntity implements IEnergyBlock, ISupportUpgrades, ITileSound {
 
@@ -87,9 +79,9 @@ public class BlockEntityMatterFabricator extends IndRebBlockEntity implements IE
         boolean updateState = false;
         getEnergyStorage().updateConsumed(0);
 
-        final ItemStack drainBucketUp = getStackHandler().getStackInSlot(DRAIN_BUCKET_UP);
-        final ItemStack drainBucketDown = getStackHandler().getStackInSlot(DRAIN_BUCKET_DOWN);
-        final ItemStack amplifierStack = getStackHandler().getStackInSlot(AMPLIFIER_SLOT);
+        final ItemStack drainBucketUp = getItemStackHandler().getStackInSlot(DRAIN_BUCKET_UP);
+        final ItemStack drainBucketDown = getItemStackHandler().getStackInSlot(DRAIN_BUCKET_DOWN);
+        final ItemStack amplifierStack = getItemStackHandler().getStackInSlot(AMPLIFIER_SLOT);
 
         if (cachedOutput != fluidMatterStorage.getFluidAmount()) {
             cachedOutput = fluidMatterStorage.getFluidAmount();
@@ -97,7 +89,7 @@ public class BlockEntityMatterFabricator extends IndRebBlockEntity implements IE
         }
 
         if (progressDrain.getProgress() == 0) {
-            boolean drained = BlockEntityUtil.drainTank(drainBucketUp, drainBucketDown, fluidMatterStorage, getStackHandler(), DRAIN_BUCKET_UP, DRAIN_BUCKET_DOWN);
+            boolean drained = BlockEntityUtil.drainTank(drainBucketUp, drainBucketDown, fluidMatterStorage, getItemStackHandler(), DRAIN_BUCKET_UP, DRAIN_BUCKET_DOWN);
             if (drained) {
                 progressDrain.setProgress(1);
             }
@@ -178,7 +170,7 @@ public class BlockEntityMatterFabricator extends IndRebBlockEntity implements IE
                 activeSoundAmplified = null;
             }
         } else {
-            if (getStackHandler().getStackInSlot(AMPLIFIER_SLOT).isEmpty()) {
+            if (getItemStackHandler().getStackInSlot(AMPLIFIER_SLOT).isEmpty()) {
                 SoundHandler.stopExtraSound(getBlockPos());
                 activeSoundAmplified = null;
             }
@@ -264,7 +256,7 @@ public class BlockEntityMatterFabricator extends IndRebBlockEntity implements IE
     }
 
     private final ArrayList<LazyOptional<?>> capabilities = new ArrayList<>(Arrays.asList(
-            LazyOptional.of(this::getStackHandler),
+            LazyOptional.of(this::getItemStackHandler),
             LazyOptional.of(() -> this.fluidMatterStorage)
     ));
 
@@ -294,7 +286,7 @@ public class BlockEntityMatterFabricator extends IndRebBlockEntity implements IE
     }
 
     @Override
-    public boolean showInGui() {
+    public boolean showBarInGui() {
         return false;
     }
 }

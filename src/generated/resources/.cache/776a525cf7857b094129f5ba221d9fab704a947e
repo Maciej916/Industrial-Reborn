@@ -1,5 +1,11 @@
-// 1.19.2	2022-11-10T11:08:31.2307907	Industrial Reborn Tags
-202214a0548b4a663e8ea5692e7729ea93830338 data/minecraft/tags/blocks/mineable/axe.json
-25f5ba3c107e7a7d527de0d23c94bfbb516ba579 data/minecraft/tags/blocks/mineable/pickaxe.json
-705282b34acec7eb29a63af73d995b1e74e1cd10 data/minecraft/tags/blocks/needs_iron_tool.json
-3d05c7f61633784e4452b074d566ea534ed866c8 data/minecraft/tags/blocks/needs_stone_tool.json
+// 1.19.2	2022-11-11T12:35:56.2747946	Industrial Reborn Tags
+c1b939689a464291ea82707ebcc8b8a40ae30978 data/forge/tags/items/plates/bronze.json
+13b78a70deb7bc14de542d0a3695c2419dc816e6 data/forge/tags/items/plates/copper.json
+e60584754886d1f2b0565b74ef23f4671d81ea06 data/forge/tags/items/plates/gold.json
+a19c14fa53625593856519164ede0d61ab58a53b data/forge/tags/items/plates/iridium.json
+32e4b76420f8aedfcc0f333a843759c388effaa7 data/forge/tags/items/plates/iron.json
+3b6592e2474eca81e4c28dc85f7b4d6a3264e5a7 data/forge/tags/items/plates/lapis.json
+674fdbc198f2995c7f44a4f026f31a547156c398 data/forge/tags/items/plates/lead.json
+2f5227262e252b00c121483aade1c32a425c1260 data/forge/tags/items/plates/steel.json
+64091658e624d78171eab2a743ec8738db5e4c0e data/forge/tags/items/plates/tin.json
+b5cb5d33eec3d87c73c8ea43c6b5c48cb195671f data/indreb/tags/items/base_machine_sign.json

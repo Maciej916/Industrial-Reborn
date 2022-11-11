@@ -27,7 +27,6 @@ import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Recipe;
-import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.capabilities.ForgeCapabilities;
@@ -119,8 +118,8 @@ public class BlockEntityMeralFormer extends IndRebBlockEntity implements IEnergy
                 }
 
                 if (progress.getProgress() >= progress.getProgressMax()) {
-                    StackHandlerHelper.shrinkInputStack(getStackHandler(), INPUT_SLOT, recipe.getIngredientCount());
-                    StackHandlerHelper.incMachineOutputStack(getStackHandler(), OUTPUT_SLOT, recipe.getResultItem());
+                    StackHandlerHelper.shrinkInputStack(getItemStackHandler(), INPUT_SLOT, recipe.getIngredientCount());
+                    StackHandlerHelper.incMachineOutputStack(getItemStackHandler(), OUTPUT_SLOT, recipe.getResultItem());
 
                     addRecipeUsed(recipe);
                     progress.setBoth(-1);
@@ -179,8 +178,8 @@ public class BlockEntityMeralFormer extends IndRebBlockEntity implements IEnergy
     }
 
     private final ArrayList<LazyOptional<?>> capabilities = new ArrayList<>(Arrays.asList(
-            LazyOptional.of(this::getStackHandler),
-            LazyOptional.of(() -> new RangedWrapper(getStackHandler(), INPUT_SLOT, INPUT_SLOT + 1))
+            LazyOptional.of(this::getItemStackHandler),
+            LazyOptional.of(() -> new RangedWrapper(getItemStackHandler(), INPUT_SLOT, INPUT_SLOT + 1))
     ));
 
     @Nonnull
@@ -242,7 +241,7 @@ public class BlockEntityMeralFormer extends IndRebBlockEntity implements IEnergy
             case 3 -> mode = MetalFormerMode.CUTTING;
         }
 
-        final ItemStack inputStack = getStackHandler().getStackInSlot(INPUT_SLOT);
+        final ItemStack inputStack = getItemStackHandler().getStackInSlot(INPUT_SLOT);
         Optional<?> optionalRecipe = getRecipe(inputStack);
         if (optionalRecipe.isPresent()) {
             recipe = (IRecipeSingleIngredient) optionalRecipe.get();
@@ -256,7 +255,7 @@ public class BlockEntityMeralFormer extends IndRebBlockEntity implements IEnergy
     }
 
     private boolean canWork() {
-        final ItemStack outputStack = getStackHandler().getStackInSlot(OUTPUT_SLOT);
+        final ItemStack outputStack = getItemStackHandler().getStackInSlot(OUTPUT_SLOT);
         return outputStack.isEmpty() || (outputStack.getItem() == recipe.getResultItem().getItem() && outputStack.getCount() + recipe.getResultItem().getCount() <= outputStack.getMaxStackSize());
     }
 }

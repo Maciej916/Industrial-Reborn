@@ -15,7 +15,6 @@ import com.maciej916.indreb.common.interfaces.item.IElectricItem;
 import com.maciej916.indreb.common.network.ModNetworking;
 import com.maciej916.indreb.common.network.packet.PacketParticle;
 import com.maciej916.indreb.common.registries.ModCapabilities;
-import com.maciej916.indreb.common.util.CapabilityUtil;
 import com.maciej916.indreb.common.util.Constants;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -225,7 +224,7 @@ public class EnergyCore implements IEnergyCore, ICapabilitySerializable<Compound
                 if (ibe.hasEnergy()) {
                     if (ibe.hasBattery()) {
                         if (energyStorage.canExtractEnergy() || energyStorage.canReceiveEnergy()) {
-                            ItemStackHandler batteryHandler = ibe.getBatteryHandler();
+                            ItemStackHandler batteryHandler = ibe.getBatteryStackHandler();
                             AtomicInteger chargeMax = new AtomicInteger();
                             List<EnergyReceiveComparator> transferCharge = new ArrayList<>();
 

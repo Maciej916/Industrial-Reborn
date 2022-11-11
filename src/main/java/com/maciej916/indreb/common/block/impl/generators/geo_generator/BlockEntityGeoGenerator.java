@@ -64,11 +64,11 @@ public class BlockEntityGeoGenerator extends IndRebBlockEntity implements ICoold
         boolean updateState = false;
         getEnergyStorage().updateGenerated(0);
 
-        final ItemStack fillBucketUp = getStackHandler().getStackInSlot(FILL_BUCKET_UP);
-        final ItemStack fillBucketDown = getStackHandler().getStackInSlot(FILL_BUCKET_DOWN);
+        final ItemStack fillBucketUp = getItemStackHandler().getStackInSlot(FILL_BUCKET_UP);
+        final ItemStack fillBucketDown = getItemStackHandler().getStackInSlot(FILL_BUCKET_DOWN);
 
         if (progressFill.getProgress() == 0) {
-            boolean filled = BlockEntityUtil.fillTank(fillBucketUp, fillBucketDown, fluidStorage, getStackHandler(), FILL_BUCKET_DOWN);
+            boolean filled = BlockEntityUtil.fillTank(fillBucketUp, fillBucketDown, fluidStorage, getItemStackHandler(), FILL_BUCKET_DOWN);
             if (filled) {
                 progressFill.setProgress(1);
             }
@@ -169,9 +169,9 @@ public class BlockEntityGeoGenerator extends IndRebBlockEntity implements ICoold
     }
 
     private final ArrayList<LazyOptional<?>> capabilities = new ArrayList<>(Arrays.asList(
-            LazyOptional.of(this::getStackHandler),
-            LazyOptional.of(() -> new RangedWrapper(getStackHandler(), FILL_BUCKET_UP, FILL_BUCKET_UP + 1)),
-            LazyOptional.of(() -> new RangedWrapper(getStackHandler(), FILL_BUCKET_DOWN, FILL_BUCKET_DOWN + 1)),
+            LazyOptional.of(this::getItemStackHandler),
+            LazyOptional.of(() -> new RangedWrapper(getItemStackHandler(), FILL_BUCKET_UP, FILL_BUCKET_UP + 1)),
+            LazyOptional.of(() -> new RangedWrapper(getItemStackHandler(), FILL_BUCKET_DOWN, FILL_BUCKET_DOWN + 1)),
             LazyOptional.of(() -> this.fluidStorage)
     ));
 

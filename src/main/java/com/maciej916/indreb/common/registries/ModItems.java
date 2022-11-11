@@ -8,6 +8,8 @@ import com.maciej916.indreb.common.enums.ModArmorMaterials;
 import com.maciej916.indreb.common.enums.UpgradeType;
 import com.maciej916.indreb.common.item.base.*;
 import com.maciej916.indreb.common.item.block.BlockItemElectric;
+import com.maciej916.indreb.common.item.block.BlockItemReactorChamber;
+import com.maciej916.indreb.common.item.block.IndRebBlockItem;
 import com.maciej916.indreb.common.item.block.ItemScaffolding;
 import com.maciej916.indreb.common.item.impl.*;
 import com.maciej916.indreb.common.item.impl.armor.NightVisionGoggles;
@@ -22,10 +24,7 @@ import com.maciej916.indreb.common.item.impl.upgrade.*;
 import com.maciej916.indreb.common.item.impl.wrench.ElectricWrench;
 import com.maciej916.indreb.common.item.impl.wrench.Wrench;
 import net.minecraft.world.entity.EquipmentSlot;
-import net.minecraft.world.item.BlockItem;
-import net.minecraft.world.item.CreativeModeTab;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.Tiers;
+import net.minecraft.world.item.*;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.material.MaterialColor;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -139,19 +138,17 @@ public final class ModItems {
     public static final RegistryObject<Item> FLUID_ENRICHER = fromBlockElectric(ModBlocks.FLUID_ENRICHER);
     public static final RegistryObject<Item> RECYCLER = fromBlockElectric(ModBlocks.RECYCLER);
     public static final RegistryObject<Item> FERMENTER = fromBlockElectric(ModBlocks.FERMENTER);
-    public static final RegistryObject<Item> ORE_WASHING_PLANT = fromBlock(ModBlocks.ORE_WASHING_PLANT);
-    public static final RegistryObject<Item> ALLOY_SMELTER = fromBlockElectric(ModBlocks.ALLOY_SMELTER);
+    public static final RegistryObject<Item> ORE_WASHING_PLANT = fromBlockElectric(ModBlocks.ORE_WASHING_PLANT);
     public static final RegistryObject<Item> METAL_FORMER = fromBlockElectric(ModBlocks.METAL_FORMER);
 
+    public static final RegistryObject<Item> ALLOY_SMELTER = fromBlockElectric(ModBlocks.ALLOY_SMELTER);
+    public static final RegistryObject<Item> THERMAL_CENTRIFUGE = fromBlockElectric(ModBlocks.THERMAL_CENTRIFUGE);
 
-    public static final RegistryObject<Item> THERMAL_CENTRIFUGE = fromBlock(ModBlocks.THERMAL_CENTRIFUGE);
-
-    public static final RegistryObject<Item> TELEPORT_ANCHOR = fromBlock(ModBlocks.TELEPORT_ANCHOR);
+    public static final RegistryObject<Item> MATTER_FABRICATOR = fromBlockElectric(ModBlocks.MATTER_FABRICATOR);
     public static final RegistryObject<Item> REPLICATOR = fromBlock(ModBlocks.REPLICATOR);
-    public static final RegistryObject<Item> MATTER_FABRICATOR = fromBlock(ModBlocks.MATTER_FABRICATOR);
-
     public static final RegistryObject<Item> SCANNER = fromBlock(ModBlocks.SCANNER);
 
+    public static final RegistryObject<Item> TELEPORT_ANCHOR = fromBlock(ModBlocks.TELEPORT_ANCHOR);
     public static final RegistryObject<Item> PATTERN_STORAGE = fromBlock(ModBlocks.PATTERN_STORAGE);
 
     public static final RegistryObject<Item> BATTERY_BOX = fromBlockElectric(ModBlocks.BATTERY_BOX);
@@ -168,6 +165,9 @@ public final class ModItems {
     public static final RegistryObject<Item> CHARGE_PAD_CESU = fromBlockElectric(ModBlocks.CHARGE_PAD_CESU);
     public static final RegistryObject<Item> CHARGE_PAD_MFE = fromBlockElectric(ModBlocks.CHARGE_PAD_MFE);
     public static final RegistryObject<Item> CHARGE_PAD_MFSU = fromBlockElectric(ModBlocks.CHARGE_PAD_MFSU);
+
+    public static final RegistryObject<Item> NUCLEAR_REACTOR = fromBlockElectric(ModBlocks.NUCLEAR_REACTOR, Rarity.UNCOMMON);
+    public static final RegistryObject<Item> REACTOR_CHAMBER = fromBlockReactorChamber(ModBlocks.REACTOR_CHAMBER);
 
     public static final RegistryObject<Item> INDUSTRIAL_TNT = fromBlock(ModBlocks.INDUSTRIAL_TNT);
     public static final RegistryObject<Item> NUKE = fromBlock(ModBlocks.NUKE);
@@ -249,12 +249,11 @@ public final class ModItems {
     public static final RegistryObject<Item> STEEL_PLATE = registerItem("steel_plate", () -> new MaterialItem());
     public static final RegistryObject<Item> IRIDIUM_PLATE = registerItem("iridium_plate", () -> new Iridium());
     public static final RegistryObject<Item> LAPIS_LAZULI_PLATE = registerItem("lapis_lazuli_plate", () -> new MaterialItem());
+    public static final RegistryObject<Item> ADVANCED_ALLOY = registerItem("advanced_alloy", () -> new MaterialItem());
 
     public static final RegistryObject<Item> CARBON_FIBERS = registerItem("carbon_fibers", () -> new MaterialItem());
     public static final RegistryObject<Item> COMBINED_CARBON_FIBERS = registerItem("combined_carbon_fibers", () -> new MaterialItem());
     public static final RegistryObject<Item> CARBON_PLATE = registerItem("carbon_plate", () -> new MaterialItem());
-
-    public static final RegistryObject<Item> ADVANCED_ALLOY = registerItem("advanced_alloy", () -> new MaterialItem());
 
     public static final RegistryObject<Item> NIGHTVISION_GOGGLES = registerItem("nightvision_goggles", () -> new NightVisionGoggles());
     public static final RegistryObject<Item> RUBBER_BOOTS = registerItem("rubber_boots", () -> new BaseArmor(ModArmorMaterials.RUBBER, EquipmentSlot.FEET));
@@ -404,15 +403,27 @@ public final class ModItems {
     }
 
     public static <B extends Block> RegistryObject<Item> fromBlock(RegistryObject<B> block) {
-       return ITEMS.register(block.getId().getPath(), () -> new BlockItem(block.get(), new Item.Properties().tab(ModItemGroups.MAIN_ITEM_GROUP)));
+        return fromBlock(block, Rarity.COMMON);
+    }
+
+    public static <B extends Block> RegistryObject<Item> fromBlock(RegistryObject<B> block, Rarity rarity) {
+       return ITEMS.register(block.getId().getPath(), () -> new IndRebBlockItem(block.get(), new Item.Properties().tab(ModItemGroups.MAIN_ITEM_GROUP), rarity));
     }
 
     public static <B extends Block> RegistryObject<Item> fromBlockIronScaffolding(RegistryObject<B> block) {
        return ITEMS.register(block.getId().getPath(), () -> new ItemScaffolding(block.get()));
     }
 
+    public static <B extends Block> RegistryObject<Item> fromBlockReactorChamber(RegistryObject<B> block) {
+       return ITEMS.register(block.getId().getPath(), () -> new BlockItemReactorChamber(block.get()));
+    }
+
     private static <T extends Block> RegistryObject<Item> fromBlockElectric(RegistryObject<T> block) {
-       return ITEMS.register(block.getId().getPath(), () -> new BlockItemElectric(block.get(), new Item.Properties().tab(ModItemGroups.MAIN_ITEM_GROUP)));
+       return fromBlockElectric(block, Rarity.COMMON);
+    }
+
+    private static <T extends Block> RegistryObject<Item> fromBlockElectric(RegistryObject<T> block, Rarity rarity) {
+       return ITEMS.register(block.getId().getPath(), () -> new BlockItemElectric(block.get(), new Item.Properties().tab(ModItemGroups.MAIN_ITEM_GROUP), rarity));
     }
 
     public static void register(IEventBus eventBus) {

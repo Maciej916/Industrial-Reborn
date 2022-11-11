@@ -75,7 +75,7 @@ public class BlockEntityIronFurnace extends IndRebBlockEntity implements IExpCol
         fuel.clearChanged();
         smelting.clearChanged();
 
-        final ItemStack inputStack = getStackHandler().getStackInSlot(INPUT_SLOT);
+        final ItemStack inputStack = getItemStackHandler().getStackInSlot(INPUT_SLOT);
         if (cachedInputStack.getItem() != inputStack.getItem()) {
             cachedInputStack = inputStack.copy();
             if (inputStack.getItem() != Items.AIR && getRecipe(inputStack).isPresent()) {
@@ -86,8 +86,8 @@ public class BlockEntityIronFurnace extends IndRebBlockEntity implements IExpCol
             }
         }
 
-        final ItemStack fuelItemStack = getStackHandler().getStackInSlot(FUEL_SLOT);
-        final ItemStack outputItemStack = getStackHandler().getStackInSlot(OUTPUT_SLOT);
+        final ItemStack fuelItemStack = getItemStackHandler().getStackInSlot(FUEL_SLOT);
+        final ItemStack outputItemStack = getItemStackHandler().getStackInSlot(OUTPUT_SLOT);
 
         if (fuel.getProgress() > 0) {
             active = true;
@@ -103,14 +103,14 @@ public class BlockEntityIronFurnace extends IndRebBlockEntity implements IExpCol
                         smelting.incProgress(1);
                         if (smelting.getProgress() >= smelting.getProgressMax()) {
                             if (outputItemStack.isEmpty()) {
-                                getStackHandler().setStackInSlot(OUTPUT_SLOT, resultStack.copy());
+                                getItemStackHandler().setStackInSlot(OUTPUT_SLOT, resultStack.copy());
                             } else {
                                 outputItemStack.grow(1);
-                                getStackHandler().setStackInSlot(OUTPUT_SLOT, outputItemStack);
+                                getItemStackHandler().setStackInSlot(OUTPUT_SLOT, outputItemStack);
                             }
 
                             inputStack.shrink(1);
-                            getStackHandler().setStackInSlot(INPUT_SLOT, inputStack);
+                            getItemStackHandler().setStackInSlot(INPUT_SLOT, inputStack);
 
                             this.addRecipeUsed(furnaceRecipe);
 
@@ -187,10 +187,10 @@ public class BlockEntityIronFurnace extends IndRebBlockEntity implements IExpCol
     }
 
     private final ArrayList<LazyOptional<?>> capabilities = new ArrayList<>(Arrays.asList(
-            LazyOptional.of(this::getStackHandler),
-            LazyOptional.of(() -> new RangedWrapper(getStackHandler(), FUEL_SLOT, FUEL_SLOT + 1)),
-            LazyOptional.of(() -> new RangedWrapper(getStackHandler(), INPUT_SLOT, INPUT_SLOT + 1)),
-            LazyOptional.of(() -> new RangedWrapper(getStackHandler(), OUTPUT_SLOT, OUTPUT_SLOT + 1))
+            LazyOptional.of(this::getItemStackHandler),
+            LazyOptional.of(() -> new RangedWrapper(getItemStackHandler(), FUEL_SLOT, FUEL_SLOT + 1)),
+            LazyOptional.of(() -> new RangedWrapper(getItemStackHandler(), INPUT_SLOT, INPUT_SLOT + 1)),
+            LazyOptional.of(() -> new RangedWrapper(getItemStackHandler(), OUTPUT_SLOT, OUTPUT_SLOT + 1))
     ));
 
     @Nonnull

@@ -13,7 +13,6 @@ import com.maciej916.indreb.common.enums.InventorySlotType;
 import com.maciej916.indreb.common.interfaces.entity.ICooldown;
 import com.maciej916.indreb.common.interfaces.entity.IElectricSlot;
 import com.maciej916.indreb.common.interfaces.entity.ITileSound;
-import com.maciej916.indreb.common.registries.ModBlockEntities;
 import com.maciej916.indreb.common.registries.ModSounds;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -27,7 +26,6 @@ import net.minecraftforge.common.ForgeHooks;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.common.util.LazyOptional;
-import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.wrapper.RangedWrapper;
 
 import javax.annotation.Nonnull;
@@ -61,7 +59,7 @@ public class BlockEntityCrystallineGenerator extends IndRebBlockEntity implement
         active = false;
 
         if (this.getCooldown() == 0) {
-            final ItemStack inputStack = getStackHandler().getStackInSlot(INPUT_SLOT);
+            final ItemStack inputStack = getItemStackHandler().getStackInSlot(INPUT_SLOT);
 
             if (getEnergyStorage().generateEnergy(ServerConfig.generator_tick_generate.get(), true) == ServerConfig.generator_tick_generate.get()) {
                 if (progressBurn.getProgress() > 0) {
@@ -149,8 +147,8 @@ public class BlockEntityCrystallineGenerator extends IndRebBlockEntity implement
     }
 
     private final ArrayList<LazyOptional<?>> capabilities = new ArrayList<>(Arrays.asList(
-            LazyOptional.of(this::getStackHandler),
-            LazyOptional.of(() -> new RangedWrapper(getStackHandler(), INPUT_SLOT, INPUT_SLOT + 1))
+            LazyOptional.of(this::getItemStackHandler),
+            LazyOptional.of(() -> new RangedWrapper(getItemStackHandler(), INPUT_SLOT, INPUT_SLOT + 1))
     ));
 
     @Nonnull

@@ -59,7 +59,7 @@ public class BlockEntityGenerator extends IndRebBlockEntity implements ICooldown
         active = false;
 
         if (this.getCooldown() == 0) {
-            final ItemStack inputStack = getStackHandler().getStackInSlot(INPUT_SLOT);
+            final ItemStack inputStack = getItemStackHandler().getStackInSlot(INPUT_SLOT);
 
             if (getEnergyStorage().generateEnergy(ServerConfig.generator_tick_generate.get(), true) == ServerConfig.generator_tick_generate.get()) {
                 if (progressBurn.getProgress() > 0) {
@@ -143,8 +143,8 @@ public class BlockEntityGenerator extends IndRebBlockEntity implements ICooldown
     }
 
     private final ArrayList<LazyOptional<?>> capabilities = new ArrayList<>(Arrays.asList(
-            LazyOptional.of(this::getStackHandler),
-            LazyOptional.of(() -> new RangedWrapper(getStackHandler(), INPUT_SLOT, INPUT_SLOT + 1))
+            LazyOptional.of(this::getItemStackHandler),
+            LazyOptional.of(() -> new RangedWrapper(getItemStackHandler(), INPUT_SLOT, INPUT_SLOT + 1))
     ));
 
     @Nonnull

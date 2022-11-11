@@ -2,7 +2,6 @@ package com.maciej916.indreb.common.screen;
 
 import com.maciej916.indreb.common.container.IndRebMenu;
 import com.maciej916.indreb.common.energy.interfaces.IEnergyBlock;
-import com.maciej916.indreb.common.enums.GuiSlotType;
 import com.maciej916.indreb.common.interfaces.entity.ICooldown;
 import com.maciej916.indreb.common.interfaces.entity.IExpCollector;
 import com.maciej916.indreb.common.interfaces.entity.ISupportUpgrades;
@@ -10,8 +9,7 @@ import com.maciej916.indreb.common.screen.bar.GuiElectricBarHorizontal;
 import com.maciej916.indreb.common.screen.bar.GuiElectricBarVertical;
 import com.maciej916.indreb.common.screen.button.GuiExpButton;
 import com.maciej916.indreb.common.screen.button.GuiInfoButton;
-import com.maciej916.indreb.common.screen.slot.GuiItemSlot;
-import com.maciej916.indreb.common.screen.slot.GuiSlot;
+import com.maciej916.indreb.common.screen.slot.GuiSlotElement;
 import com.maciej916.indreb.common.screen.widgets.GuiCooldown;
 import com.maciej916.indreb.common.screen.widgets.GuiUpgrades;
 import net.minecraft.network.chat.Component;
@@ -29,7 +27,7 @@ public class BetterScreen <T extends IndRebMenu> extends PanelScreen<T> {
 
         if (getBlockEntity() instanceof ISupportUpgrades) {
             addRenderableOnlyComponent(new GuiUpgrades(this));
-            getBlockEntity().getUpgradeHandlers().forEach(s -> addRenderableOnlyComponent(new GuiItemSlot(GuiSlotType.UPGRADE, this, s.x - 1, s.y - 1)));
+            getBlockEntity().getUpgradeSlot().forEach(sl -> addRenderableOnlyComponent(new GuiSlotElement(this, sl)));
         }
 
         if (getBlockEntity() instanceof ICooldown) {
@@ -37,7 +35,7 @@ public class BetterScreen <T extends IndRebMenu> extends PanelScreen<T> {
         }
 
         if (getBlockEntity() instanceof IEnergyBlock energyBlock) {
-            if (energyBlock.showInGui()) {
+            if (energyBlock.showBarInGui()) {
                 if (energyBlock.showVertical()) {
                     addRenderableOnlyComponent(new GuiElectricBarVertical(this, energyBlock.leftOffsetVertical(), energyBlock.topOffsetVertical(), getBlockEntity().getEnergyStorage(), getBlockEntity()));
                 } else {
@@ -46,14 +44,8 @@ public class BetterScreen <T extends IndRebMenu> extends PanelScreen<T> {
             }
         }
 
-        getBlockEntity().getElectricSlot().forEach(s -> addRenderableOnlyComponent(new GuiItemSlot(s.guiSlotType(), this, s.getXPosition() - 1, s.getYPosition() - 1)));
-
-        getBlockEntity().getItem().forEach(s -> {
-            if (s.guiSlotType() != null) {
-                addRenderableOnlyComponent(new GuiSlot(s.guiSlotType(), this, s.getGuiX(), s.getGuiY()));
-            }
-        });
-
+        getBlockEntity().getElectricSlot().forEach(sl -> addRenderableOnlyComponent(new GuiSlotElement(this, sl)));
+        getBlockEntity().getSlots().forEach(sl -> addRenderableOnlyComponent(new GuiSlotElement(this, sl)));
 
         // Left side
         int topLeftOffset = 5;

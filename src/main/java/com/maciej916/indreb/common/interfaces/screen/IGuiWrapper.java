@@ -13,5 +13,4 @@ public interface IGuiWrapper {
     int getGuiLeft();
     int getGuiTop();
 
-//    void renderTooltip(PoseStack pMatrixStack, Component pText, int pMouseX, int pMouseY);
 }

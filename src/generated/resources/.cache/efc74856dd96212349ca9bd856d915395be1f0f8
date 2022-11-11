@@ -1,4 +1,4 @@
-// 1.19.2	2022-11-10T11:08:31.2347467	Item Models: indreb
+// 1.19.2	2022-11-11T12:35:56.263214	Item Models: indreb
 ea6f48b249d5595c0bc20e39b977fa8fad0ed868 assets/indreb/models/item/acid_hazard_sign_block.json
 f629f0d0e364b02dc84d98ff7bbd87c55c32a21e assets/indreb/models/item/advanced_alloy.json
 df0888ae05d095b7dbd4b54b411496df8d853b49 assets/indreb/models/item/advanced_battery.json
@@ -226,6 +226,7 @@ ef2a6acce73945bbd4251ba4683349ba323ff85f assets/indreb/models/item/nano_helmet.j
 b7facf13e8367c59e25f47ecc8f7b2895b517207 assets/indreb/models/item/neutron_reflector.json
 8ddfdce8060eaa63b4bef60f737903be0d3c1445 assets/indreb/models/item/nightvision_goggles.json
 ed346b44600a4432e614c00895d991ab8bcb6ae3 assets/indreb/models/item/noise_hazard_sign_block.json
+c51bc56233700b0672d5cd0ae3c28cee4869ef9f assets/indreb/models/item/nuclear_reactor.json
 5df624abaf086aed21df9635c44deba7b3a5237b assets/indreb/models/item/nuke.json
 56f2d465a9cc094316fcd11e05378db49a5b65ad assets/indreb/models/item/ore_washing_plant.json
 9ce7ced65b4861262c0559d01fce38529a1c51cd assets/indreb/models/item/overclocked_heat_vent.json
@@ -263,6 +264,7 @@ a6200729ab738fb63e47e3943cb69c199220989b assets/indreb/models/item/radioactive_h
 13d7624dfb4103f72d2cd4470895e53dfb7e81f9 assets/indreb/models/item/raw_silver.json
 15642e2e55596c7b44bc61a2bbe5446fe0c629e1 assets/indreb/models/item/raw_tin.json
 554af978743166498366fcdad3b6d99bad2d54c1 assets/indreb/models/item/raw_uranium.json
+e22bcdd2a01cc5533c1c2ab3c878352453e369dd assets/indreb/models/item/reactor_chamber.json
 6acd633de40b7967dcc774e8cdfb59a382f44dd7 assets/indreb/models/item/reactor_heat_exchanger.json
 b13643cfff1c3eac37303102e59708126a424c4a assets/indreb/models/item/reactor_heat_vent.json
 a4116e7a99d7d18d630791195b17ce9733472ff6 assets/indreb/models/item/reactor_plating.json

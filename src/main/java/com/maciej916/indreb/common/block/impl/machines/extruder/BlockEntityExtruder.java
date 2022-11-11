@@ -60,7 +60,7 @@ public class BlockEntityExtruder extends IndRebBlockEntity implements IEnergyBlo
     public void setRecipe(int index) {
         if (level != null) {
             this.recipe = Objects.requireNonNullElseGet(recipes, () -> level.getRecipeManager().getAllRecipesFor(ModRecipeType.FLUID_EXTRUDING.get())).get(index);
-            getStackHandler().setStackInSlot(INPUT_SLOT, this.recipe.getResultItem());
+            getItemStackHandler().setStackInSlot(INPUT_SLOT, this.recipe.getResultItem());
             progress.setBoth(-1);
         }
     }
@@ -141,7 +141,7 @@ public class BlockEntityExtruder extends IndRebBlockEntity implements IEnergyBlo
             this.updateBlockState();
         }
 
-        final ItemStack outputStack = getStackHandler().getStackInSlot(OUTPUT_SLOT);
+        final ItemStack outputStack = getItemStackHandler().getStackInSlot(OUTPUT_SLOT);
 
         if (recipe != null) {
 
@@ -177,9 +177,9 @@ public class BlockEntityExtruder extends IndRebBlockEntity implements IEnergyBlo
             if (recipe.getLavaCost() > 0) lavaStorage.takeFluid(recipe.getLavaCost(), false);
 
             if (outputStack.isEmpty()) {
-                getStackHandler().setStackInSlot(OUTPUT_SLOT, recipe.getResultItem().copy());
+                getItemStackHandler().setStackInSlot(OUTPUT_SLOT, recipe.getResultItem().copy());
             } else {
-                getStackHandler().getStackInSlot(OUTPUT_SLOT).grow(recipe.getResultItem().getCount());
+                getItemStackHandler().getStackInSlot(OUTPUT_SLOT).grow(recipe.getResultItem().getCount());
             }
         }
 
@@ -225,9 +225,9 @@ public class BlockEntityExtruder extends IndRebBlockEntity implements IEnergyBlo
     }
 
     private final ArrayList<LazyOptional<?>> capabilities = new ArrayList<>(Arrays.asList(
-            LazyOptional.of(this::getStackHandler),
-            LazyOptional.of(() -> new RangedWrapper(getStackHandler(), INPUT_SLOT, INPUT_SLOT + 1)),
-            LazyOptional.of(() -> new RangedWrapper(getStackHandler(), OUTPUT_SLOT, OUTPUT_SLOT + 1)),
+            LazyOptional.of(this::getItemStackHandler),
+            LazyOptional.of(() -> new RangedWrapper(getItemStackHandler(), INPUT_SLOT, INPUT_SLOT + 1)),
+            LazyOptional.of(() -> new RangedWrapper(getItemStackHandler(), OUTPUT_SLOT, OUTPUT_SLOT + 1)),
             LazyOptional.of(() -> this.waterStorage),
             LazyOptional.of(() -> this.lavaStorage)
     ));
