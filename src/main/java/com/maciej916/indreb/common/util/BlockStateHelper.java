@@ -1,9 +1,9 @@
 package com.maciej916.indreb.common.util;
 
-import com.maciej916.indreb.common.interfaces.block.IStateActive;
-import com.maciej916.indreb.common.interfaces.block.IStateAxis;
-import com.maciej916.indreb.common.interfaces.block.IStateFacing;
-import com.maciej916.indreb.common.interfaces.block.IStateRubberLog;
+import com.maciej916.indreb.common.api.interfaces.block.IStateActive;
+import com.maciej916.indreb.common.api.interfaces.block.IStateAxis;
+import com.maciej916.indreb.common.api.interfaces.block.IStateFacing;
+import com.maciej916.indreb.common.api.interfaces.block.IStateRubberLog;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.item.context.BlockPlaceContext;
@@ -25,31 +25,31 @@ import java.util.List;
 
 public class BlockStateHelper {
 
-    public static final EnumProperty<Direction.Axis> axisProperty = BlockStateProperties.AXIS;
-    public static final DirectionProperty facingProperty = BlockStateProperties.FACING;
-    public static final DirectionProperty horizontalFacingProperty = BlockStateProperties.HORIZONTAL_FACING;
-    public static final BooleanProperty activeProperty = BooleanProperty.create("active");
-    public static final BooleanProperty wetProperty = BooleanProperty.create("wet");
-    public static final BooleanProperty dryProperty = BooleanProperty.create("dry");
-    public static final BooleanProperty waterlogged = BlockStateProperties.WATERLOGGED;
+    public static final EnumProperty<Direction.Axis> AXIS_PROPERTY = BlockStateProperties.AXIS;
+    public static final DirectionProperty FACING_PROPERTY = BlockStateProperties.FACING;
+    public static final DirectionProperty HORIZONTAL_FACING_PROPERTY = BlockStateProperties.HORIZONTAL_FACING;
+    public static final BooleanProperty ACTIVE_PROPERTY = BooleanProperty.create("active");
+    public static final BooleanProperty WET_PROPERTY = BooleanProperty.create("wet");
+    public static final BooleanProperty DRY_PROPERTY = BooleanProperty.create("dry");
+    public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
 
     public static BlockState getDefaultState(Block block, @Nonnull BlockState state) {
 
         if (block instanceof IStateActive) {
-            state = state.setValue(activeProperty, false);
+            state = state.setValue(ACTIVE_PROPERTY, false);
         }
 
         if (block instanceof IStateAxis) {
-            state = state.setValue(axisProperty, Direction.Axis.Y);
+            state = state.setValue(AXIS_PROPERTY, Direction.Axis.Y);
         }
 
         if (block instanceof SimpleWaterloggedBlock) {
-            state = state.setValue(waterlogged, false);
+            state = state.setValue(WATERLOGGED, false);
         }
 
         if (block instanceof IStateRubberLog) {
-            state = state.setValue(wetProperty, false);
-            state = state.setValue(dryProperty, false);
+            state = state.setValue(WET_PROPERTY, false);
+            state = state.setValue(DRY_PROPERTY, false);
         }
 
         return state;
@@ -63,7 +63,7 @@ public class BlockStateHelper {
         if (block instanceof IStateFacing blockFacing) {
             Direction newDirection;
 
-            if (blockFacing.getFacingProperty() == horizontalFacingProperty) {
+            if (blockFacing.getFacingProperty() == HORIZONTAL_FACING_PROPERTY) {
                 newDirection = context.getHorizontalDirection().getOpposite();
             } else {
                 newDirection = context.getNearestLookingDirection().getOpposite();
@@ -74,7 +74,7 @@ public class BlockStateHelper {
 
         if (block instanceof SimpleWaterloggedBlock) {
             FluidState fluidstate = context.getLevel().getFluidState(context.getClickedPos());
-            state = state.setValue(waterlogged, fluidstate.getType() == Fluids.WATER);
+            state = state.setValue(WATERLOGGED, fluidstate.getType() == Fluids.WATER);
         }
 
         return state;
@@ -88,20 +88,20 @@ public class BlockStateHelper {
         }
 
         if (block instanceof IStateActive) {
-            properties.add(activeProperty);
+            properties.add(ACTIVE_PROPERTY);
         }
 
         if (block instanceof IStateAxis) {
-            properties.add(axisProperty);
+            properties.add(AXIS_PROPERTY);
         }
 
         if (block instanceof SimpleWaterloggedBlock) {
-            properties.add(waterlogged);
+            properties.add(WATERLOGGED);
         }
 
         if (block instanceof IStateRubberLog) {
-            properties.add(wetProperty);
-            properties.add(dryProperty);
+            properties.add(WET_PROPERTY);
+            properties.add(DRY_PROPERTY);
         }
 
         if (!properties.isEmpty()) {

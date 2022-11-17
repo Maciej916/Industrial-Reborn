@@ -1,7 +1,0 @@
-{
-	"parent": "indreb:block/base/cable/cable_inventory",
-	"textures": {
-		"wall": "indreb:block/cable/copper_cable",
-		"side": "indreb:block/cable/copper_cable"
-	}
-}

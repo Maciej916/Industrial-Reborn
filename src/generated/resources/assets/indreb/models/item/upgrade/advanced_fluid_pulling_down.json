@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:item/generated",
-  "textures": {
-    "layer0": "indreb:item/upgrade/advanced_fluid_pulling_down"
-  }
-}

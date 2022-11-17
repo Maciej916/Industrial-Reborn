@@ -1,9 +1,0 @@
-{
-  "parent": "minecraft:block/orientable_with_bottom",
-  "textures": {
-    "bottom": "indreb:block/charge_pad/battery_box_bottom",
-    "front": "indreb:block/charge_pad/battery_box_front",
-    "side": "indreb:block/charge_pad/battery_box_side",
-    "top": "indreb:block/charge_pad/battery_box_top_active"
-  }
-}

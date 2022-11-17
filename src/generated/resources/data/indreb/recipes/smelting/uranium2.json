@@ -1,9 +1,0 @@
-{
-  "type": "minecraft:smelting",
-  "cookingtime": 200,
-  "experience": 1.5,
-  "ingredient": {
-    "item": "indreb:uranium_dust"
-  },
-  "result": "indreb:uranium_ingot"
-}

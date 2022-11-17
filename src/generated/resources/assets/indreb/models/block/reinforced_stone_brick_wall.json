@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/wall_inventory",
+  "textures": {
+    "wall": "indreb:block/construction_foam/reinforced/reinforced_stone_bricks"
+  }
+}

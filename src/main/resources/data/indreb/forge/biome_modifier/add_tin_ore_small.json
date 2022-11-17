@@ -1,6 +1,0 @@
-{
-  "type": "forge:add_features",
-  "biomes": "#minecraft:is_overworld",
-  "features": "indreb:ore_tin_small_placed",
-  "step": "underground_ores"
-}

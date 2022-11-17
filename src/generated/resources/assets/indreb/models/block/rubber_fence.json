@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/fence_inventory",
+  "textures": {
+    "texture": "indreb:block/rubber_wood/rubber_planks"
+  }
+}

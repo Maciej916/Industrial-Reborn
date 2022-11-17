@@ -1,8 +1,0 @@
-{
-    "parent": "block/slab",
-	"textures": {
-		"top": "indreb:block/generator/solar_generator_top",
-		"bottom": "indreb:block/generator/solar_generator_bottom",
-		"side": "indreb:block/generator/solar_generator_side"
-	}
-}

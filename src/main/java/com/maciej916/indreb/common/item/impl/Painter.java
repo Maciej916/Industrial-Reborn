@@ -1,13 +1,36 @@
 package com.maciej916.indreb.common.item.impl;
 
-import com.maciej916.indreb.common.item.base.ToolItem;
-import com.maciej916.indreb.common.registries.ModBlocks;
+import com.maciej916.indreb.common.api.interfaces.item.IPainter;
+import com.maciej916.indreb.common.api.item.base.ToolItem;
+import com.maciej916.indreb.common.block.ModBlocks;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.MaterialColor;
+import net.minecraftforge.registries.RegistryObject;
 
-public class Painter extends ToolItem {
+import java.util.HashMap;
+
+public class Painter extends ToolItem implements IPainter {
 
     private final MaterialColor color;
+    private static final HashMap<MaterialColor, RegistryObject<Block>> COLOR_TO_BLOCK = new HashMap<>() {{
+        put(MaterialColor.WOOL, ModBlocks.CONSTRUCTION_FOAM_WALL_WHITE);
+        put(MaterialColor.COLOR_RED, ModBlocks.CONSTRUCTION_FOAM_WALL_RED);
+        put(MaterialColor.COLOR_ORANGE, ModBlocks.CONSTRUCTION_FOAM_WALL_ORANGE);
+        put(MaterialColor.COLOR_PINK, ModBlocks.CONSTRUCTION_FOAM_WALL_PINK);
+        put(MaterialColor.COLOR_YELLOW, ModBlocks.CONSTRUCTION_FOAM_WALL_YELLOW);
+        put(MaterialColor.COLOR_LIGHT_GREEN, ModBlocks.CONSTRUCTION_FOAM_WALL_LIME);
+        put(MaterialColor.COLOR_GREEN, ModBlocks.CONSTRUCTION_FOAM_WALL_GREEN);
+        put(MaterialColor.COLOR_LIGHT_BLUE, ModBlocks.CONSTRUCTION_FOAM_WALL_LIGHT_BLUE);
+        put(MaterialColor.COLOR_CYAN, ModBlocks.CONSTRUCTION_FOAM_WALL_CYAN);
+        put(MaterialColor.COLOR_BLUE, ModBlocks.CONSTRUCTION_FOAM_WALL_BLUE);
+        put(MaterialColor.COLOR_MAGENTA, ModBlocks.CONSTRUCTION_FOAM_WALL_MAGENTA);
+        put(MaterialColor.COLOR_PURPLE, ModBlocks.CONSTRUCTION_FOAM_WALL_PURPLE);
+        put(MaterialColor.COLOR_BROWN, ModBlocks.CONSTRUCTION_FOAM_WALL_BROWN);
+        put(MaterialColor.COLOR_GRAY, ModBlocks.CONSTRUCTION_FOAM_WALL_GRAY);
+        put(MaterialColor.COLOR_LIGHT_GRAY, ModBlocks.CONSTRUCTION_FOAM_WALL_LIGHT_GRAY);
+        put(MaterialColor.COLOR_BLACK, ModBlocks.CONSTRUCTION_FOAM_WALL_BLACK);
+    }};
 
     public Painter(MaterialColor color) {
         super(32);
@@ -19,45 +42,7 @@ public class Painter extends ToolItem {
     }
 
     public BlockState getState() {
-
-        // TODO
-        // Redo this ugly mess
-
-        if (color.equals(MaterialColor.WOOL)) {
-            return ModBlocks.CONSTRUCTION_FOAM_WALL_WHITE.get().defaultBlockState();
-        } else if (color.equals(MaterialColor.COLOR_RED)) {
-            return ModBlocks.CONSTRUCTION_FOAM_WALL_RED.get().defaultBlockState();
-        } else if (color.equals(MaterialColor.COLOR_ORANGE)) {
-            return ModBlocks.CONSTRUCTION_FOAM_WALL_ORANGE.get().defaultBlockState();
-        } else if (color.equals(MaterialColor.COLOR_PINK)) {
-            return ModBlocks.CONSTRUCTION_FOAM_WALL_PINK.get().defaultBlockState();
-        } else if (color.equals(MaterialColor.COLOR_YELLOW)) {
-            return ModBlocks.CONSTRUCTION_FOAM_WALL_YELLOW.get().defaultBlockState();
-        } else if (color.equals(MaterialColor.COLOR_LIGHT_GREEN)) {
-            return ModBlocks.CONSTRUCTION_FOAM_WALL_LIME.get().defaultBlockState();
-        } else if (color.equals(MaterialColor.COLOR_GREEN)) {
-            return ModBlocks.CONSTRUCTION_FOAM_WALL_GREEN.get().defaultBlockState();
-        } else if (color.equals(MaterialColor.COLOR_LIGHT_BLUE)) {
-            return ModBlocks.CONSTRUCTION_FOAM_WALL_LIGHT_BLUE.get().defaultBlockState();
-        } else if (color.equals(MaterialColor.COLOR_CYAN)) {
-            return ModBlocks.CONSTRUCTION_FOAM_WALL_CYAN.get().defaultBlockState();
-        } else if (color.equals(MaterialColor.COLOR_BLUE)) {
-            return ModBlocks.CONSTRUCTION_FOAM_WALL_BLUE.get().defaultBlockState();
-        } else if (color.equals(MaterialColor.COLOR_MAGENTA)) {
-            return ModBlocks.CONSTRUCTION_FOAM_WALL_MAGENTA.get().defaultBlockState();
-        } else if (color.equals(MaterialColor.COLOR_PURPLE)) {
-            return ModBlocks.CONSTRUCTION_FOAM_WALL_PURPLE.get().defaultBlockState();
-        } else if (color.equals(MaterialColor.COLOR_BROWN)) {
-            return ModBlocks.CONSTRUCTION_FOAM_WALL_BROWN.get().defaultBlockState();
-        } else if (color.equals(MaterialColor.COLOR_GRAY)) {
-            return ModBlocks.CONSTRUCTION_FOAM_WALL_GRAY.get().defaultBlockState();
-        } else if (color.equals(MaterialColor.COLOR_LIGHT_GRAY)) {
-            return ModBlocks.CONSTRUCTION_FOAM_WALL_LIGHT_GRAY.get().defaultBlockState();
-        } else if (color.equals(MaterialColor.COLOR_BLACK)) {
-            return ModBlocks.CONSTRUCTION_FOAM_WALL_BLACK.get().defaultBlockState();
-        }
-
-        return ModBlocks.CONSTRUCTION_FOAM_WALL_RED.get().defaultBlockState();
+        return COLOR_TO_BLOCK.get(color).get().defaultBlockState();
     }
 
 }

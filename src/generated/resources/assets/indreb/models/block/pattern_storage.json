@@ -1,9 +1,0 @@
-{
-  "parent": "minecraft:block/orientable_with_bottom",
-  "textures": {
-    "bottom": "indreb:block/misc/pattern_storage_bottom",
-    "front": "indreb:block/misc/pattern_storage_front",
-    "side": "indreb:block/misc/pattern_storage_side",
-    "top": "indreb:block/misc/pattern_storage_top"
-  }
-}

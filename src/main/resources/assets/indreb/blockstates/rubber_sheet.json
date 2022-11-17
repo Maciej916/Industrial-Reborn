@@ -1,5 +1,28 @@
 {
-	"variants": {
-		"": { "model": "indreb:block/rubber_sheet" }
-	}
+  "variants": {
+    "layers=1": {
+      "model": "indreb:block/rubber_sheet2"
+    },
+    "layers=2": {
+      "model": "indreb:block/rubber_sheet4"
+    },
+    "layers=3": {
+      "model": "indreb:block/rubber_sheet6"
+    },
+    "layers=4": {
+      "model": "indreb:block/rubber_sheet8"
+    },
+    "layers=5": {
+      "model": "indreb:block/rubber_sheet10"
+    },
+    "layers=6": {
+      "model": "indreb:block/rubber_sheet12"
+    },
+    "layers=7": {
+      "model": "indreb:block/rubber_sheet14"
+    },
+    "layers=8": {
+      "model": "indreb:block/rubber_block"
+    }
+  }
 }

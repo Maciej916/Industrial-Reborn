@@ -1,72 +1,27 @@
 package com.maciej916.indreb.common.util;
 
-import com.maciej916.indreb.common.entity.block.FluidStorage;
-import net.minecraft.world.item.ItemStack;
-import net.minecraftforge.common.capabilities.ForgeCapabilities;
-import net.minecraftforge.fluids.FluidStack;
-import net.minecraftforge.fluids.capability.IFluidHandler;
-import net.minecraftforge.fluids.capability.IFluidHandlerItem;
-import net.minecraftforge.items.ItemStackHandler;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.entity.ExperienceOrb;
+import net.minecraft.world.entity.player.Player;
 
-public final class BlockEntityUtil {
+public class BlockEntityUtil {
 
-    public static boolean fillTank(ItemStack fillBucketUp, ItemStack fillBucketDown, FluidStorage fluidStorage, ItemStackHandler itemStackHandler, int slotDown) {
-        if (fillBucketUp.equals(ItemStack.EMPTY)) return false;
-        if (!fillBucketUp.isEmpty() && fillBucketDown.getCount() + 1 <= fillBucketDown.getMaxStackSize()) {
-
-            ItemStack newStack = fillBucketUp.copy();
-            newStack.setCount(1);
-            IFluidHandlerItem cap = CapabilityUtil.getCapabilityHelper(newStack, ForgeCapabilities.FLUID_HANDLER_ITEM).getValue();
-            if (cap != null) {
-                FluidStack fluid = cap.getFluidInTank(1);
-                if (!fluid.isEmpty()) {
-                    if (fluidStorage.fillFluid(fluid, true) == fluid.getAmount()) {
-                        fluidStorage.fillFluid(fluid, false);
-
-                        cap.drain(fluid.getAmount(), IFluidHandler.FluidAction.EXECUTE);
-                        if (fillBucketDown.isEmpty()) {
-                            itemStackHandler.setStackInSlot(slotDown, cap.getContainer());
-                        } else {
-                            fillBucketDown.grow(1);
-                        }
-
-                        fillBucketUp.shrink(1);
-
-                        return true;
-                    }
-                }
+    public static void spawnExpOrbs(ServerLevel level, Player player, int entry, float experience) {
+        if (experience == 0.0F) {
+            entry = 0;
+        } else if (experience < 1.0F) {
+            int i = (int) Math.floor((float)entry * experience);
+            if (i < Math.ceil((float)entry * experience) && Math.random() < (double)((float)entry * experience - (float)i)) {
+                ++i;
             }
+            entry = i;
         }
-        return false;
-    }
 
-    public static boolean drainTank(ItemStack drainBucketUp, ItemStack drainBucketDown, FluidStorage fluidStorage,  ItemStackHandler itemStackHandler, int slotUp, int slotDown) {
-        if (drainBucketUp.equals(ItemStack.EMPTY)) return false;
-        if (!drainBucketUp.isEmpty() && drainBucketDown.getCount() + 1 <= drainBucketDown.getMaxStackSize()) {
-            ItemStack stack = drainBucketUp.copy();
-            stack.setCount(1);
-            IFluidHandlerItem cap = CapabilityUtil.getCapabilityHelper(stack, ForgeCapabilities.FLUID_HANDLER_ITEM).getValue();
-            if (cap != null) {
-                int amountLeft = cap.getTankCapacity(1) - cap.getFluidInTank(1).getAmount();
-                int amount = Math.min(1000, amountLeft);
-                if (fluidStorage.getFluidAmount() >= amount) {
-                    cap.fill(new FluidStack(fluidStorage.getFluid(), amount), IFluidHandler.FluidAction.EXECUTE);
-                    fluidStorage.drain(amount, IFluidHandler.FluidAction.EXECUTE);
-
-                    if (cap.getFluidInTank(1).getAmount() == cap.getTankCapacity(1)) {
-                        drainBucketUp.shrink(1);
-                        if (drainBucketDown.isEmpty()) {
-                            itemStackHandler.setStackInSlot(slotDown, cap.getContainer());
-                        } else {
-                            drainBucketDown.grow(1);
-                        }
-                    } else {
-                        itemStackHandler.setStackInSlot(slotUp, cap.getContainer());
-                    }
-                }
-            }
+        while(entry > 0) {
+            int j = ExperienceOrb.getExperienceValue(entry);
+            entry -= j;
+            level.addFreshEntity(new ExperienceOrb(level, player.getX(), player.getY() + 0.5D, player.getZ() + 0.5D, j));
         }
-        return false;
     }
 
 

@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:item/generated",
-  "textures": {
-    "layer0": "indreb:item/upgrade/fluid_ejector_up"
-  }
-}

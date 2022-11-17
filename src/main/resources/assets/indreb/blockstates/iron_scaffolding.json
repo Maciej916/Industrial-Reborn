@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "bottom=false": {
+      "model": "indreb:block/iron_scaffolding_stable"
+    },
+    "bottom=true": {
+      "model": "indreb:block/iron_scaffolding_unstable"
+    }
+  }
+}

@@ -1,9 +1,11 @@
 package com.maciej916.indreb.common.util;
 
 import com.maciej916.indreb.IndReb;
-import com.maciej916.indreb.common.tier.CableTier;
+import com.maciej916.indreb.common.api.tier.CableTier;
 import net.minecraft.core.Direction;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.level.material.Material;
+import net.minecraft.world.level.material.MaterialColor;
 
 public class Constants {
 
@@ -18,7 +20,7 @@ public class Constants {
     public static final ResourceLocation PROCESS = new ResourceLocation(IndReb.MODID, "textures/gui/container/process.png");
     public static final ResourceLocation BUTTONS = new ResourceLocation(IndReb.MODID, "textures/gui/container/buttons.png");
 
-//    public static final BatteryBoxTier[] BATTERY_BOX_TIERS = BatteryBoxTier.values();
-//    public static final EnergyConverterTier[] ENERGY_CONVERTER_TIERS = EnergyConverterTier.values();
 
+    public static final Material FOAM_BLOCK = (new Material.Builder(MaterialColor.COLOR_LIGHT_GRAY)).nonSolid().noCollider().build();
+    public static final Material REINFORCED_FOAM_BLOCK = (new Material.Builder(MaterialColor.COLOR_GRAY)).nonSolid().noCollider().build();
 }

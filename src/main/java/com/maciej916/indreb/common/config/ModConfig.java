@@ -1,5 +1,8 @@
 package com.maciej916.indreb.common.config;
 
+import com.maciej916.indreb.common.config.impl.ClientConfig;
+import com.maciej916.indreb.common.config.impl.CommonConfig;
+import com.maciej916.indreb.common.config.impl.ServerConfig;
 import net.minecraftforge.common.ForgeConfigSpec;
 import net.minecraftforge.fml.ModLoadingContext;
 

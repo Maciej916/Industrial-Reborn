@@ -1,7 +1,7 @@
 package com.maciej916.indreb.common.energy.interfaces;
 
-import com.maciej916.indreb.common.energy.provider.EnergyNetwork;
-import com.maciej916.indreb.common.enums.EnergyTier;
+import com.maciej916.indreb.common.api.enums.EnergyTier;
+import com.maciej916.indreb.common.energy.EnergyNetwork;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;

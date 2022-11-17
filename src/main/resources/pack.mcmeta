@@ -1,7 +1,8 @@
 {
-  "pack": {
-    "description": "indreb resources",
-    "pack_format": 7,
-    "_comment": ""
-  }
+    "pack": {
+        "description": "Industrial Reborn Resources",
+        "pack_format": 9,
+        "forge:resource_pack_format": 9,
+        "forge:data_pack_format": 10
+    }
 }

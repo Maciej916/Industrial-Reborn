@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/door_bottom_left",
+  "render_type": "minecraft:translucent",
+  "textures": {
+    "bottom": "indreb:block/construction_foam/reinforced/reinforced_door_bottom",
+    "top": "indreb:block/construction_foam/reinforced/reinforced_door_top"
+  }
+}

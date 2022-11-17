@@ -1,6 +1,6 @@
 package com.maciej916.indreb.common.energy.interfaces;
 
-import com.maciej916.indreb.common.energy.provider.EnergyNetworks;
+import com.maciej916.indreb.common.energy.EnergyNetworks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 

@@ -1,8 +1,8 @@
 {
   "parent": "minecraft:block/outer_stairs",
   "textures": {
-    "bottom": "indreb:block/reinforced_stone",
-    "side": "indreb:block/reinforced_stone",
-    "top": "indreb:block/reinforced_stone"
+    "bottom": "indreb:block/construction_foam/reinforced/reinforced_stone",
+    "side": "indreb:block/construction_foam/reinforced/reinforced_stone",
+    "top": "indreb:block/construction_foam/reinforced/reinforced_stone"
   }
 }

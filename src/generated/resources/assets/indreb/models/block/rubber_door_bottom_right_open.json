@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/door_bottom_right_open",
+  "render_type": "minecraft:translucent",
+  "textures": {
+    "bottom": "indreb:block/rubber_wood/rubber_door_bottom",
+    "top": "indreb:block/rubber_wood/rubber_door_top"
+  }
+}

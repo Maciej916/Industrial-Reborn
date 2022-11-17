@@ -1,9 +1,0 @@
-{
-  "parent": "minecraft:block/orientable_with_bottom",
-  "textures": {
-    "bottom": "indreb:block/machines/basic/alloy_smelter_bottom",
-    "front": "indreb:block/machines/basic/alloy_smelter_front_active",
-    "side": "indreb:block/machines/basic/alloy_smelter_side",
-    "top": "indreb:block/machines/basic/alloy_smelter_top"
-  }
-}

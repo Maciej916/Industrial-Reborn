@@ -1,0 +1,134 @@
+package com.maciej916.indreb.common.api.block;
+
+import com.maciej916.indreb.common.util.BlockStateHelper;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.context.BlockPlaceContext;
+import net.minecraft.world.level.Explosion;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Mirror;
+import net.minecraft.world.level.block.Rotation;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.StateDefinition;
+import net.minecraft.world.phys.BlockHitResult;
+
+import javax.annotation.Nullable;
+
+public class IndRebBlock extends Block {
+
+    public IndRebBlock(Properties properties) {
+        super(properties);
+        this.registerDefaultState(BlockStateHelper.getDefaultState(this, stateDefinition.any()));
+    }
+
+    public BlockState setStateForPlacement(BlockPlaceContext pContext, BlockState blockState) {
+        return blockState;
+    }
+
+    @Nullable
+    @Override
+    public BlockState getStateForPlacement(BlockPlaceContext pContext) {
+        return BlockStateHelper.getStateForPlacement(this, setStateForPlacement(pContext, this.defaultBlockState()), pContext);
+    }
+
+    @Override
+    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
+        super.createBlockStateDefinition(pBuilder);
+        BlockStateHelper.fillBlockStateContainer(this, pBuilder);
+    }
+
+    @Override
+    public BlockState rotate(BlockState state, Rotation rot) {
+        return BlockStateHelper.rotate(state, rot);
+    }
+
+    @Override
+    public BlockState mirror(BlockState pState, Mirror pMirror) {
+        return BlockStateHelper.mirror(pState, pMirror);
+    }
+
+
+
+    @Override
+    public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult trace) {
+//        List<ResourceLocation> itemTags = ForgeRegistries.ITEMS.tags().getReverseTag(player.getItemInHand(player.getUsedItemHand()).getItem())
+//                .map(IReverseTag::getTagKeys).map(tagKeyStream -> tagKeyStream.map(TagKey::location).toList()).orElse(new ArrayList<>());
+//
+//        if (WrenchHelper.hasAction(this) && itemTags.contains(ModTags.WRENCH_RES)) {
+//            return InteractionResult.PASS;
+//        }
+//
+//        BlockEntity blockEntity = level.getBlockEntity(pos);
+//        if (this instanceof IHasMenu hasContainer) {
+//            if (!level.isClientSide) {
+//                MenuProvider containerProvider = new MenuProvider() {
+//                    @Override
+//                    public Component getDisplayName() {
+//                        return Component.translatable(getDescriptionId());
+//                    }
+//
+//                    @Override
+//                    public AbstractContainerMenu createMenu(int windowId, Inventory playerInventory, Player playerEntity) {
+//                        return hasContainer.getMenu(windowId, level, pos, playerInventory, playerEntity);
+//                    }
+//                };
+//                NetworkHooks.openScreen((ServerPlayer) player, containerProvider, blockEntity.getBlockPos());
+//            }
+//            return InteractionResult.SUCCESS;
+//        }
+//
+        return InteractionResult.PASS;
+    }
+
+//    @Override
+//    public void setPlacedBy(Level level, BlockPos pPos, BlockState pState, @Nullable LivingEntity pPlacer, ItemStack pStack) {
+//
+////        BlockEntity be = level.getBlockEntity(pPos);
+////        if (be instanceof IndRebBlockEntity ibe) {
+////            ibe.onPlace(level.isClientSide());
+////        }
+////
+////        if (be instanceof IEnergyBlock) {
+////            CapabilityUtil.getCapabilityHelper(level, ModCapabilities.ENERGY_CORE).ifPresent(e -> e.addEnergyBlock(pPos));
+////        }
+//
+//        super.setPlacedBy(level, pPos, pState, pPlacer, pStack);
+//    }
+
+    @Override
+    public void onPlace(BlockState pState, Level pLevel, BlockPos pPos, BlockState pOldState, boolean pIsMoving) {
+        super.onPlace(pState, pLevel, pPos, pOldState, pIsMoving);
+    }
+
+    @Override
+    public void onRemove(BlockState blockState, Level level, BlockPos blockPos, BlockState newState, boolean isMoving) {
+//        if (blockState.getBlock() != newState.getBlock() && blockState.hasBlockEntity()) {
+//            BlockEntity be = level.getBlockEntity(blockPos);
+//            if (be instanceof IndRebBlockEntity ibe) {
+//                ibe.onBreak(level.isClientSide());
+//            }
+//
+//            if (be instanceof IEnergyBlock) {
+//                CapabilityUtil.getCapabilityHelper(level, ModCapabilities.ENERGY_CORE).ifPresent(e -> e.removeEnergyBlock(blockPos));
+//            }
+//        }
+
+        super.onRemove(blockState, level, blockPos, newState, isMoving);
+    }
+
+    @Override
+    public void onBlockExploded(BlockState state, Level world, BlockPos pos, Explosion explosion) {
+//        if (world.isClientSide()) return;
+//        if (state.hasBlockEntity()) {
+//            BlockEntity be = world.getBlockEntity(pos);
+//            if (be instanceof IEnergyBlock) {
+//                CapabilityUtil.getCapabilityHelper(world, ModCapabilities.ENERGY_CORE).ifPresent(e -> e.removeEnergyBlock(pos));
+//            }
+//        }
+
+        super.onBlockExploded(state, world, pos, explosion);
+    }
+}

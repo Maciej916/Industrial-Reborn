@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "powered=false": {
+      "model": "indreb:block/rubber_plate"
+    },
+    "powered=true": {
+      "model": "indreb:block/rubber_plate_down"
+    }
+  }
+}

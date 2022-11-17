@@ -1,8 +1,0 @@
-{
-  "replace": false,
-  "values": [
-    "#indreb:batteries/battery",
-    "#indreb:electrics/tools",
-    "#indreb:electrics/nanosuit"
-  ]
-}

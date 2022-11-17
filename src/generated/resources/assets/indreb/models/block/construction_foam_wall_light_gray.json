@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "indreb:block/cf/wall_light_gray"
+    "all": "indreb:block/construction_foam/wall/wall_light_gray"
   }
 }

@@ -1,8 +1,0 @@
-{
-    "parent": "block/inner_stairs",
-    "textures": {
-        "bottom": "indreb:block/rubber_wood/rubber_planks",
-        "top": "indreb:block/rubber_wood/rubber_planks",
-        "side": "indreb:block/rubber_wood/rubber_planks"
-    }
-}

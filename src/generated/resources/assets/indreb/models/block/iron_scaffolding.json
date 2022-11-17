@@ -1,9 +1,0 @@
-{
-  "parent": "minecraft:block/cube_bottom_top",
-  "render_type": "minecraft:cutout",
-  "textures": {
-    "bottom": "indreb:block/iron_scaffolding_bottomtop",
-    "side": "indreb:block/iron_scaffolding_sides",
-    "top": "indreb:block/iron_scaffolding_bottomtop"
-  }
-}

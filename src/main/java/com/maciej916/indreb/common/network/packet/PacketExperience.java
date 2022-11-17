@@ -1,6 +1,6 @@
 package com.maciej916.indreb.common.network.packet;
 
-import com.maciej916.indreb.common.interfaces.entity.IExpCollector;
+import com.maciej916.indreb.common.api.blockentity.interfaces.IHasExp;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.server.level.ServerPlayer;
@@ -27,9 +27,8 @@ public class PacketExperience {
     public void handle(Supplier<NetworkEvent.Context> ctx) {
         ctx.get().enqueueWork(() -> {
             ServerPlayer player = ctx.get().getSender();
-            assert player != null;
-            if (player.level.getBlockEntity(blockPos) instanceof IExpCollector be) {
-                be.collectExp(player);
+            if (player.level.getBlockEntity(blockPos) instanceof IHasExp be) {
+                be.collectExpServer(player);
             }
         });
         ctx.get().setPacketHandled(true);

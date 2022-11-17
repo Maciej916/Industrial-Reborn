@@ -1,9 +1,0 @@
-{
-  "parent": "minecraft:block/orientable_with_bottom",
-  "textures": {
-    "bottom": "indreb:block/machines/basic/recycler_bottom",
-    "front": "indreb:block/machines/basic/recycler_front",
-    "side": "indreb:block/machines/basic/recycler_side",
-    "top": "indreb:block/machines/basic/recycler_top"
-  }
-}
