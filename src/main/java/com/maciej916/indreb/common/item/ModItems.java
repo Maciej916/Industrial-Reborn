@@ -2,14 +2,10 @@ package com.maciej916.indreb.common.item;
 
 import com.google.common.base.Supplier;
 import com.maciej916.indreb.common.api.blockitem.IndRebBlockItem;
-import com.maciej916.indreb.common.api.item.base.MaterialItem;
-import com.maciej916.indreb.common.api.item.base.MaterialItemRare;
-import com.maciej916.indreb.common.api.item.base.ResourceItem;
-import com.maciej916.indreb.common.api.item.base.ToolItem;
+import com.maciej916.indreb.common.api.item.base.*;
 import com.maciej916.indreb.common.block.ModBlocks;
 import com.maciej916.indreb.common.blockitem.BlockItemIronScaffolding;
-import com.maciej916.indreb.common.item.impl.Painter;
-import net.minecraft.world.item.CreativeModeTab;
+import com.maciej916.indreb.common.item.impl.*;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Rarity;
 import net.minecraft.world.level.block.Block;
@@ -165,6 +161,38 @@ public final class ModItems {
     public static final RegistryObject<Item> ADVANCED_ALLOY = registerItem("advanced_alloy", MaterialItem::new);
     public static final RegistryObject<Item> IRIDIUM_PLATE = registerItem("iridium_plate", MaterialItemRare::new);
 
+    public static final RegistryObject<Item> ELECTRONIC_CIRCUIT = registerItem("electronic_circuit", MaterialItem::new);
+    public static final RegistryObject<Item> ADVANCED_CIRCUIT = registerItem("advanced_circuit", MaterialItem::new);
+    public static final RegistryObject<Item> CARBON_FIBERS = registerItem("carbon_fibers", MaterialItem::new);
+    public static final RegistryObject<Item> COMBINED_CARBON_FIBERS = registerItem("combined_carbon_fibers", MaterialItem::new);
+    public static final RegistryObject<Item> CARBON_PLATE = registerItem("carbon_plate", MaterialItem::new);
+    public static final RegistryObject<Item> BIO_CHAFF = registerItem("bio_chaff", MaterialItem::new);
+    public static final RegistryObject<Item> HEAT_CONDUCTOR = registerItem("heat_conductor", MaterialItem::new);
+    public static final RegistryObject<Item> FOAM_POWDER = registerItem("foam_powder", MaterialItem::new);
+    public static final RegistryObject<Item> REINFORCED_FOAM_POWDER = registerItem("reinforced_foam_powder", MaterialItem::new);
+    public static final RegistryObject<Item> SMALL_POWER_UNIT = registerItem("small_power_unit", RedstoneItem::new);
+    public static final RegistryObject<Item> POWER_UNIT = registerItem("power_unit", RedstoneItem::new);
+    public static final RegistryObject<Item> COIL = registerItem("coil", RedstoneItem::new);
+    public static final RegistryObject<Item> ELECTRIC_MOTOR = registerItem("electric_motor", RedstoneItem::new);
+    public static final RegistryObject<Item> SCRAP = registerItem("scrap", Scrap::new);
+    public static final RegistryObject<Item> SCRAP_BOX = registerItem("scrap_box", ScrapBox::new);
+
+    public static final RegistryObject<Item> STICKY_RESIN = registerItem("sticky_resin", MaterialItem::new);
+    public static final RegistryObject<Item> RUBBER = registerItem("rubber", MaterialItem::new);
+    public static final RegistryObject<Item> IRIDIUM_SHARD = registerItem("iridium_shard", MaterialItemRare::new);
+    public static final RegistryObject<Item> IRIDIUM = registerItem("iridium", MaterialItemRare::new);
+
+    public static final RegistryObject<Item> FLUID_CELL = registerItem("fluid_cell", FluidCell::new);
+    public static final RegistryObject<Item> MEMORY_CARD = registerItem("memory_card", MemoryCard::new);
+
+    public static final RegistryObject<Item> TIN_CAN = registerItem("tin_can", FoodItem::new);
+    public static final RegistryObject<Item> FILLED_TIN_CAN = registerItem("filled_tin_can", FilledTinCan::new);
+
+    public static final RegistryObject<Item> FERTILIZER = registerItem("fertilizer", Fertilizer::new);
+
+
+
+
 
 
     public static final RegistryObject<Item> PAINTER = registerItem("painter", () -> new ToolItem(1));
@@ -187,8 +215,6 @@ public final class ModItems {
 
 
 
-    public static final RegistryObject<Item> STICKY_RESIN = registerItem("sticky_resin", () -> new ResourceItem(CreativeModeTab.TAB_MATERIALS));
-    public static final RegistryObject<Item> RUBBER = registerItem("rubber", () -> new ResourceItem(CreativeModeTab.TAB_MATERIALS));
 
 
 

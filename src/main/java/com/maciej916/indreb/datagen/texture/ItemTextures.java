@@ -33,6 +33,11 @@ public class ItemTextures extends ItemModelProvider {
         registerPlates();
         registerPurified();
         registerChunk();
+        registerCrafting();
+        registerResource();
+        registerStorage();
+        registerFood();
+        registerCrop();
     }
 
     protected void registerOres() {
@@ -214,9 +219,43 @@ public class ItemTextures extends ItemModelProvider {
         createGeneratedTexture(ModItems.SILVER_CHUNK, "chunk/silver");
     }
 
+    protected void registerCrafting() {
+        createGeneratedTexture(ModItems.ELECTRONIC_CIRCUIT, "crafting/electronic_circuit");
+        createGeneratedTexture(ModItems.ADVANCED_CIRCUIT, "crafting/advanced_circuit");
+        createGeneratedTexture(ModItems.CARBON_FIBERS, "crafting/carbon_fibers");
+        createGeneratedTexture(ModItems.COMBINED_CARBON_FIBERS, "crafting/combined_carbon_fibers");
+        createGeneratedTexture(ModItems.CARBON_PLATE, "crafting/carbon_plate");
+        createGeneratedTexture(ModItems.BIO_CHAFF, "crafting/bio_chaff");
+        createGeneratedTexture(ModItems.HEAT_CONDUCTOR, "crafting/heat_conductor");
+        createGeneratedTexture(ModItems.FOAM_POWDER, "crafting/foam_powder");
+        createGeneratedTexture(ModItems.REINFORCED_FOAM_POWDER, "crafting/reinforced_foam_powder");
+        createGeneratedTexture(ModItems.SMALL_POWER_UNIT, "crafting/small_power_unit");
+        createGeneratedTexture(ModItems.POWER_UNIT, "crafting/power_unit");
+        createGeneratedTexture(ModItems.COIL, "crafting/coil");
+        createGeneratedTexture(ModItems.ELECTRIC_MOTOR, "crafting/electric_motor");
+        createGeneratedTexture(ModItems.SCRAP, "crafting/scrap");
+        createGeneratedTexture(ModItems.SCRAP_BOX, "crafting/scrap_box");
+    }
 
+    protected void registerResource() {
+        createGeneratedTexture(ModItems.STICKY_RESIN, "resource/sticky_resin");
+        createGeneratedTexture(ModItems.RUBBER, "resource/rubber");
+        createGeneratedTexture(ModItems.IRIDIUM_SHARD, "resource/iridium_shard");
+        createGeneratedTexture(ModItems.IRIDIUM, "resource/iridium");
+    }
 
+    protected void registerStorage() {
+        createGeneratedTexture(ModItems.MEMORY_CARD, "storage/memory_card");
+    }
 
+    protected void registerFood() {
+        createGeneratedTexture(ModItems.TIN_CAN, "food/tin_can");
+        createGeneratedTexture(ModItems.FILLED_TIN_CAN, "food/filled_tin_can");
+    }
+
+    protected void registerCrop() {
+        createGeneratedTexture(ModItems.FERTILIZER, "crop/fertilizer");
+    }
 
 
 

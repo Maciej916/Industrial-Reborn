@@ -81,6 +81,8 @@ public class TagsBlock extends BlockTagsProvider {
                 .add(ModBlocks.RUBBER_PLATE.get())
         ;
 
+        /* ORES */
+
         tag(ModTagsBlock.FORGE_ORE_TIN)
                 .add(ModBlocks.TIN_ORE.get())
                 .add(ModBlocks.DEEPSLATE_TIN_ORE.get())
@@ -101,45 +103,21 @@ public class TagsBlock extends BlockTagsProvider {
                 .add(ModBlocks.DEEPSLATE_SILVER_ORE.get())
         ;
 
-        tag(ModTagsBlock.FORGE_STORAGE_BLOCKS_RAW_TIN)
-                .add(ModBlocks.RAW_TIN_BLOCK.get())
-        ;
+        /* RAW STORAGE BLOCKS */
 
-        tag(ModTagsBlock.FORGE_STORAGE_BLOCKS_RAW_LEAD)
-                .add(ModBlocks.RAW_LEAD_BLOCK.get())
-        ;
+        tag(ModTagsBlock.FORGE_STORAGE_BLOCKS_RAW_TIN).add(ModBlocks.RAW_TIN_BLOCK.get());
+        tag(ModTagsBlock.FORGE_STORAGE_BLOCKS_RAW_LEAD).add(ModBlocks.RAW_LEAD_BLOCK.get());
+        tag(ModTagsBlock.FORGE_STORAGE_BLOCKS_RAW_URANIUM).add(ModBlocks.RAW_URANIUM_BLOCK.get());
+        tag(ModTagsBlock.FORGE_STORAGE_BLOCKS_RAW_SILVER).add(ModBlocks.RAW_SILVER_BLOCK.get());
 
-        tag(ModTagsBlock.FORGE_STORAGE_BLOCKS_RAW_URANIUM)
-                .add(ModBlocks.RAW_URANIUM_BLOCK.get())
-        ;
+        /* STORAGE BLOCKS */
 
-        tag(ModTagsBlock.FORGE_STORAGE_BLOCKS_RAW_SILVER)
-                .add(ModBlocks.RAW_SILVER_BLOCK.get())
-        ;
-
-        tag(ModTagsBlock.FORGE_STORAGE_BLOCKS_TIN)
-                .add(ModBlocks.TIN_BLOCK.get())
-        ;
-
-        tag(ModTagsBlock.FORGE_STORAGE_BLOCKS_SILVER)
-                .add(ModBlocks.SILVER_BLOCK.get())
-        ;
-
-        tag(ModTagsBlock.FORGE_STORAGE_BLOCKS_URANIUM)
-                .add(ModBlocks.URANIUM_BLOCK.get())
-        ;
-
-        tag(ModTagsBlock.FORGE_STORAGE_BLOCKS_LEAD)
-                .add(ModBlocks.LEAD_BLOCK.get())
-        ;
-
-        tag(ModTagsBlock.FORGE_STORAGE_BLOCKS_STEEL)
-                .add(ModBlocks.STEEL_BLOCK.get())
-        ;
-
-        tag(ModTagsBlock.FORGE_STORAGE_BLOCKS_BRONZE)
-                .add(ModBlocks.BRONZE_BLOCK.get())
-        ;
+        tag(ModTagsBlock.FORGE_STORAGE_BLOCKS_TIN).add(ModBlocks.TIN_BLOCK.get());
+        tag(ModTagsBlock.FORGE_STORAGE_BLOCKS_SILVER).add(ModBlocks.SILVER_BLOCK.get());
+        tag(ModTagsBlock.FORGE_STORAGE_BLOCKS_URANIUM).add(ModBlocks.URANIUM_BLOCK.get());
+        tag(ModTagsBlock.FORGE_STORAGE_BLOCKS_LEAD).add(ModBlocks.LEAD_BLOCK.get());
+        tag(ModTagsBlock.FORGE_STORAGE_BLOCKS_STEEL).add(ModBlocks.STEEL_BLOCK.get());
+        tag(ModTagsBlock.FORGE_STORAGE_BLOCKS_BRONZE).add(ModBlocks.BRONZE_BLOCK.get());
 
 
 

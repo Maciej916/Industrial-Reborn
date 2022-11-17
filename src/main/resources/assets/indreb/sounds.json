@@ -1,0 +1,186 @@
+{
+  "tile.generator": {
+    "sounds": [
+      {
+        "name": "indreb:generator"
+      }
+    ]
+  },
+
+  "tile.geo_generator": {
+    "sounds": [
+      {
+        "name": "indreb:geo_generator"
+      }
+    ]
+  },
+
+  "tile.solar_generator": {
+    "sounds": [
+      {
+        "name": "indreb:solar_generator"
+      }
+    ]
+  },
+
+  "tile.semifluid_generator": {
+    "sounds": [
+      {
+        "name": "indreb:semifluid_generator"
+      }
+    ]
+  },
+
+  "tile.crusher": {
+    "sounds": [
+      {
+        "name": "indreb:crusher"
+      }
+    ]
+  },
+
+  "tile.compressor": {
+    "sounds": [
+      {
+        "name": "indreb:compressor"
+      }
+    ]
+  },
+
+  "tile.extractor": {
+    "sounds": [
+      {
+        "name": "indreb:extractor"
+      }
+    ]
+  },
+
+  "tile.sawmill": {
+    "sounds": [
+      {
+        "name": "indreb:sawmill"
+      }
+    ]
+  },
+
+  "tile.recycler": {
+    "sounds": [
+      {
+        "name": "indreb:recycler"
+      }
+    ]
+  },
+
+  "tile.canning_machine": {
+    "sounds": [
+      {
+        "name": "indreb:canning_machine"
+      }
+    ]
+  },
+
+  "tile.charge_pad": {
+    "sounds": [
+      {
+        "name": "indreb:charge_pad"
+      }
+    ]
+  },
+
+  "tile.matter_fabricator": {
+    "sounds": [
+      {
+        "name": "indreb:matter_fabricator"
+      }
+    ]
+  },
+
+  "extra.matter_fabricator_amplified": {
+    "sounds": [
+      {
+        "name": "indreb:matter_fabricator_amplified"
+      }
+    ]
+  },
+
+  "tile.ore_washing_plant": {
+    "sounds": [
+      {
+        "name": "indreb:ore_washing_plant"
+      }
+    ]
+  },
+
+  "tile.metal_former": {
+    "sounds": [
+      {
+        "name": "indreb:metal_former"
+      }
+    ]
+  },
+
+  "tile.replicator": {
+    "sounds": [
+      {
+        "name": "indreb:replicator"
+      }
+    ]
+  },
+
+  "tile.scanner": {
+    "sounds": [
+      {
+        "name": "indreb:scanner"
+      }
+    ]
+  },
+
+  "tile.thermal_centrifuge": {
+    "sounds": [
+      {
+        "name": "indreb:thermal_centrifuge"
+      }
+    ]
+  },
+
+  "item.treetap": {
+    "sounds": [
+      {
+        "name": "indreb:treetap"
+      }
+    ]
+  },
+
+  "item.wrench": {
+    "sounds": [
+      {
+        "name": "indreb:wrench"
+      }
+    ]
+  },
+
+  "item.electric_wrench": {
+    "sounds": [
+      {
+        "name": "indreb:electric_wrench"
+      }
+    ]
+  },
+
+  "item.painter": {
+    "sounds": [
+      {
+        "name": "indreb:painter"
+      }
+    ]
+  },
+
+
+  "player.night_vision": {
+    "sounds": [
+      {
+        "name": "indreb:night_vision"
+      }
+    ]
+  }
+}
