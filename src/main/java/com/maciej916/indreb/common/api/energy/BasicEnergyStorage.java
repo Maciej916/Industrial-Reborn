@@ -1,28 +1,29 @@
 package com.maciej916.indreb.common.api.energy;
 
+import com.maciej916.indreb.common.api.blockentity.interfaces.IBaseProgress;
+import com.maciej916.indreb.common.api.energy.interfaces.IEnergyStorage;
 import com.maciej916.indreb.common.api.enums.EnergyTier;
 import com.maciej916.indreb.common.api.enums.EnergyType;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraftforge.common.util.INBTSerializable;
-import com.maciej916.indreb.common.api.energy.interfaces.IEnergyStorage;
 
-public class BasicEnergyStorage implements IEnergyStorage, INBTSerializable<CompoundTag> {
+public class BasicEnergyStorage implements IEnergyStorage, IBaseProgress, INBTSerializable<CompoundTag> {
 
-    private int energyStored;
-    private int maxEnergy;
+    public int energyStored;
+    public int maxEnergy;
 
-    private EnergyType energyType;
-    private EnergyTier energyTier;
+    public EnergyType energyType;
+    public EnergyTier energyTier;
 
     public final int origEnergy;
     public final EnergyTier origTier;
 
-    private int lastGenerated;
-    private int totalGenerated;
+    public int lastGenerated;
+    public int totalGenerated;
 
-    private int lastConsumed;
-    private int totalConsumed;
+    public int lastConsumed;
+    public int totalConsumed;
 
     public BasicEnergyStorage(int energyStored, int maxEnergy, EnergyType energyType, EnergyTier energyTier) {
         this.energyStored = energyStored;
@@ -101,16 +102,32 @@ public class BasicEnergyStorage implements IEnergyStorage, INBTSerializable<Comp
         return totalGenerated;
     }
 
+    public void setTotalGenerated(int totalGenerated) {
+        this.totalGenerated = totalGenerated;
+    }
+
     public int lastGenerated() {
         return lastGenerated;
+    }
+
+    public void setLastGenerated(int lastGenerated) {
+        this.lastGenerated = lastGenerated;
     }
 
     public int totalConsumed() {
         return totalConsumed;
     }
 
+    public void setTotalConsumed(int totalConsumed) {
+        this.totalConsumed = totalConsumed;
+    }
+
     public int lastConsumed() {
         return lastConsumed;
+    }
+
+    public void setLastConsumed(int lastConsumed) {
+        this.lastConsumed = lastConsumed;
     }
 
     @Override
@@ -121,6 +138,8 @@ public class BasicEnergyStorage implements IEnergyStorage, INBTSerializable<Comp
     @Override
     public void setEnergyType(EnergyType type) {
         this.energyType = type;
+
+        System.out.println("setEnergyType");
         updated();
     }
 
@@ -132,6 +151,8 @@ public class BasicEnergyStorage implements IEnergyStorage, INBTSerializable<Comp
     @Override
     public void setEnergyTier(EnergyTier tier) {
         this.energyTier = tier;
+
+        System.out.println("setEnergyTier");
         updated();
     }
 
@@ -157,5 +178,15 @@ public class BasicEnergyStorage implements IEnergyStorage, INBTSerializable<Comp
         this.totalGenerated = nbt.getInt("totalGenerated");
         this.lastConsumed = nbt.getInt("lastConsumed");
         this.totalConsumed = nbt.getInt("totalConsumed");
+    }
+
+    @Override
+    public float currentProgress() {
+        return energyStored;
+    }
+
+    @Override
+    public float getProgressMax() {
+        return maxEnergy;
     }
 }

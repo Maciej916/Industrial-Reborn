@@ -13,8 +13,11 @@ public interface IIndRebBlockEntity {
     boolean hasUpgradesStorage();
 
     BasicEnergyStorage getEnergyStorage();
+
     BaseItemStackHandler getBaseStorage();
+
     ElectricItemStackHandler getElectricStorage();
+
     UpgradesItemStackHandler getUpgradesStorage();
 
     void tick();

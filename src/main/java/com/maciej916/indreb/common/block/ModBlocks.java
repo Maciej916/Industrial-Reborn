@@ -5,6 +5,7 @@ import com.maciej916.indreb.IndReb;
 import com.maciej916.indreb.common.api.block.*;
 import com.maciej916.indreb.common.block.impl.FoamBlock;
 import com.maciej916.indreb.common.block.impl.ReinforcedFoamBlock;
+import com.maciej916.indreb.common.block.impl.generator.generator.BlockGenerator;
 import com.maciej916.indreb.common.block.impl.iron.BlockIronFence;
 import com.maciej916.indreb.common.block.impl.iron.BlockIronGate;
 import com.maciej916.indreb.common.block.impl.iron.BlockIronScaffolding;
@@ -100,6 +101,9 @@ public final class ModBlocks {
     public static final RegistryObject<Block> IRON_FENCE = registerBlock("iron_fence", BlockIronFence::new);
     public static final RegistryObject<Block> IRON_GATE = registerBlock("iron_gate", BlockIronGate::new);
 
+    // luminator
+
+    public static final RegistryObject<Block> GENERATOR = registerBlock("generator", BlockGenerator::new);
 
 
 

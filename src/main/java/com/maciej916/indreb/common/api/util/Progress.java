@@ -1,0 +1,119 @@
+package com.maciej916.indreb.common.api.util;
+
+import com.maciej916.indreb.common.api.blockentity.interfaces.IProgress;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraftforge.common.util.INBTSerializable;
+
+public class Progress implements IProgress, INBTSerializable<CompoundTag> {
+
+    private float currentProgress;
+    private float progressMax;
+
+    private boolean changed = false;
+
+    public Progress() {
+        this.currentProgress = -1;
+        this.progressMax = -1;
+    }
+
+    public Progress(CompoundTag nbt) {
+        this.deserializeNBT(nbt);
+    }
+
+    public Progress(int progress, int progressMax) {
+        this.currentProgress = progress;
+        this.progressMax = progressMax;
+    }
+
+    public void setData(float progress, float progressMax) {
+        if (progress != this.currentProgress || progressMax != this.progressMax) this.changed = true;
+        this.currentProgress = progress;
+        this.progressMax = progressMax;
+    }
+
+    public void setCurrentProgress(float currentProgress) {
+        this.setData(currentProgress, progressMax);
+    }
+
+    public void incProgress(float progress) {
+        this.setData(this.currentProgress + progress, progressMax);
+    }
+
+    public void decProgress(float progress) {
+        this.setData(this.currentProgress - progress, progressMax);
+    }
+
+    public void setMaxProgress() {
+        this.setData(progressMax, progressMax);
+    }
+
+    public void setBoth(float progress) {
+        this.setData(progress, progress);
+    }
+
+    public void setProgressMax(float progressMax) {
+        this.setData(currentProgress, Math.max(progressMax, 1));
+    }
+
+    @Override
+    public float currentProgress() {
+        return currentProgress;
+    }
+
+    @Override
+    public float getProgressMax() {
+        return progressMax;
+    }
+
+    @Override
+    public boolean isCurrentAboveEqualMax() {
+        return currentProgress >= progressMax;
+    }
+
+    @Override
+    public void resetProgress() {
+        setBoth(-1);
+    }
+
+    @Override
+    public void setDataCurrent(int data) {
+        this.currentProgress = data / 100f;
+    }
+
+    @Override
+    public int getDataCurrent() {
+        return (int) currentProgress * 100;
+    }
+
+    @Override
+    public void setDataMax(int data) {
+        this.progressMax = data / 100f;
+    }
+
+    @Override
+    public int getDataMax() {
+        return Math.round(progressMax * 100);
+    }
+
+    public boolean changed() {
+        return changed;
+    }
+
+    public void clearChanged() {
+        changed = false;
+    }
+
+    @Override
+    public CompoundTag serializeNBT() {
+        CompoundTag nbt = new CompoundTag();
+        nbt.putFloat("progress", currentProgress);
+        nbt.putFloat("progressMax", progressMax);
+        return nbt;
+    }
+
+    @Override
+    public void deserializeNBT(CompoundTag nbt) {
+        this.currentProgress = nbt.getFloat("progress");
+        this.progressMax = nbt.getFloat("progressMax");
+    }
+}

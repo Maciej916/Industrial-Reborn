@@ -1,22 +1,31 @@
 package com.maciej916.indreb.common.subscribe;
 
 import com.maciej916.indreb.IndReb;
+import com.maciej916.indreb.common.api.blockentity.IndRebBlockEntity;
 import com.maciej916.indreb.common.capability.ModCapabilities;
 import com.maciej916.indreb.common.capability.entity.EntityCapability;
 import com.maciej916.indreb.common.capability.player.IPlayerCapability;
 import com.maciej916.indreb.common.capability.player.PlayerCapability;
 import com.maciej916.indreb.common.energy.EnergyCore;
 import com.maciej916.indreb.common.energy.interfaces.IEnergyCore;
+import com.maciej916.indreb.common.network.ModNetworking;
+import com.maciej916.indreb.common.network.packet.PacketBasicEnergySync;
+import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.chunk.LevelChunk;
 import net.minecraftforge.event.AttachCapabilitiesEvent;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
+import net.minecraftforge.event.level.ChunkWatchEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
+
+import java.util.Map;
 
 @EventBusSubscriber(modid = IndReb.MODID, bus = EventBusSubscriber.Bus.FORGE)
 public final class ForgeEventSubscriber {
@@ -55,4 +64,17 @@ public final class ForgeEventSubscriber {
         event.getOriginal().getCapability(ModCapabilities.PLAYER_CAPABILITY).ifPresent(oldCapability -> event.getOriginal().getCapability(ModCapabilities.PLAYER_CAPABILITY).ifPresent(newCapability -> newCapability.clone(oldCapability)));
     }
 
+    @SubscribeEvent
+    public static void chunkWatch(ChunkWatchEvent event) {
+        Level level = event.getLevel();
+        if (!level.isClientSide()) {
+            LevelChunk chunk = event.getLevel().getChunk(event.getPos().getRegionX(), event.getPos().getRegionZ());
+            Map<BlockPos, BlockEntity> entityMap = chunk.getBlockEntities();
+            for (BlockEntity entity: entityMap.values()) {
+                if (entity instanceof IndRebBlockEntity indRebBlockEntity && indRebBlockEntity.hasEnergyStorage()) {
+                    ModNetworking.sendToPlayer(event.getPlayer(), new PacketBasicEnergySync(indRebBlockEntity.getEnergyStorage(), indRebBlockEntity.getBlockPos()));
+                }
+            }
+        }
+    }
 }

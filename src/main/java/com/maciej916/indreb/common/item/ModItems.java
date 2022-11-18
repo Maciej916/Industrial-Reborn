@@ -1,6 +1,7 @@
 package com.maciej916.indreb.common.item;
 
 import com.google.common.base.Supplier;
+import com.maciej916.indreb.common.api.blockitem.BlockItemElectric;
 import com.maciej916.indreb.common.api.blockitem.IndRebBlockItem;
 import com.maciej916.indreb.common.api.item.base.*;
 import com.maciej916.indreb.common.block.ModBlocks;
@@ -95,6 +96,8 @@ public final class ModItems {
     public static final RegistryObject<Item> IRON_SCAFFOLDING = fromBlockIronScaffolding(ModBlocks.IRON_SCAFFOLDING);
     public static final RegistryObject<Item> IRON_FENCE = fromBlockIronScaffolding(ModBlocks.IRON_FENCE);
     public static final RegistryObject<Item> IRON_GATE = fromBlockIronScaffolding(ModBlocks.IRON_GATE);
+
+    public static final RegistryObject<Item> GENERATOR = fromBlockElectric(ModBlocks.GENERATOR);
 
 
 
@@ -195,6 +198,7 @@ public final class ModItems {
 
 
 
+
     public static final RegistryObject<Item> PAINTER = registerItem("painter", () -> new ToolItem(1));
     public static final RegistryObject<Item> PAINTER_WHITE = registerItem("painter_white", () -> new Painter(MaterialColor.WOOL));
     public static final RegistryObject<Item> PAINTER_RED = registerItem("painter_red", () -> new Painter(MaterialColor.COLOR_RED));
@@ -218,8 +222,6 @@ public final class ModItems {
 
 
 
-//    public static final RegistryObject<Item> FOAM_SPRAYER = registerItem("foam_sprayer", () -> new FoamSprayer());
-
 
 
     public static <B extends Block> RegistryObject<Item> fromBlock(RegistryObject<B> block) {
@@ -232,6 +234,14 @@ public final class ModItems {
 
     public static <B extends Block> RegistryObject<Item> fromBlockIronScaffolding(RegistryObject<B> block) {
         return ITEMS.register(block.getId().getPath(), () -> new BlockItemIronScaffolding(block.get()));
+    }
+
+    private static <T extends Block> RegistryObject<Item> fromBlockElectric(RegistryObject<T> block) {
+        return fromBlockElectric(block, Rarity.COMMON);
+    }
+
+    private static <T extends Block> RegistryObject<Item> fromBlockElectric(RegistryObject<T> block, Rarity rarity) {
+        return ITEMS.register(block.getId().getPath(), () -> new BlockItemElectric(block.get(), rarity));
     }
 
 

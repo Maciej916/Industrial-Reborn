@@ -1,0 +1,270 @@
+{
+  "_comment": "Tooltip",
+  "itemGroup.indreb": "Industrial Reborn",
+
+  "indreb.generic": "%s",
+
+  "energy.indreb.power": "%s IE",
+  "energy.indreb.power_tick": "%s IE/t",
+
+  "tier.indreb.basic": "저압",
+  "tier.indreb.standard": "일반",
+  "tier.indreb.advanced": "고압",
+  "tier.indreb.super": "초고압",
+  "tier.indreb.ultra": "특고압",
+  "tier.indreb.creative": "크리에이티브",
+
+  "gui.indreb.energy": "%s / %s IE",
+  "gui.indreb.fluid": "%s: %s/%s mB",
+  "gui.indreb.fluid_empty": "비었음",
+
+  "gui.indreb.progress": "Progress %s/%s",
+  "gui.indreb.fuelBurnTimeProgress": "연료 연소시간 %s/%s",
+  "gui.indreb.heat": "열: %s",
+  "gui.indreb.armour": "방어구",
+
+
+  "gui.indreb.can_operate_in": "작동시킬 수 있음 %ss",
+  "gui.indreb.can_operate": "이 기계는 작동 준비가 완료되었습니다!",
+
+  "block.indreb.generator": "화력 발전기",
+  "block.indreb.geo_generator": "지열 발전기",
+  "block.indreb.solar_generator": "태양광 발전기",
+  "block.indreb.advanced_solar_generator": "고급 태양광 발전기",
+  "block.indreb.hybrid_solar_generator": "하이브리드 태양광 발전기",
+  "block.indreb.quantum_solar_generator": "양자 태양광 발전기",
+  "block.indreb.crystalline_generator": "크리스탈 태양광 발전기",
+
+  "block.indreb.iron_furnace": "철 화로",
+  "block.indreb.electric_furnace": "전기로",
+  "block.indreb.crusher": "분쇄기",
+  "block.indreb.compressor": "압축기",
+  "block.indreb.extractor": "추출기",
+  "block.indreb.extruder": "압출기",
+  "block.indreb.sawmill": "제재기",
+  "block.indreb.canning_machine": "고체 주입기",
+  "block.indreb.fluid_enricher": "유체 농축기",
+  "block.indreb.alloy_smelter": "합금 제련기",
+
+  "block.indreb.tin_ore": "주석 광석",
+  "block.indreb.deepslate_tin_ore": "심층암 주석 광석",
+
+  "block.indreb.tin_block": "주석 블록",
+  "block.indreb.bronze_block": "청동 블록",
+  "block.indreb.silver_block": "은 블록",
+  "block.indreb.steel_block": "강철 블록",
+
+  "block.indreb.basic_machine_casing": "기본 기계 케이싱",
+  "block.indreb.advanced_machine_casing": "고급 기계 케이싱",
+
+  "block.indreb.resin_sheet": "고무수액 시트",
+  "block.indreb.rubber_sheet": "고무 시트",
+
+  "block.indreb.construction_foam": "건축용 발포제",
+  "block.indreb.reinforced_construction_foam": "강화 건축용 발포제",
+
+  "block.indreb.construction_foam_wall_white": "하얀색 건축발포제 벽",
+  "block.indreb.construction_foam_wall_red": "빨간색 건축발포제 벽",
+  "block.indreb.construction_foam_wall_orange": "주황색 건축발포제 벽",
+  "block.indreb.construction_foam_wall_pink": "분홍색 건축발포제 벽",
+  "block.indreb.construction_foam_wall_yellow": "노란색 건축발포제 벽",
+  "block.indreb.construction_foam_wall_lime": "연두색 건축발포제 벽",
+  "block.indreb.construction_foam_wall_green": "초록색 건축발포제 벽",
+  "block.indreb.construction_foam_wall_light_blue": "하늘색 건축발포제 벽",
+  "block.indreb.construction_foam_wall_cyan": "청록색 건축발포제 벽",
+  "block.indreb.construction_foam_wall_blue": "파란색 건축발포제 벽",
+  "block.indreb.construction_foam_wall_magenta": "자홍색 건축발포제 벽",
+  "block.indreb.construction_foam_wall_purple": "보라색 건축발포제 벽",
+  "block.indreb.construction_foam_wall_brown": "갈색 건축발포제 벽",
+  "block.indreb.construction_foam_wall_gray": "회색 건축발포제 벽",
+  "block.indreb.construction_foam_wall_light_gray": "연회색 건축발포제 벽",
+  "block.indreb.construction_foam_wall_black": "검정색 건축발포제 벽",
+
+  "block.indreb.reinforced_glass": "강화 유리",
+  "block.indreb.reinforced_stone": "강화 돌",
+  "block.indreb.reinforced_stone_slab": "강화 돌 반 블록",
+  "block.indreb.reinforced_stone_stairs": "강화 돌 계단",
+
+  "block.indreb.iron_scaffolding": "건설용 철 비계",
+  "block.indreb.iron_fence": "철 울타리",
+
+  "block.indreb.luminator": "삼각대",
+  "block.indreb.recycler": "Recycler",
+
+  "block.indreb.rubber_sapling": "고무나무 묘목",
+  "block.indreb.rubber_planks": "고무나무 판자",
+  "block.indreb.rubber_leaves": "고무나무 잎",
+  "block.indreb.rubber_wood": "고무나무",
+  "block.indreb.rubber_log": "고무나무 원목",
+  "block.indreb.rubber_stairs": "고무나무 계단",
+  "block.indreb.rubber_slab": "고무나무 반 블럭",
+
+
+  "block.indreb.tin_cable": "주석 전선",
+  "block.indreb.tin_cable_insulated": "절연된 주석 전선",
+  "block.indreb.copper_cable": "구리 전선",
+  "block.indreb.copper_cable_insulated": "절연된 구리 전선",
+  "block.indreb.gold_cable": "금 전선",
+  "block.indreb.gold_cable_insulated": "절연된 금 전선",
+  "block.indreb.hv_cable": "고압전선",
+  "block.indreb.hv_cable_insulated": "절연된 고압전선",
+  "block.indreb.glass_fibre_cable": "유리 섬유 전선",
+
+  "item.indreb.sticky_resin": "고무 수액",
+  "item.indreb.rubber": "고무",
+  "item.indreb.sawdust": "톱밥",
+
+  "item.indreb.raw_tin": "비가공된 주석",
+  "item.indreb.tin_ingot": "주석 주괴",
+  "item.indreb.bronze_ingot": "청동 주괴",
+  "item.indreb.silver_ingot": "은괴",
+  "item.indreb.steel_ingot": "강철 주괴",
+  "item.indreb.mixed_metal_ingot": "혼합 금속 주괴",
+
+  "item.indreb.crushed_tin": "분쇄된 주석 광석",
+  "item.indreb.crushed_copper": "분쇄된 구리 광석",
+  "item.indreb.crushed_gold": "분쇄된 금 광석",
+  "item.indreb.crushed_iron": "분쇄된 철 광석",
+
+  "item.indreb.copper_plate": "구리 판",
+  "item.indreb.tin_plate": "주석 판",
+  "item.indreb.iron_plate": "철 판",
+  "item.indreb.gold_plate": "금 판",
+  "item.indreb.bronze_plate": "청동 판",
+  "item.indreb.steel_plate": "강철 판",
+  "item.indreb.iridium_plate": "§b이리듐 판",
+
+  "item.indreb.coal_dust": "석탄 가루",
+  "item.indreb.diamond_dust": "다이아몬드 가루",
+  "item.indreb.silver_dust": "은가루",
+  "item.indreb.stone_dust": "돌가루",
+  "item.indreb.deepslate_dust": "심층암 가루",
+
+  "item.indreb.iron_rod": "철 봉",
+
+  "item.indreb.electronic_circuit": "전자 회로",
+  "item.indreb.advanced_circuit": "고급 전자 회로",
+
+  "item.indreb.carbon_fibers": "탄소섬유",
+  "item.indreb.combined_carbon_fibers": "혼합 탄소 섬유",
+  "item.indreb.carbon_plate": "탄소 판",
+
+  "item.indreb.advanced_alloy": "고급 합금",
+
+  "item.indreb.nightvision_goggles": "야간투시경",
+  "item.indreb.rubber_boots": "고무 신발",
+
+  "item.indreb.bronze_helmet": "청동 투구",
+  "item.indreb.bronze_chestplate": "청동 갑옷",
+  "item.indreb.bronze_leggings": "청동 레깅스",
+  "item.indreb.bronze_boots": "청동 신발",
+
+  "item.indreb.bronze_sword": "청동 검",
+  "item.indreb.bronze_pickaxe": "청동 곡괭이",
+  "item.indreb.bronze_axe": "청동 도끼",
+  "item.indreb.bronze_shovel": "청동 삽",
+  "item.indreb.bronze_hoe": "청동 괭이",
+
+  "item.indreb.nano_helmet": "나노 헬멧",
+  "item.indreb.nano_chestplate": "나노 갑옷",
+  "item.indreb.nano_leggings": "나노 레깅스",
+  "item.indreb.nano_boots": "나노 부츠",
+  "item.indreb.nano_saber": "나노 세이버",
+
+  "item.indreb.energium_dust": "에너지움 가루",
+
+  "item.indreb.battery": "배터리",
+  "item.indreb.advanced_battery": "고급 배터리",
+  "item.indreb.energy_crystal": "에너지 수정",
+  "item.indreb.lapotron_crystal": "래포르톤 수정",
+
+  "item.indreb.fluid_cell": "유체 셀",
+
+  "item.indreb.painter": "페인터",
+  "item.indreb.painter_white": "하얀색 페인터",
+  "item.indreb.painter_red": "빨간색 페인터",
+  "item.indreb.painter_orange": "주황색 페인터",
+  "item.indreb.painter_pink": "분홍색 페인터",
+  "item.indreb.painter_yellow": "노란색 페인터",
+  "item.indreb.painter_lime": "연두색 페인터",
+  "item.indreb.painter_green": "초록색 페인터",
+  "item.indreb.painter_light_blue": "하늘색 페인터",
+  "item.indreb.painter_cyan": "청록색 페인터",
+  "item.indreb.painter_blue": "파란색 페인터",
+  "item.indreb.painter_magenta": "자홍색 페인터",
+  "item.indreb.painter_purple": "보라색 페인터",
+  "item.indreb.painter_brown": "갈색 페인터",
+  "item.indreb.painter_gray": "회색 페인터",
+  "item.indreb.painter_light_gray": "연회색 페인터",
+  "item.indreb.painter_black": "검정색 페인터",
+
+  "item.indreb.small_power_unit": "소형 동력 장치",
+  "item.indreb.power_unit": "동력 장치",
+  "item.indreb.electric_treetap": "전동 수액 추출기",
+  "item.indreb.electric_wrench": "전동 렌치",
+  "item.indreb.chainsaw": "전기톱",
+  "item.indreb.diamond_chainsaw": "다이아몬드 전기톱",
+  "item.indreb.iridium_chainsaw": "§b이리듐 전기톱",
+  "item.indreb.mining_drill": "드릴",
+  "item.indreb.diamond_drill": "다이아몬드 드릴",
+  "item.indreb.iridium_drill": "§b이리듐 드릴",
+  "item.indreb.electric_hoe": "전동 괭이",
+  "item.indreb.wind_meter": "풍력 측정기",
+  "item.indreb.ie_meter": "IE 측정기",
+  "item.indreb.foam_sprayer": "건축발포제 발사기",
+  "item.indreb.iridium_shard": "§b이리듐 조각",
+  "item.indreb.iridium": "§b이리듐",
+  "item.indreb.multi_tool": "다용도 공구",
+  "item.indreb.coil": "코일",
+  "item.indreb.electric_motor": "전동 모터",
+  "item.indreb.tin_can": "깡통",
+  "item.indreb.filled_tin_can": "통조림",
+  "item.indreb.scrap": "폐기물",
+  "item.indreb.scrap_box": "폐기물 상자",
+
+  "item.indreb.treetap": "나무 수액 추출기",
+  "item.indreb.wrench": "렌치",
+  "item.indreb.hammer": "망치",
+  "item.indreb.cutter": "가위",
+
+  "block.indreb.battery_box": "배터리 박스",
+  "block.indreb.cesu": "기본전력저장장치(CESU)",
+  "block.indreb.mfe": "다용도전력저장장치(MFE)",
+  "block.indreb.mfsu": "고급 다용도전력저장장치(MFSU)",
+
+  "block.indreb.wooden_energy_converter": "목재 에너지 변환기",
+
+  "jei.indreb.crushing": "분쇄",
+  "jei.indreb.compressing": "압축",
+  "jei.indreb.extracting": "추출",
+  "jei.indreb.sawing": "톱질",
+  "jei.indreb.extruding": "압출",
+  "jei.indreb.alloy_smelting": "합금 제련",
+  "jei.indreb.recycling": "Recycling",
+  "jei.indreb.scrap_box": "Scrap Box",
+
+  "jei.indreb.chance": "확률: %s",
+
+  "gui.indreb.collect_exp": "경험치 획득",
+
+  "tooltip.indreb.wip": "진행 중입니다!",
+
+  "tooltip.indreb.power_tier": "전압: %s",
+  "tooltip.indreb.generate": "발전량: %s",
+  "tooltip.indreb.output": "출력: %s",
+  "tooltip.indreb.transfer": "출력 전압: %s",
+  "tooltip.indreb.capacity": "수용 용량: %s",
+  "tooltip.indreb.output_capacity": "출력: %s 량: %s",
+  "tooltip.indreb.accept_capacity": "입력: %s 최대량: %s",
+  "tooltip.indreb.accept": "입력: %s",
+  "tooltip.indreb.accept_output": "입력: %s 출력: %s",
+  "tooltip.indreb.stored": "저장된 용량: %s",
+  "tooltip.indreb.stored_capacity": "저장된: %s : 량%s",
+
+  "tooltip.indreb.cable_unisolated": "이 케이블은 당신을 감전시킬 수 있습니다!",
+
+
+
+
+  "test.indreb.test": "%s"
+}

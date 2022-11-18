@@ -1,25 +1,37 @@
 package com.maciej916.indreb.common.capability.item;
 
-import com.maciej916.indreb.common.api.slot.UpgradeSlotItemHandler;
-import net.minecraft.core.NonNullList;
-import net.minecraft.world.item.ItemStack;
+import com.maciej916.indreb.common.api.enums.GuiSlotBg;
+import com.maciej916.indreb.common.api.enums.InventorySlotType;
+import com.maciej916.indreb.common.api.slot.UpgradeSlot;
+import com.maciej916.indreb.common.api.slot.handler.BaseSlotItemHandler;
+import com.maciej916.indreb.common.api.slot.handler.UpgradeSlotItemHandler;
+import com.maciej916.indreb.common.capability.item.interfaces.IUpgradesItemStackHandler;
 import net.minecraftforge.items.ItemStackHandler;
 
 import java.util.ArrayList;
 
 public class UpgradesItemStackHandler extends ItemStackHandler implements IUpgradesItemStackHandler {
 
-    private ArrayList<UpgradeSlotItemHandler> slots;
+    private final ArrayList<UpgradeSlot> upgradeSlots;
 
     public UpgradesItemStackHandler(int size) {
-        this.stacks = NonNullList.withSize(size, ItemStack.EMPTY);
-
-        ArrayList<UpgradeSlotItemHandler> slots = new ArrayList<>();
+        super(size);
+        ArrayList<UpgradeSlot> slots = new ArrayList<>();
         for (int i = 0; i < size; i++) {
-            slots.add(new UpgradeSlotItemHandler(this, i, 178, 9 + (i * 18)));
+            slots.add(new UpgradeSlot(i, 178, 9 + (i * 18), 177, 8 + (i * 18), InventorySlotType.UPGRADE, GuiSlotBg.UPGRADE, true));
         }
-        this.slots = slots;
+        this.upgradeSlots = slots;
     }
 
+    public ArrayList<UpgradeSlot> getUpgradeSlots() {
+        return upgradeSlots;
+    }
 
+    public ArrayList<BaseSlotItemHandler> getSlotHandler() {
+        ArrayList<BaseSlotItemHandler> slotHandler = new ArrayList<>();
+        for (UpgradeSlot slot : upgradeSlots) {
+            slotHandler.add(new UpgradeSlotItemHandler(this, slot.getSlotId(), slot.getSlotX(), slot.getSlotY(), slot.isActive()));
+        }
+        return slotHandler;
+    }
 }

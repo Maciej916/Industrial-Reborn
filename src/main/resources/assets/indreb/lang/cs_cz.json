@@ -1,0 +1,270 @@
+{
+  "_comment": "Tooltip",
+  "itemGroup.indreb": "Industrial Reborn",
+
+  "indreb.generic": "%s",
+
+  "energy.indreb.power": "%s IE",
+  "energy.indreb.power_tick": "%s IE/t",
+
+  "tier.indreb.basic": "Základní",
+  "tier.indreb.standard": "Standardní",
+  "tier.indreb.advanced": "Pokročilý",
+  "tier.indreb.super": "Super",
+  "tier.indreb.ultra": "Ultra",
+  "tier.indreb.creative": "Kreativní",
+
+  "gui.indreb.energy": "%s / %s IE",
+  "gui.indreb.fluid": "%s: %s/%s mB",
+  "gui.indreb.fluid_empty": "Prázdná",
+
+  "gui.indreb.progress": "Postup %s/%s",
+  "gui.indreb.fuelBurnTimeProgress": "Hoření paliva %s/%s",
+  "gui.indreb.heat": "Teplo: %s",
+  "gui.indreb.armour": "Brnění",
+
+
+  "gui.indreb.can_operate_in": "Může začít pracovat za %ss",
+  "gui.indreb.can_operate": "Stroj připraven!",
+
+  "block.indreb.generator": "Generátor",
+  "block.indreb.geo_generator": "Geotermální Generátor",
+  "block.indreb.solar_generator": "Solární Panel",
+  "block.indreb.advanced_solar_generator": "Pokročilý Solární Panel",
+  "block.indreb.hybrid_solar_generator": "Hybridní Solární Panel",
+  "block.indreb.quantum_solar_generator": "Kvantový Solární Panel",
+  "block.indreb.crystalline_generator": "Krystalinový Generátor",
+
+  "block.indreb.iron_furnace": "Železná Pec",
+  "block.indreb.electric_furnace": "Elektrická Pec",
+  "block.indreb.crusher": "Drtič",
+  "block.indreb.compressor": "Kompresor",
+  "block.indreb.extractor": "Extraktor",
+  "block.indreb.extruder": "Vytlačovací lis",
+  "block.indreb.sawmill": "Pila",
+  "block.indreb.canning_machine": "Canning Machine",
+  "block.indreb.fluid_enricher": "Fluid Enricher",
+  "block.indreb.alloy_smelter": "Pec na slitiny",
+
+  "block.indreb.tin_ore": "Cínová Ruda",
+  "block.indreb.deepslate_tin_ore": "Deepslate Cínová Ruda",
+
+  "block.indreb.tin_block": "Cínový Blok",
+  "block.indreb.bronze_block": "Bronzový Blok",
+  "block.indreb.silver_block": "Stříbrný Blok",
+  "block.indreb.steel_block": "Ocelový Blok",
+
+  "block.indreb.basic_machine_casing": "Základní Zapouzdření Stroje",
+  "block.indreb.advanced_machine_casing": "Pokročilé Zapouzdření Stroje",
+
+  "block.indreb.resin_sheet": "Pryskyřicový List",
+  "block.indreb.rubber_sheet": "Gumový List",
+
+  "block.indreb.construction_foam": "Montážní Pěna",
+  "block.indreb.reinforced_construction_foam": "Vyztužená Montážní Pěna",
+
+  "block.indreb.construction_foam_wall_white": "Zeď z montážní pěny (Bílá)",
+  "block.indreb.construction_foam_wall_red": "Zeď z montážní pěny (Červená)",
+  "block.indreb.construction_foam_wall_orange": "Zeď z montážní pěny (Oranžová)",
+  "block.indreb.construction_foam_wall_pink": "Zeď z montážní pěny (Růžová)",
+  "block.indreb.construction_foam_wall_yellow": "Zeď z montážní pěny (Žlutá)",
+  "block.indreb.construction_foam_wall_lime": "Zeď z montážní pěny (Limetková)",
+  "block.indreb.construction_foam_wall_green": "Zeď z montážní pěny (Zelená)",
+  "block.indreb.construction_foam_wall_light_blue": "Zeď z montážní pěny (Světle Modrá)",
+  "block.indreb.construction_foam_wall_cyan": "Zeď z montážní pěny (Azurová)",
+  "block.indreb.construction_foam_wall_blue": "Zeď z montážní pěny (Modrá)",
+  "block.indreb.construction_foam_wall_magenta": "Zeď z montážní pěny (Purpurová)",
+  "block.indreb.construction_foam_wall_purple": "Zeď z montážní pěny (Fialová)",
+  "block.indreb.construction_foam_wall_brown": "Zeď z montážní pěny (Hnědá)",
+  "block.indreb.construction_foam_wall_gray": "Zeď z montážní pěny (Šedá)",
+  "block.indreb.construction_foam_wall_light_gray": "Zeď z montážní pěny (Světle Šedá)",
+  "block.indreb.construction_foam_wall_black": "Zeď z montážní pěny (Černá)",
+
+  "block.indreb.reinforced_glass": "Vyztužené Sklo",
+  "block.indreb.reinforced_stone": "Železobeton",
+  "block.indreb.reinforced_stone_slab": "Železobetonový Půlblok",
+  "block.indreb.reinforced_stone_stairs": "Železobetonové Schody",
+
+  "block.indreb.iron_scaffolding": "Železná Konstrukce",
+  "block.indreb.iron_fence": "Železný Plot",
+
+  "block.indreb.luminator": "Luminátor",
+  "block.indreb.recycler": "Recycler",
+
+  "block.indreb.rubber_sapling": "Sazenice Gumovníku",
+  "block.indreb.rubber_planks": "Gumovníková Prkna",
+  "block.indreb.rubber_leaves": "Listy Gumovníku",
+  "block.indreb.rubber_wood": "Gumovníkové Dřevo",
+  "block.indreb.rubber_log": "Gumovníkové Poleno",
+  "block.indreb.rubber_stairs": "Gumovníkové Schody",
+  "block.indreb.rubber_slab": "Gumovníkový Půlblok",
+
+
+  "block.indreb.tin_cable": "Cínový Kabel",
+  "block.indreb.tin_cable_insulated": "Izolovaný Cínový Kabel",
+  "block.indreb.copper_cable": "Měděný Kabel",
+  "block.indreb.copper_cable_insulated": "Izolovaný Měděný Kabel",
+  "block.indreb.gold_cable": "Zlatý Kabel",
+  "block.indreb.gold_cable_insulated": "Izolovaný Zlatý Kabel",
+  "block.indreb.hv_cable": "HV Kabel",
+  "block.indreb.hv_cable_insulated": "Izolovaný HV Kabel",
+  "block.indreb.glass_fibre_cable": "Optický Kabel",
+
+  "item.indreb.sticky_resin": "Lepkavá Pryskyřice",
+  "item.indreb.rubber": "Guma",
+  "item.indreb.sawdust": "Piliny",
+
+  "item.indreb.raw_tin": "Surový Cín",
+  "item.indreb.tin_ingot": "Cínová Cihla",
+  "item.indreb.bronze_ingot": "Bronzová Cihla",
+  "item.indreb.silver_ingot": "Stříbrná Cihla",
+  "item.indreb.steel_ingot": "Ocelová Cihla",
+  "item.indreb.mixed_metal_ingot": "Cihla ze Smíšených Kovů",
+
+  "item.indreb.crushed_tin": "Drcený Cín",
+  "item.indreb.crushed_copper": "Drcená Měď",
+  "item.indreb.crushed_gold": "Drcené Zlato",
+  "item.indreb.crushed_iron": "Drcené Železo",
+
+  "item.indreb.copper_plate": "Měděný Plát",
+  "item.indreb.tin_plate": "Cínový Plát",
+  "item.indreb.iron_plate": "Železný Plát",
+  "item.indreb.gold_plate": "Zlatý Plát",
+  "item.indreb.bronze_plate": "Bronzový Plát",
+  "item.indreb.steel_plate": "Ocelový Plát",
+  "item.indreb.iridium_plate": "Iridiový Plát",
+
+  "item.indreb.coal_dust": "Uhelný Prach",
+  "item.indreb.diamond_dust": "Diamantový Prach",
+  "item.indreb.silver_dust": "Stříbrný Prach",
+  "item.indreb.stone_dust": "Kamenný Prach",
+  "item.indreb.deepslate_dust": "Deepslate Prach",
+
+  "item.indreb.iron_rod": "Železná Tyč",
+
+  "item.indreb.electronic_circuit": "Elektronický Obvod",
+  "item.indreb.advanced_circuit": "Pokročilý Elekronický Obvod",
+
+  "item.indreb.carbon_fibers": "Karbonová Vlákna",
+  "item.indreb.combined_carbon_fibers": "Kombinovaná Karbonová Vlákna",
+  "item.indreb.carbon_plate": "Karbonový Plát",
+
+  "item.indreb.advanced_alloy": "Pokročilá Slitina",
+
+  "item.indreb.nightvision_goggles": "Brýle s Nočním Viděním",
+  "item.indreb.rubber_boots": "Gumové Boty",
+
+  "item.indreb.bronze_helmet": "Bronzová Helma",
+  "item.indreb.bronze_chestplate": "Bronzové Brnění",
+  "item.indreb.bronze_leggings": "Bronzové Kalhoty",
+  "item.indreb.bronze_boots": "Bronzové Boty",
+
+  "item.indreb.bronze_sword": "Bronzový Meč",
+  "item.indreb.bronze_pickaxe": "Bronzový Krumpáč",
+  "item.indreb.bronze_axe": "Bronzová Sekera",
+  "item.indreb.bronze_shovel": "Bronzová Lopata",
+  "item.indreb.bronze_hoe": "Bronzová Kosa",
+
+  "item.indreb.nano_helmet": "Nano Helma",
+  "item.indreb.nano_chestplate": "Nano Brnění",
+  "item.indreb.nano_leggings": "Nano Kalhoty",
+  "item.indreb.nano_boots": "Nano Boty",
+  "item.indreb.nano_saber": "Nano Šavle",
+
+  "item.indreb.energium_dust": "Energiový Prach",
+
+  "item.indreb.battery": "Baterie",
+  "item.indreb.advanced_battery": "Vylepšená Baterie",
+  "item.indreb.energy_crystal": "Energetický Krystal",
+  "item.indreb.lapotron_crystal": "Lapotronový Krystal",
+
+  "item.indreb.fluid_cell": "Kapalinový Článek",
+
+  "item.indreb.painter": "Malířský Váleček",
+  "item.indreb.painter_white": "Malířský Váleček (Bílý)",
+  "item.indreb.painter_red": "Malířský Váleček (Červený)",
+  "item.indreb.painter_orange": "Malířský Váleček (Oranžový)",
+  "item.indreb.painter_pink": "Malířský Váleček (Růžový)",
+  "item.indreb.painter_yellow": "Malířský Váleček (Žlutý)",
+  "item.indreb.painter_lime": "Malířský Váleček (Limetkový)",
+  "item.indreb.painter_green": "Malířský Váleček (Zelený)",
+  "item.indreb.painter_light_blue": "Malířský Váleček (Světlo Modrý)",
+  "item.indreb.painter_cyan": "Malířský Váleček (Azurový)",
+  "item.indreb.painter_blue": "Malířský Váleček (Modrý)",
+  "item.indreb.painter_magenta": "Malířský Váleček (Purpurový)",
+  "item.indreb.painter_purple": "Malířský Váleček (Fialový)",
+  "item.indreb.painter_brown": "Malířský Váleček (Hnědý)",
+  "item.indreb.painter_gray": "Malířský Váleček (Šedý)",
+  "item.indreb.painter_light_gray": "Malířský Váleček (Světle Šedý)",
+  "item.indreb.painter_black": "Malířský Váleček (Černý)",
+
+  "item.indreb.small_power_unit": "Malá Energetická Jednotka",
+  "item.indreb.power_unit": "Energetická Jednotka",
+  "item.indreb.electric_treetap": "Elektrický StromKohoutek",
+  "item.indreb.electric_wrench": "Elektrický Utahovák",
+  "item.indreb.chainsaw": "Motorovka",
+  "item.indreb.diamond_chainsaw": "Diamantová Motorovka",
+  "item.indreb.iridium_chainsaw": "Iridiová Motorovka",
+  "item.indreb.mining_drill": "Těžební Vrták",
+  "item.indreb.diamond_drill": "Diamantový Vrták",
+  "item.indreb.iridium_drill": "Iridiový Vrták",
+  "item.indreb.electric_hoe": "Elektrická Kosa",
+  "item.indreb.wind_meter": "Větroměr",
+  "item.indreb.ie_meter": "IEmetr",
+  "item.indreb.foam_sprayer": "Sprej na pěnu",
+  "item.indreb.iridium_shard": "Iridiový Úlomek",
+  "item.indreb.iridium": "Iridium",
+  "item.indreb.multi_tool": "Všestranný Nástroj-Utahovák",
+  "item.indreb.coil": "Cívka",
+  "item.indreb.electric_motor": "Elektromotor",
+  "item.indreb.tin_can": "Konzerva",
+  "item.indreb.filled_tin_can": "Konzerva s jídlem (Plná)",
+  "item.indreb.scrap": "Odpad",
+  "item.indreb.scrap_box": "Box s Odpadem",
+
+  "item.indreb.treetap": "StromKohoutek",
+  "item.indreb.wrench": "Utahovák",
+  "item.indreb.hammer": "Kladivo",
+  "item.indreb.cutter": "Nůžky na plech",
+
+  "block.indreb.battery_box": "Box Baterií",
+  "block.indreb.cesu": "CESU",
+  "block.indreb.mfe": "MFE",
+  "block.indreb.mfsu": "MFSU",
+
+  "block.indreb.wooden_energy_converter": "Dřevěný Transformátor",
+
+  "jei.indreb.crushing": "Drcení",
+  "jei.indreb.compressing": "Komprese",
+  "jei.indreb.extracting": "Extrakce",
+  "jei.indreb.sawing": "Řezání",
+  "jei.indreb.extruding": "Extruze",
+  "jei.indreb.alloy_smelting": "Slévání Litin",
+  "jei.indreb.recycling": "Recycling",
+  "jei.indreb.scrap_box": "Scrap Box",
+
+  "jei.indreb.chance": "Pravděpodobnost: %s",
+
+  "gui.indreb.collect_exp": "Sebrat Zkušenosti",
+
+  "tooltip.indreb.wip": "Pracuje se na tom!",
+
+  "tooltip.indreb.power_tier": "Elektrická Úroveň: %s",
+  "tooltip.indreb.generate": "Generuje: %s",
+  "tooltip.indreb.output": "Výkon: %s",
+  "tooltip.indreb.transfer": "Přenos: %s",
+  "tooltip.indreb.capacity": "Kapacita: %s",
+  "tooltip.indreb.output_capacity": "Výkon: %s Kapacita: %s",
+  "tooltip.indreb.accept_capacity": "Příkon: %s Kapacita: %s",
+  "tooltip.indreb.accept": "Příkon: %s",
+  "tooltip.indreb.accept_output": "Příkon: %s Výkon: %s",
+  "tooltip.indreb.stored": "Uloženo: %s",
+  "tooltip.indreb.stored_capacity": "Uloženo: %s Kapacita: %s",
+
+  "tooltip.indreb.cable_unisolated": "Tento kabel může způsobit vážná až smrtelná zranění!",
+
+
+
+
+  "test.indreb.test": "%s"
+}

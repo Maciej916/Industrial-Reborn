@@ -10,12 +10,11 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import org.jetbrains.annotations.Nullable;
 
-public class IndRebEntityBlock extends IndRebBlock implements EntityBlock {
+public abstract class IndRebEntityBlock extends IndRebBlock implements EntityBlock {
 
     public IndRebEntityBlock(Properties properties) {
         super(properties);
     }
-
 
     @Nullable
     @Override

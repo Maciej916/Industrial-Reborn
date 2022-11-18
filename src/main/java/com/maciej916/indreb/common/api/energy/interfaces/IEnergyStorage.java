@@ -29,8 +29,7 @@ public interface IEnergyStorage {
     default int receiveEnergy(Direction side, int amount, boolean simulate) {
         if (!canReceiveEnergy(side) && side != null) return 0;
         int received = Math.min(amount, maxReceive());
-        if (!simulate) setEnergy(energyStored() + received);
-        updated();
+        if (!simulate && received > 0) setEnergy(energyStored() + received);
         return received;
     }
 
@@ -52,23 +51,20 @@ public interface IEnergyStorage {
     default int extractEnergy(Direction side, int amount, boolean simulate) {
         if (!canExtractEnergy(side) && side != null) return 0;
         int extracted = Math.min(energyStored(), Math.min(maxExtract(), amount));
-        if (!simulate) setEnergy(energyStored() - extracted);
-        updated();
+        if (!simulate && extracted > 0) setEnergy(energyStored() - extracted);
         return extracted;
     }
 
     default int generateEnergy(final int amount, boolean simulate) {
         if (maxExtractTick() == 0) return 0;
         int energy = Math.min(maxEnergy() - energyStored(), Math.min(maxEnergy(), amount));
-        if (!simulate) setEnergy(energyStored() + energy);
-        updated();
+        if (!simulate && energy > 0) setEnergy(energyStored() + energy);
         return energy;
     }
 
     default int consumeEnergy(final int amount, boolean simulate) {
         int energy = Math.min(energyStored(), amount);
-        if (!simulate) setEnergy(energyStored() - energy);
-        updated();
+        if (!simulate && energy > 0) setEnergy(energyStored() - energy);
         return energy;
     }
 

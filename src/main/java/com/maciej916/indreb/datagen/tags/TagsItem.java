@@ -6,6 +6,7 @@ import com.maciej916.indreb.common.tag.ModTagsItem;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.tags.BlockTagsProvider;
 import net.minecraft.data.tags.ItemTagsProvider;
+import net.minecraft.tags.ItemTags;
 import net.minecraftforge.common.data.ExistingFileHelper;
 
 public class TagsItem extends ItemTagsProvider {
@@ -16,6 +17,10 @@ public class TagsItem extends ItemTagsProvider {
 
     @Override
     protected void addTags() {
+
+        tag(ItemTags.LEAVES)
+                .add(ModItems.RUBBER_LEAVES.get())
+        ;
 
         /* ORES */
 

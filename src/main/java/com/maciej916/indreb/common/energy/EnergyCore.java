@@ -291,7 +291,7 @@ public class EnergyCore implements IEnergyCore, ICapabilitySerializable<Compound
                         if (transferCharge.size() > 0) {
                             Collections.sort(transferCharge);
                             chargeInternal(pos, energyStorage, transferCharge, chargeMax);
-                            ibe.setChanged();
+                            ibe.getEnergyStorage().updated();
                         }
                     }
                 }
@@ -417,6 +417,8 @@ public class EnergyCore implements IEnergyCore, ICapabilitySerializable<Compound
                 }
             }
         }
+
+        energyFrom.updated();
     }
 
     /**

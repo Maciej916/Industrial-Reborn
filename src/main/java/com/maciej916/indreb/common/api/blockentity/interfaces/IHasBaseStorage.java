@@ -1,6 +1,6 @@
 package com.maciej916.indreb.common.api.blockentity.interfaces;
 
-import com.maciej916.indreb.common.api.slot.BaseSlotItemHandler;
+import com.maciej916.indreb.common.api.slot.handler.BaseSlotItemHandler;
 import net.minecraft.world.item.ItemStack;
 import org.jetbrains.annotations.NotNull;
 
