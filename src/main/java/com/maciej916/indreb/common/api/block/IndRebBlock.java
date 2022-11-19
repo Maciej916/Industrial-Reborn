@@ -66,14 +66,15 @@ public abstract class IndRebBlock extends Block {
             return InteractionResult.PASS;
         }
 
-        if (!level.isClientSide()) {
-            BlockEntity entity = level.getBlockEntity(pos);
-            if (entity instanceof IIndRebBlockEntity && entity instanceof MenuProvider menuProvider) {
+        BlockEntity entity = level.getBlockEntity(pos);
+        if (entity instanceof IIndRebBlockEntity && entity instanceof MenuProvider menuProvider) {
+            if (!level.isClientSide()) {
                 NetworkHooks.openScreen(((ServerPlayer)player), menuProvider, pos);
             }
+            return InteractionResult.sidedSuccess(level.isClientSide());
         }
 
-        return InteractionResult.sidedSuccess(level.isClientSide());
+        return super.use(state, level, pos, player, hand, trace);
     }
 
 //    @Override
