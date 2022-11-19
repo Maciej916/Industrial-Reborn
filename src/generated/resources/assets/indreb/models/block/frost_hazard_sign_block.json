@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "bottom": "indreb:block/casing/basic_machine_casing",
+    "side": "indreb:block/decoration/frost_hazard_sign_block",
+    "top": "indreb:block/casing/basic_machine_casing"
+  }
+}

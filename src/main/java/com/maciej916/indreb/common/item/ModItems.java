@@ -97,6 +97,19 @@ public final class ModItems {
     public static final RegistryObject<Item> IRON_FENCE = fromBlockIronScaffolding(ModBlocks.IRON_FENCE);
     public static final RegistryObject<Item> IRON_GATE = fromBlockIronScaffolding(ModBlocks.IRON_GATE);
 
+    // luminator
+
+    public static final RegistryObject<Item> YELLOW_STRIPES_BLOCK_LEFT = fromBlock(ModBlocks.YELLOW_STRIPES_BLOCK_LEFT);
+    public static final RegistryObject<Item> YELLOW_STRIPES_BLOCK_RIGHT = fromBlock(ModBlocks.YELLOW_STRIPES_BLOCK_RIGHT);
+    public static final RegistryObject<Item> RADIOACTIVE_HAZARD_SIGN_BLOCK = fromBlock(ModBlocks.RADIOACTIVE_HAZARD_SIGN_BLOCK);
+    public static final RegistryObject<Item> BIO_HAZARD_SIGN_BLOCK = fromBlock(ModBlocks.BIO_HAZARD_SIGN_BLOCK);
+    public static final RegistryObject<Item> EXPLOSION_HAZARD_SIGN_BLOCK = fromBlock(ModBlocks.EXPLOSION_HAZARD_SIGN_BLOCK);
+    public static final RegistryObject<Item> FIRE_HAZARD_SIGN_BLOCK = fromBlock(ModBlocks.FIRE_HAZARD_SIGN_BLOCK);
+    public static final RegistryObject<Item> ACID_HAZARD_SIGN_BLOCK = fromBlock(ModBlocks.ACID_HAZARD_SIGN_BLOCK);
+    public static final RegistryObject<Item> MAGIC_HAZARD_SIGN_BLOCK = fromBlock(ModBlocks.MAGIC_HAZARD_SIGN_BLOCK);
+    public static final RegistryObject<Item> FROST_HAZARD_SIGN_BLOCK = fromBlock(ModBlocks.FROST_HAZARD_SIGN_BLOCK);
+    public static final RegistryObject<Item> NOISE_HAZARD_SIGN_BLOCK = fromBlock(ModBlocks.NOISE_HAZARD_SIGN_BLOCK);
+
     public static final RegistryObject<Item> GENERATOR = fromBlockElectric(ModBlocks.GENERATOR);
     public static final RegistryObject<Item> SOLAR_PANEL = fromBlockElectric(ModBlocks.SOLAR_PANEL);
     public static final RegistryObject<Item> ADVANCED_SOLAR_PANEL = fromBlockElectric(ModBlocks.ADVANCED_SOLAR_PANEL);

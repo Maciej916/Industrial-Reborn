@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "indreb:block/decoration/yellow_stripes_block_left"
+  }
+}

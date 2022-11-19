@@ -106,7 +106,18 @@ public final class ModBlocks {
     public static final RegistryObject<Block> IRON_GATE = registerBlock("iron_gate", BlockIronGate::new);
 
     // luminator
-
+    
+    public static final RegistryObject<Block> YELLOW_STRIPES_BLOCK_LEFT = registerBlock("yellow_stripes_block_left", () -> new BlockResource(Material.METAL, 1f, 3f, SoundType.METAL));
+    public static final RegistryObject<Block> YELLOW_STRIPES_BLOCK_RIGHT = registerBlock("yellow_stripes_block_right", () -> new BlockResource(Material.METAL, 1f, 3f, SoundType.METAL));
+    public static final RegistryObject<Block> RADIOACTIVE_HAZARD_SIGN_BLOCK = registerBlock("radioactive_hazard_sign_block", () -> new BlockResource(Material.METAL, 1f, 3f, SoundType.METAL));
+    public static final RegistryObject<Block> BIO_HAZARD_SIGN_BLOCK = registerBlock("bio_hazard_sign_block", () -> new BlockResource(Material.METAL, 1f, 3f, SoundType.METAL));
+    public static final RegistryObject<Block> EXPLOSION_HAZARD_SIGN_BLOCK = registerBlock("explosion_hazard_sign_block", () -> new BlockResource(Material.METAL, 1f, 3f, SoundType.METAL));
+    public static final RegistryObject<Block> FIRE_HAZARD_SIGN_BLOCK = registerBlock("fire_hazard_sign_block", () -> new BlockResource(Material.METAL, 1f, 3f, SoundType.METAL));
+    public static final RegistryObject<Block> ACID_HAZARD_SIGN_BLOCK = registerBlock("acid_hazard_sign_block", () -> new BlockResource(Material.METAL, 1f, 3f, SoundType.METAL));
+    public static final RegistryObject<Block> MAGIC_HAZARD_SIGN_BLOCK = registerBlock("magic_hazard_sign_block", () -> new BlockResource(Material.METAL, 1f, 3f, SoundType.METAL));
+    public static final RegistryObject<Block> FROST_HAZARD_SIGN_BLOCK = registerBlock("frost_hazard_sign_block", () -> new BlockResource(Material.METAL, 1f, 3f, SoundType.METAL));
+    public static final RegistryObject<Block> NOISE_HAZARD_SIGN_BLOCK = registerBlock("noise_hazard_sign_block", () -> new BlockResource(Material.METAL, 1f, 3f, SoundType.METAL));
+    
     public static final RegistryObject<Block> GENERATOR = registerBlock("generator", BlockGenerator::new);
     public static final RegistryObject<Block> SOLAR_PANEL = registerBlock("solar_panel", () -> new BlockSolarPanel(SolarPanelTier.BASIC));
     public static final RegistryObject<Block> ADVANCED_SOLAR_PANEL = registerBlock("advanced_solar_panel", () -> new BlockSolarPanel(SolarPanelTier.ADVANCED));

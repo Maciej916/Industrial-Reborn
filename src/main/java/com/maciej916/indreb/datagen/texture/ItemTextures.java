@@ -38,6 +38,7 @@ public class ItemTextures extends ItemModelProvider {
         registerStorage();
         registerFood();
         registerCrop();
+        registerDecoration();
         registerGenerators();
     }
 
@@ -258,6 +259,19 @@ public class ItemTextures extends ItemModelProvider {
         createGeneratedTexture(ModItems.FERTILIZER, "crop/fertilizer");
     }
 
+    protected void registerDecoration() {
+        createWithBlock(ModItems.YELLOW_STRIPES_BLOCK_LEFT, "yellow_stripes_block_left");
+        createWithBlock(ModItems.YELLOW_STRIPES_BLOCK_RIGHT, "yellow_stripes_block_right");
+        createWithBlock(ModItems.RADIOACTIVE_HAZARD_SIGN_BLOCK, "radioactive_hazard_sign_block");
+        createWithBlock(ModItems.BIO_HAZARD_SIGN_BLOCK, "bio_hazard_sign_block");
+        createWithBlock(ModItems.EXPLOSION_HAZARD_SIGN_BLOCK, "explosion_hazard_sign_block");
+        createWithBlock(ModItems.FIRE_HAZARD_SIGN_BLOCK, "fire_hazard_sign_block");
+        createWithBlock(ModItems.ACID_HAZARD_SIGN_BLOCK, "acid_hazard_sign_block");
+        createWithBlock(ModItems.MAGIC_HAZARD_SIGN_BLOCK, "magic_hazard_sign_block");
+        createWithBlock(ModItems.FROST_HAZARD_SIGN_BLOCK, "frost_hazard_sign_block");
+        createWithBlock(ModItems.NOISE_HAZARD_SIGN_BLOCK, "noise_hazard_sign_block");
+    }
+
     private void registerGenerators() {
         createWithBlock(ModItems.GENERATOR, "generator");
         createWithBlock(ModItems.SOLAR_PANEL, "solar_panel");
@@ -266,7 +280,6 @@ public class ItemTextures extends ItemModelProvider {
         createWithBlock(ModItems.QUANTUM_SOLAR_PANEL, "quantum_solar_panel");
         createWithBlock(ModItems.GEO_GENERATOR, "geo_generator");
         createWithBlock(ModItems.SEMIFLUID_GENERATOR, "semifluid_generator");
-
 
 
     }

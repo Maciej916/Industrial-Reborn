@@ -35,6 +35,7 @@ public class BlockTextures extends BlockStateProvider {
         registerConstructionFoam();
         registerRubberWood();
         registerIron();
+        registerDecoration();
         registerGenerators();
     }
 
@@ -120,6 +121,19 @@ public class BlockTextures extends BlockStateProvider {
     private void registerIron() {
         createFenceBlock(ModBlocks.IRON_FENCE, "iron/iron_fence");
         createFenceGateBlock(ModBlocks.IRON_GATE, "iron/iron_fence");
+    }
+
+    private void registerDecoration() {
+        createCubeAll(ModBlocks.YELLOW_STRIPES_BLOCK_LEFT, "decoration/yellow_stripes_block_left");
+        createCubeAll(ModBlocks.YELLOW_STRIPES_BLOCK_RIGHT, "decoration/yellow_stripes_block_right");
+        createSimpleSideTopBottom(ModBlocks.RADIOACTIVE_HAZARD_SIGN_BLOCK, "decoration/radioactive_hazard_sign_block", "casing/basic_machine_casing", "casing/basic_machine_casing");
+        createSimpleSideTopBottom(ModBlocks.BIO_HAZARD_SIGN_BLOCK, "decoration/bio_hazard_sign_block", "casing/basic_machine_casing", "casing/basic_machine_casing");
+        createSimpleSideTopBottom(ModBlocks.EXPLOSION_HAZARD_SIGN_BLOCK, "decoration/explosion_hazard_sign_block", "casing/basic_machine_casing", "casing/basic_machine_casing");
+        createSimpleSideTopBottom(ModBlocks.FIRE_HAZARD_SIGN_BLOCK, "decoration/fire_hazard_sign_block", "casing/basic_machine_casing", "casing/basic_machine_casing");
+        createSimpleSideTopBottom(ModBlocks.ACID_HAZARD_SIGN_BLOCK, "decoration/acid_hazard_sign_block", "casing/basic_machine_casing", "casing/basic_machine_casing");
+        createSimpleSideTopBottom(ModBlocks.MAGIC_HAZARD_SIGN_BLOCK, "decoration/magic_hazard_sign_block", "casing/basic_machine_casing", "casing/basic_machine_casing");
+        createSimpleSideTopBottom(ModBlocks.FROST_HAZARD_SIGN_BLOCK, "decoration/frost_hazard_sign_block", "casing/basic_machine_casing", "casing/basic_machine_casing");
+        createSimpleSideTopBottom(ModBlocks.NOISE_HAZARD_SIGN_BLOCK, "decoration/noise_hazard_sign_block", "casing/basic_machine_casing", "casing/basic_machine_casing");
     }
 
     private void registerGenerators() {
@@ -237,6 +251,13 @@ public class BlockTextures extends BlockStateProvider {
         });
     }
 
+    private void createSimpleSideTopBottom(RegistryObject<Block> block, String side, String top, String bottom) {
+        simpleBlock(block.get(), models().cubeBottomTop(block.getId().getPath(),
+                new ResourceLocation(IndReb.MODID, "block/" + side),
+                new ResourceLocation(IndReb.MODID, "block/" + bottom),
+                new ResourceLocation(IndReb.MODID, "block/" + top)
+        ));
+    }
 
 
 

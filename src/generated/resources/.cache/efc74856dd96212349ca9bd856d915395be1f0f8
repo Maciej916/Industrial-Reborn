@@ -1,10 +1,12 @@
-// 1.19.2	2022-11-19T16:24:00.0753315	Item Models: indreb
+// 1.19.2	2022-11-19T16:36:16.5702651	Item Models: indreb
+ea6f48b249d5595c0bc20e39b977fa8fad0ed868 assets/indreb/models/item/acid_hazard_sign_block.json
 4df0fe2021d7b228332497f5c7d711b40f082510 assets/indreb/models/item/advanced_alloy.json
 ae66a341cac54e91dbe327c2d948550b40bfbc82 assets/indreb/models/item/advanced_circuit.json
 bed067be898523d338f34c45c1036a428b3acc14 assets/indreb/models/item/advanced_machine_casing.json
 4677828e10d80507be4f442a007583a355b51c55 assets/indreb/models/item/advanced_solar_panel.json
 26c3c85ff11e4b28b9e0e378bade13f7c460a4ba assets/indreb/models/item/basic_machine_casing.json
 88176f28e0a2b118d131e21e4e174b9fa253ff1c assets/indreb/models/item/bio_chaff.json
+95a2c2b1e84bec9287b9fef1d69d3a1d3cb93682 assets/indreb/models/item/bio_hazard_sign_block.json
 e8b3e33ada3180dbbe549f728ac69c76695170bc assets/indreb/models/item/bronze_block.json
 6456c73f8778b09cf77920a7e0afc40e48af0ab3 assets/indreb/models/item/bronze_ingot.json
 0360d8b72c3b4d7dac940b075bf9c364f281108f assets/indreb/models/item/bronze_plate.json
@@ -42,9 +44,12 @@ a6bdd04201ee6eaa57eb142c867dd737bf6c4cc1 assets/indreb/models/item/diamond_dust.
 a4dfb6c7de140018edd2595d8541b7878b92c314 assets/indreb/models/item/electric_motor.json
 8cf72724eed540d2c56826717822043b698661ef assets/indreb/models/item/electronic_circuit.json
 7929ef623dd30fd36de4371aa930266004becf4e assets/indreb/models/item/energium_dust.json
+7b382ca707cf13fb440fbcea863a01d24707a4fd assets/indreb/models/item/explosion_hazard_sign_block.json
 4f5743cd253934b43ef3233fb25f50d1150ca5f9 assets/indreb/models/item/fertilizer.json
 d478dd7f0374c58ec694d1210da2119070996263 assets/indreb/models/item/filled_tin_can.json
+90a33448cd123cd5239a1e5bb837c44a232e00b8 assets/indreb/models/item/fire_hazard_sign_block.json
 5f34c1dcdcfc3334c290bd8363b2d64fad2ea898 assets/indreb/models/item/foam_powder.json
+d7c7d6689f928316f1563a39f736dc08589773a9 assets/indreb/models/item/frost_hazard_sign_block.json
 d7af7f9a3f1b9c070baee5d11d4b06beaa6483d9 assets/indreb/models/item/generator.json
 61c9f7eece2902c2d4e281247e46827367efceae assets/indreb/models/item/geo_generator.json
 97c8e550e085031bd5b8e19273a3e5fcafcd7b84 assets/indreb/models/item/gold_chunk.json
@@ -68,9 +73,11 @@ be78938d4295610730e8ffe992e449768f53fd21 assets/indreb/models/item/lead_dust.jso
 7e6e2ea40bbce34fd8ba007f802dadbe7628590e assets/indreb/models/item/lead_ingot.json
 5c90aed94a6f412b39db5be95f0203b5a078e98c assets/indreb/models/item/lead_ore.json
 c7fac649d8d29f69918ece2daad070d83e32c5fe assets/indreb/models/item/lead_plate.json
+49b75fa1b4bcded7efea11cbc4602817f58bce5d assets/indreb/models/item/magic_hazard_sign_block.json
 caca55b827fb8a4af77150ec30140cb6423a7d6c assets/indreb/models/item/memory_card.json
 bdb6961e18c0c78725126bc7e58200cd4553a62c assets/indreb/models/item/mixed_metal_ingot.json
 98eca21d04aa0096a06a625ac4fb58efabbeb125 assets/indreb/models/item/mud_pile.json
+ed346b44600a4432e614c00895d991ab8bcb6ae3 assets/indreb/models/item/noise_hazard_sign_block.json
 db7e8af8d547be016d559e7d17641f9ccfb62912 assets/indreb/models/item/painter.json
 a39ad5aeffe6c1b6357bebf06ea06246be1abee4 assets/indreb/models/item/painter_black.json
 3e3810bf9e00a7dc4ec4fb19e577dd5cab2fe08e assets/indreb/models/item/painter_blue.json
@@ -97,6 +104,7 @@ da40dabd6d34276573da6fc7b2ed660764c1d67b assets/indreb/models/item/purified_silv
 698557646c6afecce786d1347eac93aef5ae3cf8 assets/indreb/models/item/purified_tin.json
 ea1efa0601bc957b103a85ca871f50965b5d219b assets/indreb/models/item/purified_uranium.json
 a5b5e0c41218c3a46d271a77ce303a34cbb4377b assets/indreb/models/item/quantum_solar_panel.json
+a6200729ab738fb63e47e3943cb69c199220989b assets/indreb/models/item/radioactive_hazard_sign_block.json
 4b2c04b5dfb92befde56e171cf0cd4a86814d564 assets/indreb/models/item/raw_lead.json
 807053f450ada25d9cd8d3ba2dd7b483a1c63604 assets/indreb/models/item/raw_lead_block.json
 13d7624dfb4103f72d2cd4470895e53dfb7e81f9 assets/indreb/models/item/raw_silver.json
@@ -161,3 +169,5 @@ fdfedd3de2f1b4a4ca7994a0a46f3c7102a76d92 assets/indreb/models/item/uranium_chunk
 76c22a2e1d02c163e68dc403f84bcda817edddcd assets/indreb/models/item/uranium_dust.json
 2ebbed7372e254b69aee134f041b5b93ddb71a50 assets/indreb/models/item/uranium_ingot.json
 9842a6f9b0a407c707890c021a2bb8baabfc7a1a assets/indreb/models/item/uranium_ore.json
+8e00403469db086a8df7813d92e47207946bd99e assets/indreb/models/item/yellow_stripes_block_left.json
+90cc414a6d58a48a6ed1a924287f253d17c3f9c2 assets/indreb/models/item/yellow_stripes_block_right.json
