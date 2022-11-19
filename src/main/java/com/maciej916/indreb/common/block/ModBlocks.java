@@ -8,6 +8,7 @@ import com.maciej916.indreb.common.block.impl.FoamBlock;
 import com.maciej916.indreb.common.block.impl.ReinforcedFoamBlock;
 import com.maciej916.indreb.common.block.impl.generator.generator.BlockGenerator;
 import com.maciej916.indreb.common.block.impl.generator.geo_generator.BlockGeoGenerator;
+import com.maciej916.indreb.common.block.impl.generator.semifluid_generator.BlockSemifluidGenerator;
 import com.maciej916.indreb.common.block.impl.generator.solar_panel.BlockSolarPanel;
 import com.maciej916.indreb.common.block.impl.iron.BlockIronFence;
 import com.maciej916.indreb.common.block.impl.iron.BlockIronGate;
@@ -112,6 +113,7 @@ public final class ModBlocks {
     public static final RegistryObject<Block> HYBRID_SOLAR_PANEL = registerBlock("hybrid_solar_panel", () -> new BlockSolarPanel(SolarPanelTier.HYBRID));
     public static final RegistryObject<Block> QUANTUM_SOLAR_PANEL = registerBlock("quantum_solar_panel", () -> new BlockSolarPanel(SolarPanelTier.QUANTUM));
     public static final RegistryObject<Block> GEO_GENERATOR = registerBlock("geo_generator", BlockGeoGenerator::new);
+    public static final RegistryObject<Block> SEMIFLUID_GENERATOR = registerBlock("semifluid_generator", BlockSemifluidGenerator::new);
 
 
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block) {

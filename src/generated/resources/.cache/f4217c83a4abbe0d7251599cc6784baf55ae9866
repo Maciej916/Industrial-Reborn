@@ -1,4 +1,4 @@
-// 1.19.2	2022-11-18T21:30:57.2443008	Block States: indreb
+// 1.19.2	2022-11-19T16:24:00.0783298	Block States: indreb
 b0fdc040f5b7b7c6b701f4aed0ac0308e145cfc9 assets/indreb/blockstates/advanced_machine_casing.json
 9385543a17f96635caee1886dc56a82587c77604 assets/indreb/blockstates/advanced_solar_panel.json
 ede056cfd6bd08522821b85649466a4b503b7295 assets/indreb/blockstates/basic_machine_casing.json
@@ -55,6 +55,7 @@ c916e0e14d136ed4bc6261c519861b49781386a8 assets/indreb/blockstates/rubber_planks
 81a75219082671186c4602e5afd33cbf4c11108f assets/indreb/blockstates/rubber_stairs.json
 063c2c14d50c8bfe24571b77c4b4dd58d9facf1c assets/indreb/blockstates/rubber_trap_door.json
 bb24d27982acfca5a12503756c8e6e576f37779a assets/indreb/blockstates/rubber_wood.json
+8744c10743a5b1f6de85dfbfc7af23a3696012c7 assets/indreb/blockstates/semifluid_generator.json
 dcf7b5512f30bcea36c3f2f6801e7a21dc1f46db assets/indreb/blockstates/silver_block.json
 fec00e8f97f66bab132d194ce6936a584ca6b7eb assets/indreb/blockstates/silver_ore.json
 c33521d5a609e5fff5f652b526aafdff63d6e67a assets/indreb/blockstates/smooth_reinforced_stone.json
@@ -163,6 +164,8 @@ e47051d3b45a2b973e5e4597040416c2cedc3d63 assets/indreb/models/block/rubber_plate
 4a1171af6d20dbd2370f1f6be3ece8c7889288f9 assets/indreb/models/block/rubber_trap_door_open.json
 d7715c3e32e2fc3dad35d491356a1b36fbef27d9 assets/indreb/models/block/rubber_trap_door_top.json
 558c53a0ec955187013b724122959a35837ce717 assets/indreb/models/block/rubber_wood.json
+51348fa925912f9139440fd0110e50d872a2b71a assets/indreb/models/block/semifluid_generator.json
+4fe8d476c3167c11249194d11dcb41b7b388877e assets/indreb/models/block/semifluid_generator_active.json
 481f88448a2c22d621203f97c65d10022f0bb229 assets/indreb/models/block/silver_block.json
 ecfddd2cae6b3dad88dc4d7f524f72bedeb2dc99 assets/indreb/models/block/silver_ore.json
 6fc2ccf25b1a800d795a2477024cb1de3ece9d27 assets/indreb/models/block/smooth_reinforced_stone.json

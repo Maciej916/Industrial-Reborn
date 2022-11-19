@@ -129,6 +129,7 @@ public class BlockTextures extends BlockStateProvider {
         createSolarPanel(ModBlocks.HYBRID_SOLAR_PANEL, "generator/hybrid_solar_panel/hybrid_solar_panel");
         createSolarPanel(ModBlocks.QUANTUM_SOLAR_PANEL, "generator/quantum_solar_panel/quantum_solar_panel");
         createFrontActive(ModBlocks.GEO_GENERATOR, "generator/geo_generator/geo_generator");
+        createFrontLeftRightActive(ModBlocks.SEMIFLUID_GENERATOR, "generator/semifluid_generator/semifluid_generator");
 
     }
 
@@ -197,7 +198,6 @@ public class BlockTextures extends BlockStateProvider {
         trapdoorBlockWithRenderType((TrapDoorBlock) block.get(), new ResourceLocation(IndReb.MODID, "block/" + path), orientable, "translucent");
     }
 
-
     private void createFrontActive(RegistryObject<Block> block, String path) {
         BlockModelBuilder notActive = models().orientableWithBottom(block.getId().getPath(), new ResourceLocation(IndReb.MODID, "block/" + path + "_side"), new ResourceLocation(IndReb.MODID, "block/" + path + "_front"), new ResourceLocation(IndReb.MODID, "block/" + path + "_bottom"), new ResourceLocation(IndReb.MODID, "block/" + path + "_top"));
         BlockModelBuilder active = models().orientableWithBottom(block.getId().getPath() + "_active", new ResourceLocation(IndReb.MODID, "block/" + path + "_side"), new ResourceLocation(IndReb.MODID, "block/" + path + "_front_active"), new ResourceLocation(IndReb.MODID, "block/" + path + "_bottom"), new ResourceLocation(IndReb.MODID, "block/" + path + "_top"));
@@ -225,6 +225,17 @@ public class BlockTextures extends BlockStateProvider {
         getVariantBuilder(block.get()).forAllStates(state -> ConfiguredModel.builder().modelFile(modelFunc.apply(state)).build());
     }
 
+    private void createFrontLeftRightActive(RegistryObject<Block> block, String path) {
+        BlockModelBuilder notActive = cubeWithParticle(block.getId().getPath(), new ResourceLocation(IndReb.MODID, "block/" + path + "_bottom"), new ResourceLocation(IndReb.MODID, "block/" +path + "_top"), new ResourceLocation(IndReb.MODID, "block/" + path + "_front"), new ResourceLocation(IndReb.MODID, "block/" +path + "_back"), new ResourceLocation(IndReb.MODID, "block/" + path + "_leftright"), new ResourceLocation(IndReb.MODID, "block/" + path + "_leftright"));
+        BlockModelBuilder active = cubeWithParticle(block.getId().getPath() + "_active", new ResourceLocation(IndReb.MODID, "block/" + path + "_bottom"), new ResourceLocation(IndReb.MODID, "block/" + path + "_top"), new ResourceLocation(IndReb.MODID, "block/" + path + "_front_active"), new ResourceLocation(IndReb.MODID, "block/" + path + "_back"), new ResourceLocation(IndReb.MODID, "block/" + path + "_leftright_active"), new ResourceLocation(IndReb.MODID, "block/" + path + "_leftright_active"));
+        orientedBlock(block.get(), state -> {
+            if (state.getValue(BlockStateHelper.ACTIVE_PROPERTY)) {
+                return active;
+            } else {
+                return notActive;
+            }
+        });
+    }
 
 
 

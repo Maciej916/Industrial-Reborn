@@ -1,4 +1,4 @@
-// 1.19.2	2022-11-18T21:30:57.2503121	Item Models: indreb
+// 1.19.2	2022-11-19T16:24:00.0753315	Item Models: indreb
 4df0fe2021d7b228332497f5c7d711b40f082510 assets/indreb/models/item/advanced_alloy.json
 ae66a341cac54e91dbe327c2d948550b40bfbc82 assets/indreb/models/item/advanced_circuit.json
 bed067be898523d338f34c45c1036a428b3acc14 assets/indreb/models/item/advanced_machine_casing.json
@@ -134,6 +134,7 @@ cbcc158f77bce46b2dfc8986f58c34631377a561 assets/indreb/models/item/rubber_wood.j
 2aa10e4ad90dc627c5968d641fd1e3425c0f444c assets/indreb/models/item/sawdust.json
 a3e09ab73b29d14af1053295b96ca5c370a696a7 assets/indreb/models/item/scrap.json
 104e5a7fbf6aebe94cb7ca07ef3371d27737b991 assets/indreb/models/item/scrap_box.json
+b4861bd2385f21824839a712748e3eb4c2b7affc assets/indreb/models/item/semifluid_generator.json
 0bb31d70b7c451190cfdc579496dfb08b59eea80 assets/indreb/models/item/silver_block.json
 a6f2bb50e2070e4c00387c9ed04152b1761c76bd assets/indreb/models/item/silver_chunk.json
 eae8bbfff920ae39102bad5eee280a95d65acc5e assets/indreb/models/item/silver_dust.json

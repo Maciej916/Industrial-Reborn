@@ -103,6 +103,7 @@ public final class ModItems {
     public static final RegistryObject<Item> HYBRID_SOLAR_PANEL = fromBlockElectric(ModBlocks.HYBRID_SOLAR_PANEL);
     public static final RegistryObject<Item> QUANTUM_SOLAR_PANEL = fromBlockElectric(ModBlocks.QUANTUM_SOLAR_PANEL);
     public static final RegistryObject<Item> GEO_GENERATOR = fromBlockElectric(ModBlocks.GEO_GENERATOR);
+    public static final RegistryObject<Item> SEMIFLUID_GENERATOR = fromBlockElectric(ModBlocks.SEMIFLUID_GENERATOR);
 
 
 

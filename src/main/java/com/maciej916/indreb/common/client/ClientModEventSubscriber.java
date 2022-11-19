@@ -5,6 +5,7 @@ import com.maciej916.indreb.common.api.item.base.BaseFluidItem;
 import com.maciej916.indreb.common.block.ModBlocks;
 import com.maciej916.indreb.common.block.impl.generator.generator.ScreenGenerator;
 import com.maciej916.indreb.common.block.impl.generator.geo_generator.ScreenGeoGenerator;
+import com.maciej916.indreb.common.block.impl.generator.semifluid_generator.ScreenSemifluidGenerator;
 import com.maciej916.indreb.common.block.impl.generator.solar_panel.ScreenSolarPanel;
 import com.maciej916.indreb.common.client.keys.ModKeys;
 import com.maciej916.indreb.common.item.ModItems;
@@ -51,8 +52,7 @@ public final class ClientModEventSubscriber {
 			MenuScreens.register(ModMenuTypes.GENERATOR.get(), ScreenGenerator::new);
 			MenuScreens.register(ModMenuTypes.SOLAR_PANEL.get(), ScreenSolarPanel::new);
 			MenuScreens.register(ModMenuTypes.GEO_GENERATOR.get(), ScreenGeoGenerator::new);
-//			MenuScreens.register(ModMenuTypes.CRYSTALLINE_GENERATOR.get(), ScreenCrystallineGenerator::new);
-//			MenuScreens.register(ModMenuTypes.SEMIFLUID_GENERATOR.get(), ScreenSemifluidGenerator::new);
+			MenuScreens.register(ModMenuTypes.SEMIFLUID_GENERATOR.get(), ScreenSemifluidGenerator::new);
 //
 //			MenuScreens.register(ModMenuTypes.BATTERY_BOX.get(), ScreenBatteryBox::new);
 //			MenuScreens.register(ModMenuTypes.TRANSFORMER.get(), ScreenTransformer::new);

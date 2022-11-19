@@ -265,6 +265,7 @@ public class ItemTextures extends ItemModelProvider {
         createWithBlock(ModItems.HYBRID_SOLAR_PANEL, "hybrid_solar_panel");
         createWithBlock(ModItems.QUANTUM_SOLAR_PANEL, "quantum_solar_panel");
         createWithBlock(ModItems.GEO_GENERATOR, "geo_generator");
+        createWithBlock(ModItems.SEMIFLUID_GENERATOR, "semifluid_generator");
 
 
 
