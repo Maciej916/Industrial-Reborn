@@ -20,6 +20,7 @@ public class TagsItem extends ItemTagsProvider {
 
         tag(ItemTags.LEAVES)
                 .add(ModItems.RUBBER_LEAVES.get())
+                .replace(false)
         ;
 
         /* ORES */

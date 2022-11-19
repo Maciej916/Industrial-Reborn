@@ -1,15 +1,13 @@
 package com.maciej916.indreb.common.subscribe;
 
 import com.maciej916.indreb.IndReb;
-import com.maciej916.indreb.common.api.blockentity.IndRebBlockEntity;
+import com.maciej916.indreb.common.api.blockentity.interfaces.IBlockEntityChunkSync;
 import com.maciej916.indreb.common.capability.ModCapabilities;
 import com.maciej916.indreb.common.capability.entity.EntityCapability;
 import com.maciej916.indreb.common.capability.player.IPlayerCapability;
 import com.maciej916.indreb.common.capability.player.PlayerCapability;
 import com.maciej916.indreb.common.energy.EnergyCore;
 import com.maciej916.indreb.common.energy.interfaces.IEnergyCore;
-import com.maciej916.indreb.common.network.ModNetworking;
-import com.maciej916.indreb.common.network.packet.PacketBasicEnergySync;
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.Entity;
@@ -71,8 +69,8 @@ public final class ForgeEventSubscriber {
             LevelChunk chunk = event.getLevel().getChunk(event.getPos().getRegionX(), event.getPos().getRegionZ());
             Map<BlockPos, BlockEntity> entityMap = chunk.getBlockEntities();
             for (BlockEntity entity: entityMap.values()) {
-                if (entity instanceof IndRebBlockEntity indRebBlockEntity && indRebBlockEntity.hasEnergyStorage()) {
-                    ModNetworking.sendToPlayer(event.getPlayer(), new PacketBasicEnergySync(indRebBlockEntity.getEnergyStorage(), indRebBlockEntity.getBlockPos()));
+                if (entity instanceof IBlockEntityChunkSync blockEntityChunkSync) {
+                    blockEntityChunkSync.syncWithChunk(event.getPlayer());
                 }
             }
         }

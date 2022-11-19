@@ -17,7 +17,7 @@ public final class ModSounds {
 
     public static final RegistryObject<SoundEvent> GENERATOR = registerSound("tile.generator");
     public static final RegistryObject<SoundEvent> GEO_GENERATOR = registerSound("tile.geo_generator");
-    public static final RegistryObject<SoundEvent> SOLAR_GENERATOR = registerSound("tile.solar_generator");
+    public static final RegistryObject<SoundEvent> SOLAR_PANEL = registerSound("tile.solar_generator");
     public static final RegistryObject<SoundEvent> SEMIFLUID_GENERATOR = registerSound("tile.semifluid_generator");
     public static final RegistryObject<SoundEvent> CHARGE_PAD = registerSound("tile.charge_pad");
 

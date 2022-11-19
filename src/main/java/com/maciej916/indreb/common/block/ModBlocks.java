@@ -3,9 +3,12 @@ package com.maciej916.indreb.common.block;
 import com.google.common.base.Supplier;
 import com.maciej916.indreb.IndReb;
 import com.maciej916.indreb.common.api.block.*;
+import com.maciej916.indreb.common.api.tier.SolarPanelTier;
 import com.maciej916.indreb.common.block.impl.FoamBlock;
 import com.maciej916.indreb.common.block.impl.ReinforcedFoamBlock;
 import com.maciej916.indreb.common.block.impl.generator.generator.BlockGenerator;
+import com.maciej916.indreb.common.block.impl.generator.geo_generator.BlockGeoGenerator;
+import com.maciej916.indreb.common.block.impl.generator.solar_panel.BlockSolarPanel;
 import com.maciej916.indreb.common.block.impl.iron.BlockIronFence;
 import com.maciej916.indreb.common.block.impl.iron.BlockIronGate;
 import com.maciej916.indreb.common.block.impl.iron.BlockIronScaffolding;
@@ -104,7 +107,11 @@ public final class ModBlocks {
     // luminator
 
     public static final RegistryObject<Block> GENERATOR = registerBlock("generator", BlockGenerator::new);
-
+    public static final RegistryObject<Block> SOLAR_PANEL = registerBlock("solar_panel", () -> new BlockSolarPanel(SolarPanelTier.BASIC));
+    public static final RegistryObject<Block> ADVANCED_SOLAR_PANEL = registerBlock("advanced_solar_panel", () -> new BlockSolarPanel(SolarPanelTier.ADVANCED));
+    public static final RegistryObject<Block> HYBRID_SOLAR_PANEL = registerBlock("hybrid_solar_panel", () -> new BlockSolarPanel(SolarPanelTier.HYBRID));
+    public static final RegistryObject<Block> QUANTUM_SOLAR_PANEL = registerBlock("quantum_solar_panel", () -> new BlockSolarPanel(SolarPanelTier.QUANTUM));
+    public static final RegistryObject<Block> GEO_GENERATOR = registerBlock("geo_generator", BlockGeoGenerator::new);
 
 
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block) {

@@ -68,10 +68,8 @@ public abstract class IndRebBlock extends Block {
 
         if (!level.isClientSide()) {
             BlockEntity entity = level.getBlockEntity(pos);
-            if(entity instanceof IIndRebBlockEntity && entity instanceof MenuProvider menuProvider) {
+            if (entity instanceof IIndRebBlockEntity && entity instanceof MenuProvider menuProvider) {
                 NetworkHooks.openScreen(((ServerPlayer)player), menuProvider, pos);
-            } else {
-                throw new IllegalStateException("Menu provider is missing!");
             }
         }
 

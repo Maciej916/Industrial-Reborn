@@ -35,6 +35,7 @@ public class BlockTextures extends BlockStateProvider {
         registerConstructionFoam();
         registerRubberWood();
         registerIron();
+        registerGenerators();
     }
 
     private void registerOres() {
@@ -104,7 +105,7 @@ public class BlockTextures extends BlockStateProvider {
 
     private void registerRubberWood() {
         createCubeAll(ModBlocks.RUBBER_WOOD, "rubber_wood/rubber_log_side");
-        createCubeAllRenderType(ModBlocks.RUBBER_LEAVES, "rubber_wood/rubber_leaves", "translucent");
+        createLeavesBlock(ModBlocks.RUBBER_LEAVES, "rubber_wood/rubber_leaves");
         createCubeAll(ModBlocks.RUBBER_PLANKS, "rubber_wood/rubber_planks");
         createSaplingBlock(ModBlocks.RUBBER_SAPLING, "rubber_wood/rubber_sapling");
         createStairsBlock(ModBlocks.RUBBER_STAIRS, "rubber_wood/rubber_planks");
@@ -121,6 +122,16 @@ public class BlockTextures extends BlockStateProvider {
         createFenceGateBlock(ModBlocks.IRON_GATE, "iron/iron_fence");
     }
 
+    private void registerGenerators() {
+        createFrontActive(ModBlocks.GENERATOR, "generator/generator/generator");
+        createSolarPanel(ModBlocks.SOLAR_PANEL, "generator/solar_panel/solar_panel");
+        createSolarPanel(ModBlocks.ADVANCED_SOLAR_PANEL, "generator/advanced_solar_panel/advanced_solar_panel");
+        createSolarPanel(ModBlocks.HYBRID_SOLAR_PANEL, "generator/hybrid_solar_panel/hybrid_solar_panel");
+        createSolarPanel(ModBlocks.QUANTUM_SOLAR_PANEL, "generator/quantum_solar_panel/quantum_solar_panel");
+        createFrontActive(ModBlocks.GEO_GENERATOR, "generator/geo_generator/geo_generator");
+
+    }
+
 
 
 
@@ -131,6 +142,10 @@ public class BlockTextures extends BlockStateProvider {
 
     private void createCubeAllRenderType(RegistryObject<Block> block, String path, String renderTyoe) {
         simpleBlock(block.get(), models().cubeAll(block.getId().getPath(), new ResourceLocation(IndReb.MODID, "block/" + path)).renderType(renderTyoe));
+    }
+
+    public void createLeavesBlock(RegistryObject<Block> block, String path) {
+        simpleBlock(block.get(), models().withExistingParent(block.getId().getPath(), "leaves").texture("all", new ResourceLocation(IndReb.MODID, "block/" + path)).renderType("translucent"));
     }
 
     public void createStairsBlock(RegistryObject<Block> block, String path) {
@@ -182,6 +197,33 @@ public class BlockTextures extends BlockStateProvider {
         trapdoorBlockWithRenderType((TrapDoorBlock) block.get(), new ResourceLocation(IndReb.MODID, "block/" + path), orientable, "translucent");
     }
 
+
+    private void createFrontActive(RegistryObject<Block> block, String path) {
+        BlockModelBuilder notActive = models().orientableWithBottom(block.getId().getPath(), new ResourceLocation(IndReb.MODID, "block/" + path + "_side"), new ResourceLocation(IndReb.MODID, "block/" + path + "_front"), new ResourceLocation(IndReb.MODID, "block/" + path + "_bottom"), new ResourceLocation(IndReb.MODID, "block/" + path + "_top"));
+        BlockModelBuilder active = models().orientableWithBottom(block.getId().getPath() + "_active", new ResourceLocation(IndReb.MODID, "block/" + path + "_side"), new ResourceLocation(IndReb.MODID, "block/" + path + "_front_active"), new ResourceLocation(IndReb.MODID, "block/" + path + "_bottom"), new ResourceLocation(IndReb.MODID, "block/" + path + "_top"));
+
+        orientedBlock(block.get(), state -> {
+            if (state.getValue(BlockStateHelper.ACTIVE_PROPERTY)) {
+                return active;
+            } else {
+                return notActive;
+            }
+        });
+    }
+
+    private void createSolarPanel(RegistryObject<Block> block, String path) {
+        ModelFile notActive = models().withExistingParent(block.getId().getPath(), "slab").texture("top", new ResourceLocation(IndReb.MODID, "block/" + path + "_top")).texture("bottom", new ResourceLocation(IndReb.MODID, "block/" + path + "_bottom")).texture("side", new ResourceLocation(IndReb.MODID, "block/" + path + "_side"));
+        ModelFile active = models().withExistingParent(block.getId().getPath() + "_active", "slab").texture("top", new ResourceLocation(IndReb.MODID, "block/" + path + "_top_active")).texture("bottom", new ResourceLocation(IndReb.MODID, "block/" + path + "_bottom")).texture("side", new ResourceLocation(IndReb.MODID, "block/" + path + "_side"));
+
+        Function<BlockState, ModelFile> modelFunc  = state -> {
+            if (state.getValue(BlockStateHelper.ACTIVE_PROPERTY)) {
+                return active;
+            } else {
+                return notActive;
+            }
+        };
+        getVariantBuilder(block.get()).forAllStates(state -> ConfiguredModel.builder().modelFile(modelFunc.apply(state)).build());
+    }
 
 
 

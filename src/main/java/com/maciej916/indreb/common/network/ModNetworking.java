@@ -2,6 +2,7 @@ package com.maciej916.indreb.common.network;
 
 import com.maciej916.indreb.common.network.packet.PacketBasicEnergySync;
 import com.maciej916.indreb.common.network.packet.PacketExperience;
+import com.maciej916.indreb.common.network.packet.PacketFluidSync;
 import com.maciej916.indreb.common.network.packet.PacketParticle;
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
@@ -25,6 +26,7 @@ public class ModNetworking {
     public static void init() {
         INSTANCE = NetworkRegistry.newSimpleChannel(new ResourceLocation(MODID, "networking"), () -> "1.0", s -> true, s -> true);
         INSTANCE.registerMessage(nextID(), PacketBasicEnergySync.class, PacketBasicEnergySync::toBytes, PacketBasicEnergySync::new, PacketBasicEnergySync::handle);
+        INSTANCE.registerMessage(nextID(), PacketFluidSync.class, PacketFluidSync::toBytes, PacketFluidSync::new, PacketFluidSync::handle);
 
 
         INSTANCE.registerMessage(nextID(), PacketExperience.class, PacketExperience::toBytes, PacketExperience::new, PacketExperience::handle);

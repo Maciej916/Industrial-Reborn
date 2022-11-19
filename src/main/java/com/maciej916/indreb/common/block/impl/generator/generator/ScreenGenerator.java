@@ -21,13 +21,12 @@ public class ScreenGenerator extends IndRebScreen<MenuGenerator> {
         super.initElements();
 
         addRenderableOnlyWidget(new SmeltingProgressWidget(this, 80, 57, entity.progressBurn));
-
     }
 
     @Override
-    protected void containerTick() {
-        super.containerTick();
-        entity.progressBurn.setData(menu.getData().get(1), menu.getData().get(2));
+    public void updateData() {
+        super.updateData();
+        entity.progressBurn.setContainerDataBoth(menu.getData().get(1), menu.getData().get(2));
     }
 
     @Override

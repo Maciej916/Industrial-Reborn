@@ -21,6 +21,7 @@ import com.maciej916.indreb.common.capability.item.interfaces.IUpgradesItemStack
 import com.maciej916.indreb.common.network.ModNetworking;
 import com.maciej916.indreb.common.network.packet.PacketBasicEnergySync;
 import com.maciej916.indreb.common.network.packet.PacketExperience;
+import com.maciej916.indreb.common.network.packet.PacketFluidSync;
 import com.maciej916.indreb.common.tag.ModTagsItem;
 import com.maciej916.indreb.common.util.BlockEntityUtil;
 import com.maciej916.indreb.common.util.SoundHandler;
@@ -33,6 +34,7 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.Containers;
@@ -48,13 +50,10 @@ import net.minecraftforge.common.util.LazyOptional;
 import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nullable;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.concurrent.atomic.AtomicReference;
 
-public class IndRebBlockEntity extends BaseBlockEntity implements IIndRebBlockEntity {
+public class IndRebBlockEntity extends BaseBlockEntity implements IIndRebBlockEntity, IBlockEntityChunkSync {
 
     private BasicEnergyStorage energyStorage;
     private final LazyOptional<IEnergyStorage> energyStorageCap = LazyOptional.of(() -> energyStorage);
@@ -67,6 +66,8 @@ public class IndRebBlockEntity extends BaseBlockEntity implements IIndRebBlockEn
 
     private UpgradesItemStackHandler upgradesStorage;
     private final LazyOptional<IUpgradesItemStackHandler> upgradesStorageCap = LazyOptional.of(() -> upgradesStorage);
+
+    public Set<Integer> baseSlotsChangedForTick = new HashSet<>();
 
     protected boolean isStateActive = false;
     protected boolean hasCooldown = false;
@@ -200,7 +201,7 @@ public class IndRebBlockEntity extends BaseBlockEntity implements IIndRebBlockEn
     }
 
     public void onBaseStorageContentsChanged(int slot) {
-
+        baseSlotsChangedForTick.add(slot);
     }
 
     public int getBaseStorageSlotLimit(int slot) {
@@ -412,6 +413,7 @@ public class IndRebBlockEntity extends BaseBlockEntity implements IIndRebBlockEn
         }
 
         setActiveState(activeState);
+        baseSlotsChangedForTick.clear();
     }
 
     @Override
@@ -639,5 +641,16 @@ public class IndRebBlockEntity extends BaseBlockEntity implements IIndRebBlockEn
         }
 
         Containers.dropContents(getLevel(), getBlockPos(), stacks);
+    }
+
+    @Override
+    public void syncWithChunk(ServerPlayer player) {
+        if (energyStorage != null) {
+            ModNetworking.sendToPlayer(player, new PacketBasicEnergySync(energyStorage, getBlockPos()));
+        }
+
+        if (this instanceof IBlockEntityFluid entityFluid) {
+            ModNetworking.sendToTrackingChunk(getLevel(), getBlockPos(), new PacketFluidSync(entityFluid.getStoredFluids(), getBlockPos()));
+        }
     }
 }

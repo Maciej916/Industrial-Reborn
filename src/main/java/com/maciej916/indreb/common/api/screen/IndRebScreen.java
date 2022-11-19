@@ -5,13 +5,14 @@ import com.maciej916.indreb.common.api.blockentity.interfaces.IHasExp;
 import com.maciej916.indreb.common.api.blockentity.interfaces.IHasUpgrades;
 import com.maciej916.indreb.common.api.energy.interfaces.IEnergyBlock;
 import com.maciej916.indreb.common.api.enums.GuiSprite;
-import com.maciej916.indreb.common.api.screen.button.GuiExpButtonWidget;
-import com.maciej916.indreb.common.api.screen.button.GuiInfoButtonWidget;
+import com.maciej916.indreb.common.api.screen.widget.button.GuiExpButtonWidget;
+import com.maciej916.indreb.common.api.screen.widget.button.GuiInfoButtonWidget;
 import com.maciej916.indreb.common.api.screen.widget.GuiCooldownWidget;
 import com.maciej916.indreb.common.api.screen.widget.GuiSlotWidget;
 import com.maciej916.indreb.common.api.screen.widget.GuiUpgradesWidget;
-import com.maciej916.indreb.common.api.screen.widget.progress.bar.GuiEnergyBarHorizontalWidget;
-import com.maciej916.indreb.common.api.screen.widget.progress.bar.GuiEnergyBarVerticalWidget;
+import com.maciej916.indreb.common.api.screen.widget.bar.GuiEnergyBarHorizontalWidget;
+import com.maciej916.indreb.common.api.screen.widget.bar.GuiEnergyBarVerticalWidget;
+import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.player.Inventory;
 
@@ -25,6 +26,12 @@ public class IndRebScreen <T extends IndRebContainerMenu> extends WidgetScreen<T
 
     public void setDrawWidgets(boolean drawWidgets) {
         this.drawWidgets = drawWidgets;
+    }
+
+    public void updateData() {
+        if (getEntity() instanceof IHasCooldown cooldown) {
+            cooldown.setCooldown(menu.getData().get(0));
+        }
     }
 
     public void initElements() {
@@ -66,12 +73,9 @@ public class IndRebScreen <T extends IndRebContainerMenu> extends WidgetScreen<T
     }
 
     @Override
-    protected void containerTick() {
-        if (getEntity() instanceof IHasCooldown cooldown) {
-            cooldown.setCooldown(menu.getData().get(0));
-        }
-
-
+    protected void renderBg(PoseStack poseStack, float pPartialTick, int pMouseX, int pMouseY) {
+        updateData();
+        super.renderBg(poseStack, pPartialTick, pMouseX, pMouseY);
     }
 
     @Override

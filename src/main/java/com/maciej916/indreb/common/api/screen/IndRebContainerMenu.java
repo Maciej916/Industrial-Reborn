@@ -38,10 +38,11 @@ public class IndRebContainerMenu extends AbstractContainerMenu {
     }
 
     public void init() {
+        addPlayerInventory();
+
         if (getEntity().hasBaseStorage()) getEntity().getBaseStorage().getSlotHandler().forEach(this::addSlot);
         if (getEntity().hasElectricStorage()) getEntity().getElectricStorage().getSlotHandler().forEach(this::addSlot);
         if (getEntity().hasUpgradesStorage()) getEntity().getUpgradesStorage().getSlotHandler().forEach(this::addSlot);
-        addPlayerInventory();
     }
 
     public IndRebBlockEntity getEntity() {

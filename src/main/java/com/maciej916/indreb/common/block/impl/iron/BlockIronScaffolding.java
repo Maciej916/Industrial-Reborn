@@ -35,7 +35,7 @@ public class BlockIronScaffolding extends Block implements SimpleWaterloggedBloc
     public static final BooleanProperty BOTTOM = BlockStateProperties.BOTTOM;
 
     public BlockIronScaffolding() {
-        super(Properties.of(Material.METAL).strength(3F, 5F));
+        super(Properties.of(Material.METAL).strength(3F, 5F).dynamicShape().noCollission());
         this.registerDefaultState(this.stateDefinition.any().setValue(DISTANCE_IRON, 14).setValue(WATERLOGGED, Boolean.FALSE).setValue(BOTTOM, Boolean.FALSE));
     }
 

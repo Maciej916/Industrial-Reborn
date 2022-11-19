@@ -38,6 +38,7 @@ public class ItemTextures extends ItemModelProvider {
         registerStorage();
         registerFood();
         registerCrop();
+        registerGenerators();
     }
 
     protected void registerOres() {
@@ -255,6 +256,18 @@ public class ItemTextures extends ItemModelProvider {
 
     protected void registerCrop() {
         createGeneratedTexture(ModItems.FERTILIZER, "crop/fertilizer");
+    }
+
+    private void registerGenerators() {
+        createWithBlock(ModItems.GENERATOR, "generator");
+        createWithBlock(ModItems.SOLAR_PANEL, "solar_panel");
+        createWithBlock(ModItems.ADVANCED_SOLAR_PANEL, "advanced_solar_panel");
+        createWithBlock(ModItems.HYBRID_SOLAR_PANEL, "hybrid_solar_panel");
+        createWithBlock(ModItems.QUANTUM_SOLAR_PANEL, "quantum_solar_panel");
+        createWithBlock(ModItems.GEO_GENERATOR, "geo_generator");
+
+
+
     }
 
 

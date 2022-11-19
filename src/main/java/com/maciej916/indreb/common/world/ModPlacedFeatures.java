@@ -33,6 +33,10 @@ public class ModPlacedFeatures {
             () -> new PlacedFeature(ModConfiguredFeatures.ORE_URANIUM.getHolder().get(),
                     commonOrePlacement(8, HeightRangePlacement.triangle(VerticalAnchor.absolute(-64), VerticalAnchor.absolute(32)))
             ));
+    public static final RegistryObject<PlacedFeature> ORE_SILVER_PLACED = PLACED_FEATURES.register("ore_liver_placed",
+            () -> new PlacedFeature(ModConfiguredFeatures.ORE_SILVER.getHolder().get(),
+                    commonOrePlacement(12, HeightRangePlacement.triangle(VerticalAnchor.absolute(-16), VerticalAnchor.absolute(60)))
+            ));
 
     public static final RegistryObject<PlacedFeature> RUBBER_TREE_CHECKED = PLACED_FEATURES.register("rubber_tree_checked",
             () -> new PlacedFeature(ModConfiguredFeatures.RUBBER_TREE.getHolder().get(),

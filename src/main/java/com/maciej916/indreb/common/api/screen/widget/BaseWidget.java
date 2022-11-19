@@ -11,7 +11,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import org.jetbrains.annotations.NotNull;
 
-public class BaseWidget extends AbstractWidget implements IWidget {
+public abstract class BaseWidget extends AbstractWidget implements IWidget {
 
     IGuiHelper helper;
 

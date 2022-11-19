@@ -98,7 +98,11 @@ public final class ModItems {
     public static final RegistryObject<Item> IRON_GATE = fromBlockIronScaffolding(ModBlocks.IRON_GATE);
 
     public static final RegistryObject<Item> GENERATOR = fromBlockElectric(ModBlocks.GENERATOR);
-
+    public static final RegistryObject<Item> SOLAR_PANEL = fromBlockElectric(ModBlocks.SOLAR_PANEL);
+    public static final RegistryObject<Item> ADVANCED_SOLAR_PANEL = fromBlockElectric(ModBlocks.ADVANCED_SOLAR_PANEL);
+    public static final RegistryObject<Item> HYBRID_SOLAR_PANEL = fromBlockElectric(ModBlocks.HYBRID_SOLAR_PANEL);
+    public static final RegistryObject<Item> QUANTUM_SOLAR_PANEL = fromBlockElectric(ModBlocks.QUANTUM_SOLAR_PANEL);
+    public static final RegistryObject<Item> GEO_GENERATOR = fromBlockElectric(ModBlocks.GEO_GENERATOR);
 
 
 

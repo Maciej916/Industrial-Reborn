@@ -4,6 +4,8 @@ import com.maciej916.indreb.IndReb;
 import com.maciej916.indreb.common.api.item.base.BaseFluidItem;
 import com.maciej916.indreb.common.block.ModBlocks;
 import com.maciej916.indreb.common.block.impl.generator.generator.ScreenGenerator;
+import com.maciej916.indreb.common.block.impl.generator.geo_generator.ScreenGeoGenerator;
+import com.maciej916.indreb.common.block.impl.generator.solar_panel.ScreenSolarPanel;
 import com.maciej916.indreb.common.client.keys.ModKeys;
 import com.maciej916.indreb.common.item.ModItems;
 import com.maciej916.indreb.common.screen.ModMenuTypes;
@@ -47,8 +49,8 @@ public final class ClientModEventSubscriber {
 //			EntityRenderers.register(ModEntityTypes.PRIMED_ITNT.get(), ITntRenderer::new);
 
 			MenuScreens.register(ModMenuTypes.GENERATOR.get(), ScreenGenerator::new);
-//			MenuScreens.register(ModMenuTypes.SOLAR_GENERATOR.get(), ScreenSolarGenerator::new);
-//			MenuScreens.register(ModMenuTypes.GEO_GENERATOR.get(), ScreenGeoGenerator::new);
+			MenuScreens.register(ModMenuTypes.SOLAR_PANEL.get(), ScreenSolarPanel::new);
+			MenuScreens.register(ModMenuTypes.GEO_GENERATOR.get(), ScreenGeoGenerator::new);
 //			MenuScreens.register(ModMenuTypes.CRYSTALLINE_GENERATOR.get(), ScreenCrystallineGenerator::new);
 //			MenuScreens.register(ModMenuTypes.SEMIFLUID_GENERATOR.get(), ScreenSemifluidGenerator::new);
 //
@@ -78,7 +80,6 @@ public final class ClientModEventSubscriber {
 //			MenuScreens.register(ModMenuTypes.METAL_FORMER.get(), ScreenMetalFormer::new);
 //
 //			MenuScreens.register(ModMenuTypes.NUCLEAR_REACTOR.get(), ScreenNuclearReactor::new);
-
 
 //
 //			ItemProperties.register(ModItems.BATTERY.get(), new ResourceLocation(IndReb.MODID, "charge_ratio"), (stack, level, living, id) -> ElectricItem.getChargeRatioModel(stack));

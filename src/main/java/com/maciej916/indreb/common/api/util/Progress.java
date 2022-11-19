@@ -76,24 +76,36 @@ public class Progress implements IProgress, INBTSerializable<CompoundTag> {
     }
 
     @Override
-    public void setDataCurrent(int data) {
+    public void setContainerDataCurrent(int data) {
         this.currentProgress = data / 100f;
     }
 
     @Override
-    public int getDataCurrent() {
-        return (int) currentProgress * 100;
+    public int getContainerDataCurrent() {
+        return Math.round(currentProgress * 100);
     }
 
     @Override
-    public void setDataMax(int data) {
+    public void setContainerDataMax(int data) {
         this.progressMax = data / 100f;
     }
 
     @Override
-    public int getDataMax() {
+    public int getContainerDataMax() {
         return Math.round(progressMax * 100);
     }
+
+    @Override
+    public void setContainerDataBoth(int current, int max) {
+        setData(current / 100f, max / 100f);
+    }
+
+//    public void setData(float progress, float progressMax) {
+//        if (progress != this.currentProgress || progressMax != this.progressMax) this.changed = true;
+//        this.currentProgress = progress;
+//        this.progressMax = progressMax;
+//    }
+
 
     public boolean changed() {
         return changed;

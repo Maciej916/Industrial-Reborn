@@ -42,7 +42,7 @@ import java.util.Map;
 
 public class BlockEntityGenerator extends IndRebBlockEntity implements MenuProvider, IHasCooldown, IEnergyBlock, IHasSound {
 
-    public static final int SYNC_DATA_COUNT = 3;
+    public static final int SYNC_DATA_SLOTS = 3;
     protected final ContainerData data;
 
     public static final int INPUT_SLOT = 0;
@@ -56,8 +56,8 @@ public class BlockEntityGenerator extends IndRebBlockEntity implements MenuProvi
             public int get(int index) {
                 return switch (index) {
                     case 0 -> BlockEntityGenerator.this.getCooldown();
-                    case 1 -> BlockEntityGenerator.this.progressBurn.getDataCurrent();
-                    case 2 -> BlockEntityGenerator.this.progressBurn.getDataMax();
+                    case 1 -> BlockEntityGenerator.this.progressBurn.getContainerDataCurrent();
+                    case 2 -> BlockEntityGenerator.this.progressBurn.getContainerDataMax();
 
                     default -> 0;
                 };
@@ -67,23 +67,21 @@ public class BlockEntityGenerator extends IndRebBlockEntity implements MenuProvi
             public void set(int index, int value) {
                 switch (index) {
                     case 0 -> BlockEntityGenerator.this.setCooldown(value);
-                    case 1 -> BlockEntityGenerator.this.progressBurn.setDataCurrent(value);
-                    case 2 -> BlockEntityGenerator.this.progressBurn.setDataMax(value);
+                    case 1 -> BlockEntityGenerator.this.progressBurn.setContainerDataCurrent(value);
+                    case 2 -> BlockEntityGenerator.this.progressBurn.setContainerDataMax(value);
                 }
             }
 
             @Override
             public int getCount() {
-                return SYNC_DATA_COUNT;
+                return SYNC_DATA_SLOTS;
             }
         };
     }
 
     @Override
     public boolean isBaseStorageItemValid(int slot, @NotNull ItemStack stack) {
-        if (slot == INPUT_SLOT) {
-           return ForgeHooks.getBurnTime(stack, RecipeType.SMELTING) > 0 && !stack.getItem().equals(Items.LAVA_BUCKET);
-        }
+        if (slot == INPUT_SLOT) return ForgeHooks.getBurnTime(stack, RecipeType.SMELTING) > 0 && !stack.getItem().equals(Items.LAVA_BUCKET);
         return false;
     }
 
@@ -142,6 +140,11 @@ public class BlockEntityGenerator extends IndRebBlockEntity implements MenuProvi
     }
 
     @Override
+    public boolean canExtractEnergyCustom(Direction side) {
+        return true;
+    }
+
+    @Override
     public void load(CompoundTag tag) {
         super.load(tag);
         this.progressBurn.deserializeNBT(tag.getCompound("progressBurn"));
@@ -153,10 +156,9 @@ public class BlockEntityGenerator extends IndRebBlockEntity implements MenuProvi
         tag.put("progressBurn", this.progressBurn.serializeNBT());
     }
 
-
     private final Map<Direction, LazyOptional<WrappedHandler>> capabilities = Map.of(
             Direction.UP, LazyOptional.of(() -> new WrappedHandler(getBaseStorage(), (i) -> false, (i, stack) -> getBaseStorage().isItemValid(i, stack))),
-            Direction.DOWN, LazyOptional.of(() -> new WrappedHandler(getBaseStorage(), (i) -> true, (i, stack) -> false)),
+            Direction.DOWN, LazyOptional.of(() -> new WrappedHandler(getBaseStorage(), (i) -> i == 0, (i, stack) -> false)),
             Direction.NORTH, LazyOptional.of(() -> new WrappedHandler(getBaseStorage(), (i) -> false, (i, stack) -> getBaseStorage().isItemValid(i, stack))),
             Direction.SOUTH, LazyOptional.of(() -> new WrappedHandler(getBaseStorage(), (i) -> false, (i, stack) -> getBaseStorage().isItemValid(i, stack))),
             Direction.EAST, LazyOptional.of(() -> new WrappedHandler(getBaseStorage(), (i) -> false, (i, stack) -> getBaseStorage().isItemValid(i, stack))),
@@ -170,18 +172,15 @@ public class BlockEntityGenerator extends IndRebBlockEntity implements MenuProvi
             if (side == null) return LazyOptional.empty();
 
             if (capabilities.containsKey(side)) {
+                if (side == Direction.UP || side == Direction.DOWN) return capabilities.get(side).cast();
+
                 Direction localDir = this.getBlockState().getValue(BlockStateHelper.HORIZONTAL_FACING_PROPERTY);
-
-                return capabilities.get(side).cast();
-
-//                System.out.println(localDir);
-
-//                return switch (localDir) {
-//                    default -> capabilities.get(side.getOpposite()).cast();
-//                    case SOUTH, DOWN, UP -> capabilities.get(side).cast();
-//                    case EAST -> capabilities.get(side.getClockWise()).cast();
-//                    case WEST -> capabilities.get(side.getCounterClockWise()).cast();
-//                };
+                return switch (localDir) {
+                    default -> capabilities.get(side).cast(); // SOUTH
+                    case NORTH -> capabilities.get(side.getOpposite()).cast();
+                    case WEST -> capabilities.get(side.getCounterClockWise()).cast();
+                    case EAST -> capabilities.get(side.getClockWise()).cast();
+                };
             }
         }
 

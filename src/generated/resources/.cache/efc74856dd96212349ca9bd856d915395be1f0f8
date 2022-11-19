@@ -1,7 +1,8 @@
-// 1.19.2	2022-11-17T12:15:41.9422665	Item Models: indreb
+// 1.19.2	2022-11-18T21:30:57.2503121	Item Models: indreb
 4df0fe2021d7b228332497f5c7d711b40f082510 assets/indreb/models/item/advanced_alloy.json
 ae66a341cac54e91dbe327c2d948550b40bfbc82 assets/indreb/models/item/advanced_circuit.json
 bed067be898523d338f34c45c1036a428b3acc14 assets/indreb/models/item/advanced_machine_casing.json
+4677828e10d80507be4f442a007583a355b51c55 assets/indreb/models/item/advanced_solar_panel.json
 26c3c85ff11e4b28b9e0e378bade13f7c460a4ba assets/indreb/models/item/basic_machine_casing.json
 88176f28e0a2b118d131e21e4e174b9fa253ff1c assets/indreb/models/item/bio_chaff.json
 e8b3e33ada3180dbbe549f728ac69c76695170bc assets/indreb/models/item/bronze_block.json
@@ -44,10 +45,13 @@ a4dfb6c7de140018edd2595d8541b7878b92c314 assets/indreb/models/item/electric_moto
 4f5743cd253934b43ef3233fb25f50d1150ca5f9 assets/indreb/models/item/fertilizer.json
 d478dd7f0374c58ec694d1210da2119070996263 assets/indreb/models/item/filled_tin_can.json
 5f34c1dcdcfc3334c290bd8363b2d64fad2ea898 assets/indreb/models/item/foam_powder.json
+d7af7f9a3f1b9c070baee5d11d4b06beaa6483d9 assets/indreb/models/item/generator.json
+61c9f7eece2902c2d4e281247e46827367efceae assets/indreb/models/item/geo_generator.json
 97c8e550e085031bd5b8e19273a3e5fcafcd7b84 assets/indreb/models/item/gold_chunk.json
 2b4cd18bba5fac76203990c15d45db2bbd813f32 assets/indreb/models/item/gold_dust.json
 5f17c98adc3436db6d4290820eee0d0f0c26c150 assets/indreb/models/item/gold_plate.json
 10f24ab66d2c4e59e150e4d8b3227c08060c304a assets/indreb/models/item/heat_conductor.json
+f6de7b33910835efcb62a5bb8e70a8bf3482fe82 assets/indreb/models/item/hybrid_solar_panel.json
 49a722346f818feb18600104785460dcfe0f8d45 assets/indreb/models/item/iridium.json
 6c3dd82c3659168789cadb388e7147d91a989944 assets/indreb/models/item/iridium_plate.json
 62c9003c6c672916c0ff712e6871474023e01e8a assets/indreb/models/item/iridium_shard.json
@@ -92,6 +96,7 @@ fc955a47697f4bad65001b4612030bb25de7dfc6 assets/indreb/models/item/purified_lead
 da40dabd6d34276573da6fc7b2ed660764c1d67b assets/indreb/models/item/purified_silver.json
 698557646c6afecce786d1347eac93aef5ae3cf8 assets/indreb/models/item/purified_tin.json
 ea1efa0601bc957b103a85ca871f50965b5d219b assets/indreb/models/item/purified_uranium.json
+a5b5e0c41218c3a46d271a77ce303a34cbb4377b assets/indreb/models/item/quantum_solar_panel.json
 4b2c04b5dfb92befde56e171cf0cd4a86814d564 assets/indreb/models/item/raw_lead.json
 807053f450ada25d9cd8d3ba2dd7b483a1c63604 assets/indreb/models/item/raw_lead_block.json
 13d7624dfb4103f72d2cd4470895e53dfb7e81f9 assets/indreb/models/item/raw_silver.json
@@ -136,6 +141,7 @@ a95793c4635055789fd24e0b388c9be66a19662d assets/indreb/models/item/silver_ingot.
 2dd9c26e919c6c294c8c317ac224465826027764 assets/indreb/models/item/silver_ore.json
 3c825262e61ad67a4682081e6b3a234579a282a2 assets/indreb/models/item/small_power_unit.json
 b5d8aaa30a5f5d3d1c38eb0b0f2b72b47f1df2f7 assets/indreb/models/item/smooth_reinforced_stone.json
+7fa19fb43b7b23299a4b2d745bf7dba0404e45fa assets/indreb/models/item/solar_panel.json
 5d2db7ec9c4920317229d7d0e3b4d0a7480156ec assets/indreb/models/item/steel_block.json
 b481f82b12801d0caa819e08d64496d9feb9eed5 assets/indreb/models/item/steel_ingot.json
 9328cf7f14f21f4a850f9fc5584b26c8f6a20fd2 assets/indreb/models/item/steel_plate.json

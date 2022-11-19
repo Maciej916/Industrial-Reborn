@@ -1,0 +1,28 @@
+{
+  "variants": {
+    "active=false,facing=east": {
+      "model": "indreb:block/hybrid_solar_panel"
+    },
+    "active=false,facing=north": {
+      "model": "indreb:block/hybrid_solar_panel"
+    },
+    "active=false,facing=south": {
+      "model": "indreb:block/hybrid_solar_panel"
+    },
+    "active=false,facing=west": {
+      "model": "indreb:block/hybrid_solar_panel"
+    },
+    "active=true,facing=east": {
+      "model": "indreb:block/hybrid_solar_panel_active"
+    },
+    "active=true,facing=north": {
+      "model": "indreb:block/hybrid_solar_panel_active"
+    },
+    "active=true,facing=south": {
+      "model": "indreb:block/hybrid_solar_panel_active"
+    },
+    "active=true,facing=west": {
+      "model": "indreb:block/hybrid_solar_panel_active"
+    }
+  }
+}

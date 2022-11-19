@@ -7,9 +7,9 @@ public interface IProgress extends IBaseProgress {
 
     /* FOR SYNC CONTAINER */
 
-    void setDataCurrent(int data);
-    int getDataCurrent();
-    void setDataMax(int data);
-    int getDataMax();
-
+    void setContainerDataCurrent(int data);
+    int getContainerDataCurrent();
+    void setContainerDataMax(int data);
+    int getContainerDataMax();
+    void setContainerDataBoth(int current, int max);
 }
