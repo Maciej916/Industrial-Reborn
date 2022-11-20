@@ -40,6 +40,8 @@ public class ItemTextures extends ItemModelProvider {
         registerCrop();
         registerDecoration();
         registerGenerators();
+        registerMisc();
+        registerCables();
     }
 
     protected void registerOres() {
@@ -283,6 +285,26 @@ public class ItemTextures extends ItemModelProvider {
 
 
     }
+
+    private void registerMisc() {
+        createWithBlock(ModItems.LUMINATOR, "luminator");
+
+    }
+
+    protected void registerCables() {
+        createWithBlock(ModItems.TIN_CABLE, "tin_cable_inventory");
+        createWithBlock(ModItems.TIN_CABLE_INSULATED, "tin_cable_insulated_inventory");
+        createWithBlock(ModItems.COPPER_CABLE, "copper_cable_inventory");
+        createWithBlock(ModItems.COPPER_CABLE_INSULATED, "copper_cable_insulated_inventory");
+        createWithBlock(ModItems.GOLD_CABLE, "gold_cable_inventory");
+        createWithBlock(ModItems.GOLD_CABLE_INSULATED, "gold_cable_insulated_inventory");
+        createWithBlock(ModItems.HV_CABLE, "hv_cable_inventory");
+        createWithBlock(ModItems.HV_CABLE_INSULATED, "hv_cable_insulated_inventory");
+        createWithBlock(ModItems.GLASS_FIBRE_CABLE, "glass_fibre_cable_inventory");
+    }
+
+
+
 
 
 

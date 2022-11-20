@@ -2,8 +2,11 @@ package com.maciej916.indreb.common.api.block;
 
 import com.maciej916.indreb.common.api.blockentity.IndRebBlockEntity;
 import com.maciej916.indreb.common.api.blockentity.interfaces.IIndRebBlockEntity;
+import com.maciej916.indreb.common.api.energy.interfaces.IBlockEntityEnergy;
+import com.maciej916.indreb.common.capability.ModCapabilities;
 import com.maciej916.indreb.common.tag.ModTagsItem;
 import com.maciej916.indreb.common.util.BlockStateHelper;
+import com.maciej916.indreb.common.util.CapabilityUtil;
 import com.maciej916.indreb.common.util.wrench.WrenchHelper;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerPlayer;
@@ -100,6 +103,12 @@ public abstract class IndRebBlock extends Block {
             indRebBlockEntity.onPlace(level.isClientSide());
         }
 
+        if (!level.isClientSide()) {
+            if (be instanceof IBlockEntityEnergy) {
+                CapabilityUtil.getCapabilityHelper(level, ModCapabilities.ENERGY_CORE).ifPresent(e -> e.addEnergyBlock(pPos));
+            }
+        }
+
         super.onPlace(pState, level, pPos, pOldState, pIsMoving);
     }
 
@@ -111,9 +120,11 @@ public abstract class IndRebBlock extends Block {
                 indRebBlockEntity.onBreak();
             }
 
-//            if (be instanceof IEnergyBlock) {
-//                CapabilityUtil.getCapabilityHelper(level, ModCapabilities.ENERGY_CORE).ifPresent(e -> e.removeEnergyBlock(blockPos));
-//            }
+            if (!level.isClientSide()) {
+                if (be instanceof IBlockEntityEnergy) {
+                    CapabilityUtil.getCapabilityHelper(level, ModCapabilities.ENERGY_CORE).ifPresent(e -> e.removeEnergyBlock(blockPos));
+                }
+            }
         }
 
         super.onRemove(blockState, level, blockPos, newState, isMoving);

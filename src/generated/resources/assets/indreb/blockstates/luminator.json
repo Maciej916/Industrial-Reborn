@@ -1,0 +1,108 @@
+{
+  "variants": {
+    "active=false,facing=down,waterlogged=false": {
+      "model": "indreb:block/luminator",
+      "x": 180
+    },
+    "active=false,facing=down,waterlogged=true": {
+      "model": "indreb:block/luminator",
+      "x": 180
+    },
+    "active=false,facing=east,waterlogged=false": {
+      "model": "indreb:block/luminator",
+      "x": 90,
+      "y": 90
+    },
+    "active=false,facing=east,waterlogged=true": {
+      "model": "indreb:block/luminator",
+      "x": 90,
+      "y": 90
+    },
+    "active=false,facing=north,waterlogged=false": {
+      "model": "indreb:block/luminator",
+      "x": 90
+    },
+    "active=false,facing=north,waterlogged=true": {
+      "model": "indreb:block/luminator",
+      "x": 90
+    },
+    "active=false,facing=south,waterlogged=false": {
+      "model": "indreb:block/luminator",
+      "x": 90,
+      "y": 180
+    },
+    "active=false,facing=south,waterlogged=true": {
+      "model": "indreb:block/luminator",
+      "x": 90,
+      "y": 180
+    },
+    "active=false,facing=up,waterlogged=false": {
+      "model": "indreb:block/luminator"
+    },
+    "active=false,facing=up,waterlogged=true": {
+      "model": "indreb:block/luminator"
+    },
+    "active=false,facing=west,waterlogged=false": {
+      "model": "indreb:block/luminator",
+      "x": 90,
+      "y": 270
+    },
+    "active=false,facing=west,waterlogged=true": {
+      "model": "indreb:block/luminator",
+      "x": 90,
+      "y": 270
+    },
+    "active=true,facing=down,waterlogged=false": {
+      "model": "indreb:block/luminator_active",
+      "x": 180
+    },
+    "active=true,facing=down,waterlogged=true": {
+      "model": "indreb:block/luminator_active",
+      "x": 180
+    },
+    "active=true,facing=east,waterlogged=false": {
+      "model": "indreb:block/luminator_active",
+      "x": 90,
+      "y": 90
+    },
+    "active=true,facing=east,waterlogged=true": {
+      "model": "indreb:block/luminator_active",
+      "x": 90,
+      "y": 90
+    },
+    "active=true,facing=north,waterlogged=false": {
+      "model": "indreb:block/luminator_active",
+      "x": 90
+    },
+    "active=true,facing=north,waterlogged=true": {
+      "model": "indreb:block/luminator_active",
+      "x": 90
+    },
+    "active=true,facing=south,waterlogged=false": {
+      "model": "indreb:block/luminator_active",
+      "x": 90,
+      "y": 180
+    },
+    "active=true,facing=south,waterlogged=true": {
+      "model": "indreb:block/luminator_active",
+      "x": 90,
+      "y": 180
+    },
+    "active=true,facing=up,waterlogged=false": {
+      "model": "indreb:block/luminator_active"
+    },
+    "active=true,facing=up,waterlogged=true": {
+      "model": "indreb:block/luminator_active"
+    },
+    "active=true,facing=west,waterlogged=false": {
+      "model": "indreb:block/luminator_active",
+      "x": 90,
+      "y": 270
+    },
+    "active=true,facing=west,waterlogged=true": {
+      "model": "indreb:block/luminator_active",
+      "x": 90,
+      "y": 270
+    }
+  }
+}

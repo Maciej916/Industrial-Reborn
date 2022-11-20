@@ -1,0 +1,16 @@
+{
+	"elements": [
+		{   "from": [ 6, 6, 6 ],
+			"to": [ 10, 10, 10 ],
+			"faces": {
+				"down":  { "texture": "#wall" },
+				"up":    { "texture": "#wall" },
+				"north": { "texture": "#wall" },
+				"south": { "texture": "#wall" },
+				"west":  { "texture": "#wall" },
+				"east":  { "texture": "#wall" }
+			},
+			"__comment": "Center post"
+		}
+	]
+}

@@ -3,9 +3,11 @@ package com.maciej916.indreb.common.block;
 import com.google.common.base.Supplier;
 import com.maciej916.indreb.IndReb;
 import com.maciej916.indreb.common.api.block.*;
+import com.maciej916.indreb.common.api.tier.CableTier;
 import com.maciej916.indreb.common.api.tier.SolarPanelTier;
 import com.maciej916.indreb.common.block.impl.FoamBlock;
 import com.maciej916.indreb.common.block.impl.ReinforcedFoamBlock;
+import com.maciej916.indreb.common.block.impl.cable.BlockCable;
 import com.maciej916.indreb.common.block.impl.generator.generator.BlockGenerator;
 import com.maciej916.indreb.common.block.impl.generator.geo_generator.BlockGeoGenerator;
 import com.maciej916.indreb.common.block.impl.generator.semifluid_generator.BlockSemifluidGenerator;
@@ -13,6 +15,7 @@ import com.maciej916.indreb.common.block.impl.generator.solar_panel.BlockSolarPa
 import com.maciej916.indreb.common.block.impl.iron.BlockIronFence;
 import com.maciej916.indreb.common.block.impl.iron.BlockIronGate;
 import com.maciej916.indreb.common.block.impl.iron.BlockIronScaffolding;
+import com.maciej916.indreb.common.block.impl.misc.luminator.BlockLuminator;
 import com.maciej916.indreb.common.block.impl.reinforced.*;
 import com.maciej916.indreb.common.block.impl.wood.*;
 import com.maciej916.indreb.common.world.rubber_tree.RubberTreeGrower;
@@ -105,8 +108,6 @@ public final class ModBlocks {
     public static final RegistryObject<Block> IRON_FENCE = registerBlock("iron_fence", BlockIronFence::new);
     public static final RegistryObject<Block> IRON_GATE = registerBlock("iron_gate", BlockIronGate::new);
 
-    // luminator
-    
     public static final RegistryObject<Block> YELLOW_STRIPES_BLOCK_LEFT = registerBlock("yellow_stripes_block_left", () -> new BlockResource(Material.METAL, 1f, 3f, SoundType.METAL));
     public static final RegistryObject<Block> YELLOW_STRIPES_BLOCK_RIGHT = registerBlock("yellow_stripes_block_right", () -> new BlockResource(Material.METAL, 1f, 3f, SoundType.METAL));
     public static final RegistryObject<Block> RADIOACTIVE_HAZARD_SIGN_BLOCK = registerBlock("radioactive_hazard_sign_block", () -> new BlockResource(Material.METAL, 1f, 3f, SoundType.METAL));
@@ -117,7 +118,19 @@ public final class ModBlocks {
     public static final RegistryObject<Block> MAGIC_HAZARD_SIGN_BLOCK = registerBlock("magic_hazard_sign_block", () -> new BlockResource(Material.METAL, 1f, 3f, SoundType.METAL));
     public static final RegistryObject<Block> FROST_HAZARD_SIGN_BLOCK = registerBlock("frost_hazard_sign_block", () -> new BlockResource(Material.METAL, 1f, 3f, SoundType.METAL));
     public static final RegistryObject<Block> NOISE_HAZARD_SIGN_BLOCK = registerBlock("noise_hazard_sign_block", () -> new BlockResource(Material.METAL, 1f, 3f, SoundType.METAL));
-    
+
+    public static final RegistryObject<Block> LUMINATOR = registerBlock("luminator", BlockLuminator::new);
+
+    public static final RegistryObject<Block> TIN_CABLE = registerBlock("tin_cable", () -> new BlockCable(0.127F, CableTier.TIN_CABLE));
+    public static final RegistryObject<Block> TIN_CABLE_INSULATED = registerBlock("tin_cable_insulated", () -> new BlockCable(0.189F, CableTier.TIN_CABLE_INSULATED));
+    public static final RegistryObject<Block> COPPER_CABLE = registerBlock("copper_cable", () -> new BlockCable(0.127F, CableTier.COPPER_CABLE));
+    public static final RegistryObject<Block> COPPER_CABLE_INSULATED = registerBlock("copper_cable_insulated", () -> new BlockCable(0.251F, CableTier.COPPER_CABLE_INSULATED));
+    public static final RegistryObject<Block> GOLD_CABLE = registerBlock("gold_cable", () -> new BlockCable(0.127F, CableTier.GOLD_CABLE));
+    public static final RegistryObject<Block> GOLD_CABLE_INSULATED = registerBlock("gold_cable_insulated", () -> new BlockCable(0.189F, CableTier.GOLD_CABLE_INSULATED));
+    public static final RegistryObject<Block> HV_CABLE = registerBlock("hv_cable", () -> new BlockCable(0.189F, CableTier.HV_CABLE));
+    public static final RegistryObject<Block> HV_CABLE_INSULATED = registerBlock("hv_cable_insulated", () -> new BlockCable(0.313F, CableTier.HV_CABLE_INSULATED));
+    public static final RegistryObject<Block> GLASS_FIBRE_CABLE = registerBlock("glass_fibre_cable", () -> new BlockCable(0.127F, CableTier.GLASS_FIBRE_CABLE));
+
     public static final RegistryObject<Block> GENERATOR = registerBlock("generator", BlockGenerator::new);
     public static final RegistryObject<Block> SOLAR_PANEL = registerBlock("solar_panel", () -> new BlockSolarPanel(SolarPanelTier.BASIC));
     public static final RegistryObject<Block> ADVANCED_SOLAR_PANEL = registerBlock("advanced_solar_panel", () -> new BlockSolarPanel(SolarPanelTier.ADVANCED));

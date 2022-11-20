@@ -11,7 +11,10 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.level.block.state.properties.SlabType;
-import net.minecraftforge.client.model.generators.*;
+import net.minecraftforge.client.model.generators.BlockModelBuilder;
+import net.minecraftforge.client.model.generators.BlockStateProvider;
+import net.minecraftforge.client.model.generators.ConfiguredModel;
+import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.registries.RegistryObject;
 
@@ -37,6 +40,7 @@ public class BlockTextures extends BlockStateProvider {
         registerIron();
         registerDecoration();
         registerGenerators();
+        registerMisc();
     }
 
     private void registerOres() {
@@ -144,6 +148,11 @@ public class BlockTextures extends BlockStateProvider {
         createSolarPanel(ModBlocks.QUANTUM_SOLAR_PANEL, "generator/quantum_solar_panel/quantum_solar_panel");
         createFrontActive(ModBlocks.GEO_GENERATOR, "generator/geo_generator/geo_generator");
         createFrontLeftRightActive(ModBlocks.SEMIFLUID_GENERATOR, "generator/semifluid_generator/semifluid_generator");
+
+    }
+
+    private void registerMisc() {
+        createLuminator(ModBlocks.LUMINATOR, "misc/luminator/luminator");
 
     }
 
@@ -259,7 +268,28 @@ public class BlockTextures extends BlockStateProvider {
         ));
     }
 
+    private void createLuminator(RegistryObject<Block> block, String path) {
+        ModelFile luminatorModel = models().getExistingFile(modLoc("block/luminator"));
+        ModelFile luminatorModelActive = models().getExistingFile(modLoc("block/luminator_active"));
 
+        Function<BlockState, ModelFile> modelFunc  = state -> {
+            if (state.getValue(BlockStateHelper.ACTIVE_PROPERTY)) {
+                return luminatorModelActive;
+            } else {
+                return luminatorModel;
+            }
+        };
+
+        getVariantBuilder(block.get())
+            .forAllStates(state -> {
+                Direction dir = state.getValue(BlockStateHelper.FACING_PROPERTY);
+                return ConfiguredModel.builder()
+                        .modelFile(modelFunc.apply(state))
+                        .rotationX(dir == Direction.DOWN ? 180 : dir == Direction.UP ? 0 : 90)
+                        .rotationY(dir.getAxis() != Direction.Axis.Y ? ((dir.get2DDataValue() + 2) % 4) * 90 : 0)
+                        .build();
+            });
+    }
 
 
 

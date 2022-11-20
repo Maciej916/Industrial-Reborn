@@ -2,7 +2,7 @@ package com.maciej916.indreb.common.block.impl.generator.solar_panel;
 
 import com.maciej916.indreb.common.api.blockentity.IndRebBlockEntity;
 import com.maciej916.indreb.common.api.blockentity.interfaces.IHasSound;
-import com.maciej916.indreb.common.api.energy.interfaces.IEnergyBlock;
+import com.maciej916.indreb.common.api.energy.interfaces.IBlockEntityEnergy;
 import com.maciej916.indreb.common.api.enums.EnergyType;
 import com.maciej916.indreb.common.api.enums.GuiSlotBg;
 import com.maciej916.indreb.common.api.enums.InventorySlotType;
@@ -25,7 +25,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
 
-public class BlockEntitySolarPanel extends IndRebBlockEntity implements MenuProvider, IEnergyBlock, IHasSound {
+public class BlockEntitySolarPanel extends IndRebBlockEntity implements MenuProvider, IBlockEntityEnergy, IHasSound {
 
     public static final int SYNC_DATA_SLOTS = 2;
     protected final ContainerData data;

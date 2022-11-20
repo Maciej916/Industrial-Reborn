@@ -97,8 +97,6 @@ public final class ModItems {
     public static final RegistryObject<Item> IRON_FENCE = fromBlockIronScaffolding(ModBlocks.IRON_FENCE);
     public static final RegistryObject<Item> IRON_GATE = fromBlockIronScaffolding(ModBlocks.IRON_GATE);
 
-    // luminator
-
     public static final RegistryObject<Item> YELLOW_STRIPES_BLOCK_LEFT = fromBlock(ModBlocks.YELLOW_STRIPES_BLOCK_LEFT);
     public static final RegistryObject<Item> YELLOW_STRIPES_BLOCK_RIGHT = fromBlock(ModBlocks.YELLOW_STRIPES_BLOCK_RIGHT);
     public static final RegistryObject<Item> RADIOACTIVE_HAZARD_SIGN_BLOCK = fromBlock(ModBlocks.RADIOACTIVE_HAZARD_SIGN_BLOCK);
@@ -109,6 +107,18 @@ public final class ModItems {
     public static final RegistryObject<Item> MAGIC_HAZARD_SIGN_BLOCK = fromBlock(ModBlocks.MAGIC_HAZARD_SIGN_BLOCK);
     public static final RegistryObject<Item> FROST_HAZARD_SIGN_BLOCK = fromBlock(ModBlocks.FROST_HAZARD_SIGN_BLOCK);
     public static final RegistryObject<Item> NOISE_HAZARD_SIGN_BLOCK = fromBlock(ModBlocks.NOISE_HAZARD_SIGN_BLOCK);
+
+    public static final RegistryObject<Item> LUMINATOR = fromBlock(ModBlocks.LUMINATOR);
+
+    public static final RegistryObject<Item> TIN_CABLE = fromBlock(ModBlocks.TIN_CABLE);
+    public static final RegistryObject<Item> TIN_CABLE_INSULATED = fromBlock(ModBlocks.TIN_CABLE_INSULATED);
+    public static final RegistryObject<Item> COPPER_CABLE = fromBlock(ModBlocks.COPPER_CABLE);
+    public static final RegistryObject<Item> COPPER_CABLE_INSULATED = fromBlock(ModBlocks.COPPER_CABLE_INSULATED);
+    public static final RegistryObject<Item> GOLD_CABLE = fromBlock(ModBlocks.GOLD_CABLE);
+    public static final RegistryObject<Item> GOLD_CABLE_INSULATED = fromBlock(ModBlocks.GOLD_CABLE_INSULATED);
+    public static final RegistryObject<Item> HV_CABLE = fromBlock(ModBlocks.HV_CABLE);
+    public static final RegistryObject<Item> HV_CABLE_INSULATED = fromBlock(ModBlocks.HV_CABLE_INSULATED);
+    public static final RegistryObject<Item> GLASS_FIBRE_CABLE = fromBlock(ModBlocks.GLASS_FIBRE_CABLE);
 
     public static final RegistryObject<Item> GENERATOR = fromBlockElectric(ModBlocks.GENERATOR);
     public static final RegistryObject<Item> SOLAR_PANEL = fromBlockElectric(ModBlocks.SOLAR_PANEL);

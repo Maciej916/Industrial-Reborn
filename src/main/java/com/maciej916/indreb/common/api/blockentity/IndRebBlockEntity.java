@@ -472,7 +472,7 @@ public class IndRebBlockEntity extends BaseBlockEntity implements IIndRebBlockEn
     }
 
     @Override
-    public @NotNull <T> LazyOptional<T> getCapability(@NotNull Capability<T> cap) {
+    public @NotNull <T> LazyOptional<T> getCapability(@NotNull Capability<T> cap, @org.jetbrains.annotations.Nullable Direction side) {
 
         if (energyStorage != null) {
             if (cap == ModCapabilities.ENERGY) {
@@ -498,7 +498,7 @@ public class IndRebBlockEntity extends BaseBlockEntity implements IIndRebBlockEn
             }
         }
 
-        return super.getCapability(cap);
+        return super.getCapability(cap, side);
     }
 
     public Component getDisplayName() {

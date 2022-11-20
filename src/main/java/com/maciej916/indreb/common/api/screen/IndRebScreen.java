@@ -3,7 +3,7 @@ package com.maciej916.indreb.common.api.screen;
 import com.maciej916.indreb.common.api.blockentity.interfaces.IHasCooldown;
 import com.maciej916.indreb.common.api.blockentity.interfaces.IHasExp;
 import com.maciej916.indreb.common.api.blockentity.interfaces.IHasUpgrades;
-import com.maciej916.indreb.common.api.energy.interfaces.IEnergyBlock;
+import com.maciej916.indreb.common.api.energy.interfaces.IBlockEntityEnergy;
 import com.maciej916.indreb.common.api.enums.GuiSprite;
 import com.maciej916.indreb.common.api.screen.widget.button.GuiExpButtonWidget;
 import com.maciej916.indreb.common.api.screen.widget.button.GuiInfoButtonWidget;
@@ -47,7 +47,7 @@ public class IndRebScreen <T extends IndRebContainerMenu> extends WidgetScreen<T
             getEntity().getUpgradesStorage().getUpgradeSlots().forEach(sl -> addRenderableOnlyWidget(new GuiSlotWidget(this, sl)));
         }
 
-        if (getEntity() instanceof IEnergyBlock energyBlock) {
+        if (getEntity() instanceof IBlockEntityEnergy energyBlock) {
             if (energyBlock.showBarInGui() && getEntity().hasEnergyStorage()) {
                 if (energyBlock.showVertical()) {
                     addRenderableOnlyWidget(new GuiEnergyBarVerticalWidget(this, energyBlock.leftOffsetVertical(), energyBlock.topOffsetVertical(), getEntity().getEnergyStorage()));

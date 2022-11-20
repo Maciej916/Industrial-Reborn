@@ -3,7 +3,7 @@ package com.maciej916.indreb.common.block.impl.generator.generator;
 import com.maciej916.indreb.common.api.blockentity.IndRebBlockEntity;
 import com.maciej916.indreb.common.api.blockentity.interfaces.IHasCooldown;
 import com.maciej916.indreb.common.api.blockentity.interfaces.IHasSound;
-import com.maciej916.indreb.common.api.energy.interfaces.IEnergyBlock;
+import com.maciej916.indreb.common.api.energy.interfaces.IBlockEntityEnergy;
 import com.maciej916.indreb.common.api.enums.EnergyTier;
 import com.maciej916.indreb.common.api.enums.EnergyType;
 import com.maciej916.indreb.common.api.enums.GuiSlotBg;
@@ -40,7 +40,7 @@ import org.jetbrains.annotations.Nullable;
 import java.util.ArrayList;
 import java.util.Map;
 
-public class BlockEntityGenerator extends IndRebBlockEntity implements MenuProvider, IHasCooldown, IEnergyBlock, IHasSound {
+public class BlockEntityGenerator extends IndRebBlockEntity implements MenuProvider, IHasCooldown, IBlockEntityEnergy, IHasSound {
 
     public static final int SYNC_DATA_SLOTS = 3;
     protected final ContainerData data;
@@ -108,10 +108,10 @@ public class BlockEntityGenerator extends IndRebBlockEntity implements MenuProvi
                         }
                     }
                 }
-            } else {
-                if (activeState && progressBurn.currentProgress() > 0) {
-                    setCooldown(10);
-                }
+            }
+
+            if (activeState && progressBurn.currentProgress() > 0 && getEnergyStorage().generateEnergy(ServerConfig.generator_tick_generate.get(), true) < ServerConfig.generator_tick_generate.get()) {
+                setCooldown(10);
             }
         }
     }

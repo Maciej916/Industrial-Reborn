@@ -1,4 +1,4 @@
-// 1.19.2	2022-11-19T16:36:16.5677472	Block States: indreb
+// 1.19.2	2022-11-20T00:08:26.3045489	Block States: indreb
 95b7796b1e598d400659dbc96f12d1f0d72cda55 assets/indreb/blockstates/acid_hazard_sign_block.json
 b0fdc040f5b7b7c6b701f4aed0ac0308e145cfc9 assets/indreb/blockstates/advanced_machine_casing.json
 9385543a17f96635caee1886dc56a82587c77604 assets/indreb/blockstates/advanced_solar_panel.json
@@ -35,6 +35,7 @@ ad09a5a5d5ca3934a6aad52daa71b78a66592b5b assets/indreb/blockstates/generator.jso
 e9602dec3a1547ef507e0f0694e41620662dc8a3 assets/indreb/blockstates/iron_gate.json
 e5b9fedabce3aded4b4647da3443ebe7d9fd126d assets/indreb/blockstates/lead_block.json
 df8f5f88d100ee2ddbeb238f94ca6e134fad90d3 assets/indreb/blockstates/lead_ore.json
+38eb7fa3a85bcfab09a3ffa5a4ace5d295aa2427 assets/indreb/blockstates/luminator.json
 e5bfa6174b06e577ee5b9ee642fd3aeac929a968 assets/indreb/blockstates/magic_hazard_sign_block.json
 bad0a99d03419c45011173f31b1513722026c89a assets/indreb/blockstates/noise_hazard_sign_block.json
 75fe92e1ec7b6b357ea304da167903a7e9138924 assets/indreb/blockstates/quantum_solar_panel.json

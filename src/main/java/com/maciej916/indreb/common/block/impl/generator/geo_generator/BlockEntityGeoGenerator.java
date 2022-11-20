@@ -4,7 +4,7 @@ import com.maciej916.indreb.common.api.blockentity.IndRebBlockEntity;
 import com.maciej916.indreb.common.api.blockentity.interfaces.IBlockEntityFluid;
 import com.maciej916.indreb.common.api.blockentity.interfaces.IHasCooldown;
 import com.maciej916.indreb.common.api.blockentity.interfaces.IHasSound;
-import com.maciej916.indreb.common.api.energy.interfaces.IEnergyBlock;
+import com.maciej916.indreb.common.api.energy.interfaces.IBlockEntityEnergy;
 import com.maciej916.indreb.common.api.enums.EnergyTier;
 import com.maciej916.indreb.common.api.enums.EnergyType;
 import com.maciej916.indreb.common.api.enums.GuiSlotBg;
@@ -44,7 +44,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class BlockEntityGeoGenerator extends IndRebBlockEntity implements MenuProvider, IBlockEntityFluid, IHasCooldown, IEnergyBlock, IHasSound {
+public class BlockEntityGeoGenerator extends IndRebBlockEntity implements MenuProvider, IBlockEntityFluid, IHasCooldown, IBlockEntityEnergy, IHasSound {
 
     public static final int SYNC_DATA_SLOTS = 4;
     protected final ContainerData data;

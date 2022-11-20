@@ -1,4 +1,4 @@
-// 1.19.2	2022-11-19T16:36:16.5702651	Item Models: indreb
+// 1.19.2	2022-11-20T16:55:25.521003	Item Models: indreb
 ea6f48b249d5595c0bc20e39b977fa8fad0ed868 assets/indreb/models/item/acid_hazard_sign_block.json
 4df0fe2021d7b228332497f5c7d711b40f082510 assets/indreb/models/item/advanced_alloy.json
 ae66a341cac54e91dbe327c2d948550b40bfbc82 assets/indreb/models/item/advanced_circuit.json
@@ -32,6 +32,8 @@ e4be115c99fe8eb7d4d7e8fd4ce7b7ec2f17eb79 assets/indreb/models/item/construction_
 44ad9e47ca1f6fa48dbfa10aa000058cf46ffd9d assets/indreb/models/item/construction_foam_wall_red.json
 c374fb5bbb92df794186ab64c8df1be74dad9c89 assets/indreb/models/item/construction_foam_wall_white.json
 cdd0d3a18f8f614113e627a7d3ccbb8161ed5574 assets/indreb/models/item/construction_foam_wall_yellow.json
+7a2ff0daecff6599b2a77b693eae0e8ae9bc7500 assets/indreb/models/item/copper_cable.json
+c8ff10c083256c5a3a9aa7bd2e31beae0c60e0a1 assets/indreb/models/item/copper_cable_insulated.json
 ac7450127753944a8e4612135395c45f5166706b assets/indreb/models/item/copper_chunk.json
 0f0517e5226b46079639fc823cdf3f3828d7c256 assets/indreb/models/item/copper_dust.json
 8b76b6feeef96e7cfc0848e69d984c266511b39e assets/indreb/models/item/copper_plate.json
@@ -52,10 +54,15 @@ d478dd7f0374c58ec694d1210da2119070996263 assets/indreb/models/item/filled_tin_ca
 d7c7d6689f928316f1563a39f736dc08589773a9 assets/indreb/models/item/frost_hazard_sign_block.json
 d7af7f9a3f1b9c070baee5d11d4b06beaa6483d9 assets/indreb/models/item/generator.json
 61c9f7eece2902c2d4e281247e46827367efceae assets/indreb/models/item/geo_generator.json
+d0af675c3b7401f1cdb4923c88d8e3c489bc6b5e assets/indreb/models/item/glass_fibre_cable.json
+c9c93b80372e5334b091f2c0734f90919688fa31 assets/indreb/models/item/gold_cable.json
+d5b0daad6362dacdc520354be422a5879d3e6d32 assets/indreb/models/item/gold_cable_insulated.json
 97c8e550e085031bd5b8e19273a3e5fcafcd7b84 assets/indreb/models/item/gold_chunk.json
 2b4cd18bba5fac76203990c15d45db2bbd813f32 assets/indreb/models/item/gold_dust.json
 5f17c98adc3436db6d4290820eee0d0f0c26c150 assets/indreb/models/item/gold_plate.json
 10f24ab66d2c4e59e150e4d8b3227c08060c304a assets/indreb/models/item/heat_conductor.json
+b9a41162b6de816962fedad4173669cecf6c6e1d assets/indreb/models/item/hv_cable.json
+4448fad1843bb3f7e7bc51eee471c918242b0ab3 assets/indreb/models/item/hv_cable_insulated.json
 f6de7b33910835efcb62a5bb8e70a8bf3482fe82 assets/indreb/models/item/hybrid_solar_panel.json
 49a722346f818feb18600104785460dcfe0f8d45 assets/indreb/models/item/iridium.json
 6c3dd82c3659168789cadb388e7147d91a989944 assets/indreb/models/item/iridium_plate.json
@@ -73,6 +80,7 @@ be78938d4295610730e8ffe992e449768f53fd21 assets/indreb/models/item/lead_dust.jso
 7e6e2ea40bbce34fd8ba007f802dadbe7628590e assets/indreb/models/item/lead_ingot.json
 5c90aed94a6f412b39db5be95f0203b5a078e98c assets/indreb/models/item/lead_ore.json
 c7fac649d8d29f69918ece2daad070d83e32c5fe assets/indreb/models/item/lead_plate.json
+905380c8db26de9b36faa2efc7e8d9f856fb96b3 assets/indreb/models/item/luminator.json
 49b75fa1b4bcded7efea11cbc4602817f58bce5d assets/indreb/models/item/magic_hazard_sign_block.json
 caca55b827fb8a4af77150ec30140cb6423a7d6c assets/indreb/models/item/memory_card.json
 bdb6961e18c0c78725126bc7e58200cd4553a62c assets/indreb/models/item/mixed_metal_ingot.json
@@ -158,6 +166,8 @@ b481f82b12801d0caa819e08d64496d9feb9eed5 assets/indreb/models/item/steel_ingot.j
 c1c4577b82173aa17bb143278938a2a89cf85b5d assets/indreb/models/item/stone_dust.json
 eaffa1d0b9f8e9b74897e2bb70bfe9ebbbafecb3 assets/indreb/models/item/sulfur_dust.json
 53fb030313ac7db87ccee050e7e6355072677e02 assets/indreb/models/item/tin_block.json
+953ae43c6117c981be2aec55141b9fe0ce3bf37e assets/indreb/models/item/tin_cable.json
+e40a345a1bb19ca5d9231fb79af5d2c6201df736 assets/indreb/models/item/tin_cable_insulated.json
 432643f1e93b5764f2d73036ca17a1d5075347cc assets/indreb/models/item/tin_can.json
 7a41601481dd09748d031427fbf65313445897fd assets/indreb/models/item/tin_chunk.json
 02af7bef03956604367db8bf306d2650687f0f1b assets/indreb/models/item/tin_dust.json

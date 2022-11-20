@@ -1,0 +1,7 @@
+{
+	"parent": "indreb:block/insulated_cable",
+	"textures": {
+		"wall": "indreb:block/cable/gold_cable_insulated",
+		"particle": "#wall"
+	}
+}

@@ -1,6 +1,6 @@
 package com.maciej916.indreb.common.api.energy.interfaces;
 
-public interface IEnergyBlock {
+public interface IBlockEntityEnergy {
 
     default boolean showBarInTop() {
         return true;

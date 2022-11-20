@@ -4,7 +4,7 @@ import com.maciej916.indreb.common.api.blockentity.IndRebBlockEntity;
 import com.maciej916.indreb.common.api.blockentity.interfaces.IBlockEntityFluid;
 import com.maciej916.indreb.common.api.blockentity.interfaces.IHasCooldown;
 import com.maciej916.indreb.common.api.blockentity.interfaces.IHasSound;
-import com.maciej916.indreb.common.api.energy.interfaces.IEnergyBlock;
+import com.maciej916.indreb.common.api.energy.interfaces.IBlockEntityEnergy;
 import com.maciej916.indreb.common.api.enums.EnergyTier;
 import com.maciej916.indreb.common.api.enums.EnergyType;
 import com.maciej916.indreb.common.api.enums.GuiSlotBg;
@@ -13,7 +13,6 @@ import com.maciej916.indreb.common.api.fluid.FluidStorage;
 import com.maciej916.indreb.common.api.slot.BaseSlot;
 import com.maciej916.indreb.common.api.slot.ElectricSlot;
 import com.maciej916.indreb.common.api.util.Progress;
-import com.maciej916.indreb.common.block.impl.generator.geo_generator.MenuGeoGenerator;
 import com.maciej916.indreb.common.blockentity.ModBlockEntities;
 import com.maciej916.indreb.common.config.impl.ServerConfig;
 import com.maciej916.indreb.common.fluid.impl.Biogas;
@@ -33,7 +32,6 @@ import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.ContainerData;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.material.Fluids;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.common.util.LazyOptional;
@@ -46,7 +44,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class BlockEntitySemifluidGenerator extends IndRebBlockEntity implements MenuProvider, IBlockEntityFluid, IHasCooldown, IEnergyBlock, IHasSound {
+public class BlockEntitySemifluidGenerator extends IndRebBlockEntity implements MenuProvider, IBlockEntityFluid, IHasCooldown, IBlockEntityEnergy, IHasSound {
 
     public static final int SYNC_DATA_SLOTS = 4;
     protected final ContainerData data;
@@ -101,7 +99,7 @@ public class BlockEntitySemifluidGenerator extends IndRebBlockEntity implements 
         if (slot == FILL_UP) {
             IFluidHandlerItem cap = CapabilityUtil.getCapabilityHelper(stack, ForgeCapabilities.FLUID_HANDLER_ITEM).getValue();
             if (cap != null) {
-                return cap.getTanks() > 0 && cap.getFluidInTank(1).getFluid() == Fluids.LAVA;
+                return cap.getTanks() > 0 && cap.getFluidInTank(1).getFluid() == Biogas.STILL_FLUID;
             }
         }
         return false;
@@ -165,7 +163,7 @@ public class BlockEntitySemifluidGenerator extends IndRebBlockEntity implements 
     protected void saveAdditional(CompoundTag tag) {
         super.saveAdditional(tag);
         tag.put("progressFill", this.progressFill.serializeNBT());
-        tag.put("fuelStorage", this.fuelStorage.writeToNBT(tag.getCompound("lavaStorage")));
+        tag.put("fuelStorage", this.fuelStorage.writeToNBT(tag.getCompound("fuelStorage")));
     }
 
     private final ArrayList<LazyOptional<?>> baseCapabilities = new ArrayList<>(Arrays.asList(
