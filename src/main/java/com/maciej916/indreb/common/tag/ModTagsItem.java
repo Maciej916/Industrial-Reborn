@@ -16,8 +16,10 @@ public final class ModTagsItem {
     public static final TagKey<Item> WRENCHES = itemTag("wrenches");
     public static final TagKey<Item> UPGRADES = itemTag("upgrades");
 
-
-
+    public static final TagKey<Item> HELMET = itemTag("helmet");
+    public static final TagKey<Item> CHESTPLATE = itemTag("chestplate");
+    public static final TagKey<Item> LEGGINGS = itemTag("leggings");
+    public static final TagKey<Item> BOOTS = itemTag("boots");
 
 
 
@@ -74,6 +76,8 @@ public final class ModTagsItem {
     public static final TagKey<Item> FORGE_DUSTS_STONE = itemTag("forge", "dusts/stone");
     public static final TagKey<Item> FORGE_DUSTS_DEEPSLATE = itemTag("forge", "dusts/deepslate");
     public static final TagKey<Item> FORGE_DUSTS_SULFUR = itemTag("forge", "dusts/sulfur");
+
+    public static final TagKey<Item> FORGE_RODS_IRON = itemTag("forge", "rods/iron");
 
 
 

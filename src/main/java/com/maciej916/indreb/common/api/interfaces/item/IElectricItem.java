@@ -9,7 +9,7 @@ public interface IElectricItem {
 
     EnergyTier getEnergyTier();
     EnergyType getEnergyType();
-    IEnergyStorage getEnergy(ItemStack stack);
+    IEnergyStorage getEnergyStorage(ItemStack stack);
     default void tickElectric(ItemStack stack) {}
 
 }

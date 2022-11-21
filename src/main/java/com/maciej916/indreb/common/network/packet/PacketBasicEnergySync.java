@@ -1,6 +1,6 @@
 package com.maciej916.indreb.common.network.packet;
 
-import com.maciej916.indreb.common.api.blockentity.IndRebBlockEntity;
+import com.maciej916.indreb.common.api.blockentity.interfaces.IIndRebBlockEntity;
 import com.maciej916.indreb.common.api.energy.BasicEnergyStorage;
 import com.maciej916.indreb.common.api.enums.EnergyTier;
 import com.maciej916.indreb.common.api.enums.EnergyType;
@@ -82,7 +82,7 @@ public class PacketBasicEnergySync {
             LocalPlayer player = ModProxy.PROXY.getLocalPlayer();
             if (player != null) {
                 Level level = player.getLevel();
-                if (level.getBlockEntity(blockPos) instanceof IndRebBlockEntity entity) {
+                if (level.getBlockEntity(blockPos) instanceof IIndRebBlockEntity entity) {
                     if (entity.hasEnergyStorage()) {
                         BasicEnergyStorage basicEnergyStorage = entity.getEnergyStorage();
 

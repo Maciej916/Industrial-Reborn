@@ -1,6 +1,7 @@
 package com.maciej916.indreb.common.blockentity;
 
 import com.maciej916.indreb.common.block.ModBlocks;
+import com.maciej916.indreb.common.block.impl.explosive.nuke.BlockEntityNuke;
 import com.maciej916.indreb.common.block.impl.generator.generator.BlockEntityGenerator;
 import com.maciej916.indreb.common.block.impl.generator.geo_generator.BlockEntityGeoGenerator;
 import com.maciej916.indreb.common.block.impl.generator.semifluid_generator.BlockEntitySemifluidGenerator;
@@ -21,6 +22,7 @@ public final class ModBlockEntities {
     public static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITIES = DeferredRegister.create(ForgeRegistries.BLOCK_ENTITY_TYPES, MODID);
 
     public static final RegistryObject<BlockEntityType<BlockEntityLuminator>> LUMINATOR = BLOCK_ENTITIES.register("luminator", () -> BlockEntityType.Builder.of(BlockEntityLuminator::new, ModBlocks.LUMINATOR.get()).build(null));
+    public static final RegistryObject<BlockEntityType<BlockEntityNuke>> NUKE = BLOCK_ENTITIES.register("nuke", () -> BlockEntityType.Builder.of(BlockEntityNuke::new, ModBlocks.NUKE.get()).build(null));
 
     public static final RegistryObject<BlockEntityType<BlockEntityGenerator>> GENERATOR = BLOCK_ENTITIES.register("generator", () -> BlockEntityType.Builder.of(BlockEntityGenerator::new, ModBlocks.GENERATOR.get()).build(null));
     public static final RegistryObject<BlockEntityType<BlockEntitySolarPanel>> SOLAR_PANEL = BLOCK_ENTITIES.register("solar_panel", () -> BlockEntityType.Builder.of(BlockEntitySolarPanel::new, ModBlocks.SOLAR_PANEL.get(), ModBlocks.ADVANCED_SOLAR_PANEL.get(), ModBlocks.HYBRID_SOLAR_PANEL.get(), ModBlocks.QUANTUM_SOLAR_PANEL.get()).build(null));

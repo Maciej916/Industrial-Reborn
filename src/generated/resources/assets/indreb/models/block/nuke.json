@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "bottom": "indreb:block/explosive/nuke/nuke_bottom",
+    "side": "indreb:block/explosive/nuke/nuke_side",
+    "top": "indreb:block/explosive/nuke/nuke_top"
+  }
+}

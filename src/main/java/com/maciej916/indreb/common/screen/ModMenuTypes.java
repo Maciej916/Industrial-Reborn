@@ -1,6 +1,7 @@
 package com.maciej916.indreb.common.screen;
 
 import com.maciej916.indreb.IndReb;
+import com.maciej916.indreb.common.block.impl.explosive.nuke.MenuNuke;
 import com.maciej916.indreb.common.block.impl.generator.generator.MenuGenerator;
 import com.maciej916.indreb.common.block.impl.generator.geo_generator.MenuGeoGenerator;
 import com.maciej916.indreb.common.block.impl.generator.semifluid_generator.MenuSemifluidGenerator;
@@ -19,6 +20,8 @@ import static net.minecraftforge.registries.DeferredRegister.create;
 public final class ModMenuTypes {
 
     public static final DeferredRegister<MenuType<?>> MENUS = create(ForgeRegistries.MENU_TYPES, IndReb.MODID);
+
+    public static final RegistryObject<MenuType<MenuNuke>> NUKE = registerMenuType(MenuNuke::new, "nuke");
 
     public static final RegistryObject<MenuType<MenuGenerator>> GENERATOR = registerMenuType(MenuGenerator::new, "generator");
     public static final RegistryObject<MenuType<MenuSolarPanel>> SOLAR_PANEL = registerMenuType(MenuSolarPanel::new, "solar_panel");

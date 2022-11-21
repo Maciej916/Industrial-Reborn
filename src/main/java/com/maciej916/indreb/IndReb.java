@@ -3,6 +3,7 @@ package com.maciej916.indreb;
 import com.maciej916.indreb.common.block.ModBlocks;
 import com.maciej916.indreb.common.blockentity.ModBlockEntities;
 import com.maciej916.indreb.common.config.ModConfig;
+import com.maciej916.indreb.common.entity.ModEntityTypes;
 import com.maciej916.indreb.common.fluid.ModFluids;
 import com.maciej916.indreb.common.item.ModItems;
 import com.maciej916.indreb.common.loot.ModLootModifiers;
@@ -38,7 +39,7 @@ public class IndReb {
         ModBlockEntities.register(modEventBus);
         ModMenuTypes.register(modEventBus);
 
-//        ModEntityTypes.register(modEventBus);
+        ModEntityTypes.register(modEventBus);
 
 
 //        ModRecipeType.register(modEventBus);

@@ -4,6 +4,7 @@ import com.maciej916.indreb.common.api.block.IndRebEntityBlock;
 import com.maciej916.indreb.common.api.interfaces.block.IStateActive;
 import com.maciej916.indreb.common.api.interfaces.block.IStateFacing;
 import com.maciej916.indreb.common.util.BlockStateHelper;
+import com.maciej916.indreb.common.util.wrench.WrenchHelper;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.level.BlockGetter;
@@ -32,6 +33,7 @@ public class BlockLuminator extends IndRebEntityBlock implements IStateFacing, I
 
     public BlockLuminator() {
         super(Properties.of(Material.GLASS, MaterialColor.QUARTZ).noCollission().dynamicShape().lightLevel(state -> state.getValue(BlockStateHelper.ACTIVE_PROPERTY) ? 16 : 0));
+        WrenchHelper.registerAction(this).add(WrenchHelper.dropAction());
     }
 
     @Override

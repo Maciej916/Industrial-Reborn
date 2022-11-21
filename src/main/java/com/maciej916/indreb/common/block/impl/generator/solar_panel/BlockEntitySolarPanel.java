@@ -15,7 +15,6 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.sounds.SoundEvent;
-import net.minecraft.world.MenuProvider;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
@@ -25,7 +24,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
 
-public class BlockEntitySolarPanel extends IndRebBlockEntity implements MenuProvider, IBlockEntityEnergy, IHasSound {
+public class BlockEntitySolarPanel extends IndRebBlockEntity implements IBlockEntityEnergy, IHasSound {
 
     public static final int SYNC_DATA_SLOTS = 2;
     protected final ContainerData data;

@@ -5,6 +5,7 @@ import com.maciej916.indreb.common.api.tier.SolarPanelTier;
 import com.maciej916.indreb.common.enums.EnumLang;
 import com.maciej916.indreb.common.util.TextComponentUtil;
 import net.minecraft.ChatFormatting;
+import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.ItemStack;
@@ -51,7 +52,7 @@ public class BlockSolarPanel extends BaseElectricMachineBlock {
 
         pTooltip.add(TextComponentUtil.build(
                 Component.translatable(EnumLang.GENERATE.getTranslationKey()).withStyle(ChatFormatting.GRAY),
-                Component.translatable(EnumLang.POWER_TICK.getTranslationKey(), TextComponentUtil.getFormattedEnergyUnit(solarTier.getDayGenerate())).withStyle(getEnergyTier().getColor())
+                Component.translatable(EnumLang.POWER_TICK.getTranslationKey(), TextComponentUtil.getFormattedEnergyUnit(solarTier.getDayGenerate(), Screen.hasShiftDown())).withStyle(getEnergyTier().getColor())
         ));
     }
 

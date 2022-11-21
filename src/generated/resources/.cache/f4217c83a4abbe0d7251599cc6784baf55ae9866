@@ -1,4 +1,4 @@
-// 1.19.2	2022-11-20T00:08:26.3045489	Block States: indreb
+// 1.19.2	2022-11-21T17:10:46.2316398	Block States: indreb
 95b7796b1e598d400659dbc96f12d1f0d72cda55 assets/indreb/blockstates/acid_hazard_sign_block.json
 b0fdc040f5b7b7c6b701f4aed0ac0308e145cfc9 assets/indreb/blockstates/advanced_machine_casing.json
 9385543a17f96635caee1886dc56a82587c77604 assets/indreb/blockstates/advanced_solar_panel.json
@@ -31,6 +31,7 @@ de8cb655af4750bf09b0cc93c25bedfeca921fb3 assets/indreb/blockstates/deepslate_lea
 ad09a5a5d5ca3934a6aad52daa71b78a66592b5b assets/indreb/blockstates/generator.json
 39bb77bfd96e3e4774fb873c6d09581a2fa4d192 assets/indreb/blockstates/geo_generator.json
 028f50609bd5eb1bb1732fcf67d6b272fedd2b18 assets/indreb/blockstates/hybrid_solar_panel.json
+7499266bb2322e2d19089b906bb54c58cb55b403 assets/indreb/blockstates/industrial_tnt.json
 2399dde3c31021a0422c204676074af3c80866b1 assets/indreb/blockstates/iron_fence.json
 e9602dec3a1547ef507e0f0694e41620662dc8a3 assets/indreb/blockstates/iron_gate.json
 e5b9fedabce3aded4b4647da3443ebe7d9fd126d assets/indreb/blockstates/lead_block.json
@@ -38,6 +39,7 @@ df8f5f88d100ee2ddbeb238f94ca6e134fad90d3 assets/indreb/blockstates/lead_ore.json
 38eb7fa3a85bcfab09a3ffa5a4ace5d295aa2427 assets/indreb/blockstates/luminator.json
 e5bfa6174b06e577ee5b9ee642fd3aeac929a968 assets/indreb/blockstates/magic_hazard_sign_block.json
 bad0a99d03419c45011173f31b1513722026c89a assets/indreb/blockstates/noise_hazard_sign_block.json
+e707b70f7676685e3b5e9910f7d2ab85f4da63cf assets/indreb/blockstates/nuke.json
 75fe92e1ec7b6b357ea304da167903a7e9138924 assets/indreb/blockstates/quantum_solar_panel.json
 91551c44bd2ddf788e0db48e36bc68709beefe74 assets/indreb/blockstates/radioactive_hazard_sign_block.json
 81370a179b513fdaff77ae5056566f974f10e4f5 assets/indreb/blockstates/raw_lead_block.json
@@ -112,6 +114,7 @@ fad895d3bc5d9b742b0f956fdb5452ea0280597a assets/indreb/models/block/generator.js
 0bebe389e991995db1fc421d6a6f72668c1f7e78 assets/indreb/models/block/geo_generator_active.json
 cb8f06ffa2959fb556a348043d052c6316b52214 assets/indreb/models/block/hybrid_solar_panel.json
 6943b8628f7ccaef647afdc87faac48d4f5c9eaf assets/indreb/models/block/hybrid_solar_panel_active.json
+ad8f5dd2748233f2afda3baec206428f9b327752 assets/indreb/models/block/industrial_tnt.json
 07e19bcc97a8f582021d820b1aada5d63a600b2d assets/indreb/models/block/iron_fence.json
 0b1f4a38720f56d8c0fd16e96ecaf6603c22c316 assets/indreb/models/block/iron_fence_post.json
 eff5488f6ef1ea712603f7bcdf41be5ffa9e7b23 assets/indreb/models/block/iron_fence_side.json
@@ -123,6 +126,7 @@ acf69294c5feacd95493ab06b534d5c05dbe48bb assets/indreb/models/block/iron_gate_wa
 69f7ebc193e17316a5514c39a54364600828e34c assets/indreb/models/block/lead_ore.json
 1ef2422a476ca1b8890874c3d475f178865cad46 assets/indreb/models/block/magic_hazard_sign_block.json
 d4f1e374b3e287f3d00ae04910617c1f31470fa5 assets/indreb/models/block/noise_hazard_sign_block.json
+d68a7d1f6a79ea6e3f7929fc5e82c4997959d32c assets/indreb/models/block/nuke.json
 4242c45d42f237ea331096d54315a0fbd834af73 assets/indreb/models/block/quantum_solar_panel.json
 5cbf059a4b679b2a3af9b0d8397d120918072c58 assets/indreb/models/block/quantum_solar_panel_active.json
 de9f1dbe5de5d1d007491974f3da57f8a3c2fbd1 assets/indreb/models/block/radioactive_hazard_sign_block.json

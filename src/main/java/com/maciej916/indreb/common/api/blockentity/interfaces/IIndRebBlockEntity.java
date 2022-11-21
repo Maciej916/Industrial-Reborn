@@ -26,6 +26,9 @@ public interface IIndRebBlockEntity {
     void tickWork();
     void tickUpgrades();
 
+    void onPlace(boolean isClient);
+    void onBreak();
+
     boolean getActiveStateValue();
     void setChanged();
 

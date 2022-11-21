@@ -1,6 +1,5 @@
 package com.maciej916.indreb.common.api.block;
 
-import com.maciej916.indreb.common.api.blockentity.IndRebBlockEntity;
 import com.maciej916.indreb.common.api.blockentity.interfaces.IIndRebBlockEntity;
 import com.maciej916.indreb.common.api.energy.interfaces.IBlockEntityEnergy;
 import com.maciej916.indreb.common.capability.ModCapabilities;
@@ -99,7 +98,7 @@ public abstract class IndRebBlock extends Block {
     public void onPlace(BlockState pState, Level level, BlockPos pPos, BlockState pOldState, boolean pIsMoving) {
 
         BlockEntity be = level.getBlockEntity(pPos);
-        if (be instanceof IndRebBlockEntity indRebBlockEntity) {
+        if (be instanceof IIndRebBlockEntity indRebBlockEntity) {
             indRebBlockEntity.onPlace(level.isClientSide());
         }
 
@@ -116,7 +115,7 @@ public abstract class IndRebBlock extends Block {
     public void onRemove(BlockState blockState, Level level, BlockPos blockPos, BlockState newState, boolean isMoving) {
         if (blockState.getBlock() != newState.getBlock() && blockState.hasBlockEntity()) {
             BlockEntity be = level.getBlockEntity(blockPos);
-            if (be instanceof IndRebBlockEntity indRebBlockEntity) {
+            if (be instanceof IIndRebBlockEntity indRebBlockEntity) {
                 indRebBlockEntity.onBreak();
             }
 

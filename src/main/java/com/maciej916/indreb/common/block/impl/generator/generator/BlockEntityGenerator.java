@@ -21,7 +21,6 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.sounds.SoundEvent;
-import net.minecraft.world.MenuProvider;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
@@ -40,7 +39,7 @@ import org.jetbrains.annotations.Nullable;
 import java.util.ArrayList;
 import java.util.Map;
 
-public class BlockEntityGenerator extends IndRebBlockEntity implements MenuProvider, IHasCooldown, IBlockEntityEnergy, IHasSound {
+public class BlockEntityGenerator extends IndRebBlockEntity implements IHasCooldown, IBlockEntityEnergy, IHasSound {
 
     public static final int SYNC_DATA_SLOTS = 3;
     protected final ContainerData data;

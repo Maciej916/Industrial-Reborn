@@ -6,7 +6,7 @@ import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 
-public class BaseItem extends Item {
+public abstract class BaseItem extends Item {
     private final CreativeModeTab tab;
 
     public BaseItem(CreativeModeTab tab, Properties properties) {
@@ -15,9 +15,9 @@ public class BaseItem extends Item {
     }
 
     @Override
-    public void fillItemCategory(CreativeModeTab pCategory, NonNullList<ItemStack> pItems) {
-        if (pCategory == tab) pItems.add(new ItemStack(this));
-        super.fillItemCategory(pCategory, pItems);
+    public void fillItemCategory(CreativeModeTab creativeModeTab, NonNullList<ItemStack> stacks) {
+        if (tab != null && creativeModeTab == tab) stacks.add(new ItemStack(this));
+        super.fillItemCategory(creativeModeTab, stacks);
     }
 
 }

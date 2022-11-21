@@ -41,6 +41,7 @@ public class BlockTextures extends BlockStateProvider {
         registerDecoration();
         registerGenerators();
         registerMisc();
+        registerExplosives();
     }
 
     private void registerOres() {
@@ -155,6 +156,20 @@ public class BlockTextures extends BlockStateProvider {
         createLuminator(ModBlocks.LUMINATOR, "misc/luminator/luminator");
 
     }
+
+    private void registerExplosives() {
+        createSimpleSideTopBottom(ModBlocks.INDUSTRIAL_TNT, "explosive/industrial_tnt/industrial_tnt_side", "explosive/industrial_tnt/industrial_tnt_top", "explosive/industrial_tnt/industrial_tnt_bottom");
+        createSimpleSideTopBottom(ModBlocks.NUKE, "explosive/nuke/nuke_side", "explosive/nuke/nuke_top", "explosive/nuke/nuke_bottom");
+    }
+
+
+
+
+
+
+
+
+
 
 
 

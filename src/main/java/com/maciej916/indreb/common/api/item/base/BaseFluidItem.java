@@ -18,7 +18,7 @@ import org.jetbrains.annotations.NotNull;
 import javax.annotation.Nullable;
 import java.util.List;
 
-public class BaseFluidItem extends BaseItem {
+public abstract class BaseFluidItem extends BaseItem {
 
     public BaseFluidItem(Properties properties) {
         super(CreativeModeTab.TAB_MATERIALS, properties.setNoRepair());

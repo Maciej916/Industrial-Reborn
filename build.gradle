@@ -155,8 +155,8 @@ dependencies {
     implementation fg.deobf("curse.maven:pipez-443900:3920730")
 
 
-    implementation fg.deobf("curse.maven:allthecompressed-514045:4068231")
-    implementation fg.deobf("curse.maven:ato-405593:4046926")
+//    implementation fg.deobf("curse.maven:allthecompressed-514045:4068231")
+//    implementation fg.deobf("curse.maven:ato-405593:4046926")
 //    implementation fg.deobf("curse.maven:DimStorage-353882:3927875")
 
 

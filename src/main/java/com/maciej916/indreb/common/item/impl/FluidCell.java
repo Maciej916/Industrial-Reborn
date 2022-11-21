@@ -47,21 +47,21 @@ public class FluidCell extends BaseFluidItem {
     }
 
     @Override
-    public void fillItemCategory(CreativeModeTab pCategory, NonNullList<ItemStack> pItems) {
-        if (pCategory == ModItemGroups.MAIN || pCategory == CreativeModeTab.TAB_SEARCH) {
+    public void fillItemCategory(CreativeModeTab creativeModeTab, NonNullList<ItemStack> stacks) {
+        if (creativeModeTab == ModItemGroups.MAIN || creativeModeTab == CreativeModeTab.TAB_SEARCH) {
             for (Fluid fluid : ForgeRegistries.FLUIDS) {
                 if (fluid != Fluids.EMPTY && fluid.isSource(fluid.defaultFluidState())) {
                     ItemStack stack = new ItemStack(this);
                     FluidHandlerStack cap = (FluidHandlerStack) CapabilityUtil.getCapabilityHelper(stack, ForgeCapabilities.FLUID_HANDLER_ITEM).getValue();
                     if (cap != null) {
                         cap.setFluidStack(new FluidStack(fluid, 1000));
-                        pItems.add(stack);
+                        stacks.add(stack);
                     }
                 }
             }
         }
 
-        super.fillItemCategory(pCategory, pItems);
+        super.fillItemCategory(creativeModeTab, stacks);
     }
 
     @Override

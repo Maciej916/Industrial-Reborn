@@ -3,12 +3,18 @@ package com.maciej916.indreb.common.item;
 import com.google.common.base.Supplier;
 import com.maciej916.indreb.common.api.blockitem.BlockItemElectric;
 import com.maciej916.indreb.common.api.blockitem.IndRebBlockItem;
+import com.maciej916.indreb.common.api.enums.EnergyTier;
 import com.maciej916.indreb.common.api.item.base.*;
+import com.maciej916.indreb.common.api.tier.CustomTiers;
 import com.maciej916.indreb.common.block.ModBlocks;
 import com.maciej916.indreb.common.blockitem.BlockItemIronScaffolding;
 import com.maciej916.indreb.common.item.impl.*;
+import com.maciej916.indreb.common.item.impl.armor.*;
+import com.maciej916.indreb.common.item.impl.tool.*;
+import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Rarity;
+import net.minecraft.world.item.Tiers;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.material.MaterialColor;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -107,6 +113,9 @@ public final class ModItems {
     public static final RegistryObject<Item> MAGIC_HAZARD_SIGN_BLOCK = fromBlock(ModBlocks.MAGIC_HAZARD_SIGN_BLOCK);
     public static final RegistryObject<Item> FROST_HAZARD_SIGN_BLOCK = fromBlock(ModBlocks.FROST_HAZARD_SIGN_BLOCK);
     public static final RegistryObject<Item> NOISE_HAZARD_SIGN_BLOCK = fromBlock(ModBlocks.NOISE_HAZARD_SIGN_BLOCK);
+
+    public static final RegistryObject<Item> INDUSTRIAL_TNT = fromBlock(ModBlocks.INDUSTRIAL_TNT);
+    public static final RegistryObject<Item> NUKE = fromBlock(ModBlocks.NUKE);
 
     public static final RegistryObject<Item> LUMINATOR = fromBlock(ModBlocks.LUMINATOR);
 
@@ -213,19 +222,56 @@ public final class ModItems {
     public static final RegistryObject<Item> IRIDIUM_SHARD = registerItem("iridium_shard", MaterialItemRare::new);
     public static final RegistryObject<Item> IRIDIUM = registerItem("iridium", MaterialItemRare::new);
 
-    public static final RegistryObject<Item> FLUID_CELL = registerItem("fluid_cell", FluidCell::new);
-    public static final RegistryObject<Item> MEMORY_CARD = registerItem("memory_card", MemoryCard::new);
-
-    public static final RegistryObject<Item> TIN_CAN = registerItem("tin_can", FoodItem::new);
-    public static final RegistryObject<Item> FILLED_TIN_CAN = registerItem("filled_tin_can", FilledTinCan::new);
+    public static final RegistryObject<Item> IRON_ROD = registerItem("iron_rod", MaterialItem::new);
 
     public static final RegistryObject<Item> FERTILIZER = registerItem("fertilizer", Fertilizer::new);
 
+    public static final RegistryObject<Item> HAMMER = registerItem("hammer", () -> new Hammer(80));
+    public static final RegistryObject<Item> CUTTER = registerItem("cutter", () -> new Cutter(60));
+    public static final RegistryObject<Item> TREETAP = registerItem("treetap", () -> new Treetap(20));
+    public static final RegistryObject<Item> WRENCH = registerItem("wrench", () -> new Wrench(120));
+    public static final RegistryObject<Item> TOOL_BOX = registerItem("tool_box", WIPItem::new);
+    public static final RegistryObject<Item> FOAM_SPRAYER = registerItem("foam_sprayer", FoamSprayer::new);
 
+    public static final RegistryObject<Item> ELECTRIC_TREETAP = registerItem("electric_treetap", () -> new ElectricTreetap(0, 10000, EnergyTier.BASIC));
+    public static final RegistryObject<Item> ELECTRIC_WRENCH = registerItem("electric_wrench", () -> new ElectricWrench(0, 10000, EnergyTier.BASIC));
 
+    public static final RegistryObject<Item> BASIC_TRANSPORTER = registerItem("basic_transporter", WIPItem::new);
+    public static final RegistryObject<Item> ADVANCED_TRANSPORTER = registerItem("advanced_transporter", WIPItem::new);
+    public static final RegistryObject<Item> DEBUG_STICK = registerItem("debug_stick", DebugStick::new);
 
+    public static final RegistryObject<Item> CHAINSAW = registerItem("chainsaw", () -> new ElectricChainsaw(Tiers.IRON,6.0F, -3.1F, 0, 30000, 50, 100, EnergyTier.BASIC));
+    public static final RegistryObject<Item> DIAMOND_CHAINSAW = registerItem("diamond_chainsaw", () -> new ElectricChainsaw(Tiers.DIAMOND,5.0F, -3.0F, 0, 80000, 70, 120, EnergyTier.STANDARD));
+    public static final RegistryObject<Item> IRIDIUM_CHAINSAW = registerItem("iridium_chainsaw", () -> new ElectricChainsaw(CustomTiers.IRIDIUM,5.0F, -3.0F, 0, 300000, 200, 400, EnergyTier.ADVANCED));
 
+    public static final RegistryObject<Item> MINING_DRILL = registerItem("mining_drill", () -> new ElectricDrill(Tiers.IRON,1, -2.8F, 0, 30000, 50, 100, EnergyTier.BASIC));
+    public static final RegistryObject<Item> DIAMOND_DRILL = registerItem("diamond_drill", () -> new ElectricDrill(Tiers.DIAMOND,1, -2.8F, 0, 80000, 70, 120, EnergyTier.STANDARD));
+    public static final RegistryObject<Item> IRIDIUM_DRILL = registerItem("iridium_drill", () -> new ElectricDrill(CustomTiers.IRIDIUM, 1, -2.8F, 0, 300000, 200, 400, EnergyTier.ADVANCED));
 
+    public static final RegistryObject<Item> ELECTRIC_HOE = registerItem("electric_hoe", () -> new ElectricHoe(Tiers.IRON,-2, -1.0F, 0, 10000, 50, 100, 50, EnergyTier.BASIC));
+    public static final RegistryObject<Item> WIND_METER = registerItem("wind_meter", WIPItem::new);
+    public static final RegistryObject<Item> IE_METER = registerItem("ie_meter", IEMeter::new);
+    public static final RegistryObject<Item> MULTI_TOOL = registerItem("multi_tool", () -> new MultiTool(Tiers.DIAMOND,-3, 0.0F, 0, 300000, 800, 1400, 500, EnergyTier.ADVANCED));
+
+    public static final RegistryObject<Item> NIGHTVISION_GOGGLES = registerItem("nightvision_goggles", NightVisionGoggles::new);
+    public static final RegistryObject<Item> RUBBER_BOOTS = registerItem("rubber_boots", RubberBoots::new);
+
+    public static final RegistryObject<Item> BRONZE_HELMET = registerItem("bronze_helmet", () -> new BronzeArmor(EquipmentSlot.HEAD));
+    public static final RegistryObject<Item> BRONZE_CHESTPLATE = registerItem("bronze_chestplate", () -> new BronzeArmor(EquipmentSlot.CHEST));
+    public static final RegistryObject<Item> BRONZE_LEGGINGS = registerItem("bronze_leggings", () -> new BronzeArmor(EquipmentSlot.LEGS));
+    public static final RegistryObject<Item> BRONZE_BOOTS = registerItem("bronze_boots", () -> new BronzeArmor(EquipmentSlot.FEET));
+
+    public static final RegistryObject<Item> BRONZE_SWORD = registerItem("bronze_sword", BronzeSword::new);
+    public static final RegistryObject<Item> BRONZE_PICKAXE = registerItem("bronze_pickaxe", BronzePickaxe::new);
+    public static final RegistryObject<Item> BRONZE_AXE = registerItem("bronze_axe", BronzeAxe::new);
+    public static final RegistryObject<Item> BRONZE_SHOVEL = registerItem("bronze_shovel", BronzeShovel::new);
+    public static final RegistryObject<Item> BRONZE_HOE = registerItem("bronze_hoe", BronzeHoe::new);
+
+    public static final RegistryObject<Item> NANO_HELMET = registerItem("nano_helmet", NanoHelmet::new);
+    public static final RegistryObject<Item> NANO_CHESTPLATE = registerItem("nano_chestplate", () -> new NanoArmor(EquipmentSlot.CHEST));
+    public static final RegistryObject<Item> NANO_LEGGINGS = registerItem("nano_leggings", () -> new NanoArmor(EquipmentSlot.LEGS));
+    public static final RegistryObject<Item> NANO_BOOTS = registerItem("nano_boots", () -> new NanoArmor(EquipmentSlot.FEET));
+    public static final RegistryObject<Item> NANO_SABER = registerItem("nano_saber", Nanosaber::new);
 
     public static final RegistryObject<Item> PAINTER = registerItem("painter", () -> new ToolItem(1));
     public static final RegistryObject<Item> PAINTER_WHITE = registerItem("painter_white", () -> new Painter(MaterialColor.WOOL));
@@ -245,6 +291,11 @@ public final class ModItems {
     public static final RegistryObject<Item> PAINTER_LIGHT_GRAY = registerItem("painter_light_gray", () -> new Painter(MaterialColor.COLOR_LIGHT_GRAY));
     public static final RegistryObject<Item> PAINTER_BLACK = registerItem("painter_black", () -> new Painter(MaterialColor.COLOR_BLACK));
 
+    public static final RegistryObject<Item> FLUID_CELL = registerItem("fluid_cell", FluidCell::new);
+    public static final RegistryObject<Item> MEMORY_CARD = registerItem("memory_card", MemoryCard::new);
+
+    public static final RegistryObject<Item> TIN_CAN = registerItem("tin_can", FoodItem::new);
+    public static final RegistryObject<Item> FILLED_TIN_CAN = registerItem("filled_tin_can", FilledTinCan::new);
 
 
 

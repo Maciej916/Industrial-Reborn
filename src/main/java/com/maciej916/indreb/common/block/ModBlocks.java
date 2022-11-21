@@ -8,6 +8,8 @@ import com.maciej916.indreb.common.api.tier.SolarPanelTier;
 import com.maciej916.indreb.common.block.impl.FoamBlock;
 import com.maciej916.indreb.common.block.impl.ReinforcedFoamBlock;
 import com.maciej916.indreb.common.block.impl.cable.BlockCable;
+import com.maciej916.indreb.common.block.impl.explosive.industrial_tnt.BlockIndustrialTNT;
+import com.maciej916.indreb.common.block.impl.explosive.nuke.BlockNuke;
 import com.maciej916.indreb.common.block.impl.generator.generator.BlockGenerator;
 import com.maciej916.indreb.common.block.impl.generator.geo_generator.BlockGeoGenerator;
 import com.maciej916.indreb.common.block.impl.generator.semifluid_generator.BlockSemifluidGenerator;
@@ -118,6 +120,9 @@ public final class ModBlocks {
     public static final RegistryObject<Block> MAGIC_HAZARD_SIGN_BLOCK = registerBlock("magic_hazard_sign_block", () -> new BlockResource(Material.METAL, 1f, 3f, SoundType.METAL));
     public static final RegistryObject<Block> FROST_HAZARD_SIGN_BLOCK = registerBlock("frost_hazard_sign_block", () -> new BlockResource(Material.METAL, 1f, 3f, SoundType.METAL));
     public static final RegistryObject<Block> NOISE_HAZARD_SIGN_BLOCK = registerBlock("noise_hazard_sign_block", () -> new BlockResource(Material.METAL, 1f, 3f, SoundType.METAL));
+
+    public static final RegistryObject<Block> INDUSTRIAL_TNT = registerBlock("industrial_tnt", BlockIndustrialTNT::new);
+    public static final RegistryObject<Block> NUKE = registerBlock("nuke", BlockNuke::new);
 
     public static final RegistryObject<Block> LUMINATOR = registerBlock("luminator", BlockLuminator::new);
 

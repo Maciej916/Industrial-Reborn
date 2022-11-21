@@ -73,7 +73,7 @@ public class RubberLog extends IndRebBlock implements IStateRubberLog, IStateAxi
         Random random = new Random();
 
         if (itemStack.getItem() instanceof IElectricItem electricItem) {
-            IEnergyStorage energy = electricItem.getEnergy(itemStack);
+            IEnergyStorage energy = electricItem.getEnergyStorage(itemStack);
             if (energy.energyStored() == 0) return InteractionResult.PASS;
             energy.consumeEnergy(50, false);
         } else {

@@ -25,7 +25,6 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.sounds.SoundEvent;
-import net.minecraft.world.MenuProvider;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
@@ -44,7 +43,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class BlockEntitySemifluidGenerator extends IndRebBlockEntity implements MenuProvider, IBlockEntityFluid, IHasCooldown, IBlockEntityEnergy, IHasSound {
+public class BlockEntitySemifluidGenerator extends IndRebBlockEntity implements IBlockEntityFluid, IHasCooldown, IBlockEntityEnergy, IHasSound {
 
     public static final int SYNC_DATA_SLOTS = 4;
     protected final ContainerData data;

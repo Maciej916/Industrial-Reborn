@@ -9,7 +9,7 @@ import java.util.function.Supplier;
 
 public final class ModItemGroups {
 
-	public static final CreativeModeTab MAIN = new ModItemGroup(IndReb.MODID, () -> new ItemStack(ModItems.TIN_ORE.get()));
+	public static final CreativeModeTab MAIN = new ModItemGroup(IndReb.MODID, () -> new ItemStack(ModItems.NUKE.get()));
 
 	public static final class ModItemGroup extends CreativeModeTab {
 

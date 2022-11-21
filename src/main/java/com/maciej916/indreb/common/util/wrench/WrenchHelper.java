@@ -89,7 +89,7 @@ public class WrenchHelper {
 
             ItemStack itemStack = player.getItemInHand(player.getUsedItemHand());
             if (itemStack.getItem() instanceof IElectricItem electricItem) {
-                IEnergyStorage energy = electricItem.getEnergy(itemStack);
+                IEnergyStorage energy = electricItem.getEnergyStorage(itemStack);
                 if (energy.energyStored() == 0) {
                     return false;
                 }
@@ -102,7 +102,7 @@ public class WrenchHelper {
 
             if (success) {
                 if (itemStack.getItem() instanceof IElectricItem electricItem) {
-                    IEnergyStorage energy = electricItem.getEnergy(itemStack);
+                    IEnergyStorage energy = electricItem.getEnergyStorage(itemStack);
                     energy.consumeEnergy(50, false);
                     world.playSound(null, pos, ModSounds.ELECTRIC_WRENCH.get(), SoundSource.NEUTRAL, 1F, 0.9F / (new Random().nextFloat() * 0.4F + 0.8F));
                 } else {

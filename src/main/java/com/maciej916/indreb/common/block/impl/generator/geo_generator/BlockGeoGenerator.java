@@ -7,6 +7,7 @@ import com.maciej916.indreb.common.enums.EnumLang;
 import com.maciej916.indreb.common.util.BlockEntityUtil;
 import com.maciej916.indreb.common.util.TextComponentUtil;
 import net.minecraft.ChatFormatting;
+import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.InteractionHand;
@@ -40,15 +41,15 @@ public class BlockGeoGenerator extends BaseElectricMachineBlock {
 
         pTooltip.add(TextComponentUtil.build(
                 Component.translatable(EnumLang.GENERATE.getTranslationKey()).withStyle(ChatFormatting.GRAY),
-                Component.translatable(EnumLang.POWER_TICK.getTranslationKey(), TextComponentUtil.getFormattedEnergyUnit(ServerConfig.geo_generator_tick_generate.get())).withStyle(getEnergyTier().getColor())
+                Component.translatable(EnumLang.POWER_TICK.getTranslationKey(), TextComponentUtil.getFormattedEnergyUnit(ServerConfig.geo_generator_tick_generate.get(), Screen.hasShiftDown())).withStyle(getEnergyTier().getColor())
         ));
 
         pTooltip.add(TextComponentUtil.build(
                 Component.translatable(EnumLang.OUTPUT.getTranslationKey()).withStyle(ChatFormatting.GRAY),
-                Component.translatable(EnumLang.POWER_TICK.getTranslationKey(), TextComponentUtil.getFormattedEnergyUnit(ServerConfig.basic_tier_transfer.get())).withStyle(getEnergyTier().getColor()),
+                Component.translatable(EnumLang.POWER_TICK.getTranslationKey(), TextComponentUtil.getFormattedEnergyUnit(ServerConfig.basic_tier_transfer.get(), Screen.hasShiftDown())).withStyle(getEnergyTier().getColor()),
                 Component.literal(" "),
                 Component.translatable(EnumLang.CAPACITY.getTranslationKey()).withStyle(ChatFormatting.GRAY),
-                Component.translatable(EnumLang.POWER.getTranslationKey(), TextComponentUtil.getFormattedEnergyUnit(ServerConfig.geo_generator_energy_capacity.get())).withStyle(getEnergyTier().getColor())
+                Component.translatable(EnumLang.POWER.getTranslationKey(), TextComponentUtil.getFormattedEnergyUnit(ServerConfig.geo_generator_energy_capacity.get(), Screen.hasShiftDown())).withStyle(getEnergyTier().getColor())
         ));
     }
 

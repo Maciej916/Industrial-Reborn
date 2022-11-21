@@ -277,7 +277,7 @@ public class EnergyCore implements IEnergyCore, ICapabilitySerializable<Compound
                             for (int j = 0; j < inventory.getContainerSize(); ++j) {
                                 ItemStack stack = inventory.getItem(j);
                                 if (stack.getItem() instanceof IElectricItem electricItem) {
-                                    IEnergyStorage energy = electricItem.getEnergy(stack);
+                                    IEnergyStorage energy = electricItem.getEnergyStorage(stack);
                                     if (energy != null) {
                                         if (energy.energyTier().getLvl() <= energyStorage.energyTier().getLvl() && energy.canReceiveEnergy() && energy.energyStored() < energy.maxEnergy() && energyStorage.maxExtract() > 0) {
                                             chargeMax += energy.maxReceive();

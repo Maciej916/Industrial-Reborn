@@ -100,6 +100,55 @@ public class TagsItem extends ItemTagsProvider {
         tag(ModTagsItem.FORGE_DUSTS_DEEPSLATE).add(ModItems.DEEPSLATE_DUST.get());
         tag(ModTagsItem.FORGE_DUSTS_SULFUR).add(ModItems.SULFUR_DUST.get());
 
+        /* RODS */
+
+        tag(ModTagsItem.FORGE_RODS_IRON).add(ModItems.IRON_ROD.get());
+
+        /* WRENCHES */
+
+        tag(ModTagsItem.WRENCHES)
+                .add(ModItems.WRENCH.get())
+                .add(ModItems.ELECTRIC_WRENCH.get())
+                .add(ModItems.MULTI_TOOL.get())
+        ;
+
+        /* TREETAPS */
+
+        tag(ModTagsItem.TREETAPS)
+                .add(ModItems.TREETAP.get())
+                .add(ModItems.ELECTRIC_TREETAP.get())
+        ;
+
+        /* HELMET */
+
+        tag(ModTagsItem.HELMET)
+                .add(ModItems.NANO_HELMET.get())
+                .add(ModItems.BRONZE_HELMET.get())
+                .add(ModItems.NIGHTVISION_GOGGLES.get())
+        ;
+
+        /* CHESTPLATE */
+
+        tag(ModTagsItem.CHESTPLATE)
+                .add(ModItems.NANO_CHESTPLATE.get())
+                .add(ModItems.BRONZE_CHESTPLATE.get())
+        ;
+
+        /* LEGGINGS */
+
+        tag(ModTagsItem.CHESTPLATE)
+                .add(ModItems.NANO_LEGGINGS.get())
+                .add(ModItems.BRONZE_LEGGINGS.get())
+        ;
+
+        /* BOOTS */
+
+        tag(ModTagsItem.BOOTS)
+                .add(ModItems.NANO_BOOTS.get())
+                .add(ModItems.BRONZE_BOOTS.get())
+                .add(ModItems.RUBBER_BOOTS.get())
+        ;
+
 
     }
 

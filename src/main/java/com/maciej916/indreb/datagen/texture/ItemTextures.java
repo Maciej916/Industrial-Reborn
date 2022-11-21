@@ -41,7 +41,12 @@ public class ItemTextures extends ItemModelProvider {
         registerDecoration();
         registerGenerators();
         registerMisc();
+        registerRods();
         registerCables();
+        registerTools();
+        registerElectricTools();
+        registerArmour();
+        registerExplosive();
     }
 
     protected void registerOres() {
@@ -291,6 +296,11 @@ public class ItemTextures extends ItemModelProvider {
 
     }
 
+    private void registerRods() {
+        createGeneratedTexture(ModItems.IRON_ROD, "rod/iron");
+
+    }
+
     protected void registerCables() {
         createWithBlock(ModItems.TIN_CABLE, "tin_cable_inventory");
         createWithBlock(ModItems.TIN_CABLE_INSULATED, "tin_cable_insulated_inventory");
@@ -302,6 +312,62 @@ public class ItemTextures extends ItemModelProvider {
         createWithBlock(ModItems.HV_CABLE_INSULATED, "hv_cable_insulated_inventory");
         createWithBlock(ModItems.GLASS_FIBRE_CABLE, "glass_fibre_cable_inventory");
     }
+
+    private void registerTools() {
+        createHandheldTexture(ModItems.CUTTER, "tool/cutter");
+        createHandheldTexture(ModItems.WRENCH, "tool/wrench");
+        createHandheldTexture(ModItems.HAMMER, "tool/hammer");
+        createHandheldTexture(ModItems.TREETAP, "tool/treetap");
+        createHandheldTexture(ModItems.TOOL_BOX, "tool/tool_box");
+        createHandheldTexture(ModItems.FOAM_SPRAYER, "tool/foam_sprayer");
+        createHandheldTexture(ModItems.DEBUG_STICK, "tool/debug_stick");
+        createHandheldTexture(ModItems.BRONZE_AXE, "tool/bronze_axe");
+        createHandheldTexture(ModItems.BRONZE_HOE, "tool/bronze_hoe");
+        createHandheldTexture(ModItems.BRONZE_PICKAXE, "tool/bronze_pickaxe");
+        createHandheldTexture(ModItems.BRONZE_SHOVEL, "tool/bronze_shovel");
+        createHandheldTexture(ModItems.BRONZE_SWORD, "tool/bronze_sword");
+    }
+
+    protected void registerElectricTools() {
+        createWithActive(ModItems.NANO_SABER,"tool/electric/nano_saber");
+        createHandheldTexture(ModItems.ELECTRIC_TREETAP, "tool/electric/electric_treetap");
+        createHandheldTexture(ModItems.ELECTRIC_WRENCH, "tool/electric/electric_wrench");
+        createHandheldTexture(ModItems.CHAINSAW, "tool/electric/chainsaw");
+        createHandheldTexture(ModItems.DIAMOND_CHAINSAW, "tool/electric/diamond_chainsaw");
+        createHandheldTexture(ModItems.IRIDIUM_CHAINSAW, "tool/electric/iridium_chainsaw");
+        createHandheldTexture(ModItems.MINING_DRILL, "tool/electric/mining_drill");
+        createHandheldTexture(ModItems.DIAMOND_DRILL, "tool/electric/diamond_drill");
+        createHandheldTexture(ModItems.IRIDIUM_DRILL, "tool/electric/iridium_drill");
+        createHandheldTexture(ModItems.WIND_METER, "tool/electric/wind_meter");
+        createHandheldTexture(ModItems.IE_METER, "tool/electric/ie_meter");
+        createHandheldTexture(ModItems.ELECTRIC_HOE, "tool/electric/electric_hoe");
+        createHandheldTexture(ModItems.MULTI_TOOL, "tool/electric/multi_tool");
+        createGeneratedTexture(ModItems.BASIC_TRANSPORTER, "tool/electric/basic_transporter");
+        createGeneratedTexture(ModItems.ADVANCED_TRANSPORTER, "tool/electric/advanced_transporter");
+    }
+
+    protected void registerArmour() {
+        createGeneratedTexture(ModItems.NIGHTVISION_GOGGLES, "armor/nightvision_goggles");
+        createGeneratedTexture(ModItems.RUBBER_BOOTS, "armor/rubber_boots");
+
+        createGeneratedTexture(ModItems.BRONZE_HELMET, "armor/bronze_helmet");
+        createGeneratedTexture(ModItems.BRONZE_CHESTPLATE, "armor/bronze_chestplate");
+        createGeneratedTexture(ModItems.BRONZE_LEGGINGS, "armor/bronze_leggings");
+        createGeneratedTexture(ModItems.BRONZE_BOOTS, "armor/bronze_boots");
+
+        createGeneratedTexture(ModItems.NANO_HELMET, "armor/nano_helmet");
+        createGeneratedTexture(ModItems.NANO_CHESTPLATE, "armor/nano_chestplate");
+        createGeneratedTexture(ModItems.NANO_LEGGINGS, "armor/nano_leggings");
+        createGeneratedTexture(ModItems.NANO_BOOTS, "armor/nano_boots");
+    }
+
+    protected void registerExplosive() {
+        createWithBlock(ModItems.INDUSTRIAL_TNT, "industrial_tnt");
+        createWithBlock(ModItems.NUKE, "nuke");
+    }
+
+
+
 
 
 

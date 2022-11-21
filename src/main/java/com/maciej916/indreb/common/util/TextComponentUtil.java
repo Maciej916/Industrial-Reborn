@@ -54,8 +54,6 @@ public class TextComponentUtil {
         return !isShiftDown ? format((long) energy) : getFormattedLong(energy);
     }
 
-
-
     public static MutableComponent build(MutableComponent... components) {
         MutableComponent result = Component.translatable("");
         for (MutableComponent component : components) {
