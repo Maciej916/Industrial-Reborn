@@ -4,6 +4,8 @@ import com.google.common.base.Supplier;
 import com.maciej916.indreb.common.api.blockitem.BlockItemElectric;
 import com.maciej916.indreb.common.api.blockitem.IndRebBlockItem;
 import com.maciej916.indreb.common.api.enums.EnergyTier;
+import com.maciej916.indreb.common.api.enums.EnergyType;
+import com.maciej916.indreb.common.api.enums.UpgradeType;
 import com.maciej916.indreb.common.api.item.base.*;
 import com.maciej916.indreb.common.api.tier.CustomTiers;
 import com.maciej916.indreb.common.block.ModBlocks;
@@ -12,6 +14,7 @@ import com.maciej916.indreb.common.item.impl.*;
 import com.maciej916.indreb.common.item.impl.armor.*;
 import com.maciej916.indreb.common.item.impl.reactor.*;
 import com.maciej916.indreb.common.item.impl.tool.*;
+import com.maciej916.indreb.common.item.impl.upgrade.*;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Rarity;
@@ -251,6 +254,29 @@ public final class ModItems {
     public static final RegistryObject<Item> ELECTRIC_HOE = registerItem("electric_hoe", () -> new ElectricHoe(Tiers.IRON,-2, -1.0F, 0, 10000, 50, 100, 50, EnergyTier.BASIC));
     public static final RegistryObject<Item> WIND_METER = registerItem("wind_meter", WIPItem::new);
     public static final RegistryObject<Item> MULTI_TOOL = registerItem("multi_tool", () -> new MultiTool(Tiers.DIAMOND,-3, 0.0F, 0, 300000, 800, 1400, 500, EnergyTier.ADVANCED));
+
+
+    public static final RegistryObject<Item> BATTERY = registerItem("battery", () -> new EnergyStorageItem(0, 10000, EnergyType.BOTH, EnergyTier.BASIC));
+    public static final RegistryObject<Item> ADVANCED_BATTERY = registerItem("advanced_battery", () -> new EnergyStorageItem(0, 40000, EnergyType.BOTH, EnergyTier.STANDARD));
+    public static final RegistryObject<Item> ENERGY_CRYSTAL = registerItem("energy_crystal", () -> new EnergyStorageItem(0, 100000, EnergyType.BOTH, EnergyTier.ADVANCED));
+    public static final RegistryObject<Item> LAPOTRON_CRYSTAL = registerItem("lapotron_crystal", () -> new EnergyStorageItem(0, 1000000, EnergyType.BOTH, EnergyTier.SUPER));
+    public static final RegistryObject<Item> CHARGING_BATTERY = registerItem("charging_battery", () -> new ChargingElectricItem(40000, EnergyType.BOTH, EnergyTier.BASIC));
+    public static final RegistryObject<Item> ADVANCED_CHARGING_BATTERY = registerItem("advanced_charging_battery", () ->new ChargingElectricItem(400000, EnergyType.BOTH, EnergyTier.STANDARD));
+    public static final RegistryObject<Item> CHARGING_ENERGY_CRYSTAL = registerItem("charging_energy_crystal", () -> new ChargingElectricItem(4000000, EnergyType.BOTH, EnergyTier.ADVANCED));
+    public static final RegistryObject<Item> CHARGING_LAPOTRON_CRYSTAL = registerItem("charging_lapotron_crystal", () -> new ChargingElectricItem(40000000, EnergyType.BOTH, EnergyTier.SUPER));
+
+    public static final RegistryObject<Item> OVERCLOCKER_UPGRADE = registerItem("overclocker_upgrade", OverclockerUpgrade::new);
+    public static final RegistryObject<Item> TRANSFORMER_UPGRADE = registerItem("transformer_upgrade", TransformerUpgrade::new);
+    public static final RegistryObject<Item> ENERGY_STORAGE_UPGRADE = registerItem("energy_storage_upgrade", EnergyStorageUpgrade::new);
+    public static final RegistryObject<Item> REDSTONE_SIGNAL_INVERTER_UPGRADE = registerItem("redstone_signal_inverter_upgrade", RedstoneSignalInverterUpgrade::new);
+    public static final RegistryObject<Item> EJECTOR_UPGRADE = registerItem("ejector_upgrade", () -> new PushPullUpgrade(UpgradeType.EJECTOR));
+    public static final RegistryObject<Item> PULLING_UPGRADE = registerItem("pulling_upgrade", () -> new PushPullUpgrade(UpgradeType.PULLING));
+    public static final RegistryObject<Item> FLUID_EJECTOR_UPGRADE = registerItem("fluid_ejector_upgrade", () -> new PushPullUpgrade(UpgradeType.FLUID_EJECTOR));
+    public static final RegistryObject<Item> FLUID_PULLING_UPGRADE = registerItem("fluid_pulling_upgrade", () -> new PushPullUpgrade(UpgradeType.FLUID_PULLING));
+    public static final RegistryObject<Item> ADVANCED_EJECTOR_UPGRADE = registerItem("advanced_ejector_upgrade", WIPItem::new);
+    public static final RegistryObject<Item> ADVANCED_PULLING_UPGRADE = registerItem("advanced_pulling_upgrade", WIPItem::new);
+    public static final RegistryObject<Item> ADVANCED_FLUID_EJECTOR_UPGRADE = registerItem("advanced_fluid_ejector_upgrade", WIPItem::new);
+    public static final RegistryObject<Item> ADVANCED_FLUID_PULLING_UPGRADE = registerItem("advanced_fluid_pulling_upgrade", WIPItem::new);
 
     public static final RegistryObject<Item> BASIC_TRANSPORTER = registerItem("basic_transporter", WIPItem::new);
     public static final RegistryObject<Item> ADVANCED_TRANSPORTER = registerItem("advanced_transporter", WIPItem::new);

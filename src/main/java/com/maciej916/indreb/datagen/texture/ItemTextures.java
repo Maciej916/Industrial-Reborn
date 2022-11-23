@@ -49,6 +49,8 @@ public class ItemTextures extends ItemModelProvider {
         registerExplosive();
         registerSimpleMachines();
         registerReactor();
+        registerBattery();
+        registerUpgrade();
     }
 
     protected void registerOres() {
@@ -413,6 +415,33 @@ public class ItemTextures extends ItemModelProvider {
         createGeneratedTexture(ModItems.FUEL_ROD_MOX_DUAL_DEPLETED, "reactor/fuel_rod_mox_dual_depleted");
         createGeneratedTexture(ModItems.FUEL_ROD_MOX_QUAD, "reactor/fuel_rod_mox_quad");
         createGeneratedTexture(ModItems.FUEL_ROD_MOX_QUAD_DEPLETED, "reactor/fuel_rod_mox_quad_depleted");
+    }
+
+    private void registerBattery() {
+        createWithChargeRatio(ModItems.BATTERY,"battery/battery");
+        createWithChargeRatio(ModItems.ADVANCED_BATTERY,"battery/advanced_battery");
+        createWithChargeRatio(ModItems.ENERGY_CRYSTAL,"battery/energy_crystal");
+        createWithChargeRatio(ModItems.LAPOTRON_CRYSTAL,"battery/lapotron_crystal");
+
+        createWithChargeRatio(ModItems.CHARGING_BATTERY,"battery/charging_battery");
+        createWithChargeRatio(ModItems.ADVANCED_CHARGING_BATTERY,"battery/advanced_charging_battery");
+        createWithChargeRatio(ModItems.CHARGING_ENERGY_CRYSTAL,"battery/charging_energy_crystal");
+        createWithChargeRatio(ModItems.CHARGING_LAPOTRON_CRYSTAL,"battery/charging_lapotron_crystal");
+    }
+
+    private void registerUpgrade() {
+        createGeneratedTexture(ModItems.OVERCLOCKER_UPGRADE, "upgrade/overclocker");
+        createGeneratedTexture(ModItems.TRANSFORMER_UPGRADE, "upgrade/transformer");
+        createGeneratedTexture(ModItems.ENERGY_STORAGE_UPGRADE, "upgrade/energy_storage");
+        createGeneratedTexture(ModItems.REDSTONE_SIGNAL_INVERTER_UPGRADE, "upgrade/redstone_inverter");
+        createWithDirections(ModItems.EJECTOR_UPGRADE, "upgrade/ejector");
+        createWithDirections(ModItems.PULLING_UPGRADE, "upgrade/pulling");
+        createWithDirections(ModItems.FLUID_EJECTOR_UPGRADE, "upgrade/fluid_ejector");
+        createWithDirections(ModItems.FLUID_PULLING_UPGRADE, "upgrade/fluid_pulling");
+        createWithDirections(ModItems.ADVANCED_EJECTOR_UPGRADE, "upgrade/advanced_ejector");
+        createWithDirections(ModItems.ADVANCED_PULLING_UPGRADE, "upgrade/advanced_pulling");
+        createWithDirections(ModItems.ADVANCED_FLUID_EJECTOR_UPGRADE, "upgrade/advanced_fluid_ejector");
+        createWithDirections(ModItems.ADVANCED_FLUID_PULLING_UPGRADE, "upgrade/advanced_fluid_pulling");
     }
 
 

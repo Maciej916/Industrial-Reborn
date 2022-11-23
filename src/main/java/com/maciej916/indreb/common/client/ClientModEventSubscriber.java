@@ -1,6 +1,7 @@
 package com.maciej916.indreb.common.client;
 
 import com.maciej916.indreb.IndReb;
+import com.maciej916.indreb.common.api.item.base.BaseElectricItem;
 import com.maciej916.indreb.common.api.item.base.BaseFluidItem;
 import com.maciej916.indreb.common.block.ModBlocks;
 import com.maciej916.indreb.common.block.impl.explosive.nuke.ScreenNuke;
@@ -18,6 +19,7 @@ import com.maciej916.indreb.common.entity.ModEntityTypes;
 import com.maciej916.indreb.common.fluid.impl.*;
 import com.maciej916.indreb.common.item.ModItems;
 import com.maciej916.indreb.common.item.impl.tool.Nanosaber;
+import com.maciej916.indreb.common.item.impl.upgrade.PushPullUpgrade;
 import com.maciej916.indreb.common.screen.ModMenuTypes;
 import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.client.renderer.BiomeColors;
@@ -101,28 +103,28 @@ public final class ClientModEventSubscriber {
 //
 //			MenuScreens.register(ModMenuTypes.NUCLEAR_REACTOR.get(), ScreenNuclearReactor::new);
 
-//
-//			ItemProperties.register(ModItems.BATTERY.get(), new ResourceLocation(IndReb.MODID, "charge_ratio"), (stack, level, living, id) -> ElectricItem.getChargeRatioModel(stack));
-//			ItemProperties.register(ModItems.ADVANCED_BATTERY.get(), new ResourceLocation(IndReb.MODID, "charge_ratio"), (stack, level, living, id) -> ElectricItem.getChargeRatioModel(stack));
-//			ItemProperties.register(ModItems.ENERGY_CRYSTAL.get(), new ResourceLocation(IndReb.MODID, "charge_ratio"), (stack, level, living, id) -> ElectricItem.getChargeRatioModel(stack));
-//			ItemProperties.register(ModItems.LAPOTRON_CRYSTAL.get(), new ResourceLocation(IndReb.MODID, "charge_ratio"), (stack, level, living, id) -> ElectricItem.getChargeRatioModel(stack));
-//
-//			ItemProperties.register(ModItems.CHARGING_BATTERY.get(), new ResourceLocation(IndReb.MODID, "charge_ratio"), (stack, level, living, id) -> ElectricItem.getChargeRatioModel(stack));
-//			ItemProperties.register(ModItems.ADVANCED_CHARGING_BATTERY.get(), new ResourceLocation(IndReb.MODID, "charge_ratio"), (stack, level, living, id) -> ElectricItem.getChargeRatioModel(stack));
-//			ItemProperties.register(ModItems.CHARGING_ENERGY_CRYSTAL.get(), new ResourceLocation(IndReb.MODID, "charge_ratio"), (stack, level, living, id) -> ElectricItem.getChargeRatioModel(stack));
-//			ItemProperties.register(ModItems.CHARGING_LAPOTRON_CRYSTAL.get(), new ResourceLocation(IndReb.MODID, "charge_ratio"), (stack, level, living, id) -> ElectricItem.getChargeRatioModel(stack));
+
+			ItemProperties.register(ModItems.BATTERY.get(), new ResourceLocation(IndReb.MODID, "charge_ratio"), (stack, level, living, id) -> BaseElectricItem.getChargeRatioModel(stack));
+			ItemProperties.register(ModItems.ADVANCED_BATTERY.get(), new ResourceLocation(IndReb.MODID, "charge_ratio"), (stack, level, living, id) -> BaseElectricItem.getChargeRatioModel(stack));
+			ItemProperties.register(ModItems.ENERGY_CRYSTAL.get(), new ResourceLocation(IndReb.MODID, "charge_ratio"), (stack, level, living, id) -> BaseElectricItem.getChargeRatioModel(stack));
+			ItemProperties.register(ModItems.LAPOTRON_CRYSTAL.get(), new ResourceLocation(IndReb.MODID, "charge_ratio"), (stack, level, living, id) -> BaseElectricItem.getChargeRatioModel(stack));
+
+			ItemProperties.register(ModItems.CHARGING_BATTERY.get(), new ResourceLocation(IndReb.MODID, "charge_ratio"), (stack, level, living, id) -> BaseElectricItem.getChargeRatioModel(stack));
+			ItemProperties.register(ModItems.ADVANCED_CHARGING_BATTERY.get(), new ResourceLocation(IndReb.MODID, "charge_ratio"), (stack, level, living, id) -> BaseElectricItem.getChargeRatioModel(stack));
+			ItemProperties.register(ModItems.CHARGING_ENERGY_CRYSTAL.get(), new ResourceLocation(IndReb.MODID, "charge_ratio"), (stack, level, living, id) -> BaseElectricItem.getChargeRatioModel(stack));
+			ItemProperties.register(ModItems.CHARGING_LAPOTRON_CRYSTAL.get(), new ResourceLocation(IndReb.MODID, "charge_ratio"), (stack, level, living, id) -> BaseElectricItem.getChargeRatioModel(stack));
 
 			ItemProperties.register(ModItems.NANO_SABER.get(), new ResourceLocation(IndReb.MODID, "active"), (stack, level, living, id) -> Nanosaber.isActivated(stack));
 
-//			ItemProperties.register(ModItems.EJECTOR_UPGRADE.get(), new ResourceLocation(IndReb.MODID, "direction"), (stack, level, living, id) -> ItemDirectionalUpgrade.getDirection(stack));
-//			ItemProperties.register(ModItems.PULLING_UPGRADE.get(), new ResourceLocation(IndReb.MODID, "direction"), (stack, level, living, id) -> ItemDirectionalUpgrade.getDirection(stack));
-//			ItemProperties.register(ModItems.FLUID_EJECTOR_UPGRADE.get(), new ResourceLocation(IndReb.MODID, "direction"), (stack, level, living, id) -> ItemDirectionalUpgrade.getDirection(stack));
-//			ItemProperties.register(ModItems.FLUID_EJECTOR_UPGRADE.get(), new ResourceLocation(IndReb.MODID, "direction"), (stack, level, living, id) -> ItemDirectionalUpgrade.getDirection(stack));
-//			ItemProperties.register(ModItems.ADVANCED_EJECTOR_UPGRADE.get(), new ResourceLocation(IndReb.MODID, "direction"), (stack, level, living, id) -> ItemDirectionalUpgrade.getDirection(stack));
-//			ItemProperties.register(ModItems.ADVANCED_PULLING_UPGRADE.get(), new ResourceLocation(IndReb.MODID, "direction"), (stack, level, living, id) -> ItemDirectionalUpgrade.getDirection(stack));
-//			ItemProperties.register(ModItems.ADVANCED_FLUID_EJECTOR_UPGRADE.get(), new ResourceLocation(IndReb.MODID, "direction"), (stack, level, living, id) -> ItemDirectionalUpgrade.getDirection(stack));
-//			ItemProperties.register(ModItems.ADVANCED_FLUID_PULLING_UPGRADE.get(), new ResourceLocation(IndReb.MODID, "direction"), (stack, level, living, id) -> ItemDirectionalUpgrade.getDirection(stack));
-//			ItemProperties.register(ModItems.ADVANCED_FLUID_PULLING_UPGRADE.get(), new ResourceLocation(IndReb.MODID, "direction"), (stack, level, living, id) -> ItemDirectionalUpgrade.getDirection(stack));
+			ItemProperties.register(ModItems.EJECTOR_UPGRADE.get(), new ResourceLocation(IndReb.MODID, "direction"), (stack, level, living, id) -> PushPullUpgrade.getDirection(stack));
+			ItemProperties.register(ModItems.PULLING_UPGRADE.get(), new ResourceLocation(IndReb.MODID, "direction"), (stack, level, living, id) -> PushPullUpgrade.getDirection(stack));
+			ItemProperties.register(ModItems.FLUID_EJECTOR_UPGRADE.get(), new ResourceLocation(IndReb.MODID, "direction"), (stack, level, living, id) -> PushPullUpgrade.getDirection(stack));
+			ItemProperties.register(ModItems.FLUID_EJECTOR_UPGRADE.get(), new ResourceLocation(IndReb.MODID, "direction"), (stack, level, living, id) -> PushPullUpgrade.getDirection(stack));
+			ItemProperties.register(ModItems.ADVANCED_EJECTOR_UPGRADE.get(), new ResourceLocation(IndReb.MODID, "direction"), (stack, level, living, id) -> PushPullUpgrade.getDirection(stack));
+			ItemProperties.register(ModItems.ADVANCED_PULLING_UPGRADE.get(), new ResourceLocation(IndReb.MODID, "direction"), (stack, level, living, id) -> PushPullUpgrade.getDirection(stack));
+			ItemProperties.register(ModItems.ADVANCED_FLUID_EJECTOR_UPGRADE.get(), new ResourceLocation(IndReb.MODID, "direction"), (stack, level, living, id) -> PushPullUpgrade.getDirection(stack));
+			ItemProperties.register(ModItems.ADVANCED_FLUID_PULLING_UPGRADE.get(), new ResourceLocation(IndReb.MODID, "direction"), (stack, level, living, id) -> PushPullUpgrade.getDirection(stack));
+			ItemProperties.register(ModItems.ADVANCED_FLUID_PULLING_UPGRADE.get(), new ResourceLocation(IndReb.MODID, "direction"), (stack, level, living, id) -> PushPullUpgrade.getDirection(stack));
 
 			ItemBlockRenderTypes.setRenderLayer(Biogas.STILL_FLUID, RenderType.translucent());
 			ItemBlockRenderTypes.setRenderLayer(Biogas.FLOWING_FLUID, RenderType.translucent());
