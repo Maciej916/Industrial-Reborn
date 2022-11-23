@@ -21,4 +21,5 @@ public interface IBaseProgress {
         if (currentProgress() <= 0 || getProgressMax() <= 0) return 0;
         return (currentProgress() / getProgressMax())  * 100;
     }
+
 }

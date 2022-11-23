@@ -27,7 +27,7 @@ public class ReactorMultiBlock implements IMultiBlockType {
         }
     }
 
-    public static void toggleMultiBlock(Level level, BlockPos pos, BlockState state, Player player) {
+    public static boolean toggleMultiBlock(Level level, BlockPos pos, BlockState state, Player player) {
         if (!level.isClientSide()) {
             ReactorPartIndex formed = state.getValue(BlockStateHelper.REACTOR_PART);
             if (formed == ReactorPartIndex.UNFORMED) {
@@ -36,14 +36,16 @@ public class ReactorMultiBlock implements IMultiBlockType {
                 } else {
                     player.displayClientMessage(EnumLang.REACTOR_NOT_VALID.getTranslationComponent().withStyle(ChatFormatting.RED) ,true);
                 }
+                return true;
             } else {
-                if (MultiBlockTools.breakMultiblock(ReactorMultiBlock.INSTANCE, level, pos, state, state)) {
-                    player.displayClientMessage(EnumLang.REACTOR_BROKEN.getTranslationComponent().withStyle(ChatFormatting.RED) ,true);
-                } else {
-                    player.displayClientMessage(EnumLang.REACTOR_FAILED.getTranslationComponent().withStyle(ChatFormatting.RED) ,true);
-                }
+//                if (MultiBlockTools.breakMultiblock(ReactorMultiBlock.INSTANCE, level, pos, state, state)) {
+//                    player.displayClientMessage(EnumLang.REACTOR_BROKEN.getTranslationComponent().withStyle(ChatFormatting.RED) ,true);
+//                } else {
+//                    player.displayClientMessage(EnumLang.REACTOR_FAILED.getTranslationComponent().withStyle(ChatFormatting.RED) ,true);
+//                }
             }
         }
+        return false;
     }
 
     @Override

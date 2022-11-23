@@ -7,6 +7,8 @@ import com.maciej916.indreb.common.capability.item.UpgradesItemStackHandler;
 
 public interface IIndRebBlockEntity {
 
+    boolean hasMenu();
+
     boolean hasEnergyStorage();
     boolean hasBaseStorage();
     boolean hasElectricStorage();

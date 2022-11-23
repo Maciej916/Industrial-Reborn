@@ -48,6 +48,7 @@ public class ItemTextures extends ItemModelProvider {
         registerArmour();
         registerExplosive();
         registerSimpleMachines();
+        registerReactor();
     }
 
     protected void registerOres() {
@@ -372,6 +373,46 @@ public class ItemTextures extends ItemModelProvider {
 
     private void registerSimpleMachines() {
         createWithBlock(ModItems.IRON_FURNACE, "iron_furnace");
+    }
+
+    private void registerReactor() {
+        createGeneratedTexture(ModItems.SMALL_COOLANT_CELL, "reactor/small_coolant_cell");
+        createGeneratedTexture(ModItems.MEDIUM_COOLANT_CELL, "reactor/medium_coolant_cell");
+        createGeneratedTexture(ModItems.LARGE_COOLANT_CELL, "reactor/large_coolant_cell");
+
+        createGeneratedTexture(ModItems.HEAT_EXCHANGER, "reactor/heat_exchanger");
+        createGeneratedTexture(ModItems.HEAT_VENT, "reactor/heat_vent");
+        createGeneratedTexture(ModItems.OVERCLOCKED_HEAT_VENT, "reactor/overclocked_heat_vent");
+        createGeneratedTexture(ModItems.ADVANCED_HEAT_EXCHANGER, "reactor/advanced_heat_exchanger");
+        createGeneratedTexture(ModItems.ADVANCED_HEAT_VENT, "reactor/advanced_heat_vent");
+        createGeneratedTexture(ModItems.COMPONENT_HEAT_EXCHANGER, "reactor/component_heat_exchanger");
+        createGeneratedTexture(ModItems.COMPONENT_HEAT_VENT, "reactor/component_heat_vent");
+        createGeneratedTexture(ModItems.CONTAINMENT_REACTOR_PLATING, "reactor/containment_reactor_plating");
+        createGeneratedTexture(ModItems.HEAT_CAPACITY_REACTOR_PLATING, "reactor/heat_capacity_reactor_plating");
+        createGeneratedTexture(ModItems.HEATING_CELL, "reactor/heating_cell");
+        createGeneratedTexture(ModItems.REACTOR_HEAT_EXCHANGER, "reactor/reactor_heat_exchanger");
+        createGeneratedTexture(ModItems.REACTOR_HEAT_VENT, "reactor/reactor_heat_vent");
+        createGeneratedTexture(ModItems.REACTOR_PLATING, "reactor/reactor_plating");
+        createGeneratedTexture(ModItems.RSH_CONDENSATOR, "reactor/rsh_condensator");
+        createGeneratedTexture(ModItems.ZLH_CONDENSATOR, "reactor/zlh_condensator");
+        createGeneratedTexture(ModItems.NEUTRON_REFLECTOR, "reactor/neutron_reflector");
+        createGeneratedTexture(ModItems.THICK_NEUTRON_REFLECTOR, "reactor/thick_neutron_reflector");
+        createGeneratedTexture(ModItems.IRIDIUM_NEUTRON_REFLECTOR, "reactor/iridium_neutron_reflector");
+
+        createGeneratedTexture(ModItems.FUEL_ROD, "reactor/fuel_rod");
+        createGeneratedTexture(ModItems.FUEL_ROD_URANIUM, "reactor/fuel_rod_uranium");
+        createGeneratedTexture(ModItems.FUEL_ROD_URANIUM_DEPLETED, "reactor/fuel_rod_uranium_depleted");
+        createGeneratedTexture(ModItems.FUEL_ROD_URANIUM_DUAL, "reactor/fuel_rod_uranium_dual");
+        createGeneratedTexture(ModItems.FUEL_ROD_URANIUM_DUAL_DEPLETED, "reactor/fuel_rod_uranium_dual_depleted");
+        createGeneratedTexture(ModItems.FUEL_ROD_URANIUM_QUAD, "reactor/fuel_rod_uranium_quad");
+        createGeneratedTexture(ModItems.FUEL_ROD_URANIUM_QUAD_DEPLETED, "reactor/fuel_rod_uranium_quad_depleted");
+
+        createGeneratedTexture(ModItems.FUEL_ROD_MOX, "reactor/fuel_rod_mox");
+        createGeneratedTexture(ModItems.FUEL_ROD_MOX_DEPLETED, "reactor/fuel_rod_mox_depleted");
+        createGeneratedTexture(ModItems.FUEL_ROD_MOX_DUAL, "reactor/fuel_rod_mox_dual");
+        createGeneratedTexture(ModItems.FUEL_ROD_MOX_DUAL_DEPLETED, "reactor/fuel_rod_mox_dual_depleted");
+        createGeneratedTexture(ModItems.FUEL_ROD_MOX_QUAD, "reactor/fuel_rod_mox_quad");
+        createGeneratedTexture(ModItems.FUEL_ROD_MOX_QUAD_DEPLETED, "reactor/fuel_rod_mox_quad_depleted");
     }
 
 

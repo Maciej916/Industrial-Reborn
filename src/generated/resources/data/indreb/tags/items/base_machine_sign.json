@@ -1,0 +1,14 @@
+{
+  "values": [
+    "indreb:yellow_stripes_block_left",
+    "indreb:yellow_stripes_block_right",
+    "indreb:radioactive_hazard_sign_block",
+    "indreb:bio_hazard_sign_block",
+    "indreb:explosion_hazard_sign_block",
+    "indreb:fire_hazard_sign_block",
+    "indreb:acid_hazard_sign_block",
+    "indreb:magic_hazard_sign_block",
+    "indreb:frost_hazard_sign_block",
+    "indreb:noise_hazard_sign_block"
+  ]
+}

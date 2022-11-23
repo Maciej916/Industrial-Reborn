@@ -149,6 +149,87 @@ public class TagsItem extends ItemTagsProvider {
                 .add(ModItems.RUBBER_BOOTS.get())
         ;
 
+        /* REACTOR COMPONENTS */
+
+        tag(ModTagsItem.REACTOR_COMPONENTS)
+                .add(ModItems.SMALL_COOLANT_CELL.get())
+                .add(ModItems.MEDIUM_COOLANT_CELL.get())
+                .add(ModItems.LARGE_COOLANT_CELL.get())
+                .add(ModItems.HEAT_VENT.get())
+                .add(ModItems.OVERCLOCKED_HEAT_VENT.get())
+                .add(ModItems.ADVANCED_HEAT_VENT.get())
+                .add(ModItems.HEAT_EXCHANGER.get())
+                .add(ModItems.ADVANCED_HEAT_EXCHANGER.get())
+                .add(ModItems.COMPONENT_HEAT_EXCHANGER.get())
+                .add(ModItems.COMPONENT_HEAT_VENT.get())
+                .add(ModItems.CONTAINMENT_REACTOR_PLATING.get())
+                .add(ModItems.HEAT_CAPACITY_REACTOR_PLATING.get())
+                .add(ModItems.HEATING_CELL.get())
+                .add(ModItems.REACTOR_HEAT_EXCHANGER.get())
+                .add(ModItems.REACTOR_HEAT_VENT.get())
+                .add(ModItems.REACTOR_PLATING.get())
+                .add(ModItems.RSH_CONDENSATOR.get())
+                .add(ModItems.ZLH_CONDENSATOR.get())
+                .add(ModItems.NEUTRON_REFLECTOR.get())
+                .add(ModItems.THICK_NEUTRON_REFLECTOR.get())
+                .add(ModItems.IRIDIUM_NEUTRON_REFLECTOR.get())
+                .add(ModItems.FUEL_ROD_URANIUM.get())
+                .add(ModItems.FUEL_ROD_URANIUM_DEPLETED.get())
+                .add(ModItems.FUEL_ROD_URANIUM_DUAL.get())
+                .add(ModItems.FUEL_ROD_URANIUM_DUAL_DEPLETED.get())
+                .add(ModItems.FUEL_ROD_URANIUM_QUAD.get())
+                .add(ModItems.FUEL_ROD_URANIUM_QUAD_DEPLETED.get())
+                .add(ModItems.FUEL_ROD_MOX.get())
+                .add(ModItems.FUEL_ROD_MOX_DEPLETED.get())
+                .add(ModItems.FUEL_ROD_MOX_DUAL.get())
+                .add(ModItems.FUEL_ROD_MOX_DUAL_DEPLETED.get())
+                .add(ModItems.FUEL_ROD_MOX_QUAD.get())
+                .add(ModItems.FUEL_ROD_MOX_QUAD_DEPLETED.get())
+        ;
+
+        /* BASE MACHINE SIGN */
+
+        tag(ModTagsItem.BASE_MACHINE_SIGN)
+                .add(ModItems.YELLOW_STRIPES_BLOCK_LEFT.get())
+                .add(ModItems.YELLOW_STRIPES_BLOCK_RIGHT.get())
+                .add(ModItems.RADIOACTIVE_HAZARD_SIGN_BLOCK.get())
+                .add(ModItems.BIO_HAZARD_SIGN_BLOCK.get())
+                .add(ModItems.EXPLOSION_HAZARD_SIGN_BLOCK.get())
+                .add(ModItems.FIRE_HAZARD_SIGN_BLOCK.get())
+                .add(ModItems.ACID_HAZARD_SIGN_BLOCK.get())
+                .add(ModItems.MAGIC_HAZARD_SIGN_BLOCK.get())
+                .add(ModItems.FROST_HAZARD_SIGN_BLOCK.get())
+                .add(ModItems.NOISE_HAZARD_SIGN_BLOCK.get())
+        ;
+
+        /* FUSION REACTOR COMPONENTS */
+
+        tag(ModTagsItem.REACTOR_FUSION)
+                .add(ModItems.SMALL_COOLANT_CELL.get())
+                .add(ModItems.MEDIUM_COOLANT_CELL.get())
+                .add(ModItems.LARGE_COOLANT_CELL.get())
+                .add(ModItems.HEAT_VENT.get())
+                .add(ModItems.OVERCLOCKED_HEAT_VENT.get())
+                .add(ModItems.ADVANCED_HEAT_VENT.get())
+                .add(ModItems.HEAT_EXCHANGER.get())
+                .add(ModItems.ADVANCED_HEAT_EXCHANGER.get())
+                .add(ModItems.COMPONENT_HEAT_EXCHANGER.get())
+                .add(ModItems.COMPONENT_HEAT_VENT.get())
+                .add(ModItems.CONTAINMENT_REACTOR_PLATING.get())
+                .add(ModItems.HEAT_CAPACITY_REACTOR_PLATING.get())
+                .add(ModItems.REACTOR_HEAT_EXCHANGER.get())
+                .add(ModItems.REACTOR_HEAT_VENT.get())
+                .add(ModItems.REACTOR_PLATING.get())
+                .add(ModItems.NEUTRON_REFLECTOR.get())
+                .add(ModItems.THICK_NEUTRON_REFLECTOR.get())
+                .add(ModItems.IRIDIUM_NEUTRON_REFLECTOR.get())
+                .add(ModItems.FUEL_ROD_URANIUM.get())
+                .add(ModItems.FUEL_ROD_URANIUM_DEPLETED.get())
+                .add(ModItems.FUEL_ROD_URANIUM_DUAL.get())
+                .add(ModItems.FUEL_ROD_URANIUM_DUAL_DEPLETED.get())
+                .add(ModItems.FUEL_ROD_URANIUM_QUAD.get())
+                .add(ModItems.FUEL_ROD_URANIUM_QUAD_DEPLETED.get())
+        ;
 
     }
 

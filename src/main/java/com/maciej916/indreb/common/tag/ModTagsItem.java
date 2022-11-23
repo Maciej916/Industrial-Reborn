@@ -21,7 +21,9 @@ public final class ModTagsItem {
     public static final TagKey<Item> LEGGINGS = itemTag("leggings");
     public static final TagKey<Item> BOOTS = itemTag("boots");
 
-
+    public static final TagKey<Item> REACTOR_COMPONENTS = itemTag("reactor_components");
+    public static final TagKey<Item> BASE_MACHINE_SIGN = itemTag("base_machine_sign");
+    public static final TagKey<Item> REACTOR_FUSION = itemTag("reactor_fusion");
 
 
 
@@ -56,15 +58,15 @@ public final class ModTagsItem {
     public static final TagKey<Item> FORGE_INGOTS_LEAD = itemTag("forge", "ingots/lead");
     public static final TagKey<Item> FORGE_INGOTS_URANIUM = itemTag("forge", "ingots/uranium");
 
-    public static final TagKey<Item> FORGE_PLATES_COPPER = itemTag("forge", "ingots/copper");
-    public static final TagKey<Item> FORGE_PLATES_TIN = itemTag("forge", "ingots/tin");
-    public static final TagKey<Item> FORGE_PLATES_IRON = itemTag("forge", "ingots/iron");
-    public static final TagKey<Item> FORGE_PLATES_LEAD = itemTag("forge", "ingots/lead");
-    public static final TagKey<Item> FORGE_PLATES_GOLD = itemTag("forge", "ingots/gold");
-    public static final TagKey<Item> FORGE_PLATES_BRONZE = itemTag("forge", "ingots/bronze");
-    public static final TagKey<Item> FORGE_PLATES_STEEL = itemTag("forge", "ingots/steel");
-    public static final TagKey<Item> FORGE_PLATES_IRIDIUM = itemTag("forge", "ingots/iridium");
-    public static final TagKey<Item> FORGE_PLATES_LAPIS = itemTag("forge", "ingots/lapis");
+    public static final TagKey<Item> FORGE_PLATES_COPPER = itemTag("forge", "plates/copper");
+    public static final TagKey<Item> FORGE_PLATES_TIN = itemTag("forge", "plates/tin");
+    public static final TagKey<Item> FORGE_PLATES_IRON = itemTag("forge", "plates/iron");
+    public static final TagKey<Item> FORGE_PLATES_LEAD = itemTag("forge", "plates/lead");
+    public static final TagKey<Item> FORGE_PLATES_GOLD = itemTag("forge", "plates/gold");
+    public static final TagKey<Item> FORGE_PLATES_BRONZE = itemTag("forge", "plates/bronze");
+    public static final TagKey<Item> FORGE_PLATES_STEEL = itemTag("forge", "plates/steel");
+    public static final TagKey<Item> FORGE_PLATES_IRIDIUM = itemTag("forge", "plates/iridium");
+    public static final TagKey<Item> FORGE_PLATES_LAPIS = itemTag("forge", "plates/lapis");
 
     public static final TagKey<Item> FORGE_DUSTS_TIN = itemTag("forge", "dusts/tin");
     public static final TagKey<Item> FORGE_DUSTS_COPPER = itemTag("forge", "dusts/copper");
@@ -100,37 +102,4 @@ public final class ModTagsItem {
     public static TagKey<Item> itemTag(String namespace, String path) {
         return ItemTags.create(new ResourceLocation(namespace, path));
     }
-
-
-
-
-
-
-
-
-    public static final ResourceLocation TREETAPS_RES = new ResourceLocation(MODID, "treetaps");
-    public static final ResourceLocation BATTERIES_RES = new ResourceLocation(MODID, "batteries");
-    public static final ResourceLocation ELECTRICS_RES = new ResourceLocation(MODID, "electrics");
-    public static final ResourceLocation WRENCH_RES = new ResourceLocation(MODID, "wrenches");
-    public static final ResourceLocation UPGRADE_RES = new ResourceLocation(MODID, "upgrades");
-
-    public static final ResourceLocation HELMET_RES = new ResourceLocation(MODID, "helmet");
-    public static final ResourceLocation CHESTPLATE_RES = new ResourceLocation(MODID, "chestplate");
-    public static final ResourceLocation LEGGINGS_RES = new ResourceLocation(MODID, "leggings");
-    public static final ResourceLocation BOOTS_RES = new ResourceLocation(MODID, "boots");
-
-
-    // MOD
-    public static final ResourceLocation BASE_MACHINE_SIGN_TAG = new ResourceLocation(MODID, "base_machine_sign");
-    public static final ResourceLocation REACTOR_COMPONENTS_TAG = new ResourceLocation(MODID, "reactor_components");
-    public static final ResourceLocation REACTOR_FUSION_TAG = new ResourceLocation(MODID, "reactor_fusion");
-
-
-    public static final TagKey<Item> BASE_MACHINE_SIGN = ItemTags.create(BASE_MACHINE_SIGN_TAG);
-    public static final TagKey<Item> REACTOR_COMPONENTS = ItemTags.create(REACTOR_COMPONENTS_TAG);
-    public static final TagKey<Item> REACTOR_FUSION = ItemTags.create(REACTOR_FUSION_TAG);
-
-
-
-
 }

@@ -10,6 +10,7 @@ import com.maciej916.indreb.common.block.ModBlocks;
 import com.maciej916.indreb.common.blockitem.BlockItemIronScaffolding;
 import com.maciej916.indreb.common.item.impl.*;
 import com.maciej916.indreb.common.item.impl.armor.*;
+import com.maciej916.indreb.common.item.impl.reactor.*;
 import com.maciej916.indreb.common.item.impl.tool.*;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.Item;
@@ -300,7 +301,48 @@ public final class ModItems {
     public static final RegistryObject<Item> TIN_CAN = registerItem("tin_can", FoodItem::new);
     public static final RegistryObject<Item> FILLED_TIN_CAN = registerItem("filled_tin_can", FilledTinCan::new);
 
+    public static final RegistryObject<Item> SMALL_COOLANT_CELL = registerItem("small_coolant_cell", () -> new CoolantCellItem(1, 10000));
+    public static final RegistryObject<Item> MEDIUM_COOLANT_CELL = registerItem("medium_coolant_cell", () -> new CoolantCellItem(1, 30000));
+    public static final RegistryObject<Item> LARGE_COOLANT_CELL = registerItem("large_coolant_cell", () -> new CoolantCellItem(1, 60000));
 
+    public static final RegistryObject<Item> HEAT_VENT = registerItem("heat_vent", () -> new VentItem(1, 1000, 6, 0, 0));
+    public static final RegistryObject<Item> ADVANCED_HEAT_VENT = registerItem("advanced_heat_vent", () -> new VentItem(1, 1000, 12, 0, 0));
+    public static final RegistryObject<Item> REACTOR_HEAT_VENT = registerItem("reactor_heat_vent", () -> new VentItem(1, 1000, 5, 5, 0));
+    public static final RegistryObject<Item> COMPONENT_HEAT_VENT = registerItem("component_heat_vent", () -> new VentItem(1, 1, 0, 0, 4));
+    public static final RegistryObject<Item> OVERCLOCKED_HEAT_VENT = registerItem("overclocked_heat_vent", () -> new VentItem(1, 1000, 20, 36, 0));
+
+    public static final RegistryObject<Item> HEAT_EXCHANGER = registerItem("heat_exchanger", () -> new ExchangerItem(1, 2500, 12, 4));
+    public static final RegistryObject<Item> ADVANCED_HEAT_EXCHANGER = registerItem("advanced_heat_exchanger", () -> new ExchangerItem(1, 10000, 24, 8));
+    public static final RegistryObject<Item> REACTOR_HEAT_EXCHANGER = registerItem("reactor_heat_exchanger", () -> new ExchangerItem(1, 5000, 0, 72));
+    public static final RegistryObject<Item> COMPONENT_HEAT_EXCHANGER = registerItem("component_heat_exchanger", () -> new ExchangerItem(1, 5000, 36, 0));
+
+    public static final RegistryObject<Item> REACTOR_PLATING = registerItem("reactor_plating", () -> new PlatingItem(1, 1,1000, 0.9025));
+    public static final RegistryObject<Item> HEAT_CAPACITY_REACTOR_PLATING = registerItem("heat_capacity_reactor_plating", () -> new PlatingItem(1, 1,1700, 0.9801));
+    public static final RegistryObject<Item> CONTAINMENT_REACTOR_PLATING = registerItem("containment_reactor_plating", () -> new PlatingItem(1, 1,500, 0.81));
+
+    public static final RegistryObject<Item> RSH_CONDENSATOR = registerItem("rsh_condensator", () -> new CondensatorItem(1, 20000));
+    public static final RegistryObject<Item> ZLH_CONDENSATOR = registerItem("zlh_condensator", () -> new CondensatorItem(1, 100000));
+
+    public static final RegistryObject<Item> NEUTRON_REFLECTOR = registerItem("neutron_reflector", () -> new ReflectorItem(30000, 1));
+    public static final RegistryObject<Item> THICK_NEUTRON_REFLECTOR = registerItem("thick_neutron_reflector", () -> new ReflectorItem(120000, 1));
+    public static final RegistryObject<Item> IRIDIUM_NEUTRON_REFLECTOR = registerItem("iridium_neutron_reflector", () -> new ReflectorItem(1, 1));
+
+    public static final RegistryObject<Item> FUEL_ROD = registerItem("fuel_rod", MaterialItem::new);
+    public static final RegistryObject<Item> FUEL_ROD_URANIUM = registerItem("fuel_rod_uranium", () -> new FuelRodItem(20000, 1, 100, 2, 1, false));
+    public static final RegistryObject<Item> FUEL_ROD_URANIUM_DUAL = registerItem("fuel_rod_uranium_dual", () -> new FuelRodItem(20000, 1, 200, 4, 2, false));
+    public static final RegistryObject<Item> FUEL_ROD_URANIUM_QUAD = registerItem("fuel_rod_uranium_quad", () -> new FuelRodItem(20000, 1, 400, 8, 4, false));
+    public static final RegistryObject<Item> FUEL_ROD_URANIUM_DEPLETED = registerItem("fuel_rod_uranium_depleted", DepletedFuelRodItem::new);
+    public static final RegistryObject<Item> FUEL_ROD_URANIUM_DUAL_DEPLETED = registerItem("fuel_rod_uranium_dual_depleted", DepletedFuelRodItem::new);
+    public static final RegistryObject<Item> FUEL_ROD_URANIUM_QUAD_DEPLETED = registerItem("fuel_rod_uranium_quad_depleted", DepletedFuelRodItem::new);
+
+    public static final RegistryObject<Item> FUEL_ROD_MOX = registerItem("fuel_rod_mox", () -> new FuelRodItem(10000, 1, 200, 4, 2, true));
+    public static final RegistryObject<Item> FUEL_ROD_MOX_DUAL = registerItem("fuel_rod_mox_dual", () -> new FuelRodItem(10000, 1, 400, 8, 4, true));
+    public static final RegistryObject<Item> FUEL_ROD_MOX_QUAD = registerItem("fuel_rod_mox_quad", () -> new FuelRodItem(10000, 1, 400, 8, 4, true));
+    public static final RegistryObject<Item> FUEL_ROD_MOX_DEPLETED = registerItem("fuel_rod_mox_depleted", DepletedFuelRodItem::new);
+    public static final RegistryObject<Item> FUEL_ROD_MOX_DUAL_DEPLETED = registerItem("fuel_rod_mox_dual_depleted", DepletedFuelRodItem::new);
+    public static final RegistryObject<Item> FUEL_ROD_MOX_QUAD_DEPLETED = registerItem("fuel_rod_mox_quad_depleted", DepletedFuelRodItem::new);
+
+    public static final RegistryObject<Item> HEATING_CELL = registerItem("heating_cell", WIPItem::new);
 
 
 

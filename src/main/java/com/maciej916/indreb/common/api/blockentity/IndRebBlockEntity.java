@@ -57,7 +57,7 @@ import java.util.*;
 public class IndRebBlockEntity extends BaseBlockEntity implements IIndRebBlockEntity, IBlockEntityChunkSync, MenuProvider {
 
     private BasicEnergyStorage energyStorage;
-    private final LazyOptional<IEnergyStorage> energyStorageCap = LazyOptional.of(() -> energyStorage);
+    protected final LazyOptional<IEnergyStorage> energyStorageCap = LazyOptional.of(() -> energyStorage);
 
     private BaseItemStackHandler baseStorage;
     private final LazyOptional<IBaseItemStackHandler> baseStorageCap = LazyOptional.of(() -> baseStorage);
@@ -92,6 +92,11 @@ public class IndRebBlockEntity extends BaseBlockEntity implements IIndRebBlockEn
     public IndRebBlockEntity(BlockEntityType<?> type, BlockPos pos, BlockState blockState) {
         super(type, pos, blockState);
         init();
+    }
+
+    @Override
+    public boolean hasMenu() {
+        return true;
     }
 
     @Override

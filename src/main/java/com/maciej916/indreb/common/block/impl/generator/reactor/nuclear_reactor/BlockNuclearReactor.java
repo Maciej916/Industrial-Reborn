@@ -2,25 +2,35 @@ package com.maciej916.indreb.common.block.impl.generator.reactor.nuclear_reactor
 
 import com.maciej916.indreb.common.api.block.BaseMachineBlock;
 import com.maciej916.indreb.common.api.blockentity.interfaces.IIndRebBlockEntity;
-import com.maciej916.indreb.common.block.ModBlocks;
-import com.maciej916.indreb.common.multiblock.reactor.IReactorPart;
+import com.maciej916.indreb.common.api.enums.EnergyTier;
 import com.maciej916.indreb.common.api.multiblock.MultiBlockTools;
+import com.maciej916.indreb.common.block.ModBlocks;
+import com.maciej916.indreb.common.enums.EnumLang;
+import com.maciej916.indreb.common.multiblock.reactor.IReactorPart;
 import com.maciej916.indreb.common.multiblock.reactor.ReactorMultiBlock;
 import com.maciej916.indreb.common.multiblock.reactor.ReactorPartIndex;
 import com.maciej916.indreb.common.tag.ModTagsBlock;
 import com.maciej916.indreb.common.util.BlockStateHelper;
+import com.maciej916.indreb.common.util.TextComponentUtil;
+import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
+import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.MenuProvider;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraftforge.network.NetworkHooks;
 import org.jetbrains.annotations.Nullable;
+
+import java.util.List;
 
 public class BlockNuclearReactor extends BaseMachineBlock implements IReactorPart {
 
@@ -88,5 +98,15 @@ public class BlockNuclearReactor extends BaseMachineBlock implements IReactorPar
             }
         }
         return null;
+    }
+
+    @Override
+    public void appendHoverText(ItemStack pStack, @javax.annotation.Nullable BlockGetter pLevel, List<Component> pTooltip, TooltipFlag pFlag) {
+        pTooltip.add(TextComponentUtil.build(
+                Component.translatable(EnumLang.POWER_TIER.getTranslationKey()).withStyle(ChatFormatting.GRAY),
+                EnergyTier.BASIC.getLang().getTranslationComponent().withStyle(EnergyTier.BASIC.getColor()),
+                Component.literal(" - ").withStyle(ChatFormatting.GRAY),
+                EnergyTier.SUPER.getLang().getTranslationComponent().withStyle(EnergyTier.SUPER.getColor())
+        ));
     }
 }

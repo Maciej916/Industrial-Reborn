@@ -21,7 +21,9 @@ public class BlockWIP extends Block {
 
     @Override
     public void appendHoverText(ItemStack pStack, @org.jetbrains.annotations.Nullable BlockGetter pLevel, List<Component> pTooltip, TooltipFlag pFlag) {
-        pTooltip.add(Component.translatable(EnumLang.WIP.getTranslationKey()).withStyle(ChatFormatting.DARK_RED));
+        pTooltip.add(Component.translatable(EnumLang.WIP.getTranslationKey()).withStyle(ChatFormatting.RED));
         super.appendHoverText(pStack, pLevel, pTooltip, pFlag);
     }
+
+
 }

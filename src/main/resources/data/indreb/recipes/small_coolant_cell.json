@@ -1,0 +1,23 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"group": "indreb",
+	"pattern": [
+		" t ",
+		"tct",
+		" t "
+	],
+	"key": {
+		"t": {
+			"tag": "forge:plates/tin"
+		},
+		"c": {
+			"type": "forge:nbt",
+			"item": "indreb:fluid_cell",
+			"count": 1,
+			"nbt": "{Fluid:{FluidName: \"indreb:coolant\", Amount: 1000}}"
+		}
+	},
+	"result": {
+		"item": "indreb:small_coolant_cell"
+	}
+}

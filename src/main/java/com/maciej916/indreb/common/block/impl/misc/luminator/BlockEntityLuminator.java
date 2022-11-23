@@ -33,4 +33,9 @@ public class BlockEntityLuminator extends IndRebBlockEntity implements IBlockEnt
         Direction facingDirection = blockFacing.getDirection(getBlockState());
         return side.getOpposite() == facingDirection;
     }
+
+    @Override
+    public boolean hasMenu() {
+        return false;
+    }
 }

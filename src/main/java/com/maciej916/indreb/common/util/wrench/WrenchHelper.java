@@ -87,8 +87,7 @@ public class WrenchHelper {
         return (world, pos, blockState, player, clickedFace) -> {
             if (world.isClientSide() || !player.isCrouching()) return false;
             BlockState state = world.getBlockState(pos);
-            multiBlock.toggleMultiBlock(world, pos, state, player);
-            return true;
+            return multiBlock.toggleMultiBlock(world, pos, state, player);
         };
     }
 

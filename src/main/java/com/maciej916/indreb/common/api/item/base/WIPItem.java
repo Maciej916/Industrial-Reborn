@@ -19,7 +19,7 @@ public class WIPItem extends BaseItem {
 
     @Override
     public void appendHoverText(ItemStack pStack, @Nullable Level pLevel, List<Component> pTooltipComponents, TooltipFlag pIsAdvanced) {
-        pTooltipComponents.add(Component.translatable(EnumLang.WIP.getTranslationKey()).withStyle(ChatFormatting.DARK_GRAY));
+        pTooltipComponents.add(Component.translatable(EnumLang.WIP.getTranslationKey()).withStyle(ChatFormatting.RED));
         super.appendHoverText(pStack, pLevel, pTooltipComponents, pIsAdvanced);
     }
 

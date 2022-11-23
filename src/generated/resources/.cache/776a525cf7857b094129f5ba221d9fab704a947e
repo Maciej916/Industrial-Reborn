@@ -1,4 +1,4 @@
-// 1.19.2	2022-11-23T14:33:50.7061472	Industrial Reborn Tags
+// 1.19.2	2022-11-23T16:06:10.5911208	Industrial Reborn Tags
 dd5c5c1032bad3ac0f62d30456f9fd001142ce84 data/forge/tags/items/dusts/coal.json
 273a096d0c0bcf058ce031391d0910e6095a1c1f data/forge/tags/items/dusts/copper.json
 22bdb5c82051b049a9392cb4c901bce0f9ad1ae8 data/forge/tags/items/dusts/deepslate.json
@@ -9,21 +9,25 @@ c9a734631b1f2cef1fdbdd6ce9fdb5c5f15714b9 data/forge/tags/items/dusts/lead.json
 d3350d24559a3f9dc1a610fdf6926fe0d8402766 data/forge/tags/items/dusts/stone.json
 10a84ba93e34ca3ab1bec0adc1c113acf838a4da data/forge/tags/items/dusts/sulfur.json
 af85402e2ac33db80b83024b6213c2be8072ea0f data/forge/tags/items/dusts/tin.json
-71b27469411ac75fa72e24d92d2520881e52834f data/forge/tags/items/ingots/bronze.json
-13b78a70deb7bc14de542d0a3695c2419dc816e6 data/forge/tags/items/ingots/copper.json
-e60584754886d1f2b0565b74ef23f4671d81ea06 data/forge/tags/items/ingots/gold.json
-a19c14fa53625593856519164ede0d61ab58a53b data/forge/tags/items/ingots/iridium.json
-32e4b76420f8aedfcc0f333a843759c388effaa7 data/forge/tags/items/ingots/iron.json
-3b6592e2474eca81e4c28dc85f7b4d6a3264e5a7 data/forge/tags/items/ingots/lapis.json
-c39b8da1fb620b5b0dd17450c1b7651d21e998fd data/forge/tags/items/ingots/lead.json
+b2ae9a3f7c813d57eb38513c4e9c3c8b0de15170 data/forge/tags/items/ingots/bronze.json
+52e802b0aca60f40d558446da0aa0e15aa76aa89 data/forge/tags/items/ingots/lead.json
 fd303e7390bbfb85ee8ec80e973f217ec551f003 data/forge/tags/items/ingots/silver.json
-dd7c37319d743b3b395ca6e4e776a792edac0b4c data/forge/tags/items/ingots/steel.json
-f6c5b9e42ab2e81962fb8c72f1ae2c5b825cde8b data/forge/tags/items/ingots/tin.json
+d37a8d82c8cf3046beaa32f3493533dd2922548c data/forge/tags/items/ingots/steel.json
+90f3d24f2bc40d3ef260a64daaaf0060f0785b0c data/forge/tags/items/ingots/tin.json
 cba8191645ffafe4eea60510ccbc2d12a561a2b2 data/forge/tags/items/ingots/uranium.json
 584f27d5cda6624a90c02ee64a9dc93732656a81 data/forge/tags/items/ores/lead.json
 dc8b618ddd7161b490823aeb59e2df19f25dfe73 data/forge/tags/items/ores/silver.json
 0dac5adaf00177f4341412a4b9cc76d1d41929eb data/forge/tags/items/ores/tin.json
 974b6abef5c540184ab6fcc3362844c565566d34 data/forge/tags/items/ores/uranium.json
+c1b939689a464291ea82707ebcc8b8a40ae30978 data/forge/tags/items/plates/bronze.json
+13b78a70deb7bc14de542d0a3695c2419dc816e6 data/forge/tags/items/plates/copper.json
+e60584754886d1f2b0565b74ef23f4671d81ea06 data/forge/tags/items/plates/gold.json
+a19c14fa53625593856519164ede0d61ab58a53b data/forge/tags/items/plates/iridium.json
+32e4b76420f8aedfcc0f333a843759c388effaa7 data/forge/tags/items/plates/iron.json
+3b6592e2474eca81e4c28dc85f7b4d6a3264e5a7 data/forge/tags/items/plates/lapis.json
+674fdbc198f2995c7f44a4f026f31a547156c398 data/forge/tags/items/plates/lead.json
+2f5227262e252b00c121483aade1c32a425c1260 data/forge/tags/items/plates/steel.json
+64091658e624d78171eab2a743ec8738db5e4c0e data/forge/tags/items/plates/tin.json
 6e065d8c85d8e38aaebae0e37ff9ecee1bb580c2 data/forge/tags/items/raw_materials/lead.json
 643400486da50cf6ce24478aacff021fd059f46b data/forge/tags/items/raw_materials/silver.json
 18d2dbbff15f228fbf124f82ae8d0f6de60db805 data/forge/tags/items/raw_materials/tin.json
@@ -38,9 +42,12 @@ dc8b618ddd7161b490823aeb59e2df19f25dfe73 data/forge/tags/items/ores/silver.json
 1b94beefbe80f66f3ac4f25f590b3df6c7432d25 data/forge/tags/items/storage_blocks/steel.json
 986b1e61dedd379b83e96844c1d0c6d4bf7c5606 data/forge/tags/items/storage_blocks/tin.json
 66d8ff80bec42888d0889de9129df3402cee28cc data/forge/tags/items/storage_blocks/uranium.json
+b5cb5d33eec3d87c73c8ea43c6b5c48cb195671f data/indreb/tags/items/base_machine_sign.json
 ac3445a2adee4b6a73b200e14d436e05073b09fe data/indreb/tags/items/boots.json
 e06f4a87706c9ea2ae53a7daac69fe2869334753 data/indreb/tags/items/chestplate.json
 afbb1abd14136ece8f249ade335c1c6490a90bc9 data/indreb/tags/items/helmet.json
+91a1e1d10ba71ba471e5aa16a8c848ba19432a2f data/indreb/tags/items/reactor_components.json
+5f9f2f3fb83bc9b02132c5cc56248ff800631ea2 data/indreb/tags/items/reactor_fusion.json
 83dcecb3173f959e612c4908fac812225db27b21 data/indreb/tags/items/treetaps.json
 57a8d5d73e0405783d2136871a1b053ed776652f data/indreb/tags/items/wrenches.json
 d3f6e174ad9717d5ab1643dbf9dec8879d1e7323 data/minecraft/tags/items/leaves.json
