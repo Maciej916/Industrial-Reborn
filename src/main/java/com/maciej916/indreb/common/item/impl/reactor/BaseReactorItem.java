@@ -7,6 +7,7 @@ import com.maciej916.indreb.common.capability.reactor.IReactorComponentCapabilit
 import com.maciej916.indreb.common.util.CapabilityUtil;
 import com.maciej916.indreb.common.util.LazyOptionalHelper;
 import net.minecraft.ChatFormatting;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.util.Mth;
 import net.minecraft.world.item.CreativeModeTab;
@@ -82,4 +83,22 @@ public class BaseReactorItem extends BaseItem {
         return false;
     }
 
+    @Override
+    public @Nullable CompoundTag getShareTag(ItemStack stack) {
+        CompoundTag nbt = stack.getOrCreateTag();
+        stack.getCapability(ModCapabilities.REACTOR_ITEM).ifPresent(cap -> {
+            nbt.putInt("currentDamage", cap.getCurrentDamage());
+        });
+        return nbt;
+    }
+
+    @Override
+    public void readShareTag(ItemStack stack, @Nullable CompoundTag nbt) {
+        if (nbt != null) {
+            stack.getCapability(ModCapabilities.REACTOR_ITEM).ifPresent(cap -> {
+                cap.setCurrentDamage(nbt.getInt("currentDamage"));
+            });
+        }
+        super.readShareTag(stack, nbt);
+    }
 }

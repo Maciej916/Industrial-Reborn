@@ -2,9 +2,15 @@ package com.maciej916.indreb.common.block.impl.generator.reactor.nuclear_reactor
 
 import com.maciej916.indreb.IndReb;
 import com.maciej916.indreb.common.api.screen.IndRebScreen;
+import com.maciej916.indreb.common.api.screen.widget.button.GuiPlayPauseButtonWidget;
+import com.maciej916.indreb.common.block.impl.generator.reactor.screen.GuiReactorOutputWidget;
+import com.maciej916.indreb.common.block.impl.generator.reactor.screen.GuiReactorTempVar;
+import com.maciej916.indreb.common.enums.EnumLang;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
+
+import java.util.List;
 
 public class ScreenNuclearReactor extends IndRebScreen<MenuNuclearReactor> {
 
@@ -23,13 +29,19 @@ public class ScreenNuclearReactor extends IndRebScreen<MenuNuclearReactor> {
     public void initElements() {
         super.initElements();
 
-//        addRenderableOnlyWidget(new SmeltingProgressWidget(this, 80, 57, entity.progressBurn));
+        addRenderableWidget(new GuiPlayPauseButtonWidget(this, 100, 129, entity.getReactor(), entity.clickPlayPauseClient(), List.of(EnumLang.REACTOR_PLAY_PAUSE.getTranslationComponent())));
+        addRenderableOnlyWidget(new GuiReactorOutputWidget(this, entity));
+        addRenderableOnlyWidget(new GuiReactorTempVar(this, entity));
     }
 
     @Override
     public void updateData() {
         super.updateData();
-//        entity.progressBurn.setContainerDataBoth(menu.getData().get(1), menu.getData().get(2));
+        entity.getReactor().setEnabled(menu.getData().get(0) == 1);
+        entity.getReactor().setVentedHeat(menu.getData().get(1));
+        entity.getReactor().setCurrentIEOutput(menu.getData().get(2));
+        entity.getReactor().setCurrentHeat(menu.getData().get(3));
+        entity.getReactor().setMaxHeat(menu.getData().get(4));
     }
 
     @Override

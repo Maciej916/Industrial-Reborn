@@ -60,11 +60,13 @@ public enum EnumLang {
     STOP_REPLICATION("stop_replication", "tooltip"),
     SINGLE_RUN("single_run", "tooltip"),
     REPEAT_RUN("repeat_run", "tooltip"),
+    REACTOR_PLAY_PAUSE("reactor_play_pause", "tooltip"),
 
     REACTOR_FORMED("reactor_formed", "system"),
     REACTOR_BROKEN("reactor_broken", "system"),
     REACTOR_NOT_VALID("reactor_not_valid", "system"),
     REACTOR_FAILED("reactor_failed", "system"),
+
 
     CHANCE("chance", "jei");
 

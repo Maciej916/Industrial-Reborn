@@ -151,8 +151,6 @@ public class BasicEnergyStorage implements IEnergyStorage, IBaseProgress, INBTSe
     @Override
     public void setEnergyTier(EnergyTier tier) {
         this.energyTier = tier;
-
-        System.out.println("setEnergyTier");
         updated();
     }
 

@@ -12,6 +12,8 @@ import com.maciej916.indreb.common.capability.reactor.IReactorComponentCapabilit
 import com.maciej916.indreb.common.item.ModItems;
 import com.maciej916.indreb.common.multiblock.reactor.Reactor;
 import com.maciej916.indreb.common.multiblock.reactor.ReactorPartIndex;
+import com.maciej916.indreb.common.network.ModNetworking;
+import com.maciej916.indreb.common.network.packet.PacketPlayPauseReactor;
 import com.maciej916.indreb.common.tag.ModTagsItem;
 import com.maciej916.indreb.common.util.BlockStateHelper;
 import com.maciej916.indreb.common.util.CapabilityUtil;
@@ -19,6 +21,7 @@ import com.maciej916.indreb.common.util.StackHandlerHelper;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
@@ -34,10 +37,10 @@ import java.util.ArrayList;
 
 public class BlockEntityNuclearReactor extends IndRebBlockEntity {
 
-    public static final int SYNC_DATA_SLOTS = 0;
+    public static final int SYNC_DATA_SLOTS = 5;
     protected final ContainerData data;
 
-    protected Reactor reactor = new Reactor();
+    private final Reactor reactor = new Reactor();
 
     public BlockEntityNuclearReactor(BlockPos pos, BlockState blockState) {
         super(ModBlockEntities.NUCLEAR_REACTOR.get(), pos, blockState);
@@ -46,7 +49,11 @@ public class BlockEntityNuclearReactor extends IndRebBlockEntity {
             @Override
             public int get(int index) {
                 return switch (index) {
-
+                    case 0 -> BlockEntityNuclearReactor.this.getReactor().getEnabled() ? 1 : 0;
+                    case 1 -> BlockEntityNuclearReactor.this.getReactor().getVentedHeat();
+                    case 2 -> BlockEntityNuclearReactor.this.getReactor().getCurrentIEOutput();
+                    case 3 -> BlockEntityNuclearReactor.this.getReactor().getCurrentHeat();
+                    case 4 -> BlockEntityNuclearReactor.this.getReactor().getMaxHeat();
 
                     default -> 0;
                 };
@@ -55,6 +62,11 @@ public class BlockEntityNuclearReactor extends IndRebBlockEntity {
             @Override
             public void set(int index, int value) {
                 switch (index) {
+                    case 0 -> BlockEntityNuclearReactor.this.getReactor().setEnabled(value == 1);
+                    case 1 -> BlockEntityNuclearReactor.this.getReactor().setVentedHeat(value);
+                    case 2 -> BlockEntityNuclearReactor.this.getReactor().setCurrentIEOutput(value);
+                    case 3 -> BlockEntityNuclearReactor.this.getReactor().setCurrentHeat(value);
+                    case 4 -> BlockEntityNuclearReactor.this.getReactor().setMaxHeat(value);
 
                 }
             }
@@ -74,9 +86,6 @@ public class BlockEntityNuclearReactor extends IndRebBlockEntity {
     @Override
     public void tickWork() {
         boolean isFormed = getBlockState().getValue(BlockStateHelper.REACTOR_PART) != ReactorPartIndex.UNFORMED;
-
-        System.out.println(isFormed);
-
 
         if (baseSlotsChangedForTick.size() > 0) {
             for (int slotId: baseSlotsChangedForTick) {
@@ -111,8 +120,6 @@ public class BlockEntityNuclearReactor extends IndRebBlockEntity {
                 }
             }
         }
-
-        reactor.setEnabled(true);
 
         if (level.getGameTime() % 20 == 0 && isFormed) {
             reactor.clearVentedHeat();
@@ -195,22 +202,27 @@ public class BlockEntityNuclearReactor extends IndRebBlockEntity {
             System.out.println(reactor.getCurrentHeat());
             System.out.println(reactor.getMaxHeat());
 
-            if (reactor.getCurrentHeat() >= reactor.getMaxHeat()) {
-                reactor.explodeReactor(level, getBlockPos(), totalRodCount);
-            }
 
-            setChanged();
-        }
-
-        if (reactor.getCurrentIEOutput() > 0 && !reactor.isFluid()) {
-            for (EnergyTier tier: EnergyTier.values()) {
-                if (tier.getBasicTransfer() > reactor.getCurrentIEOutput() / 20) {
-                    getEnergyStorage().setMaxEnergy(tier.getBasicTransfer());
-                    getEnergyStorage().setEnergyTier(tier);
-                    break;
+            if (reactor.getEnabled()) {
+                if (reactor.getCurrentHeat() >= reactor.getMaxHeat()) {
+                    reactor.explodeReactor((ServerLevel) level, getBlockPos(), totalRodCount);
                 }
             }
 
+            setChanged();
+
+            for (EnergyTier tier: EnergyTier.values()) {
+                if (tier.getBasicTransfer() > reactor.getCurrentIEOutput() / 20) {
+                    getEnergyStorage().setMaxEnergy(tier.getBasicTransfer());
+                    if (getEnergyStorage().energyTier() != tier) {
+                        getEnergyStorage().setEnergyTier(tier);
+                    }
+                    break;
+                }
+            }
+        }
+
+        if (reactor.getCurrentIEOutput() > 0 && !reactor.isFluid()) {
             int generateEnergy = getEnergyStorage().generateEnergy(reactor.getCurrentIEOutput() / 20, true);
             if (generateEnergy > 0) {
                 getEnergyStorage().generateEnergy(generateEnergy, false);
@@ -252,6 +264,7 @@ public class BlockEntityNuclearReactor extends IndRebBlockEntity {
     public void load(CompoundTag tag) {
         super.load(tag);
         reactor.deserializeNBT(tag.getCompound("reactor"));
+        reactor.initComponents(getBaseStorage());
     }
 
     @Override
@@ -273,5 +286,17 @@ public class BlockEntityNuclearReactor extends IndRebBlockEntity {
         }
 
         return super.getCapability(cap, side);
+    }
+
+    public Runnable clickPlayPauseClient() {
+        return () -> ModNetworking.INSTANCE.sendToServer(new PacketPlayPauseReactor(getBlockPos()));
+    }
+
+    public void clickPlayPauseServer() {
+        reactor.setEnabled(!reactor.getEnabled());
+    }
+
+    public Reactor getReactor() {
+        return reactor;
     }
 }

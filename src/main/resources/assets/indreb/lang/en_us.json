@@ -475,6 +475,7 @@
   "tooltip.indreb.repeat_run": "Repeat Run",
   "tooltip.indreb.durability": "Durability: %s/%s",
   "tooltip.indreb.core_temperature": "Core Temperature: %s",
+  "tooltip.indreb.reactor_play_pause": "Start / Stop The Reactor",
 
 
   "_comment": "Upgrade",
@@ -537,8 +538,8 @@
 
 
   "_comment": "System",
-  "system.indreb.reactor_formed": "Assembled Nuclear Reactor Multiblock",
-  "system.indreb.reactor_broken": "Disassembled Nuclear Reactor Multiblock",
+  "system.indreb.reactor_formed": "Assembled Nuclear Reactor",
+  "system.indreb.reactor_broken": "Disassembled Nuclear Reactor",
   "system.indreb.reactor_not_valid": "This is not a valid Reactor Multiblock",
   "system.indreb.reactor_failed": "Failed to break multiblock",
 

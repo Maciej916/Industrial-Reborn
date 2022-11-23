@@ -674,4 +674,12 @@ public class IndRebBlockEntity extends BaseBlockEntity implements IIndRebBlockEn
             ModNetworking.sendToTrackingChunk(getLevel(), getBlockPos(), new PacketFluidSync(entityFluid.getStoredFluids(), getBlockPos()));
         }
     }
+
+    public void setBlockUpdated() {
+        if (level != null) {
+            setChanged();
+            level.setBlockAndUpdate(getBlockPos(), getBlockState());
+            level.sendBlockUpdated(getBlockPos(), getBlockState(), getBlockState(), 2);
+        }
+    }
 }

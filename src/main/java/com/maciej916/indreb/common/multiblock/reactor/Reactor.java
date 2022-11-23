@@ -1,17 +1,23 @@
 package com.maciej916.indreb.common.multiblock.reactor;
 
 import com.maciej916.indreb.common.api.blockentity.interfaces.IBaseProgress;
+import com.maciej916.indreb.common.api.blockentity.interfaces.IGetEnabled;
+import com.maciej916.indreb.common.capability.ModCapabilities;
 import com.maciej916.indreb.common.capability.reactor.IReactorComponentCapability;
+import com.maciej916.indreb.common.util.CapabilityUtil;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.world.level.Level;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.Explosion;
 import net.minecraftforge.common.util.INBTSerializable;
+import net.minecraftforge.items.ItemStackHandler;
 
-public class Reactor implements INBTSerializable<CompoundTag>, IBaseProgress {
+public class Reactor implements INBTSerializable<CompoundTag>, IBaseProgress, IGetEnabled {
 
     private final IReactorComponentCapability[][] grid = new IReactorComponentCapability[6][9];
 
-    public boolean enabled = false;
+    private boolean enabled = false;
 
     private int currentIEOutput = 0;
     private int currentHeat = 0;
@@ -66,6 +72,10 @@ public class Reactor implements INBTSerializable<CompoundTag>, IBaseProgress {
         return currentIEOutput;
     }
 
+    public void setCurrentIEOutput(int currentIEOutput) {
+        this.currentIEOutput = currentIEOutput;
+    }
+
     /**
      * @return the current heat level of the reactor.
      */
@@ -78,6 +88,10 @@ public class Reactor implements INBTSerializable<CompoundTag>, IBaseProgress {
      */
     public int getMaxHeat() {
         return maxHeat;
+    }
+
+    public void setMaxHeat(int maxHeat) {
+        this.maxHeat = maxHeat;
     }
 
     /**
@@ -130,8 +144,12 @@ public class Reactor implements INBTSerializable<CompoundTag>, IBaseProgress {
     /**
      * @return the amount of heat vented this reactor tick.
      */
-    public double getVentedHeat() {
+    public int getVentedHeat() {
         return ventedHeat;
+    }
+
+    public void setVentedHeat(int ventedHeat) {
+        this.ventedHeat = ventedHeat;
     }
 
     /**
@@ -174,7 +192,7 @@ public class Reactor implements INBTSerializable<CompoundTag>, IBaseProgress {
 
     @Override
     public float currentProgress() {
-        return (float) currentHeat / maxHeat;
+        return currentHeat;
     }
 
     @Override
@@ -182,20 +200,43 @@ public class Reactor implements INBTSerializable<CompoundTag>, IBaseProgress {
         return maxHeat;
     }
 
-
+    @Override
     public boolean getEnabled() {
         return this.enabled;
     }
 
+    @Override
     public void setEnabled(boolean enabled) {
         this.enabled = enabled;
     }
 
+    public void explodeReactor(ServerLevel level, BlockPos pos, int totalRodCount) {
+        float explosionPower = totalRodCount * 5f;
+        for (int row = 0; row < 6; row++) {
+            for (int col = 0; col < 9; col++) {
+                IReactorComponentCapability component = getComponentAt(row, col);
+                if (component != null) {
+                    explosionPower = explosionPower * (float) component.getExplosionPowerMultiplier();
+                }
+            }
+        }
 
+//        level.destroyBlock(pos, false);
+        level.explode(null, pos.getX() + 0.5D, pos.getY() + 0.5D, pos.getZ() + 0.5D, explosionPower, false, Explosion.BlockInteraction.DESTROY);
+    }
 
-    public void explodeReactor(Level level, BlockPos pos, int totalRodCount) {
-        System.out.println("explodeReactor");
-        System.out.println(totalRodCount);
+    public void initComponents(ItemStackHandler stackHandler) {
+        int slotId = 0;
+        for (int row = 0; row < 6; row++) {
+            for (int col = 0; col < 9; col++) {
+                ItemStack stack = stackHandler.getStackInSlot(slotId);
+                IReactorComponentCapability cap = CapabilityUtil.getCapabilityHelper(stack, ModCapabilities.REACTOR_ITEM).getValue();
+                if (cap != null) {
+                    setComponentAt(row, col, cap, slotId);
+                }
+                slotId++;
+            }
+        }
     }
 
 }

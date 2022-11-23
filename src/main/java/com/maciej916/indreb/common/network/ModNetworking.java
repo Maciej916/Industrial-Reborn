@@ -24,12 +24,14 @@ public class ModNetworking {
         INSTANCE = NetworkRegistry.newSimpleChannel(new ResourceLocation(MODID, "networking"), () -> "1.0", s -> true, s -> true);
         INSTANCE.registerMessage(nextID(), PacketBasicEnergySync.class, PacketBasicEnergySync::toBytes, PacketBasicEnergySync::new, PacketBasicEnergySync::handle);
         INSTANCE.registerMessage(nextID(), PacketFluidSync.class, PacketFluidSync::toBytes, PacketFluidSync::new, PacketFluidSync::handle);
-
         INSTANCE.registerMessage(nextID(), PacketExperienceSync.class, PacketExperienceSync::toBytes, PacketExperienceSync::new, PacketExperienceSync::handle);
         INSTANCE.registerMessage(nextID(), PacketExperienceCollect.class, PacketExperienceCollect::toBytes, PacketExperienceCollect::new, PacketExperienceCollect::handle);
+        INSTANCE.registerMessage(nextID(), PacketParticle.class, PacketParticle::toBytes, PacketParticle::new, PacketParticle::handle);
+        INSTANCE.registerMessage(nextID(), PacketPlayPauseReactor.class, PacketPlayPauseReactor::toBytes, PacketPlayPauseReactor::new, PacketPlayPauseReactor::handle);
+
 
 //        INSTANCE.registerMessage(nextID(), PacketExtruderRecipe.class, PacketExtruderRecipe::toBytes, PacketExtruderRecipe::new, PacketExtruderRecipe::handle);
-        INSTANCE.registerMessage(nextID(), PacketParticle.class, PacketParticle::toBytes, PacketParticle::new, PacketParticle::handle);
+
 //        INSTANCE.registerMessage(nextID(), PacketTransformerMode.class, PacketTransformerMode::toBytes, PacketTransformerMode::new, PacketTransformerMode::handle);
 
 //        INSTANCE.registerMessage(nextID(), PacketReqSyncEnergy.class, PacketReqSyncEnergy::toBytes, PacketReqSyncEnergy::new, PacketReqSyncEnergy::handle);

@@ -240,10 +240,6 @@ public final class ModItems {
     public static final RegistryObject<Item> ELECTRIC_TREETAP = registerItem("electric_treetap", () -> new ElectricTreetap(0, 10000, EnergyTier.BASIC));
     public static final RegistryObject<Item> ELECTRIC_WRENCH = registerItem("electric_wrench", () -> new ElectricWrench(0, 10000, EnergyTier.BASIC));
 
-    public static final RegistryObject<Item> BASIC_TRANSPORTER = registerItem("basic_transporter", WIPItem::new);
-    public static final RegistryObject<Item> ADVANCED_TRANSPORTER = registerItem("advanced_transporter", WIPItem::new);
-    public static final RegistryObject<Item> DEBUG_STICK = registerItem("debug_stick", DebugStick::new);
-
     public static final RegistryObject<Item> CHAINSAW = registerItem("chainsaw", () -> new ElectricChainsaw(Tiers.IRON,6.0F, -3.1F, 0, 30000, 50, 100, EnergyTier.BASIC));
     public static final RegistryObject<Item> DIAMOND_CHAINSAW = registerItem("diamond_chainsaw", () -> new ElectricChainsaw(Tiers.DIAMOND,5.0F, -3.0F, 0, 80000, 70, 120, EnergyTier.STANDARD));
     public static final RegistryObject<Item> IRIDIUM_CHAINSAW = registerItem("iridium_chainsaw", () -> new ElectricChainsaw(CustomTiers.IRIDIUM,5.0F, -3.0F, 0, 300000, 200, 400, EnergyTier.ADVANCED));
@@ -254,9 +250,13 @@ public final class ModItems {
 
     public static final RegistryObject<Item> ELECTRIC_HOE = registerItem("electric_hoe", () -> new ElectricHoe(Tiers.IRON,-2, -1.0F, 0, 10000, 50, 100, 50, EnergyTier.BASIC));
     public static final RegistryObject<Item> WIND_METER = registerItem("wind_meter", WIPItem::new);
-    public static final RegistryObject<Item> IE_METER = registerItem("ie_meter", IEMeter::new);
     public static final RegistryObject<Item> MULTI_TOOL = registerItem("multi_tool", () -> new MultiTool(Tiers.DIAMOND,-3, 0.0F, 0, 300000, 800, 1400, 500, EnergyTier.ADVANCED));
 
+    public static final RegistryObject<Item> BASIC_TRANSPORTER = registerItem("basic_transporter", WIPItem::new);
+    public static final RegistryObject<Item> ADVANCED_TRANSPORTER = registerItem("advanced_transporter", WIPItem::new);
+    public static final RegistryObject<Item> DEBUG_STICK = registerItem("debug_stick", DebugStick::new);
+
+    public static final RegistryObject<Item> IE_METER = registerItem("ie_meter", IEMeter::new);
     public static final RegistryObject<Item> NIGHTVISION_GOGGLES = registerItem("nightvision_goggles", NightVisionGoggles::new);
     public static final RegistryObject<Item> RUBBER_BOOTS = registerItem("rubber_boots", RubberBoots::new);
 

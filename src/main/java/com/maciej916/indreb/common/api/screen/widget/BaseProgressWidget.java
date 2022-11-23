@@ -4,7 +4,6 @@ import com.maciej916.indreb.IndReb;
 import com.maciej916.indreb.common.api.blockentity.interfaces.IBaseProgress;
 import com.maciej916.indreb.common.api.enums.GuiSprite;
 import com.maciej916.indreb.common.api.interfaces.screen.IGuiHelper;
-import com.maciej916.indreb.common.api.screen.widget.BaseWidget;
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.Minecraft;
@@ -60,7 +59,7 @@ public abstract class BaseProgressWidget extends BaseWidget {
 
         blit(pPoseStack, getX(), getY(), guiSprite.getOffsetLeft(), guiSprite.getOffsetTop(), guiSprite.getWidth(), guiSprite.getHeight());
 
-        float currProgress = progress.getPercentProgress();
+        float currProgress = Math.min(progress.getPercentProgress(), 100);
         int scaleX = Math.round(currProgress / 100 * guiSprite.getActiveHeight());
         int scaleY = Math.round(currProgress / 100 * guiSprite.getActiveWidth());
 
