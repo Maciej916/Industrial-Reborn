@@ -18,11 +18,22 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.Material;
 import net.minecraft.world.level.material.MaterialColor;
 import net.minecraft.world.phys.BlockHitResult;
-import net.minecraft.world.phys.Vec3;
 
 import java.util.Random;
 
 public class BlockFoamWall extends Block {
+
+    public static float getRed(int color) {
+        return (color >> 16 & 0xFF) / 255.0F;
+    }
+
+    public static float getGreen(int color) {
+        return (color >> 8 & 0xFF) / 255.0F;
+    }
+
+    public static float getBlue(int color) {
+        return (color & 0xFF) / 255.0F;
+    }
 
     public BlockFoamWall(MaterialColor color) {
         super(Block.Properties.of(Material.STONE, color).strength(5.0F, 4.0F).sound(SoundType.STONE));
@@ -38,8 +49,11 @@ public class BlockFoamWall extends Block {
                 BlockPos dropPos = blockPos.relative(blockHitResult.getDirection());
                 Random random = new Random();
                 Direction dir = blockHitResult.getDirection();
+
                 int rgbColor = painter.getColor().calculateRGBColor(MaterialColor.Brightness.NORMAL);
-                Vector3f COLOR = new Vector3f(Vec3.fromRGB24(rgbColor));
+
+//                Vector3f COLOR = new Vector3f(Vec3.fromRGB24(rgbColor));
+                Vector3f COLOR = new Vector3f(getBlue(rgbColor), getGreen(rgbColor), getRed(rgbColor));
                 for(int i = 0; i < 5; i++) {
                     double x,y,z;
                     if (dir == Direction.UP || dir == Direction.DOWN) {

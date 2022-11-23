@@ -29,6 +29,9 @@ public final class ModTagsItem {
 
 
 
+    public static final TagKey<Item> FORGE_SAND = itemTag("forge", "sand");
+    public static final TagKey<Item> FORGE_GRAVEL = itemTag("forge", "gravel");
+
     public static final TagKey<Item> FORGE_ORE_TIN = itemTag("forge", "ores/tin");
     public static final TagKey<Item> FORGE_ORE_SILVER = itemTag("forge", "ores/silver");
     public static final TagKey<Item> FORGE_ORE_URANIUM = itemTag("forge", "ores/uranium");
