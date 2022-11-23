@@ -2,6 +2,7 @@ package com.maciej916.indreb.datagen.texture;
 
 import com.maciej916.indreb.IndReb;
 import com.maciej916.indreb.common.block.ModBlocks;
+import com.maciej916.indreb.common.multiblock.reactor.ReactorPartIndex;
 import com.maciej916.indreb.common.util.BlockStateHelper;
 import net.minecraft.core.Direction;
 import net.minecraft.data.DataGenerator;
@@ -42,6 +43,7 @@ public class BlockTextures extends BlockStateProvider {
         registerGenerators();
         registerMisc();
         registerExplosives();
+        registerSimpleMachines();
     }
 
     private void registerOres() {
@@ -150,6 +152,11 @@ public class BlockTextures extends BlockStateProvider {
         createFrontActive(ModBlocks.GEO_GENERATOR, "generator/geo_generator/geo_generator");
         createFrontLeftRightActive(ModBlocks.SEMIFLUID_GENERATOR, "generator/semifluid_generator/semifluid_generator");
 
+
+        createOnlySidesActive(ModBlocks.NUCLEAR_REACTOR, "generator/reactor/nuclear_reactor/nuclear_reactor");
+        createReactorMultipartChamber(ModBlocks.REACTOR_CHAMBER, "generator/reactor/reactor_chamber/reactor_chamber","multiblock/reactor/reactor_chamber");
+        createReactorMultipartRod(ModBlocks.REACTOR_CONTROL_ROD, "generator/reactor/reactor_control_rod/reactor_control_rod","multiblock/reactor/reactor_control_rod");
+        createReactorMultipartFrame(ModBlocks.REACTOR_FRAME, "generator/reactor/reactor_frame/reactor_frame","multiblock/reactor/reactor_frame");
     }
 
     private void registerMisc() {
@@ -160,6 +167,10 @@ public class BlockTextures extends BlockStateProvider {
     private void registerExplosives() {
         createSimpleSideTopBottom(ModBlocks.INDUSTRIAL_TNT, "explosive/industrial_tnt/industrial_tnt_side", "explosive/industrial_tnt/industrial_tnt_top", "explosive/industrial_tnt/industrial_tnt_bottom");
         createSimpleSideTopBottom(ModBlocks.NUKE, "explosive/nuke/nuke_side", "explosive/nuke/nuke_top", "explosive/nuke/nuke_bottom");
+    }
+
+    private void registerSimpleMachines() {
+        createFrontActive(ModBlocks.IRON_FURNACE, "machine/simple/iron_furnace/iron_furnace");
     }
 
 
@@ -275,11 +286,31 @@ public class BlockTextures extends BlockStateProvider {
         });
     }
 
+    private void createOnlySidesActive(RegistryObject<Block> block, String path) {
+        BlockModelBuilder notActive = cubeWithParticle(block.getId().getPath(), new ResourceLocation(IndReb.MODID, "block/" + path + "_bottom"), new ResourceLocation(IndReb.MODID, "block/" + path + "_top"), new ResourceLocation(IndReb.MODID, "block/" + path + "_side"), new ResourceLocation(IndReb.MODID, "block/" + path + "_side"), new ResourceLocation(IndReb.MODID, "block/" + path + "_side"), new ResourceLocation(IndReb.MODID, "block/" + path + "_side"));
+        BlockModelBuilder active = cubeWithParticle(block.getId().getPath() + "_active", new ResourceLocation(IndReb.MODID, "block/" + path + "_bottom"), new ResourceLocation(IndReb.MODID, "block/" + path + "_top"), new ResourceLocation(IndReb.MODID, "block/" + path + "_side_active"), new ResourceLocation(IndReb.MODID, "block/" + path + "_side_active"), new ResourceLocation(IndReb.MODID, "block/" + path + "_side_active"), new ResourceLocation(IndReb.MODID, "block/" + path + "_side_active"));
+        orientedBlock(block.get(), state -> {
+            if (state.getValue(BlockStateHelper.ACTIVE_PROPERTY)) {
+                return active;
+            } else {
+                return notActive;
+            }
+        });
+    }
+
     private void createSimpleSideTopBottom(RegistryObject<Block> block, String side, String top, String bottom) {
         simpleBlock(block.get(), models().cubeBottomTop(block.getId().getPath(),
                 new ResourceLocation(IndReb.MODID, "block/" + side),
                 new ResourceLocation(IndReb.MODID, "block/" + bottom),
                 new ResourceLocation(IndReb.MODID, "block/" + top)
+        ));
+    }
+
+    private void createSimpleSideTopBottom(RegistryObject<Block> block, String path) {
+        simpleBlock(block.get(), models().cubeBottomTop(block.getId().getPath(),
+                new ResourceLocation(IndReb.MODID, "block/" + path + "_side"),
+                new ResourceLocation(IndReb.MODID, "block/" + path + "_bottom"),
+                new ResourceLocation(IndReb.MODID, "block/" + path + "_top")
         ));
     }
 
@@ -309,9 +340,190 @@ public class BlockTextures extends BlockStateProvider {
 
 
 
+    private void createReactorMultipartFrame(RegistryObject<Block> block, String path, String pathFormed) {
+
+        ModelFile unformedModel = models().cubeBottomTop(block.getId().getPath(),
+                new ResourceLocation(IndReb.MODID, "block/" + path + "_side"),
+                new ResourceLocation(IndReb.MODID, "block/" + path + "_bottom"),
+                new ResourceLocation(IndReb.MODID, "block/" + path + "_top")
+        );
+
+        ModelFile formedSide = models().withExistingParent(block.getId().getPath() + "_formed_side", "cube")
+                .texture("down", new ResourceLocation(IndReb.MODID, "block/" + pathFormed + "_side_flip"))
+                .texture("up", new ResourceLocation(IndReb.MODID, "block/multiblock/empty"))
+                .texture("north", new ResourceLocation(IndReb.MODID, "block/multiblock/empty"))
+                .texture("south", new ResourceLocation(IndReb.MODID, "block/multiblock/empty"))
+                .texture("east", new ResourceLocation(IndReb.MODID, "block/multiblock/empty"))
+                .texture("west", new ResourceLocation(IndReb.MODID, "block/" + pathFormed + "_side"))
+                .texture("particle", new ResourceLocation(IndReb.MODID, "block/" + path + "_side"));
+
+        ModelFile formedCorner = models().withExistingParent(block.getId().getPath() + "_formed_corner", "cube")
+                .texture("down", new ResourceLocation(IndReb.MODID, "block/" + pathFormed + "_angle"))
+                .texture("up", new ResourceLocation(IndReb.MODID, "block/multiblock/empty"))
+                .texture("north", new ResourceLocation(IndReb.MODID, "block/" + pathFormed + "_corner_flip"))
+                .texture("south", new ResourceLocation(IndReb.MODID, "block/multiblock/empty"))
+                .texture("east", new ResourceLocation(IndReb.MODID, "block/multiblock/empty"))
+                .texture("west", new ResourceLocation(IndReb.MODID, "block/" + pathFormed + "_corner"))
+                .texture("particle", new ResourceLocation(IndReb.MODID, "block/" + path + "_side"));
 
 
+        Function<BlockState, ModelFile> modelFunc = state -> {
+            ReactorPartIndex part = state.getValue(BlockStateHelper.REACTOR_PART);
+            if (part == ReactorPartIndex.P000 ||
+                    part == ReactorPartIndex.P002 ||
+                    part == ReactorPartIndex.P022 ||
+                    part == ReactorPartIndex.P020 ||
+                    part == ReactorPartIndex.P220 ||
+                    part == ReactorPartIndex.P200 ||
+                    part == ReactorPartIndex.P222 ||
+                    part == ReactorPartIndex.P202
+            ) {
+                return formedCorner;
+            }
 
+            if (part == ReactorPartIndex.P201 ||
+                    part == ReactorPartIndex.P221 ||
+                    part == ReactorPartIndex.P102 ||
+                    part == ReactorPartIndex.P001 ||
+                    part == ReactorPartIndex.P021 ||
+                    part == ReactorPartIndex.P100 ||
+                    part == ReactorPartIndex.P120 ||
+                    part == ReactorPartIndex.P122
+            ) {
+                return formedSide;
+            }
+
+            return unformedModel;
+        };
+
+        getVariantBuilder(block.get())
+                .forAllStates(state -> {
+                    ReactorPartIndex part = state.getValue(BlockStateHelper.REACTOR_PART);
+                    return ConfiguredModel.builder()
+                            .modelFile(modelFunc.apply(state))
+                            .rotationY(
+                                    (part == ReactorPartIndex.P200 ||
+                                            part == ReactorPartIndex.P020 ||
+                                            part == ReactorPartIndex.P100 ||
+                                            part == ReactorPartIndex.P120
+                                    ) ? 90 :
+                                    (part == ReactorPartIndex.P202 ||
+                                            part == ReactorPartIndex.P220 ||
+                                            part == ReactorPartIndex.P201 ||
+                                            part == ReactorPartIndex.P221
+                                    ) ? 180 :
+                                    (part == ReactorPartIndex.P002 ||
+                                            part == ReactorPartIndex.P222 ||
+                                            part == ReactorPartIndex.P102 ||
+                                            part == ReactorPartIndex.P122
+                                    ) ? 270 : 0
+                            )
+                            .rotationX(
+                                    (part == ReactorPartIndex.P020 ||
+                                            part == ReactorPartIndex.P220 ||
+                                            part == ReactorPartIndex.P222 ||
+                                            part == ReactorPartIndex.P022 ||
+                                            part == ReactorPartIndex.P021 ||
+                                            part == ReactorPartIndex.P120 ||
+                                            part == ReactorPartIndex.P122 ||
+                                            part == ReactorPartIndex.P221
+                                    ) ? 180 : 0
+                            )
+                            .build();
+                });
+    }
+
+    private void createReactorMultipartChamber(RegistryObject<Block> block, String path, String pathFormed) {
+
+        ModelFile unformedModel = models().cubeBottomTop(block.getId().getPath(),
+                new ResourceLocation(IndReb.MODID, "block/" + path + "_side"),
+                new ResourceLocation(IndReb.MODID, "block/" + path + "_bottom"),
+                new ResourceLocation(IndReb.MODID, "block/" + path + "_top")
+        );
+
+        ModelFile formedSide = models().withExistingParent(block.getId().getPath() + "_formed_side", "cube")
+                .texture("down", new ResourceLocation(IndReb.MODID, "block/" + pathFormed + "_bottom"))
+                .texture("up", new ResourceLocation(IndReb.MODID, "block/" + pathFormed + "_top"))
+                .texture("north", new ResourceLocation(IndReb.MODID, "block/multiblock/empty"))
+                .texture("south", new ResourceLocation(IndReb.MODID, "block/multiblock/empty"))
+                .texture("east", new ResourceLocation(IndReb.MODID, "block/multiblock/empty"))
+                .texture("west", new ResourceLocation(IndReb.MODID, "block/" + pathFormed + "_side"))
+                .texture("particle", new ResourceLocation(IndReb.MODID, "block/" + path + "_side"));
+
+        Function<BlockState, ModelFile> modelFunc = state -> {
+            ReactorPartIndex part = state.getValue(BlockStateHelper.REACTOR_PART);
+
+            if (part == ReactorPartIndex.P011 ||
+                    part == ReactorPartIndex.P110 ||
+                    part == ReactorPartIndex.P211 ||
+                    part == ReactorPartIndex.P112 ||
+                    part == ReactorPartIndex.P121 ||
+                    part == ReactorPartIndex.P101
+            ) {
+                return formedSide;
+            }
+
+            return unformedModel;
+        };
+
+        getVariantBuilder(block.get())
+                .forAllStates(state -> {
+                    ReactorPartIndex part = state.getValue(BlockStateHelper.REACTOR_PART);
+                    return ConfiguredModel.builder()
+                            .modelFile(modelFunc.apply(state))
+                            .rotationY(
+                                    part == ReactorPartIndex.P110 ? 90 :
+                                    part == ReactorPartIndex.P211 ? 180 :
+                                    part == ReactorPartIndex.P112 ? 270 : 0
+                            )
+                            .build();
+                });
+    }
+
+    private void createReactorMultipartRod(RegistryObject<Block> block, String path, String pathFormed) {
+
+        ModelFile unformedModel = models().cubeBottomTop(block.getId().getPath(),
+                new ResourceLocation(IndReb.MODID, "block/" + path + "_side"),
+                new ResourceLocation(IndReb.MODID, "block/" + path + "_bottom"),
+                new ResourceLocation(IndReb.MODID, "block/" + path + "_top")
+        );
+
+        ModelFile formedSide = models().withExistingParent(block.getId().getPath() + "_formed_side", "cube")
+                .texture("down", new ResourceLocation(IndReb.MODID, "block/multiblock/empty"))
+                .texture("up", new ResourceLocation(IndReb.MODID, "block/multiblock/empty"))
+                .texture("north", new ResourceLocation(IndReb.MODID, "block/multiblock/empty"))
+                .texture("south", new ResourceLocation(IndReb.MODID, "block/" + pathFormed + "_side_flip"))
+                .texture("east", new ResourceLocation(IndReb.MODID, "block/" + pathFormed + "_side"))
+                .texture("west", new ResourceLocation(IndReb.MODID, "block/multiblock/empty"))
+                .texture("particle", new ResourceLocation(IndReb.MODID, "block/" + path + "_side"));
+
+        Function<BlockState, ModelFile> modelFunc = state -> {
+            ReactorPartIndex part = state.getValue(BlockStateHelper.REACTOR_PART);
+
+            if (part == ReactorPartIndex.P212 ||
+                    part == ReactorPartIndex.P012 ||
+                    part == ReactorPartIndex.P010 ||
+                    part == ReactorPartIndex.P210
+            ) {
+                return formedSide;
+            }
+
+            return unformedModel;
+        };
+
+        getVariantBuilder(block.get())
+                .forAllStates(state -> {
+                    ReactorPartIndex part = state.getValue(BlockStateHelper.REACTOR_PART);
+                    return ConfiguredModel.builder()
+                            .modelFile(modelFunc.apply(state))
+                            .rotationY(
+                                    part == ReactorPartIndex.P012 ? 90 :
+                                            part == ReactorPartIndex.P010 ? 180 :
+                                                    part == ReactorPartIndex.P210 ? 270 : 0
+                            )
+                            .build();
+                });
+    }
 
 
 

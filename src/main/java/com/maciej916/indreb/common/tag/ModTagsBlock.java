@@ -9,7 +9,7 @@ import net.minecraft.world.level.block.Block;
 public final class ModTagsBlock {
 
 
-
+    public static final TagKey<Block> REACTOR_PART = blockTag("reactor_part");
 
 
 

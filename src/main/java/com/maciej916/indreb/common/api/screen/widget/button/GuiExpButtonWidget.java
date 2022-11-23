@@ -1,5 +1,6 @@
 package com.maciej916.indreb.common.api.screen.widget.button;
 
+import com.maciej916.indreb.IndReb;
 import com.maciej916.indreb.common.api.blockentity.interfaces.IHasExp;
 import com.maciej916.indreb.common.api.enums.GuiSprite;
 import com.maciej916.indreb.common.api.interfaces.screen.IGuiHelper;
@@ -12,8 +13,6 @@ import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
 
 import java.util.List;
-
-import static com.maciej916.indreb.IndReb.MODID;
 
 public class GuiExpButtonWidget extends BaseButtonWidget {
 
@@ -29,7 +28,7 @@ public class GuiExpButtonWidget extends BaseButtonWidget {
         if (isHoveredOrFocused()) {
             screen.renderComponentTooltip(pPoseStack,
                     List.of(
-                            Component.translatable("gui." + MODID + ".collect_exp").withStyle(ChatFormatting.GREEN),
+                            Component.translatable("gui." + IndReb.MODID + ".collect_exp").withStyle(ChatFormatting.GREEN),
                             Component.literal(expCollector.getStoredExperience() + " EXP")
                     ), pMouseX, pMouseY);
         }

@@ -5,13 +5,15 @@ import net.minecraftforge.items.ItemStackHandler;
 
 public class StackHandlerHelper {
 
-    public static void shrinkStack(ItemStackHandler stackHandler, int slotId, int shrinkCount) {
+    public static ItemStack shrinkStack(ItemStackHandler stackHandler, int slotId, int shrinkCount) {
         final ItemStack inputStack = stackHandler.getStackInSlot(slotId);
         inputStack.shrink(shrinkCount);
         stackHandler.setStackInSlot(slotId, inputStack.copy());
+
+        return inputStack;
     }
 
-    public static void incMachineOutputStack(ItemStackHandler stackHandler, int slotId, ItemStack resultStack) {
+    public static void addOutputStack(ItemStackHandler stackHandler, int slotId, ItemStack resultStack) {
         final ItemStack outputStack = stackHandler.getStackInSlot(slotId);
         if (outputStack.isEmpty()) {
             stackHandler.setStackInSlot(slotId, resultStack.copy());

@@ -120,8 +120,14 @@ public class TagsBlock extends BlockTagsProvider {
         tag(ModTagsBlock.FORGE_STORAGE_BLOCKS_STEEL).add(ModBlocks.STEEL_BLOCK.get());
         tag(ModTagsBlock.FORGE_STORAGE_BLOCKS_BRONZE).add(ModBlocks.BRONZE_BLOCK.get());
 
+        /* REACTOR PARTS */
 
-
+        tag(ModTagsBlock.REACTOR_PART)
+                .add(ModBlocks.REACTOR_CHAMBER.get())
+                .add(ModBlocks.REACTOR_FRAME.get())
+                .add(ModBlocks.REACTOR_CONTROL_ROD.get())
+                .add(ModBlocks.NUCLEAR_REACTOR.get())
+        ;
     }
 
     @Override

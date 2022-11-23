@@ -129,6 +129,8 @@ public final class ModItems {
     public static final RegistryObject<Item> HV_CABLE_INSULATED = fromBlock(ModBlocks.HV_CABLE_INSULATED);
     public static final RegistryObject<Item> GLASS_FIBRE_CABLE = fromBlock(ModBlocks.GLASS_FIBRE_CABLE);
 
+    public static final RegistryObject<Item> IRON_FURNACE = fromBlock(ModBlocks.IRON_FURNACE);
+
     public static final RegistryObject<Item> GENERATOR = fromBlockElectric(ModBlocks.GENERATOR);
     public static final RegistryObject<Item> SOLAR_PANEL = fromBlockElectric(ModBlocks.SOLAR_PANEL);
     public static final RegistryObject<Item> ADVANCED_SOLAR_PANEL = fromBlockElectric(ModBlocks.ADVANCED_SOLAR_PANEL);
@@ -137,9 +139,10 @@ public final class ModItems {
     public static final RegistryObject<Item> GEO_GENERATOR = fromBlockElectric(ModBlocks.GEO_GENERATOR);
     public static final RegistryObject<Item> SEMIFLUID_GENERATOR = fromBlockElectric(ModBlocks.SEMIFLUID_GENERATOR);
 
-
-
-
+    public static final RegistryObject<Item> NUCLEAR_REACTOR = fromBlockElectric(ModBlocks.NUCLEAR_REACTOR, Rarity.UNCOMMON);
+    public static final RegistryObject<Item> REACTOR_CHAMBER = fromBlock(ModBlocks.REACTOR_CHAMBER, Rarity.UNCOMMON);
+    public static final RegistryObject<Item> REACTOR_CONTROL_ROD = fromBlock(ModBlocks.REACTOR_CONTROL_ROD, Rarity.UNCOMMON);
+    public static final RegistryObject<Item> REACTOR_FRAME = fromBlock(ModBlocks.REACTOR_FRAME, Rarity.UNCOMMON);
 
 
 

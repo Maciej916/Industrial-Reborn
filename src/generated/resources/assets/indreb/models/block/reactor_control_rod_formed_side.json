@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "indreb:block/multiblock/empty",
+    "east": "indreb:block/multiblock/reactor/reactor_control_rod_side",
+    "north": "indreb:block/multiblock/empty",
+    "particle": "indreb:block/generator/reactor/reactor_control_rod/reactor_control_rod_side",
+    "south": "indreb:block/multiblock/reactor/reactor_control_rod_side_flip",
+    "up": "indreb:block/multiblock/empty",
+    "west": "indreb:block/multiblock/empty"
+  }
+}

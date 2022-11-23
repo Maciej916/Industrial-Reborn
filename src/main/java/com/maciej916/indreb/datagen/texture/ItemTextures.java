@@ -47,6 +47,7 @@ public class ItemTextures extends ItemModelProvider {
         registerElectricTools();
         registerArmour();
         registerExplosive();
+        registerSimpleMachines();
     }
 
     protected void registerOres() {
@@ -288,7 +289,10 @@ public class ItemTextures extends ItemModelProvider {
         createWithBlock(ModItems.GEO_GENERATOR, "geo_generator");
         createWithBlock(ModItems.SEMIFLUID_GENERATOR, "semifluid_generator");
 
-
+        createWithBlock(ModItems.NUCLEAR_REACTOR, "nuclear_reactor");
+        createWithBlock(ModItems.REACTOR_CHAMBER, "reactor_chamber");
+        createWithBlock(ModItems.REACTOR_CONTROL_ROD, "reactor_control_rod");
+        createWithBlock(ModItems.REACTOR_FRAME, "reactor_frame");
     }
 
     private void registerMisc() {
@@ -366,6 +370,9 @@ public class ItemTextures extends ItemModelProvider {
         createWithBlock(ModItems.NUKE, "nuke");
     }
 
+    private void registerSimpleMachines() {
+        createWithBlock(ModItems.IRON_FURNACE, "iron_furnace");
+    }
 
 
 

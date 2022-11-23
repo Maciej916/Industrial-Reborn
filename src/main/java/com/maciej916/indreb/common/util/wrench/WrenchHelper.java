@@ -3,6 +3,7 @@ package com.maciej916.indreb.common.util.wrench;
 import com.maciej916.indreb.common.api.blockentity.interfaces.IIndRebBlockEntity;
 import com.maciej916.indreb.common.api.energy.interfaces.IEnergyStorage;
 import com.maciej916.indreb.common.api.interfaces.item.IElectricItem;
+import com.maciej916.indreb.common.multiblock.reactor.ReactorMultiBlock;
 import com.maciej916.indreb.common.sound.ModSounds;
 import com.maciej916.indreb.common.util.BlockStateHelper;
 import net.minecraft.core.BlockPos;
@@ -78,6 +79,15 @@ public class WrenchHelper {
         return (world, pos, blockState, player, clickedFace) -> {
             if (world.isClientSide() || !player.isCrouching()) return false;
             dismantleBlock(blockState, world, pos);
+            return true;
+        };
+    }
+
+    public static IWrenchAction multiblockToggleAction(ReactorMultiBlock multiBlock) {
+        return (world, pos, blockState, player, clickedFace) -> {
+            if (world.isClientSide() || !player.isCrouching()) return false;
+            BlockState state = world.getBlockState(pos);
+            multiBlock.toggleMultiBlock(world, pos, state, player);
             return true;
         };
     }

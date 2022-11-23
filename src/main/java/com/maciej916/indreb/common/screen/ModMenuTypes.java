@@ -4,8 +4,10 @@ import com.maciej916.indreb.IndReb;
 import com.maciej916.indreb.common.block.impl.explosive.nuke.MenuNuke;
 import com.maciej916.indreb.common.block.impl.generator.generator.MenuGenerator;
 import com.maciej916.indreb.common.block.impl.generator.geo_generator.MenuGeoGenerator;
+import com.maciej916.indreb.common.block.impl.generator.reactor.nuclear_reactor.MenuNuclearReactor;
 import com.maciej916.indreb.common.block.impl.generator.semifluid_generator.MenuSemifluidGenerator;
 import com.maciej916.indreb.common.block.impl.generator.solar_panel.MenuSolarPanel;
+import com.maciej916.indreb.common.block.impl.machines.simple.iron_furnace.MenuIronFurnace;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.MenuType;
 import net.minecraftforge.common.extensions.IForgeMenuType;
@@ -23,10 +25,13 @@ public final class ModMenuTypes {
 
     public static final RegistryObject<MenuType<MenuNuke>> NUKE = registerMenuType(MenuNuke::new, "nuke");
 
+    public static final RegistryObject<MenuType<MenuIronFurnace>> IRON_FURNACE = registerMenuType( MenuIronFurnace::new, "iron_furnace");
+
     public static final RegistryObject<MenuType<MenuGenerator>> GENERATOR = registerMenuType(MenuGenerator::new, "generator");
     public static final RegistryObject<MenuType<MenuSolarPanel>> SOLAR_PANEL = registerMenuType(MenuSolarPanel::new, "solar_panel");
     public static final RegistryObject<MenuType<MenuGeoGenerator>> GEO_GENERATOR = registerMenuType(MenuGeoGenerator::new, "geo_generator");
     public static final RegistryObject<MenuType<MenuSemifluidGenerator>> SEMIFLUID_GENERATOR = registerMenuType(MenuSemifluidGenerator::new, "semifluid_generator");
+    public static final RegistryObject<MenuType<MenuNuclearReactor>> NUCLEAR_REACTOR = registerMenuType(MenuNuclearReactor::new, "nuclear_reactor");
 
 
     private static <T extends AbstractContainerMenu> RegistryObject<MenuType<T>> registerMenuType(IContainerFactory<T> factory, String name) {

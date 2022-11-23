@@ -67,7 +67,7 @@ public class Progress implements IProgress, INBTSerializable<CompoundTag> {
 
     @Override
     public boolean isCurrentAboveEqualMax() {
-        return currentProgress >= progressMax;
+        return currentProgress >= progressMax && progressMax != -1;
     }
 
     @Override
@@ -127,5 +127,13 @@ public class Progress implements IProgress, INBTSerializable<CompoundTag> {
     public void deserializeNBT(CompoundTag nbt) {
         this.currentProgress = nbt.getFloat("progress");
         this.progressMax = nbt.getFloat("progressMax");
+    }
+
+    @Override
+    public String toString() {
+        return "Progress{" +
+                "currentProgress=" + currentProgress +
+                ", progressMax=" + progressMax +
+                '}';
     }
 }

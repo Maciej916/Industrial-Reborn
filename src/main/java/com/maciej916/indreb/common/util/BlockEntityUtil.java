@@ -2,6 +2,7 @@ package com.maciej916.indreb.common.util;
 
 import com.maciej916.indreb.common.api.fluid.FluidStorage;
 import com.maciej916.indreb.common.api.util.Progress;
+import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.ExperienceOrb;
@@ -13,9 +14,11 @@ import net.minecraftforge.fluids.capability.IFluidHandler;
 import net.minecraftforge.fluids.capability.IFluidHandlerItem;
 import net.minecraftforge.items.ItemStackHandler;
 
+import javax.annotation.Nullable;
+
 public class BlockEntityUtil {
 
-    public static void spawnExpOrbs(ServerLevel level, Player player, int entry, float experience) {
+    public static void spawnExpOrbs(ServerLevel level, @Nullable Player player, BlockPos pos, int entry, float experience) {
         if (experience == 0.0F) {
             entry = 0;
         } else if (experience < 1.0F) {
@@ -29,7 +32,12 @@ public class BlockEntityUtil {
         while(entry > 0) {
             int j = ExperienceOrb.getExperienceValue(entry);
             entry -= j;
-            level.addFreshEntity(new ExperienceOrb(level, player.getX(), player.getY() + 0.5D, player.getZ() + 0.5D, j));
+
+            if (player == null) {
+                level.addFreshEntity(new ExperienceOrb(level, pos.getX(), pos.getY() + 0.5D, pos.getZ() + 0.5D, j));
+            } else {
+                level.addFreshEntity(new ExperienceOrb(level, player.getX(), player.getY() + 0.5D, player.getZ() + 0.5D, j));
+            }
         }
     }
 

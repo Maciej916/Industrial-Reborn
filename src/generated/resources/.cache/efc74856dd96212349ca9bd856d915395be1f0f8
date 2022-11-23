@@ -1,4 +1,4 @@
-// 1.19.2	2022-11-21T22:57:06.7181318	Item Models: indreb
+// 1.19.2	2022-11-22T16:59:31.3913257	Item Models: indreb
 ea6f48b249d5595c0bc20e39b977fa8fad0ed868 assets/indreb/models/item/acid_hazard_sign_block.json
 4df0fe2021d7b228332497f5c7d711b40f082510 assets/indreb/models/item/advanced_alloy.json
 ae66a341cac54e91dbe327c2d948550b40bfbc82 assets/indreb/models/item/advanced_circuit.json
@@ -95,6 +95,7 @@ f8d0c12112717aede863efe7c7ad15c423a2d4a1 assets/indreb/models/item/iridium_drill
 5efd669e153fdd92f65262871e6e5a59252d80ae assets/indreb/models/item/iron_chunk.json
 c96ece38c2a1fc3752bc0dfb33edacd53d5b3e9a assets/indreb/models/item/iron_dust.json
 8a786fc20bb9953a6c117d41a5092b6cb55e32c5 assets/indreb/models/item/iron_fence.json
+818bb5fa3f6029984a6e49e7646f29a5c31eac51 assets/indreb/models/item/iron_furnace.json
 cac109d12db2cd43dc623bdaded362585e7be227 assets/indreb/models/item/iron_gate.json
 ee862e36afa6727cae9080c2a365d256e4d23af6 assets/indreb/models/item/iron_plate.json
 b31b28ff045a436a949b5f368964b6af7183bf00 assets/indreb/models/item/iron_rod.json
@@ -120,6 +121,7 @@ ef2a6acce73945bbd4251ba4683349ba323ff85f assets/indreb/models/item/nano_helmet.j
 306dc925846d63b20662a6b4af3add180e51f3a5 assets/indreb/models/item/nano_saber.json
 8ddfdce8060eaa63b4bef60f737903be0d3c1445 assets/indreb/models/item/nightvision_goggles.json
 ed346b44600a4432e614c00895d991ab8bcb6ae3 assets/indreb/models/item/noise_hazard_sign_block.json
+c51bc56233700b0672d5cd0ae3c28cee4869ef9f assets/indreb/models/item/nuclear_reactor.json
 5df624abaf086aed21df9635c44deba7b3a5237b assets/indreb/models/item/nuke.json
 db7e8af8d547be016d559e7d17641f9ccfb62912 assets/indreb/models/item/painter.json
 a39ad5aeffe6c1b6357bebf06ea06246be1abee4 assets/indreb/models/item/painter_black.json
@@ -156,6 +158,9 @@ a6200729ab738fb63e47e3943cb69c199220989b assets/indreb/models/item/radioactive_h
 69449cbcbb2ce7a5787a7c933728b23bd1563161 assets/indreb/models/item/raw_tin_block.json
 554af978743166498366fcdad3b6d99bad2d54c1 assets/indreb/models/item/raw_uranium.json
 f58cb84f15bfbb84f8ce5b8af4dc2183c88a1204 assets/indreb/models/item/raw_uranium_block.json
+e22bcdd2a01cc5533c1c2ab3c878352453e369dd assets/indreb/models/item/reactor_chamber.json
+033cd11f26960958b4ca31aa2d364e4c9d5dfe92 assets/indreb/models/item/reactor_control_rod.json
+201f86f7d09647f52b5715f956ef26bb4608d2c5 assets/indreb/models/item/reactor_frame.json
 0c0a6c6b28ae925fca4ce087273c6200f0d7c32c assets/indreb/models/item/reinforced_construction_foam.json
 4aac0bdef5f0e29e168020f204608ea13e13278a assets/indreb/models/item/reinforced_door.json
 ab7683303ae3f9d939b0d3ba0d111c519858f77e assets/indreb/models/item/reinforced_foam_powder.json

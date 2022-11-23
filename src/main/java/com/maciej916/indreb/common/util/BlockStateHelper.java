@@ -4,6 +4,8 @@ import com.maciej916.indreb.common.api.interfaces.block.IStateActive;
 import com.maciej916.indreb.common.api.interfaces.block.IStateAxis;
 import com.maciej916.indreb.common.api.interfaces.block.IStateFacing;
 import com.maciej916.indreb.common.api.interfaces.block.IStateRubberLog;
+import com.maciej916.indreb.common.multiblock.reactor.IReactorPart;
+import com.maciej916.indreb.common.multiblock.reactor.ReactorPartIndex;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.item.context.BlockPlaceContext;
@@ -32,6 +34,7 @@ public class BlockStateHelper {
     public static final BooleanProperty WET_PROPERTY = BooleanProperty.create("wet");
     public static final BooleanProperty DRY_PROPERTY = BooleanProperty.create("dry");
     public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
+    public static final EnumProperty<ReactorPartIndex> REACTOR_PART = EnumProperty.create("reactor_part", ReactorPartIndex.class);
 
     public static BlockState getDefaultState(Block block, @Nonnull BlockState state) {
 
@@ -50,6 +53,10 @@ public class BlockStateHelper {
         if (block instanceof IStateRubberLog) {
             state = state.setValue(WET_PROPERTY, false);
             state = state.setValue(DRY_PROPERTY, false);
+        }
+
+        if (block instanceof IReactorPart) {
+            state = state.setValue(REACTOR_PART, ReactorPartIndex.UNFORMED);
         }
 
         return state;
@@ -77,6 +84,10 @@ public class BlockStateHelper {
             state = state.setValue(WATERLOGGED, fluidstate.getType() == Fluids.WATER);
         }
 
+        if (block instanceof IReactorPart) {
+            state = state.setValue(REACTOR_PART, ReactorPartIndex.UNFORMED);
+        }
+
         return state;
     }
 
@@ -102,6 +113,10 @@ public class BlockStateHelper {
         if (block instanceof IStateRubberLog) {
             properties.add(WET_PROPERTY);
             properties.add(DRY_PROPERTY);
+        }
+
+        if (block instanceof IReactorPart) {
+            properties.add(REACTOR_PART);
         }
 
         if (!properties.isEmpty()) {

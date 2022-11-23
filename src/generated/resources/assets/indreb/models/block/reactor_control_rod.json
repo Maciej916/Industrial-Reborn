@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "bottom": "indreb:block/generator/reactor/reactor_control_rod/reactor_control_rod_bottom",
+    "side": "indreb:block/generator/reactor/reactor_control_rod/reactor_control_rod_side",
+    "top": "indreb:block/generator/reactor/reactor_control_rod/reactor_control_rod_top"
+  }
+}

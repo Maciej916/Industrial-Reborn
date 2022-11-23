@@ -1,0 +1,844 @@
+{
+  "variants": {
+    "active=false,facing=east,reactor_part=p000": {
+      "model": "indreb:block/nuclear_reactor",
+      "y": 90
+    },
+    "active=false,facing=east,reactor_part=p001": {
+      "model": "indreb:block/nuclear_reactor",
+      "y": 90
+    },
+    "active=false,facing=east,reactor_part=p002": {
+      "model": "indreb:block/nuclear_reactor",
+      "y": 90
+    },
+    "active=false,facing=east,reactor_part=p010": {
+      "model": "indreb:block/nuclear_reactor",
+      "y": 90
+    },
+    "active=false,facing=east,reactor_part=p011": {
+      "model": "indreb:block/nuclear_reactor",
+      "y": 90
+    },
+    "active=false,facing=east,reactor_part=p012": {
+      "model": "indreb:block/nuclear_reactor",
+      "y": 90
+    },
+    "active=false,facing=east,reactor_part=p020": {
+      "model": "indreb:block/nuclear_reactor",
+      "y": 90
+    },
+    "active=false,facing=east,reactor_part=p021": {
+      "model": "indreb:block/nuclear_reactor",
+      "y": 90
+    },
+    "active=false,facing=east,reactor_part=p022": {
+      "model": "indreb:block/nuclear_reactor",
+      "y": 90
+    },
+    "active=false,facing=east,reactor_part=p100": {
+      "model": "indreb:block/nuclear_reactor",
+      "y": 90
+    },
+    "active=false,facing=east,reactor_part=p101": {
+      "model": "indreb:block/nuclear_reactor",
+      "y": 90
+    },
+    "active=false,facing=east,reactor_part=p102": {
+      "model": "indreb:block/nuclear_reactor",
+      "y": 90
+    },
+    "active=false,facing=east,reactor_part=p110": {
+      "model": "indreb:block/nuclear_reactor",
+      "y": 90
+    },
+    "active=false,facing=east,reactor_part=p111": {
+      "model": "indreb:block/nuclear_reactor",
+      "y": 90
+    },
+    "active=false,facing=east,reactor_part=p112": {
+      "model": "indreb:block/nuclear_reactor",
+      "y": 90
+    },
+    "active=false,facing=east,reactor_part=p120": {
+      "model": "indreb:block/nuclear_reactor",
+      "y": 90
+    },
+    "active=false,facing=east,reactor_part=p121": {
+      "model": "indreb:block/nuclear_reactor",
+      "y": 90
+    },
+    "active=false,facing=east,reactor_part=p122": {
+      "model": "indreb:block/nuclear_reactor",
+      "y": 90
+    },
+    "active=false,facing=east,reactor_part=p200": {
+      "model": "indreb:block/nuclear_reactor",
+      "y": 90
+    },
+    "active=false,facing=east,reactor_part=p201": {
+      "model": "indreb:block/nuclear_reactor",
+      "y": 90
+    },
+    "active=false,facing=east,reactor_part=p202": {
+      "model": "indreb:block/nuclear_reactor",
+      "y": 90
+    },
+    "active=false,facing=east,reactor_part=p210": {
+      "model": "indreb:block/nuclear_reactor",
+      "y": 90
+    },
+    "active=false,facing=east,reactor_part=p211": {
+      "model": "indreb:block/nuclear_reactor",
+      "y": 90
+    },
+    "active=false,facing=east,reactor_part=p212": {
+      "model": "indreb:block/nuclear_reactor",
+      "y": 90
+    },
+    "active=false,facing=east,reactor_part=p220": {
+      "model": "indreb:block/nuclear_reactor",
+      "y": 90
+    },
+    "active=false,facing=east,reactor_part=p221": {
+      "model": "indreb:block/nuclear_reactor",
+      "y": 90
+    },
+    "active=false,facing=east,reactor_part=p222": {
+      "model": "indreb:block/nuclear_reactor",
+      "y": 90
+    },
+    "active=false,facing=east,reactor_part=unformed": {
+      "model": "indreb:block/nuclear_reactor",
+      "y": 90
+    },
+    "active=false,facing=north,reactor_part=p000": {
+      "model": "indreb:block/nuclear_reactor"
+    },
+    "active=false,facing=north,reactor_part=p001": {
+      "model": "indreb:block/nuclear_reactor"
+    },
+    "active=false,facing=north,reactor_part=p002": {
+      "model": "indreb:block/nuclear_reactor"
+    },
+    "active=false,facing=north,reactor_part=p010": {
+      "model": "indreb:block/nuclear_reactor"
+    },
+    "active=false,facing=north,reactor_part=p011": {
+      "model": "indreb:block/nuclear_reactor"
+    },
+    "active=false,facing=north,reactor_part=p012": {
+      "model": "indreb:block/nuclear_reactor"
+    },
+    "active=false,facing=north,reactor_part=p020": {
+      "model": "indreb:block/nuclear_reactor"
+    },
+    "active=false,facing=north,reactor_part=p021": {
+      "model": "indreb:block/nuclear_reactor"
+    },
+    "active=false,facing=north,reactor_part=p022": {
+      "model": "indreb:block/nuclear_reactor"
+    },
+    "active=false,facing=north,reactor_part=p100": {
+      "model": "indreb:block/nuclear_reactor"
+    },
+    "active=false,facing=north,reactor_part=p101": {
+      "model": "indreb:block/nuclear_reactor"
+    },
+    "active=false,facing=north,reactor_part=p102": {
+      "model": "indreb:block/nuclear_reactor"
+    },
+    "active=false,facing=north,reactor_part=p110": {
+      "model": "indreb:block/nuclear_reactor"
+    },
+    "active=false,facing=north,reactor_part=p111": {
+      "model": "indreb:block/nuclear_reactor"
+    },
+    "active=false,facing=north,reactor_part=p112": {
+      "model": "indreb:block/nuclear_reactor"
+    },
+    "active=false,facing=north,reactor_part=p120": {
+      "model": "indreb:block/nuclear_reactor"
+    },
+    "active=false,facing=north,reactor_part=p121": {
+      "model": "indreb:block/nuclear_reactor"
+    },
+    "active=false,facing=north,reactor_part=p122": {
+      "model": "indreb:block/nuclear_reactor"
+    },
+    "active=false,facing=north,reactor_part=p200": {
+      "model": "indreb:block/nuclear_reactor"
+    },
+    "active=false,facing=north,reactor_part=p201": {
+      "model": "indreb:block/nuclear_reactor"
+    },
+    "active=false,facing=north,reactor_part=p202": {
+      "model": "indreb:block/nuclear_reactor"
+    },
+    "active=false,facing=north,reactor_part=p210": {
+      "model": "indreb:block/nuclear_reactor"
+    },
+    "active=false,facing=north,reactor_part=p211": {
+      "model": "indreb:block/nuclear_reactor"
+    },
+    "active=false,facing=north,reactor_part=p212": {
+      "model": "indreb:block/nuclear_reactor"
+    },
+    "active=false,facing=north,reactor_part=p220": {
+      "model": "indreb:block/nuclear_reactor"
+    },
+    "active=false,facing=north,reactor_part=p221": {
+      "model": "indreb:block/nuclear_reactor"
+    },
+    "active=false,facing=north,reactor_part=p222": {
+      "model": "indreb:block/nuclear_reactor"
+    },
+    "active=false,facing=north,reactor_part=unformed": {
+      "model": "indreb:block/nuclear_reactor"
+    },
+    "active=false,facing=south,reactor_part=p000": {
+      "model": "indreb:block/nuclear_reactor",
+      "y": 180
+    },
+    "active=false,facing=south,reactor_part=p001": {
+      "model": "indreb:block/nuclear_reactor",
+      "y": 180
+    },
+    "active=false,facing=south,reactor_part=p002": {
+      "model": "indreb:block/nuclear_reactor",
+      "y": 180
+    },
+    "active=false,facing=south,reactor_part=p010": {
+      "model": "indreb:block/nuclear_reactor",
+      "y": 180
+    },
+    "active=false,facing=south,reactor_part=p011": {
+      "model": "indreb:block/nuclear_reactor",
+      "y": 180
+    },
+    "active=false,facing=south,reactor_part=p012": {
+      "model": "indreb:block/nuclear_reactor",
+      "y": 180
+    },
+    "active=false,facing=south,reactor_part=p020": {
+      "model": "indreb:block/nuclear_reactor",
+      "y": 180
+    },
+    "active=false,facing=south,reactor_part=p021": {
+      "model": "indreb:block/nuclear_reactor",
+      "y": 180
+    },
+    "active=false,facing=south,reactor_part=p022": {
+      "model": "indreb:block/nuclear_reactor",
+      "y": 180
+    },
+    "active=false,facing=south,reactor_part=p100": {
+      "model": "indreb:block/nuclear_reactor",
+      "y": 180
+    },
+    "active=false,facing=south,reactor_part=p101": {
+      "model": "indreb:block/nuclear_reactor",
+      "y": 180
+    },
+    "active=false,facing=south,reactor_part=p102": {
+      "model": "indreb:block/nuclear_reactor",
+      "y": 180
+    },
+    "active=false,facing=south,reactor_part=p110": {
+      "model": "indreb:block/nuclear_reactor",
+      "y": 180
+    },
+    "active=false,facing=south,reactor_part=p111": {
+      "model": "indreb:block/nuclear_reactor",
+      "y": 180
+    },
+    "active=false,facing=south,reactor_part=p112": {
+      "model": "indreb:block/nuclear_reactor",
+      "y": 180
+    },
+    "active=false,facing=south,reactor_part=p120": {
+      "model": "indreb:block/nuclear_reactor",
+      "y": 180
+    },
+    "active=false,facing=south,reactor_part=p121": {
+      "model": "indreb:block/nuclear_reactor",
+      "y": 180
+    },
+    "active=false,facing=south,reactor_part=p122": {
+      "model": "indreb:block/nuclear_reactor",
+      "y": 180
+    },
+    "active=false,facing=south,reactor_part=p200": {
+      "model": "indreb:block/nuclear_reactor",
+      "y": 180
+    },
+    "active=false,facing=south,reactor_part=p201": {
+      "model": "indreb:block/nuclear_reactor",
+      "y": 180
+    },
+    "active=false,facing=south,reactor_part=p202": {
+      "model": "indreb:block/nuclear_reactor",
+      "y": 180
+    },
+    "active=false,facing=south,reactor_part=p210": {
+      "model": "indreb:block/nuclear_reactor",
+      "y": 180
+    },
+    "active=false,facing=south,reactor_part=p211": {
+      "model": "indreb:block/nuclear_reactor",
+      "y": 180
+    },
+    "active=false,facing=south,reactor_part=p212": {
+      "model": "indreb:block/nuclear_reactor",
+      "y": 180
+    },
+    "active=false,facing=south,reactor_part=p220": {
+      "model": "indreb:block/nuclear_reactor",
+      "y": 180
+    },
+    "active=false,facing=south,reactor_part=p221": {
+      "model": "indreb:block/nuclear_reactor",
+      "y": 180
+    },
+    "active=false,facing=south,reactor_part=p222": {
+      "model": "indreb:block/nuclear_reactor",
+      "y": 180
+    },
+    "active=false,facing=south,reactor_part=unformed": {
+      "model": "indreb:block/nuclear_reactor",
+      "y": 180
+    },
+    "active=false,facing=west,reactor_part=p000": {
+      "model": "indreb:block/nuclear_reactor",
+      "y": 270
+    },
+    "active=false,facing=west,reactor_part=p001": {
+      "model": "indreb:block/nuclear_reactor",
+      "y": 270
+    },
+    "active=false,facing=west,reactor_part=p002": {
+      "model": "indreb:block/nuclear_reactor",
+      "y": 270
+    },
+    "active=false,facing=west,reactor_part=p010": {
+      "model": "indreb:block/nuclear_reactor",
+      "y": 270
+    },
+    "active=false,facing=west,reactor_part=p011": {
+      "model": "indreb:block/nuclear_reactor",
+      "y": 270
+    },
+    "active=false,facing=west,reactor_part=p012": {
+      "model": "indreb:block/nuclear_reactor",
+      "y": 270
+    },
+    "active=false,facing=west,reactor_part=p020": {
+      "model": "indreb:block/nuclear_reactor",
+      "y": 270
+    },
+    "active=false,facing=west,reactor_part=p021": {
+      "model": "indreb:block/nuclear_reactor",
+      "y": 270
+    },
+    "active=false,facing=west,reactor_part=p022": {
+      "model": "indreb:block/nuclear_reactor",
+      "y": 270
+    },
+    "active=false,facing=west,reactor_part=p100": {
+      "model": "indreb:block/nuclear_reactor",
+      "y": 270
+    },
+    "active=false,facing=west,reactor_part=p101": {
+      "model": "indreb:block/nuclear_reactor",
+      "y": 270
+    },
+    "active=false,facing=west,reactor_part=p102": {
+      "model": "indreb:block/nuclear_reactor",
+      "y": 270
+    },
+    "active=false,facing=west,reactor_part=p110": {
+      "model": "indreb:block/nuclear_reactor",
+      "y": 270
+    },
+    "active=false,facing=west,reactor_part=p111": {
+      "model": "indreb:block/nuclear_reactor",
+      "y": 270
+    },
+    "active=false,facing=west,reactor_part=p112": {
+      "model": "indreb:block/nuclear_reactor",
+      "y": 270
+    },
+    "active=false,facing=west,reactor_part=p120": {
+      "model": "indreb:block/nuclear_reactor",
+      "y": 270
+    },
+    "active=false,facing=west,reactor_part=p121": {
+      "model": "indreb:block/nuclear_reactor",
+      "y": 270
+    },
+    "active=false,facing=west,reactor_part=p122": {
+      "model": "indreb:block/nuclear_reactor",
+      "y": 270
+    },
+    "active=false,facing=west,reactor_part=p200": {
+      "model": "indreb:block/nuclear_reactor",
+      "y": 270
+    },
+    "active=false,facing=west,reactor_part=p201": {
+      "model": "indreb:block/nuclear_reactor",
+      "y": 270
+    },
+    "active=false,facing=west,reactor_part=p202": {
+      "model": "indreb:block/nuclear_reactor",
+      "y": 270
+    },
+    "active=false,facing=west,reactor_part=p210": {
+      "model": "indreb:block/nuclear_reactor",
+      "y": 270
+    },
+    "active=false,facing=west,reactor_part=p211": {
+      "model": "indreb:block/nuclear_reactor",
+      "y": 270
+    },
+    "active=false,facing=west,reactor_part=p212": {
+      "model": "indreb:block/nuclear_reactor",
+      "y": 270
+    },
+    "active=false,facing=west,reactor_part=p220": {
+      "model": "indreb:block/nuclear_reactor",
+      "y": 270
+    },
+    "active=false,facing=west,reactor_part=p221": {
+      "model": "indreb:block/nuclear_reactor",
+      "y": 270
+    },
+    "active=false,facing=west,reactor_part=p222": {
+      "model": "indreb:block/nuclear_reactor",
+      "y": 270
+    },
+    "active=false,facing=west,reactor_part=unformed": {
+      "model": "indreb:block/nuclear_reactor",
+      "y": 270
+    },
+    "active=true,facing=east,reactor_part=p000": {
+      "model": "indreb:block/nuclear_reactor_active",
+      "y": 90
+    },
+    "active=true,facing=east,reactor_part=p001": {
+      "model": "indreb:block/nuclear_reactor_active",
+      "y": 90
+    },
+    "active=true,facing=east,reactor_part=p002": {
+      "model": "indreb:block/nuclear_reactor_active",
+      "y": 90
+    },
+    "active=true,facing=east,reactor_part=p010": {
+      "model": "indreb:block/nuclear_reactor_active",
+      "y": 90
+    },
+    "active=true,facing=east,reactor_part=p011": {
+      "model": "indreb:block/nuclear_reactor_active",
+      "y": 90
+    },
+    "active=true,facing=east,reactor_part=p012": {
+      "model": "indreb:block/nuclear_reactor_active",
+      "y": 90
+    },
+    "active=true,facing=east,reactor_part=p020": {
+      "model": "indreb:block/nuclear_reactor_active",
+      "y": 90
+    },
+    "active=true,facing=east,reactor_part=p021": {
+      "model": "indreb:block/nuclear_reactor_active",
+      "y": 90
+    },
+    "active=true,facing=east,reactor_part=p022": {
+      "model": "indreb:block/nuclear_reactor_active",
+      "y": 90
+    },
+    "active=true,facing=east,reactor_part=p100": {
+      "model": "indreb:block/nuclear_reactor_active",
+      "y": 90
+    },
+    "active=true,facing=east,reactor_part=p101": {
+      "model": "indreb:block/nuclear_reactor_active",
+      "y": 90
+    },
+    "active=true,facing=east,reactor_part=p102": {
+      "model": "indreb:block/nuclear_reactor_active",
+      "y": 90
+    },
+    "active=true,facing=east,reactor_part=p110": {
+      "model": "indreb:block/nuclear_reactor_active",
+      "y": 90
+    },
+    "active=true,facing=east,reactor_part=p111": {
+      "model": "indreb:block/nuclear_reactor_active",
+      "y": 90
+    },
+    "active=true,facing=east,reactor_part=p112": {
+      "model": "indreb:block/nuclear_reactor_active",
+      "y": 90
+    },
+    "active=true,facing=east,reactor_part=p120": {
+      "model": "indreb:block/nuclear_reactor_active",
+      "y": 90
+    },
+    "active=true,facing=east,reactor_part=p121": {
+      "model": "indreb:block/nuclear_reactor_active",
+      "y": 90
+    },
+    "active=true,facing=east,reactor_part=p122": {
+      "model": "indreb:block/nuclear_reactor_active",
+      "y": 90
+    },
+    "active=true,facing=east,reactor_part=p200": {
+      "model": "indreb:block/nuclear_reactor_active",
+      "y": 90
+    },
+    "active=true,facing=east,reactor_part=p201": {
+      "model": "indreb:block/nuclear_reactor_active",
+      "y": 90
+    },
+    "active=true,facing=east,reactor_part=p202": {
+      "model": "indreb:block/nuclear_reactor_active",
+      "y": 90
+    },
+    "active=true,facing=east,reactor_part=p210": {
+      "model": "indreb:block/nuclear_reactor_active",
+      "y": 90
+    },
+    "active=true,facing=east,reactor_part=p211": {
+      "model": "indreb:block/nuclear_reactor_active",
+      "y": 90
+    },
+    "active=true,facing=east,reactor_part=p212": {
+      "model": "indreb:block/nuclear_reactor_active",
+      "y": 90
+    },
+    "active=true,facing=east,reactor_part=p220": {
+      "model": "indreb:block/nuclear_reactor_active",
+      "y": 90
+    },
+    "active=true,facing=east,reactor_part=p221": {
+      "model": "indreb:block/nuclear_reactor_active",
+      "y": 90
+    },
+    "active=true,facing=east,reactor_part=p222": {
+      "model": "indreb:block/nuclear_reactor_active",
+      "y": 90
+    },
+    "active=true,facing=east,reactor_part=unformed": {
+      "model": "indreb:block/nuclear_reactor_active",
+      "y": 90
+    },
+    "active=true,facing=north,reactor_part=p000": {
+      "model": "indreb:block/nuclear_reactor_active"
+    },
+    "active=true,facing=north,reactor_part=p001": {
+      "model": "indreb:block/nuclear_reactor_active"
+    },
+    "active=true,facing=north,reactor_part=p002": {
+      "model": "indreb:block/nuclear_reactor_active"
+    },
+    "active=true,facing=north,reactor_part=p010": {
+      "model": "indreb:block/nuclear_reactor_active"
+    },
+    "active=true,facing=north,reactor_part=p011": {
+      "model": "indreb:block/nuclear_reactor_active"
+    },
+    "active=true,facing=north,reactor_part=p012": {
+      "model": "indreb:block/nuclear_reactor_active"
+    },
+    "active=true,facing=north,reactor_part=p020": {
+      "model": "indreb:block/nuclear_reactor_active"
+    },
+    "active=true,facing=north,reactor_part=p021": {
+      "model": "indreb:block/nuclear_reactor_active"
+    },
+    "active=true,facing=north,reactor_part=p022": {
+      "model": "indreb:block/nuclear_reactor_active"
+    },
+    "active=true,facing=north,reactor_part=p100": {
+      "model": "indreb:block/nuclear_reactor_active"
+    },
+    "active=true,facing=north,reactor_part=p101": {
+      "model": "indreb:block/nuclear_reactor_active"
+    },
+    "active=true,facing=north,reactor_part=p102": {
+      "model": "indreb:block/nuclear_reactor_active"
+    },
+    "active=true,facing=north,reactor_part=p110": {
+      "model": "indreb:block/nuclear_reactor_active"
+    },
+    "active=true,facing=north,reactor_part=p111": {
+      "model": "indreb:block/nuclear_reactor_active"
+    },
+    "active=true,facing=north,reactor_part=p112": {
+      "model": "indreb:block/nuclear_reactor_active"
+    },
+    "active=true,facing=north,reactor_part=p120": {
+      "model": "indreb:block/nuclear_reactor_active"
+    },
+    "active=true,facing=north,reactor_part=p121": {
+      "model": "indreb:block/nuclear_reactor_active"
+    },
+    "active=true,facing=north,reactor_part=p122": {
+      "model": "indreb:block/nuclear_reactor_active"
+    },
+    "active=true,facing=north,reactor_part=p200": {
+      "model": "indreb:block/nuclear_reactor_active"
+    },
+    "active=true,facing=north,reactor_part=p201": {
+      "model": "indreb:block/nuclear_reactor_active"
+    },
+    "active=true,facing=north,reactor_part=p202": {
+      "model": "indreb:block/nuclear_reactor_active"
+    },
+    "active=true,facing=north,reactor_part=p210": {
+      "model": "indreb:block/nuclear_reactor_active"
+    },
+    "active=true,facing=north,reactor_part=p211": {
+      "model": "indreb:block/nuclear_reactor_active"
+    },
+    "active=true,facing=north,reactor_part=p212": {
+      "model": "indreb:block/nuclear_reactor_active"
+    },
+    "active=true,facing=north,reactor_part=p220": {
+      "model": "indreb:block/nuclear_reactor_active"
+    },
+    "active=true,facing=north,reactor_part=p221": {
+      "model": "indreb:block/nuclear_reactor_active"
+    },
+    "active=true,facing=north,reactor_part=p222": {
+      "model": "indreb:block/nuclear_reactor_active"
+    },
+    "active=true,facing=north,reactor_part=unformed": {
+      "model": "indreb:block/nuclear_reactor_active"
+    },
+    "active=true,facing=south,reactor_part=p000": {
+      "model": "indreb:block/nuclear_reactor_active",
+      "y": 180
+    },
+    "active=true,facing=south,reactor_part=p001": {
+      "model": "indreb:block/nuclear_reactor_active",
+      "y": 180
+    },
+    "active=true,facing=south,reactor_part=p002": {
+      "model": "indreb:block/nuclear_reactor_active",
+      "y": 180
+    },
+    "active=true,facing=south,reactor_part=p010": {
+      "model": "indreb:block/nuclear_reactor_active",
+      "y": 180
+    },
+    "active=true,facing=south,reactor_part=p011": {
+      "model": "indreb:block/nuclear_reactor_active",
+      "y": 180
+    },
+    "active=true,facing=south,reactor_part=p012": {
+      "model": "indreb:block/nuclear_reactor_active",
+      "y": 180
+    },
+    "active=true,facing=south,reactor_part=p020": {
+      "model": "indreb:block/nuclear_reactor_active",
+      "y": 180
+    },
+    "active=true,facing=south,reactor_part=p021": {
+      "model": "indreb:block/nuclear_reactor_active",
+      "y": 180
+    },
+    "active=true,facing=south,reactor_part=p022": {
+      "model": "indreb:block/nuclear_reactor_active",
+      "y": 180
+    },
+    "active=true,facing=south,reactor_part=p100": {
+      "model": "indreb:block/nuclear_reactor_active",
+      "y": 180
+    },
+    "active=true,facing=south,reactor_part=p101": {
+      "model": "indreb:block/nuclear_reactor_active",
+      "y": 180
+    },
+    "active=true,facing=south,reactor_part=p102": {
+      "model": "indreb:block/nuclear_reactor_active",
+      "y": 180
+    },
+    "active=true,facing=south,reactor_part=p110": {
+      "model": "indreb:block/nuclear_reactor_active",
+      "y": 180
+    },
+    "active=true,facing=south,reactor_part=p111": {
+      "model": "indreb:block/nuclear_reactor_active",
+      "y": 180
+    },
+    "active=true,facing=south,reactor_part=p112": {
+      "model": "indreb:block/nuclear_reactor_active",
+      "y": 180
+    },
+    "active=true,facing=south,reactor_part=p120": {
+      "model": "indreb:block/nuclear_reactor_active",
+      "y": 180
+    },
+    "active=true,facing=south,reactor_part=p121": {
+      "model": "indreb:block/nuclear_reactor_active",
+      "y": 180
+    },
+    "active=true,facing=south,reactor_part=p122": {
+      "model": "indreb:block/nuclear_reactor_active",
+      "y": 180
+    },
+    "active=true,facing=south,reactor_part=p200": {
+      "model": "indreb:block/nuclear_reactor_active",
+      "y": 180
+    },
+    "active=true,facing=south,reactor_part=p201": {
+      "model": "indreb:block/nuclear_reactor_active",
+      "y": 180
+    },
+    "active=true,facing=south,reactor_part=p202": {
+      "model": "indreb:block/nuclear_reactor_active",
+      "y": 180
+    },
+    "active=true,facing=south,reactor_part=p210": {
+      "model": "indreb:block/nuclear_reactor_active",
+      "y": 180
+    },
+    "active=true,facing=south,reactor_part=p211": {
+      "model": "indreb:block/nuclear_reactor_active",
+      "y": 180
+    },
+    "active=true,facing=south,reactor_part=p212": {
+      "model": "indreb:block/nuclear_reactor_active",
+      "y": 180
+    },
+    "active=true,facing=south,reactor_part=p220": {
+      "model": "indreb:block/nuclear_reactor_active",
+      "y": 180
+    },
+    "active=true,facing=south,reactor_part=p221": {
+      "model": "indreb:block/nuclear_reactor_active",
+      "y": 180
+    },
+    "active=true,facing=south,reactor_part=p222": {
+      "model": "indreb:block/nuclear_reactor_active",
+      "y": 180
+    },
+    "active=true,facing=south,reactor_part=unformed": {
+      "model": "indreb:block/nuclear_reactor_active",
+      "y": 180
+    },
+    "active=true,facing=west,reactor_part=p000": {
+      "model": "indreb:block/nuclear_reactor_active",
+      "y": 270
+    },
+    "active=true,facing=west,reactor_part=p001": {
+      "model": "indreb:block/nuclear_reactor_active",
+      "y": 270
+    },
+    "active=true,facing=west,reactor_part=p002": {
+      "model": "indreb:block/nuclear_reactor_active",
+      "y": 270
+    },
+    "active=true,facing=west,reactor_part=p010": {
+      "model": "indreb:block/nuclear_reactor_active",
+      "y": 270
+    },
+    "active=true,facing=west,reactor_part=p011": {
+      "model": "indreb:block/nuclear_reactor_active",
+      "y": 270
+    },
+    "active=true,facing=west,reactor_part=p012": {
+      "model": "indreb:block/nuclear_reactor_active",
+      "y": 270
+    },
+    "active=true,facing=west,reactor_part=p020": {
+      "model": "indreb:block/nuclear_reactor_active",
+      "y": 270
+    },
+    "active=true,facing=west,reactor_part=p021": {
+      "model": "indreb:block/nuclear_reactor_active",
+      "y": 270
+    },
+    "active=true,facing=west,reactor_part=p022": {
+      "model": "indreb:block/nuclear_reactor_active",
+      "y": 270
+    },
+    "active=true,facing=west,reactor_part=p100": {
+      "model": "indreb:block/nuclear_reactor_active",
+      "y": 270
+    },
+    "active=true,facing=west,reactor_part=p101": {
+      "model": "indreb:block/nuclear_reactor_active",
+      "y": 270
+    },
+    "active=true,facing=west,reactor_part=p102": {
+      "model": "indreb:block/nuclear_reactor_active",
+      "y": 270
+    },
+    "active=true,facing=west,reactor_part=p110": {
+      "model": "indreb:block/nuclear_reactor_active",
+      "y": 270
+    },
+    "active=true,facing=west,reactor_part=p111": {
+      "model": "indreb:block/nuclear_reactor_active",
+      "y": 270
+    },
+    "active=true,facing=west,reactor_part=p112": {
+      "model": "indreb:block/nuclear_reactor_active",
+      "y": 270
+    },
+    "active=true,facing=west,reactor_part=p120": {
+      "model": "indreb:block/nuclear_reactor_active",
+      "y": 270
+    },
+    "active=true,facing=west,reactor_part=p121": {
+      "model": "indreb:block/nuclear_reactor_active",
+      "y": 270
+    },
+    "active=true,facing=west,reactor_part=p122": {
+      "model": "indreb:block/nuclear_reactor_active",
+      "y": 270
+    },
+    "active=true,facing=west,reactor_part=p200": {
+      "model": "indreb:block/nuclear_reactor_active",
+      "y": 270
+    },
+    "active=true,facing=west,reactor_part=p201": {
+      "model": "indreb:block/nuclear_reactor_active",
+      "y": 270
+    },
+    "active=true,facing=west,reactor_part=p202": {
+      "model": "indreb:block/nuclear_reactor_active",
+      "y": 270
+    },
+    "active=true,facing=west,reactor_part=p210": {
+      "model": "indreb:block/nuclear_reactor_active",
+      "y": 270
+    },
+    "active=true,facing=west,reactor_part=p211": {
+      "model": "indreb:block/nuclear_reactor_active",
+      "y": 270
+    },
+    "active=true,facing=west,reactor_part=p212": {
+      "model": "indreb:block/nuclear_reactor_active",
+      "y": 270
+    },
+    "active=true,facing=west,reactor_part=p220": {
+      "model": "indreb:block/nuclear_reactor_active",
+      "y": 270
+    },
+    "active=true,facing=west,reactor_part=p221": {
+      "model": "indreb:block/nuclear_reactor_active",
+      "y": 270
+    },
+    "active=true,facing=west,reactor_part=p222": {
+      "model": "indreb:block/nuclear_reactor_active",
+      "y": 270
+    },
+    "active=true,facing=west,reactor_part=unformed": {
+      "model": "indreb:block/nuclear_reactor_active",
+      "y": 270
+    }
+  }
+}

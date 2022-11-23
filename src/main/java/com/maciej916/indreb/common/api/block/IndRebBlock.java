@@ -79,21 +79,6 @@ public abstract class IndRebBlock extends Block {
         return super.use(state, level, pos, player, hand, trace);
     }
 
-//    @Override
-//    public void setPlacedBy(Level level, BlockPos pPos, BlockState pState, @Nullable LivingEntity pPlacer, ItemStack pStack) {
-//
-////        BlockEntity be = level.getBlockEntity(pPos);
-////        if (be instanceof IndRebBlockEntity ibe) {
-////            ibe.onPlace(level.isClientSide());
-////        }
-////
-////        if (be instanceof IEnergyBlock) {
-////            CapabilityUtil.getCapabilityHelper(level, ModCapabilities.ENERGY_CORE).ifPresent(e -> e.addEnergyBlock(pPos));
-////        }
-//
-//        super.setPlacedBy(level, pPos, pState, pPlacer, pStack);
-//    }
-
     @Override
     public void onPlace(BlockState pState, Level level, BlockPos pPos, BlockState pOldState, boolean pIsMoving) {
 

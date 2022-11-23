@@ -36,11 +36,6 @@ public enum EnumLang {
     HEAT("heat", "gui"),
     ARMOUR("armour", "gui"),
 
-    REPLICATION_ITEM("scanner.replication_item", "gui"),
-    REPLICATION_EMPTY("scanner.replication_empty", "gui"),
-    MATTER_COST("scanner.matter_cost", "gui"),
-    ENERGY_COST("scanner.energy_cost", "gui"),
-
     SUPPORTED_UPGRADES("supported_upgrades", "gui"),
     OVERCLOCKER_UPGRADE("overclocker_upgrade", "item"),
     TRANSFORMER_UPGRADE("transformer_upgrade", "item"),
@@ -50,6 +45,11 @@ public enum EnumLang {
     PULLING_UPGRADE("pulling_upgrade", "item"),
     FLUID_EJECTOR_UPGRADE("fluid_ejector_upgrade", "item"),
     FLUID_PULLING_UPGRADE("fluid_pulling_upgrade", "item"),
+
+    REPLICATION_ITEM("scanner.replication_item", "gui"),
+    REPLICATION_EMPTY("scanner.replication_empty", "gui"),
+    MATTER_COST("scanner.matter_cost", "gui"),
+    ENERGY_COST("scanner.energy_cost", "gui"),
 
     LAST_PATTERN("last_pattern", "tooltip"),
     NEXT_PATTERN("next_pattern", "tooltip"),
@@ -61,9 +61,10 @@ public enum EnumLang {
     SINGLE_RUN("single_run", "tooltip"),
     REPEAT_RUN("repeat_run", "tooltip"),
 
-    CHAMBER_PLACE_INVALID("chamber_place_invalid", "chat"),
-    CHAMBER_PLACE_NO_REACTOR("chamber_place_no_reactor", "chat"),
-    CHAMBER_PLACE_TOO_CLOSE("chamber_place_too_close", "chat"),
+    REACTOR_FORMED("reactor_formed", "system"),
+    REACTOR_BROKEN("reactor_broken", "system"),
+    REACTOR_NOT_VALID("reactor_not_valid", "system"),
+    REACTOR_FAILED("reactor_failed", "system"),
 
     CHANCE("chance", "jei");
 

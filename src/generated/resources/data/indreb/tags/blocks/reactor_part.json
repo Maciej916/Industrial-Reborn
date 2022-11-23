@@ -1,0 +1,8 @@
+{
+  "values": [
+    "indreb:reactor_chamber",
+    "indreb:reactor_frame",
+    "indreb:reactor_control_rod",
+    "indreb:nuclear_reactor"
+  ]
+}

@@ -12,11 +12,16 @@ import com.maciej916.indreb.common.block.impl.explosive.industrial_tnt.BlockIndu
 import com.maciej916.indreb.common.block.impl.explosive.nuke.BlockNuke;
 import com.maciej916.indreb.common.block.impl.generator.generator.BlockGenerator;
 import com.maciej916.indreb.common.block.impl.generator.geo_generator.BlockGeoGenerator;
+import com.maciej916.indreb.common.block.impl.generator.reactor.nuclear_reactor.BlockNuclearReactor;
+import com.maciej916.indreb.common.block.impl.generator.reactor.ractor_frame.BlockReactorFrame;
+import com.maciej916.indreb.common.block.impl.generator.reactor.reactor_chamber.BlockReactorChamber;
+import com.maciej916.indreb.common.block.impl.generator.reactor.reactor_control_rod.BlockReactorControlRod;
 import com.maciej916.indreb.common.block.impl.generator.semifluid_generator.BlockSemifluidGenerator;
 import com.maciej916.indreb.common.block.impl.generator.solar_panel.BlockSolarPanel;
 import com.maciej916.indreb.common.block.impl.iron.BlockIronFence;
 import com.maciej916.indreb.common.block.impl.iron.BlockIronGate;
 import com.maciej916.indreb.common.block.impl.iron.BlockIronScaffolding;
+import com.maciej916.indreb.common.block.impl.machines.simple.iron_furnace.BlockIronFurnace;
 import com.maciej916.indreb.common.block.impl.misc.luminator.BlockLuminator;
 import com.maciej916.indreb.common.block.impl.reinforced.*;
 import com.maciej916.indreb.common.block.impl.wood.*;
@@ -136,6 +141,9 @@ public final class ModBlocks {
     public static final RegistryObject<Block> HV_CABLE_INSULATED = registerBlock("hv_cable_insulated", () -> new BlockCable(0.313F, CableTier.HV_CABLE_INSULATED));
     public static final RegistryObject<Block> GLASS_FIBRE_CABLE = registerBlock("glass_fibre_cable", () -> new BlockCable(0.127F, CableTier.GLASS_FIBRE_CABLE));
 
+    public static final RegistryObject<Block> IRON_FURNACE = registerBlock("iron_furnace", BlockIronFurnace::new);
+
+
     public static final RegistryObject<Block> GENERATOR = registerBlock("generator", BlockGenerator::new);
     public static final RegistryObject<Block> SOLAR_PANEL = registerBlock("solar_panel", () -> new BlockSolarPanel(SolarPanelTier.BASIC));
     public static final RegistryObject<Block> ADVANCED_SOLAR_PANEL = registerBlock("advanced_solar_panel", () -> new BlockSolarPanel(SolarPanelTier.ADVANCED));
@@ -143,6 +151,11 @@ public final class ModBlocks {
     public static final RegistryObject<Block> QUANTUM_SOLAR_PANEL = registerBlock("quantum_solar_panel", () -> new BlockSolarPanel(SolarPanelTier.QUANTUM));
     public static final RegistryObject<Block> GEO_GENERATOR = registerBlock("geo_generator", BlockGeoGenerator::new);
     public static final RegistryObject<Block> SEMIFLUID_GENERATOR = registerBlock("semifluid_generator", BlockSemifluidGenerator::new);
+
+    public static final RegistryObject<Block> NUCLEAR_REACTOR = registerBlock("nuclear_reactor", BlockNuclearReactor::new);
+    public static final RegistryObject<Block> REACTOR_CHAMBER = registerBlock("reactor_chamber", BlockReactorChamber::new);
+    public static final RegistryObject<Block> REACTOR_CONTROL_ROD = registerBlock("reactor_control_rod", BlockReactorControlRod::new);
+    public static final RegistryObject<Block> REACTOR_FRAME = registerBlock("reactor_frame", BlockReactorFrame::new);
 
 
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block) {

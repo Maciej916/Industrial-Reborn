@@ -62,6 +62,7 @@
   "block.indreb.nuclear_reactor": "Nuclear Reactor",
   "block.indreb.reactor_chamber": "Reactor Chamber",
   "block.indreb.reactor_control_rod": "Reactor Control Rod",
+  "block.indreb.reactor_frame": "Reactor Frame",
 
   "block.indreb.iron_furnace": "Iron Furnace",
   "block.indreb.electric_furnace": "Electric Furnace",
@@ -535,10 +536,12 @@
   "key.indreb.night_vision": "Toggle Night Vision",
 
 
-  "_comment": "Chat",
-  "chat.indreb.chamber_place_invalid": "Reactor Chamber must be placed near Nuclear Reactor or another Reactor Chamber",
-  "chat.indreb.chamber_place_no_reactor": "Could not find Nuclear Reactor to attach Chamber",
-  "chat.indreb.chamber_place_too_close": "Reactor Chamber can be attached only to one Nuclear Reactor",
+  "_comment": "System",
+  "system.indreb.reactor_formed": "Created Nuclear Reactor Multiblock",
+  "system.indreb.reactor_broken": "Broken Nuclear Reactor Multiblock",
+  "system.indreb.reactor_not_valid": "This is not a valid Reactor Multiblock",
+  "system.indreb.reactor_failed": "Failed to break multiblock",
+
 
 
 

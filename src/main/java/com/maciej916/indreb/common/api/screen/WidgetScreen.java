@@ -19,12 +19,12 @@ public class WidgetScreen <T extends IndRebContainerMenu> extends BaseScreen<T> 
 
     protected void addRenderableWidget(BaseWidget widget) {
         widgets.add(widget);
-        addRenderableWidget(widget);
+        super.addRenderableWidget(widget);
     }
 
     protected void addRenderableOnlyWidget(BaseWidget widget) {
         widgets.add(widget);
-        addRenderableOnly(widget);
+        super.addRenderableOnly(widget);
     }
 
     protected void drawWidgets(boolean draw) {

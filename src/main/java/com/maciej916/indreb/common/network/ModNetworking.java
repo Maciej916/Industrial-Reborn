@@ -1,9 +1,6 @@
 package com.maciej916.indreb.common.network;
 
-import com.maciej916.indreb.common.network.packet.PacketBasicEnergySync;
-import com.maciej916.indreb.common.network.packet.PacketExperience;
-import com.maciej916.indreb.common.network.packet.PacketFluidSync;
-import com.maciej916.indreb.common.network.packet.PacketParticle;
+import com.maciej916.indreb.common.network.packet.*;
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
@@ -28,8 +25,9 @@ public class ModNetworking {
         INSTANCE.registerMessage(nextID(), PacketBasicEnergySync.class, PacketBasicEnergySync::toBytes, PacketBasicEnergySync::new, PacketBasicEnergySync::handle);
         INSTANCE.registerMessage(nextID(), PacketFluidSync.class, PacketFluidSync::toBytes, PacketFluidSync::new, PacketFluidSync::handle);
 
+        INSTANCE.registerMessage(nextID(), PacketExperienceSync.class, PacketExperienceSync::toBytes, PacketExperienceSync::new, PacketExperienceSync::handle);
+        INSTANCE.registerMessage(nextID(), PacketExperienceCollect.class, PacketExperienceCollect::toBytes, PacketExperienceCollect::new, PacketExperienceCollect::handle);
 
-        INSTANCE.registerMessage(nextID(), PacketExperience.class, PacketExperience::toBytes, PacketExperience::new, PacketExperience::handle);
 //        INSTANCE.registerMessage(nextID(), PacketExtruderRecipe.class, PacketExtruderRecipe::toBytes, PacketExtruderRecipe::new, PacketExtruderRecipe::handle);
         INSTANCE.registerMessage(nextID(), PacketParticle.class, PacketParticle::toBytes, PacketParticle::new, PacketParticle::handle);
 //        INSTANCE.registerMessage(nextID(), PacketTransformerMode.class, PacketTransformerMode::toBytes, PacketTransformerMode::new, PacketTransformerMode::handle);

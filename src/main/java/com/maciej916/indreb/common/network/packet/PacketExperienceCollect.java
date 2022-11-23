@@ -8,15 +8,15 @@ import net.minecraftforge.network.NetworkEvent;
 
 import java.util.function.Supplier;
 
-public class PacketExperience {
+public class PacketExperienceCollect {
 
     private final BlockPos blockPos;
 
-    public PacketExperience(BlockPos blockPos) {
+    public PacketExperienceCollect(BlockPos blockPos) {
         this.blockPos = blockPos;
     }
 
-    public PacketExperience(FriendlyByteBuf buf) {
+    public PacketExperienceCollect(FriendlyByteBuf buf) {
         blockPos = buf.readBlockPos();
     }
 

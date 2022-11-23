@@ -20,7 +20,8 @@ import com.maciej916.indreb.common.capability.item.interfaces.IElectricItemStack
 import com.maciej916.indreb.common.capability.item.interfaces.IUpgradesItemStackHandler;
 import com.maciej916.indreb.common.network.ModNetworking;
 import com.maciej916.indreb.common.network.packet.PacketBasicEnergySync;
-import com.maciej916.indreb.common.network.packet.PacketExperience;
+import com.maciej916.indreb.common.network.packet.PacketExperienceCollect;
+import com.maciej916.indreb.common.network.packet.PacketExperienceSync;
 import com.maciej916.indreb.common.network.packet.PacketFluidSync;
 import com.maciej916.indreb.common.tag.ModTagsItem;
 import com.maciej916.indreb.common.util.BlockEntityUtil;
@@ -52,7 +53,6 @@ import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nullable;
 import java.util.*;
-import java.util.concurrent.atomic.AtomicReference;
 
 public class IndRebBlockEntity extends BaseBlockEntity implements IIndRebBlockEntity, IBlockEntityChunkSync, MenuProvider {
 
@@ -78,6 +78,7 @@ public class IndRebBlockEntity extends BaseBlockEntity implements IIndRebBlockEn
 
     private int tickCounter = 0;
     private int cooldown = 0;
+    private float storedExperience = 0;
 
     private SoundEvent soundEvent = null;
     private SoundInstance activeSound;
@@ -216,7 +217,7 @@ public class IndRebBlockEntity extends BaseBlockEntity implements IIndRebBlockEn
     private void initBaseStorage() {
         ArrayList<BaseSlot> slots = addBaseSlots(new ArrayList<>());
         if (slots.size() > 0) {
-           this.baseStorage = new BaseItemStackHandler(slots) {
+           this.baseStorage = new BaseItemStackHandler(this, slots) {
                @Override
                protected void onContentsChanged(int slot) {
                    onBaseStorageContentsChanged(slot);
@@ -332,42 +333,46 @@ public class IndRebBlockEntity extends BaseBlockEntity implements IIndRebBlockEn
         this.cooldown = cooldown;
     }
 
-    public int getExperience(Recipe<?> recipe) {
+    public float getExperience(Recipe<?> recipe) {
         return 0;
     }
 
     public float getStoredExperience() {
-        AtomicReference<Float> experience = new AtomicReference<>((float) 0);
-        for(Map.Entry<ResourceLocation, Integer> entry : this.recipesUsed.entrySet()) {
-            level.getRecipeManager().byKey(entry.getKey()).ifPresent((recipe -> {
-                experience.updateAndGet(v -> v + (entry.getValue() * getExperience(recipe)));
-            }));
-        }
-
-        return experience.get();
+        return storedExperience;
     }
 
-    public void collectExpServer(Player player) {
+    public void setStoredExperience(float storedExperience) {
+        this.storedExperience = storedExperience;
+    }
+
+    public void collectExpServer(@Nullable ServerPlayer player) {
         List<Recipe<?>> list = new ArrayList<>();
 
-        for(Map.Entry<ResourceLocation, Integer> entry : this.recipesUsed.entrySet()) {
-            player.level.getRecipeManager().byKey(entry.getKey()).ifPresent((recipe -> {
+        for (Map.Entry<ResourceLocation, Integer> entry : this.recipesUsed.entrySet()) {
+            level.getRecipeManager().byKey(entry.getKey()).ifPresent((recipe -> {
                 list.add(recipe);
-                BlockEntityUtil.spawnExpOrbs((ServerLevel) level, player, entry.getValue(), getExperience(recipe));
+                BlockEntityUtil.spawnExpOrbs((ServerLevel) level, player, getBlockPos(), entry.getValue(), getExperience(recipe));
             }));
         }
 
-        player.awardRecipes(list);
+        if (player != null) {
+            player.awardRecipes(list);
+        }
+
         this.recipesUsed.clear();
+        this.storedExperience = 0;
+        ModNetworking.sendToTrackingChunk(getLevel(), getBlockPos(), new PacketExperienceSync(storedExperience, getBlockPos()));
     }
 
     public Runnable collectExpClient() {
-        return () -> ModNetworking.INSTANCE.sendToServer(new PacketExperience(getBlockPos()));
+        return () -> ModNetworking.INSTANCE.sendToServer(new PacketExperienceCollect(getBlockPos()));
     }
 
     public void addRecipeUsed(@Nullable Recipe<?> recipe) {
         if (recipe != null) {
             this.recipesUsed.compute(recipe.getId(), (key, val) -> 1 + (val == null ? 0 : val));
+            this.storedExperience += getExperience(recipe);
+            ModNetworking.sendToTrackingChunk(getLevel(), getBlockPos(), new PacketExperienceSync(storedExperience, getBlockPos()));
         }
     }
 
@@ -552,6 +557,7 @@ public class IndRebBlockEntity extends BaseBlockEntity implements IIndRebBlockEn
                 recipesUsedData.put(resourcelocation, k);
             }
             this.recipesUsed = recipesUsedData;
+            this.storedExperience = tag.getFloat("storedExperience");
         }
 
         if (energyStorage != null) {
@@ -589,6 +595,7 @@ public class IndRebBlockEntity extends BaseBlockEntity implements IIndRebBlockEn
                 tag.putInt("RecipeAmount" + i, entry.getValue());
                 ++i;
             }
+            tag.putFloat("storedExperience", storedExperience);
         }
 
         if (energyStorage != null) {
@@ -641,6 +648,10 @@ public class IndRebBlockEntity extends BaseBlockEntity implements IIndRebBlockEn
             }
         }
 
+        if (hasExp) {
+            collectExpServer(null);
+        }
+
         Containers.dropContents(getLevel(), getBlockPos(), stacks);
     }
 
@@ -648,6 +659,10 @@ public class IndRebBlockEntity extends BaseBlockEntity implements IIndRebBlockEn
     public void syncWithChunk(ServerPlayer player) {
         if (energyStorage != null) {
             ModNetworking.sendToPlayer(player, new PacketBasicEnergySync(energyStorage, getBlockPos()));
+        }
+
+        if (hasExp) {
+            ModNetworking.sendToPlayer(player, new PacketExperienceSync(storedExperience, getBlockPos()));
         }
 
         if (this instanceof IBlockEntityFluid entityFluid) {

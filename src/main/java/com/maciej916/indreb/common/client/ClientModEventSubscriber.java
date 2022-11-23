@@ -6,8 +6,10 @@ import com.maciej916.indreb.common.block.ModBlocks;
 import com.maciej916.indreb.common.block.impl.explosive.nuke.ScreenNuke;
 import com.maciej916.indreb.common.block.impl.generator.generator.ScreenGenerator;
 import com.maciej916.indreb.common.block.impl.generator.geo_generator.ScreenGeoGenerator;
+import com.maciej916.indreb.common.block.impl.generator.reactor.nuclear_reactor.ScreenNuclearReactor;
 import com.maciej916.indreb.common.block.impl.generator.semifluid_generator.ScreenSemifluidGenerator;
 import com.maciej916.indreb.common.block.impl.generator.solar_panel.ScreenSolarPanel;
+import com.maciej916.indreb.common.block.impl.machines.simple.iron_furnace.ScreenIronFurnace;
 import com.maciej916.indreb.common.client.keys.ModKeys;
 import com.maciej916.indreb.common.client.renderer.EnergyInfoRenderer;
 import com.maciej916.indreb.common.client.renderer.ITntRenderer;
@@ -64,16 +66,19 @@ public final class ClientModEventSubscriber {
 
 			MenuScreens.register(ModMenuTypes.NUKE.get(), ScreenNuke::new);
 
+			MenuScreens.register(ModMenuTypes.IRON_FURNACE.get(), ScreenIronFurnace::new);
+
 			MenuScreens.register(ModMenuTypes.GENERATOR.get(), ScreenGenerator::new);
 			MenuScreens.register(ModMenuTypes.SOLAR_PANEL.get(), ScreenSolarPanel::new);
 			MenuScreens.register(ModMenuTypes.GEO_GENERATOR.get(), ScreenGeoGenerator::new);
 			MenuScreens.register(ModMenuTypes.SEMIFLUID_GENERATOR.get(), ScreenSemifluidGenerator::new);
+			MenuScreens.register(ModMenuTypes.NUCLEAR_REACTOR.get(), ScreenNuclearReactor::new);
 //
 //			MenuScreens.register(ModMenuTypes.BATTERY_BOX.get(), ScreenBatteryBox::new);
 //			MenuScreens.register(ModMenuTypes.TRANSFORMER.get(), ScreenTransformer::new);
 //			MenuScreens.register(ModMenuTypes.CHARGE_PAD.get(), ScreenChargePad::new);
 //
-//			MenuScreens.register(ModMenuTypes.IRON_FURNACE.get(), ScreenIronFurnace::new);
+
 //			MenuScreens.register(ModMenuTypes.ELECTRIC_FURNACE.get(), ScreenElectricFurnace::new);
 //
 //			MenuScreens.register(ModMenuTypes.CRUSHER.get(), ScreenCrusher::new);

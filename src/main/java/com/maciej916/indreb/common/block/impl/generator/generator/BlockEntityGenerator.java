@@ -45,6 +45,7 @@ public class BlockEntityGenerator extends IndRebBlockEntity implements IHasCoold
     protected final ContainerData data;
 
     public static final int INPUT_SLOT = 0;
+
     public Progress progressBurn = new Progress();
 
     public BlockEntityGenerator(BlockPos pos, BlockState blockState) {
@@ -155,7 +156,7 @@ public class BlockEntityGenerator extends IndRebBlockEntity implements IHasCoold
         tag.put("progressBurn", this.progressBurn.serializeNBT());
     }
 
-    private final Map<Direction, LazyOptional<WrappedHandler>> capabilities = Map.of(
+    private final Map<Direction, LazyOptional<WrappedHandler>> itemCapabilities = Map.of(
             Direction.UP, LazyOptional.of(() -> new WrappedHandler(getBaseStorage(), (i) -> false, (i, stack) -> getBaseStorage().isItemValid(i, stack))),
             Direction.DOWN, LazyOptional.of(() -> new WrappedHandler(getBaseStorage(), (i) -> i == 0, (i, stack) -> false)),
             Direction.NORTH, LazyOptional.of(() -> new WrappedHandler(getBaseStorage(), (i) -> false, (i, stack) -> getBaseStorage().isItemValid(i, stack))),
@@ -170,15 +171,15 @@ public class BlockEntityGenerator extends IndRebBlockEntity implements IHasCoold
         if (cap == ForgeCapabilities.ITEM_HANDLER) {
             if (side == null) return LazyOptional.empty();
 
-            if (capabilities.containsKey(side)) {
-                if (side == Direction.UP || side == Direction.DOWN) return capabilities.get(side).cast();
+            if (itemCapabilities.containsKey(side)) {
+                if (side == Direction.UP || side == Direction.DOWN) return itemCapabilities.get(side).cast();
 
                 Direction localDir = this.getBlockState().getValue(BlockStateHelper.HORIZONTAL_FACING_PROPERTY);
                 return switch (localDir) {
-                    default -> capabilities.get(side).cast(); // SOUTH
-                    case NORTH -> capabilities.get(side.getOpposite()).cast();
-                    case WEST -> capabilities.get(side.getCounterClockWise()).cast();
-                    case EAST -> capabilities.get(side.getClockWise()).cast();
+                    default -> itemCapabilities.get(side).cast(); // SOUTH
+                    case NORTH -> itemCapabilities.get(side.getOpposite()).cast();
+                    case WEST -> itemCapabilities.get(side.getCounterClockWise()).cast();
+                    case EAST -> itemCapabilities.get(side.getClockWise()).cast();
                 };
             }
         }
@@ -189,7 +190,7 @@ public class BlockEntityGenerator extends IndRebBlockEntity implements IHasCoold
     @Override
     public void invalidateCaps() {
         super.invalidateCaps();
-        for (LazyOptional<?> capability : capabilities.values()) capability.invalidate();
+        for (LazyOptional<?> capability : itemCapabilities.values()) capability.invalidate();
     }
 
 }

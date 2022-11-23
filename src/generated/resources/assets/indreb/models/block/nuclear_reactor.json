@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "indreb:block/generator/reactor/nuclear_reactor/nuclear_reactor_bottom",
+    "east": "indreb:block/generator/reactor/nuclear_reactor/nuclear_reactor_side",
+    "north": "indreb:block/generator/reactor/nuclear_reactor/nuclear_reactor_side",
+    "particle": "indreb:block/generator/reactor/nuclear_reactor/nuclear_reactor_side",
+    "south": "indreb:block/generator/reactor/nuclear_reactor/nuclear_reactor_side",
+    "up": "indreb:block/generator/reactor/nuclear_reactor/nuclear_reactor_top",
+    "west": "indreb:block/generator/reactor/nuclear_reactor/nuclear_reactor_side"
+  }
+}
