@@ -51,6 +51,7 @@ public class ItemTextures extends ItemModelProvider {
         registerReactor();
         registerBattery();
         registerUpgrade();
+        registerEnergyStorage();
     }
 
     protected void registerOres() {
@@ -424,7 +425,7 @@ public class ItemTextures extends ItemModelProvider {
         createWithChargeRatio(ModItems.LAPOTRON_CRYSTAL,"battery/lapotron_crystal");
 
         createWithChargeRatio(ModItems.CHARGING_BATTERY,"battery/charging_battery");
-        createWithChargeRatio(ModItems.ADVANCED_CHARGING_BATTERY,"battery/advanced_charging_battery");
+        createWithChargeRatio(ModItems.CHARGING_ADVANCED_BATTERY,"battery/advanced_charging_battery");
         createWithChargeRatio(ModItems.CHARGING_ENERGY_CRYSTAL,"battery/charging_energy_crystal");
         createWithChargeRatio(ModItems.CHARGING_LAPOTRON_CRYSTAL,"battery/charging_lapotron_crystal");
     }
@@ -444,6 +445,12 @@ public class ItemTextures extends ItemModelProvider {
         createWithDirections(ModItems.ADVANCED_FLUID_PULLING_UPGRADE, "upgrade/advanced_fluid_pulling");
     }
 
+    private void registerEnergyStorage() {
+        createWithBlock(ModItems.BATTERY_BOX, "battery_box");
+        createWithBlock(ModItems.CESU, "cesu");
+        createWithBlock(ModItems.MFE, "mfe");
+        createWithBlock(ModItems.MFSU, "mfsu");
+    }
 
 
 

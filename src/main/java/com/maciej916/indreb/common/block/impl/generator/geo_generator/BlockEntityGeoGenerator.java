@@ -142,7 +142,7 @@ public class BlockEntityGeoGenerator extends IndRebBlockEntity implements IBlock
 
     @Override
     public ArrayList<ElectricSlot> addElectricSlots(ArrayList<ElectricSlot> slots) {
-        slots.add(new ElectricSlot(0, 152, 62, 151, 61,InventorySlotType.ELECTRIC, GuiSlotBg.BATTERY, true, true));
+        slots.add(new ElectricSlot(0, 152, 62, InventorySlotType.ELECTRIC, GuiSlotBg.BATTERY, true, true));
         return super.addElectricSlots(slots);
     }
 

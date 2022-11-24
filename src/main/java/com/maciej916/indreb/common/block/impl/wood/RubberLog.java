@@ -62,7 +62,7 @@ public class RubberLog extends IndRebBlock implements IStateRubberLog, IStateAxi
     @Override
     public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult trace) {
         ItemStack stack = player.getItemInHand(hand);
-        if (stack.is(ModTagsItem.TREETAPS))  {
+        if (stack.is(ModTagsItem.TREETAP))  {
             return dropRubber(player, player.getItemInHand(hand), state, level, pos, trace);
         }
         return super.use(state, level, pos, player, hand, trace);

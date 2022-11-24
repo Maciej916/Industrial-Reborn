@@ -1,4 +1,4 @@
-package com.maciej916.indreb.common.block.impl;
+package com.maciej916.indreb.common.block.impl.foam;
 
 import com.maciej916.indreb.common.api.block.BlockFoam;
 import com.maciej916.indreb.common.block.ModBlocks;

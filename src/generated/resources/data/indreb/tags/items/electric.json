@@ -1,0 +1,28 @@
+{
+  "values": [
+    "indreb:nano_helmet",
+    "indreb:nano_chestplate",
+    "indreb:nano_leggings",
+    "indreb:nano_helmet",
+    "indreb:nano_saber",
+    "indreb:electric_treetap",
+    "indreb:electric_wrench",
+    "indreb:electric_hoe",
+    "indreb:wind_meter",
+    "indreb:multi_tool",
+    "indreb:chainsaw",
+    "indreb:diamond_chainsaw",
+    "indreb:iridium_chainsaw",
+    "indreb:mining_drill",
+    "indreb:diamond_drill",
+    "indreb:iridium_drill",
+    "indreb:battery",
+    "indreb:advanced_battery",
+    "indreb:energy_crystal",
+    "indreb:lapotron_crystal",
+    "indreb:charging_battery",
+    "indreb:advanced_charging_battery",
+    "indreb:charging_energy_crystal",
+    "indreb:charging_lapotron_crystal"
+  ]
+}

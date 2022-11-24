@@ -1,6 +1,7 @@
 package com.maciej916.indreb.common.blockentity;
 
 import com.maciej916.indreb.common.block.ModBlocks;
+import com.maciej916.indreb.common.block.impl.battery_box.BlockEntityBatteryBox;
 import com.maciej916.indreb.common.block.impl.explosive.nuke.BlockEntityNuke;
 import com.maciej916.indreb.common.block.impl.generator.generator.BlockEntityGenerator;
 import com.maciej916.indreb.common.block.impl.generator.geo_generator.BlockEntityGeoGenerator;
@@ -24,6 +25,7 @@ public final class ModBlockEntities {
 
     public static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITIES = DeferredRegister.create(ForgeRegistries.BLOCK_ENTITY_TYPES, MODID);
 
+    public static final RegistryObject<BlockEntityType<BlockEntityBatteryBox>> BATTERY_BOX = BLOCK_ENTITIES.register("battery_box", () -> BlockEntityType.Builder.of(BlockEntityBatteryBox::new, ModBlocks.BATTERY_BOX.get(), ModBlocks.CESU.get(), ModBlocks.MFE.get(), ModBlocks.MFSU.get()).build(null));
     public static final RegistryObject<BlockEntityType<BlockEntityLuminator>> LUMINATOR = BLOCK_ENTITIES.register("luminator", () -> BlockEntityType.Builder.of(BlockEntityLuminator::new, ModBlocks.LUMINATOR.get()).build(null));
     public static final RegistryObject<BlockEntityType<BlockEntityNuke>> NUKE = BLOCK_ENTITIES.register("nuke", () -> BlockEntityType.Builder.of(BlockEntityNuke::new, ModBlocks.NUKE.get()).build(null));
 

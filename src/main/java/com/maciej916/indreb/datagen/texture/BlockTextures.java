@@ -44,6 +44,7 @@ public class BlockTextures extends BlockStateProvider {
         registerMisc();
         registerExplosives();
         registerSimpleMachines();
+        registerEnergyStorage();
     }
 
     private void registerOres() {
@@ -171,6 +172,13 @@ public class BlockTextures extends BlockStateProvider {
 
     private void registerSimpleMachines() {
         createFrontActive(ModBlocks.IRON_FURNACE, "machine/simple/iron_furnace/iron_furnace");
+    }
+
+    private void registerEnergyStorage() {
+        createFacing(ModBlocks.BATTERY_BOX, "energy_storage/battery_box/battery_box", "_bottom", "_top", "_front", "_back", "_leftright", "_leftright");
+        createFacing(ModBlocks.CESU, "energy_storage/cesu/cesu", "_bottom", "_top", "_front", "_back", "_leftright", "_leftright");
+        createFacing(ModBlocks.MFE, "energy_storage/mfe/mfe", "_bottom", "_top", "_front", "_back", "_leftright", "_leftright");
+        createFacing(ModBlocks.MFSU, "energy_storage/mfsu/mfsu", "_bottom", "_top", "_front", "_back", "_leftright", "_leftright");
     }
 
 
@@ -336,9 +344,6 @@ public class BlockTextures extends BlockStateProvider {
                         .build();
             });
     }
-
-
-
 
     private void createReactorMultipartFrame(RegistryObject<Block> block, String path, String pathFormed) {
 
@@ -524,6 +529,32 @@ public class BlockTextures extends BlockStateProvider {
                             .build();
                 });
     }
+
+    private void createFacing(RegistryObject<Block> block, String path, String down, String up, String north, String south, String east, String west) {
+        ModelFile modelFile = models().withExistingParent(block.getId().getPath(), "cube")
+                .texture("down", new ResourceLocation(IndReb.MODID, "block/" + path + down))
+                .texture("up", new ResourceLocation(IndReb.MODID, "block/" + path + up))
+                .texture("north", new ResourceLocation(IndReb.MODID, "block/" + path + north))
+                .texture("south", new ResourceLocation(IndReb.MODID, "block/" + path + south))
+                .texture("east", new ResourceLocation(IndReb.MODID, "block/" + path + east))
+                .texture("west",new ResourceLocation(IndReb.MODID, "block/" + path + west))
+                .texture("particle", new ResourceLocation(IndReb.MODID, "block/" + path + south));
+
+        orientedBlock(block.get(), state -> modelFile, BlockStateHelper.FACING_PROPERTY);
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

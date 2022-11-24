@@ -8,8 +8,8 @@ public class ElectricSlot extends BaseSlot implements IElectricSlot {
 
     boolean isCharging;
 
-    public ElectricSlot(int slotId, int slotX, int slotY, int slotGuiX, int slotGuiY, InventorySlotType inventoryType, GuiSlotBg guiType, boolean isEnabled, boolean isCharging) {
-        super(slotId, slotX, slotY, slotGuiX, slotGuiY, inventoryType, guiType, isEnabled);
+    public ElectricSlot(int slotId, int slotX, int slotY, InventorySlotType inventoryType, GuiSlotBg guiType, boolean isEnabled, boolean isCharging) {
+        super(slotId, slotX, slotY, slotX - 1, slotY - 1, inventoryType, guiType, isEnabled);
         this.isCharging = isCharging;
     }
 

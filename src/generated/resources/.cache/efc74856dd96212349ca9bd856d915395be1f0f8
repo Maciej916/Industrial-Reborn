@@ -1,4 +1,4 @@
-// 1.19.2	2022-11-23T22:43:01.3370528	Item Models: indreb
+// 1.19.2	2022-11-24T11:21:07.848527	Item Models: indreb
 ea6f48b249d5595c0bc20e39b977fa8fad0ed868 assets/indreb/models/item/acid_hazard_sign_block.json
 4df0fe2021d7b228332497f5c7d711b40f082510 assets/indreb/models/item/advanced_alloy.json
 df0888ae05d095b7dbd4b54b411496df8d853b49 assets/indreb/models/item/advanced_battery.json
@@ -56,6 +56,7 @@ b2cf11bb06a286b94b24091c86063dac02330dd8 assets/indreb/models/item/battery/lapot
 b77246117c81832d539feedbcdec1362203e9a9c assets/indreb/models/item/battery/lapotron_crystal_2.json
 6cedc75e341efd70636440aa48510097859e62df assets/indreb/models/item/battery/lapotron_crystal_3.json
 49ac420c2266aa9d18aca4265e3aa5c537924d92 assets/indreb/models/item/battery/lapotron_crystal_4.json
+b7b7c10b86c02f5aff94c7dacbe95bc1951def4a assets/indreb/models/item/battery_box.json
 88176f28e0a2b118d131e21e4e174b9fa253ff1c assets/indreb/models/item/bio_chaff.json
 95a2c2b1e84bec9287b9fef1d69d3a1d3cb93682 assets/indreb/models/item/bio_hazard_sign_block.json
 42c70becdf130ad536d7b3f4b50744bc050a604f assets/indreb/models/item/bronze_axe.json
@@ -72,6 +73,7 @@ cde85c303634020e4215b2267fb9483f957c65c5 assets/indreb/models/item/bronze_leggin
 3f58d446712ecd49585af359f3b3b5dec3936180 assets/indreb/models/item/bronze_sword.json
 4d693cafdbe9951b8fdb432f1d55ff594c5af95c assets/indreb/models/item/carbon_fibers.json
 54cee230329a79c0d28b473559f5b85dfca9a44d assets/indreb/models/item/carbon_plate.json
+7028dbea2b4ed25bb65829f1f849dc3719ca2f7d assets/indreb/models/item/cesu.json
 46ea67f6506caa0a466536537cd427d72a450522 assets/indreb/models/item/chainsaw.json
 7774f93c0a60c66bcb3790fb4c9dea26219b802e assets/indreb/models/item/charging_battery.json
 c899c50ecb5c11753ca2fe76390e5d7444dcff1e assets/indreb/models/item/charging_energy_crystal.json
@@ -191,6 +193,8 @@ c7fac649d8d29f69918ece2daad070d83e32c5fe assets/indreb/models/item/lead_plate.js
 49b75fa1b4bcded7efea11cbc4602817f58bce5d assets/indreb/models/item/magic_hazard_sign_block.json
 eef4f0cab4731409a2d2fb176f2514fe6f6916f0 assets/indreb/models/item/medium_coolant_cell.json
 caca55b827fb8a4af77150ec30140cb6423a7d6c assets/indreb/models/item/memory_card.json
+ad9b3b1eed95c2a51c286c8f4808b889cb179d0b assets/indreb/models/item/mfe.json
+b6b081956ae7b2bd7dda47bafa3477fe1288386a assets/indreb/models/item/mfsu.json
 156fd91797160791c853cdde72ab2e2074d55931 assets/indreb/models/item/mining_drill.json
 bdb6961e18c0c78725126bc7e58200cd4553a62c assets/indreb/models/item/mixed_metal_ingot.json
 98eca21d04aa0096a06a625ac4fb58efabbeb125 assets/indreb/models/item/mud_pile.json

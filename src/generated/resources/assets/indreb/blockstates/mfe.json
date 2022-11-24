@@ -1,0 +1,27 @@
+{
+  "variants": {
+    "facing=down": {
+      "model": "indreb:block/mfe",
+      "x": 90
+    },
+    "facing=east": {
+      "model": "indreb:block/mfe",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "indreb:block/mfe"
+    },
+    "facing=south": {
+      "model": "indreb:block/mfe",
+      "y": 180
+    },
+    "facing=up": {
+      "model": "indreb:block/mfe",
+      "x": -90
+    },
+    "facing=west": {
+      "model": "indreb:block/mfe",
+      "y": 270
+    }
+  }
+}

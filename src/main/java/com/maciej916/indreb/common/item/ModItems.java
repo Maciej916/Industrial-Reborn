@@ -151,6 +151,24 @@ public final class ModItems {
 
 
 
+
+
+    public static final RegistryObject<Item> BATTERY_BOX = fromBlockElectric(ModBlocks.BATTERY_BOX);
+    public static final RegistryObject<Item> CESU = fromBlockElectric(ModBlocks.CESU);
+    public static final RegistryObject<Item> MFE = fromBlockElectric(ModBlocks.MFE);
+    public static final RegistryObject<Item> MFSU = fromBlockElectric(ModBlocks.MFSU);
+
+//    public static final RegistryObject<Item> LV_TRANSFORMER = fromBlock(ModBlocks.LV_TRANSFORMER);
+//    public static final RegistryObject<Item> MV_TRANSFORMER = fromBlock(ModBlocks.MV_TRANSFORMER);
+//    public static final RegistryObject<Item> HV_TRANSFORMER = fromBlock(ModBlocks.HV_TRANSFORMER);
+//    public static final RegistryObject<Item> EV_TRANSFORMER = fromBlock(ModBlocks.EV_TRANSFORMER);
+//
+//    public static final RegistryObject<Item> CHARGE_PAD_BATTERY_BOX = fromBlockElectric(ModBlocks.CHARGE_PAD_BATTERY_BOX);
+//    public static final RegistryObject<Item> CHARGE_PAD_CESU = fromBlockElectric(ModBlocks.CHARGE_PAD_CESU);
+//    public static final RegistryObject<Item> CHARGE_PAD_MFE = fromBlockElectric(ModBlocks.CHARGE_PAD_MFE);
+//    public static final RegistryObject<Item> CHARGE_PAD_MFSU = fromBlockElectric(ModBlocks.CHARGE_PAD_MFSU);
+//
+
     public static final RegistryObject<Item> RAW_TIN = registerItem("raw_tin", MaterialItem::new);
     public static final RegistryObject<Item> RAW_LEAD = registerItem("raw_lead", MaterialItem::new);
     public static final RegistryObject<Item> RAW_URANIUM = registerItem("raw_uranium", MaterialItem::new);
@@ -261,7 +279,7 @@ public final class ModItems {
     public static final RegistryObject<Item> ENERGY_CRYSTAL = registerItem("energy_crystal", () -> new EnergyStorageItem(0, 100000, EnergyType.BOTH, EnergyTier.ADVANCED));
     public static final RegistryObject<Item> LAPOTRON_CRYSTAL = registerItem("lapotron_crystal", () -> new EnergyStorageItem(0, 1000000, EnergyType.BOTH, EnergyTier.SUPER));
     public static final RegistryObject<Item> CHARGING_BATTERY = registerItem("charging_battery", () -> new ChargingElectricItem(40000, EnergyType.BOTH, EnergyTier.BASIC));
-    public static final RegistryObject<Item> ADVANCED_CHARGING_BATTERY = registerItem("advanced_charging_battery", () ->new ChargingElectricItem(400000, EnergyType.BOTH, EnergyTier.STANDARD));
+    public static final RegistryObject<Item> CHARGING_ADVANCED_BATTERY = registerItem("advanced_charging_battery", () ->new ChargingElectricItem(400000, EnergyType.BOTH, EnergyTier.STANDARD));
     public static final RegistryObject<Item> CHARGING_ENERGY_CRYSTAL = registerItem("charging_energy_crystal", () -> new ChargingElectricItem(4000000, EnergyType.BOTH, EnergyTier.ADVANCED));
     public static final RegistryObject<Item> CHARGING_LAPOTRON_CRYSTAL = registerItem("charging_lapotron_crystal", () -> new ChargingElectricItem(40000000, EnergyType.BOTH, EnergyTier.SUPER));
 

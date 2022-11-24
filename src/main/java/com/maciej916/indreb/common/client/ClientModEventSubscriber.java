@@ -4,6 +4,7 @@ import com.maciej916.indreb.IndReb;
 import com.maciej916.indreb.common.api.item.base.BaseElectricItem;
 import com.maciej916.indreb.common.api.item.base.BaseFluidItem;
 import com.maciej916.indreb.common.block.ModBlocks;
+import com.maciej916.indreb.common.block.impl.battery_box.ScreenBatteryBox;
 import com.maciej916.indreb.common.block.impl.explosive.nuke.ScreenNuke;
 import com.maciej916.indreb.common.block.impl.generator.generator.ScreenGenerator;
 import com.maciej916.indreb.common.block.impl.generator.geo_generator.ScreenGeoGenerator;
@@ -75,8 +76,8 @@ public final class ClientModEventSubscriber {
 			MenuScreens.register(ModMenuTypes.GEO_GENERATOR.get(), ScreenGeoGenerator::new);
 			MenuScreens.register(ModMenuTypes.SEMIFLUID_GENERATOR.get(), ScreenSemifluidGenerator::new);
 			MenuScreens.register(ModMenuTypes.NUCLEAR_REACTOR.get(), ScreenNuclearReactor::new);
-//
-//			MenuScreens.register(ModMenuTypes.BATTERY_BOX.get(), ScreenBatteryBox::new);
+
+			MenuScreens.register(ModMenuTypes.BATTERY_BOX.get(), ScreenBatteryBox::new);
 //			MenuScreens.register(ModMenuTypes.TRANSFORMER.get(), ScreenTransformer::new);
 //			MenuScreens.register(ModMenuTypes.CHARGE_PAD.get(), ScreenChargePad::new);
 //
@@ -110,7 +111,7 @@ public final class ClientModEventSubscriber {
 			ItemProperties.register(ModItems.LAPOTRON_CRYSTAL.get(), new ResourceLocation(IndReb.MODID, "charge_ratio"), (stack, level, living, id) -> BaseElectricItem.getChargeRatioModel(stack));
 
 			ItemProperties.register(ModItems.CHARGING_BATTERY.get(), new ResourceLocation(IndReb.MODID, "charge_ratio"), (stack, level, living, id) -> BaseElectricItem.getChargeRatioModel(stack));
-			ItemProperties.register(ModItems.ADVANCED_CHARGING_BATTERY.get(), new ResourceLocation(IndReb.MODID, "charge_ratio"), (stack, level, living, id) -> BaseElectricItem.getChargeRatioModel(stack));
+			ItemProperties.register(ModItems.CHARGING_ADVANCED_BATTERY.get(), new ResourceLocation(IndReb.MODID, "charge_ratio"), (stack, level, living, id) -> BaseElectricItem.getChargeRatioModel(stack));
 			ItemProperties.register(ModItems.CHARGING_ENERGY_CRYSTAL.get(), new ResourceLocation(IndReb.MODID, "charge_ratio"), (stack, level, living, id) -> BaseElectricItem.getChargeRatioModel(stack));
 			ItemProperties.register(ModItems.CHARGING_LAPOTRON_CRYSTAL.get(), new ResourceLocation(IndReb.MODID, "charge_ratio"), (stack, level, living, id) -> BaseElectricItem.getChargeRatioModel(stack));
 

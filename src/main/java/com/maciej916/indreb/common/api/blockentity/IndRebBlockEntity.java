@@ -156,7 +156,6 @@ public class IndRebBlockEntity extends BaseBlockEntity implements IIndRebBlockEn
     private void init() {
         setSupportedTypes();
         initBaseStorage();
-        initElectricStorage();
         initUpgradesStorage();
 
         if (hasSound) {
@@ -219,6 +218,8 @@ public class IndRebBlockEntity extends BaseBlockEntity implements IIndRebBlockEn
                 ModNetworking.sendToTrackingChunk(getLevel(), getBlockPos(), new PacketBasicEnergySync(this, getBlockPos()));
             }
         };
+
+        initElectricStorage();
     }
 
     public void onBaseStorageContentsChanged(int slot) {
@@ -269,13 +270,13 @@ public class IndRebBlockEntity extends BaseBlockEntity implements IIndRebBlockEn
     }
 
     public boolean isElectricStorageItemValid(int slot, @NotNull ItemStack stack) {
-        return stack.is(ModTagsItem.ELECTRICS);
+        return stack.is(ModTagsItem.ELECTRIC);
     }
 
     private void initElectricStorage() {
         ArrayList<ElectricSlot> slots = addElectricSlots(new ArrayList<>());
         if (slots.size() > 0) {
-            this.electricStorage = new ElectricItemStackHandler(slots) {
+            this.electricStorage = new ElectricItemStackHandler(slots, energyStorage) {
                 @Override
                 protected void onContentsChanged(int slot) {
                     onElectricStorageContentsChanged(slot);

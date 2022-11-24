@@ -105,7 +105,7 @@ public class BlockEntitySolarPanel extends IndRebBlockEntity implements IBlockEn
         SolarPanelTier localTier = block.getSolarTier();
         int leftOffset = 130 - (18 * localTier.getTierLevel()) / 2;
         for (int i = 0; i < localTier.getTierLevel(); i++) {
-            slots.add(new ElectricSlot(i, leftOffset + (18 * i), 57, leftOffset + (18 * i) - 1, 56, InventorySlotType.ELECTRIC, GuiSlotBg.BATTERY, true, true));
+            slots.add(new ElectricSlot(i, leftOffset + (18 * i), 57, InventorySlotType.ELECTRIC, GuiSlotBg.BATTERY, true, true));
         }
 
         return super.addElectricSlots(slots);

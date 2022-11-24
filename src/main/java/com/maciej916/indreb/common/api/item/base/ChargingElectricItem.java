@@ -52,7 +52,7 @@ public class ChargingElectricItem extends EnergyStorageItem {
                     if (energy != null) {
                         Inventory inventory = player.getInventory();
                         List<EnergyReceiveComparator> transferCharge = new ArrayList<>();
-                        for (int j = 0; j <= 9; ++j) {
+                        for (int j = 0; j < inventory.getContainerSize(); ++j) {
                             ItemStack invStack = inventory.getItem(j);
                             if (invStack.getItem() instanceof IElectricItem electricItem) {
                                 IEnergyStorage stackEnergy = electricItem.getEnergyStorage(invStack);

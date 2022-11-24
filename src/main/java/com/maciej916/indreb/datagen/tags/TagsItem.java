@@ -106,7 +106,7 @@ public class TagsItem extends ItemTagsProvider {
 
         /* WRENCHES */
 
-        tag(ModTagsItem.WRENCHES)
+        tag(ModTagsItem.WRENCH)
                 .add(ModItems.WRENCH.get())
                 .add(ModItems.ELECTRIC_WRENCH.get())
                 .add(ModItems.MULTI_TOOL.get())
@@ -114,7 +114,7 @@ public class TagsItem extends ItemTagsProvider {
 
         /* TREETAPS */
 
-        tag(ModTagsItem.TREETAPS)
+        tag(ModTagsItem.TREETAP)
                 .add(ModItems.TREETAP.get())
                 .add(ModItems.ELECTRIC_TREETAP.get())
         ;
@@ -136,7 +136,7 @@ public class TagsItem extends ItemTagsProvider {
 
         /* LEGGINGS */
 
-        tag(ModTagsItem.CHESTPLATE)
+        tag(ModTagsItem.LEGGINGS)
                 .add(ModItems.NANO_LEGGINGS.get())
                 .add(ModItems.BRONZE_LEGGINGS.get())
         ;
@@ -151,7 +151,7 @@ public class TagsItem extends ItemTagsProvider {
 
         /* REACTOR COMPONENTS */
 
-        tag(ModTagsItem.REACTOR_COMPONENTS)
+        tag(ModTagsItem.REACTOR_COMPONENT)
                 .add(ModItems.SMALL_COOLANT_CELL.get())
                 .add(ModItems.MEDIUM_COOLANT_CELL.get())
                 .add(ModItems.LARGE_COOLANT_CELL.get())
@@ -230,6 +230,66 @@ public class TagsItem extends ItemTagsProvider {
                 .add(ModItems.FUEL_ROD_URANIUM_QUAD.get())
                 .add(ModItems.FUEL_ROD_URANIUM_QUAD_DEPLETED.get())
         ;
+
+        /* ELECTRIC */
+
+        tag(ModTagsItem.ELECTRIC)
+                .add(ModItems.NANO_HELMET.get())
+                .add(ModItems.NANO_CHESTPLATE.get())
+                .add(ModItems.NANO_LEGGINGS.get())
+                .add(ModItems.NANO_HELMET.get())
+                .add(ModItems.NANO_SABER.get())
+                .add(ModItems.ELECTRIC_TREETAP.get())
+                .add(ModItems.ELECTRIC_WRENCH.get())
+                .add(ModItems.ELECTRIC_HOE.get())
+                .add(ModItems.WIND_METER.get())
+                .add(ModItems.MULTI_TOOL.get())
+                .add(ModItems.CHAINSAW.get())
+                .add(ModItems.DIAMOND_CHAINSAW.get())
+                .add(ModItems.IRIDIUM_CHAINSAW.get())
+                .add(ModItems.MINING_DRILL.get())
+                .add(ModItems.DIAMOND_DRILL.get())
+                .add(ModItems.IRIDIUM_DRILL.get())
+                .add(ModItems.BATTERY.get())
+                .add(ModItems.ADVANCED_BATTERY.get())
+                .add(ModItems.ENERGY_CRYSTAL.get())
+                .add(ModItems.LAPOTRON_CRYSTAL.get())
+                .add(ModItems.CHARGING_BATTERY.get())
+                .add(ModItems.CHARGING_ADVANCED_BATTERY.get())
+                .add(ModItems.CHARGING_ENERGY_CRYSTAL.get())
+                .add(ModItems.CHARGING_LAPOTRON_CRYSTAL.get())
+        ;
+
+        /* BATTERY */
+
+        tag(ModTagsItem.BATTERY)
+                .add(ModItems.BATTERY.get())
+                .add(ModItems.ADVANCED_BATTERY.get())
+                .add(ModItems.ENERGY_CRYSTAL.get())
+                .add(ModItems.LAPOTRON_CRYSTAL.get())
+                .add(ModItems.CHARGING_BATTERY.get())
+                .add(ModItems.CHARGING_ADVANCED_BATTERY.get())
+                .add(ModItems.CHARGING_ENERGY_CRYSTAL.get())
+                .add(ModItems.CHARGING_LAPOTRON_CRYSTAL.get())
+        ;
+
+        /* UPGRADE */
+
+        tag(ModTagsItem.UPGRADE)
+                .add(ModItems.OVERCLOCKER_UPGRADE.get())
+                .add(ModItems.TRANSFORMER_UPGRADE.get())
+                .add(ModItems.ENERGY_STORAGE_UPGRADE.get())
+                .add(ModItems.REDSTONE_SIGNAL_INVERTER_UPGRADE.get())
+                .add(ModItems.EJECTOR_UPGRADE.get())
+                .add(ModItems.PULLING_UPGRADE.get())
+                .add(ModItems.FLUID_EJECTOR_UPGRADE.get())
+                .add(ModItems.FLUID_PULLING_UPGRADE.get())
+                .add(ModItems.ADVANCED_EJECTOR_UPGRADE.get())
+                .add(ModItems.ADVANCED_PULLING_UPGRADE.get())
+                .add(ModItems.ADVANCED_FLUID_EJECTOR_UPGRADE.get())
+                .add(ModItems.ADVANCED_FLUID_PULLING_UPGRADE.get())
+        ;
+
 
     }
 

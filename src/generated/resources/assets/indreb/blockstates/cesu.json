@@ -1,0 +1,27 @@
+{
+  "variants": {
+    "facing=down": {
+      "model": "indreb:block/cesu",
+      "x": 90
+    },
+    "facing=east": {
+      "model": "indreb:block/cesu",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "indreb:block/cesu"
+    },
+    "facing=south": {
+      "model": "indreb:block/cesu",
+      "y": 180
+    },
+    "facing=up": {
+      "model": "indreb:block/cesu",
+      "x": -90
+    },
+    "facing=west": {
+      "model": "indreb:block/cesu",
+      "y": 270
+    }
+  }
+}

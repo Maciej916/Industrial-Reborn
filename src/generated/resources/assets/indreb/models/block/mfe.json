@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "indreb:block/energy_storage/mfe/mfe_bottom",
+    "east": "indreb:block/energy_storage/mfe/mfe_leftright",
+    "north": "indreb:block/energy_storage/mfe/mfe_front",
+    "particle": "indreb:block/energy_storage/mfe/mfe_back",
+    "south": "indreb:block/energy_storage/mfe/mfe_back",
+    "up": "indreb:block/energy_storage/mfe/mfe_top",
+    "west": "indreb:block/energy_storage/mfe/mfe_leftright"
+  }
+}

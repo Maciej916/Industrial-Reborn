@@ -10,6 +10,7 @@ import com.maciej916.indreb.common.enums.EnumLang;
 import com.maciej916.indreb.common.util.CapabilityUtil;
 import com.maciej916.indreb.common.util.TextComponentUtil;
 import net.minecraft.ChatFormatting;
+import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.core.NonNullList;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
@@ -113,9 +114,9 @@ public abstract class BaseElectricItem extends BaseItem implements IElectricItem
         int energyStored = CapabilityUtil.getCapabilityHelper(pStack, ModCapabilities.ENERGY).getIfPresentElse(IEnergyStorage::energyStored, 0);
         pTooltipComponents.add(TextComponentUtil.build(
                 Component.translatable(EnumLang.STORED.getTranslationKey()).withStyle(ChatFormatting.GRAY),
-                Component.translatable(EnumLang.POWER.getTranslationKey(), TextComponentUtil.getFormattedEnergyUnit(energyStored)).withStyle(energyTier.getColor()),
+                Component.translatable(EnumLang.POWER.getTranslationKey(), TextComponentUtil.getFormattedEnergyUnit(energyStored, Screen.hasShiftDown())).withStyle(energyTier.getColor()),
                 Component.literal(" / ").withStyle(ChatFormatting.GRAY),
-                Component.translatable(EnumLang.POWER.getTranslationKey(), TextComponentUtil.getFormattedEnergyUnit(maxEnergy)).withStyle(energyTier.getColor())
+                Component.translatable(EnumLang.POWER.getTranslationKey(), TextComponentUtil.getFormattedEnergyUnit(maxEnergy, Screen.hasShiftDown())).withStyle(energyTier.getColor())
         ));
 
         super.appendHoverText(pStack, pLevel, pTooltipComponents, pIsAdvanced);

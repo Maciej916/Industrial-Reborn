@@ -1,0 +1,27 @@
+{
+  "variants": {
+    "facing=down": {
+      "model": "indreb:block/mfsu",
+      "x": 90
+    },
+    "facing=east": {
+      "model": "indreb:block/mfsu",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "indreb:block/mfsu"
+    },
+    "facing=south": {
+      "model": "indreb:block/mfsu",
+      "y": 180
+    },
+    "facing=up": {
+      "model": "indreb:block/mfsu",
+      "x": -90
+    },
+    "facing=west": {
+      "model": "indreb:block/mfsu",
+      "y": 270
+    }
+  }
+}

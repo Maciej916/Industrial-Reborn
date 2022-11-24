@@ -64,7 +64,7 @@ public abstract class IndRebBlock extends Block {
     @Override
     public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult trace) {
         ItemStack stack = player.getItemInHand(player.getUsedItemHand());
-        if (WrenchHelper.hasAction(this) && stack.is(ModTagsItem.WRENCHES)) {
+        if (WrenchHelper.hasAction(this) && stack.is(ModTagsItem.WRENCH)) {
             return InteractionResult.PASS;
         }
 
