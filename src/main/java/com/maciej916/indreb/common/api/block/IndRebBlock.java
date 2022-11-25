@@ -3,7 +3,7 @@ package com.maciej916.indreb.common.api.block;
 import com.maciej916.indreb.common.api.blockentity.interfaces.IIndRebBlockEntity;
 import com.maciej916.indreb.common.api.energy.interfaces.IBlockEntityEnergy;
 import com.maciej916.indreb.common.capability.ModCapabilities;
-import com.maciej916.indreb.common.tag.ModTagsItem;
+import com.maciej916.indreb.common.tag.ModItemTags;
 import com.maciej916.indreb.common.util.BlockStateHelper;
 import com.maciej916.indreb.common.util.CapabilityUtil;
 import com.maciej916.indreb.common.util.wrench.WrenchHelper;
@@ -64,7 +64,7 @@ public abstract class IndRebBlock extends Block {
     @Override
     public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult trace) {
         ItemStack stack = player.getItemInHand(player.getUsedItemHand());
-        if (WrenchHelper.hasAction(this) && stack.is(ModTagsItem.WRENCH)) {
+        if (WrenchHelper.hasAction(this) && stack.is(ModItemTags.WRENCH)) {
             return InteractionResult.PASS;
         }
 

@@ -1,0 +1,16 @@
+{
+  "type": "indreb:crushing",
+  "chance_result": [],
+  "duration": 180,
+  "experience": 0.0,
+  "ingredients": [
+    {
+      "count": 8,
+      "tag": "minecraft:leaves"
+    }
+  ],
+  "result": {
+    "item": "indreb:bio_chaff"
+  },
+  "tick_energy_cost": 8
+}

@@ -1,0 +1,21 @@
+{
+  "type": "indreb:crushing",
+  "chance_result": [
+    {
+      "chance": 25.0,
+      "count": 1,
+      "item": "minecraft:blue_dye"
+    }
+  ],
+  "duration": 180,
+  "experience": 0.1,
+  "ingredients": [
+    {
+      "item": "minecraft:cornflower"
+    }
+  ],
+  "result": {
+    "item": "minecraft:blue_dye"
+  },
+  "tick_energy_cost": 8
+}

@@ -18,13 +18,14 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.level.ItemLike;
+import net.minecraftforge.registries.RegistryObject;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.function.Consumer;
 
 import static com.maciej916.indreb.IndReb.MODID;
 
-public class RecipeBuilderCrushing {
+public class CrushingRecipeBuilder {
 
     private final IngredientCount ingredients = new IngredientCount(1);
     private final ItemStack result;
@@ -38,61 +39,69 @@ public class RecipeBuilderCrushing {
     private String group = "";
     private final Advancement.Builder advancementBuilder = Advancement.Builder.advancement();
 
-    private RecipeBuilderCrushing(ItemStack result, int duration, int tickEnergyCost, float experience) {
+    private CrushingRecipeBuilder(ItemStack result, int duration, int tickEnergyCost, float experience) {
         this.result = result;
         this.duration = duration;
         this.tickEnergyCost = tickEnergyCost;
         this.experience = experience;
     }
 
-    public static RecipeBuilderCrushing builder(ItemLike item, int resultCount) {
-        return new RecipeBuilderCrushing(new ItemStack(item, resultCount), 180, 8, 0);
+    public static CrushingRecipeBuilder builder(RegistryObject<Item> item, int resultCount) {
+        return builder(item.get(), resultCount);
     }
 
-    public RecipeBuilderCrushing setIngredient(Ingredient ingredient, int count) {
+    public static CrushingRecipeBuilder builder(ItemLike item, int resultCount) {
+        return new CrushingRecipeBuilder(new ItemStack(item, resultCount), 180, 8, 0);
+    }
+
+    private CrushingRecipeBuilder setIngredient(Ingredient ingredient, int count) {
         this.ingredients.setIngredient(0, ingredient, count);
         return this;
     }
 
-    public RecipeBuilderCrushing setIngredient(ItemLike item, int count) {
+    public CrushingRecipeBuilder setIngredient(RegistryObject<Item> item, int count) {
+        return setIngredient(Ingredient.of(item.get()), count);
+    }
+
+    public CrushingRecipeBuilder setIngredient(ItemLike item, int count) {
         return setIngredient(Ingredient.of(item), count);
     }
 
-    public RecipeBuilderCrushing setIngredient(TagKey<Item> tag, int count) {
+    public CrushingRecipeBuilder setIngredient(TagKey<Item> tag, int count) {
         return setIngredient(Ingredient.of(tag), count);
     }
 
-    public RecipeBuilderCrushing setDuration(int duration) {
+    public CrushingRecipeBuilder setDuration(int duration) {
         this.duration = duration;
         return this;
     }
 
-    public RecipeBuilderCrushing setTickEnergyCost(int tickEnergyCost) {
+    public CrushingRecipeBuilder setTickEnergyCost(int tickEnergyCost) {
         this.tickEnergyCost = tickEnergyCost;
         return this;
     }
 
-    public RecipeBuilderCrushing setExperience(float experience) {
+    public CrushingRecipeBuilder setExperience(float experience) {
         this.experience = experience;
         return this;
     }
 
-    public RecipeBuilderCrushing addChanceResult(ItemLike itemIn, int count, int chance) {
-        this.chanceResults = this.chanceResults.addChanceResult(new ItemStack(itemIn, count), chance);
+    public CrushingRecipeBuilder addChanceResult(ItemLike item, int count, int chance) {
+        this.chanceResults = this.chanceResults.addChanceResult(new ItemStack(item, count), chance);
         return this;
     }
 
+    public CrushingRecipeBuilder addChanceResult(RegistryObject<Item> item, int count, int chance) {
+        this.chanceResults = this.chanceResults.addChanceResult(new ItemStack(item.get(), count), chance);
+        return this;
+    }
 
-
-
-
-
-    public RecipeBuilderCrushing setGroup(String groupIn) {
+    public CrushingRecipeBuilder setGroup(String groupIn) {
         this.group = groupIn;
         return this;
     }
 
-    public RecipeBuilderCrushing addCriterion(String name, CriterionTriggerInstance criterionIn) {
+    public CrushingRecipeBuilder addCriterion(String name, CriterionTriggerInstance criterionIn) {
         this.advancementBuilder.addCriterion(name, criterionIn);
         return this;
     }
@@ -118,9 +127,9 @@ public class RecipeBuilderCrushing {
     public static class Result implements FinishedRecipe {
 
         private final ResourceLocation id;
-        private final RecipeBuilderCrushing builder;
+        private final CrushingRecipeBuilder builder;
 
-        public Result(ResourceLocation id, RecipeBuilderCrushing builder) {
+        public Result(ResourceLocation id, CrushingRecipeBuilder builder) {
             this.id = id;
             this.builder = builder;
         }

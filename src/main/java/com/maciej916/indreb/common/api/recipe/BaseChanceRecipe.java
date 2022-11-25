@@ -7,6 +7,7 @@ import com.maciej916.indreb.common.api.recipe.lib.IngredientCount;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public abstract class BaseChanceRecipe extends BaseRecipe implements IChanceRecipe {
@@ -25,6 +26,25 @@ public abstract class BaseChanceRecipe extends BaseRecipe implements IChanceReci
     @Override
     public List<ChanceResultStack> getChanceResultStacks() {
         return chanceResult.getResults();
+    }
+
+    @Override
+    public List<ItemStack> getChanceResultItemStacks() {
+        List<ItemStack> stacks = new ArrayList<>();
+        for (ChanceResultStack resultStack : chanceResult.getResults()) {
+            stacks.add(resultStack.stack());
+        }
+        return stacks;
+    }
+
+    @Override
+    public float getChanceForStack(ItemStack stack) {
+        for (ChanceResultStack resultStack : chanceResult.getResults()) {
+            if (stack.getItem() == resultStack.stack().getItem()) {
+                return resultStack.rawChance() / Math.max(chanceResult.getTotalWeight(), 100);
+            }
+        }
+        return 0f;
     }
 
     @Override

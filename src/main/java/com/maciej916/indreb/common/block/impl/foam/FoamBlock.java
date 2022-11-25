@@ -2,7 +2,7 @@ package com.maciej916.indreb.common.block.impl.foam;
 
 import com.maciej916.indreb.common.api.block.BlockFoam;
 import com.maciej916.indreb.common.block.ModBlocks;
-import com.maciej916.indreb.common.tag.ModTagsItem;
+import com.maciej916.indreb.common.tag.ModItemTags;
 import com.maciej916.indreb.common.util.Constants;
 import com.mojang.math.Vector3f;
 import net.minecraft.core.BlockPos;
@@ -46,7 +46,7 @@ public class FoamBlock extends BlockFoam {
     public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
 
         ItemStack stack = player.getItemInHand(player.getUsedItemHand());
-        if (stack.is(ModTagsItem.FORGE_SAND)) {
+        if (stack.is(ModItemTags.FORGE_SAND)) {
             if (!level.isClientSide()) {
                 if (!player.isCreative()) {
                     stack.shrink(1);

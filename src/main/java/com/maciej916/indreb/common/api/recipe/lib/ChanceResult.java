@@ -19,7 +19,7 @@ public class ChanceResult {
 
     public ChanceResult(ChanceResultStack bonusResult) {
         results.add(bonusResult);
-        totalWeight += bonusResult.chance();
+        totalWeight += bonusResult.rawChance();
     }
 
     public ChanceResult() {}
@@ -49,10 +49,10 @@ public class ChanceResult {
         }
 
         for (ChanceResultStack result : results) {
-            if (position < result.chance()) {
+            if (position < result.rawChance()) {
                 return result.stack().copy();
             }
-            position -= result.chance();
+            position -= result.rawChance();
         }
 
         return ItemStack.EMPTY;
@@ -64,7 +64,7 @@ public class ChanceResult {
             JsonObject object = new JsonObject();
             object.addProperty("item", ForgeRegistries.ITEMS.getKey(stack.stack().getItem()).toString());
             object.addProperty("count", stack.getCount());
-            object.addProperty("chance", stack.chance());
+            object.addProperty("rawChance", stack.rawChance());
             array.add(object);
         }
 
@@ -76,14 +76,9 @@ public class ChanceResult {
 
         for (int i = 0; i < ingredients.size(); i++) {
             JsonObject object = ingredients.get(i).getAsJsonObject();
-
-            System.out.println("object");
-            System.out.println(object);
-
             ItemStack itemStack = ShapedRecipe.itemStackFromJson(object);
             itemStack.setCount(GsonHelper.getAsInt(object, "count", 1));
-            float chance = GsonHelper.getAsFloat(object, "chance", 100);
-
+            float chance = GsonHelper.getAsFloat(object, "rawChance", 100);
             chanceResult.addChanceResult(itemStack, chance);
         }
 
@@ -95,9 +90,7 @@ public class ChanceResult {
         int mapSize = buffer.readInt();
         ChanceResult chanceRecipeResult = new ChanceResult();
         for (int i = 0; i < mapSize; i++) {
-            ItemStack stack = buffer.readItem();
-            float chance = buffer.readFloat();
-            chanceRecipeResult.addChanceResult(stack, chance);
+            chanceRecipeResult.addChanceResult(buffer.readItem(), buffer.readFloat());
         }
         return chanceRecipeResult;
     }
@@ -106,7 +99,7 @@ public class ChanceResult {
         buffer.writeInt(results.size());
         results.forEach((arr) -> {
             buffer.writeItemStack(arr.stack(), false);
-            buffer.writeFloat(arr.chance());
+            buffer.writeFloat(arr.rawChance());
         });
         return buffer;
     }

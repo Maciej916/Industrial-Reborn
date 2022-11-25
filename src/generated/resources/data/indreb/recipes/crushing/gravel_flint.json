@@ -1,0 +1,15 @@
+{
+  "type": "indreb:crushing",
+  "chance_result": [],
+  "duration": 180,
+  "experience": 0.1,
+  "ingredients": [
+    {
+      "tag": "forge:gravel"
+    }
+  ],
+  "result": {
+    "item": "minecraft:flint"
+  },
+  "tick_energy_cost": 8
+}

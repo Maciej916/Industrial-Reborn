@@ -1,0 +1,15 @@
+{
+  "type": "indreb:crushing",
+  "chance_result": [],
+  "duration": 180,
+  "experience": 0.2,
+  "ingredients": [
+    {
+      "item": "indreb:purified_uranium"
+    }
+  ],
+  "result": {
+    "item": "indreb:uranium_dust"
+  },
+  "tick_energy_cost": 8
+}

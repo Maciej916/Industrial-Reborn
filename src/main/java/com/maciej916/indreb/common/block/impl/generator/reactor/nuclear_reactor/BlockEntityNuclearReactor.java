@@ -14,7 +14,7 @@ import com.maciej916.indreb.common.multiblock.reactor.Reactor;
 import com.maciej916.indreb.common.multiblock.reactor.ReactorPartIndex;
 import com.maciej916.indreb.common.network.ModNetworking;
 import com.maciej916.indreb.common.network.packet.PacketPlayPauseReactor;
-import com.maciej916.indreb.common.tag.ModTagsItem;
+import com.maciej916.indreb.common.tag.ModItemTags;
 import com.maciej916.indreb.common.util.BlockStateHelper;
 import com.maciej916.indreb.common.util.CapabilityUtil;
 import com.maciej916.indreb.common.util.StackHandlerHelper;
@@ -80,7 +80,7 @@ public class BlockEntityNuclearReactor extends IndRebBlockEntity {
 
     @Override
     public boolean isBaseStorageItemValid(int slot, @NotNull ItemStack stack) {
-        return stack.is(ModTagsItem.REACTOR_FUSION);
+        return stack.is(ModItemTags.REACTOR_FUSION);
     }
 
     @Override

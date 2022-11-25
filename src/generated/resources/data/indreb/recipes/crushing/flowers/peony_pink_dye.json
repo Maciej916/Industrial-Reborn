@@ -1,0 +1,22 @@
+{
+  "type": "indreb:crushing",
+  "chance_result": [
+    {
+      "chance": 50.0,
+      "count": 1,
+      "item": "minecraft:pink_dye"
+    }
+  ],
+  "duration": 180,
+  "experience": 0.1,
+  "ingredients": [
+    {
+      "item": "minecraft:peony"
+    }
+  ],
+  "result": {
+    "count": 2,
+    "item": "minecraft:pink_dye"
+  },
+  "tick_energy_cost": 8
+}

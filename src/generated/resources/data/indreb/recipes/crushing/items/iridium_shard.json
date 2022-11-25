@@ -1,0 +1,16 @@
+{
+  "type": "indreb:crushing",
+  "chance_result": [],
+  "duration": 180,
+  "experience": 1.0,
+  "ingredients": [
+    {
+      "item": "indreb:iridium"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "item": "indreb:iridium_shard"
+  },
+  "tick_energy_cost": 8
+}

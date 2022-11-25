@@ -11,7 +11,7 @@ public interface IBaseRecipe {
     IngredientCount getIngredientCount();
 
     default boolean hasExperience() {
-        return getExperience() != -1;
+        return getExperience() > 0;
     }
 
 }

@@ -1,0 +1,16 @@
+{
+  "type": "indreb:crushing",
+  "chance_result": [],
+  "duration": 180,
+  "experience": 0.1,
+  "ingredients": [
+    {
+      "tag": "forge:bones"
+    }
+  ],
+  "result": {
+    "count": 14,
+    "item": "minecraft:bone_meal"
+  },
+  "tick_energy_cost": 8
+}

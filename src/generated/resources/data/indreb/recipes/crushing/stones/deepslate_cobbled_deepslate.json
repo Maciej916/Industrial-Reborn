@@ -1,0 +1,21 @@
+{
+  "type": "indreb:crushing",
+  "chance_result": [
+    {
+      "chance": 50.0,
+      "count": 1,
+      "item": "indreb:deepslate_dust"
+    }
+  ],
+  "duration": 180,
+  "experience": 0.0,
+  "ingredients": [
+    {
+      "item": "minecraft:deepslate"
+    }
+  ],
+  "result": {
+    "item": "minecraft:cobbled_deepslate"
+  },
+  "tick_energy_cost": 8
+}

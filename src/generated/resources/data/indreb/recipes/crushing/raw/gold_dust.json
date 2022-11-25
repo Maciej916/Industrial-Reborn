@@ -1,0 +1,17 @@
+{
+  "type": "indreb:crushing",
+  "chance_result": [],
+  "duration": 180,
+  "experience": 0.2,
+  "ingredients": [
+    {
+      "count": 3,
+      "tag": "forge:raw_materials/gold"
+    }
+  ],
+  "result": {
+    "count": 4,
+    "item": "indreb:gold_dust"
+  },
+  "tick_energy_cost": 8
+}

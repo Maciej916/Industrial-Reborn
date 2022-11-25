@@ -2,7 +2,7 @@ package com.maciej916.indreb.datagen.tags;
 
 import com.maciej916.indreb.IndReb;
 import com.maciej916.indreb.common.item.ModItems;
-import com.maciej916.indreb.common.tag.ModTagsItem;
+import com.maciej916.indreb.common.tag.ModItemTags;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.tags.BlockTagsProvider;
 import net.minecraft.data.tags.ItemTagsProvider;
@@ -25,88 +25,88 @@ public class TagsItem extends ItemTagsProvider {
 
         /* ORES */
 
-        tag(ModTagsItem.FORGE_ORE_TIN)
+        tag(ModItemTags.FORGE_ORE_TIN)
                 .add(ModItems.TIN_ORE.get())
                 .add(ModItems.DEEPSLATE_TIN_ORE.get())
         ;
 
-        tag(ModTagsItem.FORGE_ORE_LEAD)
+        tag(ModItemTags.FORGE_ORE_LEAD)
                 .add(ModItems.LEAD_ORE.get())
                 .add(ModItems.DEEPSLATE_LEAD_ORE.get())
         ;
 
-        tag(ModTagsItem.FORGE_ORE_URANIUM)
+        tag(ModItemTags.FORGE_ORE_URANIUM)
                 .add(ModItems.URANIUM_ORE.get())
                 .add(ModItems.DEEPSLATE_URANIUM_ORE.get())
         ;
 
-        tag(ModTagsItem.FORGE_ORE_SILVER)
+        tag(ModItemTags.FORGE_ORE_SILVER)
                 .add(ModItems.SILVER_ORE.get())
                 .add(ModItems.DEEPSLATE_SILVER_ORE.get())
         ;
 
         /* RAW STORAGE BLOCKS */
 
-        tag(ModTagsItem.FORGE_STORAGE_BLOCKS_RAW_TIN).add(ModItems.RAW_TIN_BLOCK.get());
-        tag(ModTagsItem.FORGE_STORAGE_BLOCKS_RAW_LEAD).add(ModItems.RAW_LEAD_BLOCK.get());
-        tag(ModTagsItem.FORGE_STORAGE_BLOCKS_RAW_URANIUM).add(ModItems.RAW_URANIUM_BLOCK.get());
-        tag(ModTagsItem.FORGE_STORAGE_BLOCKS_RAW_SILVER).add(ModItems.RAW_SILVER_BLOCK.get());
+        tag(ModItemTags.FORGE_STORAGE_BLOCKS_RAW_TIN).add(ModItems.RAW_TIN_BLOCK.get());
+        tag(ModItemTags.FORGE_STORAGE_BLOCKS_RAW_LEAD).add(ModItems.RAW_LEAD_BLOCK.get());
+        tag(ModItemTags.FORGE_STORAGE_BLOCKS_RAW_URANIUM).add(ModItems.RAW_URANIUM_BLOCK.get());
+        tag(ModItemTags.FORGE_STORAGE_BLOCKS_RAW_SILVER).add(ModItems.RAW_SILVER_BLOCK.get());
 
         /* STORAGE_BLOCKS */
 
-        tag(ModTagsItem.FORGE_STORAGE_BLOCKS_TIN).add(ModItems.TIN_BLOCK.get());
-        tag(ModTagsItem.FORGE_STORAGE_BLOCKS_SILVER).add(ModItems.SILVER_BLOCK.get());
-        tag(ModTagsItem.FORGE_STORAGE_BLOCKS_URANIUM).add(ModItems.URANIUM_BLOCK.get());
-        tag(ModTagsItem.FORGE_STORAGE_BLOCKS_LEAD).add(ModItems.LEAD_BLOCK.get());
-        tag(ModTagsItem.FORGE_STORAGE_BLOCKS_STEEL).add(ModItems.STEEL_BLOCK.get());
-        tag(ModTagsItem.FORGE_STORAGE_BLOCKS_BRONZE).add(ModItems.BRONZE_BLOCK.get());
-        tag(ModTagsItem.FORGE_RAW_MATERIALS_TIN).add(ModItems.RAW_TIN.get());
-        tag(ModTagsItem.FORGE_RAW_MATERIALS_SILVER).add(ModItems.RAW_SILVER.get());
-        tag(ModTagsItem.FORGE_RAW_MATERIALS_URANIUM).add(ModItems.RAW_URANIUM.get());
-        tag(ModTagsItem.FORGE_RAW_MATERIALS_LEAD).add(ModItems.RAW_LEAD.get());
+        tag(ModItemTags.FORGE_STORAGE_BLOCKS_TIN).add(ModItems.TIN_BLOCK.get());
+        tag(ModItemTags.FORGE_STORAGE_BLOCKS_SILVER).add(ModItems.SILVER_BLOCK.get());
+        tag(ModItemTags.FORGE_STORAGE_BLOCKS_URANIUM).add(ModItems.URANIUM_BLOCK.get());
+        tag(ModItemTags.FORGE_STORAGE_BLOCKS_LEAD).add(ModItems.LEAD_BLOCK.get());
+        tag(ModItemTags.FORGE_STORAGE_BLOCKS_STEEL).add(ModItems.STEEL_BLOCK.get());
+        tag(ModItemTags.FORGE_STORAGE_BLOCKS_BRONZE).add(ModItems.BRONZE_BLOCK.get());
+        tag(ModItemTags.FORGE_RAW_MATERIALS_TIN).add(ModItems.RAW_TIN.get());
+        tag(ModItemTags.FORGE_RAW_MATERIALS_SILVER).add(ModItems.RAW_SILVER.get());
+        tag(ModItemTags.FORGE_RAW_MATERIALS_URANIUM).add(ModItems.RAW_URANIUM.get());
+        tag(ModItemTags.FORGE_RAW_MATERIALS_LEAD).add(ModItems.RAW_LEAD.get());
 
         /* INGOTS */
 
-        tag(ModTagsItem.FORGE_INGOTS_TIN).add(ModItems.TIN_INGOT.get());
-        tag(ModTagsItem.FORGE_INGOTS_BRONZE).add(ModItems.BRONZE_INGOT.get());
-        tag(ModTagsItem.FORGE_INGOTS_STEEL).add(ModItems.STEEL_INGOT.get());
-        tag(ModTagsItem.FORGE_INGOTS_SILVER).add(ModItems.SILVER_INGOT.get());
-        tag(ModTagsItem.FORGE_INGOTS_LEAD).add(ModItems.LEAD_INGOT.get());
-        tag(ModTagsItem.FORGE_INGOTS_LEAD).add(ModItems.LEAD_INGOT.get());
-        tag(ModTagsItem.FORGE_INGOTS_URANIUM).add(ModItems.URANIUM_INGOT.get());
+        tag(ModItemTags.FORGE_INGOTS_TIN).add(ModItems.TIN_INGOT.get());
+        tag(ModItemTags.FORGE_INGOTS_BRONZE).add(ModItems.BRONZE_INGOT.get());
+        tag(ModItemTags.FORGE_INGOTS_STEEL).add(ModItems.STEEL_INGOT.get());
+        tag(ModItemTags.FORGE_INGOTS_SILVER).add(ModItems.SILVER_INGOT.get());
+        tag(ModItemTags.FORGE_INGOTS_LEAD).add(ModItems.LEAD_INGOT.get());
+        tag(ModItemTags.FORGE_INGOTS_LEAD).add(ModItems.LEAD_INGOT.get());
+        tag(ModItemTags.FORGE_INGOTS_URANIUM).add(ModItems.URANIUM_INGOT.get());
 
         /* PLATES */
 
-        tag(ModTagsItem.FORGE_PLATES_COPPER).add(ModItems.COPPER_PLATE.get());
-        tag(ModTagsItem.FORGE_PLATES_TIN).add(ModItems.TIN_PLATE.get());
-        tag(ModTagsItem.FORGE_PLATES_IRON).add(ModItems.IRON_PLATE.get());
-        tag(ModTagsItem.FORGE_PLATES_LEAD).add(ModItems.LEAD_PLATE.get());
-        tag(ModTagsItem.FORGE_PLATES_GOLD).add(ModItems.GOLD_PLATE.get());
-        tag(ModTagsItem.FORGE_PLATES_BRONZE).add(ModItems.BRONZE_PLATE.get());
-        tag(ModTagsItem.FORGE_PLATES_STEEL).add(ModItems.STEEL_PLATE.get());
-        tag(ModTagsItem.FORGE_PLATES_IRIDIUM).add(ModItems.IRIDIUM_PLATE.get());
-        tag(ModTagsItem.FORGE_PLATES_LAPIS).add(ModItems.LAPIS_LAZULI_PLATE.get());
+        tag(ModItemTags.FORGE_PLATES_COPPER).add(ModItems.COPPER_PLATE.get());
+        tag(ModItemTags.FORGE_PLATES_TIN).add(ModItems.TIN_PLATE.get());
+        tag(ModItemTags.FORGE_PLATES_IRON).add(ModItems.IRON_PLATE.get());
+        tag(ModItemTags.FORGE_PLATES_LEAD).add(ModItems.LEAD_PLATE.get());
+        tag(ModItemTags.FORGE_PLATES_GOLD).add(ModItems.GOLD_PLATE.get());
+        tag(ModItemTags.FORGE_PLATES_BRONZE).add(ModItems.BRONZE_PLATE.get());
+        tag(ModItemTags.FORGE_PLATES_STEEL).add(ModItems.STEEL_PLATE.get());
+        tag(ModItemTags.FORGE_PLATES_IRIDIUM).add(ModItems.IRIDIUM_PLATE.get());
+        tag(ModItemTags.FORGE_PLATES_LAPIS).add(ModItems.LAPIS_LAZULI_PLATE.get());
 
         /* DUSTS */
 
-        tag(ModTagsItem.FORGE_DUSTS_TIN).add(ModItems.TIN_DUST.get());
-        tag(ModTagsItem.FORGE_DUSTS_COPPER).add(ModItems.COPPER_DUST.get());
-        tag(ModTagsItem.FORGE_DUSTS_GOLD).add(ModItems.GOLD_DUST.get());
-        tag(ModTagsItem.FORGE_DUSTS_LEAD).add(ModItems.LEAD_DUST.get());
-        tag(ModTagsItem.FORGE_DUSTS_COAL).add(ModItems.COAL_DUST.get());
-        tag(ModTagsItem.FORGE_DUSTS_LAPIS).add(ModItems.LAPIS_LAZULI_DUST.get());
-        tag(ModTagsItem.FORGE_DUSTS_DIAMOND).add(ModItems.DIAMOND_DUST.get());
-        tag(ModTagsItem.FORGE_DUSTS_STONE).add(ModItems.STONE_DUST.get());
-        tag(ModTagsItem.FORGE_DUSTS_DEEPSLATE).add(ModItems.DEEPSLATE_DUST.get());
-        tag(ModTagsItem.FORGE_DUSTS_SULFUR).add(ModItems.SULFUR_DUST.get());
+        tag(ModItemTags.FORGE_DUSTS_TIN).add(ModItems.TIN_DUST.get());
+        tag(ModItemTags.FORGE_DUSTS_COPPER).add(ModItems.COPPER_DUST.get());
+        tag(ModItemTags.FORGE_DUSTS_GOLD).add(ModItems.GOLD_DUST.get());
+        tag(ModItemTags.FORGE_DUSTS_LEAD).add(ModItems.LEAD_DUST.get());
+        tag(ModItemTags.FORGE_DUSTS_COAL).add(ModItems.COAL_DUST.get());
+        tag(ModItemTags.FORGE_DUSTS_LAPIS).add(ModItems.LAPIS_LAZULI_DUST.get());
+        tag(ModItemTags.FORGE_DUSTS_DIAMOND).add(ModItems.DIAMOND_DUST.get());
+        tag(ModItemTags.FORGE_DUSTS_STONE).add(ModItems.STONE_DUST.get());
+        tag(ModItemTags.FORGE_DUSTS_DEEPSLATE).add(ModItems.DEEPSLATE_DUST.get());
+        tag(ModItemTags.FORGE_DUSTS_SULFUR).add(ModItems.SULFUR_DUST.get());
 
         /* RODS */
 
-        tag(ModTagsItem.FORGE_RODS_IRON).add(ModItems.IRON_ROD.get());
+        tag(ModItemTags.FORGE_RODS_IRON).add(ModItems.IRON_ROD.get());
 
         /* WRENCHES */
 
-        tag(ModTagsItem.WRENCH)
+        tag(ModItemTags.WRENCH)
                 .add(ModItems.WRENCH.get())
                 .add(ModItems.ELECTRIC_WRENCH.get())
                 .add(ModItems.MULTI_TOOL.get())
@@ -114,14 +114,14 @@ public class TagsItem extends ItemTagsProvider {
 
         /* TREETAPS */
 
-        tag(ModTagsItem.TREETAP)
+        tag(ModItemTags.TREETAP)
                 .add(ModItems.TREETAP.get())
                 .add(ModItems.ELECTRIC_TREETAP.get())
         ;
 
         /* HELMET */
 
-        tag(ModTagsItem.HELMET)
+        tag(ModItemTags.HELMET)
                 .add(ModItems.NANO_HELMET.get())
                 .add(ModItems.BRONZE_HELMET.get())
                 .add(ModItems.NIGHTVISION_GOGGLES.get())
@@ -129,21 +129,21 @@ public class TagsItem extends ItemTagsProvider {
 
         /* CHESTPLATE */
 
-        tag(ModTagsItem.CHESTPLATE)
+        tag(ModItemTags.CHESTPLATE)
                 .add(ModItems.NANO_CHESTPLATE.get())
                 .add(ModItems.BRONZE_CHESTPLATE.get())
         ;
 
         /* LEGGINGS */
 
-        tag(ModTagsItem.LEGGINGS)
+        tag(ModItemTags.LEGGINGS)
                 .add(ModItems.NANO_LEGGINGS.get())
                 .add(ModItems.BRONZE_LEGGINGS.get())
         ;
 
         /* BOOTS */
 
-        tag(ModTagsItem.BOOTS)
+        tag(ModItemTags.BOOTS)
                 .add(ModItems.NANO_BOOTS.get())
                 .add(ModItems.BRONZE_BOOTS.get())
                 .add(ModItems.RUBBER_BOOTS.get())
@@ -151,7 +151,7 @@ public class TagsItem extends ItemTagsProvider {
 
         /* REACTOR COMPONENTS */
 
-        tag(ModTagsItem.REACTOR_COMPONENT)
+        tag(ModItemTags.REACTOR_COMPONENT)
                 .add(ModItems.SMALL_COOLANT_CELL.get())
                 .add(ModItems.MEDIUM_COOLANT_CELL.get())
                 .add(ModItems.LARGE_COOLANT_CELL.get())
@@ -189,7 +189,7 @@ public class TagsItem extends ItemTagsProvider {
 
         /* BASE MACHINE SIGN */
 
-        tag(ModTagsItem.BASE_MACHINE_SIGN)
+        tag(ModItemTags.BASE_MACHINE_SIGN)
                 .add(ModItems.YELLOW_STRIPES_BLOCK_LEFT.get())
                 .add(ModItems.YELLOW_STRIPES_BLOCK_RIGHT.get())
                 .add(ModItems.RADIOACTIVE_HAZARD_SIGN_BLOCK.get())
@@ -204,7 +204,7 @@ public class TagsItem extends ItemTagsProvider {
 
         /* FUSION REACTOR COMPONENTS */
 
-        tag(ModTagsItem.REACTOR_FUSION)
+        tag(ModItemTags.REACTOR_FUSION)
                 .add(ModItems.SMALL_COOLANT_CELL.get())
                 .add(ModItems.MEDIUM_COOLANT_CELL.get())
                 .add(ModItems.LARGE_COOLANT_CELL.get())
@@ -233,7 +233,7 @@ public class TagsItem extends ItemTagsProvider {
 
         /* ELECTRIC */
 
-        tag(ModTagsItem.ELECTRIC)
+        tag(ModItemTags.ELECTRIC)
                 .add(ModItems.NANO_HELMET.get())
                 .add(ModItems.NANO_CHESTPLATE.get())
                 .add(ModItems.NANO_LEGGINGS.get())
@@ -262,7 +262,7 @@ public class TagsItem extends ItemTagsProvider {
 
         /* BATTERY */
 
-        tag(ModTagsItem.BATTERY)
+        tag(ModItemTags.BATTERY)
                 .add(ModItems.BATTERY.get())
                 .add(ModItems.ADVANCED_BATTERY.get())
                 .add(ModItems.ENERGY_CRYSTAL.get())
@@ -275,7 +275,7 @@ public class TagsItem extends ItemTagsProvider {
 
         /* UPGRADE */
 
-        tag(ModTagsItem.UPGRADE)
+        tag(ModItemTags.UPGRADE)
                 .add(ModItems.OVERCLOCKER_UPGRADE.get())
                 .add(ModItems.TRANSFORMER_UPGRADE.get())
                 .add(ModItems.ENERGY_STORAGE_UPGRADE.get())

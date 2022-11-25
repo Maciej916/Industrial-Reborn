@@ -7,7 +7,7 @@ import com.maciej916.indreb.common.api.interfaces.block.IStateRubberLog;
 import com.maciej916.indreb.common.api.interfaces.item.IElectricItem;
 import com.maciej916.indreb.common.item.ModItems;
 import com.maciej916.indreb.common.sound.ModSounds;
-import com.maciej916.indreb.common.tag.ModTagsItem;
+import com.maciej916.indreb.common.tag.ModItemTags;
 import com.maciej916.indreb.common.util.BlockStateHelper;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -62,7 +62,7 @@ public class RubberLog extends IndRebBlock implements IStateRubberLog, IStateAxi
     @Override
     public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult trace) {
         ItemStack stack = player.getItemInHand(hand);
-        if (stack.is(ModTagsItem.TREETAP))  {
+        if (stack.is(ModItemTags.TREETAP))  {
             return dropRubber(player, player.getItemInHand(hand), state, level, pos, trace);
         }
         return super.use(state, level, pos, player, hand, trace);

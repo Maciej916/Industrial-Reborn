@@ -24,7 +24,7 @@ import com.maciej916.indreb.common.network.packet.PacketBasicEnergySync;
 import com.maciej916.indreb.common.network.packet.PacketExperienceCollect;
 import com.maciej916.indreb.common.network.packet.PacketExperienceSync;
 import com.maciej916.indreb.common.network.packet.PacketFluidSync;
-import com.maciej916.indreb.common.tag.ModTagsItem;
+import com.maciej916.indreb.common.tag.ModItemTags;
 import com.maciej916.indreb.common.util.BlockEntityUtil;
 import com.maciej916.indreb.common.util.CapabilityUtil;
 import com.maciej916.indreb.common.util.Constants;
@@ -270,7 +270,7 @@ public class IndRebBlockEntity extends BaseBlockEntity implements IIndRebBlockEn
     }
 
     public boolean isElectricStorageItemValid(int slot, @NotNull ItemStack stack) {
-        return stack.is(ModTagsItem.ELECTRIC);
+        return stack.is(ModItemTags.ELECTRIC);
     }
 
     private void initElectricStorage() {

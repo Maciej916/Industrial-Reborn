@@ -25,6 +25,10 @@ public class IngredientCount {
         this.ingredientsCount.set(index, count);
     }
 
+    public int getSize() {
+        return size;
+    }
+
     public NonNullList<Ingredient> getIngredients() {
         return ingredients;
     }
@@ -62,19 +66,12 @@ public class IngredientCount {
     }
 
     public static IngredientCount fromNetwork(FriendlyByteBuf buffer) {
-
         IngredientCount ingredientCount = new IngredientCount(buffer.readInt());
-
-        System.out.println("ingredientCount");
-        System.out.println(ingredientCount.size);
-        System.out.println(ingredientCount);
 
         for (int i = 0; i < ingredientCount.size; i++) {
             ingredientCount.ingredients.set(i, Ingredient.fromNetwork(buffer));
             ingredientCount.ingredientsCount.set(i, buffer.readInt());
         }
-
-        System.out.println(ingredientCount);
 
         return ingredientCount;
     }

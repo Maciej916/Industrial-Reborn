@@ -8,7 +8,7 @@ import net.minecraft.world.item.Item;
 
 import static com.maciej916.indreb.IndReb.MODID;
 
-public final class ModTagsItem {
+public final class ModItemTags {
 
     public static final TagKey<Item> TREETAP = create("treetap");
     public static final TagKey<Item> ELECTRIC = create("electric");
@@ -28,7 +28,7 @@ public final class ModTagsItem {
 
 
 
-
+    public static final TagKey<Item> FORGE_BONES = create("forge", "bones");
     public static final TagKey<Item> FORGE_SAND = create("forge", "sand");
     public static final TagKey<Item> FORGE_GRAVEL = create("forge", "gravel");
 
@@ -36,6 +36,9 @@ public final class ModTagsItem {
     public static final TagKey<Item> FORGE_ORE_SILVER = create("forge", "ores/silver");
     public static final TagKey<Item> FORGE_ORE_URANIUM = create("forge", "ores/uranium");
     public static final TagKey<Item> FORGE_ORE_LEAD = create("forge", "ores/lead");
+    public static final TagKey<Item> FORGE_ORE_GOLD = create("forge", "ores/gold");
+    public static final TagKey<Item> FORGE_ORE_COPPER = create("forge", "ores/copper");
+    public static final TagKey<Item> FORGE_ORE_IRON = create("forge", "ores/iron");
 
     public static final TagKey<Item> FORGE_STORAGE_BLOCKS_RAW_TIN = create("forge", "storage_blocks/raw_tin");
     public static final TagKey<Item> FORGE_STORAGE_BLOCKS_RAW_SILVER = create("forge", "storage_blocks/raw_silver");
@@ -53,6 +56,9 @@ public final class ModTagsItem {
     public static final TagKey<Item> FORGE_RAW_MATERIALS_SILVER = create("forge", "raw_materials/silver");
     public static final TagKey<Item> FORGE_RAW_MATERIALS_URANIUM = create("forge", "raw_materials/uranium");
     public static final TagKey<Item> FORGE_RAW_MATERIALS_LEAD = create("forge", "raw_materials/lead");
+    public static final TagKey<Item> FORGE_RAW_MATERIALS_IRON = create("forge", "raw_materials/iron");
+    public static final TagKey<Item> FORGE_RAW_MATERIALS_COPPER = create("forge", "raw_materials/copper");
+    public static final TagKey<Item> FORGE_RAW_MATERIALS_GOLD = create("forge", "raw_materials/gold");
 
     public static final TagKey<Item> FORGE_INGOTS_TIN = create("forge", "ingots/tin");
     public static final TagKey<Item> FORGE_INGOTS_BRONZE = create("forge", "ingots/bronze");
@@ -83,9 +89,9 @@ public final class ModTagsItem {
     public static final TagKey<Item> FORGE_DUSTS_SULFUR = create("forge", "dusts/sulfur");
 
     public static final TagKey<Item> FORGE_RODS_IRON = create("forge", "rods/iron");
+    public static final TagKey<Item> FORGE_GEMS_LAPIS = create("forge", "gems/lapis");
 
-
-
+    public static final TagKey<Item> MINECRAFT_WOOL = create("minecraft", "wool");
 
 
 

@@ -68,7 +68,7 @@ public enum EnumLang {
     REACTOR_FAILED("reactor_failed", "system"),
 
 
-    CHANCE("chance", "jei");
+    CHANCE("rawChance", "jei");
 
 
     private final String key;

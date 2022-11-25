@@ -20,7 +20,7 @@ public class IridiumShardModifier extends LootModifier {
             .create(inst -> codecStart(inst)
                     .and(inst.group(
                             ForgeRegistries.ITEMS.getCodec().fieldOf("item").forGetter(m -> m.item),
-                            Codec.FLOAT.fieldOf("chance").forGetter(m -> m.chance)
+                            Codec.FLOAT.fieldOf("rawChance").forGetter(m -> m.chance)
                         ))
                     .apply(inst, IridiumShardModifier::new))
     );

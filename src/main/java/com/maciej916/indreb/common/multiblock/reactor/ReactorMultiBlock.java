@@ -4,7 +4,7 @@ import com.maciej916.indreb.common.api.multiblock.IMultiBlockType;
 import com.maciej916.indreb.common.api.multiblock.MultiBlockTools;
 import com.maciej916.indreb.common.block.ModBlocks;
 import com.maciej916.indreb.common.enums.EnumLang;
-import com.maciej916.indreb.common.tag.ModTagsBlock;
+import com.maciej916.indreb.common.tag.ModBlockTags;
 import com.maciej916.indreb.common.util.BlockStateHelper;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
@@ -55,7 +55,7 @@ public class ReactorMultiBlock implements IMultiBlockType {
 
     @Override
     public @Nullable BlockPos getBottomLowerLeft(Level level, BlockPos pos, BlockState state) {
-        if (state.is(ModTagsBlock.REACTOR_PART)) {
+        if (state.is(ModBlockTags.REACTOR_PART)) {
             ReactorPartIndex index = state.getValue(BlockStateHelper.REACTOR_PART);
             return pos.offset(-index.getDx(), -index.getDy(), -index.getDz());
         } else {

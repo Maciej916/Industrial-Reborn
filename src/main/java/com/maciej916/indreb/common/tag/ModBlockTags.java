@@ -6,7 +6,7 @@ import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.block.Block;
 
-public final class ModTagsBlock {
+public final class ModBlockTags {
 
 
     public static final TagKey<Block> REACTOR_PART = creare("reactor_part");

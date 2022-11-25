@@ -7,7 +7,7 @@ import com.maciej916.indreb.common.block.impl.generator.reactor.nuclear_reactor.
 import com.maciej916.indreb.common.multiblock.reactor.IReactorPart;
 import com.maciej916.indreb.common.multiblock.reactor.ReactorMultiBlock;
 import com.maciej916.indreb.common.multiblock.reactor.ReactorPartIndex;
-import com.maciej916.indreb.common.tag.ModTagsBlock;
+import com.maciej916.indreb.common.tag.ModBlockTags;
 import com.maciej916.indreb.common.util.BlockStateHelper;
 import com.maciej916.indreb.common.util.BlockUtil;
 import com.maciej916.indreb.common.util.wrench.WrenchHelper;
@@ -45,7 +45,7 @@ public class BlockReactorControlRod extends IndRebEntityBlock implements IReacto
     @Override
     public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult trace) {
 
-        if (state.is(ModTagsBlock.REACTOR_PART) && state.getValue(BlockStateHelper.REACTOR_PART) != ReactorPartIndex.UNFORMED) {
+        if (state.is(ModBlockTags.REACTOR_PART) && state.getValue(BlockStateHelper.REACTOR_PART) != ReactorPartIndex.UNFORMED) {
             BlockPos controllerPos = BlockNuclearReactor.getControllerPos(level, pos);
             if (controllerPos != null) {
                 BlockState controllerState = level.getBlockState(controllerPos);

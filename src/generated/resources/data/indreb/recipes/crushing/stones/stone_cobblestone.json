@@ -1,0 +1,21 @@
+{
+  "type": "indreb:crushing",
+  "chance_result": [
+    {
+      "chance": 50.0,
+      "count": 1,
+      "item": "indreb:stone_dust"
+    }
+  ],
+  "duration": 180,
+  "experience": 0.0,
+  "ingredients": [
+    {
+      "item": "minecraft:stone"
+    }
+  ],
+  "result": {
+    "item": "minecraft:cobblestone"
+  },
+  "tick_energy_cost": 8
+}

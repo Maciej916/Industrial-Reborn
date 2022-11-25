@@ -1,7 +1,7 @@
 package com.maciej916.indreb.datagen;
 
 import com.maciej916.indreb.datagen.loot.LootModifier;
-import com.maciej916.indreb.datagen.recipe.generator.Crushing;
+import com.maciej916.indreb.datagen.recipe.provider.CrushingRecipeProvider;
 import com.maciej916.indreb.datagen.tags.TagsBlock;
 import com.maciej916.indreb.datagen.tags.TagsItem;
 import com.maciej916.indreb.datagen.texture.BlockTextures;
@@ -31,6 +31,6 @@ public class DataGenerators {
 
         /* RECIPES */
 
-        generator.addProvider(event.includeServer(), new Crushing(generator));
+        generator.addProvider(event.includeServer(), new CrushingRecipeProvider(generator));
     }
 }

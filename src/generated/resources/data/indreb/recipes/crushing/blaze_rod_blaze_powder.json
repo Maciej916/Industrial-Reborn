@@ -1,12 +1,6 @@
 {
   "type": "indreb:crushing",
-  "chance_result": [
-    {
-      "chance": 10.0,
-      "count": 1,
-      "item": "minecraft:blaze_rod"
-    }
-  ],
+  "chance_result": [],
   "duration": 180,
   "experience": 0.1,
   "ingredients": [
@@ -18,5 +12,5 @@
     "count": 5,
     "item": "minecraft:blaze_powder"
   },
-  "tickEnergyCost": 8
+  "tick_energy_cost": 8
 }

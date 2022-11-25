@@ -2,7 +2,7 @@ package com.maciej916.indreb.common.api.enums;
 
 import com.maciej916.indreb.IndReb;
 import com.maciej916.indreb.common.item.ModItems;
-import com.maciej916.indreb.common.tag.ModTagsItem;
+import com.maciej916.indreb.common.tag.ModItemTags;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -14,7 +14,7 @@ import java.util.function.Supplier;
 
 public enum CustomArmorMaterial implements ArmorMaterial {
     BRONZE("bronze", 15, new int[]{3, 6, 7, 3}, 9, SoundEvents.ARMOR_EQUIP_IRON, 1.0F, 0.0F,
-            () -> Ingredient.of(ModTagsItem.FORGE_INGOTS_BRONZE)),
+            () -> Ingredient.of(ModItemTags.FORGE_INGOTS_BRONZE)),
 
     RUBBER("rubber", 15, new int[]{0, 0, 0, 3}, 9, SoundEvents.ARMOR_EQUIP_IRON, 2.0F, 0.0F,
             () -> Ingredient.of(ModItems.RUBBER.get())),

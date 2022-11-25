@@ -1,0 +1,15 @@
+{
+  "type": "indreb:crushing",
+  "chance_result": [],
+  "duration": 180,
+  "experience": 0.0,
+  "ingredients": [
+    {
+      "item": "indreb:bio_chaff"
+    }
+  ],
+  "result": {
+    "item": "minecraft:dirt"
+  },
+  "tick_energy_cost": 8
+}

@@ -1,0 +1,16 @@
+{
+  "type": "indreb:crushing",
+  "chance_result": [],
+  "duration": 180,
+  "experience": 0.0,
+  "ingredients": [
+    {
+      "item": "minecraft:smooth_quartz"
+    }
+  ],
+  "result": {
+    "count": 4,
+    "item": "minecraft:quartz"
+  },
+  "tick_energy_cost": 8
+}

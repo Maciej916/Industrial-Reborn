@@ -4,7 +4,7 @@ import com.maciej916.indreb.common.api.energy.BasicEnergyStorage;
 import com.maciej916.indreb.common.api.enums.EnergyType;
 import com.maciej916.indreb.common.api.enums.InventorySlotType;
 import com.maciej916.indreb.common.api.interfaces.item.IElectricItem;
-import com.maciej916.indreb.common.tag.ModTagsItem;
+import com.maciej916.indreb.common.tag.ModItemTags;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.items.IItemHandler;
 
@@ -35,12 +35,12 @@ public class ElectricSlotItemHandler extends BaseSlotItemHandler {
         }
 
         return switch (inventorySlotType) {
-            case ELECTRIC -> stack.is(ModTagsItem.ELECTRIC) || stack.is(ModTagsItem.BATTERY);
-            case BATTERY -> stack.is(ModTagsItem.BATTERY);
-            case HELMET -> stack.is(ModTagsItem.HELMET);
-            case CHESTPLATE -> stack.is(ModTagsItem.CHESTPLATE);
-            case LEGGINGS -> stack.is(ModTagsItem.LEGGINGS);
-            case BOOTS -> stack.is(ModTagsItem.BOOTS);
+            case ELECTRIC -> stack.is(ModItemTags.ELECTRIC) || stack.is(ModItemTags.BATTERY);
+            case BATTERY -> stack.is(ModItemTags.BATTERY);
+            case HELMET -> stack.is(ModItemTags.HELMET);
+            case CHESTPLATE -> stack.is(ModItemTags.CHESTPLATE);
+            case LEGGINGS -> stack.is(ModItemTags.LEGGINGS);
+            case BOOTS -> stack.is(ModItemTags.BOOTS);
             default -> false;
         };
     }
