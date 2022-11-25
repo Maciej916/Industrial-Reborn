@@ -554,7 +554,8 @@ public class IndRebBlockEntity extends BaseBlockEntity implements IIndRebBlockEn
         shouldUpdateState = true;
     }
 
-    private void setActiveState(boolean active) {
+    @Override
+    public void setActiveState(boolean active) {
         if (!isStateActive) return;
         if (this.prevActiveState != active) {
             this.prevActiveState = active;

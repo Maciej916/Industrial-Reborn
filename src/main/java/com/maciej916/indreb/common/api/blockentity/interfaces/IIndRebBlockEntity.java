@@ -35,4 +35,5 @@ public interface IIndRebBlockEntity {
     void setChanged();
 
     void updateState();
+    void setActiveState(boolean activeState);
 }

@@ -2,7 +2,7 @@ package com.maciej916.indreb.common.block.impl.battery_box;
 
 import com.maciej916.indreb.IndReb;
 import com.maciej916.indreb.common.api.screen.IndRebScreen;
-import com.maciej916.indreb.common.api.screen.widget.text.EnergyProgressTextWidget;
+import com.maciej916.indreb.common.screen.widget.text.EnergyProgressTextWidget;
 import com.maciej916.indreb.common.api.screen.widget.text.SimpleTextWidget;
 import com.maciej916.indreb.common.enums.EnumLang;
 import com.maciej916.indreb.common.util.TextComponentUtil;
@@ -27,7 +27,7 @@ public class ScreenBatteryBox extends IndRebScreen<MenuBatteryBox> {
         super.initElements();
 
         addRenderableOnlyWidget(new EnergyProgressTextWidget(this, 90, 24, 50, 10, entity.getEnergyStorage(), 0.8f, 4210752, false));
-        addRenderableOnlyWidget(new SimpleTextWidget(this, 90, 58, 50, 10, TextComponentUtil.build(Component.translatable(EnumLang.TRANSFER.getTranslationKey()), Component.translatable(EnumLang.POWER_TICK.getTranslationKey(), TextComponentUtil.getFormattedEnergyUnit(entity.getBatteryBoxTier().getEnergyTier().getBasicTransfer()))), 0.8f, 4210752, false));
+        addRenderableOnlyWidget(new SimpleTextWidget(this, 90, 58, 50, 10, TextComponentUtil.build(Component.translatable(EnumLang.TRANSFER.getTranslationKey()), Component.translatable(EnumLang.POWER_TICK.getTranslationKey(), TextComponentUtil.getFormattedStorageUnit(entity.getBatteryBoxTier().getEnergyTier().getBasicTransfer()))), 0.8f, 4210752, false));
     }
 
     @Override

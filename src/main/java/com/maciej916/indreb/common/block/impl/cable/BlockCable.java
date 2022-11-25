@@ -11,6 +11,7 @@ import com.maciej916.indreb.common.util.Constants;
 import com.maciej916.indreb.common.util.TextComponentUtil;
 import com.maciej916.indreb.common.util.wrench.WrenchHelper;
 import net.minecraft.ChatFormatting;
+import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.network.chat.Component;
@@ -48,7 +49,7 @@ public class BlockCable extends BlockVoxel implements SimpleWaterloggedBlock, IB
 
         pTooltip.add(TextComponentUtil.build(
                 Component.translatable(EnumLang.TRANSFER.getTranslationKey()).withStyle(ChatFormatting.GRAY),
-                Component.translatable(EnumLang.POWER_TICK.getTranslationKey(), TextComponentUtil.getFormattedEnergyUnit(cableTier.getEnergyTier().getBasicTransfer())).withStyle(cableTier.getEnergyTier().getColor())
+                Component.translatable(EnumLang.POWER_TICK.getTranslationKey(), TextComponentUtil.getFormattedStorageUnit(cableTier.getEnergyTier().getBasicTransfer(), Screen.hasShiftDown())).withStyle(cableTier.getEnergyTier().getColor())
         ));
 
         if (!cableTier.isInsulated()) {

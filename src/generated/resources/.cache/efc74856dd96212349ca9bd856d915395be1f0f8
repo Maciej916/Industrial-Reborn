@@ -1,4 +1,4 @@
-// 1.19.2	2022-11-24T11:21:07.848527	Item Models: indreb
+// 1.19.2	2022-11-24T19:38:15.1530615	Item Models: indreb
 ea6f48b249d5595c0bc20e39b977fa8fad0ed868 assets/indreb/models/item/acid_hazard_sign_block.json
 4df0fe2021d7b228332497f5c7d711b40f082510 assets/indreb/models/item/advanced_alloy.json
 df0888ae05d095b7dbd4b54b411496df8d853b49 assets/indreb/models/item/advanced_battery.json
@@ -75,6 +75,10 @@ cde85c303634020e4215b2267fb9483f957c65c5 assets/indreb/models/item/bronze_leggin
 54cee230329a79c0d28b473559f5b85dfca9a44d assets/indreb/models/item/carbon_plate.json
 7028dbea2b4ed25bb65829f1f849dc3719ca2f7d assets/indreb/models/item/cesu.json
 46ea67f6506caa0a466536537cd427d72a450522 assets/indreb/models/item/chainsaw.json
+8e602acf369a9e83d675ed7f4f1588b6420c1b58 assets/indreb/models/item/charge_pad_battery_box.json
+4971c85ae98fcd2a67c407aaafdfe992eadc7697 assets/indreb/models/item/charge_pad_cesu.json
+a84eb372b09c89dede0d796a4262769d6babacd1 assets/indreb/models/item/charge_pad_mfe.json
+8dd9cbb77fc844a7deae6610b7ea9fd94e415a42 assets/indreb/models/item/charge_pad_mfsu.json
 7774f93c0a60c66bcb3790fb4c9dea26219b802e assets/indreb/models/item/charging_battery.json
 c899c50ecb5c11753ca2fe76390e5d7444dcff1e assets/indreb/models/item/charging_energy_crystal.json
 99f32e7ea2a6b9e23a23b9f9446024cfd1706e1c assets/indreb/models/item/charging_lapotron_crystal.json
@@ -125,6 +129,7 @@ d1fca579922f38828c44fc733061a20eedde0b57 assets/indreb/models/item/electric_wren
 7929ef623dd30fd36de4371aa930266004becf4e assets/indreb/models/item/energium_dust.json
 997f6a586b17225304ef2ee3f6c472c11f93fae3 assets/indreb/models/item/energy_crystal.json
 a7a97f41285580c0d605be1595b919923076eb0b assets/indreb/models/item/energy_storage_upgrade.json
+9cd756b2feecbe47f0be396968a98b050becc4ff assets/indreb/models/item/ev_transformer.json
 7b382ca707cf13fb440fbcea863a01d24707a4fd assets/indreb/models/item/explosion_hazard_sign_block.json
 4f5743cd253934b43ef3233fb25f50d1150ca5f9 assets/indreb/models/item/fertilizer.json
 d478dd7f0374c58ec694d1210da2119070996263 assets/indreb/models/item/filled_tin_can.json
@@ -163,6 +168,7 @@ e0cbfc04265d171953b30da5aff7dc5cabae8e7a assets/indreb/models/item/heat_exchange
 55813b09878cc6ed2b79af761806ac1687e424f2 assets/indreb/models/item/heat_vent.json
 b9a41162b6de816962fedad4173669cecf6c6e1d assets/indreb/models/item/hv_cable.json
 4448fad1843bb3f7e7bc51eee471c918242b0ab3 assets/indreb/models/item/hv_cable_insulated.json
+8cd2c6b8d7df24feeafe998630dcaae6b75620c3 assets/indreb/models/item/hv_transformer.json
 f6de7b33910835efcb62a5bb8e70a8bf3482fe82 assets/indreb/models/item/hybrid_solar_panel.json
 7720c2e7f4f728d9b531ed9e586e182d1f3c535b assets/indreb/models/item/ie_meter.json
 e5ead05754d457ba42b2f9f10957fee0aad751e3 assets/indreb/models/item/industrial_tnt.json
@@ -190,6 +196,7 @@ be78938d4295610730e8ffe992e449768f53fd21 assets/indreb/models/item/lead_dust.jso
 5c90aed94a6f412b39db5be95f0203b5a078e98c assets/indreb/models/item/lead_ore.json
 c7fac649d8d29f69918ece2daad070d83e32c5fe assets/indreb/models/item/lead_plate.json
 905380c8db26de9b36faa2efc7e8d9f856fb96b3 assets/indreb/models/item/luminator.json
+d410692e439b73d4ac10371e7d4ff920ed5d3179 assets/indreb/models/item/lv_transformer.json
 49b75fa1b4bcded7efea11cbc4602817f58bce5d assets/indreb/models/item/magic_hazard_sign_block.json
 eef4f0cab4731409a2d2fb176f2514fe6f6916f0 assets/indreb/models/item/medium_coolant_cell.json
 caca55b827fb8a4af77150ec30140cb6423a7d6c assets/indreb/models/item/memory_card.json
@@ -199,6 +206,7 @@ b6b081956ae7b2bd7dda47bafa3477fe1288386a assets/indreb/models/item/mfsu.json
 bdb6961e18c0c78725126bc7e58200cd4553a62c assets/indreb/models/item/mixed_metal_ingot.json
 98eca21d04aa0096a06a625ac4fb58efabbeb125 assets/indreb/models/item/mud_pile.json
 323611257a13b0c5c22b72cd1742b9989a0f94e6 assets/indreb/models/item/multi_tool.json
+5ce819237e024b5d763df109091abb336db3d9c6 assets/indreb/models/item/mv_transformer.json
 17346628fbffd6d9adf4eb9d6b072abfb20a1419 assets/indreb/models/item/nano_boots.json
 a65e74e0940662c7bad50217e4dae32c2e3aadb4 assets/indreb/models/item/nano_chestplate.json
 ef2a6acce73945bbd4251ba4683349ba323ff85f assets/indreb/models/item/nano_helmet.json
@@ -291,6 +299,9 @@ a6f2bb50e2070e4c00387c9ed04152b1761c76bd assets/indreb/models/item/silver_chunk.
 eae8bbfff920ae39102bad5eee280a95d65acc5e assets/indreb/models/item/silver_dust.json
 a95793c4635055789fd24e0b388c9be66a19662d assets/indreb/models/item/silver_ingot.json
 2dd9c26e919c6c294c8c317ac224465826027764 assets/indreb/models/item/silver_ore.json
+21ae52a38e44cf96a54e502bcea4fa4dbdf8bce0 assets/indreb/models/item/simple_compressor.json
+6ffcc9bb6fb97157abe468f3f72d1b2f2dfa96fe assets/indreb/models/item/simple_crusher.json
+6ffcc9bb6fb97157abe468f3f72d1b2f2dfa96fe assets/indreb/models/item/simple_extractor.json
 3f6b9e2a907fc873471fb6e8a6dc1a368550f47a assets/indreb/models/item/small_coolant_cell.json
 3c825262e61ad67a4682081e6b3a234579a282a2 assets/indreb/models/item/small_power_unit.json
 b5d8aaa30a5f5d3d1c38eb0b0f2b72b47f1df2f7 assets/indreb/models/item/smooth_reinforced_stone.json

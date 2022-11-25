@@ -52,6 +52,8 @@ public class ItemTextures extends ItemModelProvider {
         registerBattery();
         registerUpgrade();
         registerEnergyStorage();
+        registerChargePad();
+        registerTransformer();
     }
 
     protected void registerOres() {
@@ -376,6 +378,9 @@ public class ItemTextures extends ItemModelProvider {
 
     private void registerSimpleMachines() {
         createWithBlock(ModItems.IRON_FURNACE, "iron_furnace");
+        createWithBlock(ModItems.SIMPLE_CRUSHER, "simple_extractor");
+        createWithBlock(ModItems.SIMPLE_COMPRESSOR, "simple_compressor");
+        createWithBlock(ModItems.SIMPLE_EXTRACTOR, "simple_extractor");
     }
 
     private void registerReactor() {
@@ -450,6 +455,20 @@ public class ItemTextures extends ItemModelProvider {
         createWithBlock(ModItems.CESU, "cesu");
         createWithBlock(ModItems.MFE, "mfe");
         createWithBlock(ModItems.MFSU, "mfsu");
+    }
+
+    private void registerChargePad() {
+        createWithBlock(ModItems.CHARGE_PAD_BATTERY_BOX, "charge_pad_battery_box");
+        createWithBlock(ModItems.CHARGE_PAD_CESU, "charge_pad_cesu");
+        createWithBlock(ModItems.CHARGE_PAD_MFE, "charge_pad_mfe");
+        createWithBlock(ModItems.CHARGE_PAD_MFSU, "charge_pad_mfsu");
+    }
+
+    private void registerTransformer() {
+        createWithBlock(ModItems.LV_TRANSFORMER, "lv_transformer");
+        createWithBlock(ModItems.MV_TRANSFORMER, "mv_transformer");
+        createWithBlock(ModItems.HV_TRANSFORMER, "hv_transformer");
+        createWithBlock(ModItems.EV_TRANSFORMER, "ev_transformer");
     }
 
 

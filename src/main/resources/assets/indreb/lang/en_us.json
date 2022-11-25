@@ -65,6 +65,9 @@
   "block.indreb.reactor_frame": "Reactor Frame",
 
   "block.indreb.iron_furnace": "Iron Furnace",
+  "block.indreb.simple_crusher": "Simple Crusher",
+  "block.indreb.simple_compressor": "Simple Compressor",
+  "block.indreb.simple_extractor": "Simple Extractor",
   "block.indreb.electric_furnace": "Electric Furnace",
   "block.indreb.crusher": "Crusher",
   "block.indreb.compressor": "Compressor",

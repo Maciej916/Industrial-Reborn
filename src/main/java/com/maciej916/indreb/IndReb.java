@@ -9,6 +9,8 @@ import com.maciej916.indreb.common.item.ModItems;
 import com.maciej916.indreb.common.loot.ModLootModifiers;
 import com.maciej916.indreb.common.network.ModNetworking;
 import com.maciej916.indreb.common.proxy.ModProxy;
+import com.maciej916.indreb.common.recipe.ModRecipeSerializer;
+import com.maciej916.indreb.common.recipe.ModRecipeType;
 import com.maciej916.indreb.common.screen.ModMenuTypes;
 import com.maciej916.indreb.common.sound.ModSounds;
 import com.maciej916.indreb.common.world.ModConfiguredFeatures;
@@ -42,8 +44,8 @@ public class IndReb {
         ModEntityTypes.register(modEventBus);
 
 
-//        ModRecipeType.register(modEventBus);
-//        ModRecipeSerializer.register(modEventBus);
+        ModRecipeType.register(modEventBus);
+        ModRecipeSerializer.register(modEventBus);
 
         ModSounds.register(modEventBus);
 

@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "indreb:block/charge_pad/cesu/cesu_bottom",
+    "east": "indreb:block/charge_pad/cesu/cesu_leftright",
+    "north": "indreb:block/charge_pad/cesu/cesu_front",
+    "particle": "indreb:block/charge_pad/cesu/cesu_front",
+    "south": "indreb:block/charge_pad/cesu/cesu_back",
+    "up": "indreb:block/charge_pad/cesu/cesu_top_active",
+    "west": "indreb:block/charge_pad/cesu/cesu_leftright"
+  }
+}

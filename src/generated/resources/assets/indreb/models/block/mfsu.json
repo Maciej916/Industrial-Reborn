@@ -4,7 +4,7 @@
     "down": "indreb:block/energy_storage/mfsu/mfsu_bottom",
     "east": "indreb:block/energy_storage/mfsu/mfsu_leftright",
     "north": "indreb:block/energy_storage/mfsu/mfsu_front",
-    "particle": "indreb:block/energy_storage/mfsu/mfsu_back",
+    "particle": "indreb:block/energy_storage/mfsu/mfsu_front",
     "south": "indreb:block/energy_storage/mfsu/mfsu_back",
     "up": "indreb:block/energy_storage/mfsu/mfsu_top",
     "west": "indreb:block/energy_storage/mfsu/mfsu_leftright"

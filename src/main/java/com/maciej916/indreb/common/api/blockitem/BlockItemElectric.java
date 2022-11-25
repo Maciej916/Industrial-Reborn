@@ -36,7 +36,7 @@ public class BlockItemElectric extends IndRebBlockItem {
 
                     componentList.add(TextComponentUtil.build(
                             Component.translatable(EnumLang.STORED.getTranslationKey()).withStyle(ChatFormatting.GRAY),
-                            Component.translatable(EnumLang.POWER.getTranslationKey(), TextComponentUtil.getFormattedEnergyUnit(energy, Screen.hasShiftDown())).withStyle(energyTier.getColor())
+                            Component.translatable(EnumLang.POWER.getTranslationKey(), TextComponentUtil.getFormattedStorageUnit(energy, Screen.hasShiftDown())).withStyle(energyTier.getColor())
                     ));
                 }
             }

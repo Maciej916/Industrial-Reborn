@@ -1,4 +1,4 @@
-package com.maciej916.indreb.common.api.screen.widget.text;
+package com.maciej916.indreb.common.screen.widget.text;
 
 import com.maciej916.indreb.IndReb;
 import com.maciej916.indreb.common.api.blockentity.interfaces.IBaseProgress;
@@ -27,7 +27,7 @@ public class EnergyProgressTextWidget extends BaseWidget {
 
     @Override
     public void renderButton(PoseStack pPoseStack, int pMouseX, int pMouseY, float pPartialTicks) {
-        MutableComponent component = Component.translatable("gui." + IndReb.MODID + ".energy", TextComponentUtil.getFormattedEnergyUnit(progress.currentProgress()), TextComponentUtil.getFormattedEnergyUnit(progress.getProgressMax()));
+        MutableComponent component = Component.translatable("gui." + IndReb.MODID + ".energy", TextComponentUtil.getFormattedStorageUnit(progress.currentProgress()), TextComponentUtil.getFormattedStorageUnit(progress.getProgressMax()));
         GuiUtil.renderScaled(pPoseStack, component.getString(), getX(), getY(), scale, color, shadow);
         super.renderButton(pPoseStack, pMouseX, pMouseY, pPartialTicks);
     }

@@ -37,7 +37,7 @@ public abstract class BaseFluidBarWidget extends BaseWidget {
     public void renderToolTip(Screen screen, PoseStack pPoseStack, int pMouseX, int pMouseY) {
         if (isHoveredOrFocused()) {
             if (fluidStorage.getFluid().getFluid() != Fluids.EMPTY) {
-                screen.renderTooltip(pPoseStack, Component.translatable("gui." + IndReb.MODID + ".fluid", fluidStorage.getFluid().getDisplayName().getString(), TextComponentUtil.getFormattedEnergyUnit(fluidStorage.getFluidAmount()), TextComponentUtil.getFormattedEnergyUnit(fluidStorage.getCapacity())), pMouseX, pMouseY);
+                screen.renderTooltip(pPoseStack, Component.translatable("gui." + IndReb.MODID + ".fluid", fluidStorage.getFluid().getDisplayName().getString(), TextComponentUtil.getFormattedStorageUnit(fluidStorage.getFluidAmount()), TextComponentUtil.getFormattedStorageUnit(fluidStorage.getCapacity())), pMouseX, pMouseY);
             } else {
                 screen.renderTooltip(pPoseStack, Component.translatable("gui." + IndReb.MODID + ".fluid_empty"), pMouseX, pMouseY);
             }

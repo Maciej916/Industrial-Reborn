@@ -2,6 +2,7 @@ package com.maciej916.indreb.common.screen;
 
 import com.maciej916.indreb.IndReb;
 import com.maciej916.indreb.common.block.impl.battery_box.MenuBatteryBox;
+import com.maciej916.indreb.common.block.impl.charge_pad.MenuChargePad;
 import com.maciej916.indreb.common.block.impl.explosive.nuke.MenuNuke;
 import com.maciej916.indreb.common.block.impl.generator.generator.MenuGenerator;
 import com.maciej916.indreb.common.block.impl.generator.geo_generator.MenuGeoGenerator;
@@ -9,6 +10,10 @@ import com.maciej916.indreb.common.block.impl.generator.reactor.nuclear_reactor.
 import com.maciej916.indreb.common.block.impl.generator.semifluid_generator.MenuSemifluidGenerator;
 import com.maciej916.indreb.common.block.impl.generator.solar_panel.MenuSolarPanel;
 import com.maciej916.indreb.common.block.impl.machines.simple.iron_furnace.MenuIronFurnace;
+import com.maciej916.indreb.common.block.impl.machines.simple.simple_crusher.MenuSimpleCrusher;
+import com.maciej916.indreb.common.block.impl.machines.simple.simple_compressor.MenuSimpleCompressor;
+import com.maciej916.indreb.common.block.impl.machines.simple.simple_extractor.MenuSimpleExtractor;
+import com.maciej916.indreb.common.block.impl.transformer.MenuTransformer;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.MenuType;
 import net.minecraftforge.common.extensions.IForgeMenuType;
@@ -26,7 +31,10 @@ public final class ModMenuTypes {
 
     public static final RegistryObject<MenuType<MenuNuke>> NUKE = registerMenuType(MenuNuke::new, "nuke");
 
-    public static final RegistryObject<MenuType<MenuIronFurnace>> IRON_FURNACE = registerMenuType( MenuIronFurnace::new, "iron_furnace");
+    public static final RegistryObject<MenuType<MenuIronFurnace>> IRON_FURNACE = registerMenuType(MenuIronFurnace::new, "iron_furnace");
+    public static final RegistryObject<MenuType<MenuSimpleCrusher>> SIMPLE_CRUSHER = registerMenuType(MenuSimpleCrusher::new, "simple_crusher");
+    public static final RegistryObject<MenuType<MenuSimpleCompressor>> SIMPLE_COMPRESSOR = registerMenuType(MenuSimpleCompressor::new, "simple_compressor");
+    public static final RegistryObject<MenuType<MenuSimpleExtractor>> SIMPLE_EXTRACTOR = registerMenuType(MenuSimpleExtractor::new, "simple_extractor");
 
     public static final RegistryObject<MenuType<MenuGenerator>> GENERATOR = registerMenuType(MenuGenerator::new, "generator");
     public static final RegistryObject<MenuType<MenuSolarPanel>> SOLAR_PANEL = registerMenuType(MenuSolarPanel::new, "solar_panel");
@@ -35,8 +43,9 @@ public final class ModMenuTypes {
     public static final RegistryObject<MenuType<MenuNuclearReactor>> NUCLEAR_REACTOR = registerMenuType(MenuNuclearReactor::new, "nuclear_reactor");
 
     public static final RegistryObject<MenuType<MenuBatteryBox>> BATTERY_BOX = registerMenuType(MenuBatteryBox::new, "battery_box");
-//    public static final RegistryObject<MenuType<MenuTransformer>> TRANSFORMER = registerMenuType("transformer",  MenuTransformer::new);
-//    public static final RegistryObject<MenuType<MenuChargePad>> CHARGE_PAD = registerMenuType("charge_pad",  MenuChargePad::new);
+    public static final RegistryObject<MenuType<MenuChargePad>> CHARGE_PAD = registerMenuType(MenuChargePad::new, "charge_pad");
+    public static final RegistryObject<MenuType<MenuTransformer>> TRANSFORMER = registerMenuType(MenuTransformer::new, "transformer");
+
 //
 //    public static final RegistryObject<MenuType<MenuElectricFurnace>> ELECTRIC_FURNACE = registerMenuType("electric_furnace",  MenuElectricFurnace::new);
 //    public static final RegistryObject<MenuType<MenuCrusher>> CRUSHER = registerMenuType("crusher",  MenuCrusher::new);

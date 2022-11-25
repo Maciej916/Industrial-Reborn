@@ -17,7 +17,7 @@ public class WidgetScreen <T extends IndRebContainerMenu> extends BaseScreen<T> 
         super(menu, playerInventory, title);
     }
 
-    protected void addRenderableWidget(BaseWidget widget) {
+    protected void addUssableWidget(BaseWidget widget) {
         widgets.add(widget);
         super.addRenderableWidget(widget);
     }

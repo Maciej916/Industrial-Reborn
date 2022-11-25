@@ -183,8 +183,6 @@ public class BlockEntityIronFurnace extends IndRebBlockEntity implements IHasExp
     }
 
 
-//    TODO :CAP
-
     private final Map<Direction, LazyOptional<WrappedHandler>> itemCapabilities = Map.of(
             Direction.UP, LazyOptional.of(() -> new WrappedHandler(getBaseStorage(), (i) -> false, (i, stack) -> getBaseStorage().isItemValid(i, stack))),
             Direction.DOWN, LazyOptional.of(() -> new WrappedHandler(getBaseStorage(), (i) -> i == OUTPUT_SLOT, (i, stack) -> false)),
@@ -200,9 +198,6 @@ public class BlockEntityIronFurnace extends IndRebBlockEntity implements IHasExp
             if (side == null) return LazyOptional.empty();
 
             if (itemCapabilities.containsKey(side)) {
-                System.out.println("side");
-                System.out.println(side);
-
                 if (side == Direction.UP || side == Direction.DOWN) return itemCapabilities.get(side).cast();
 
                 Direction localDir = this.getBlockState().getValue(BlockStateHelper.HORIZONTAL_FACING_PROPERTY);

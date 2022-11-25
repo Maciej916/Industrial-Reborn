@@ -3,7 +3,7 @@ package com.maciej916.indreb.common.block.impl.generator.solar_panel;
 import com.maciej916.indreb.IndReb;
 import com.maciej916.indreb.common.api.screen.IndRebScreen;
 import com.maciej916.indreb.common.api.screen.widget.progress.LightProgressWidget;
-import com.maciej916.indreb.common.api.screen.widget.text.SolarPanelTextWidget;
+import com.maciej916.indreb.common.screen.widget.text.SolarPanelTextWidget;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;

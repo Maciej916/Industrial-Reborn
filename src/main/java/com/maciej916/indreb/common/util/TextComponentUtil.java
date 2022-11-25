@@ -38,7 +38,7 @@ public class TextComponentUtil {
         return hasDecimal ? (truncated / 10d) + suffix : (truncated / 10) + suffix;
     }
 
-    public static String getFormattedEnergyUnit(float energy) {
+    public static String getFormattedStorageUnit(float energy) {
         return format((long) energy);
     }
 
@@ -50,7 +50,7 @@ public class TextComponentUtil {
         return df.format(energy);
     }
 
-    public static String getFormattedEnergyUnit(float energy, boolean isShiftDown) {
+    public static String getFormattedStorageUnit(float energy, boolean isShiftDown) {
         return !isShiftDown ? format((long) energy) : getFormattedLong(energy);
     }
 

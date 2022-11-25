@@ -1,0 +1,9 @@
+{
+  "parent": "minecraft:block/orientable_with_bottom",
+  "textures": {
+    "bottom": "indreb:block/machine/simple/simple_extractor/simple_extractor_bottom",
+    "front": "indreb:block/machine/simple/simple_extractor/simple_extractor_front",
+    "side": "indreb:block/machine/simple/simple_extractor/simple_extractor_side",
+    "top": "indreb:block/machine/simple/simple_extractor/simple_extractor_top"
+  }
+}

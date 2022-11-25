@@ -33,11 +33,11 @@ public class ModConfiguredFeatures {
     public static final Supplier<List<OreConfiguration.TargetBlockState>> ORE_URANIUM_TARGET_LIST = Suppliers.memoize(() -> List.of(OreConfiguration.target(OreFeatures.STONE_ORE_REPLACEABLES, ModBlocks.URANIUM_ORE.get().defaultBlockState()), OreConfiguration.target(OreFeatures.DEEPSLATE_ORE_REPLACEABLES, ModBlocks.DEEPSLATE_URANIUM_ORE.get().defaultBlockState())));
     public static final Supplier<List<OreConfiguration.TargetBlockState>> ORE_SILVER_TARGET_LIST = Suppliers.memoize(() -> List.of(OreConfiguration.target(OreFeatures.STONE_ORE_REPLACEABLES, ModBlocks.SILVER_ORE.get().defaultBlockState()), OreConfiguration.target(OreFeatures.DEEPSLATE_ORE_REPLACEABLES, ModBlocks.DEEPSLATE_SILVER_ORE.get().defaultBlockState())));
 
-    public static final RegistryObject<ConfiguredFeature<?, ?>> ORE_TIN_SMALL = CONFIGURED_FEATURES.register("tin_ore_small", () -> new ConfiguredFeature<>(Feature.ORE, new OreConfiguration(ORE_TIN_TARGET_LIST.get(), 10)));
-    public static final RegistryObject<ConfiguredFeature<?, ?>> ORE_TIN_LARGE = CONFIGURED_FEATURES.register("ore_tin_large", () -> new ConfiguredFeature<>(Feature.ORE, new OreConfiguration(ORE_TIN_TARGET_LIST.get(), 20)));
-    public static final RegistryObject<ConfiguredFeature<?, ?>> ORE_LEAD = CONFIGURED_FEATURES.register("ore_lead", () -> new ConfiguredFeature<>(Feature.ORE, new OreConfiguration(ORE_LEAD_TARGET_LIST.get(), 8)));
-    public static final RegistryObject<ConfiguredFeature<?, ?>> ORE_URANIUM = CONFIGURED_FEATURES.register("ore_uranium", () -> new ConfiguredFeature<>(Feature.ORE, new OreConfiguration(ORE_URANIUM_TARGET_LIST.get(), 4, 0.5f)));
-    public static final RegistryObject<ConfiguredFeature<?, ?>> ORE_SILVER = CONFIGURED_FEATURES.register("ore_silver", () -> new ConfiguredFeature<>(Feature.ORE, new OreConfiguration(ORE_SILVER_TARGET_LIST.get(), 6)));
+    public static final RegistryObject<ConfiguredFeature<?, ?>> ORE_TIN_SMALL = CONFIGURED_FEATURES.register("tin_ore_small", () -> new ConfiguredFeature<>(Feature.ORE, new OreConfiguration(ORE_TIN_TARGET_LIST.get(), 8)));
+    public static final RegistryObject<ConfiguredFeature<?, ?>> ORE_TIN_LARGE = CONFIGURED_FEATURES.register("ore_tin_large", () -> new ConfiguredFeature<>(Feature.ORE, new OreConfiguration(ORE_TIN_TARGET_LIST.get(), 10)));
+    public static final RegistryObject<ConfiguredFeature<?, ?>> ORE_LEAD = CONFIGURED_FEATURES.register("ore_lead", () -> new ConfiguredFeature<>(Feature.ORE, new OreConfiguration(ORE_LEAD_TARGET_LIST.get(), 6)));
+    public static final RegistryObject<ConfiguredFeature<?, ?>> ORE_URANIUM = CONFIGURED_FEATURES.register("ore_uranium", () -> new ConfiguredFeature<>(Feature.ORE, new OreConfiguration(ORE_URANIUM_TARGET_LIST.get(), 2, 0.5f)));
+    public static final RegistryObject<ConfiguredFeature<?, ?>> ORE_SILVER = CONFIGURED_FEATURES.register("ore_silver", () -> new ConfiguredFeature<>(Feature.ORE, new OreConfiguration(ORE_SILVER_TARGET_LIST.get(), 4)));
 
     public static final RegistryObject<ConfiguredFeature<?, ?>> RUBBER_TREE =
             CONFIGURED_FEATURES.register("rubber_tree", () ->

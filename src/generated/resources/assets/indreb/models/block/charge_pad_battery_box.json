@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "indreb:block/charge_pad/battery_box/battery_box_bottom",
+    "east": "indreb:block/charge_pad/battery_box/battery_box_leftright",
+    "north": "indreb:block/charge_pad/battery_box/battery_box_front",
+    "particle": "indreb:block/charge_pad/battery_box/battery_box_front",
+    "south": "indreb:block/charge_pad/battery_box/battery_box_back",
+    "up": "indreb:block/charge_pad/battery_box/battery_box_top",
+    "west": "indreb:block/charge_pad/battery_box/battery_box_leftright"
+  }
+}

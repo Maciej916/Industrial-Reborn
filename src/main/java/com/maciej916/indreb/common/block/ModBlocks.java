@@ -3,11 +3,10 @@ package com.maciej916.indreb.common.block;
 import com.google.common.base.Supplier;
 import com.maciej916.indreb.IndReb;
 import com.maciej916.indreb.common.api.block.*;
-import com.maciej916.indreb.common.api.tier.BatteryBoxTier;
-import com.maciej916.indreb.common.api.tier.CableTier;
-import com.maciej916.indreb.common.api.tier.SolarPanelTier;
+import com.maciej916.indreb.common.api.tier.*;
 import com.maciej916.indreb.common.block.impl.battery_box.BlockBatteryBox;
 import com.maciej916.indreb.common.block.impl.cable.BlockCable;
+import com.maciej916.indreb.common.block.impl.charge_pad.BlockChargePad;
 import com.maciej916.indreb.common.block.impl.explosive.industrial_tnt.BlockIndustrialTNT;
 import com.maciej916.indreb.common.block.impl.explosive.nuke.BlockNuke;
 import com.maciej916.indreb.common.block.impl.foam.FoamBlock;
@@ -24,8 +23,12 @@ import com.maciej916.indreb.common.block.impl.iron.BlockIronFence;
 import com.maciej916.indreb.common.block.impl.iron.BlockIronGate;
 import com.maciej916.indreb.common.block.impl.iron.BlockIronScaffolding;
 import com.maciej916.indreb.common.block.impl.machines.simple.iron_furnace.BlockIronFurnace;
+import com.maciej916.indreb.common.block.impl.machines.simple.simple_crusher.BlockSimpleCrusher;
+import com.maciej916.indreb.common.block.impl.machines.simple.simple_compressor.BlockSimpleCompressor;
+import com.maciej916.indreb.common.block.impl.machines.simple.simple_extractor.BlockSimpleExtractor;
 import com.maciej916.indreb.common.block.impl.misc.luminator.BlockLuminator;
 import com.maciej916.indreb.common.block.impl.reinforced.*;
+import com.maciej916.indreb.common.block.impl.transformer.BlockTransformer;
 import com.maciej916.indreb.common.block.impl.wood.*;
 import com.maciej916.indreb.common.world.rubber_tree.RubberTreeGrower;
 import net.minecraft.world.level.block.Block;
@@ -145,7 +148,9 @@ public final class ModBlocks {
     public static final RegistryObject<Block> GLASS_FIBRE_CABLE = registerBlock("glass_fibre_cable", () -> new BlockCable(0.127F, CableTier.GLASS_FIBRE_CABLE));
 
     public static final RegistryObject<Block> IRON_FURNACE = registerBlock("iron_furnace", BlockIronFurnace::new);
-
+    public static final RegistryObject<Block> SIMPLE_CRUSHER = registerBlock("simple_crusher", BlockSimpleCrusher::new);
+    public static final RegistryObject<Block> SIMPLE_COMPRESSOR = registerBlock("simple_compressor", BlockSimpleCompressor::new);
+    public static final RegistryObject<Block> SIMPLE_EXTRACTOR = registerBlock("simple_extractor", BlockSimpleExtractor::new);
 
     public static final RegistryObject<Block> GENERATOR = registerBlock("generator", BlockGenerator::new);
     public static final RegistryObject<Block> SOLAR_PANEL = registerBlock("solar_panel", () -> new BlockSolarPanel(SolarPanelTier.BASIC));
@@ -167,17 +172,17 @@ public final class ModBlocks {
     public static final RegistryObject<Block> MFE = registerBlock("mfe", () -> new BlockBatteryBox(BatteryBoxTier.ADVANCED, BlockBehaviour.Properties.of(Material.METAL).strength(5f, 3f).sound(SoundType.METAL)));
     public static final RegistryObject<Block> MFSU = registerBlock("mfsu", () -> new BlockBatteryBox(BatteryBoxTier.SUPER, BlockBehaviour.Properties.of(Material.METAL).strength(5f, 3f).sound(SoundType.METAL)));
 
-//    public static final RegistryObject<Block> LV_TRANSFORMER = registerBlock("lv_transformer", () -> new BlockTransformer(TransformerTier.BASIC, BlockBehaviour.Properties.of(Material.METAL).strength(5f, 3f).sound(SoundType.METAL)));
-//    public static final RegistryObject<Block> MV_TRANSFORMER = registerBlock("mv_transformer", () -> new BlockTransformer(TransformerTier.STANDARD, BlockBehaviour.Properties.of(Material.METAL).strength(5f, 3f).sound(SoundType.METAL)));
-//    public static final RegistryObject<Block> HV_TRANSFORMER = registerBlock("hv_transformer", () -> new BlockTransformer(TransformerTier.ADVANCED, BlockBehaviour.Properties.of(Material.METAL).strength(5f, 3f).sound(SoundType.METAL)));
-//    public static final RegistryObject<Block> EV_TRANSFORMER = registerBlock("ev_transformer", () -> new BlockTransformer(TransformerTier.SUPER, BlockBehaviour.Properties.of(Material.METAL).strength(5f, 3f).sound(SoundType.METAL)));
-//
-//    public static final RegistryObject<Block> CHARGE_PAD_BATTERY_BOX = registerBlock("charge_pad_battery_box", () -> new BlockChargePad(ChargePadTier.BASIC, BlockBehaviour.Properties.of(Material.WOOD).strength(1f, 3f).sound(SoundType.WOOD)));
-//    public static final RegistryObject<Block> CHARGE_PAD_CESU = registerBlock("charge_pad_cesu", () -> new BlockChargePad(ChargePadTier.STANDARD, BlockBehaviour.Properties.of(Material.METAL).strength(5f, 3f).sound(SoundType.METAL)));
-//    public static final RegistryObject<Block> CHARGE_PAD_MFE = registerBlock("charge_pad_mfe", () -> new BlockChargePad(ChargePadTier.ADVANCED, BlockBehaviour.Properties.of(Material.METAL).strength(5f, 3f).sound(SoundType.METAL)));
-//    public static final RegistryObject<Block> CHARGE_PAD_MFSU = registerBlock("charge_pad_mfsu", () -> new BlockChargePad(ChargePadTier.SUPER, BlockBehaviour.Properties.of(Material.METAL).strength(5f, 3f).sound(SoundType.METAL)));
-//
-//
+    public static final RegistryObject<Block> CHARGE_PAD_BATTERY_BOX = registerBlock("charge_pad_battery_box", () -> new BlockChargePad(ChargePadTier.BASIC, BlockBehaviour.Properties.of(Material.WOOD).strength(1f, 3f).sound(SoundType.WOOD)));
+    public static final RegistryObject<Block> CHARGE_PAD_CESU = registerBlock("charge_pad_cesu", () -> new BlockChargePad(ChargePadTier.STANDARD, BlockBehaviour.Properties.of(Material.METAL).strength(5f, 3f).sound(SoundType.METAL)));
+    public static final RegistryObject<Block> CHARGE_PAD_MFE = registerBlock("charge_pad_mfe", () -> new BlockChargePad(ChargePadTier.ADVANCED, BlockBehaviour.Properties.of(Material.METAL).strength(5f, 3f).sound(SoundType.METAL)));
+    public static final RegistryObject<Block> CHARGE_PAD_MFSU = registerBlock("charge_pad_mfsu", () -> new BlockChargePad(ChargePadTier.SUPER, BlockBehaviour.Properties.of(Material.METAL).strength(5f, 3f).sound(SoundType.METAL)));
+
+    public static final RegistryObject<Block> LV_TRANSFORMER = registerBlock("lv_transformer", () -> new BlockTransformer(TransformerTier.BASIC, BlockBehaviour.Properties.of(Material.METAL).strength(5f, 3f).sound(SoundType.METAL)));
+    public static final RegistryObject<Block> MV_TRANSFORMER = registerBlock("mv_transformer", () -> new BlockTransformer(TransformerTier.STANDARD, BlockBehaviour.Properties.of(Material.METAL).strength(5f, 3f).sound(SoundType.METAL)));
+    public static final RegistryObject<Block> HV_TRANSFORMER = registerBlock("hv_transformer", () -> new BlockTransformer(TransformerTier.ADVANCED, BlockBehaviour.Properties.of(Material.METAL).strength(5f, 3f).sound(SoundType.METAL)));
+    public static final RegistryObject<Block> EV_TRANSFORMER = registerBlock("ev_transformer", () -> new BlockTransformer(TransformerTier.SUPER, BlockBehaviour.Properties.of(Material.METAL).strength(5f, 3f).sound(SoundType.METAL)));
+
+
 
 
 

@@ -1,4 +1,4 @@
-package com.maciej916.indreb.common.api.screen.widget.text;
+package com.maciej916.indreb.common.screen.widget.text;
 
 import com.maciej916.indreb.common.api.blockentity.interfaces.IProgress;
 import com.maciej916.indreb.common.api.interfaces.screen.IGuiHelper;
@@ -21,7 +21,7 @@ public class SolarPanelTextWidget extends BaseWidget {
 
     @Override
     public void renderButton(PoseStack poseStack, int mouseX, int mouseY, float partialTick) {
-        MutableComponent component = Component.translatable(EnumLang.POWER_TICK.getTranslationKey(), TextComponentUtil.getFormattedEnergyUnit(progress.currentProgress()));
+        MutableComponent component = Component.translatable(EnumLang.POWER_TICK.getTranslationKey(), TextComponentUtil.getFormattedStorageUnit(progress.currentProgress()));
         GuiUtil.renderScaledCenter(poseStack, component, getX(), getWidth(), getY(), 0.8f, 4210752, false);
         super.renderButton(poseStack, mouseX, mouseY, partialTick);
     }

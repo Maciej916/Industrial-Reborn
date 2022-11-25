@@ -10,6 +10,7 @@ import com.maciej916.indreb.common.util.BlockStateHelper;
 import com.maciej916.indreb.common.util.TextComponentUtil;
 import com.maciej916.indreb.common.util.wrench.WrenchHelper;
 import net.minecraft.ChatFormatting;
+import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.ItemStack;
@@ -57,12 +58,12 @@ public class BlockBatteryBox extends IndRebEntityBlock implements IStateFacing, 
 
         pTooltip.add(TextComponentUtil.build(
                 Component.translatable(EnumLang.TRANSFER.getTranslationKey()).withStyle(ChatFormatting.GRAY),
-                Component.translatable(EnumLang.POWER_TICK.getTranslationKey(), TextComponentUtil.getFormattedEnergyUnit(batteryBoxTier.getEnergyTier().getBasicTransfer())).withStyle(batteryBoxTier.getEnergyTier().getColor())
+                Component.translatable(EnumLang.POWER_TICK.getTranslationKey(), TextComponentUtil.getFormattedStorageUnit(batteryBoxTier.getEnergyTier().getBasicTransfer(), Screen.hasShiftDown())).withStyle(batteryBoxTier.getEnergyTier().getColor())
         ));
 
         pTooltip.add(TextComponentUtil.build(
                 Component.translatable(EnumLang.CAPACITY.getTranslationKey()).withStyle(ChatFormatting.GRAY),
-                Component.translatable(EnumLang.POWER.getTranslationKey(), TextComponentUtil.getFormattedEnergyUnit(batteryBoxTier.getEnergyCapacity())).withStyle(batteryBoxTier.getEnergyTier().getColor())
+                Component.translatable(EnumLang.POWER.getTranslationKey(), TextComponentUtil.getFormattedStorageUnit(batteryBoxTier.getEnergyCapacity(), Screen.hasShiftDown())).withStyle(batteryBoxTier.getEnergyTier().getColor())
         ));
     }
 

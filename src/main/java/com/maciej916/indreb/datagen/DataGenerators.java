@@ -1,6 +1,7 @@
 package com.maciej916.indreb.datagen;
 
 import com.maciej916.indreb.datagen.loot.LootModifier;
+import com.maciej916.indreb.datagen.recipe.generator.Crushing;
 import com.maciej916.indreb.datagen.tags.TagsBlock;
 import com.maciej916.indreb.datagen.tags.TagsItem;
 import com.maciej916.indreb.datagen.texture.BlockTextures;
@@ -25,5 +26,11 @@ public class DataGenerators {
         generator.addProvider(event.includeServer(), new TagsItem(generator, blockTags, event.getExistingFileHelper()));
 
         generator.addProvider(event.includeServer(), new LootModifier(generator));
+
+
+
+        /* RECIPES */
+
+        generator.addProvider(event.includeServer(), new Crushing(generator));
     }
 }

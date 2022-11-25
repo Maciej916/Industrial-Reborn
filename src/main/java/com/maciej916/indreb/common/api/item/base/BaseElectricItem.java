@@ -114,9 +114,9 @@ public abstract class BaseElectricItem extends BaseItem implements IElectricItem
         int energyStored = CapabilityUtil.getCapabilityHelper(pStack, ModCapabilities.ENERGY).getIfPresentElse(IEnergyStorage::energyStored, 0);
         pTooltipComponents.add(TextComponentUtil.build(
                 Component.translatable(EnumLang.STORED.getTranslationKey()).withStyle(ChatFormatting.GRAY),
-                Component.translatable(EnumLang.POWER.getTranslationKey(), TextComponentUtil.getFormattedEnergyUnit(energyStored, Screen.hasShiftDown())).withStyle(energyTier.getColor()),
+                Component.translatable(EnumLang.POWER.getTranslationKey(), TextComponentUtil.getFormattedStorageUnit(energyStored, Screen.hasShiftDown())).withStyle(energyTier.getColor()),
                 Component.literal(" / ").withStyle(ChatFormatting.GRAY),
-                Component.translatable(EnumLang.POWER.getTranslationKey(), TextComponentUtil.getFormattedEnergyUnit(maxEnergy, Screen.hasShiftDown())).withStyle(energyTier.getColor())
+                Component.translatable(EnumLang.POWER.getTranslationKey(), TextComponentUtil.getFormattedStorageUnit(maxEnergy, Screen.hasShiftDown())).withStyle(energyTier.getColor())
         ));
 
         super.appendHoverText(pStack, pLevel, pTooltipComponents, pIsAdvanced);

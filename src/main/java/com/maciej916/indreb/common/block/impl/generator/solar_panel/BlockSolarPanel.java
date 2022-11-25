@@ -52,7 +52,7 @@ public class BlockSolarPanel extends BaseElectricMachineBlock {
 
         pTooltip.add(TextComponentUtil.build(
                 Component.translatable(EnumLang.GENERATE.getTranslationKey()).withStyle(ChatFormatting.GRAY),
-                Component.translatable(EnumLang.POWER_TICK.getTranslationKey(), TextComponentUtil.getFormattedEnergyUnit(solarTier.getDayGenerate(), Screen.hasShiftDown())).withStyle(getEnergyTier().getColor())
+                Component.translatable(EnumLang.POWER_TICK.getTranslationKey(), TextComponentUtil.getFormattedStorageUnit(solarTier.getDayGenerate(), Screen.hasShiftDown())).withStyle(getEnergyTier().getColor())
         ));
     }
 

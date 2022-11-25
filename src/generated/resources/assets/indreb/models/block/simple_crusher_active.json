@@ -1,0 +1,9 @@
+{
+  "parent": "minecraft:block/orientable_with_bottom",
+  "textures": {
+    "bottom": "indreb:block/machine/simple/simple_crusher/simple_crusher_bottom",
+    "front": "indreb:block/machine/simple/simple_crusher/simple_crusher_front_active",
+    "side": "indreb:block/machine/simple/simple_crusher/simple_crusher_side",
+    "top": "indreb:block/machine/simple/simple_crusher/simple_crusher_top"
+  }
+}

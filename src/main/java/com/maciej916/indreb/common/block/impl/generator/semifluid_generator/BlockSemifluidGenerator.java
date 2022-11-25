@@ -41,15 +41,15 @@ public class BlockSemifluidGenerator extends BaseElectricMachineBlock {
 
         pTooltip.add(TextComponentUtil.build(
                 Component.translatable(EnumLang.GENERATE.getTranslationKey()).withStyle(ChatFormatting.GRAY),
-                Component.translatable(EnumLang.POWER_TICK.getTranslationKey(), TextComponentUtil.getFormattedEnergyUnit(ServerConfig.semifluid_generator_tick_generate.get(), Screen.hasShiftDown())).withStyle(getEnergyTier().getColor())
+                Component.translatable(EnumLang.POWER_TICK.getTranslationKey(), TextComponentUtil.getFormattedStorageUnit(ServerConfig.semifluid_generator_tick_generate.get(), Screen.hasShiftDown())).withStyle(getEnergyTier().getColor())
         ));
 
         pTooltip.add(TextComponentUtil.build(
                 Component.translatable(EnumLang.OUTPUT.getTranslationKey()).withStyle(ChatFormatting.GRAY),
-                Component.translatable(EnumLang.POWER_TICK.getTranslationKey(), TextComponentUtil.getFormattedEnergyUnit(ServerConfig.basic_tier_transfer.get(), Screen.hasShiftDown())).withStyle(getEnergyTier().getColor()),
+                Component.translatable(EnumLang.POWER_TICK.getTranslationKey(), TextComponentUtil.getFormattedStorageUnit(ServerConfig.basic_tier_transfer.get(), Screen.hasShiftDown())).withStyle(getEnergyTier().getColor()),
                 Component.literal(" "),
                 Component.translatable(EnumLang.CAPACITY.getTranslationKey()).withStyle(ChatFormatting.GRAY),
-                Component.translatable(EnumLang.POWER.getTranslationKey(), TextComponentUtil.getFormattedEnergyUnit(ServerConfig.semifluid_generator_energy_capacity.get(), Screen.hasShiftDown())).withStyle(getEnergyTier().getColor())
+                Component.translatable(EnumLang.POWER.getTranslationKey(), TextComponentUtil.getFormattedStorageUnit(ServerConfig.semifluid_generator_energy_capacity.get(), Screen.hasShiftDown())).withStyle(getEnergyTier().getColor())
         ));
     }
 

@@ -24,7 +24,7 @@ public class GuiEnergyBarVerticalWidget extends BaseProgressWidget {
     @Override
     public void renderToolTip(Screen screen, PoseStack pPoseStack, int pMouseX, int pMouseY) {
         if (isHoveredOrFocused()) {
-            screen.renderTooltip(pPoseStack, Component.translatable("gui." + IndReb.MODID + ".energy", TextComponentUtil.getFormattedEnergyUnit(energyStorage.energyStored(), isShiftDown()), TextComponentUtil.getFormattedEnergyUnit(getProgress().getProgressMax(), isShiftDown())), pMouseX, pMouseY);
+            screen.renderTooltip(pPoseStack, Component.translatable("gui." + IndReb.MODID + ".energy", TextComponentUtil.getFormattedStorageUnit(energyStorage.energyStored(), isShiftDown()), TextComponentUtil.getFormattedStorageUnit(getProgress().getProgressMax(), isShiftDown())), pMouseX, pMouseY);
         }
 
         super.renderToolTip(screen, pPoseStack, pMouseX, pMouseY);

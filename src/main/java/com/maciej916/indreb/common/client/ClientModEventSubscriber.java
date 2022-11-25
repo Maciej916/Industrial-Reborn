@@ -5,6 +5,7 @@ import com.maciej916.indreb.common.api.item.base.BaseElectricItem;
 import com.maciej916.indreb.common.api.item.base.BaseFluidItem;
 import com.maciej916.indreb.common.block.ModBlocks;
 import com.maciej916.indreb.common.block.impl.battery_box.ScreenBatteryBox;
+import com.maciej916.indreb.common.block.impl.charge_pad.ScreenChargePad;
 import com.maciej916.indreb.common.block.impl.explosive.nuke.ScreenNuke;
 import com.maciej916.indreb.common.block.impl.generator.generator.ScreenGenerator;
 import com.maciej916.indreb.common.block.impl.generator.geo_generator.ScreenGeoGenerator;
@@ -12,6 +13,10 @@ import com.maciej916.indreb.common.block.impl.generator.reactor.nuclear_reactor.
 import com.maciej916.indreb.common.block.impl.generator.semifluid_generator.ScreenSemifluidGenerator;
 import com.maciej916.indreb.common.block.impl.generator.solar_panel.ScreenSolarPanel;
 import com.maciej916.indreb.common.block.impl.machines.simple.iron_furnace.ScreenIronFurnace;
+import com.maciej916.indreb.common.block.impl.machines.simple.simple_compressor.ScreenSimpleCompressor;
+import com.maciej916.indreb.common.block.impl.machines.simple.simple_crusher.ScreenSimpleCrusher;
+import com.maciej916.indreb.common.block.impl.machines.simple.simple_extractor.ScreenSimpleextractor;
+import com.maciej916.indreb.common.block.impl.transformer.ScreenTransformer;
 import com.maciej916.indreb.common.client.keys.ModKeys;
 import com.maciej916.indreb.common.client.renderer.EnergyInfoRenderer;
 import com.maciej916.indreb.common.client.renderer.ITntRenderer;
@@ -70,6 +75,9 @@ public final class ClientModEventSubscriber {
 			MenuScreens.register(ModMenuTypes.NUKE.get(), ScreenNuke::new);
 
 			MenuScreens.register(ModMenuTypes.IRON_FURNACE.get(), ScreenIronFurnace::new);
+			MenuScreens.register(ModMenuTypes.SIMPLE_CRUSHER.get(), ScreenSimpleCrusher::new);
+			MenuScreens.register(ModMenuTypes.SIMPLE_COMPRESSOR.get(), ScreenSimpleCompressor::new);
+			MenuScreens.register(ModMenuTypes.SIMPLE_EXTRACTOR.get(), ScreenSimpleextractor::new);
 
 			MenuScreens.register(ModMenuTypes.GENERATOR.get(), ScreenGenerator::new);
 			MenuScreens.register(ModMenuTypes.SOLAR_PANEL.get(), ScreenSolarPanel::new);
@@ -78,9 +86,9 @@ public final class ClientModEventSubscriber {
 			MenuScreens.register(ModMenuTypes.NUCLEAR_REACTOR.get(), ScreenNuclearReactor::new);
 
 			MenuScreens.register(ModMenuTypes.BATTERY_BOX.get(), ScreenBatteryBox::new);
-//			MenuScreens.register(ModMenuTypes.TRANSFORMER.get(), ScreenTransformer::new);
-//			MenuScreens.register(ModMenuTypes.CHARGE_PAD.get(), ScreenChargePad::new);
-//
+			MenuScreens.register(ModMenuTypes.CHARGE_PAD.get(), ScreenChargePad::new);
+			MenuScreens.register(ModMenuTypes.TRANSFORMER.get(), ScreenTransformer::new);
+
 
 //			MenuScreens.register(ModMenuTypes.ELECTRIC_FURNACE.get(), ScreenElectricFurnace::new);
 //

@@ -4,7 +4,7 @@
     "down": "indreb:block/energy_storage/cesu/cesu_bottom",
     "east": "indreb:block/energy_storage/cesu/cesu_leftright",
     "north": "indreb:block/energy_storage/cesu/cesu_front",
-    "particle": "indreb:block/energy_storage/cesu/cesu_back",
+    "particle": "indreb:block/energy_storage/cesu/cesu_front",
     "south": "indreb:block/energy_storage/cesu/cesu_back",
     "up": "indreb:block/energy_storage/cesu/cesu_top",
     "west": "indreb:block/energy_storage/cesu/cesu_leftright"

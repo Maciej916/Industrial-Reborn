@@ -22,7 +22,7 @@ public class EnergyStorageUpgrade extends BaseUpgradeItem {
     public void appendHoverText(ItemStack stack, Level level, List<Component> components, TooltipFlag tooltipFlag) {
 
         int amount = 10000 * stack.getCount();
-        components.add(Component.translatable("power." + IndReb.MODID + ".increase",Component.literal(TextComponentUtil.getFormattedEnergyUnit(amount)).withStyle(ChatFormatting.AQUA)).withStyle(ChatFormatting.GRAY));
+        components.add(Component.translatable("power." + IndReb.MODID + ".increase",Component.literal(TextComponentUtil.getFormattedStorageUnit(amount)).withStyle(ChatFormatting.AQUA)).withStyle(ChatFormatting.GRAY));
 
         super.appendHoverText(stack, level, components, tooltipFlag);
     }

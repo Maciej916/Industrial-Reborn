@@ -4,7 +4,7 @@
     "down": "indreb:block/energy_storage/battery_box/battery_box_bottom",
     "east": "indreb:block/energy_storage/battery_box/battery_box_leftright",
     "north": "indreb:block/energy_storage/battery_box/battery_box_front",
-    "particle": "indreb:block/energy_storage/battery_box/battery_box_back",
+    "particle": "indreb:block/energy_storage/battery_box/battery_box_front",
     "south": "indreb:block/energy_storage/battery_box/battery_box_back",
     "up": "indreb:block/energy_storage/battery_box/battery_box_top",
     "west": "indreb:block/energy_storage/battery_box/battery_box_leftright"

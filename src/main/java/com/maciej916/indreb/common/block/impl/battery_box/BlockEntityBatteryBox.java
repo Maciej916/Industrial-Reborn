@@ -1,6 +1,7 @@
 package com.maciej916.indreb.common.block.impl.battery_box;
 
 import com.maciej916.indreb.common.api.blockentity.IndRebBlockEntity;
+import com.maciej916.indreb.common.api.blockentity.interfaces.IBlockEntityBatteryBox;
 import com.maciej916.indreb.common.api.energy.interfaces.IBlockEntityEnergy;
 import com.maciej916.indreb.common.api.enums.EnergyTier;
 import com.maciej916.indreb.common.api.enums.EnergyType;
@@ -20,7 +21,7 @@ import net.minecraft.world.level.block.state.BlockState;
 
 import java.util.ArrayList;
 
-public class BlockEntityBatteryBox extends IndRebBlockEntity implements IBlockEntityEnergy {
+public class BlockEntityBatteryBox extends IndRebBlockEntity implements IBlockEntityEnergy, IBlockEntityBatteryBox {
 
     private final BatteryBoxTier batteryBoxTier;
 
@@ -74,6 +75,7 @@ public class BlockEntityBatteryBox extends IndRebBlockEntity implements IBlockEn
         return false;
     }
 
+    @Override
     public BatteryBoxTier getBatteryBoxTier() {
         return batteryBoxTier;
     }

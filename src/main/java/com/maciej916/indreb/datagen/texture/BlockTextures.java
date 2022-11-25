@@ -45,6 +45,8 @@ public class BlockTextures extends BlockStateProvider {
         registerExplosives();
         registerSimpleMachines();
         registerEnergyStorage();
+        registerChargePad();
+        registerTransformer();
     }
 
     private void registerOres() {
@@ -172,6 +174,9 @@ public class BlockTextures extends BlockStateProvider {
 
     private void registerSimpleMachines() {
         createFrontActive(ModBlocks.IRON_FURNACE, "machine/simple/iron_furnace/iron_furnace");
+        createFrontActive(ModBlocks.SIMPLE_CRUSHER, "machine/simple/simple_crusher/simple_crusher");
+        createFrontActive(ModBlocks.SIMPLE_COMPRESSOR, "machine/simple/simple_compressor/simple_compressor");
+        createFrontActive(ModBlocks.SIMPLE_EXTRACTOR, "machine/simple/simple_extractor/simple_extractor");
     }
 
     private void registerEnergyStorage() {
@@ -179,6 +184,20 @@ public class BlockTextures extends BlockStateProvider {
         createFacing(ModBlocks.CESU, "energy_storage/cesu/cesu", "_bottom", "_top", "_front", "_back", "_leftright", "_leftright");
         createFacing(ModBlocks.MFE, "energy_storage/mfe/mfe", "_bottom", "_top", "_front", "_back", "_leftright", "_leftright");
         createFacing(ModBlocks.MFSU, "energy_storage/mfsu/mfsu", "_bottom", "_top", "_front", "_back", "_leftright", "_leftright");
+    }
+
+    private void registerChargePad() {
+        createActiveHorizontal(ModBlocks.CHARGE_PAD_BATTERY_BOX, "charge_pad/battery_box/battery_box", "_bottom", "_bottom", "_top", "_top_active", "_front", "_front", "_back", "_leftright", "_leftright", "_leftright", "_leftright", "_leftright");
+        createActiveHorizontal(ModBlocks.CHARGE_PAD_CESU, "charge_pad/cesu/cesu", "_bottom", "_bottom", "_top", "_top_active", "_front", "_front", "_back", "_back", "_leftright", "_leftright", "_leftright", "_leftright");
+        createActiveHorizontal(ModBlocks.CHARGE_PAD_MFE, "charge_pad/mfe/mfe", "_bottom", "_bottom", "_top", "_top_active", "_front", "_front", "_back", "_back", "_leftright", "_leftright", "_leftright", "_leftright");
+        createActiveHorizontal(ModBlocks.CHARGE_PAD_MFSU, "charge_pad/mfsu/mfsu", "_bottom", "_bottom", "_top", "_top_active", "_front", "_front", "_back", "_back", "_leftright", "_leftright", "_leftright", "_leftright");
+    }
+
+    private void registerTransformer() {
+        createFacing(ModBlocks.LV_TRANSFORMER, "transformer/lv_transformer/lv_transformer", "_side", "_side", "_front", "_side", "_side", "_side");
+        createFacing(ModBlocks.MV_TRANSFORMER, "transformer/mv_transformer/mv_transformer", "_side", "_side", "_front", "_side", "_side", "_side");
+        createFacing(ModBlocks.HV_TRANSFORMER, "transformer/hv_transformer/hv_transformer", "_side", "_side", "_front", "_side", "_side", "_side");
+        createFacing(ModBlocks.EV_TRANSFORMER, "transformer/ev_transformer/ev_transformer", "_side", "_side", "_front", "_side", "_side", "_side");
     }
 
 
@@ -530,19 +549,35 @@ public class BlockTextures extends BlockStateProvider {
                 });
     }
 
-    private void createFacing(RegistryObject<Block> block, String path, String down, String up, String north, String south, String east, String west) {
+
+
+
+    private void createFacing(RegistryObject<Block> block, String path, String down, String up, String front, String back, String left, String right) {
         ModelFile modelFile = models().withExistingParent(block.getId().getPath(), "cube")
                 .texture("down", new ResourceLocation(IndReb.MODID, "block/" + path + down))
                 .texture("up", new ResourceLocation(IndReb.MODID, "block/" + path + up))
-                .texture("north", new ResourceLocation(IndReb.MODID, "block/" + path + north))
-                .texture("south", new ResourceLocation(IndReb.MODID, "block/" + path + south))
-                .texture("east", new ResourceLocation(IndReb.MODID, "block/" + path + east))
-                .texture("west",new ResourceLocation(IndReb.MODID, "block/" + path + west))
-                .texture("particle", new ResourceLocation(IndReb.MODID, "block/" + path + south));
+                .texture("north", new ResourceLocation(IndReb.MODID, "block/" + path + front))
+                .texture("south", new ResourceLocation(IndReb.MODID, "block/" + path + back))
+                .texture("east", new ResourceLocation(IndReb.MODID, "block/" + path + left))
+                .texture("west",new ResourceLocation(IndReb.MODID, "block/" + path + right))
+                .texture("particle", new ResourceLocation(IndReb.MODID, "block/" + path + front));
 
         orientedBlock(block.get(), state -> modelFile, BlockStateHelper.FACING_PROPERTY);
     }
 
+
+    public void createActiveHorizontal(RegistryObject<Block> block, String path, String down, String downActive, String up, String upActive, String front, String frontActive, String back, String backActive, String left, String leftActive, String right, String rightActive) {
+        BlockModelBuilder notActive = cubeWithParticle(block.getId().getPath(), new ResourceLocation(IndReb.MODID, "block/" + path + down), new ResourceLocation(IndReb.MODID, "block/" + path + up), new ResourceLocation(IndReb.MODID, "block/" + path + front), new ResourceLocation(IndReb.MODID, "block/" + path + back), new ResourceLocation(IndReb.MODID, "block/" + path + left), new ResourceLocation(IndReb.MODID, "block/" + path + right));
+        BlockModelBuilder active = cubeWithParticle(block.getId().getPath() + "_active", new ResourceLocation(IndReb.MODID, "block/" + path + downActive), new ResourceLocation(IndReb.MODID, "block/" + path + upActive), new ResourceLocation(IndReb.MODID, "block/" + path + frontActive), new ResourceLocation(IndReb.MODID, "block/" + path + backActive), new ResourceLocation(IndReb.MODID, "block/" + path + leftActive), new ResourceLocation(IndReb.MODID, "block/" + path + rightActive));
+
+        orientedBlock(block.get(), state -> {
+            if (state.getValue(BlockStateHelper.ACTIVE_PROPERTY)) {
+                return active;
+            } else {
+                return notActive;
+            }
+        });
+    }
 
 
 

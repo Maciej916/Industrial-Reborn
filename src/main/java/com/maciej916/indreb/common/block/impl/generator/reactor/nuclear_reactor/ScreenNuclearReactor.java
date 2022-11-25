@@ -29,7 +29,7 @@ public class ScreenNuclearReactor extends IndRebScreen<MenuNuclearReactor> {
     public void initElements() {
         super.initElements();
 
-        addRenderableWidget(new GuiPlayPauseButtonWidget(this, 100, 129, entity.getReactor(), entity.clickPlayPauseClient(), List.of(EnumLang.REACTOR_PLAY_PAUSE.getTranslationComponent())));
+        addUssableWidget(new GuiPlayPauseButtonWidget(this, 100, 129, entity.getReactor(), entity.clickPlayPauseClient(), List.of(EnumLang.REACTOR_PLAY_PAUSE.getTranslationComponent())));
         addRenderableOnlyWidget(new GuiReactorOutputWidget(this, entity));
         addRenderableOnlyWidget(new GuiReactorTempVar(this, entity));
     }

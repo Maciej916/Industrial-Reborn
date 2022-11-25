@@ -28,7 +28,6 @@ public class TagsBlock extends BlockTagsProvider {
 
         tag(BlockTags.LEAVES)
                 .add(ModBlocks.RUBBER_LEAVES.get())
-                .replace(false)
         ;
 
         tag(BlockTags.LOGS)
