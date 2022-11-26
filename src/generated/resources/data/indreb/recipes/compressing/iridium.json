@@ -1,0 +1,16 @@
+{
+  "type": "indreb:compressing",
+  "chance_result": [],
+  "duration": 180,
+  "experience": 1.0,
+  "ingredients": [
+    {
+      "count": 9,
+      "item": "indreb:iridium_shard"
+    }
+  ],
+  "result": {
+    "item": "indreb:iridium"
+  },
+  "tick_energy_cost": 8
+}

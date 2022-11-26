@@ -1,0 +1,16 @@
+{
+  "type": "indreb:extracting",
+  "chance_result": [],
+  "duration": 180,
+  "experience": 0.0,
+  "ingredients": [
+    {
+      "item": "minecraft:clay"
+    }
+  ],
+  "result": {
+    "count": 4,
+    "item": "minecraft:clay_ball"
+  },
+  "tick_energy_cost": 8
+}

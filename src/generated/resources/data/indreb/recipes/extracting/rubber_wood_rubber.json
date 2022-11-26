@@ -1,0 +1,15 @@
+{
+  "type": "indreb:extracting",
+  "chance_result": [],
+  "duration": 180,
+  "experience": 0.0,
+  "ingredients": [
+    {
+      "item": "indreb:rubber_log"
+    }
+  ],
+  "result": {
+    "item": "indreb:rubber"
+  },
+  "tick_energy_cost": 8
+}

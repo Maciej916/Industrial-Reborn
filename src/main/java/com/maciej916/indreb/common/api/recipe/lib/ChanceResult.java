@@ -2,6 +2,7 @@ package com.maciej916.indreb.common.api.recipe.lib;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
+import com.maciej916.indreb.IndReb;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.util.GsonHelper;
 import net.minecraft.world.item.ItemStack;
@@ -54,6 +55,8 @@ public class ChanceResult {
             }
             position -= result.rawChance();
         }
+
+        IndReb.LOGGER.info("Should never be here, recipe chance result {}", results);
 
         return ItemStack.EMPTY;
     }

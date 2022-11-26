@@ -1,0 +1,15 @@
+{
+  "type": "indreb:compressing",
+  "chance_result": [],
+  "duration": 180,
+  "experience": 0.0,
+  "ingredients": [
+    {
+      "item": "indreb:mixed_metal_ingot"
+    }
+  ],
+  "result": {
+    "item": "indreb:advanced_alloy"
+  },
+  "tick_energy_cost": 8
+}

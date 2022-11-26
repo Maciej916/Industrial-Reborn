@@ -1,0 +1,15 @@
+{
+  "type": "indreb:extracting",
+  "chance_result": [],
+  "duration": 180,
+  "experience": 0.0,
+  "ingredients": [
+    {
+      "item": "minecraft:mud"
+    }
+  ],
+  "result": {
+    "item": "minecraft:dirt"
+  },
+  "tick_energy_cost": 8
+}

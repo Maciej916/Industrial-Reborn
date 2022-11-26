@@ -1,0 +1,16 @@
+{
+  "type": "indreb:compressing",
+  "chance_result": [],
+  "duration": 180,
+  "experience": 0.0,
+  "ingredients": [
+    {
+      "count": 2,
+      "item": "minecraft:ice"
+    }
+  ],
+  "result": {
+    "item": "minecraft:packed_ice"
+  },
+  "tick_energy_cost": 8
+}

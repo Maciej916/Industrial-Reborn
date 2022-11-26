@@ -1,0 +1,16 @@
+{
+  "type": "indreb:compressing",
+  "chance_result": [],
+  "duration": 180,
+  "experience": 0.0,
+  "ingredients": [
+    {
+      "count": 9,
+      "tag": "forge:raw_materials/iron"
+    }
+  ],
+  "result": {
+    "item": "minecraft:raw_iron_block"
+  },
+  "tick_energy_cost": 8
+}

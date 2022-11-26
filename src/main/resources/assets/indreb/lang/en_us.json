@@ -101,6 +101,12 @@
   "block.indreb.silver_block": "Silver Block",
   "block.indreb.steel_block": "Steel Block",
   "block.indreb.lead_block": "Lead Block",
+  "block.indreb.uranium_block": "Uranium Block",
+
+  "block.indreb.raw_tin_block": "Raw Tin Block",
+  "block.indreb.raw_lead_block": "Raw Lead Block",
+  "block.indreb.raw_uranium_block": "Raw Uranium Block",
+  "block.indreb.raw_silver_block": "Raw Silver Block",
 
   "block.indreb.basic_machine_casing": "Basic Machine Casing",
   "block.indreb.advanced_machine_casing": "Advanced Machine Casing",
@@ -132,6 +138,10 @@
   "block.indreb.reinforced_stone": "Reinforced Stone",
   "block.indreb.reinforced_stone_slab": "Reinforced Stone Slab",
   "block.indreb.reinforced_stone_stairs": "Reinforced Stone Stairs",
+  "block.indreb.reinforced_stone_bricks": "Reinforced Stone Bricks",
+  "block.indreb.reinforced_stone_brick_wall": "Reinforced Stone Brick Wall",
+  "block.indreb.smooth_reinforced_stone": "Smooth Reinforced Doors",
+  "block.indreb.reinforced_door": "Reinforced Door",
 
   "block.indreb.yellow_stripes_block_left": "Yellow Stripes Block (Left)",
   "block.indreb.yellow_stripes_block_right": "Yellow Stripes Block (Right)",
@@ -146,6 +156,7 @@
 
   "block.indreb.iron_scaffolding": "Iron Scaffolding",
   "block.indreb.iron_fence": "Iron Fence",
+  "block.indreb.iron_gate": "Iron Gate",
 
   "block.indreb.luminator": "Luminator",
   "block.indreb.recycler": "Recycler",
@@ -160,6 +171,10 @@
   "block.indreb.rubber_log": "Rubber Log",
   "block.indreb.rubber_stairs": "Rubber Stairs",
   "block.indreb.rubber_slab": "Rubber Slab",
+  "block.indreb.rubber_fence": "Rubber Fence",
+  "block.indreb.rubber_gate": "Rubber Gate",
+  "block.indreb.rubber_door": "Rubber Door",
+  "block.indreb.rubber_trap_door": "Rubber Trap Door",
 
 
   "_comment": "Cable",
@@ -168,7 +183,6 @@
   "block.indreb.copper_cable": "Copper Cable",
   "block.indreb.copper_cable_insulated": "Insulated Copper Cable",
   "block.indreb.gold_cable": "Gold Cable",
-  "block.indreb.gold_cable_insulated": "Insulated Gold Cable",
   "block.indreb.gold_cable_insulated": "Insulated Gold Cable",
   "block.indreb.hv_cable": "HV Cable",
   "block.indreb.hv_cable_insulated": "Insulated HV Cable",

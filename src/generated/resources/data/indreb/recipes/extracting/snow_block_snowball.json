@@ -1,0 +1,16 @@
+{
+  "type": "indreb:extracting",
+  "chance_result": [],
+  "duration": 180,
+  "experience": 0.0,
+  "ingredients": [
+    {
+      "item": "minecraft:snow_block"
+    }
+  ],
+  "result": {
+    "count": 4,
+    "item": "minecraft:snowball"
+  },
+  "tick_energy_cost": 8
+}

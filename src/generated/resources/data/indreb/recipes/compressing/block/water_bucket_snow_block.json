@@ -1,0 +1,21 @@
+{
+  "type": "indreb:compressing",
+  "chance_result": [
+    {
+      "chance": 100.0,
+      "count": 1,
+      "item": "minecraft:bucket"
+    }
+  ],
+  "duration": 180,
+  "experience": 0.0,
+  "ingredients": [
+    {
+      "item": "minecraft:water_bucket"
+    }
+  ],
+  "result": {
+    "item": "minecraft:snow_block"
+  },
+  "tick_energy_cost": 8
+}

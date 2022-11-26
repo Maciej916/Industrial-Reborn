@@ -1,0 +1,22 @@
+{
+  "type": "indreb:compressing",
+  "chance_result": [
+    {
+      "chance": 100.0,
+      "count": 4,
+      "item": "minecraft:glass_bottle"
+    }
+  ],
+  "duration": 180,
+  "experience": 0.2,
+  "ingredients": [
+    {
+      "count": 4,
+      "item": "minecraft:honey_bottle"
+    }
+  ],
+  "result": {
+    "item": "minecraft:honey_block"
+  },
+  "tick_energy_cost": 8
+}

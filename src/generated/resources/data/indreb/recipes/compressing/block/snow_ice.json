@@ -1,0 +1,15 @@
+{
+  "type": "indreb:compressing",
+  "chance_result": [],
+  "duration": 180,
+  "experience": 0.0,
+  "ingredients": [
+    {
+      "item": "minecraft:snow_block"
+    }
+  ],
+  "result": {
+    "item": "minecraft:ice"
+  },
+  "tick_energy_cost": 8
+}

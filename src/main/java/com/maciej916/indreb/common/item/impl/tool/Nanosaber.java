@@ -15,6 +15,7 @@ import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Tiers;
@@ -23,9 +24,8 @@ import net.minecraft.world.level.Level;
 public class Nanosaber extends BaseElectricSwordItem {
 
     public Nanosaber() {
-        super(Tiers.DIAMOND, 1, -3F, new Item.Properties().setNoRepair().stacksTo(1), 0, 160000, EnergyType.RECEIVE, EnergyTier.ADVANCED);
+        super(Tiers.DIAMOND, 1, -3F, new Item.Properties().setNoRepair().stacksTo(1).tab(CreativeModeTab.TAB_COMBAT), 0, 160000, EnergyType.RECEIVE, EnergyTier.ADVANCED);
     }
-
     @Override
     public Multimap<Attribute, AttributeModifier> getAttributeModifiers(EquipmentSlot slot, ItemStack stack) {
         if (stack.getItem().equals(this)) {

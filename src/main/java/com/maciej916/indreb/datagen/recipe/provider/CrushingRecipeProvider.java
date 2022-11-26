@@ -7,7 +7,6 @@ import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.RecipeProvider;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Items;
 
@@ -76,7 +75,7 @@ public class CrushingRecipeProvider extends RecipeProvider {
                 .save(consumer, "sugarcane_sugar");
 
         CrushingRecipeBuilder.builder(Items.STRING,4)
-                .setIngredient(ModItemTags.MINECRAFT_WOOL, 1)
+                .setIngredient(ItemTags.WOOL, 1)
                 .setGroup("crushing")
                 .addCriterion("white_wool", InventoryChangeTrigger.TriggerInstance.hasItems(Items.WHITE_WOOL))
                 .save(consumer, "wool_string");
@@ -328,13 +327,13 @@ public class CrushingRecipeProvider extends RecipeProvider {
                 .save(consumer, "dirt");
 
         CrushingRecipeBuilder.builder(ModItems.BIO_CHAFF,1)
-                .setIngredient(ItemTags.create(new ResourceLocation("saplings")), 4)
+                .setIngredient(ItemTags.SAPLINGS, 4)
                 .setGroup("crushing/bio")
                 .addCriterion("oak_sapling", InventoryChangeTrigger.TriggerInstance.hasItems(Items.OAK_SAPLING))
                 .save(consumer, "saplings");
 
         CrushingRecipeBuilder.builder(ModItems.BIO_CHAFF,1)
-                .setIngredient(ItemTags.create(new ResourceLocation("leaves")), 8)
+                .setIngredient(ItemTags.LEAVES, 8)
                 .setGroup("crushing/bio")
                 .addCriterion("oak_leaves", InventoryChangeTrigger.TriggerInstance.hasItems(Items.OAK_LEAVES))
                 .save(consumer, "leaves");

@@ -1,0 +1,15 @@
+{
+  "type": "indreb:extracting",
+  "chance_result": [],
+  "duration": 180,
+  "experience": 0.0,
+  "ingredients": [
+    {
+      "tag": "minecraft:wool"
+    }
+  ],
+  "result": {
+    "item": "minecraft:white_wool"
+  },
+  "tick_energy_cost": 8
+}

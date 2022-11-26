@@ -1,0 +1,15 @@
+{
+  "type": "indreb:compressing",
+  "chance_result": [],
+  "duration": 180,
+  "experience": 0.0,
+  "ingredients": [
+    {
+      "item": "indreb:combined_carbon_fibers"
+    }
+  ],
+  "result": {
+    "item": "indreb:carbon_plate"
+  },
+  "tick_energy_cost": 8
+}

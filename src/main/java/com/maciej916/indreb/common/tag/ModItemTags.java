@@ -66,6 +66,9 @@ public final class ModItemTags {
     public static final TagKey<Item> FORGE_INGOTS_SILVER = create("forge", "ingots/silver");
     public static final TagKey<Item> FORGE_INGOTS_LEAD = create("forge", "ingots/lead");
     public static final TagKey<Item> FORGE_INGOTS_URANIUM = create("forge", "ingots/uranium");
+    public static final TagKey<Item> FORGE_INGOTS_IRON = create("forge", "ingots/iron");
+    public static final TagKey<Item> FORGE_INGOTS_GOLD = create("forge", "ingots/gold");
+    public static final TagKey<Item> FORGE_INGOTS_COPPER = create("forge", "ingots/copper");
 
     public static final TagKey<Item> FORGE_PLATES_COPPER = create("forge", "plates/copper");
     public static final TagKey<Item> FORGE_PLATES_TIN = create("forge", "plates/tin");
@@ -89,9 +92,12 @@ public final class ModItemTags {
     public static final TagKey<Item> FORGE_DUSTS_SULFUR = create("forge", "dusts/sulfur");
 
     public static final TagKey<Item> FORGE_RODS_IRON = create("forge", "rods/iron");
-    public static final TagKey<Item> FORGE_GEMS_LAPIS = create("forge", "gems/lapis");
 
-    public static final TagKey<Item> MINECRAFT_WOOL = create("minecraft", "wool");
+    public static final TagKey<Item> FORGE_GEMS_LAPIS = create("forge", "gems/lapis");
+    public static final TagKey<Item> FORGE_GEMS_DIAMOND = create("forge", "gems/diamond");
+    public static final TagKey<Item> FORGE_GEMS_EMERALD = create("forge", "gems/emerald");
+    public static final TagKey<Item> FORGE_GEMS_AMETHYST = create("forge", "gems/amethyst");
+
 
 
 

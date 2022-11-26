@@ -28,7 +28,7 @@ import org.slf4j.Logger;
 @Mod(IndReb.MODID)
 public class IndReb {
     public static final String MODID = "indreb";
-    private static final Logger LOGGER = LogUtils.getLogger();
+    public static final Logger LOGGER = LogUtils.getLogger();
 
     public IndReb() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();

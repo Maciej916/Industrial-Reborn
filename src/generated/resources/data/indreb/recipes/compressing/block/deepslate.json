@@ -1,0 +1,16 @@
+{
+  "type": "indreb:compressing",
+  "chance_result": [],
+  "duration": 180,
+  "experience": 1.0,
+  "ingredients": [
+    {
+      "count": 4,
+      "tag": "forge:dusts/deepslate"
+    }
+  ],
+  "result": {
+    "item": "minecraft:deepslate"
+  },
+  "tick_energy_cost": 8
+}
