@@ -90,6 +90,7 @@ public class CrushingRecipeProvider extends RecipeProvider {
                 .addCriterion("bricks", InventoryChangeTrigger.TriggerInstance.hasItems(Items.BRICKS))
                 .save(consumer, "bricks_brick");
 
+
         /* STONES */
 
         CrushingRecipeBuilder.builder(Items.GRAVEL,1)
@@ -300,6 +301,7 @@ public class CrushingRecipeProvider extends RecipeProvider {
                 .addCriterion("ANCient_debris", InventoryChangeTrigger.TriggerInstance.hasItems(Items.ANCIENT_DEBRIS))
                 .save(consumer, "ancient_debris_netherite_scrap");
 
+
         /* ITEMS */
 
         CrushingRecipeBuilder.builder(ModItems.DIAMOND_DUST,1)
@@ -315,6 +317,7 @@ public class CrushingRecipeProvider extends RecipeProvider {
                 .setGroup("crushing/items")
                 .addCriterion("iridium", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.IRIDIUM.get()))
                 .save(consumer, "iridium_shard");
+
 
         /* BIO */
 

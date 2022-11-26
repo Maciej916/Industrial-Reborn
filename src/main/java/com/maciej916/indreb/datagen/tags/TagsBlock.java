@@ -2,7 +2,7 @@ package com.maciej916.indreb.datagen.tags;
 
 import com.maciej916.indreb.IndReb;
 import com.maciej916.indreb.common.block.ModBlocks;
-import com.maciej916.indreb.common.tag.ModTagsBlock;
+import com.maciej916.indreb.common.tag.ModBlockTags;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.tags.BlockTagsProvider;
 import net.minecraft.tags.BlockTags;
@@ -83,45 +83,45 @@ public class TagsBlock extends BlockTagsProvider {
 
         /* ORES */
 
-        tag(ModTagsBlock.FORGE_ORE_TIN)
+        tag(ModBlockTags.FORGE_ORE_TIN)
                 .add(ModBlocks.TIN_ORE.get())
                 .add(ModBlocks.DEEPSLATE_TIN_ORE.get())
         ;
 
-        tag(ModTagsBlock.FORGE_ORE_LEAD)
+        tag(ModBlockTags.FORGE_ORE_LEAD)
                 .add(ModBlocks.LEAD_ORE.get())
                 .add(ModBlocks.DEEPSLATE_LEAD_ORE.get())
         ;
 
-        tag(ModTagsBlock.FORGE_ORE_URANIUM)
+        tag(ModBlockTags.FORGE_ORE_URANIUM)
                 .add(ModBlocks.URANIUM_ORE.get())
                 .add(ModBlocks.DEEPSLATE_URANIUM_ORE.get())
         ;
 
-        tag(ModTagsBlock.FORGE_ORE_SILVER)
+        tag(ModBlockTags.FORGE_ORE_SILVER)
                 .add(ModBlocks.SILVER_ORE.get())
                 .add(ModBlocks.DEEPSLATE_SILVER_ORE.get())
         ;
 
         /* RAW STORAGE BLOCKS */
 
-        tag(ModTagsBlock.FORGE_STORAGE_BLOCKS_RAW_TIN).add(ModBlocks.RAW_TIN_BLOCK.get());
-        tag(ModTagsBlock.FORGE_STORAGE_BLOCKS_RAW_LEAD).add(ModBlocks.RAW_LEAD_BLOCK.get());
-        tag(ModTagsBlock.FORGE_STORAGE_BLOCKS_RAW_URANIUM).add(ModBlocks.RAW_URANIUM_BLOCK.get());
-        tag(ModTagsBlock.FORGE_STORAGE_BLOCKS_RAW_SILVER).add(ModBlocks.RAW_SILVER_BLOCK.get());
+        tag(ModBlockTags.FORGE_STORAGE_BLOCKS_RAW_TIN).add(ModBlocks.RAW_TIN_BLOCK.get());
+        tag(ModBlockTags.FORGE_STORAGE_BLOCKS_RAW_LEAD).add(ModBlocks.RAW_LEAD_BLOCK.get());
+        tag(ModBlockTags.FORGE_STORAGE_BLOCKS_RAW_URANIUM).add(ModBlocks.RAW_URANIUM_BLOCK.get());
+        tag(ModBlockTags.FORGE_STORAGE_BLOCKS_RAW_SILVER).add(ModBlocks.RAW_SILVER_BLOCK.get());
 
         /* STORAGE BLOCKS */
 
-        tag(ModTagsBlock.FORGE_STORAGE_BLOCKS_TIN).add(ModBlocks.TIN_BLOCK.get());
-        tag(ModTagsBlock.FORGE_STORAGE_BLOCKS_SILVER).add(ModBlocks.SILVER_BLOCK.get());
-        tag(ModTagsBlock.FORGE_STORAGE_BLOCKS_URANIUM).add(ModBlocks.URANIUM_BLOCK.get());
-        tag(ModTagsBlock.FORGE_STORAGE_BLOCKS_LEAD).add(ModBlocks.LEAD_BLOCK.get());
-        tag(ModTagsBlock.FORGE_STORAGE_BLOCKS_STEEL).add(ModBlocks.STEEL_BLOCK.get());
-        tag(ModTagsBlock.FORGE_STORAGE_BLOCKS_BRONZE).add(ModBlocks.BRONZE_BLOCK.get());
+        tag(ModBlockTags.FORGE_STORAGE_BLOCKS_TIN).add(ModBlocks.TIN_BLOCK.get());
+        tag(ModBlockTags.FORGE_STORAGE_BLOCKS_SILVER).add(ModBlocks.SILVER_BLOCK.get());
+        tag(ModBlockTags.FORGE_STORAGE_BLOCKS_URANIUM).add(ModBlocks.URANIUM_BLOCK.get());
+        tag(ModBlockTags.FORGE_STORAGE_BLOCKS_LEAD).add(ModBlocks.LEAD_BLOCK.get());
+        tag(ModBlockTags.FORGE_STORAGE_BLOCKS_STEEL).add(ModBlocks.STEEL_BLOCK.get());
+        tag(ModBlockTags.FORGE_STORAGE_BLOCKS_BRONZE).add(ModBlocks.BRONZE_BLOCK.get());
 
         /* REACTOR PARTS */
 
-        tag(ModTagsBlock.REACTOR_PART)
+        tag(ModBlockTags.REACTOR_PART)
                 .add(ModBlocks.REACTOR_CHAMBER.get())
                 .add(ModBlocks.REACTOR_FRAME.get())
                 .add(ModBlocks.REACTOR_CONTROL_ROD.get())

@@ -2,7 +2,7 @@ package com.maciej916.indreb.common.multiblock.reactor;
 
 import com.maciej916.indreb.common.api.multiblock.TriPredicate;
 import com.maciej916.indreb.common.block.ModBlocks;
-import com.maciej916.indreb.common.tag.ModTagsBlock;
+import com.maciej916.indreb.common.tag.ModBlockTags;
 import com.maciej916.indreb.common.util.BlockStateHelper;
 import net.minecraft.core.BlockPos;
 import net.minecraft.util.StringRepresentable;
@@ -92,7 +92,7 @@ public enum ReactorPartIndex implements StringRepresentable {
     private static boolean isValidFrame(Level level, BlockPos pos, boolean formed) {
         BlockState state = level.getBlockState(pos);
 
-        if (state.is(ModTagsBlock.REACTOR_PART) && state.getBlock() == ModBlocks.REACTOR_FRAME.get()) {
+        if (state.is(ModBlockTags.REACTOR_PART) && state.getBlock() == ModBlocks.REACTOR_FRAME.get()) {
             if (formed) {
                 return state.getValue(BlockStateHelper.REACTOR_PART) != ReactorPartIndex.UNFORMED;
             } else {
@@ -105,7 +105,7 @@ public enum ReactorPartIndex implements StringRepresentable {
     private static boolean isValidControlRod(Level level, BlockPos pos, boolean formed) {
         BlockState state = level.getBlockState(pos);
 
-        if (state.is(ModTagsBlock.REACTOR_PART) && state.getBlock() == ModBlocks.REACTOR_CONTROL_ROD.get()) {
+        if (state.is(ModBlockTags.REACTOR_PART) && state.getBlock() == ModBlocks.REACTOR_CONTROL_ROD.get()) {
             if (formed) {
                 return state.getValue(BlockStateHelper.REACTOR_PART) != ReactorPartIndex.UNFORMED;
             } else {
@@ -118,7 +118,7 @@ public enum ReactorPartIndex implements StringRepresentable {
     private static boolean isValidChamber(Level level, BlockPos pos, boolean formed) {
         BlockState state = level.getBlockState(pos);
 
-        if (state.is(ModTagsBlock.REACTOR_PART) && state.getBlock() == ModBlocks.REACTOR_CHAMBER.get()) {
+        if (state.is(ModBlockTags.REACTOR_PART) && state.getBlock() == ModBlocks.REACTOR_CHAMBER.get()) {
             if (formed) {
                 return state.getValue(BlockStateHelper.REACTOR_PART) != ReactorPartIndex.UNFORMED;
             } else {
@@ -131,7 +131,7 @@ public enum ReactorPartIndex implements StringRepresentable {
     private static boolean isValidReactor(Level level, BlockPos pos, boolean formed) {
         BlockState state = level.getBlockState(pos);
 
-        if (state.is(ModTagsBlock.REACTOR_PART) && state.getBlock() == ModBlocks.NUCLEAR_REACTOR.get()) {
+        if (state.is(ModBlockTags.REACTOR_PART) && state.getBlock() == ModBlocks.NUCLEAR_REACTOR.get()) {
             if (formed) {
                 return state.getValue(BlockStateHelper.REACTOR_PART) != ReactorPartIndex.UNFORMED;
             } else {

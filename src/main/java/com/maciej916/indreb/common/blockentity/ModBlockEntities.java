@@ -40,13 +40,14 @@ public final class ModBlockEntities {
     public static final RegistryObject<BlockEntityType<BlockEntityIronFurnace>> IRON_FURNACE = BLOCK_ENTITIES.register("iron_furnace", () -> BlockEntityType.Builder.of(BlockEntityIronFurnace::new, ModBlocks.IRON_FURNACE.get()).build(null));
     public static final RegistryObject<BlockEntityType<BlockEntitySimpleCrusher>> SIMPLE_CRUSHER = BLOCK_ENTITIES.register("simple_crusher", () -> BlockEntityType.Builder.of(BlockEntitySimpleCrusher::new, ModBlocks.SIMPLE_CRUSHER.get()).build(null));
     public static final RegistryObject<BlockEntityType<BlockEntitySimpleCompressor>> SIMPLE_COMPRESSOR = BLOCK_ENTITIES.register("simple_compressor", () -> BlockEntityType.Builder.of(BlockEntitySimpleCompressor::new, ModBlocks.SIMPLE_COMPRESSOR.get()).build(null));
-    public static final RegistryObject<BlockEntityType<BlockEntitySimpleExtractor>> SIMPLE_EXTRACTOR = BLOCK_ENTITIES.register("simple_extractor", () -> BlockEntityType.Builder.of(BlockEntitySimpleExtractor::new, ModBlocks.SIMPLE_COMPRESSOR.get()).build(null));
+    public static final RegistryObject<BlockEntityType<BlockEntitySimpleExtractor>> SIMPLE_EXTRACTOR = BLOCK_ENTITIES.register("simple_extractor", () -> BlockEntityType.Builder.of(BlockEntitySimpleExtractor::new, ModBlocks.SIMPLE_EXTRACTOR.get()).build(null));
+
+    /* GENERATOR */
 
     public static final RegistryObject<BlockEntityType<BlockEntityGenerator>> GENERATOR = BLOCK_ENTITIES.register("generator", () -> BlockEntityType.Builder.of(BlockEntityGenerator::new, ModBlocks.GENERATOR.get()).build(null));
     public static final RegistryObject<BlockEntityType<BlockEntitySolarPanel>> SOLAR_PANEL = BLOCK_ENTITIES.register("solar_panel", () -> BlockEntityType.Builder.of(BlockEntitySolarPanel::new, ModBlocks.SOLAR_PANEL.get(), ModBlocks.ADVANCED_SOLAR_PANEL.get(), ModBlocks.HYBRID_SOLAR_PANEL.get(), ModBlocks.QUANTUM_SOLAR_PANEL.get()).build(null));
     public static final RegistryObject<BlockEntityType<BlockEntityGeoGenerator>> GEO_GENERATOR = BLOCK_ENTITIES.register("geo_generator", () -> BlockEntityType.Builder.of(BlockEntityGeoGenerator::new, ModBlocks.GEO_GENERATOR.get()).build(null));
     public static final RegistryObject<BlockEntityType<BlockEntitySemifluidGenerator>> SEMIFLUID_GENERATOR = BLOCK_ENTITIES.register("semifluid_generator", () -> BlockEntityType.Builder.of(BlockEntitySemifluidGenerator::new, ModBlocks.SEMIFLUID_GENERATOR.get()).build(null));
-
     public static final RegistryObject<BlockEntityType<BlockEntityNuclearReactor>> NUCLEAR_REACTOR = BLOCK_ENTITIES.register("nuclear_reactor", () -> BlockEntityType.Builder.of(BlockEntityNuclearReactor::new, ModBlocks.NUCLEAR_REACTOR.get()).build(null));
     public static final RegistryObject<BlockEntityType<BlockEntityReactorPart>> REACTOR_PART = BLOCK_ENTITIES.register("reactor_frame", () -> BlockEntityType.Builder.of(BlockEntityReactorPart::new, ModBlocks.REACTOR_FRAME.get(), ModBlocks.REACTOR_CONTROL_ROD.get(), ModBlocks.REACTOR_CHAMBER.get()).build(null));
 

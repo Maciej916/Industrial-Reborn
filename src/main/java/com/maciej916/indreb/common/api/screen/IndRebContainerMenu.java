@@ -38,11 +38,12 @@ public class IndRebContainerMenu extends AbstractContainerMenu {
     }
 
     public void init() {
-        addPlayerInventory();
-
         if (getEntity().hasBaseStorage()) getEntity().getBaseStorage().getSlotHandler().forEach(this::addSlot);
         if (getEntity().hasElectricStorage()) getEntity().getElectricStorage().getSlotHandler().forEach(this::addSlot);
         if (getEntity().hasUpgradesStorage()) getEntity().getUpgradesStorage().getSlotHandler().forEach(this::addSlot);
+
+        addPlayerInventory();
+
     }
 
     public IndRebBlockEntity getEntity() {
@@ -78,12 +79,12 @@ public class IndRebContainerMenu extends AbstractContainerMenu {
         ItemStack sourceStack = sourceSlot.getItem();
         ItemStack copyOfSourceStack = sourceStack.copy();
 
-        if (index < VANILLA_FIRST_SLOT_INDEX + VANILLA_SLOT_COUNT) {
-            if (!moveItemStackTo(sourceStack, TE_INVENTORY_FIRST_SLOT_INDEX, TE_INVENTORY_FIRST_SLOT_INDEX + TE_INVENTORY_SLOT_COUNT, false)) {
+        if (index < TE_INVENTORY_FIRST_SLOT_INDEX + TE_INVENTORY_SLOT_COUNT) {
+            if (!moveItemStackTo(sourceStack, VANILLA_FIRST_SLOT_INDEX, VANILLA_FIRST_SLOT_INDEX + VANILLA_SLOT_COUNT, false)) {
                 return ItemStack.EMPTY;
             }
-        } else if (index < TE_INVENTORY_FIRST_SLOT_INDEX + TE_INVENTORY_SLOT_COUNT) {
-            if (!moveItemStackTo(sourceStack, VANILLA_FIRST_SLOT_INDEX, VANILLA_FIRST_SLOT_INDEX + VANILLA_SLOT_COUNT, false)) {
+        } else if (index < VANILLA_FIRST_SLOT_INDEX + VANILLA_SLOT_COUNT) {
+            if (!moveItemStackTo(sourceStack, TE_INVENTORY_FIRST_SLOT_INDEX, TE_INVENTORY_FIRST_SLOT_INDEX + TE_INVENTORY_SLOT_COUNT, false)) {
                 return ItemStack.EMPTY;
             }
         } else {

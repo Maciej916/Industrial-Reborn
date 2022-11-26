@@ -15,7 +15,7 @@ import java.util.Random;
 public class ChanceResult {
 
     private final List<ChanceResultStack> results = new ArrayList<>();
-    private int totalWeight = 0;
+    private float totalWeight = 0;
 
     public ChanceResult(ChanceResultStack bonusResult) {
         results.add(bonusResult);
@@ -30,7 +30,7 @@ public class ChanceResult {
         return this;
     }
 
-    public int getTotalWeight() {
+    public float getTotalWeight() {
         return totalWeight;
     }
 
@@ -43,7 +43,7 @@ public class ChanceResult {
     }
 
     public ItemStack rollResult() {
-        int position = new Random().nextInt(Math.max(totalWeight, 100));
+        float position = new Random().nextFloat(Math.max(totalWeight, 100));
         if (position >= totalWeight) {
             return ItemStack.EMPTY;
         }
@@ -64,7 +64,7 @@ public class ChanceResult {
             JsonObject object = new JsonObject();
             object.addProperty("item", ForgeRegistries.ITEMS.getKey(stack.stack().getItem()).toString());
             object.addProperty("count", stack.getCount());
-            object.addProperty("rawChance", stack.rawChance());
+            object.addProperty("chance", stack.rawChance());
             array.add(object);
         }
 
@@ -78,7 +78,7 @@ public class ChanceResult {
             JsonObject object = ingredients.get(i).getAsJsonObject();
             ItemStack itemStack = ShapedRecipe.itemStackFromJson(object);
             itemStack.setCount(GsonHelper.getAsInt(object, "count", 1));
-            float chance = GsonHelper.getAsFloat(object, "rawChance", 100);
+            float chance = GsonHelper.getAsFloat(object, "chance", 100);
             chanceResult.addChanceResult(itemStack, chance);
         }
 

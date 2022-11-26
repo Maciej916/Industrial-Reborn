@@ -82,7 +82,7 @@ public class CrushingCategory extends AbstractRecipeCategory<CrushingRecipe> {
         @Override
         public void onTooltip(IRecipeSlotView recipeSlotView, List<Component> tooltip) {
             Optional<ItemStack> displayedStack = recipeSlotView.getDisplayedItemStack();
-            displayedStack.ifPresent(stack -> tooltip.add(Component.translatable(EnumLang.CHANCE.getTranslationKey(), Component.literal((Math.round(recipe.getChanceForStack(stack) * 100.0) / 100.0) + "%").withStyle(ChatFormatting.YELLOW)).withStyle(ChatFormatting.DARK_GRAY)));
+            displayedStack.ifPresent(stack -> tooltip.add(Component.translatable(EnumLang.CHANCE.getTranslationKey(), Component.literal((Math.round(recipe.getChanceForStack(stack) * 100.0) / 100.0) + "%").withStyle(ChatFormatting.YELLOW)).withStyle(ChatFormatting.GRAY)));
         }
     }
 }

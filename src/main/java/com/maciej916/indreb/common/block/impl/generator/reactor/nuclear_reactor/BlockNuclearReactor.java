@@ -9,7 +9,7 @@ import com.maciej916.indreb.common.enums.EnumLang;
 import com.maciej916.indreb.common.multiblock.reactor.IReactorPart;
 import com.maciej916.indreb.common.multiblock.reactor.ReactorMultiBlock;
 import com.maciej916.indreb.common.multiblock.reactor.ReactorPartIndex;
-import com.maciej916.indreb.common.tag.ModTagsBlock;
+import com.maciej916.indreb.common.tag.ModBlockTags;
 import com.maciej916.indreb.common.util.BlockStateHelper;
 import com.maciej916.indreb.common.util.TextComponentUtil;
 import net.minecraft.ChatFormatting;
@@ -88,7 +88,7 @@ public class BlockNuclearReactor extends BaseMachineBlock implements IReactorPar
             return pos;
         }
 
-        if (state.is(ModTagsBlock.REACTOR_PART) && state.getValue(BlockStateHelper.REACTOR_PART) != ReactorPartIndex.UNFORMED) {
+        if (state.is(ModBlockTags.REACTOR_PART) && state.getValue(BlockStateHelper.REACTOR_PART) != ReactorPartIndex.UNFORMED) {
             ReactorPartIndex index = state.getValue(BlockStateHelper.REACTOR_PART);
             BlockPos bottomLeft = pos.offset(-index.getDx(), -index.getDy(), -index.getDz());
             ReactorPartIndex reactorIndex = ReactorPartIndex.P111;

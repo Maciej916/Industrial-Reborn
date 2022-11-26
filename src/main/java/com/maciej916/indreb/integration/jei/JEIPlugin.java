@@ -169,7 +169,10 @@ public class JEIPlugin implements IModPlugin {
 
     @Override
     public void registerRecipeTransferHandlers(IRecipeTransferRegistration registration) {
-        registration.addRecipeTransferHandler(MenuSimpleCrusher.class, ModMenuTypes.SIMPLE_CRUSHER.get(), CRUSHING_TYPE, BlockEntitySimpleCrusher.INPUT_SLOT, 1, 1, 37);
+//        registration.addRecipeTransferHandler(MenuSimpleCrusher.class, ModMenuTypes.SIMPLE_CRUSHER.get(), CRUSHING_TYPE, BlockEntitySimpleCrusher.INPUT_SLOT, 1, 1, 37);
+
+        registration.addRecipeTransferHandler(MenuSimpleCrusher.class, ModMenuTypes.SIMPLE_CRUSHER.get(), CRUSHING_TYPE, 0, 1, BlockEntitySimpleCrusher.BONUS_SLOT, 36);
+
 
 //        registration.addRecipeTransferHandler(MenuCrusher.class, ModMenuTypes.CRUSHER.get(), CRUSHING_TYPE, BlockEntityCrusher.INPUT_SLOT, 1, 1, 37);
 //        registration.addRecipeTransferHandler(MenuCompressor.class, ModMenuTypes.COMPRESSOR.get(), COMPRESSING_TYPE, BlockEntityCompressor.INPUT_SLOT, 1, 1, 37);

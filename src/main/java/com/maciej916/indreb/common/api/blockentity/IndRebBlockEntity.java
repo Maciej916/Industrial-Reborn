@@ -599,7 +599,6 @@ public class IndRebBlockEntity extends BaseBlockEntity implements IIndRebBlockEn
     }
 
     public AbstractContainerMenu createMenu(int containerId, Inventory playerInventory, Player player) {
-//        ModNetworking.sendToClients(new PacketBasicEnergySync(energyStorage, getBlockPos()));
         return null;
     }
 

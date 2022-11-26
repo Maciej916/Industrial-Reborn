@@ -41,7 +41,7 @@ public abstract class BaseChanceRecipe extends BaseRecipe implements IChanceReci
     public float getChanceForStack(ItemStack stack) {
         for (ChanceResultStack resultStack : chanceResult.getResults()) {
             if (stack.getItem() == resultStack.stack().getItem()) {
-                return resultStack.rawChance() / Math.max(chanceResult.getTotalWeight(), 100);
+                return (resultStack.rawChance() / Math.max(chanceResult.getTotalWeight(), 100) * 100);
             }
         }
         return 0f;
