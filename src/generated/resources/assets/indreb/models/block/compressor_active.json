@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "indreb:block/machine/basic/compressor/compressor_bottom",
+    "east": "indreb:block/machine/basic/compressor/compressor_side",
+    "north": "indreb:block/machine/basic/compressor/compressor_front_active",
+    "particle": "indreb:block/machine/basic/compressor/compressor_front_active",
+    "south": "indreb:block/machine/basic/compressor/compressor_side",
+    "up": "indreb:block/machine/basic/compressor/compressor_top",
+    "west": "indreb:block/machine/basic/compressor/compressor_side"
+  }
+}

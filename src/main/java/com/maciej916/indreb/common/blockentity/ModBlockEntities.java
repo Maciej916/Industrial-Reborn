@@ -6,10 +6,14 @@ import com.maciej916.indreb.common.block.impl.charge_pad.BlockEntityChargePad;
 import com.maciej916.indreb.common.block.impl.explosive.nuke.BlockEntityNuke;
 import com.maciej916.indreb.common.block.impl.generator.generator.BlockEntityGenerator;
 import com.maciej916.indreb.common.block.impl.generator.geo_generator.BlockEntityGeoGenerator;
-import com.maciej916.indreb.common.block.impl.generator.reactor.nuclear_reactor.BlockEntityNuclearReactor;
 import com.maciej916.indreb.common.block.impl.generator.reactor.BlockEntityReactorPart;
+import com.maciej916.indreb.common.block.impl.generator.reactor.nuclear_reactor.BlockEntityNuclearReactor;
 import com.maciej916.indreb.common.block.impl.generator.semifluid_generator.BlockEntitySemifluidGenerator;
 import com.maciej916.indreb.common.block.impl.generator.solar_panel.BlockEntitySolarPanel;
+import com.maciej916.indreb.common.block.impl.machines.basic.compressor.BlockEntityCompressor;
+import com.maciej916.indreb.common.block.impl.machines.basic.crusher.BlockEntityCrusher;
+import com.maciej916.indreb.common.block.impl.machines.basic.extractor.BlockEntityExtractor;
+import com.maciej916.indreb.common.block.impl.machines.basic.sawmill.BlockEntitySawmill;
 import com.maciej916.indreb.common.block.impl.machines.simple.iron_furnace.BlockEntityIronFurnace;
 import com.maciej916.indreb.common.block.impl.machines.simple.simple_compressor.BlockEntitySimpleCompressor;
 import com.maciej916.indreb.common.block.impl.machines.simple.simple_crusher.BlockEntitySimpleCrusher;
@@ -50,6 +54,14 @@ public final class ModBlockEntities {
     public static final RegistryObject<BlockEntityType<BlockEntitySemifluidGenerator>> SEMIFLUID_GENERATOR = BLOCK_ENTITIES.register("semifluid_generator", () -> BlockEntityType.Builder.of(BlockEntitySemifluidGenerator::new, ModBlocks.SEMIFLUID_GENERATOR.get()).build(null));
     public static final RegistryObject<BlockEntityType<BlockEntityNuclearReactor>> NUCLEAR_REACTOR = BLOCK_ENTITIES.register("nuclear_reactor", () -> BlockEntityType.Builder.of(BlockEntityNuclearReactor::new, ModBlocks.NUCLEAR_REACTOR.get()).build(null));
     public static final RegistryObject<BlockEntityType<BlockEntityReactorPart>> REACTOR_PART = BLOCK_ENTITIES.register("reactor_frame", () -> BlockEntityType.Builder.of(BlockEntityReactorPart::new, ModBlocks.REACTOR_FRAME.get(), ModBlocks.REACTOR_CONTROL_ROD.get(), ModBlocks.REACTOR_CHAMBER.get()).build(null));
+
+    /* BASIC MACHINES */
+
+    public static final RegistryObject<BlockEntityType<BlockEntityCrusher>> CRUSHER = BLOCK_ENTITIES.register("crusher", () -> BlockEntityType.Builder.of(BlockEntityCrusher::new, ModBlocks.CRUSHER.get()).build(null));
+    public static final RegistryObject<BlockEntityType<BlockEntityCompressor>> COMPRESSOR = BLOCK_ENTITIES.register("compressor", () -> BlockEntityType.Builder.of(BlockEntityCompressor::new, ModBlocks.COMPRESSOR.get()).build(null));
+    public static final RegistryObject<BlockEntityType<BlockEntityExtractor>> EXTRACTOR = BLOCK_ENTITIES.register("extractor", () -> BlockEntityType.Builder.of(BlockEntityExtractor::new, ModBlocks.EXTRACTOR.get()).build(null));
+    public static final RegistryObject<BlockEntityType<BlockEntitySawmill>> SAWMILL = BLOCK_ENTITIES.register("sawmill", () -> BlockEntityType.Builder.of(BlockEntitySawmill::new, ModBlocks.SAWMILL.get()).build(null));
+
 
 
 

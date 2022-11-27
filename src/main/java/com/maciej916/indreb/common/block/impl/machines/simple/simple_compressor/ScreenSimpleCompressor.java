@@ -22,14 +22,14 @@ public class ScreenSimpleCompressor extends IndRebScreen<MenuSimpleCompressor> {
         super.initElements();
 
         addRenderableOnlyWidget(new SmeltingProgressWidget(this, 21, 26, entity.progressBurn));
-        addRenderableOnlyWidget(new CompressingProgressWidget(this, 79, 35, entity.progressSmelting));
+        addRenderableOnlyWidget(new CompressingProgressWidget(this, 79, 35, entity.progressRecipe));
     }
 
     @Override
     public void updateData() {
         super.updateData();
         entity.progressBurn.setContainerDataBoth(menu.getData().get(0), menu.getData().get(1));
-        entity.progressSmelting.setContainerDataBoth(menu.getData().get(2), menu.getData().get(3));
+        entity.progressRecipe.setContainerDataBoth(menu.getData().get(2), menu.getData().get(3));
     }
 
     @Override

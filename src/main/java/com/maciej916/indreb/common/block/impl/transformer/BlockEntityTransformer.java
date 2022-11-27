@@ -35,7 +35,7 @@ public class BlockEntityTransformer extends IndRebBlockEntity implements IBlockE
         this.transformerTier = block.getTransformerTier();
         EnergyTier energyTier = transformerTier.getMaxTier();
 
-        createEnergyStorage(0, transformerTier.getMaxTier().getBasicTransfer(), EnergyType.BOTH, energyTier);
+        createEnergyStorage(0, transformerTier.getMaxTier().getBasicTransfer(), EnergyType.TRANSFORMER, energyTier);
 
         this.data = new ContainerData() {
             @Override

@@ -540,7 +540,7 @@ public class EnergyCore implements IEnergyCore, ICapabilitySerializable<Compound
                                         if (energy.energyType() == EnergyType.TRANSFORMER) {
                                             IBlockEntityTransformer beTransformer = (IBlockEntityTransformer) be;
                                             EnergyTier transformerTier = beTransformer.energyReceiveTier();
-                                            if ( transformerTier.getLvl() >= currentTier.getLvl()) {
+                                            if (transformerTier.getLvl() >= currentTier.getLvl()) {
                                                 if (energy.maxReceive() > 0) {
                                                     int leftReceive = Math.max(0, energy.maxReceive() - getEnergyReceivedBlock(relativePos));
                                                     transferTo.add(new TransferTo(energy, relativePos, leftReceive));

@@ -22,9 +22,13 @@ import com.maciej916.indreb.common.block.impl.generator.solar_panel.BlockSolarPa
 import com.maciej916.indreb.common.block.impl.iron.BlockIronFence;
 import com.maciej916.indreb.common.block.impl.iron.BlockIronGate;
 import com.maciej916.indreb.common.block.impl.iron.BlockIronScaffolding;
+import com.maciej916.indreb.common.block.impl.machines.basic.compressor.BlockCompressor;
+import com.maciej916.indreb.common.block.impl.machines.basic.crusher.BlockCrusher;
+import com.maciej916.indreb.common.block.impl.machines.basic.extractor.BlockExtractor;
+import com.maciej916.indreb.common.block.impl.machines.basic.sawmill.BlockSawmill;
 import com.maciej916.indreb.common.block.impl.machines.simple.iron_furnace.BlockIronFurnace;
-import com.maciej916.indreb.common.block.impl.machines.simple.simple_crusher.BlockSimpleCrusher;
 import com.maciej916.indreb.common.block.impl.machines.simple.simple_compressor.BlockSimpleCompressor;
+import com.maciej916.indreb.common.block.impl.machines.simple.simple_crusher.BlockSimpleCrusher;
 import com.maciej916.indreb.common.block.impl.machines.simple.simple_extractor.BlockSimpleExtractor;
 import com.maciej916.indreb.common.block.impl.misc.luminator.BlockLuminator;
 import com.maciej916.indreb.common.block.impl.reinforced.*;
@@ -166,6 +170,12 @@ public final class ModBlocks {
     public static final RegistryObject<Block> REACTOR_FRAME = registerBlock("reactor_frame", BlockReactorFrame::new);
 
 
+
+
+    public static final RegistryObject<Block> CRUSHER = registerBlock("crusher", BlockCrusher::new);
+    public static final RegistryObject<Block> COMPRESSOR = registerBlock("compressor", BlockCompressor::new);
+    public static final RegistryObject<Block> EXTRACTOR = registerBlock("extractor", BlockExtractor::new);
+    public static final RegistryObject<Block> SAWMILL = registerBlock("sawmill", BlockSawmill::new);
 
     public static final RegistryObject<Block> BATTERY_BOX = registerBlock("battery_box", () -> new BlockBatteryBox(BatteryBoxTier.BASIC, BlockBehaviour.Properties.of(Material.WOOD).strength(1f, 3f).sound(SoundType.WOOD)));
     public static final RegistryObject<Block> CESU = registerBlock("cesu", () -> new BlockBatteryBox(BatteryBoxTier.STANDARD, BlockBehaviour.Properties.of(Material.METAL).strength(5f, 3f).sound(SoundType.METAL)));

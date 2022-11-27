@@ -44,7 +44,7 @@ public class CompressingCategory extends AbstractRecipeCategory<CompressingRecip
                 "compressing",
                 guiHelper,
                 () -> guiHelper.createDrawable(JEI, 0, 55, 114, 54),
-                () -> guiHelper.createDrawableIngredient(VanillaTypes.ITEM_STACK, new ItemStack(ModBlocks.SIMPLE_COMPRESSOR.get()))
+                () -> guiHelper.createDrawableIngredient(VanillaTypes.ITEM_STACK, new ItemStack(ModBlocks.COMPRESSOR.get()))
         );
     }
 

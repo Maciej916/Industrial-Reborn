@@ -54,6 +54,7 @@ public class ItemTextures extends ItemModelProvider {
         registerEnergyStorage();
         registerChargePad();
         registerTransformer();
+        registerBasicMachines();
     }
 
     protected void registerOres() {
@@ -469,6 +470,14 @@ public class ItemTextures extends ItemModelProvider {
         createWithBlock(ModItems.MV_TRANSFORMER, "mv_transformer");
         createWithBlock(ModItems.HV_TRANSFORMER, "hv_transformer");
         createWithBlock(ModItems.EV_TRANSFORMER, "ev_transformer");
+    }
+
+    private void registerBasicMachines() {
+        createWithBlock(ModItems.CRUSHER, "crusher");
+        createWithBlock(ModItems.COMPRESSOR, "compressor");
+        createWithBlock(ModItems.EXTRACTOR, "extractor");
+        createWithBlock(ModItems.SAWMILL, "sawmill");
+
     }
 
 

@@ -1,0 +1,22 @@
+{
+  "type": "indreb:sawing",
+  "chance_result": [
+    {
+      "chance": 50.0,
+      "count": 1,
+      "item": "minecraft:redstone"
+    }
+  ],
+  "duration": 180,
+  "experience": 0.4,
+  "ingredients": [
+    {
+      "item": "minecraft:note_block"
+    }
+  ],
+  "result": {
+    "count": 8,
+    "item": "minecraft:oak_planks"
+  },
+  "tick_energy_cost": 8
+}

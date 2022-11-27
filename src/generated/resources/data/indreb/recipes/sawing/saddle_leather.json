@@ -1,0 +1,16 @@
+{
+  "type": "indreb:sawing",
+  "chance_result": [],
+  "duration": 180,
+  "experience": 0.5,
+  "ingredients": [
+    {
+      "item": "minecraft:saddle"
+    }
+  ],
+  "result": {
+    "count": 3,
+    "item": "minecraft:leather"
+  },
+  "tick_energy_cost": 8
+}

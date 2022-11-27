@@ -15,7 +15,6 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
-import net.minecraft.world.level.chunk.LevelChunk;
 import net.minecraftforge.event.AttachCapabilitiesEvent;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
@@ -63,11 +62,10 @@ public final class ForgeEventSubscriber {
     }
 
     @SubscribeEvent
-    public static void chunkWatch(ChunkWatchEvent event) {
+    public static void chunkWatch(ChunkWatchEvent.Watch event) {
         Level level = event.getLevel();
         if (!level.isClientSide()) {
-            LevelChunk chunk = event.getLevel().getChunk(event.getPos().getRegionX(), event.getPos().getRegionZ());
-            Map<BlockPos, BlockEntity> entityMap = chunk.getBlockEntities();
+            Map<BlockPos, BlockEntity> entityMap = event.getChunk().getBlockEntities();
             for (BlockEntity entity: entityMap.values()) {
                 if (entity instanceof IBlockEntityChunkSync blockEntityChunkSync) {
                     blockEntityChunkSync.syncWithChunk(event.getPlayer());

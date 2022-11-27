@@ -153,6 +153,11 @@ public final class ModItems {
 
 
 
+    public static final RegistryObject<Item> CRUSHER = fromBlockElectric(ModBlocks.CRUSHER);
+    public static final RegistryObject<Item> COMPRESSOR = fromBlockElectric(ModBlocks.COMPRESSOR);
+    public static final RegistryObject<Item> EXTRACTOR = fromBlockElectric(ModBlocks.EXTRACTOR);
+    public static final RegistryObject<Item> SAWMILL = fromBlockElectric(ModBlocks.SAWMILL);
+
 
 
 

@@ -12,7 +12,6 @@ public class BaseSlotItemHandler extends SlotItemHandler {
         this.isActive = isActive;
     }
 
-
     @Override
     public boolean isActive() {
         return isActive;

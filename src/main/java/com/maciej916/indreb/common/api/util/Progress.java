@@ -9,8 +9,6 @@ public class Progress implements IProgress, INBTSerializable<CompoundTag> {
     private float currentProgress;
     private float progressMax;
 
-    private boolean changed = false;
-
     public Progress() {
         this.currentProgress = -1;
         this.progressMax = -1;
@@ -26,7 +24,6 @@ public class Progress implements IProgress, INBTSerializable<CompoundTag> {
     }
 
     public void setData(float progress, float progressMax) {
-        if (progress != this.currentProgress || progressMax != this.progressMax) this.changed = true;
         this.currentProgress = progress;
         this.progressMax = progressMax;
     }
@@ -98,21 +95,6 @@ public class Progress implements IProgress, INBTSerializable<CompoundTag> {
     @Override
     public void setContainerDataBoth(int current, int max) {
         setData(current / 100f, max / 100f);
-    }
-
-//    public void setData(float progress, float progressMax) {
-//        if (progress != this.currentProgress || progressMax != this.progressMax) this.changed = true;
-//        this.currentProgress = progress;
-//        this.progressMax = progressMax;
-//    }
-
-
-    public boolean changed() {
-        return changed;
-    }
-
-    public void clearChanged() {
-        changed = false;
     }
 
     @Override

@@ -1,0 +1,16 @@
+{
+  "type": "indreb:sawing",
+  "chance_result": [],
+  "duration": 180,
+  "experience": 0.0,
+  "ingredients": [
+    {
+      "item": "minecraft:chest"
+    }
+  ],
+  "result": {
+    "count": 8,
+    "item": "minecraft:oak_planks"
+  },
+  "tick_energy_cost": 8
+}

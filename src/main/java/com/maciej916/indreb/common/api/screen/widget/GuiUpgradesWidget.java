@@ -14,7 +14,7 @@ public class GuiUpgradesWidget extends BaseWidget {
     private final IHasUpgrades upgrades;
 
     public GuiUpgradesWidget(IGuiHelper helper, IHasUpgrades upgrades) {
-        super(helper, 4, 175, 24, 8 + (upgrades.getUpgradesSlots() * 18));
+        super(helper, 175, 4, 24, 8 + (upgrades.getUpgradesSlots() * 18));
         this.upgrades = upgrades;
     }
 

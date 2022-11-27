@@ -44,7 +44,7 @@ public class ExtractingCategory extends AbstractRecipeCategory<ExtractingRecipe>
                 "extracting",
                 guiHelper,
                 () -> guiHelper.createDrawable(JEI, 0, 110, 114, 54),
-                () -> guiHelper.createDrawableIngredient(VanillaTypes.ITEM_STACK, new ItemStack(ModBlocks.SIMPLE_EXTRACTOR.get()))
+                () -> guiHelper.createDrawableIngredient(VanillaTypes.ITEM_STACK, new ItemStack(ModBlocks.EXTRACTOR.get()))
         );
     }
 

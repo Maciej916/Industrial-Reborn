@@ -4,9 +4,10 @@ import com.maciej916.indreb.common.api.blockentity.IndRebBlockEntity;
 import com.maciej916.indreb.common.api.blockentity.interfaces.IHasExp;
 import com.maciej916.indreb.common.api.enums.GuiSlotBg;
 import com.maciej916.indreb.common.api.enums.InventorySlotType;
-import com.maciej916.indreb.common.api.recipe.BaseRecipe;
+import com.maciej916.indreb.common.api.recipe.BaseChanceRecipe;
 import com.maciej916.indreb.common.api.recipe.interfaces.IBaseRecipe;
 import com.maciej916.indreb.common.api.slot.BaseSlot;
+import com.maciej916.indreb.common.api.slot.BonusSlot;
 import com.maciej916.indreb.common.api.slot.OutputSlot;
 import com.maciej916.indreb.common.api.util.Progress;
 import com.maciej916.indreb.common.util.BlockStateHelper;
@@ -44,9 +45,12 @@ public abstract class SimpleMachineBlockEntity extends IndRebBlockEntity impleme
     public static final int BONUS_SLOT = 3;
 
     public Progress progressBurn = new Progress();
-    public Progress progressSmelting = new Progress();
+    public Progress progressRecipe = new Progress();
 
-    private BaseRecipe recipe;
+    private BaseChanceRecipe recipe;
+
+    private boolean rolledChance = false;
+    private ItemStack chanceResult;
 
     public SimpleMachineBlockEntity(BlockEntityType<?> type, BlockPos pos, BlockState blockState) {
         super(type, pos, blockState);
@@ -56,8 +60,8 @@ public abstract class SimpleMachineBlockEntity extends IndRebBlockEntity impleme
                 return switch (index) {
                     case 0 -> SimpleMachineBlockEntity.this.progressBurn.getContainerDataCurrent();
                     case 1 -> SimpleMachineBlockEntity.this.progressBurn.getContainerDataMax();
-                    case 2 -> SimpleMachineBlockEntity.this.progressSmelting.getContainerDataCurrent();
-                    case 3 -> SimpleMachineBlockEntity.this.progressSmelting.getContainerDataMax();
+                    case 2 -> SimpleMachineBlockEntity.this.progressRecipe.getContainerDataCurrent();
+                    case 3 -> SimpleMachineBlockEntity.this.progressRecipe.getContainerDataMax();
 
                     default -> 0;
                 };
@@ -68,8 +72,8 @@ public abstract class SimpleMachineBlockEntity extends IndRebBlockEntity impleme
                 switch (index) {
                     case 0 -> SimpleMachineBlockEntity.this.progressBurn.setContainerDataCurrent(value);
                     case 1 -> SimpleMachineBlockEntity.this.progressBurn.setContainerDataMax(value);
-                    case 2 -> SimpleMachineBlockEntity.this.progressSmelting.setContainerDataCurrent(value);
-                    case 3 -> SimpleMachineBlockEntity.this.progressSmelting.setContainerDataMax(value);
+                    case 2 -> SimpleMachineBlockEntity.this.progressRecipe.setContainerDataCurrent(value);
+                    case 3 -> SimpleMachineBlockEntity.this.progressRecipe.setContainerDataMax(value);
                 }
             }
 
@@ -90,56 +94,73 @@ public abstract class SimpleMachineBlockEntity extends IndRebBlockEntity impleme
     @Override
     public void tickWork() {
         ItemStack inputStack = getBaseStorage().getStackInSlot(INPUT_SLOT);
+        ItemStack bonusStack = getBaseStorage().getStackInSlot(BONUS_SLOT);
 
-        if (baseSlotsChangedForTick.contains(INPUT_SLOT)) {
-            BaseRecipe oldRecipe = recipe;
+        if (baseSlotsChangedForTick.contains(INPUT_SLOT) || (recipe == null && !inputStack.isEmpty())) {
+            BaseChanceRecipe oldRecipe = recipe;
 
             if (inputStack.isEmpty()) {
                 recipe = null;
             } else {
-                recipe = (BaseRecipe) getRecipe(inputStack).orElse(null);
+                recipe = (BaseChanceRecipe) getRecipe(inputStack).orElse(null);
             }
 
-            if (oldRecipe != recipe) {
-                progressSmelting.resetProgress();
+            if (oldRecipe != recipe && oldRecipe != null) {
+                progressRecipe.resetProgress();
             }
         }
 
         if (recipe != null) {
-            if (progressSmelting.currentProgress() == -1) {
-                progressSmelting.setData(0, recipe.getDuration() * 1.20f);
+            if (progressRecipe.currentProgress() == -1) {
+                progressRecipe.setData(0, recipe.getDuration() * 1.20f);
+            }
+
+            if (!rolledChance) {
+                chanceResult = recipe.rollChanceResult();
+                rolledChance = true;
             }
 
             if (canWork() && progressBurn.currentProgress() > 0) {
-                if (progressSmelting.isCurrentAboveEqualMax()) {
-                    StackHandlerHelper.addOutputStack(getBaseStorage(), OUTPUT_SLOT, recipe.getResultItem());
-                    StackHandlerHelper.shrinkStack(getBaseStorage(), INPUT_SLOT, 1);
-                    progressSmelting.resetProgress();
-                    addRecipeUsed(recipe);
-                } else {
-                    progressSmelting.incProgress(1);
+
+                progressRecipe.incProgress(1);
+
+                if (progressRecipe.isCurrentAboveEqualMax()) {
+                    if (bonusStack.isEmpty() || chanceResult.isEmpty() || (chanceResult.getCount() + bonusStack.getCount() <= bonusStack.getMaxStackSize() && chanceResult.getItem() == bonusStack.getItem())) {
+                        StackHandlerHelper.addOutputStack(getBaseStorage(), OUTPUT_SLOT, recipe.getResultItem());
+                        StackHandlerHelper.shrinkStack(getBaseStorage(), INPUT_SLOT, 1);
+                        progressRecipe.resetProgress();
+                        addRecipeUsed(recipe);
+                        rolledChance = false;
+
+                        if (!chanceResult.isEmpty()) {
+                            StackHandlerHelper.addOutputStack(getBaseStorage(), BONUS_SLOT, chanceResult);
+                        }
+                    }
                 }
 
                 activeState = true;
             } else {
-                progressSmelting.decProgress(1);
+                progressRecipe.decProgress(1);
             }
         }
 
-        if (progressBurn.currentProgress() > 0) {
-            progressBurn.decProgress(1);
-        } else {
-            final ItemStack fuelStack = getBaseStorage().getStackInSlot(FUEL_SLOT);
-            if (recipe != null) {
-                int burnTime = ForgeHooks.getBurnTime(fuelStack, RecipeType.SMELTING);
-                progressBurn.setBoth(burnTime);
-                StackHandlerHelper.shrinkStack(getBaseStorage(), FUEL_SLOT, 1);
+        if (canWork()) {
+            if (progressBurn.currentProgress() > 0) {
+                progressBurn.decProgress(1);
+            } else {
+                final ItemStack fuelStack = getBaseStorage().getStackInSlot(FUEL_SLOT);
+                if (recipe != null) {
+                    int burnTime = ForgeHooks.getBurnTime(fuelStack, RecipeType.SMELTING);
+                    progressBurn.setBoth(burnTime);
+                    StackHandlerHelper.shrinkStack(getBaseStorage(), FUEL_SLOT, 1);
+                }
+            }
+
+            if (progressBurn.currentProgress() > 0) {
+                activeState = true;
             }
         }
 
-        if (progressBurn.currentProgress() > 0) {
-            activeState = true;
-        }
     }
 
     @Override
@@ -147,7 +168,7 @@ public abstract class SimpleMachineBlockEntity extends IndRebBlockEntity impleme
         slots.add(new BaseSlot(INPUT_SLOT, 56, 35, 55, 34, InventorySlotType.INPUT, GuiSlotBg.NORMAL));
         slots.add(new BaseSlot(FUEL_SLOT, 21, 44, 20, 43, InventorySlotType.INPUT, GuiSlotBg.NORMAL));
         slots.add(new OutputSlot(OUTPUT_SLOT, 116, 24, 111, 19, GuiSlotBg.LARGE));
-        slots.add(new BaseSlot(BONUS_SLOT, 116, 50, 115, 49, InventorySlotType.INPUT, GuiSlotBg.NORMAL));
+        slots.add(new BonusSlot(BONUS_SLOT, 116, 50, 115, 49, GuiSlotBg.NORMAL));
         return super.addBaseSlots(slots);
     }
 
@@ -155,14 +176,14 @@ public abstract class SimpleMachineBlockEntity extends IndRebBlockEntity impleme
     public void load(CompoundTag tag) {
         super.load(tag);
         this.progressBurn.deserializeNBT(tag.getCompound("progressBurn"));
-        this.progressSmelting.deserializeNBT(tag.getCompound("progressSmelting"));
+        this.progressRecipe.deserializeNBT(tag.getCompound("progressRecipe"));
     }
 
     @Override
     protected void saveAdditional(CompoundTag tag) {
         super.saveAdditional(tag);
         tag.put("progressBurn", this.progressBurn.serializeNBT());
-        tag.put("progressSmelting", this.progressSmelting.serializeNBT());
+        tag.put("progressRecipe", this.progressRecipe.serializeNBT());
     }
 
     @Override
@@ -174,7 +195,6 @@ public abstract class SimpleMachineBlockEntity extends IndRebBlockEntity impleme
     public boolean hasExpButton() {
         return false;
     }
-
 
     private final Map<Direction, LazyOptional<WrappedHandler>> itemCapabilities = Map.of(
             Direction.UP, LazyOptional.of(() -> new WrappedHandler(getBaseStorage(), (i) -> false, (i, stack) -> getBaseStorage().isItemValid(i, stack))),
@@ -220,11 +240,7 @@ public abstract class SimpleMachineBlockEntity extends IndRebBlockEntity impleme
         final ItemStack inputStack = getBaseStorage().getStackInSlot(INPUT_SLOT);
         final ItemStack outputStack = getBaseStorage().getStackInSlot(OUTPUT_SLOT);
 
-        return !inputStack.isEmpty() && (outputStack.isEmpty() || outputStack.getCount() + recipe.getResultItem().getCount() <= outputStack.getMaxStackSize());
+        return !inputStack.isEmpty() && (outputStack.isEmpty() || (outputStack.getCount() + recipe.getResultItem().getCount() <= outputStack.getMaxStackSize() && recipe.getResultItem().getItem() == outputStack.getItem()));
     }
 
-//    @Override
-//    public SoundEvent getSoundEvent() {
-//        return ModSounds.CRUSHER.get();
-//    }
 }

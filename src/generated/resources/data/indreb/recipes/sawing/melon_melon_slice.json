@@ -1,0 +1,22 @@
+{
+  "type": "indreb:sawing",
+  "chance_result": [
+    {
+      "chance": 50.0,
+      "count": 1,
+      "item": "minecraft:melon_seeds"
+    }
+  ],
+  "duration": 180,
+  "experience": 0.1,
+  "ingredients": [
+    {
+      "item": "minecraft:melon"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "item": "minecraft:melon_slice"
+  },
+  "tick_energy_cost": 8
+}

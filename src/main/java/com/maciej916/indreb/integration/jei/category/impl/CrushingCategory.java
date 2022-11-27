@@ -44,7 +44,7 @@ public class CrushingCategory extends AbstractRecipeCategory<CrushingRecipe> {
                 "crushing",
                 guiHelper,
                 () -> guiHelper.createDrawable(JEI, 0, 0, 114, 54),
-                () -> guiHelper.createDrawableIngredient(VanillaTypes.ITEM_STACK, new ItemStack(ModBlocks.SIMPLE_CRUSHER.get()))
+                () -> guiHelper.createDrawableIngredient(VanillaTypes.ITEM_STACK, new ItemStack(ModBlocks.CRUSHER.get()))
         );
     }
 

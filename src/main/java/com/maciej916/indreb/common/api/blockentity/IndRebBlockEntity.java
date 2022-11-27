@@ -751,6 +751,7 @@ public class IndRebBlockEntity extends BaseBlockEntity implements IIndRebBlockEn
 
     @Override
     public void syncWithChunk(ServerPlayer player) {
+
         if (energyStorage != null) {
             ModNetworking.sendToPlayer(player, new PacketBasicEnergySync(energyStorage, getBlockPos()));
         }
@@ -771,6 +772,20 @@ public class IndRebBlockEntity extends BaseBlockEntity implements IIndRebBlockEn
             level.sendBlockUpdated(getBlockPos(), getBlockState(), getBlockState(), 2);
         }
     }
+
+//    private boolean invertRedstone = false;
+//    float speedFactor = 1f;
+//    float energyUsageFactor = 1f;
+//
+
+    public float getUpgradesDuration(int duration) {
+        return speedFactor * duration;
+    }
+
+    public int getUpgradesEnergyCost(int tickEnergyCost) {
+        return (int) energyUsageFactor * tickEnergyCost;
+    }
+
 
     /* THIS CAN BE IMPROVED WITH CAPABILITIES */
 

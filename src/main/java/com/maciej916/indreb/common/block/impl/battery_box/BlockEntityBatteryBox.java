@@ -42,7 +42,6 @@ public class BlockEntityBatteryBox extends IndRebBlockEntity implements IBlockEn
 
     @Override
     public ArrayList<ElectricSlot> addElectricSlots(ArrayList<ElectricSlot> slots) {
-
         slots.add(new ElectricSlot(0, 62, 20, InventorySlotType.ELECTRIC, GuiSlotBg.BATTERY, true, true));
         slots.add(new ElectricSlot(1, 62, 52, InventorySlotType.ELECTRIC, GuiSlotBg.BATTERY, true, false));
 

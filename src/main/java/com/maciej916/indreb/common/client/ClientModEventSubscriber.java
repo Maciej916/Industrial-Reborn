@@ -12,6 +12,10 @@ import com.maciej916.indreb.common.block.impl.generator.geo_generator.ScreenGeoG
 import com.maciej916.indreb.common.block.impl.generator.reactor.nuclear_reactor.ScreenNuclearReactor;
 import com.maciej916.indreb.common.block.impl.generator.semifluid_generator.ScreenSemifluidGenerator;
 import com.maciej916.indreb.common.block.impl.generator.solar_panel.ScreenSolarPanel;
+import com.maciej916.indreb.common.block.impl.machines.basic.compressor.ScreenCompressor;
+import com.maciej916.indreb.common.block.impl.machines.basic.crusher.ScreenCrusher;
+import com.maciej916.indreb.common.block.impl.machines.basic.extractor.ScreenExtractor;
+import com.maciej916.indreb.common.block.impl.machines.basic.sawmill.ScreenSawmill;
 import com.maciej916.indreb.common.block.impl.machines.simple.iron_furnace.ScreenIronFurnace;
 import com.maciej916.indreb.common.block.impl.machines.simple.simple_compressor.ScreenSimpleCompressor;
 import com.maciej916.indreb.common.block.impl.machines.simple.simple_crusher.ScreenSimpleCrusher;
@@ -92,10 +96,10 @@ public final class ClientModEventSubscriber {
 
 //			MenuScreens.register(ModMenuTypes.ELECTRIC_FURNACE.get(), ScreenElectricFurnace::new);
 //
-//			MenuScreens.register(ModMenuTypes.CRUSHER.get(), ScreenCrusher::new);
-//			MenuScreens.register(ModMenuTypes.COMPRESSOR.get(), ScreenCompressor::new);
-//			MenuScreens.register(ModMenuTypes.EXTRACTOR.get(), ScreenExtractor::new);
-//			MenuScreens.register(ModMenuTypes.SAWMILL.get(), ScreenSawmill::new);
+			MenuScreens.register(ModMenuTypes.CRUSHER.get(), ScreenCrusher::new);
+			MenuScreens.register(ModMenuTypes.COMPRESSOR.get(), ScreenCompressor::new);
+			MenuScreens.register(ModMenuTypes.EXTRACTOR.get(), ScreenExtractor::new);
+			MenuScreens.register(ModMenuTypes.SAWMILL.get(), ScreenSawmill::new);
 //			MenuScreens.register(ModMenuTypes.EXTRUDER.get(), ScreenExtruder::new);
 //			MenuScreens.register(ModMenuTypes.CANNING_MACHINE.get(), ScreenCanningMachine::new);
 //			MenuScreens.register(ModMenuTypes.FLUID_ENRICHER.get(), ScreenFluidEnricher::new);

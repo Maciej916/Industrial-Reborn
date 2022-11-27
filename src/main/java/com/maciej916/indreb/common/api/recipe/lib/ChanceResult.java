@@ -51,7 +51,7 @@ public class ChanceResult {
 
         for (ChanceResultStack result : results) {
             if (position < result.rawChance()) {
-                return result.stack().copy();
+                return result.stack();
             }
             position -= result.rawChance();
         }

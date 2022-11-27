@@ -12,10 +12,12 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
 
+import java.text.DecimalFormat;
 import java.util.List;
 
 public class GuiExpButtonWidget extends BaseButtonWidget {
 
+    private static final DecimalFormat df = new DecimalFormat("0.00");
     private final IHasExp expCollector;
 
     public GuiExpButtonWidget(IGuiHelper helper, int y, IHasExp expCollector) {
@@ -29,7 +31,7 @@ public class GuiExpButtonWidget extends BaseButtonWidget {
             screen.renderComponentTooltip(pPoseStack,
                     List.of(
                             Component.translatable("gui." + IndReb.MODID + ".collect_exp").withStyle(ChatFormatting.GREEN),
-                            Component.literal(expCollector.getStoredExperience() + " EXP")
+                            Component.literal(df.format(expCollector.getStoredExperience()) + " EXP")
                     ), pMouseX, pMouseY);
         }
         super.renderToolTip(screen, pPoseStack, pMouseX, pMouseY);

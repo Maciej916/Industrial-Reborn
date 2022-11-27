@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "indreb:block/machine/basic/sawmill/sawmill_bottom",
+    "east": "indreb:block/machine/basic/sawmill/sawmill_side",
+    "north": "indreb:block/machine/basic/sawmill/sawmill_front",
+    "particle": "indreb:block/machine/basic/sawmill/sawmill_front",
+    "south": "indreb:block/machine/basic/sawmill/sawmill_side",
+    "up": "indreb:block/machine/basic/sawmill/sawmill_top",
+    "west": "indreb:block/machine/basic/sawmill/sawmill_side"
+  }
+}

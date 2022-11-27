@@ -1,4 +1,4 @@
-// 1.19.2	2022-11-24T19:38:15.1530615	Item Models: indreb
+// 1.19.2	2022-11-27T14:59:01.396925	Item Models: indreb
 ea6f48b249d5595c0bc20e39b977fa8fad0ed868 assets/indreb/models/item/acid_hazard_sign_block.json
 4df0fe2021d7b228332497f5c7d711b40f082510 assets/indreb/models/item/advanced_alloy.json
 df0888ae05d095b7dbd4b54b411496df8d853b49 assets/indreb/models/item/advanced_battery.json
@@ -87,6 +87,7 @@ a95d37f11ec266abc5aacf4622049af2d58f2c1a assets/indreb/models/item/coil.json
 053d22250c3d851c6199fc0c0fce1d5a49e8c68f assets/indreb/models/item/combined_carbon_fibers.json
 efdfb5fadadc893e2ee4e8c3a025efeb8bca5f4a assets/indreb/models/item/component_heat_exchanger.json
 4022758b3b6f2373f1ded0acd57fd5597c4fb127 assets/indreb/models/item/component_heat_vent.json
+7f59a3aea2098403453785a40607095ab7e87f29 assets/indreb/models/item/compressor.json
 39f4b2bf6a27d56d9756fb551e79766f1c38561d assets/indreb/models/item/construction_foam.json
 eb5cf4f2b15e4a3fb6eb8cd11d4252a745bd9207 assets/indreb/models/item/construction_foam_wall_black.json
 935077bc44fced9339887b2752d1f1b74a405284 assets/indreb/models/item/construction_foam_wall_blue.json
@@ -110,6 +111,7 @@ c8ff10c083256c5a3a9aa7bd2e31beae0c60e0a1 assets/indreb/models/item/copper_cable_
 ac7450127753944a8e4612135395c45f5166706b assets/indreb/models/item/copper_chunk.json
 0f0517e5226b46079639fc823cdf3f3828d7c256 assets/indreb/models/item/copper_dust.json
 8b76b6feeef96e7cfc0848e69d984c266511b39e assets/indreb/models/item/copper_plate.json
+f2f74f772d8d9be08d47e8419364f1aec19bd3fb assets/indreb/models/item/crusher.json
 f832b8a5e592d9604f953a348b1f423cbdf773f8 assets/indreb/models/item/cutter.json
 e08c3f88cfe1f644f9020be22ee60bcf334cf239 assets/indreb/models/item/debug_stick.json
 69f538a80d168ea1300f0a00c960da9d6ccca7ea assets/indreb/models/item/deepslate_dust.json
@@ -131,6 +133,7 @@ d1fca579922f38828c44fc733061a20eedde0b57 assets/indreb/models/item/electric_wren
 a7a97f41285580c0d605be1595b919923076eb0b assets/indreb/models/item/energy_storage_upgrade.json
 9cd756b2feecbe47f0be396968a98b050becc4ff assets/indreb/models/item/ev_transformer.json
 7b382ca707cf13fb440fbcea863a01d24707a4fd assets/indreb/models/item/explosion_hazard_sign_block.json
+acd92817d7ea622684bf40076f9eca4bdcc12f3b assets/indreb/models/item/extractor.json
 4f5743cd253934b43ef3233fb25f50d1150ca5f9 assets/indreb/models/item/fertilizer.json
 d478dd7f0374c58ec694d1210da2119070996263 assets/indreb/models/item/filled_tin_can.json
 90a33448cd123cd5239a1e5bb837c44a232e00b8 assets/indreb/models/item/fire_hazard_sign_block.json
@@ -291,6 +294,7 @@ c73803b608a5e77e4751c1bd83f7727ef427ed24 assets/indreb/models/item/rubber_slab.j
 69dc6a61a9f8e60321bae2f4d1f9398bff36cf01 assets/indreb/models/item/rubber_trap_door.json
 cbcc158f77bce46b2dfc8986f58c34631377a561 assets/indreb/models/item/rubber_wood.json
 2aa10e4ad90dc627c5968d641fd1e3425c0f444c assets/indreb/models/item/sawdust.json
+bb3fd8f2d484a7760557c13d066e8ffeb7297509 assets/indreb/models/item/sawmill.json
 a3e09ab73b29d14af1053295b96ca5c370a696a7 assets/indreb/models/item/scrap.json
 104e5a7fbf6aebe94cb7ca07ef3371d27737b991 assets/indreb/models/item/scrap_box.json
 b4861bd2385f21824839a712748e3eb4c2b7affc assets/indreb/models/item/semifluid_generator.json

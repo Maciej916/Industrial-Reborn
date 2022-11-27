@@ -67,41 +67,85 @@ public class IndRebContainerMenu extends AbstractContainerMenu {
         return getEntity().getLevel() != null && stillValid(ContainerLevelAccess.create(getEntity().getLevel(), getEntity().getBlockPos()), player, getEntity().getBlock());
     }
 
+//    @Override
+//    public ItemStack quickMoveStack(Player playerIn, int index) {
+//        final int TE_INVENTORY_SLOT_COUNT =
+//                (getEntity().hasBaseStorage() ? getEntity().getBaseStorage().getSlots() : 0) +
+//                (getEntity().hasElectricStorage() ? getEntity().getElectricStorage().getSlots() : 0) +
+//                (getEntity().hasUpgradesStorage() ? getEntity().getUpgradesStorage().getSlots() : 0);
+//
+//
+//        System.out.println(TE_INVENTORY_SLOT_COUNT);
+//
+//        Slot sourceSlot = slots.get(index);
+//        if (sourceSlot == null || !sourceSlot.hasItem()) return ItemStack.EMPTY;
+//        ItemStack sourceStack = sourceSlot.getItem();
+//        ItemStack copyOfSourceStack = sourceStack.copy();
+//
+//        if (index < TE_INVENTORY_FIRST_SLOT_INDEX + TE_INVENTORY_SLOT_COUNT) {
+//            if (!moveItemStackTo(sourceStack, VANILLA_FIRST_SLOT_INDEX, VANILLA_FIRST_SLOT_INDEX + VANILLA_SLOT_COUNT, false)) {
+//                return ItemStack.EMPTY;
+//            }
+//        } else if (index < VANILLA_FIRST_SLOT_INDEX + VANILLA_SLOT_COUNT) {
+//            if (!moveItemStackTo(sourceStack, TE_INVENTORY_FIRST_SLOT_INDEX, TE_INVENTORY_FIRST_SLOT_INDEX + TE_INVENTORY_SLOT_COUNT, false)) {
+//                return ItemStack.EMPTY;
+//            }
+//        } else {
+//            System.out.println("Invalid slotIndex:" + index);
+//            return ItemStack.EMPTY;
+//        }
+//
+//
+//        if (sourceStack.getCount() == 0) {
+//            sourceSlot.set(ItemStack.EMPTY);
+//        } else {
+//            sourceSlot.setChanged();
+//        }
+//
+//        sourceSlot.onTake(playerIn, sourceStack);
+//        return copyOfSourceStack;
+//    }
+
     @Override
     public ItemStack quickMoveStack(Player playerIn, int index) {
-        final int TE_INVENTORY_SLOT_COUNT =
-                (getEntity().hasBaseStorage() ? getEntity().getBaseStorage().getSlots() : 0) +
-                (getEntity().hasElectricStorage() ? getEntity().getElectricStorage().getSlots() : 0) +
-                (getEntity().hasUpgradesStorage() ? getEntity().getUpgradesStorage().getSlots() : 0);
+        ItemStack itemstack = ItemStack.EMPTY;
 
-        Slot sourceSlot = slots.get(index);
-        if (sourceSlot == null || !sourceSlot.hasItem()) return ItemStack.EMPTY;
-        ItemStack sourceStack = sourceSlot.getItem();
-        ItemStack copyOfSourceStack = sourceStack.copy();
+        int machineSlots = getEntity().hasBaseStorage() ? getEntity().getBaseStorage().getSlots() : 0;
+        int batterySlots = machineSlots + (getEntity().hasElectricStorage() ? getEntity().getElectricStorage().getSlots() : 0);
+        int upgradeSlots = batterySlots + (getEntity().hasUpgradesStorage() ? getEntity().getUpgradesStorage().getSlots() : 0);
+        int totalSlots = upgradeSlots + 36;
 
-        if (index < TE_INVENTORY_FIRST_SLOT_INDEX + TE_INVENTORY_SLOT_COUNT) {
-            if (!moveItemStackTo(sourceStack, VANILLA_FIRST_SLOT_INDEX, VANILLA_FIRST_SLOT_INDEX + VANILLA_SLOT_COUNT, false)) {
+        Slot slot = this.slots.get(index);
+        if (slot.hasItem()) {
+            ItemStack stack = slot.getItem();
+            itemstack = stack.copy();
+
+            if (index < upgradeSlots) {
+                if (!this.moveItemStackTo(stack, upgradeSlots, totalSlots, true)) {
+                    return ItemStack.EMPTY;
+                }
+            } else if (index < totalSlots) {
+                if (!this.moveItemStackTo(stack, 0, upgradeSlots, true)) {
+                    return ItemStack.EMPTY;
+                }
+            }
+
+            if (stack.isEmpty()) {
+                slot.set(ItemStack.EMPTY);
+            } else {
+                slot.setChanged();
+            }
+
+            if (stack.getCount() == itemstack.getCount()) {
                 return ItemStack.EMPTY;
             }
-        } else if (index < VANILLA_FIRST_SLOT_INDEX + VANILLA_SLOT_COUNT) {
-            if (!moveItemStackTo(sourceStack, TE_INVENTORY_FIRST_SLOT_INDEX, TE_INVENTORY_FIRST_SLOT_INDEX + TE_INVENTORY_SLOT_COUNT, false)) {
-                return ItemStack.EMPTY;
-            }
-        } else {
-            System.out.println("Invalid slotIndex:" + index);
-            return ItemStack.EMPTY;
+
+            slot.onTake(playerIn, stack);
         }
 
-
-        if (sourceStack.getCount() == 0) {
-            sourceSlot.set(ItemStack.EMPTY);
-        } else {
-            sourceSlot.setChanged();
-        }
-
-        sourceSlot.onTake(playerIn, sourceStack);
-        return copyOfSourceStack;
+        return itemstack;
     }
+
 
     private void addPlayerInventory() {
         addSlotBox(playerInventory, 9, playerInvLeft, playerInvTop, 9, 18, 3, 18);

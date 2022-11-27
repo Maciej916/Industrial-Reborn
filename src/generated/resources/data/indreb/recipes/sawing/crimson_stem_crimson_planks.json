@@ -1,0 +1,22 @@
+{
+  "type": "indreb:sawing",
+  "chance_result": [
+    {
+      "chance": 15.0,
+      "count": 1,
+      "item": "minecraft:netherrack"
+    }
+  ],
+  "duration": 180,
+  "experience": 0.4,
+  "ingredients": [
+    {
+      "item": "minecraft:crimson_stem"
+    }
+  ],
+  "result": {
+    "count": 6,
+    "item": "minecraft:crimson_planks"
+  },
+  "tick_energy_cost": 8
+}

@@ -93,7 +93,7 @@ public class BlockEntityIronFurnace extends IndRebBlockEntity implements IHasExp
     public void tickWork() {
         ItemStack inputStack = getBaseStorage().getStackInSlot(INPUT_SLOT);
 
-        if (baseSlotsChangedForTick.contains(INPUT_SLOT)) {
+        if (baseSlotsChangedForTick.contains(INPUT_SLOT) || (recipe == null && !inputStack.isEmpty())) {
             SmeltingRecipe oldRecipe = recipe;
 
             if (inputStack.isEmpty()) {
@@ -102,7 +102,7 @@ public class BlockEntityIronFurnace extends IndRebBlockEntity implements IHasExp
                 recipe = getRecipe(inputStack).orElse(null);
             }
 
-            if (oldRecipe != recipe) {
+            if (oldRecipe != recipe && oldRecipe != null) {
                 progressSmelting.resetProgress();
             }
         }
