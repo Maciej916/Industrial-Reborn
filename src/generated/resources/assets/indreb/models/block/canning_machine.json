@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "indreb:block/machine/basic/canning_machine/canning_machine_bottom",
+    "east": "indreb:block/machine/basic/canning_machine/canning_machine_side",
+    "north": "indreb:block/machine/basic/canning_machine/canning_machine_front",
+    "particle": "indreb:block/machine/basic/canning_machine/canning_machine_front",
+    "south": "indreb:block/machine/basic/canning_machine/canning_machine_side",
+    "up": "indreb:block/machine/basic/canning_machine/canning_machine_top",
+    "west": "indreb:block/machine/basic/canning_machine/canning_machine_side"
+  }
+}

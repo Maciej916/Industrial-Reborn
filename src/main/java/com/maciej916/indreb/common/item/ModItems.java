@@ -157,6 +157,7 @@ public final class ModItems {
     public static final RegistryObject<Item> EXTRACTOR = fromBlockElectric(ModBlocks.EXTRACTOR);
     public static final RegistryObject<Item> SAWMILL = fromBlockElectric(ModBlocks.SAWMILL);
     public static final RegistryObject<Item> EXTRUDER = fromBlockElectric(ModBlocks.EXTRUDER);
+    public static final RegistryObject<Item> CANNING_MACHINE = fromBlockElectric(ModBlocks.CANNING_MACHINE);
 
 
 

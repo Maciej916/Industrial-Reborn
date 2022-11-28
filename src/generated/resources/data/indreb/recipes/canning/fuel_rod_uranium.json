@@ -1,0 +1,17 @@
+{
+  "type": "indreb:canning",
+  "duration": 180,
+  "experience": 3.0,
+  "ingredients": [
+    {
+      "item": "indreb:uranium_ingot"
+    },
+    {
+      "item": "indreb:fuel_rod"
+    }
+  ],
+  "result": {
+    "item": "indreb:fuel_rod_uranium"
+  },
+  "tick_energy_cost": 8
+}

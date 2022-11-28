@@ -121,24 +121,25 @@ public abstract class SimpleMachineBlockEntity extends IndRebBlockEntity impleme
             }
 
             if (canWork() && progressBurn.currentProgress() > 0) {
+                if (inputStack.getCount() >= recipe.getIngredientCount().getIngredientsCount().get(0)) {
+                    progressRecipe.incProgress(1);
 
-                progressRecipe.incProgress(1);
+                    if (progressRecipe.isCurrentAboveEqualMax()) {
+                        if (bonusStack.isEmpty() || chanceResult.isEmpty() || (chanceResult.getCount() + bonusStack.getCount() <= bonusStack.getMaxStackSize() && chanceResult.getItem() == bonusStack.getItem())) {
+                            StackHandlerHelper.addOutputStack(getBaseStorage(), OUTPUT_SLOT, recipe.getResultItem());
+                            StackHandlerHelper.shrinkStack(getBaseStorage(), INPUT_SLOT, recipe.getIngredientCount().getIngredientsCount().get(0));
+                            progressRecipe.resetProgress();
+                            addRecipeUsed(recipe);
+                            rolledChance = false;
 
-                if (progressRecipe.isCurrentAboveEqualMax()) {
-                    if (bonusStack.isEmpty() || chanceResult.isEmpty() || (chanceResult.getCount() + bonusStack.getCount() <= bonusStack.getMaxStackSize() && chanceResult.getItem() == bonusStack.getItem())) {
-                        StackHandlerHelper.addOutputStack(getBaseStorage(), OUTPUT_SLOT, recipe.getResultItem());
-                        StackHandlerHelper.shrinkStack(getBaseStorage(), INPUT_SLOT, 1);
-                        progressRecipe.resetProgress();
-                        addRecipeUsed(recipe);
-                        rolledChance = false;
-
-                        if (!chanceResult.isEmpty()) {
-                            StackHandlerHelper.addOutputStack(getBaseStorage(), BONUS_SLOT, chanceResult);
+                            if (!chanceResult.isEmpty()) {
+                                StackHandlerHelper.addOutputStack(getBaseStorage(), BONUS_SLOT, chanceResult);
+                            }
                         }
                     }
-                }
 
-                activeState = true;
+                    activeState = true;
+                }
             } else {
                 progressRecipe.decProgress(1);
             }

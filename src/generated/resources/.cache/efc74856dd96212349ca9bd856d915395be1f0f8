@@ -1,4 +1,4 @@
-// 1.19.2	2022-11-28T14:51:54.4571303	Item Models: indreb
+// 1.19.2	2022-11-28T16:01:32.436871	Item Models: indreb
 ea6f48b249d5595c0bc20e39b977fa8fad0ed868 assets/indreb/models/item/acid_hazard_sign_block.json
 4df0fe2021d7b228332497f5c7d711b40f082510 assets/indreb/models/item/advanced_alloy.json
 df0888ae05d095b7dbd4b54b411496df8d853b49 assets/indreb/models/item/advanced_battery.json
@@ -71,6 +71,7 @@ cde85c303634020e4215b2267fb9483f957c65c5 assets/indreb/models/item/bronze_leggin
 0360d8b72c3b4d7dac940b075bf9c364f281108f assets/indreb/models/item/bronze_plate.json
 5ef95f753b59e836d8aed12d1ed4b2a67e533178 assets/indreb/models/item/bronze_shovel.json
 3f58d446712ecd49585af359f3b3b5dec3936180 assets/indreb/models/item/bronze_sword.json
+1e28f83c4fb2b8f0dfaf58bdb4cbf6d1e0860b61 assets/indreb/models/item/canning_machine.json
 4d693cafdbe9951b8fdb432f1d55ff594c5af95c assets/indreb/models/item/carbon_fibers.json
 54cee230329a79c0d28b473559f5b85dfca9a44d assets/indreb/models/item/carbon_plate.json
 7028dbea2b4ed25bb65829f1f849dc3719ca2f7d assets/indreb/models/item/cesu.json

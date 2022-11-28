@@ -118,29 +118,30 @@ public abstract class StandardMachineBlockEntity extends IndRebBlockEntity imple
             int energyCost = getUpgradesEnergyCost(recipe.getTickEnergyCost());
 
             if (canWork()) {
+                if (inputStack.getCount() >= recipe.getIngredientCount().getIngredientsCount().get(0)) {
+                    if (getEnergyStorage().consumeEnergy(energyCost, true) == energyCost && !progressRecipe.isCurrentAboveEqualMax()) {
+                        activeState = true;
+                        progressRecipe.incProgress(1);
+                        getEnergyStorage().consumeEnergy(energyCost, false);
+                        getEnergyStorage().updateConsumed(energyCost);
+                    }
 
-                if (getEnergyStorage().consumeEnergy(energyCost, true) == energyCost && !progressRecipe.isCurrentAboveEqualMax()) {
-                    activeState = true;
-                    progressRecipe.incProgress(1);
-                    getEnergyStorage().consumeEnergy(energyCost, false);
-                    getEnergyStorage().updateConsumed(energyCost);
-                }
+                    if (progressRecipe.isCurrentAboveEqualMax()) {
+                        if (bonusStack.isEmpty() || chanceResult.isEmpty() || (chanceResult.getCount() + bonusStack.getCount() <= bonusStack.getMaxStackSize() && chanceResult.getItem() == bonusStack.getItem())) {
+                            StackHandlerHelper.addOutputStack(getBaseStorage(), OUTPUT_SLOT, recipe.getResultItem());
+                            StackHandlerHelper.shrinkStack(getBaseStorage(), INPUT_SLOT, recipe.getIngredientCount().getIngredientsCount().get(0));
+                            progressRecipe.resetProgress();
+                            addRecipeUsed(recipe);
+                            rolledChance = false;
 
-                if (progressRecipe.isCurrentAboveEqualMax()) {
-                    if (bonusStack.isEmpty() || chanceResult.isEmpty() || (chanceResult.getCount() + bonusStack.getCount() <= bonusStack.getMaxStackSize() && chanceResult.getItem() == bonusStack.getItem())) {
-                        StackHandlerHelper.addOutputStack(getBaseStorage(), OUTPUT_SLOT, recipe.getResultItem());
-                        StackHandlerHelper.shrinkStack(getBaseStorage(), INPUT_SLOT, 1);
-                        progressRecipe.resetProgress();
-                        addRecipeUsed(recipe);
-                        rolledChance = false;
-
-                        if (!chanceResult.isEmpty()) {
-                            StackHandlerHelper.addOutputStack(getBaseStorage(), BONUS_SLOT, chanceResult);
+                            if (!chanceResult.isEmpty()) {
+                                StackHandlerHelper.addOutputStack(getBaseStorage(), BONUS_SLOT, chanceResult);
+                            }
                         }
                     }
-                }
 
-                activeState = true;
+                    activeState = true;
+                }
             }
         }
     }

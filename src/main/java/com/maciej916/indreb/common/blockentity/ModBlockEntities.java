@@ -10,6 +10,7 @@ import com.maciej916.indreb.common.block.impl.generator.reactor.BlockEntityReact
 import com.maciej916.indreb.common.block.impl.generator.reactor.nuclear_reactor.BlockEntityNuclearReactor;
 import com.maciej916.indreb.common.block.impl.generator.semifluid_generator.BlockEntitySemifluidGenerator;
 import com.maciej916.indreb.common.block.impl.generator.solar_panel.BlockEntitySolarPanel;
+import com.maciej916.indreb.common.block.impl.machines.basic.canning_machine.BlockEntityCanningMachine;
 import com.maciej916.indreb.common.block.impl.machines.basic.compressor.BlockEntityCompressor;
 import com.maciej916.indreb.common.block.impl.machines.basic.crusher.BlockEntityCrusher;
 import com.maciej916.indreb.common.block.impl.machines.basic.electric_furnace.BlockEntityElectricFurnace;
@@ -65,6 +66,7 @@ public final class ModBlockEntities {
     public static final RegistryObject<BlockEntityType<BlockEntityExtractor>> EXTRACTOR = BLOCK_ENTITIES.register("extractor", () -> BlockEntityType.Builder.of(BlockEntityExtractor::new, ModBlocks.EXTRACTOR.get()).build(null));
     public static final RegistryObject<BlockEntityType<BlockEntitySawmill>> SAWMILL = BLOCK_ENTITIES.register("sawmill", () -> BlockEntityType.Builder.of(BlockEntitySawmill::new, ModBlocks.SAWMILL.get()).build(null));
     public static final RegistryObject<BlockEntityType<BlockEntityExtruder>> EXTRUDER = BLOCK_ENTITIES.register("extruder", () -> BlockEntityType.Builder.of(BlockEntityExtruder::new, ModBlocks.EXTRUDER.get()).build(null));
+    public static final RegistryObject<BlockEntityType<BlockEntityCanningMachine>> CANNING_MACHINE = BLOCK_ENTITIES.register("canning_machine", () -> BlockEntityType.Builder.of(BlockEntityCanningMachine::new, ModBlocks.CANNING_MACHINE.get()).build(null));
 
 
 

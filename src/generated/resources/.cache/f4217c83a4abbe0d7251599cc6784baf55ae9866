@@ -1,4 +1,4 @@
-// 1.19.2	2022-11-28T14:51:54.4519589	Block States: indreb
+// 1.19.2	2022-11-28T16:01:32.421982	Block States: indreb
 95b7796b1e598d400659dbc96f12d1f0d72cda55 assets/indreb/blockstates/acid_hazard_sign_block.json
 b0fdc040f5b7b7c6b701f4aed0ac0308e145cfc9 assets/indreb/blockstates/advanced_machine_casing.json
 9385543a17f96635caee1886dc56a82587c77604 assets/indreb/blockstates/advanced_solar_panel.json
@@ -6,6 +6,7 @@ ede056cfd6bd08522821b85649466a4b503b7295 assets/indreb/blockstates/basic_machine
 1f4f97d22f2d6a945ecdf1b9d351c3dffbe27543 assets/indreb/blockstates/battery_box.json
 d01285be186c5510eaeb6a8080b7d230f50ca340 assets/indreb/blockstates/bio_hazard_sign_block.json
 7fc51630ec670c6ce964517d0395d92642e8859e assets/indreb/blockstates/bronze_block.json
+1be6106a840ec6d708c7f8eeb20cfdc1d7257e40 assets/indreb/blockstates/canning_machine.json
 8ca35cf0681b8606e2412342bb5d1206daa5c632 assets/indreb/blockstates/cesu.json
 a0f1fef556b5600996f2feba3beee766ed6b28fc assets/indreb/blockstates/charge_pad_battery_box.json
 4531d0d1ff44b268f31b172fead63b7bcacc7484 assets/indreb/blockstates/charge_pad_cesu.json
@@ -112,6 +113,8 @@ d9205fcdb57554b3ddc82fd9d3e5bb728c13c91d assets/indreb/models/block/advanced_mac
 1a5a6a518775d7acc9b722f3f6190831f3a98c28 assets/indreb/models/block/battery_box.json
 e7097b7257858a1752a868ff3c8c090853f158e7 assets/indreb/models/block/bio_hazard_sign_block.json
 d94f56f7ce0a4ad3db14735b2dbf3df515e66c76 assets/indreb/models/block/bronze_block.json
+b664e1b52476360c74fe0608e512cbe248cb7815 assets/indreb/models/block/canning_machine.json
+46b3f5323fd28c5b6f6e79101c31caad15e04515 assets/indreb/models/block/canning_machine_active.json
 1aa06602ccb9ee95a53f708683e6478597c8fed9 assets/indreb/models/block/cesu.json
 fbb0005cf579cd74a312d84e1619628804826902 assets/indreb/models/block/charge_pad_battery_box.json
 c24924f451cf5248b209eb258b052282db8f9049 assets/indreb/models/block/charge_pad_battery_box_active.json

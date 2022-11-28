@@ -22,6 +22,7 @@ import com.maciej916.indreb.common.block.impl.generator.solar_panel.BlockSolarPa
 import com.maciej916.indreb.common.block.impl.iron.BlockIronFence;
 import com.maciej916.indreb.common.block.impl.iron.BlockIronGate;
 import com.maciej916.indreb.common.block.impl.iron.BlockIronScaffolding;
+import com.maciej916.indreb.common.block.impl.machines.basic.canning_machine.BlockCanningMachine;
 import com.maciej916.indreb.common.block.impl.machines.basic.compressor.BlockCompressor;
 import com.maciej916.indreb.common.block.impl.machines.basic.crusher.BlockCrusher;
 import com.maciej916.indreb.common.block.impl.machines.basic.electric_furnace.BlockElectricFurnace;
@@ -177,6 +178,7 @@ public final class ModBlocks {
     public static final RegistryObject<Block> EXTRACTOR = registerBlock("extractor", BlockExtractor::new);
     public static final RegistryObject<Block> SAWMILL = registerBlock("sawmill", BlockSawmill::new);
     public static final RegistryObject<Block> EXTRUDER = registerBlock("extruder", BlockExtruder::new);
+    public static final RegistryObject<Block> CANNING_MACHINE = registerBlock("canning_machine", BlockCanningMachine::new);
 
 
 

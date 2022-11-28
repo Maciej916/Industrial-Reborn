@@ -1,0 +1,47 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "fuel_rod": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:fuel_rod"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "indreb:canning/fuel_rod_uranium"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "uranium_ingot": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:uranium_ingot"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "uranium_ingot",
+      "fuel_rod",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "indreb:canning/fuel_rod_uranium"
+    ]
+  }
+}
