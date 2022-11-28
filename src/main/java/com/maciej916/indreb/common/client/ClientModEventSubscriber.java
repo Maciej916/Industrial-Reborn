@@ -18,6 +18,7 @@ import com.maciej916.indreb.common.block.impl.machines.basic.crusher.ScreenCrush
 import com.maciej916.indreb.common.block.impl.machines.basic.electric_furnace.ScreenElectricFurnace;
 import com.maciej916.indreb.common.block.impl.machines.basic.extractor.ScreenExtractor;
 import com.maciej916.indreb.common.block.impl.machines.basic.extruder.ScreenExtruder;
+import com.maciej916.indreb.common.block.impl.machines.basic.fluid_enricher.ScreenFluidEnricher;
 import com.maciej916.indreb.common.block.impl.machines.basic.sawmill.ScreenSawmill;
 import com.maciej916.indreb.common.block.impl.machines.simple.iron_furnace.ScreenIronFurnace;
 import com.maciej916.indreb.common.block.impl.machines.simple.simple_compressor.ScreenSimpleCompressor;
@@ -103,8 +104,8 @@ public final class ClientModEventSubscriber {
 			MenuScreens.register(ModMenuTypes.SAWMILL.get(), ScreenSawmill::new);
 			MenuScreens.register(ModMenuTypes.EXTRUDER.get(), ScreenExtruder::new);
 			MenuScreens.register(ModMenuTypes.CANNING_MACHINE.get(), ScreenCanningMachine::new);
+			MenuScreens.register(ModMenuTypes.FLUID_ENRICHER.get(), ScreenFluidEnricher::new);
 
-//			MenuScreens.register(ModMenuTypes.FLUID_ENRICHER.get(), ScreenFluidEnricher::new);
 //			MenuScreens.register(ModMenuTypes.RECYCLER.get(), ScreenRecycler::new);
 //			MenuScreens.register(ModMenuTypes.ALLOY_SMELTER.get(), ScreenAlloySmelter::new);
 //			MenuScreens.register(ModMenuTypes.FERMENTER.get(), ScreenFermenter::new);

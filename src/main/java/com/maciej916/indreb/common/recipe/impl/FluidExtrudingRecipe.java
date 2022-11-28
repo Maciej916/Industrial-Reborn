@@ -96,7 +96,6 @@ public class FluidExtrudingRecipe extends BaseRecipe {
 
         @Override
         public void toNetwork(FriendlyByteBuf buffer, FluidExtrudingRecipe recipe) {
-            recipe.getIngredientCount().toNetwork(buffer);
 
             buffer.writeFluidStack(recipe.firstFluid);
             buffer.writeFluidStack(recipe.secondFluid);

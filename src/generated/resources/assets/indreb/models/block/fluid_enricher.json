@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "indreb:block/machine/basic/fluid_enricher/fluid_enricher_bottom",
+    "east": "indreb:block/machine/basic/fluid_enricher/fluid_enricher_leftright",
+    "north": "indreb:block/machine/basic/fluid_enricher/fluid_enricher_front",
+    "particle": "indreb:block/machine/basic/fluid_enricher/fluid_enricher_front",
+    "south": "indreb:block/machine/basic/fluid_enricher/fluid_enricher_back",
+    "up": "indreb:block/machine/basic/fluid_enricher/fluid_enricher_top",
+    "west": "indreb:block/machine/basic/fluid_enricher/fluid_enricher_leftright"
+  }
+}

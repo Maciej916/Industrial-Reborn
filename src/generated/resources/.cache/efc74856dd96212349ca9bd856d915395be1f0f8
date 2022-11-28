@@ -1,4 +1,4 @@
-// 1.19.2	2022-11-28T16:01:32.436871	Item Models: indreb
+// 1.19.2	2022-11-28T18:16:45.1454603	Item Models: indreb
 ea6f48b249d5595c0bc20e39b977fa8fad0ed868 assets/indreb/models/item/acid_hazard_sign_block.json
 4df0fe2021d7b228332497f5c7d711b40f082510 assets/indreb/models/item/advanced_alloy.json
 df0888ae05d095b7dbd4b54b411496df8d853b49 assets/indreb/models/item/advanced_battery.json
@@ -141,6 +141,7 @@ acd92817d7ea622684bf40076f9eca4bdcc12f3b assets/indreb/models/item/extractor.jso
 d478dd7f0374c58ec694d1210da2119070996263 assets/indreb/models/item/filled_tin_can.json
 90a33448cd123cd5239a1e5bb837c44a232e00b8 assets/indreb/models/item/fire_hazard_sign_block.json
 410a368aab6f020d2276b94159985752b25d6469 assets/indreb/models/item/fluid_ejector_upgrade.json
+600a03cd4a2a26bf249e01c74c7a207087db3503 assets/indreb/models/item/fluid_enricher.json
 927af451cdaa76e0830af21013e89291f2c74562 assets/indreb/models/item/fluid_pulling_upgrade.json
 5f34c1dcdcfc3334c290bd8363b2d64fad2ea898 assets/indreb/models/item/foam_powder.json
 0068a7a43fd541faed421c9c3dceb438c7476174 assets/indreb/models/item/foam_sprayer.json

@@ -15,6 +15,7 @@ import com.maciej916.indreb.common.block.impl.machines.basic.crusher.MenuCrusher
 import com.maciej916.indreb.common.block.impl.machines.basic.electric_furnace.MenuElectricFurnace;
 import com.maciej916.indreb.common.block.impl.machines.basic.extractor.MenuExtractor;
 import com.maciej916.indreb.common.block.impl.machines.basic.extruder.MenuExtruder;
+import com.maciej916.indreb.common.block.impl.machines.basic.fluid_enricher.MenuFluidEnricher;
 import com.maciej916.indreb.common.block.impl.machines.basic.sawmill.MenuSawmill;
 import com.maciej916.indreb.common.block.impl.machines.simple.iron_furnace.MenuIronFurnace;
 import com.maciej916.indreb.common.block.impl.machines.simple.simple_compressor.MenuSimpleCompressor;
@@ -60,8 +61,8 @@ public final class ModMenuTypes {
     public static final RegistryObject<MenuType<MenuSawmill>> SAWMILL = registerMenuType(MenuSawmill::new, "sawmill");
     public static final RegistryObject<MenuType<MenuExtruder>> EXTRUDER = registerMenuType(MenuExtruder::new, "extruder");
     public static final RegistryObject<MenuType<MenuCanningMachine>> CANNING_MACHINE = registerMenuType(MenuCanningMachine::new, "canning_machine");
+    public static final RegistryObject<MenuType<MenuFluidEnricher>> FLUID_ENRICHER = registerMenuType(MenuFluidEnricher::new, "fluid_enricher");
 
-//    public static final RegistryObject<MenuType<MenuFluidEnricher>> FLUID_ENRICHER = registerMenuType("fluid_enricher",  MenuFluidEnricher::new);
 //    public static final RegistryObject<MenuType<MenuRecycler>> RECYCLER = registerMenuType("recycler",  MenuRecycler::new);
 //    public static final RegistryObject<MenuType<MenuFermenter>> FERMENTER = registerMenuType("fermenter",  MenuFermenter::new);
 //    public static final RegistryObject<MenuType<MenuAlloySmelter>> ALLOY_SMELTER = registerMenuType("alloy_smelter",  MenuAlloySmelter::new);

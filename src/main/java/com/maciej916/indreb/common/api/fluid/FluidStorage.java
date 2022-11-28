@@ -4,6 +4,7 @@ import com.maciej916.indreb.common.api.blockentity.interfaces.IBaseProgress;
 import com.maciej916.indreb.common.api.interfaces.fluid.IFluidStorage;
 import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fluids.capability.templates.FluidTank;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.function.Predicate;
 
@@ -33,6 +34,21 @@ public class FluidStorage extends FluidTank implements IFluidStorage, IBaseProgr
         }
 
         return fluidExtracted;
+    }
+
+
+    /* USE fillFluid */
+    @Deprecated
+    @Override
+    public int fill(FluidStack resource, FluidAction action) {
+        return super.fill(resource, action);
+    }
+
+    /* USE takeFluid */
+    @Deprecated
+    @Override
+    public @NotNull FluidStack drain(int maxDrain, FluidAction action) {
+        return super.drain(maxDrain, action);
     }
 
     @Override

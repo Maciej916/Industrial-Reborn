@@ -28,6 +28,7 @@ import com.maciej916.indreb.common.block.impl.machines.basic.crusher.BlockCrushe
 import com.maciej916.indreb.common.block.impl.machines.basic.electric_furnace.BlockElectricFurnace;
 import com.maciej916.indreb.common.block.impl.machines.basic.extractor.BlockExtractor;
 import com.maciej916.indreb.common.block.impl.machines.basic.extruder.BlockExtruder;
+import com.maciej916.indreb.common.block.impl.machines.basic.fluid_enricher.BlockFluidEnricher;
 import com.maciej916.indreb.common.block.impl.machines.basic.sawmill.BlockSawmill;
 import com.maciej916.indreb.common.block.impl.machines.simple.iron_furnace.BlockIronFurnace;
 import com.maciej916.indreb.common.block.impl.machines.simple.simple_compressor.BlockSimpleCompressor;
@@ -179,6 +180,7 @@ public final class ModBlocks {
     public static final RegistryObject<Block> SAWMILL = registerBlock("sawmill", BlockSawmill::new);
     public static final RegistryObject<Block> EXTRUDER = registerBlock("extruder", BlockExtruder::new);
     public static final RegistryObject<Block> CANNING_MACHINE = registerBlock("canning_machine", BlockCanningMachine::new);
+    public static final RegistryObject<Block> FLUID_ENRICHER = registerBlock("fluid_enricher", BlockFluidEnricher::new);
 
 
 

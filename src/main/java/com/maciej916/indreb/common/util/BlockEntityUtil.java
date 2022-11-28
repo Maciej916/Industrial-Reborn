@@ -81,34 +81,47 @@ public class BlockEntityUtil {
         return false;
     }
 
-    // TODO maybe change?
+    public static boolean drainTank(Progress progress, FluidStorage fluidStorage, ItemStackHandler itemStackHandler, int slotUp, int slotDown) {
 
-    public static boolean drainTank(ItemStack drainBucketUp, ItemStack drainBucketDown, FluidStorage fluidStorage, ItemStackHandler itemStackHandler, int slotUp, int slotDown) {
-        if (drainBucketUp.equals(ItemStack.EMPTY)) return false;
-        if (!drainBucketUp.isEmpty() && drainBucketDown.getCount() + 1 <= drainBucketDown.getMaxStackSize()) {
-            ItemStack stack = drainBucketUp.copy();
-            stack.setCount(1);
-            IFluidHandlerItem cap = CapabilityUtil.getCapabilityHelper(stack, ForgeCapabilities.FLUID_HANDLER_ITEM).getValue();
-            if (cap != null) {
-                int amountLeft = cap.getTankCapacity(1) - cap.getFluidInTank(1).getAmount();
-                int amount = Math.min(1000, amountLeft);
-                if (fluidStorage.getFluidAmount() >= amount) {
-                    cap.fill(new FluidStack(fluidStorage.getFluid(), amount), IFluidHandler.FluidAction.EXECUTE);
-                    fluidStorage.drain(amount, IFluidHandler.FluidAction.EXECUTE);
+        final ItemStack drainBucketUp = itemStackHandler.getStackInSlot(slotUp);
+        final ItemStack drainBucketDown = itemStackHandler.getStackInSlot(slotDown);
 
-                    if (cap.getFluidInTank(1).getAmount() == cap.getTankCapacity(1)) {
-                        drainBucketUp.shrink(1);
-                        if (drainBucketDown.isEmpty()) {
-                            itemStackHandler.setStackInSlot(slotDown, cap.getContainer());
-                        } else {
-                            drainBucketDown.grow(1);
+        if (progress.currentProgress() == 0) {
+            if (!drainBucketUp.isEmpty() && drainBucketDown.getCount() + 1 <= drainBucketDown.getMaxStackSize()) {
+                ItemStack stack = drainBucketUp.copy();
+                stack.setCount(1);
+                IFluidHandlerItem cap = CapabilityUtil.getCapabilityHelper(stack, ForgeCapabilities.FLUID_HANDLER_ITEM).getValue();
+                if (cap != null) {
+                    int amountLeft = cap.getTankCapacity(1) - cap.getFluidInTank(1).getAmount();
+                    int amount = Math.min(1000, amountLeft);
+                    if (fluidStorage.getFluidAmount() >= amount) {
+                        IFluidHandlerItem downCap = CapabilityUtil.getCapabilityHelper(drainBucketDown, ForgeCapabilities.FLUID_HANDLER_ITEM).getValue();
+                        if (downCap == null || downCap.getFluidInTank(1).getFluid() == fluidStorage.getFluid().getFluid()) {
+                            cap.fill(new FluidStack(fluidStorage.getFluid(), amount), IFluidHandler.FluidAction.EXECUTE);
+                            fluidStorage.takeFluid(amount, false);
+
+                            if (cap.getFluidInTank(1).getAmount() == cap.getTankCapacity(1)) {
+                                drainBucketUp.shrink(1);
+                                if (drainBucketDown.isEmpty()) {
+                                    itemStackHandler.setStackInSlot(slotDown, cap.getContainer());
+                                } else {
+                                    drainBucketDown.grow(1);
+                                }
+                            } else {
+                                itemStackHandler.setStackInSlot(slotUp, cap.getContainer());
+                            }
+
+                            progress.setCurrentProgress(1);
+
+                            return true;
                         }
-                    } else {
-                        itemStackHandler.setStackInSlot(slotUp, cap.getContainer());
                     }
                 }
             }
+        } else {
+            progress.setCurrentProgress(0);
         }
+
         return false;
     }
 

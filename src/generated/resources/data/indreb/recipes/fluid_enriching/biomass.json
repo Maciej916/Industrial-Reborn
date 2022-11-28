@@ -1,0 +1,20 @@
+{
+  "type": "indreb:fluid_enriching",
+  "consume_fluid": true,
+  "duration": 180,
+  "experience": 1.5,
+  "fluid_input": {
+    "amount": 1000,
+    "fluid": "minecraft:water"
+  },
+  "fluid_output": {
+    "amount": 1000,
+    "fluid": "indreb:biomass"
+  },
+  "ingredients": [
+    {
+      "item": "indreb:bio_chaff"
+    }
+  ],
+  "tick_energy_cost": 8
+}

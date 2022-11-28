@@ -43,9 +43,6 @@ public class CanningRecipe extends BaseRecipe {
             return
                 getIngredientCount().getIngredients().get(0).test(container.getItem(0)) &&
                 getIngredientCount().getIngredients().get(1).test(container.getItem(1));
-//                        &&
-//                container.getItem(0).getCount() >= getIngredientCount().getIngredientsCount().get(0) &&
-//                container.getItem(1).getCount() >= getIngredientCount().getIngredientsCount().get(1);
         }
     }
 

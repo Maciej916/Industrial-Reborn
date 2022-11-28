@@ -209,6 +209,9 @@ public class BlockTextures extends BlockStateProvider {
         createActiveHorizontal(ModBlocks.SAWMILL, "machine/basic/sawmill/sawmill", "_bottom", "_bottom", "_top", "_top", "_front", "_front_active", "_side", "_side", "_side", "_side", "_side", "_side");
         createActiveHorizontal(ModBlocks.EXTRUDER, "machine/basic/extruder/extruder", "_bottom", "_bottom", "_top", "_top", "_front", "_front_active", "_side", "_side", "_side", "_side", "_side", "_side");
         createActiveHorizontal(ModBlocks.CANNING_MACHINE, "machine/basic/canning_machine/canning_machine", "_bottom", "_bottom", "_top", "_top", "_front", "_front_active", "_side", "_side", "_side", "_side", "_side", "_side");
+        createActiveHorizontal(ModBlocks.FLUID_ENRICHER, "machine/basic/fluid_enricher/fluid_enricher", "_bottom", "_bottom", "_top", "_top", "_front", "_front_active", "_back", "_back", "_leftright", "_leftright_active", "_leftright", "_leftright_active");
+
+
     }
 
 

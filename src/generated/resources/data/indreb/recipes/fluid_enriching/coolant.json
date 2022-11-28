@@ -1,0 +1,21 @@
+{
+  "type": "indreb:fluid_enriching",
+  "consume_fluid": true,
+  "duration": 180,
+  "experience": 2.5,
+  "fluid_input": {
+    "amount": 1000,
+    "fluid": "minecraft:water"
+  },
+  "fluid_output": {
+    "amount": 1000,
+    "fluid": "indreb:coolant"
+  },
+  "ingredients": [
+    {
+      "count": 8,
+      "item": "minecraft:lapis_lazuli"
+    }
+  ],
+  "tick_energy_cost": 8
+}

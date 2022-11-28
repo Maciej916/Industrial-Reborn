@@ -1,0 +1,20 @@
+{
+  "type": "indreb:fluid_enriching",
+  "consume_fluid": true,
+  "duration": 180,
+  "experience": 1.0,
+  "fluid_input": {
+    "amount": 250,
+    "fluid": "minecraft:water"
+  },
+  "fluid_output": {
+    "amount": 250,
+    "fluid": "indreb:sulfuric_acid"
+  },
+  "ingredients": [
+    {
+      "tag": "forge:dusts/sulfur"
+    }
+  ],
+  "tick_energy_cost": 8
+}

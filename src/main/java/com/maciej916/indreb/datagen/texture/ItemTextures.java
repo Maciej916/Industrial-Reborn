@@ -480,6 +480,7 @@ public class ItemTextures extends ItemModelProvider {
         createWithBlock(ModItems.SAWMILL, "sawmill");
         createWithBlock(ModItems.EXTRUDER, "extruder");
         createWithBlock(ModItems.CANNING_MACHINE, "canning_machine");
+        createWithBlock(ModItems.FLUID_ENRICHER, "fluid_enricher");
 
     }
 
