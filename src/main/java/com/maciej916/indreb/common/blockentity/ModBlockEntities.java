@@ -12,7 +12,9 @@ import com.maciej916.indreb.common.block.impl.generator.semifluid_generator.Bloc
 import com.maciej916.indreb.common.block.impl.generator.solar_panel.BlockEntitySolarPanel;
 import com.maciej916.indreb.common.block.impl.machines.basic.compressor.BlockEntityCompressor;
 import com.maciej916.indreb.common.block.impl.machines.basic.crusher.BlockEntityCrusher;
+import com.maciej916.indreb.common.block.impl.machines.basic.electric_furnace.BlockEntityElectricFurnace;
 import com.maciej916.indreb.common.block.impl.machines.basic.extractor.BlockEntityExtractor;
+import com.maciej916.indreb.common.block.impl.machines.basic.extruder.BlockEntityExtruder;
 import com.maciej916.indreb.common.block.impl.machines.basic.sawmill.BlockEntitySawmill;
 import com.maciej916.indreb.common.block.impl.machines.simple.iron_furnace.BlockEntityIronFurnace;
 import com.maciej916.indreb.common.block.impl.machines.simple.simple_compressor.BlockEntitySimpleCompressor;
@@ -57,10 +59,12 @@ public final class ModBlockEntities {
 
     /* BASIC MACHINES */
 
+    public static final RegistryObject<BlockEntityType<BlockEntityElectricFurnace>> ELECTRIC_FURNACE = BLOCK_ENTITIES.register("electric_furnace", () -> BlockEntityType.Builder.of(BlockEntityElectricFurnace::new, ModBlocks.ELECTRIC_FURNACE.get()).build(null));
     public static final RegistryObject<BlockEntityType<BlockEntityCrusher>> CRUSHER = BLOCK_ENTITIES.register("crusher", () -> BlockEntityType.Builder.of(BlockEntityCrusher::new, ModBlocks.CRUSHER.get()).build(null));
     public static final RegistryObject<BlockEntityType<BlockEntityCompressor>> COMPRESSOR = BLOCK_ENTITIES.register("compressor", () -> BlockEntityType.Builder.of(BlockEntityCompressor::new, ModBlocks.COMPRESSOR.get()).build(null));
     public static final RegistryObject<BlockEntityType<BlockEntityExtractor>> EXTRACTOR = BLOCK_ENTITIES.register("extractor", () -> BlockEntityType.Builder.of(BlockEntityExtractor::new, ModBlocks.EXTRACTOR.get()).build(null));
     public static final RegistryObject<BlockEntityType<BlockEntitySawmill>> SAWMILL = BLOCK_ENTITIES.register("sawmill", () -> BlockEntityType.Builder.of(BlockEntitySawmill::new, ModBlocks.SAWMILL.get()).build(null));
+    public static final RegistryObject<BlockEntityType<BlockEntityExtruder>> EXTRUDER = BLOCK_ENTITIES.register("extruder", () -> BlockEntityType.Builder.of(BlockEntityExtruder::new, ModBlocks.EXTRUDER.get()).build(null));
 
 
 

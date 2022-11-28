@@ -773,11 +773,6 @@ public class IndRebBlockEntity extends BaseBlockEntity implements IIndRebBlockEn
         }
     }
 
-//    private boolean invertRedstone = false;
-//    float speedFactor = 1f;
-//    float energyUsageFactor = 1f;
-//
-
     public float getUpgradesDuration(int duration) {
         return speedFactor * duration;
     }
@@ -785,7 +780,6 @@ public class IndRebBlockEntity extends BaseBlockEntity implements IIndRebBlockEn
     public int getUpgradesEnergyCost(int tickEnergyCost) {
         return (int) energyUsageFactor * tickEnergyCost;
     }
-
 
     /* THIS CAN BE IMPROVED WITH CAPABILITIES */
 

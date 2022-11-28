@@ -1,0 +1,19 @@
+{
+  "type": "indreb:fluid_extruding",
+  "consume_fist": true,
+  "consume_second": true,
+  "duration": 180,
+  "experience": 3.0,
+  "first_fluid": {
+    "amount": 1000,
+    "fluid": "minecraft:water"
+  },
+  "result": {
+    "item": "minecraft:obsidian"
+  },
+  "second_fluid": {
+    "amount": 1000,
+    "fluid": "minecraft:lava"
+  },
+  "tick_energy_cost": 8
+}

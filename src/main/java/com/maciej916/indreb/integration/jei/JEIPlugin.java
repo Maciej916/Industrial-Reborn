@@ -11,9 +11,13 @@ import com.maciej916.indreb.common.block.impl.machines.basic.compressor.ScreenCo
 import com.maciej916.indreb.common.block.impl.machines.basic.crusher.BlockEntityCrusher;
 import com.maciej916.indreb.common.block.impl.machines.basic.crusher.MenuCrusher;
 import com.maciej916.indreb.common.block.impl.machines.basic.crusher.ScreenCrusher;
+import com.maciej916.indreb.common.block.impl.machines.basic.electric_furnace.BlockEntityElectricFurnace;
+import com.maciej916.indreb.common.block.impl.machines.basic.electric_furnace.MenuElectricFurnace;
+import com.maciej916.indreb.common.block.impl.machines.basic.electric_furnace.ScreenElectricFurnace;
 import com.maciej916.indreb.common.block.impl.machines.basic.extractor.BlockEntityExtractor;
 import com.maciej916.indreb.common.block.impl.machines.basic.extractor.MenuExtractor;
 import com.maciej916.indreb.common.block.impl.machines.basic.extractor.ScreenExtractor;
+import com.maciej916.indreb.common.block.impl.machines.basic.extruder.ScreenExtruder;
 import com.maciej916.indreb.common.block.impl.machines.basic.sawmill.BlockEntitySawmill;
 import com.maciej916.indreb.common.block.impl.machines.basic.sawmill.MenuSawmill;
 import com.maciej916.indreb.common.block.impl.machines.basic.sawmill.ScreenSawmill;
@@ -29,15 +33,9 @@ import com.maciej916.indreb.common.block.impl.machines.simple.simple_extractor.M
 import com.maciej916.indreb.common.block.impl.machines.simple.simple_extractor.ScreenSimpleextractor;
 import com.maciej916.indreb.common.item.ModItems;
 import com.maciej916.indreb.common.recipe.ModRecipeType;
-import com.maciej916.indreb.common.recipe.impl.CompressingRecipe;
-import com.maciej916.indreb.common.recipe.impl.CrushingRecipe;
-import com.maciej916.indreb.common.recipe.impl.ExtractingRecipe;
-import com.maciej916.indreb.common.recipe.impl.SawingRecipe;
+import com.maciej916.indreb.common.recipe.impl.*;
 import com.maciej916.indreb.common.screen.ModMenuTypes;
-import com.maciej916.indreb.integration.jei.category.impl.CompressingCategory;
-import com.maciej916.indreb.integration.jei.category.impl.CrushingCategory;
-import com.maciej916.indreb.integration.jei.category.impl.ExtractingCategory;
-import com.maciej916.indreb.integration.jei.category.impl.SawingCategory;
+import com.maciej916.indreb.integration.jei.category.impl.*;
 import mezz.jei.api.IModPlugin;
 import mezz.jei.api.JeiPlugin;
 import mezz.jei.api.constants.RecipeTypes;
@@ -67,9 +65,8 @@ public class JEIPlugin implements IModPlugin {
     public static final RecipeType<CompressingRecipe> COMPRESSING_TYPE = new RecipeType<>(CompressingCategory.UID, CompressingRecipe.class);
     public static final RecipeType<ExtractingRecipe> EXTRACTING_TYPE = new RecipeType<>(ExtractingCategory.UID, ExtractingRecipe.class);
     public static final RecipeType<SawingRecipe> SAWING_TYPE = new RecipeType<>(SawingCategory.UID, SawingRecipe.class);
+    public static final RecipeType<FluidExtrudingRecipe> FLUID_EXTRUDING_TYPE = new RecipeType<>(FluidExtrudingCategory.UID, FluidExtrudingRecipe.class);
 
-
-//    public static final RecipeType<FluidExtrudingRecipe> FLUID_EXTRUDING_TYPE = new RecipeType<>(FluidExtrudingCategory.UID, FluidExtrudingRecipe.class);
 //    public static final RecipeType<AlloySmeltingRecipe> ALLOY_SMELTING_TYPE = new RecipeType<>(AlloySmeltingCategory.UID, AlloySmeltingRecipe.class);
 //    public static final RecipeType<RecyclingRecipe> RECYCLING_TYPE = new RecipeType<>(RecyclingCategory.UID, RecyclingRecipe.class);
 //    public static final RecipeType<CanningRecipe> CANNING_TYPE = new RecipeType<>(CanningCategory.UID, CanningRecipe.class);
@@ -90,17 +87,17 @@ public class JEIPlugin implements IModPlugin {
     @Override
     public void registerRecipeCatalysts(IRecipeCatalystRegistration registration) {
         registration.addRecipeCatalyst(new ItemStack(ModBlocks.IRON_FURNACE.get()), RecipeTypes.SMELTING);
+        registration.addRecipeCatalyst(new ItemStack(ModBlocks.ELECTRIC_FURNACE.get()), RecipeTypes.SMELTING);
 
         registration.addRecipeCatalyst(new ItemStack(ModBlocks.SIMPLE_CRUSHER.get()), CRUSHING_TYPE);
-        registration.addRecipeCatalyst(new ItemStack(ModBlocks.SIMPLE_COMPRESSOR.get()), CRUSHING_TYPE);
-        registration.addRecipeCatalyst(new ItemStack(ModBlocks.SIMPLE_EXTRACTOR.get()), CRUSHING_TYPE);
+        registration.addRecipeCatalyst(new ItemStack(ModBlocks.SIMPLE_COMPRESSOR.get()), COMPRESSING_TYPE);
+        registration.addRecipeCatalyst(new ItemStack(ModBlocks.SIMPLE_EXTRACTOR.get()), EXTRACTING_TYPE);
         registration.addRecipeCatalyst(new ItemStack(ModBlocks.SAWMILL.get()), SAWING_TYPE);
 
-//        registration.addRecipeCatalyst(new ItemStack(ModBlocks.ELECTRIC_FURNACE.get()), RecipeTypes.SMELTING);
-
-//        registration.addRecipeCatalyst(new ItemStack(ModBlocks.COMPRESSOR.get()), COMPRESSING_TYPE);
-//        registration.addRecipeCatalyst(new ItemStack(ModBlocks.EXTRACTOR.get()), EXTRACTING_TYPE);
-//        registration.addRecipeCatalyst(new ItemStack(ModBlocks.EXTRUDER.get()), FLUID_EXTRUDING_TYPE);
+        registration.addRecipeCatalyst(new ItemStack(ModBlocks.CRUSHER.get()), CRUSHING_TYPE);
+        registration.addRecipeCatalyst(new ItemStack(ModBlocks.COMPRESSOR.get()), COMPRESSING_TYPE);
+        registration.addRecipeCatalyst(new ItemStack(ModBlocks.EXTRACTOR.get()), EXTRACTING_TYPE);
+        registration.addRecipeCatalyst(new ItemStack(ModBlocks.EXTRUDER.get()), FLUID_EXTRUDING_TYPE);
 
 //        registration.addRecipeCatalyst(new ItemStack(ModBlocks.ALLOY_SMELTER.get()), ALLOY_SMELTING_TYPE);
 //        registration.addRecipeCatalyst(new ItemStack(ModBlocks.RECYCLER.get()), RECYCLING_TYPE);
@@ -120,8 +117,8 @@ public class JEIPlugin implements IModPlugin {
         registration.addRecipeCategories(new CompressingCategory(ScreenHelper));
         registration.addRecipeCategories(new ExtractingCategory(ScreenHelper));
         registration.addRecipeCategories(new SawingCategory(ScreenHelper));
+        registration.addRecipeCategories(new FluidExtrudingCategory(ScreenHelper));
 
-//        registration.addRecipeCategories(new FluidExtrudingCategory(ScreenHelper));
 //        registration.addRecipeCategories(new AlloySmeltingCategory(ScreenHelper));
 //        registration.addRecipeCategories(new RecyclingCategory(ScreenHelper));
 //        registration.addRecipeCategories(new CanningCategory(ScreenHelper));
@@ -148,10 +145,8 @@ public class JEIPlugin implements IModPlugin {
         registration.addRecipes(COMPRESSING_TYPE, recipeManager.getAllRecipesFor(ModRecipeType.COMPRESSING.get()));
         registration.addRecipes(EXTRACTING_TYPE, recipeManager.getAllRecipesFor(ModRecipeType.EXTRACTING.get()));
         registration.addRecipes(SAWING_TYPE, recipeManager.getAllRecipesFor(ModRecipeType.SAWING.get()));
+        registration.addRecipes(FLUID_EXTRUDING_TYPE, recipeManager.getAllRecipesFor(ModRecipeType.FLUID_EXTRUDING.get()));
 
-
-
-//        registration.addRecipes(FLUID_EXTRUDING_TYPE, recipeManager.getAllRecipesFor(ModRecipeType.FLUID_EXTRUDING.get()));
 //        registration.addRecipes(ALLOY_SMELTING_TYPE, recipeManager.getAllRecipesFor(ModRecipeType.ALLOY_SMELTING.get()));
 //        registration.addRecipes(RECYCLING_TYPE, recipeManager.getAllRecipesFor(ModRecipeType.RECYCLING.get()));
 //        registration.addRecipes(CANNING_TYPE, recipeManager.getAllRecipesFor(ModRecipeType.CANNING.get()));
@@ -173,7 +168,7 @@ public class JEIPlugin implements IModPlugin {
         registration.addGuiContainerHandler(WidgetScreen.class, new WidgetScreenHandler<>());
 
         registration.addRecipeClickArea(ScreenIronFurnace.class, 80, 35, 24, 16, RecipeTypes.SMELTING);
-//        registration.addRecipeClickArea(ScreenElectricFurnace.class, 71, 35, 24, 16, RecipeTypes.SMELTING);
+        registration.addRecipeClickArea(ScreenElectricFurnace.class, 71, 35, 24, 16, RecipeTypes.SMELTING);
 
         registration.addRecipeClickArea(ScreenSimpleCrusher.class, 79, 35, 24, 16, CRUSHING_TYPE);
         registration.addRecipeClickArea(ScreenSimpleCompressor.class, 79, 35, 24, 16, COMPRESSING_TYPE);
@@ -183,8 +178,8 @@ public class JEIPlugin implements IModPlugin {
         registration.addRecipeClickArea(ScreenCompressor.class, 71, 35, 24, 16, COMPRESSING_TYPE);
         registration.addRecipeClickArea(ScreenExtractor.class, 71, 35, 24, 16, EXTRACTING_TYPE);
         registration.addRecipeClickArea(ScreenSawmill.class, 71, 35, 24, 16, SAWING_TYPE);
+        registration.addRecipeClickArea(ScreenExtruder.class, 78, 35, 24, 16, FLUID_EXTRUDING_TYPE);
 
-//        registration.addRecipeClickArea(ScreenExtruder.class, 78, 35, 24, 16, FLUID_EXTRUDING_TYPE);
 //        registration.addRecipeClickArea(ScreenAlloySmelter.class, 82, 33, 24, 16, ALLOY_SMELTING_TYPE);
 //        registration.addRecipeClickArea(ScreenRecycler.class, 71, 35, 24, 16, RECYCLING_TYPE);
 //        registration.addRecipeClickArea(ScreenCanningMachine.class, 76, 35, 24, 16, CANNING_TYPE);
@@ -203,7 +198,7 @@ public class JEIPlugin implements IModPlugin {
 
     @Override
     public void registerRecipeTransferHandlers(IRecipeTransferRegistration registration) {
-//        registration.addRecipeTransferHandler(MenuSimpleCrusher.class, ModMenuTypes.SIMPLE_CRUSHER.get(), CRUSHING_TYPE, BlockEntitySimpleCrusher.INPUT_SLOT, 1, 1, 37);
+        registration.addRecipeTransferHandler(MenuElectricFurnace.class, ModMenuTypes.ELECTRIC_FURNACE.get(), RecipeTypes.SMELTING, BlockEntityElectricFurnace.INPUT_SLOT, 1, BlockEntityElectricFurnace.OUTPUT_SLOT, 36);
 
         registration.addRecipeTransferHandler(MenuSimpleCrusher.class, ModMenuTypes.SIMPLE_CRUSHER.get(), CRUSHING_TYPE, 0, 1, BlockEntitySimpleCrusher.BONUS_SLOT, 36);
         registration.addRecipeTransferHandler(MenuSimpleCompressor.class, ModMenuTypes.SIMPLE_COMPRESSOR.get(), COMPRESSING_TYPE, 0, 1, BlockEntitySimpleCompressor.BONUS_SLOT, 36);

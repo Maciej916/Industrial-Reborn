@@ -1,0 +1,19 @@
+{
+  "type": "indreb:fluid_extruding",
+  "consume_fist": true,
+  "consume_second": true,
+  "duration": 100,
+  "experience": 0.0,
+  "first_fluid": {
+    "amount": 200,
+    "fluid": "minecraft:water"
+  },
+  "result": {
+    "item": "minecraft:cobbled_deepslate"
+  },
+  "second_fluid": {
+    "amount": 50,
+    "fluid": "minecraft:lava"
+  },
+  "tick_energy_cost": 8
+}

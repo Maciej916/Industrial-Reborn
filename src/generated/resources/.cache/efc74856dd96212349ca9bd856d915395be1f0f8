@@ -1,4 +1,4 @@
-// 1.19.2	2022-11-27T14:59:01.396925	Item Models: indreb
+// 1.19.2	2022-11-28T14:51:54.4571303	Item Models: indreb
 ea6f48b249d5595c0bc20e39b977fa8fad0ed868 assets/indreb/models/item/acid_hazard_sign_block.json
 4df0fe2021d7b228332497f5c7d711b40f082510 assets/indreb/models/item/advanced_alloy.json
 df0888ae05d095b7dbd4b54b411496df8d853b49 assets/indreb/models/item/advanced_battery.json
@@ -123,6 +123,7 @@ b89667531ab841e337b10ac04fd85206a4997aa1 assets/indreb/models/item/deepslate_ura
 e93f6f36bfecb38ad2c742562958cdbe76e3a6f4 assets/indreb/models/item/diamond_drill.json
 a6bdd04201ee6eaa57eb142c867dd737bf6c4cc1 assets/indreb/models/item/diamond_dust.json
 e6b979d124199d6945b66a61cce88cc8ea223d62 assets/indreb/models/item/ejector_upgrade.json
+0a88e82b7772d4a467334a3624607787f820553a assets/indreb/models/item/electric_furnace.json
 c0ac1c396884746e06fdef4289b283dfb2ee575a assets/indreb/models/item/electric_hoe.json
 a4dfb6c7de140018edd2595d8541b7878b92c314 assets/indreb/models/item/electric_motor.json
 6f86af29522894773f8ff81a62c7e1a9126b9c26 assets/indreb/models/item/electric_treetap.json
@@ -134,6 +135,7 @@ a7a97f41285580c0d605be1595b919923076eb0b assets/indreb/models/item/energy_storag
 9cd756b2feecbe47f0be396968a98b050becc4ff assets/indreb/models/item/ev_transformer.json
 7b382ca707cf13fb440fbcea863a01d24707a4fd assets/indreb/models/item/explosion_hazard_sign_block.json
 acd92817d7ea622684bf40076f9eca4bdcc12f3b assets/indreb/models/item/extractor.json
+2c6b24a60f080e0c0c11cf81a759b2b79b502e81 assets/indreb/models/item/extruder.json
 4f5743cd253934b43ef3233fb25f50d1150ca5f9 assets/indreb/models/item/fertilizer.json
 d478dd7f0374c58ec694d1210da2119070996263 assets/indreb/models/item/filled_tin_can.json
 90a33448cd123cd5239a1e5bb837c44a232e00b8 assets/indreb/models/item/fire_hazard_sign_block.json

@@ -1,10 +1,7 @@
 package com.maciej916.indreb.datagen;
 
 import com.maciej916.indreb.datagen.loot.LootModifier;
-import com.maciej916.indreb.datagen.recipe.provider.CompressingRecipeProvider;
-import com.maciej916.indreb.datagen.recipe.provider.CrushingRecipeProvider;
-import com.maciej916.indreb.datagen.recipe.provider.ExtractingRecipeProvider;
-import com.maciej916.indreb.datagen.recipe.provider.SawingRecipeProvider;
+import com.maciej916.indreb.datagen.recipe.provider.*;
 import com.maciej916.indreb.datagen.tags.TagsBlock;
 import com.maciej916.indreb.datagen.tags.TagsItem;
 import com.maciej916.indreb.datagen.texture.BlockTextures;
@@ -38,5 +35,6 @@ public class DataGenerators {
         generator.addProvider(event.includeServer(), new CrushingRecipeProvider(generator));
         generator.addProvider(event.includeServer(), new ExtractingRecipeProvider(generator));
         generator.addProvider(event.includeServer(), new SawingRecipeProvider(generator));
+        generator.addProvider(event.includeServer(), new FluidExtrudingRecipeProvider(generator));
     }
 }

@@ -14,7 +14,9 @@ import com.maciej916.indreb.common.block.impl.generator.semifluid_generator.Scre
 import com.maciej916.indreb.common.block.impl.generator.solar_panel.ScreenSolarPanel;
 import com.maciej916.indreb.common.block.impl.machines.basic.compressor.ScreenCompressor;
 import com.maciej916.indreb.common.block.impl.machines.basic.crusher.ScreenCrusher;
+import com.maciej916.indreb.common.block.impl.machines.basic.electric_furnace.ScreenElectricFurnace;
 import com.maciej916.indreb.common.block.impl.machines.basic.extractor.ScreenExtractor;
+import com.maciej916.indreb.common.block.impl.machines.basic.extruder.ScreenExtruder;
 import com.maciej916.indreb.common.block.impl.machines.basic.sawmill.ScreenSawmill;
 import com.maciej916.indreb.common.block.impl.machines.simple.iron_furnace.ScreenIronFurnace;
 import com.maciej916.indreb.common.block.impl.machines.simple.simple_compressor.ScreenSimpleCompressor;
@@ -93,14 +95,12 @@ public final class ClientModEventSubscriber {
 			MenuScreens.register(ModMenuTypes.CHARGE_PAD.get(), ScreenChargePad::new);
 			MenuScreens.register(ModMenuTypes.TRANSFORMER.get(), ScreenTransformer::new);
 
-
-//			MenuScreens.register(ModMenuTypes.ELECTRIC_FURNACE.get(), ScreenElectricFurnace::new);
-//
+			MenuScreens.register(ModMenuTypes.ELECTRIC_FURNACE.get(), ScreenElectricFurnace::new);
 			MenuScreens.register(ModMenuTypes.CRUSHER.get(), ScreenCrusher::new);
 			MenuScreens.register(ModMenuTypes.COMPRESSOR.get(), ScreenCompressor::new);
 			MenuScreens.register(ModMenuTypes.EXTRACTOR.get(), ScreenExtractor::new);
 			MenuScreens.register(ModMenuTypes.SAWMILL.get(), ScreenSawmill::new);
-//			MenuScreens.register(ModMenuTypes.EXTRUDER.get(), ScreenExtruder::new);
+			MenuScreens.register(ModMenuTypes.EXTRUDER.get(), ScreenExtruder::new);
 //			MenuScreens.register(ModMenuTypes.CANNING_MACHINE.get(), ScreenCanningMachine::new);
 //			MenuScreens.register(ModMenuTypes.FLUID_ENRICHER.get(), ScreenFluidEnricher::new);
 //			MenuScreens.register(ModMenuTypes.RECYCLER.get(), ScreenRecycler::new);
@@ -113,9 +113,6 @@ public final class ClientModEventSubscriber {
 //			MenuScreens.register(ModMenuTypes.SCANNER.get(), ScreenScanner::new);
 //			MenuScreens.register(ModMenuTypes.REPLICATOR.get(), ScreenReplicator::new);
 //			MenuScreens.register(ModMenuTypes.METAL_FORMER.get(), ScreenMetalFormer::new);
-//
-//			MenuScreens.register(ModMenuTypes.NUCLEAR_REACTOR.get(), ScreenNuclearReactor::new);
-
 
 			ItemProperties.register(ModItems.BATTERY.get(), new ResourceLocation(IndReb.MODID, "charge_ratio"), (stack, level, living, id) -> BaseElectricItem.getChargeRatioModel(stack));
 			ItemProperties.register(ModItems.ADVANCED_BATTERY.get(), new ResourceLocation(IndReb.MODID, "charge_ratio"), (stack, level, living, id) -> BaseElectricItem.getChargeRatioModel(stack));

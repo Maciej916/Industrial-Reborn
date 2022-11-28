@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "indreb:block/machine/basic/extruder/extruder_bottom",
+    "east": "indreb:block/machine/basic/extruder/extruder_side",
+    "north": "indreb:block/machine/basic/extruder/extruder_front",
+    "particle": "indreb:block/machine/basic/extruder/extruder_front",
+    "south": "indreb:block/machine/basic/extruder/extruder_side",
+    "up": "indreb:block/machine/basic/extruder/extruder_top",
+    "west": "indreb:block/machine/basic/extruder/extruder_side"
+  }
+}

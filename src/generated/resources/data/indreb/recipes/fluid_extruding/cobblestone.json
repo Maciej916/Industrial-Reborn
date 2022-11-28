@@ -1,0 +1,17 @@
+{
+  "type": "indreb:fluid_extruding",
+  "consume_fist": false,
+  "consume_second": false,
+  "duration": 80,
+  "experience": 0.0,
+  "first_fluid": {
+    "fluid": "minecraft:water"
+  },
+  "result": {
+    "item": "minecraft:cobblestone"
+  },
+  "second_fluid": {
+    "fluid": "minecraft:lava"
+  },
+  "tick_energy_cost": 8
+}

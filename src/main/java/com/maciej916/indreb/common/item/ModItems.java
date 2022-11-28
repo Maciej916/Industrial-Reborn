@@ -151,12 +151,13 @@ public final class ModItems {
     public static final RegistryObject<Item> REACTOR_CONTROL_ROD = fromBlock(ModBlocks.REACTOR_CONTROL_ROD, Rarity.UNCOMMON);
     public static final RegistryObject<Item> REACTOR_FRAME = fromBlock(ModBlocks.REACTOR_FRAME, Rarity.UNCOMMON);
 
-
-
+    public static final RegistryObject<Item> ELECTRIC_FURNACE = fromBlockElectric(ModBlocks.ELECTRIC_FURNACE);
     public static final RegistryObject<Item> CRUSHER = fromBlockElectric(ModBlocks.CRUSHER);
     public static final RegistryObject<Item> COMPRESSOR = fromBlockElectric(ModBlocks.COMPRESSOR);
     public static final RegistryObject<Item> EXTRACTOR = fromBlockElectric(ModBlocks.EXTRACTOR);
     public static final RegistryObject<Item> SAWMILL = fromBlockElectric(ModBlocks.SAWMILL);
+    public static final RegistryObject<Item> EXTRUDER = fromBlockElectric(ModBlocks.EXTRUDER);
+
 
 
 
@@ -175,10 +176,6 @@ public final class ModItems {
     public static final RegistryObject<Item> MV_TRANSFORMER = fromBlock(ModBlocks.MV_TRANSFORMER);
     public static final RegistryObject<Item> HV_TRANSFORMER = fromBlock(ModBlocks.HV_TRANSFORMER);
     public static final RegistryObject<Item> EV_TRANSFORMER = fromBlock(ModBlocks.EV_TRANSFORMER);
-
-
-
-
 
     public static final RegistryObject<Item> RAW_TIN = registerItem("raw_tin", MaterialItem::new);
     public static final RegistryObject<Item> RAW_LEAD = registerItem("raw_lead", MaterialItem::new);

@@ -61,13 +61,13 @@ public class IndRebScreen <T extends IndRebContainerMenu> extends WidgetScreen<T
 
         if (getEntity() instanceof IHasUpgrades upgrades) {
             addRenderableOnlyWidget(new GuiInfoButtonWidget(this, topOffset, upgrades));
-            topOffset += GuiSprite.LEFT_BUTTON.getHeight();
+            topOffset += GuiSprite.LEFT_BUTTON.getHeight() + 3;
         }
 
         if (getEntity() instanceof IHasExp expCollector) {
             if (expCollector.hasExpButton()) {
                 addUssableWidget(new GuiExpButtonWidget(this, topOffset, expCollector));
-                topOffset += GuiSprite.LEFT_BUTTON.getHeight();
+                topOffset += GuiSprite.LEFT_BUTTON.getHeight() + 3;
             }
         }
     }

@@ -1,9 +1,6 @@
 package com.maciej916.indreb.common.recipe;
 
-import com.maciej916.indreb.common.recipe.impl.CompressingRecipe;
-import com.maciej916.indreb.common.recipe.impl.CrushingRecipe;
-import com.maciej916.indreb.common.recipe.impl.ExtractingRecipe;
-import com.maciej916.indreb.common.recipe.impl.SawingRecipe;
+import com.maciej916.indreb.common.recipe.impl.*;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -19,7 +16,7 @@ public final class ModRecipeSerializer {
     public static final RegistryObject<RecipeSerializer<CompressingRecipe>> COMPRESSING = SERIALIZERS.register("compressing", () -> CompressingRecipe.SERIALIZER);
     public static final RegistryObject<RecipeSerializer<ExtractingRecipe>> EXTRACTING = SERIALIZERS.register("extracting", () -> ExtractingRecipe.SERIALIZER);
     public static final RegistryObject<RecipeSerializer<SawingRecipe>> SAWING = SERIALIZERS.register("sawing", () -> SawingRecipe.SERIALIZER);
-//    public static final RegistryObject<RecipeSerializer<FluidExtrudingRecipe>> FLUID_EXTRUDING = SERIALIZERS.register("fluid_extruding", () -> FluidExtrudingRecipe.SERIALIZER);
+    public static final RegistryObject<RecipeSerializer<FluidExtrudingRecipe>> FLUID_EXTRUDING = SERIALIZERS.register("fluid_extruding", () -> FluidExtrudingRecipe.SERIALIZER);
 //    public static final RegistryObject<RecipeSerializer<AlloySmeltingRecipe>> ALLOY_SMELTING = SERIALIZERS.register("alloy_smelting", () -> AlloySmeltingRecipe.SERIALIZER);
 //    public static final RegistryObject<RecipeSerializer<RecyclingRecipe>> RECYCLING = SERIALIZERS.register("recycling", () -> RecyclingRecipe.SERIALIZER);
 //    public static final RegistryObject<RecipeSerializer<CanningRecipe>> CANNING = SERIALIZERS.register("canning", () -> CanningRecipe.SERIALIZER);

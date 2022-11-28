@@ -202,16 +202,12 @@ public class BlockTextures extends BlockStateProvider {
     }
 
     private void registerBasicMachines() {
+        createActiveHorizontal(ModBlocks.ELECTRIC_FURNACE, "machine/basic/electric_furnace/electric_furnace", "_bottom", "_bottom", "_top", "_top", "_front", "_front_active", "_side", "_side", "_side", "_side", "_side", "_side");
         createActiveHorizontal(ModBlocks.CRUSHER, "machine/basic/crusher/crusher", "_bottom", "_bottom", "_top", "_top_active", "_front", "_front_active", "_side", "_side", "_side", "_side", "_side", "_side");
         createActiveHorizontal(ModBlocks.COMPRESSOR, "machine/basic/compressor/compressor", "_bottom", "_bottom", "_top", "_top", "_front", "_front_active", "_side", "_side", "_side", "_side", "_side", "_side");
         createActiveHorizontal(ModBlocks.EXTRACTOR, "machine/basic/extractor/extractor", "_bottom", "_bottom", "_top", "_top", "_front", "_front_active", "_back", "_back", "_leftright", "_leftright_active", "_leftright", "_leftright_active");
         createActiveHorizontal(ModBlocks.SAWMILL, "machine/basic/sawmill/sawmill", "_bottom", "_bottom", "_top", "_top", "_front", "_front_active", "_side", "_side", "_side", "_side", "_side", "_side");
-
-
-//        createFrontActive(ModBlocks.IRON_FURNACE, "machine/simple/iron_furnace/iron_furnace");
-//        createFrontActive(ModBlocks.SIMPLE_CRUSHER, "machine/simple/simple_crusher/simple_crusher");
-//        createFrontActive(ModBlocks.SIMPLE_COMPRESSOR, "machine/simple/simple_compressor/simple_compressor");
-//        createFrontActive(ModBlocks.SIMPLE_EXTRACTOR, "machine/simple/simple_extractor/simple_extractor");
+        createActiveHorizontal(ModBlocks.EXTRUDER, "machine/basic/extruder/extruder", "_bottom", "_bottom", "_top", "_top", "_front", "_front_active", "_side", "_side", "_side", "_side", "_side", "_side");
     }
 
 

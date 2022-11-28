@@ -473,10 +473,12 @@ public class ItemTextures extends ItemModelProvider {
     }
 
     private void registerBasicMachines() {
+        createWithBlock(ModItems.ELECTRIC_FURNACE, "electric_furnace");
         createWithBlock(ModItems.CRUSHER, "crusher");
         createWithBlock(ModItems.COMPRESSOR, "compressor");
         createWithBlock(ModItems.EXTRACTOR, "extractor");
         createWithBlock(ModItems.SAWMILL, "sawmill");
+        createWithBlock(ModItems.EXTRUDER, "extruder");
 
     }
 

@@ -11,7 +11,9 @@ import com.maciej916.indreb.common.block.impl.generator.semifluid_generator.Menu
 import com.maciej916.indreb.common.block.impl.generator.solar_panel.MenuSolarPanel;
 import com.maciej916.indreb.common.block.impl.machines.basic.compressor.MenuCompressor;
 import com.maciej916.indreb.common.block.impl.machines.basic.crusher.MenuCrusher;
+import com.maciej916.indreb.common.block.impl.machines.basic.electric_furnace.MenuElectricFurnace;
 import com.maciej916.indreb.common.block.impl.machines.basic.extractor.MenuExtractor;
+import com.maciej916.indreb.common.block.impl.machines.basic.extruder.MenuExtruder;
 import com.maciej916.indreb.common.block.impl.machines.basic.sawmill.MenuSawmill;
 import com.maciej916.indreb.common.block.impl.machines.simple.iron_furnace.MenuIronFurnace;
 import com.maciej916.indreb.common.block.impl.machines.simple.simple_compressor.MenuSimpleCompressor;
@@ -50,15 +52,13 @@ public final class ModMenuTypes {
     public static final RegistryObject<MenuType<MenuChargePad>> CHARGE_PAD = registerMenuType(MenuChargePad::new, "charge_pad");
     public static final RegistryObject<MenuType<MenuTransformer>> TRANSFORMER = registerMenuType(MenuTransformer::new, "transformer");
 
-//
-//    public static final RegistryObject<MenuType<MenuElectricFurnace>> ELECTRIC_FURNACE = registerMenuType("electric_furnace",  MenuElectricFurnace::new);
-
+    public static final RegistryObject<MenuType<MenuElectricFurnace>> ELECTRIC_FURNACE = registerMenuType(MenuElectricFurnace::new, "electric_furnace");
     public static final RegistryObject<MenuType<MenuCrusher>> CRUSHER = registerMenuType(MenuCrusher::new, "crusher");
     public static final RegistryObject<MenuType<MenuCompressor>> COMPRESSOR = registerMenuType(MenuCompressor::new, "compressor");
     public static final RegistryObject<MenuType<MenuExtractor>> EXTRACTOR = registerMenuType(MenuExtractor::new, "extractor");
     public static final RegistryObject<MenuType<MenuSawmill>> SAWMILL = registerMenuType(MenuSawmill::new, "sawmill");
+    public static final RegistryObject<MenuType<MenuExtruder>> EXTRUDER = registerMenuType(MenuExtruder::new, "extruder");
 
-//    public static final RegistryObject<MenuType<MenuExtruder>> EXTRUDER = registerMenuType("extruder",  MenuExtruder::new);
 //    public static final RegistryObject<MenuType<MenuCanningMachine>> CANNING_MACHINE = registerMenuType("canning_machine",  MenuCanningMachine::new);
 //    public static final RegistryObject<MenuType<MenuFluidEnricher>> FLUID_ENRICHER = registerMenuType("fluid_enricher",  MenuFluidEnricher::new);
 //    public static final RegistryObject<MenuType<MenuRecycler>> RECYCLER = registerMenuType("recycler",  MenuRecycler::new);

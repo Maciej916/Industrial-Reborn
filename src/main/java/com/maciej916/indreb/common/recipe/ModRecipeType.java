@@ -1,9 +1,6 @@
 package com.maciej916.indreb.common.recipe;
 
-import com.maciej916.indreb.common.recipe.impl.CompressingRecipe;
-import com.maciej916.indreb.common.recipe.impl.CrushingRecipe;
-import com.maciej916.indreb.common.recipe.impl.ExtractingRecipe;
-import com.maciej916.indreb.common.recipe.impl.SawingRecipe;
+import com.maciej916.indreb.common.recipe.impl.*;
 import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -21,7 +18,7 @@ public final class ModRecipeType {
     public static final RegistryObject<RecipeType<CompressingRecipe>> COMPRESSING = registerType("compressing");
     public static final RegistryObject<RecipeType<ExtractingRecipe>> EXTRACTING = registerType("extracting");
     public static final RegistryObject<RecipeType<SawingRecipe>> SAWING = registerType("sawing");
-//    public static final RegistryObject<RecipeType<FluidExtrudingRecipe>> FLUID_EXTRUDING = registerType("fluid_extruding");
+    public static final RegistryObject<RecipeType<FluidExtrudingRecipe>> FLUID_EXTRUDING = registerType("fluid_extruding");
 //    public static final RegistryObject<RecipeType<AlloySmeltingRecipe>> ALLOY_SMELTING = registerType("alloy_smelting");
 //    public static final RegistryObject<RecipeType<RecyclingRecipe>> RECYCLING = registerType("recycling");
 //    public static final RegistryObject<RecipeType<CanningRecipe>> CANNING = registerType("canning");
