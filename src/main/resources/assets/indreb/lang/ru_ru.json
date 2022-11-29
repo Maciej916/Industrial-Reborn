@@ -149,6 +149,7 @@
   "item.indreb.sulfur_dust": "Серная пыль",
   "item.indreb.mud_pile": "Кучка грязи",
   "item.indreb.memory_card": "Карта памяти",
+  "item.indreb.lapis_lazuli_dust": "Лазуритовая пыль",
 
   "item.indreb.basic_transporter": "Базовый транспортёр",
   "item.indreb.advanced_transporter": "Улучшенный транспортёр ",
@@ -174,6 +175,7 @@
   "item.indreb.bronze_plate": "Бронзовая пластина",
   "item.indreb.steel_plate": "Стальная пластина",
   "item.indreb.iridium_plate": "Иридиевая пластина",
+  "item.indreb.lapis_lazuli_plate": "Лазуритовая пластина",
 
   "item.indreb.coal_dust": "Угольная пыль",
   "item.indreb.diamond_dust": "Алмазная пыль",
