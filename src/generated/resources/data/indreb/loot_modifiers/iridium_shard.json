@@ -1,5 +1,5 @@
 {
-  "type": "indreb:iridium_shard",
+  "type": "indreb:simple_dungeon",
   "conditions": [
     {
       "condition": "forge:loot_table_id",

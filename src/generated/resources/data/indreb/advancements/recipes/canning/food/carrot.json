@@ -1,0 +1,47 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "carrot": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:carrot"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "indreb:canning/food/carrot"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "tin_can": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:empty_can"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "carrot",
+      "tin_can",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "indreb:canning/food/carrot"
+    ]
+  }
+}

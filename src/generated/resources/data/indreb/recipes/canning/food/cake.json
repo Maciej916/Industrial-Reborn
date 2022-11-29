@@ -1,0 +1,19 @@
+{
+  "type": "indreb:canning",
+  "duration": 180,
+  "experience": 0.2,
+  "ingredients": [
+    {
+      "item": "minecraft:cake"
+    },
+    {
+      "count": 14,
+      "item": "indreb:empty_can"
+    }
+  ],
+  "result": {
+    "count": 14,
+    "item": "indreb:canned_food"
+  },
+  "tick_energy_cost": 8
+}

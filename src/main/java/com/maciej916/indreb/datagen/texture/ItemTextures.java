@@ -267,8 +267,17 @@ public class ItemTextures extends ItemModelProvider {
     }
 
     protected void registerFood() {
-        createGeneratedTexture(ModItems.TIN_CAN, "food/tin_can");
-        createGeneratedTexture(ModItems.FILLED_TIN_CAN, "food/filled_tin_can");
+        createGeneratedTexture(ModItems.EMPTY_CAN, "food/empty_can");
+        createGeneratedTexture(ModItems.CANNED_FOOD, "food/canned_food");
+        createGeneratedTexture(ModItems.CANNED_CHORUS_FRUIT, "food/canned_chorus_fruit");
+        createGeneratedTexture(ModItems.CANNED_GOLDEN_APPLE, "food/canned_golden_apple");
+        createGeneratedTexture(ModItems.CANNED_ENCHANTED_GOLDEN_APPLE, "food/canned_golden_apple");
+        createGeneratedTexture(ModItems.CANNED_POISON, "food/canned_poison");
+        createGeneratedTexture(ModItems.CANNED_HUNGER, "food/canned_hunger");
+
+        createGeneratedTexture(ModItems.NUKA_COLA, "food/nuka_cola");
+        createGeneratedTexture(ModItems.SPRUNK, "food/sprunk");
+        createGeneratedTexture(ModItems.ENERGY_DRINK, "food/energy_drink");
     }
 
     protected void registerCrop() {

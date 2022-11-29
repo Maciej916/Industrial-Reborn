@@ -1,0 +1,19 @@
+{
+  "type": "indreb:canning",
+  "duration": 180,
+  "experience": 0.2,
+  "ingredients": [
+    {
+      "item": "minecraft:chicken"
+    },
+    {
+      "count": 2,
+      "item": "indreb:empty_can"
+    }
+  ],
+  "result": {
+    "count": 2,
+    "item": "indreb:canned_hunger"
+  },
+  "tick_energy_cost": 8
+}

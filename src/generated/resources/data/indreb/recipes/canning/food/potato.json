@@ -1,0 +1,17 @@
+{
+  "type": "indreb:canning",
+  "duration": 180,
+  "experience": 0.2,
+  "ingredients": [
+    {
+      "item": "minecraft:potato"
+    },
+    {
+      "item": "indreb:empty_can"
+    }
+  ],
+  "result": {
+    "item": "indreb:canned_food"
+  },
+  "tick_energy_cost": 8
+}

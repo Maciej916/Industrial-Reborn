@@ -1,0 +1,16 @@
+{
+  "type": "indreb:recycling",
+  "chance": 100.0,
+  "duration": 45,
+  "experience": 5.0,
+  "ingredients_included": [
+    {
+      "item": "minecraft:leather_horse_armor"
+    }
+  ],
+  "result": {
+    "count": 7,
+    "item": "minecraft:leather"
+  },
+  "tick_energy_cost": 1
+}

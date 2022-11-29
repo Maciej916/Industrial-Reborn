@@ -1,6 +1,12 @@
 {
   "entries": [
-    "indreb:iridium_shard"
+    "indreb:sprunk",
+    "indreb:canned_food",
+    "indreb:canned_hunger",
+    "indreb:iridium_shard",
+    "indreb:nuka_cola",
+    "indreb:canned_poison",
+    "indreb:energy_drink"
   ],
   "replace": false
 }

@@ -1,0 +1,15 @@
+{
+  "type": "indreb:recycling",
+  "chance": 100.0,
+  "duration": 45,
+  "experience": 1.5,
+  "ingredients_included": [
+    {
+      "tag": "indreb:canned_food"
+    }
+  ],
+  "result": {
+    "item": "indreb:empty_can"
+  },
+  "tick_energy_cost": 1
+}

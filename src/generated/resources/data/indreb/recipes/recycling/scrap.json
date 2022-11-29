@@ -5,18 +5,6 @@
   "experience": 0.0,
   "ingredients_excluded": [
     {
-      "tag": "indreb:electric_items"
-    },
-    {
-      "tag": "forge:glass_panes"
-    },
-    {
-      "tag": "forge:rods/all_metals"
-    },
-    {
-      "tag": "forge:rods/wooden"
-    },
-    {
       "item": "minecraft:snowball"
     },
     {
@@ -27,6 +15,18 @@
     },
     {
       "item": "indreb:advanced_machine_casing"
+    },
+    {
+      "tag": "indreb:electric_items"
+    },
+    {
+      "tag": "forge:glass_panes"
+    },
+    {
+      "tag": "forge:rods/all_metals"
+    },
+    {
+      "tag": "forge:rods/wooden"
     },
     {
       "tag": "indreb:basic_machine_sign"
@@ -48,6 +48,9 @@
     },
     {
       "tag": "indreb:battery_boxex"
+    },
+    {
+      "tag": "indreb:canned_food"
     },
     {
       "item": "minecraft:diamond_helmet"
@@ -86,6 +89,18 @@
       "item": "minecraft:golden_boots"
     },
     {
+      "item": "minecraft:leather_helmet"
+    },
+    {
+      "item": "minecraft:leather_chestplate"
+    },
+    {
+      "item": "minecraft:leather_leggings"
+    },
+    {
+      "item": "minecraft:leather_boots"
+    },
+    {
       "item": "indreb:bronze_helmet"
     },
     {
@@ -99,6 +114,84 @@
     },
     {
       "item": "indreb:debug_stick"
+    },
+    {
+      "item": "minecraft:iron_sword"
+    },
+    {
+      "item": "minecraft:golden_sword"
+    },
+    {
+      "item": "minecraft:diamond_sword"
+    },
+    {
+      "item": "indreb:bronze_sword"
+    },
+    {
+      "item": "minecraft:turtle_helmet"
+    },
+    {
+      "item": "minecraft:tnt"
+    },
+    {
+      "item": "minecraft:leather_horse_armor"
+    },
+    {
+      "item": "minecraft:iron_horse_armor"
+    },
+    {
+      "item": "minecraft:diamond_horse_armor"
+    },
+    {
+      "item": "minecraft:golden_horse_armor"
+    },
+    {
+      "item": "minecraft:iron_pickaxe"
+    },
+    {
+      "item": "minecraft:iron_axe"
+    },
+    {
+      "item": "minecraft:iron_shovel"
+    },
+    {
+      "item": "minecraft:iron_hoe"
+    },
+    {
+      "item": "minecraft:diamond_pickaxe"
+    },
+    {
+      "item": "minecraft:diamond_axe"
+    },
+    {
+      "item": "minecraft:diamond_shovel"
+    },
+    {
+      "item": "minecraft:diamond_hoe"
+    },
+    {
+      "item": "minecraft:golden_pickaxe"
+    },
+    {
+      "item": "minecraft:golden_axe"
+    },
+    {
+      "item": "minecraft:golden_shovel"
+    },
+    {
+      "item": "minecraft:golden_hoe"
+    },
+    {
+      "item": "indreb:bronze_pickaxe"
+    },
+    {
+      "item": "indreb:bronze_axe"
+    },
+    {
+      "item": "indreb:bronze_shovel"
+    },
+    {
+      "item": "indreb:bronze_hoe"
     }
   ],
   "result": {

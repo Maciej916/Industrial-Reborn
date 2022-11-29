@@ -1,0 +1,15 @@
+{
+  "type": "indreb:recycling",
+  "chance": 75.0,
+  "duration": 45,
+  "experience": 1.0,
+  "ingredients_included": [
+    {
+      "item": "indreb:bronze_shovel"
+    }
+  ],
+  "result": {
+    "item": "indreb:bronze_ingot"
+  },
+  "tick_energy_cost": 1
+}

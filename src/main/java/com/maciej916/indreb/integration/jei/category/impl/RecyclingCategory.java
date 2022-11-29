@@ -84,7 +84,27 @@ public class RecyclingCategory extends AbstractRecipeCategory<RecyclingRecipe> {
         }
 
         builder.addSlot(RecipeIngredientRole.INPUT, 9, 19).addItemStacks(inputItems);
-        builder.addSlot(RecipeIngredientRole.OUTPUT, halfX + 8, 19).addItemStack(recipe.getResultItem()).addTooltipCallback(new RecipeSlotTooltipCallback(recipe));
+
+        int resultSize = recipe.getResultItem().getCount();
+        List<ItemStack> resultItems = new ArrayList<>();
+        if (resultSize > 1) {
+
+            for (int i = resultSize; i >= 1; i--) {
+                ItemStack newStack = recipe.getResultItem();
+                newStack.setCount(i);
+                resultItems.add(newStack);
+            }
+
+//            for (int i = 1; i <= resultSize; i++) {
+//                ItemStack newStack = recipe.getResultItem();
+//                newStack.setCount(i);
+//                resultItems.add(newStack);
+//            }
+        } else {
+            resultItems.add(recipe.getResultItem());
+        }
+
+        builder.addSlot(RecipeIngredientRole.OUTPUT, halfX + 8, 19).addItemStacks(resultItems).addTooltipCallback(new RecipeSlotTooltipCallback(recipe));
     }
 
     @Override
@@ -104,7 +124,7 @@ public class RecyclingCategory extends AbstractRecipeCategory<RecyclingRecipe> {
         @Override
         public void onTooltip(IRecipeSlotView recipeSlotView, List<Component> tooltip) {
             Optional<ItemStack> displayedStack = recipeSlotView.getDisplayedItemStack();
-            displayedStack.ifPresent(stack -> tooltip.add(Component.translatable(stack.getCount() == 1 ? EnumLang.CHANCE.getTranslationKey() : EnumLang.CHANCE_TO_GET.getTranslationKey(), Component.literal((Math.round(recipe.getChance() * 100.0) / 100.0) + "%").withStyle(ChatFormatting.YELLOW)).withStyle(ChatFormatting.GRAY)));
+            displayedStack.ifPresent(stack -> tooltip.add(Component.translatable(EnumLang.CHANCE.getTranslationKey(), Component.literal((Math.round(recipe.getChance() * 100.0) / 100.0) + "%").withStyle(ChatFormatting.YELLOW)).withStyle(ChatFormatting.GRAY)));
         }
     }
 }

@@ -1,3 +1,9 @@
-// 1.19.2	2022-11-26T16:48:17.6217608	Global Loot Modifiers : indreb
-a7d38267ec80707a097ceeaa1de85e54778b8d09 data/forge/loot_modifiers/global_loot_modifiers.json
-b08e79878d965d3e0f2e3f0d8c7453803e3030eb data/indreb/loot_modifiers/iridium_shard.json
+// 1.19.2	2022-11-29T13:58:20.3517529	Global Loot Modifiers : indreb
+48f643e7f4ea0e8cd6051914187d2ce8bb15bfcb data/forge/loot_modifiers/global_loot_modifiers.json
+4fe7eb97d235d7811ad840c74c43a6c07a395139 data/indreb/loot_modifiers/canned_food.json
+d9e89ca41d9b5205eed65d168d0dbaef70217fbe data/indreb/loot_modifiers/canned_hunger.json
+ec8aa6a9a82a72ac0ba3730f8de153d537050ded data/indreb/loot_modifiers/canned_poison.json
+8011a80a6731f4a99d92a5ebc77c1e8d3ea5415a data/indreb/loot_modifiers/energy_drink.json
+faab0e26742e5a1dbec537b2203561706f6af619 data/indreb/loot_modifiers/iridium_shard.json
+cdbbe148dcaa66cc5680ed5e23c07056c9b5bfc3 data/indreb/loot_modifiers/nuka_cola.json
+08641d7d27e37ea2743463159c0132fa36fae9f8 data/indreb/loot_modifiers/sprunk.json

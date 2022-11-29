@@ -20,6 +20,7 @@ public final class ModItemTags {
     public static final TagKey<Item> CHESTPLATE = create("chestplate");
     public static final TagKey<Item> LEGGINGS = create("leggings");
     public static final TagKey<Item> BOOTS = create("boots");
+    public static final TagKey<Item> CANNED_FOOD = create("canned_food");
 
     public static final TagKey<Item> REACTOR_COMPONENT = create("reactor_component");
     public static final TagKey<Item> REACTOR_FUSION = create("reactor_fusion");

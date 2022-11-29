@@ -342,6 +342,17 @@ public class TagsItem extends ItemTagsProvider {
                 .add(ModItems.CHARGE_PAD_MFSU.get())
         ;
 
+        /* CANNED FOOD */
+
+        tag(ModItemTags.CANNED_FOOD)
+                .add(ModItems.CANNED_FOOD.get())
+                .add(ModItems.CANNED_CHORUS_FRUIT.get())
+                .add(ModItems.CANNED_GOLDEN_APPLE.get())
+                .add(ModItems.CANNED_ENCHANTED_GOLDEN_APPLE.get())
+                .add(ModItems.CANNED_POISON.get())
+                .add(ModItems.CANNED_HUNGER.get())
+        ;
+
 
 
     }

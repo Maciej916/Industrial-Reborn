@@ -1,0 +1,47 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "indreb:canning/food/spider_eye"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "spider_eye": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:spider_eye"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "tin_can": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:empty_can"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "spider_eye",
+      "tin_can",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "indreb:canning/food/spider_eye"
+    ]
+  }
+}

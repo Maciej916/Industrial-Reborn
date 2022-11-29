@@ -1,0 +1,47 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "glow_berries": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:glow_berries"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "indreb:canning/food/glow_berries"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "tin_can": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:empty_can"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "glow_berries",
+      "tin_can",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "indreb:canning/food/glow_berries"
+    ]
+  }
+}

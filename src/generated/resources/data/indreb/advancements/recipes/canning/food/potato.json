@@ -1,0 +1,47 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "indreb:canning/food/potato"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "potato": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:potato"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "tin_can": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:empty_can"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "potato",
+      "tin_can",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "indreb:canning/food/potato"
+    ]
+  }
+}

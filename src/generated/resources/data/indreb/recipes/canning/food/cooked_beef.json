@@ -1,0 +1,19 @@
+{
+  "type": "indreb:canning",
+  "duration": 180,
+  "experience": 0.2,
+  "ingredients": [
+    {
+      "item": "minecraft:cooked_beef"
+    },
+    {
+      "count": 8,
+      "item": "indreb:empty_can"
+    }
+  ],
+  "result": {
+    "count": 8,
+    "item": "indreb:canned_food"
+  },
+  "tick_energy_cost": 8
+}

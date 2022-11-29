@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "indreb:recycling/tools/iron_hoe"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "iron_hoe": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:iron_hoe"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "iron_hoe",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "indreb:recycling/tools/iron_hoe"
+    ]
+  }
+}

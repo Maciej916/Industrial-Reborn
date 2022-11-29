@@ -316,8 +316,6 @@
   "item.indreb.multi_tool": "Multi Tool-Wrench",
   "item.indreb.coil": "Coil",
   "item.indreb.electric_motor": "Electric Motor",
-  "item.indreb.tin_can": "Tin Can",
-  "item.indreb.filled_tin_can": "Canned Food",
   "item.indreb.scrap": "Scrap",
   "item.indreb.scrap_metal": "Scrap Metal",
   "item.indreb.scrap_box": "Scrap Box",
@@ -326,6 +324,18 @@
   "item.indreb.reinforced_foam_powder": "Reinforced Foam Powder",
   "item.indreb.fertilizer": "Fertilizer",
   "item.indreb.heat_conductor": "Heat Conductor",
+
+  "item.indreb.empty_can": "Empty Can",
+  "item.indreb.canned_food": "Canned Food",
+  "item.indreb.canned_chorus_fruit": "Canned Chorus Fruit",
+  "item.indreb.canned_golden_apple": "Canned Golden Apple",
+  "item.indreb.canned_enchanted_golden_apple": "Canned Enchanted Golden Apple",
+  "item.indreb.canned_poison": "Canned Poisonous Food",
+  "item.indreb.canned_hunger": "Canned Spoiled Food",
+
+  "item.indreb.nuka_cola": "Nuka Cola",
+  "item.indreb.sprunk": "Sprunk",
+  "item.indreb.energy_drink": "Energy Drink",
 
   "item.indreb.treetap": "Treetap",
   "item.indreb.wrench": "Wrench",

@@ -12,6 +12,7 @@ import com.maciej916.indreb.common.block.ModBlocks;
 import com.maciej916.indreb.common.blockitem.BlockItemIronScaffolding;
 import com.maciej916.indreb.common.item.impl.*;
 import com.maciej916.indreb.common.item.impl.armor.*;
+import com.maciej916.indreb.common.item.impl.food.*;
 import com.maciej916.indreb.common.item.impl.reactor.*;
 import com.maciej916.indreb.common.item.impl.tool.*;
 import com.maciej916.indreb.common.item.impl.upgrade.*;
@@ -354,8 +355,17 @@ public final class ModItems {
     public static final RegistryObject<Item> FLUID_CELL = registerItem("fluid_cell", FluidCell::new);
     public static final RegistryObject<Item> MEMORY_CARD = registerItem("memory_card", MemoryCard::new);
 
-    public static final RegistryObject<Item> TIN_CAN = registerItem("tin_can", FoodItem::new);
-    public static final RegistryObject<Item> FILLED_TIN_CAN = registerItem("filled_tin_can", FilledTinCan::new);
+    public static final RegistryObject<Item> EMPTY_CAN = registerItem("empty_can", FoodItem::new);
+    public static final RegistryObject<Item> CANNED_FOOD = registerItem("canned_food", CannedFood::new);
+    public static final RegistryObject<Item> CANNED_CHORUS_FRUIT = registerItem("canned_chorus_fruit", CannedChorusFruit::new);
+    public static final RegistryObject<Item> CANNED_GOLDEN_APPLE = registerItem("canned_golden_apple", CannedGoldenApple::new);
+    public static final RegistryObject<Item> CANNED_ENCHANTED_GOLDEN_APPLE = registerItem("canned_enchanted_golden_apple", CannedEnchantedGoldenApple::new);
+    public static final RegistryObject<Item> CANNED_POISON = registerItem("canned_poison", CannedPoison::new);
+    public static final RegistryObject<Item> CANNED_HUNGER = registerItem("canned_hunger", CannedHunger::new);
+
+    public static final RegistryObject<Item> NUKA_COLA = registerItem("nuka_cola", NukaCola::new);
+    public static final RegistryObject<Item> SPRUNK = registerItem("sprunk", Sprunk::new);
+    public static final RegistryObject<Item> ENERGY_DRINK = registerItem("energy_drink", EnergyDrink::new);
 
     public static final RegistryObject<Item> SMALL_COOLANT_CELL = registerItem("small_coolant_cell", () -> new CoolantCellItem(1, 10000));
     public static final RegistryObject<Item> MEDIUM_COOLANT_CELL = registerItem("medium_coolant_cell", () -> new CoolantCellItem(1, 30000));

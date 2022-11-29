@@ -1,0 +1,47 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "indreb:canning/food/chicken"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "rotten_flesh": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:chicken"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "tin_can": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:empty_can"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "rotten_flesh",
+      "tin_can",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "indreb:canning/food/chicken"
+    ]
+  }
+}

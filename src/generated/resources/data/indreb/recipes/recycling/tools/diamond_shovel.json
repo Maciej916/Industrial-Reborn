@@ -1,0 +1,15 @@
+{
+  "type": "indreb:recycling",
+  "chance": 75.0,
+  "duration": 45,
+  "experience": 1.0,
+  "ingredients_included": [
+    {
+      "item": "minecraft:diamond_shovel"
+    }
+  ],
+  "result": {
+    "item": "minecraft:diamond"
+  },
+  "tick_energy_cost": 1
+}
