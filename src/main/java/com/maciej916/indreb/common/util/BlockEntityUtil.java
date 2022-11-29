@@ -41,6 +41,8 @@ public class BlockEntityUtil {
         }
     }
 
+    /* TODO: FILL AND DRAIN CAN BE IMPROVED */
+
     public static boolean fillTank(Progress progress, FluidStorage fluidStorage, ItemStackHandler itemStackHandler, int upSlot, int downSlot) {
 
         final ItemStack fillBucketUp = itemStackHandler.getStackInSlot(upSlot);

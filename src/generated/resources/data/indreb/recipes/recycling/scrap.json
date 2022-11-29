@@ -1,0 +1,108 @@
+{
+  "type": "indreb:recycling",
+  "chance": 15.0,
+  "duration": 45,
+  "experience": 0.0,
+  "ingredients_excluded": [
+    {
+      "tag": "indreb:electric_items"
+    },
+    {
+      "tag": "forge:glass_panes"
+    },
+    {
+      "tag": "forge:rods/all_metals"
+    },
+    {
+      "tag": "forge:rods/wooden"
+    },
+    {
+      "item": "minecraft:snowball"
+    },
+    {
+      "item": "indreb:scrap"
+    },
+    {
+      "item": "indreb:basic_machine_casing"
+    },
+    {
+      "item": "indreb:advanced_machine_casing"
+    },
+    {
+      "tag": "indreb:basic_machine_sign"
+    },
+    {
+      "tag": "indreb:generators"
+    },
+    {
+      "tag": "indreb:machines"
+    },
+    {
+      "tag": "indreb:reactor_component"
+    },
+    {
+      "tag": "indreb:upgrade"
+    },
+    {
+      "tag": "indreb:transformers"
+    },
+    {
+      "tag": "indreb:battery_boxex"
+    },
+    {
+      "item": "minecraft:diamond_helmet"
+    },
+    {
+      "item": "minecraft:diamond_chestplate"
+    },
+    {
+      "item": "minecraft:diamond_leggings"
+    },
+    {
+      "item": "minecraft:diamond_boots"
+    },
+    {
+      "item": "minecraft:iron_helmet"
+    },
+    {
+      "item": "minecraft:iron_chestplate"
+    },
+    {
+      "item": "minecraft:iron_leggings"
+    },
+    {
+      "item": "minecraft:iron_boots"
+    },
+    {
+      "item": "minecraft:golden_helmet"
+    },
+    {
+      "item": "minecraft:golden_chestplate"
+    },
+    {
+      "item": "minecraft:golden_leggings"
+    },
+    {
+      "item": "minecraft:golden_boots"
+    },
+    {
+      "item": "indreb:bronze_helmet"
+    },
+    {
+      "item": "indreb:bronze_chestplate"
+    },
+    {
+      "item": "indreb:bronze_leggings"
+    },
+    {
+      "item": "indreb:bronze_boots"
+    },
+    {
+      "item": "indreb:debug_stick"
+    }
+  ],
+  "result": {
+    "item": "indreb:scrap"
+  },
+  "tick_energy_cost": 1
+}

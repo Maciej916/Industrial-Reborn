@@ -19,9 +19,10 @@ public final class ModRecipeSerializer {
     public static final RegistryObject<RecipeSerializer<FluidExtrudingRecipe>> FLUID_EXTRUDING = SERIALIZERS.register("fluid_extruding", () -> FluidExtrudingRecipe.SERIALIZER);
     public static final RegistryObject<RecipeSerializer<CanningRecipe>> CANNING = SERIALIZERS.register("canning", () -> CanningRecipe.SERIALIZER);
     public static final RegistryObject<RecipeSerializer<FluidEnrichingRecipe>> FLUID_ENRICHING = SERIALIZERS.register("fluid_enriching", () -> FluidEnrichingRecipe.SERIALIZER);
+    public static final RegistryObject<RecipeSerializer<RecyclingRecipe>> RECYCLING = SERIALIZERS.register("recycling", () -> RecyclingRecipe.SERIALIZER);
+
 
 //    public static final RegistryObject<RecipeSerializer<AlloySmeltingRecipe>> ALLOY_SMELTING = SERIALIZERS.register("alloy_smelting", () -> AlloySmeltingRecipe.SERIALIZER);
-//    public static final RegistryObject<RecipeSerializer<RecyclingRecipe>> RECYCLING = SERIALIZERS.register("recycling", () -> RecyclingRecipe.SERIALIZER);
 
 
 //    public static final RegistryObject<RecipeSerializer<ScrapBoxRecipe>> SCRAP_BOX = SERIALIZERS.register("scrap_box", () -> ScrapBoxRecipe.SERIALIZER);

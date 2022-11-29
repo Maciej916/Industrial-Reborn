@@ -1,4 +1,4 @@
-// 1.19.2	2022-11-28T18:16:45.1429719	Block States: indreb
+// 1.19.2	2022-11-29T01:23:39.0804753	Block States: indreb
 95b7796b1e598d400659dbc96f12d1f0d72cda55 assets/indreb/blockstates/acid_hazard_sign_block.json
 b0fdc040f5b7b7c6b701f4aed0ac0308e145cfc9 assets/indreb/blockstates/advanced_machine_casing.json
 9385543a17f96635caee1886dc56a82587c77604 assets/indreb/blockstates/advanced_solar_panel.json
@@ -70,6 +70,7 @@ a0a9a1744ba787ea3999577cad6e833f70757458 assets/indreb/blockstates/raw_silver_bl
 3b08993ba3a79a7431cb1a197425e2d1f9033705 assets/indreb/blockstates/reactor_chamber.json
 c10201c63649dcb775055fa2e579bc1459c324b6 assets/indreb/blockstates/reactor_control_rod.json
 648254842b11bea404c6332f9279eaa512630992 assets/indreb/blockstates/reactor_frame.json
+ac7437fba432bd5cb14db7b809803995c92d6944 assets/indreb/blockstates/recycler.json
 89e4a3d6baf4ad5ae002aacd443755cae99c9b73 assets/indreb/blockstates/reinforced_door.json
 292afc525f5beff540d465aacc1df2278a66264a assets/indreb/blockstates/reinforced_glass.json
 162947106369181a408281f1b6d378920b4edef7 assets/indreb/blockstates/reinforced_stone.json
@@ -203,6 +204,8 @@ e9e1b9835ebf9cd853604e49c35aa3955096679b assets/indreb/models/block/reactor_cont
 21ec5c04a6e6c312896bf110d95e98663e728a09 assets/indreb/models/block/reactor_frame.json
 afd721e37f6b6afe4ffa044d56edb0614dbdfc35 assets/indreb/models/block/reactor_frame_formed_corner.json
 ebb10d572432c0853564f53418c9e42294a38455 assets/indreb/models/block/reactor_frame_formed_side.json
+f5fd4df96f0f4d32b45fe5a35b1fa2ed259946c3 assets/indreb/models/block/recycler.json
+adccae1191f87f0605ca0592c5fe11b030f1cf4f assets/indreb/models/block/recycler_active.json
 a5b55ba3fbc37691f4faf1c9ccee790e0ec403a3 assets/indreb/models/block/reinforced_door_bottom_left.json
 16e94d284c406824c16e006ad8fc6c6edee8912e assets/indreb/models/block/reinforced_door_bottom_left_open.json
 00867320a459c9d4c4d7bb1f6a2eeadca25f040f assets/indreb/models/block/reinforced_door_bottom_right.json

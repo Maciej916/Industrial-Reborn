@@ -1,0 +1,8 @@
+{
+  "values": [
+    "indreb:lv_transformer",
+    "indreb:mv_transformer",
+    "indreb:hv_transformer",
+    "indreb:ev_transformer"
+  ]
+}

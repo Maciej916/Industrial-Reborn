@@ -1,0 +1,22 @@
+{
+  "type": "indreb:recycling",
+  "chance": 75.0,
+  "duration": 45,
+  "experience": 1.0,
+  "ingredients_included": [
+    {
+      "item": "indreb:basic_machine_casing"
+    },
+    {
+      "item": "indreb:advanced_machine_casing"
+    },
+    {
+      "tag": "indreb:basic_machine_sign"
+    }
+  ],
+  "result": {
+    "count": 8,
+    "item": "indreb:scrap_metal"
+  },
+  "tick_energy_cost": 1
+}

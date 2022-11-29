@@ -1,0 +1,16 @@
+{
+  "type": "indreb:recycling",
+  "chance": 75.0,
+  "duration": 45,
+  "experience": 2.0,
+  "ingredients_included": [
+    {
+      "item": "indreb:bronze_helmet"
+    }
+  ],
+  "result": {
+    "count": 5,
+    "item": "indreb:bronze_ingot"
+  },
+  "tick_energy_cost": 1
+}

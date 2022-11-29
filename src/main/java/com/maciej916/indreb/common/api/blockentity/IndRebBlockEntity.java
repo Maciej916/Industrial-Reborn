@@ -270,7 +270,7 @@ public class IndRebBlockEntity extends BaseBlockEntity implements IIndRebBlockEn
     }
 
     public boolean isElectricStorageItemValid(int slot, @NotNull ItemStack stack) {
-        return stack.is(ModItemTags.ELECTRIC);
+        return stack.is(ModItemTags.ELECTRIC_ITEMS);
     }
 
     private void initElectricStorage() {
@@ -721,7 +721,11 @@ public class IndRebBlockEntity extends BaseBlockEntity implements IIndRebBlockEn
         if (baseStorage != null) {
             for (BaseSlot slot : baseStorage.getBaseSlots()) {
                 if (slot.getInventorySlotType() != InventorySlotType.DISABLED) {
-                    stacks.add(baseStorage.getStackInSlot(slot.getSlotId()));
+                    try {
+                        stacks.add(baseStorage.getStackInSlot(slot.getSlotId()));
+                    } catch (Exception ignored) {
+
+                    }
                 }
             }
         }
@@ -729,7 +733,11 @@ public class IndRebBlockEntity extends BaseBlockEntity implements IIndRebBlockEn
         if (electricStorage != null) {
             for (BaseSlot slot : electricStorage.getElectricSlots()) {
                 if (slot.getInventorySlotType() != InventorySlotType.DISABLED) {
-                    stacks.add(electricStorage.getStackInSlot(slot.getSlotId()));
+                    try {
+                        stacks.add(electricStorage.getStackInSlot(slot.getSlotId()));
+                    } catch (Exception ignored) {
+
+                    }
                 }
             }
         }
@@ -737,7 +745,11 @@ public class IndRebBlockEntity extends BaseBlockEntity implements IIndRebBlockEn
         if (upgradesStorage != null) {
             for (BaseSlot slot : upgradesStorage.getUpgradeSlots()) {
                 if (slot.getInventorySlotType() != InventorySlotType.DISABLED) {
-                    stacks.add(upgradesStorage.getStackInSlot(slot.getSlotId()));
+                    try {
+                        stacks.add(upgradesStorage.getStackInSlot(slot.getSlotId()));
+                    } catch (Exception ignored) {
+
+                    }
                 }
             }
         }

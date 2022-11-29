@@ -17,6 +17,7 @@ import com.maciej916.indreb.common.block.impl.machines.basic.electric_furnace.Bl
 import com.maciej916.indreb.common.block.impl.machines.basic.extractor.BlockEntityExtractor;
 import com.maciej916.indreb.common.block.impl.machines.basic.extruder.BlockEntityExtruder;
 import com.maciej916.indreb.common.block.impl.machines.basic.fluid_enricher.BlockEntityFluidEnricher;
+import com.maciej916.indreb.common.block.impl.machines.basic.recycler.BlockEntityRecycler;
 import com.maciej916.indreb.common.block.impl.machines.basic.sawmill.BlockEntitySawmill;
 import com.maciej916.indreb.common.block.impl.machines.simple.iron_furnace.BlockEntityIronFurnace;
 import com.maciej916.indreb.common.block.impl.machines.simple.simple_compressor.BlockEntitySimpleCompressor;
@@ -69,6 +70,7 @@ public final class ModBlockEntities {
     public static final RegistryObject<BlockEntityType<BlockEntityExtruder>> EXTRUDER = BLOCK_ENTITIES.register("extruder", () -> BlockEntityType.Builder.of(BlockEntityExtruder::new, ModBlocks.EXTRUDER.get()).build(null));
     public static final RegistryObject<BlockEntityType<BlockEntityCanningMachine>> CANNING_MACHINE = BLOCK_ENTITIES.register("canning_machine", () -> BlockEntityType.Builder.of(BlockEntityCanningMachine::new, ModBlocks.CANNING_MACHINE.get()).build(null));
     public static final RegistryObject<BlockEntityType<BlockEntityFluidEnricher>> FLUID_ENRICHER = BLOCK_ENTITIES.register("fluid_enricher", () -> BlockEntityType.Builder.of(BlockEntityFluidEnricher::new, ModBlocks.FLUID_ENRICHER.get()).build(null));
+    public static final RegistryObject<BlockEntityType<BlockEntityRecycler>> RECYCLER = BLOCK_ENTITIES.register("recycler", () -> BlockEntityType.Builder.of(BlockEntityRecycler::new, ModBlocks.RECYCLER.get()).build(null));
 
 
 

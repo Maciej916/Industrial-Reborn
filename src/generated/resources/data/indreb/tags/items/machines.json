@@ -1,0 +1,13 @@
+{
+  "values": [
+    "indreb:electric_furnace",
+    "indreb:crusher",
+    "indreb:compressor",
+    "indreb:extractor",
+    "indreb:sawmill",
+    "indreb:extruder",
+    "indreb:canning_machine",
+    "indreb:fluid_enricher",
+    "indreb:recycler"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "indreb:block/machine/basic/recycler/recycler_bottom",
+    "east": "indreb:block/machine/basic/recycler/recycler_side",
+    "north": "indreb:block/machine/basic/recycler/recycler_front_active",
+    "particle": "indreb:block/machine/basic/recycler/recycler_front_active",
+    "south": "indreb:block/machine/basic/recycler/recycler_side",
+    "up": "indreb:block/machine/basic/recycler/recycler_top_active",
+    "west": "indreb:block/machine/basic/recycler/recycler_side"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "values": [
+    "indreb:battery_box",
+    "indreb:cesu",
+    "indreb:mfe",
+    "indreb:mfsu",
+    "indreb:charge_pad_battery_box",
+    "indreb:charge_pad_cesu",
+    "indreb:charge_pad_mfe",
+    "indreb:charge_pad_mfsu"
+  ]
+}

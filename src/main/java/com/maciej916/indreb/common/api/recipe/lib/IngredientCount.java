@@ -20,9 +20,21 @@ public class IngredientCount {
         this.ingredientsCount = NonNullList.withSize(size, 1);
     }
 
+    public IngredientCount() {
+        this.size = 0;
+        this.ingredients = NonNullList.create();
+        this.ingredientsCount = NonNullList.create();
+    }
+
     public void setIngredient(int index, Ingredient ingredient, int count) {
         this.ingredients.set(index, ingredient);
         this.ingredientsCount.set(index, count);
+    }
+
+    public void addIngredient(Ingredient ingredient, int count) {
+        this.ingredients.add(ingredient);
+        this.ingredientsCount.add(count);
+        size++;
     }
 
     public int getSize() {

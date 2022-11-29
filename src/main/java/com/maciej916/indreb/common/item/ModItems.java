@@ -159,8 +159,9 @@ public final class ModItems {
     public static final RegistryObject<Item> EXTRUDER = fromBlockElectric(ModBlocks.EXTRUDER);
     public static final RegistryObject<Item> CANNING_MACHINE = fromBlockElectric(ModBlocks.CANNING_MACHINE);
     public static final RegistryObject<Item> FLUID_ENRICHER = fromBlockElectric(ModBlocks.FLUID_ENRICHER);
+    public static final RegistryObject<Item> RECYCLER = fromBlockElectric(ModBlocks.RECYCLER);
 
-
+// add tags
 
 
 
@@ -250,6 +251,7 @@ public final class ModItems {
     public static final RegistryObject<Item> COIL = registerItem("coil", RedstoneItem::new);
     public static final RegistryObject<Item> ELECTRIC_MOTOR = registerItem("electric_motor", RedstoneItem::new);
     public static final RegistryObject<Item> SCRAP = registerItem("scrap", Scrap::new);
+    public static final RegistryObject<Item> SCRAP_METAL = registerItem("scrap_metal", MaterialItem::new);
     public static final RegistryObject<Item> SCRAP_BOX = registerItem("scrap_box", ScrapBox::new);
 
     public static final RegistryObject<Item> STICKY_RESIN = registerItem("sticky_resin", MaterialItem::new);

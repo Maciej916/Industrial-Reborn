@@ -1,4 +1,4 @@
-// 1.19.2	2022-11-28T18:16:45.1454603	Item Models: indreb
+// 1.19.2	2022-11-29T01:23:39.0734778	Item Models: indreb
 ea6f48b249d5595c0bc20e39b977fa8fad0ed868 assets/indreb/models/item/acid_hazard_sign_block.json
 4df0fe2021d7b228332497f5c7d711b40f082510 assets/indreb/models/item/advanced_alloy.json
 df0888ae05d095b7dbd4b54b411496df8d853b49 assets/indreb/models/item/advanced_battery.json
@@ -268,6 +268,7 @@ e22bcdd2a01cc5533c1c2ab3c878352453e369dd assets/indreb/models/item/reactor_chamb
 6acd633de40b7967dcc774e8cdfb59a382f44dd7 assets/indreb/models/item/reactor_heat_exchanger.json
 b13643cfff1c3eac37303102e59708126a424c4a assets/indreb/models/item/reactor_heat_vent.json
 a4116e7a99d7d18d630791195b17ce9733472ff6 assets/indreb/models/item/reactor_plating.json
+ab538854b61bfb8cfe173e6b2cb9160664e854bc assets/indreb/models/item/recycler.json
 41f9d5563131c0c7b97ebb5f33c292d0593fd46e assets/indreb/models/item/redstone_signal_inverter_upgrade.json
 0c0a6c6b28ae925fca4ce087273c6200f0d7c32c assets/indreb/models/item/reinforced_construction_foam.json
 4aac0bdef5f0e29e168020f204608ea13e13278a assets/indreb/models/item/reinforced_door.json
@@ -301,6 +302,7 @@ cbcc158f77bce46b2dfc8986f58c34631377a561 assets/indreb/models/item/rubber_wood.j
 bb3fd8f2d484a7760557c13d066e8ffeb7297509 assets/indreb/models/item/sawmill.json
 a3e09ab73b29d14af1053295b96ca5c370a696a7 assets/indreb/models/item/scrap.json
 104e5a7fbf6aebe94cb7ca07ef3371d27737b991 assets/indreb/models/item/scrap_box.json
+e6baa8fb80050f6cf3713d8243fb888faa2fbcf7 assets/indreb/models/item/scrap_metal.json
 b4861bd2385f21824839a712748e3eb4c2b7affc assets/indreb/models/item/semifluid_generator.json
 0bb31d70b7c451190cfdc579496dfb08b59eea80 assets/indreb/models/item/silver_block.json
 a6f2bb50e2070e4c00387c9ed04152b1761c76bd assets/indreb/models/item/silver_chunk.json

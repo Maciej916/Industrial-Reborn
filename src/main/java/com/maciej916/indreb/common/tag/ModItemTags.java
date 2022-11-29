@@ -11,7 +11,7 @@ import static com.maciej916.indreb.IndReb.MODID;
 public final class ModItemTags {
 
     public static final TagKey<Item> TREETAP = create("treetap");
-    public static final TagKey<Item> ELECTRIC = create("electric");
+    public static final TagKey<Item> ELECTRIC_ITEMS = create("electric_items");
     public static final TagKey<Item> BATTERY = create("battery");
     public static final TagKey<Item> WRENCH = create("wrench");
     public static final TagKey<Item> UPGRADE = create("upgrade");
@@ -23,11 +23,15 @@ public final class ModItemTags {
 
     public static final TagKey<Item> REACTOR_COMPONENT = create("reactor_component");
     public static final TagKey<Item> REACTOR_FUSION = create("reactor_fusion");
-    public static final TagKey<Item> BASE_MACHINE_SIGN = create("base_machine_sign");
+    public static final TagKey<Item> BASIC_MACHINE_SIGN = create("basic_machine_sign");
+
+    public static final TagKey<Item> GENERATORS = create("generators");
+    public static final TagKey<Item> MACHINES = create("machines");
+    public static final TagKey<Item> TRANSFORMERS = create("transformers");
+    public static final TagKey<Item> BATTERY_BOXEX = create("battery_boxex");
 
 
-
-
+    public static final TagKey<Item> FORGE_GLASS_PANES = create("forge", "glass_panes");
     public static final TagKey<Item> FORGE_BONES = create("forge", "bones");
     public static final TagKey<Item> FORGE_SAND = create("forge", "sand");
     public static final TagKey<Item> FORGE_GRAVEL = create("forge", "gravel");
@@ -92,6 +96,8 @@ public final class ModItemTags {
     public static final TagKey<Item> FORGE_DUSTS_SULFUR = create("forge", "dusts/sulfur");
 
     public static final TagKey<Item> FORGE_RODS_IRON = create("forge", "rods/iron");
+    public static final TagKey<Item> FORGE_RODS_ALL_METALS = create("forge", "rods/all_metals");
+    public static final TagKey<Item> FORGE_RODS_WOODEN = create("forge", "rods/wooden");
 
     public static final TagKey<Item> FORGE_GEMS_LAPIS = create("forge", "gems/lapis");
     public static final TagKey<Item> FORGE_GEMS_DIAMOND = create("forge", "gems/diamond");

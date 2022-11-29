@@ -1,0 +1,15 @@
+{
+  "values": [
+    "indreb:generator",
+    "indreb:solar_panel",
+    "indreb:advanced_solar_panel",
+    "indreb:hybrid_solar_panel",
+    "indreb:quantum_solar_panel",
+    "indreb:geo_generator",
+    "indreb:semifluid_generator",
+    "indreb:nuclear_reactor",
+    "indreb:reactor_chamber",
+    "indreb:reactor_control_rod",
+    "indreb:reactor_frame"
+  ]
+}

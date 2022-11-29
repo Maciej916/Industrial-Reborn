@@ -319,6 +319,7 @@
   "item.indreb.tin_can": "Tin Can",
   "item.indreb.filled_tin_can": "Canned Food",
   "item.indreb.scrap": "Scrap",
+  "item.indreb.scrap_metal": "Scrap Metal",
   "item.indreb.scrap_box": "Scrap Box",
   "item.indreb.bio_chaff": "Bio Chaff",
   "item.indreb.foam_powder": "Foam Powder",
@@ -449,6 +450,7 @@
   "jei.indreb.cutting": "Cutting",
 
   "jei.indreb.chance": "Chance: %s",
+  "jei.indreb.chance_to_get": "Chance to get at least one item: %s",
 
   "_comment": "TOP",
   "top.indreb.current_voltage": "Current voltage: %s",

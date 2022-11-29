@@ -251,6 +251,7 @@ public class ItemTextures extends ItemModelProvider {
         createGeneratedTexture(ModItems.COIL, "crafting/coil");
         createGeneratedTexture(ModItems.ELECTRIC_MOTOR, "crafting/electric_motor");
         createGeneratedTexture(ModItems.SCRAP, "crafting/scrap");
+        createGeneratedTexture(ModItems.SCRAP_METAL, "crafting/scrap_metal");
         createGeneratedTexture(ModItems.SCRAP_BOX, "crafting/scrap_box");
     }
 
@@ -481,6 +482,7 @@ public class ItemTextures extends ItemModelProvider {
         createWithBlock(ModItems.EXTRUDER, "extruder");
         createWithBlock(ModItems.CANNING_MACHINE, "canning_machine");
         createWithBlock(ModItems.FLUID_ENRICHER, "fluid_enricher");
+        createWithBlock(ModItems.RECYCLER, "recycler");
 
     }
 

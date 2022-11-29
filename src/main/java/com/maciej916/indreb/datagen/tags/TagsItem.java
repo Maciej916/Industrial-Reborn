@@ -189,7 +189,7 @@ public class TagsItem extends ItemTagsProvider {
 
         /* BASE MACHINE SIGN */
 
-        tag(ModItemTags.BASE_MACHINE_SIGN)
+        tag(ModItemTags.BASIC_MACHINE_SIGN)
                 .add(ModItems.YELLOW_STRIPES_BLOCK_LEFT.get())
                 .add(ModItems.YELLOW_STRIPES_BLOCK_RIGHT.get())
                 .add(ModItems.RADIOACTIVE_HAZARD_SIGN_BLOCK.get())
@@ -233,7 +233,7 @@ public class TagsItem extends ItemTagsProvider {
 
         /* ELECTRIC */
 
-        tag(ModItemTags.ELECTRIC)
+        tag(ModItemTags.ELECTRIC_ITEMS)
                 .add(ModItems.NANO_HELMET.get())
                 .add(ModItems.NANO_CHESTPLATE.get())
                 .add(ModItems.NANO_LEGGINGS.get())
@@ -289,6 +289,59 @@ public class TagsItem extends ItemTagsProvider {
                 .add(ModItems.ADVANCED_FLUID_EJECTOR_UPGRADE.get())
                 .add(ModItems.ADVANCED_FLUID_PULLING_UPGRADE.get())
         ;
+        /* GENERATORS */
+
+        tag(ModItemTags.GENERATORS)
+                .add(ModItems.GENERATOR.get())
+                .add(ModItems.SOLAR_PANEL.get())
+                .add(ModItems.ADVANCED_SOLAR_PANEL.get())
+                .add(ModItems.HYBRID_SOLAR_PANEL.get())
+                .add(ModItems.QUANTUM_SOLAR_PANEL.get())
+                .add(ModItems.GEO_GENERATOR.get())
+                .add(ModItems.SEMIFLUID_GENERATOR.get())
+                .add(ModItems.NUCLEAR_REACTOR.get())
+                .add(ModItems.REACTOR_CHAMBER.get())
+                .add(ModItems.REACTOR_CONTROL_ROD.get())
+                .add(ModItems.REACTOR_FRAME.get())
+        ;
+
+        /* MACHINES */
+
+        tag(ModItemTags.MACHINES)
+                .add(ModItems.ELECTRIC_FURNACE.get())
+                .add(ModItems.CRUSHER.get())
+                .add(ModItems.COMPRESSOR.get())
+                .add(ModItems.EXTRACTOR.get())
+                .add(ModItems.SAWMILL.get())
+                .add(ModItems.EXTRUDER.get())
+                .add(ModItems.CANNING_MACHINE.get())
+                .add(ModItems.FLUID_ENRICHER.get())
+                .add(ModItems.RECYCLER.get())
+
+        ;
+
+        /* TRANSFORMERS */
+
+        tag(ModItemTags.TRANSFORMERS)
+                .add(ModItems.LV_TRANSFORMER.get())
+                .add(ModItems.MV_TRANSFORMER.get())
+                .add(ModItems.HV_TRANSFORMER.get())
+                .add(ModItems.EV_TRANSFORMER.get())
+        ;
+
+        /* BATTERY BOXES */
+
+        tag(ModItemTags.BATTERY_BOXEX)
+                .add(ModItems.BATTERY_BOX.get())
+                .add(ModItems.CESU.get())
+                .add(ModItems.MFE.get())
+                .add(ModItems.MFSU.get())
+                .add(ModItems.CHARGE_PAD_BATTERY_BOX.get())
+                .add(ModItems.CHARGE_PAD_CESU.get())
+                .add(ModItems.CHARGE_PAD_MFE.get())
+                .add(ModItems.CHARGE_PAD_MFSU.get())
+        ;
+
 
 
     }

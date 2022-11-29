@@ -35,7 +35,7 @@ public class ElectricSlotItemHandler extends BaseSlotItemHandler {
         }
 
         return switch (inventorySlotType) {
-            case ELECTRIC -> stack.is(ModItemTags.ELECTRIC) || stack.is(ModItemTags.BATTERY);
+            case ELECTRIC -> stack.is(ModItemTags.ELECTRIC_ITEMS) || stack.is(ModItemTags.BATTERY);
             case BATTERY -> stack.is(ModItemTags.BATTERY);
             case HELMET -> stack.is(ModItemTags.HELMET);
             case CHESTPLATE -> stack.is(ModItemTags.CHESTPLATE);
