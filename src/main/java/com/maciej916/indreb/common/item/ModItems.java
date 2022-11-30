@@ -161,6 +161,7 @@ public final class ModItems {
     public static final RegistryObject<Item> CANNING_MACHINE = fromBlockElectric(ModBlocks.CANNING_MACHINE);
     public static final RegistryObject<Item> FLUID_ENRICHER = fromBlockElectric(ModBlocks.FLUID_ENRICHER);
     public static final RegistryObject<Item> RECYCLER = fromBlockElectric(ModBlocks.RECYCLER);
+    public static final RegistryObject<Item> METAL_FORMER = fromBlockElectric(ModBlocks.METAL_FORMER);
 
 
     public static final RegistryObject<Item> ALLOY_SMELTER = fromBlockElectric(ModBlocks.ALLOY_SMELTER);

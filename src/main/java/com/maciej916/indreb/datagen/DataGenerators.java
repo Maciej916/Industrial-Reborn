@@ -39,6 +39,9 @@ public class DataGenerators {
         generator.addProvider(event.includeServer(), new CanningRecipeProvider(generator));
         generator.addProvider(event.includeServer(), new FluidEnrichingProvider(generator));
         generator.addProvider(event.includeServer(), new RecyclingRecipeProvider(generator));
+        generator.addProvider(event.includeServer(), new CuttingRecipeProvider(generator));
+        generator.addProvider(event.includeServer(), new RollingRecipeProvider(generator));
+        generator.addProvider(event.includeServer(), new ExtrudingRecipeProvider(generator));
 
         generator.addProvider(event.includeServer(), new AlloySmeltingRecipeProvider(generator));
     }

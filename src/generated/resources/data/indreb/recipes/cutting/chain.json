@@ -1,0 +1,16 @@
+{
+  "type": "indreb:cutting",
+  "duration": 180,
+  "experience": 0.5,
+  "ingredients": [
+    {
+      "count": 8,
+      "item": "minecraft:iron_nugget"
+    }
+  ],
+  "result": {
+    "count": 16,
+    "item": "minecraft:chain"
+  },
+  "tick_energy_cost": 8
+}

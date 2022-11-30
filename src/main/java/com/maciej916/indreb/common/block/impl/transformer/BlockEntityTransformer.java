@@ -41,7 +41,7 @@ public class BlockEntityTransformer extends IndRebBlockEntity implements IBlockE
             @Override
             public int get(int index) {
                 return switch (index) {
-                    case 0 -> BlockEntityTransformer.this.getTransformerMode().getModeFromId();
+                    case 0 -> BlockEntityTransformer.this.getTransformerMode().getMode();
                     default -> 0;
                 };
             }
@@ -49,7 +49,7 @@ public class BlockEntityTransformer extends IndRebBlockEntity implements IBlockE
             @Override
             public void set(int index, int value) {
                 switch (index) {
-                    case 0 -> BlockEntityTransformer.this.setTransformerMode(TransformerMode.getModeFromId(index));
+                    case 0 -> BlockEntityTransformer.this.setTransformerMode(TransformerMode.getMode(index));
                 }
             }
 
@@ -100,14 +100,14 @@ public class BlockEntityTransformer extends IndRebBlockEntity implements IBlockE
     public void load(CompoundTag tag) {
         super.load(tag);
 
-        this.transformerMode = TransformerMode.getModeFromId(tag.getInt("transformerMode"));
+        this.transformerMode = TransformerMode.getMode(tag.getInt("transformerMode"));
     }
 
     @Override
     protected void saveAdditional(CompoundTag tag) {
         super.saveAdditional(tag);
 
-        tag.putInt("transformerMode", transformerMode.getModeFromId());
+        tag.putInt("transformerMode", transformerMode.getMode());
     }
 
     @Override

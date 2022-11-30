@@ -1,0 +1,15 @@
+{
+  "type": "indreb:cutting",
+  "duration": 180,
+  "experience": 0.5,
+  "ingredients": [
+    {
+      "tag": "forge:plates/tin"
+    }
+  ],
+  "result": {
+    "count": 3,
+    "item": "indreb:tin_cable"
+  },
+  "tick_energy_cost": 8
+}

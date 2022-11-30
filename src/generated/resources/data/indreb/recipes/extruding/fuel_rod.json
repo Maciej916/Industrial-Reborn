@@ -1,0 +1,14 @@
+{
+  "type": "indreb:extruding",
+  "duration": 180,
+  "experience": 0.5,
+  "ingredients": [
+    {
+      "item": "indreb:fluid_cell"
+    }
+  ],
+  "result": {
+    "item": "indreb:fuel_rod"
+  },
+  "tick_energy_cost": 8
+}

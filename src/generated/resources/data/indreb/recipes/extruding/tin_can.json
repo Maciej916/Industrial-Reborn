@@ -1,0 +1,14 @@
+{
+  "type": "indreb:extruding",
+  "duration": 180,
+  "experience": 0.5,
+  "ingredients": [
+    {
+      "tag": "forge:plates/tin"
+    }
+  ],
+  "result": {
+    "item": "indreb:empty_can"
+  },
+  "tick_energy_cost": 8
+}

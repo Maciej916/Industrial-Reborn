@@ -1,0 +1,15 @@
+{
+  "type": "indreb:extruding",
+  "duration": 180,
+  "experience": 0.5,
+  "ingredients": [
+    {
+      "tag": "forge:ingots/iron"
+    }
+  ],
+  "result": {
+    "count": 4,
+    "item": "indreb:hv_cable"
+  },
+  "tick_energy_cost": 8
+}

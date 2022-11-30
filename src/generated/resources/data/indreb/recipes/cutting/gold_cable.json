@@ -1,0 +1,15 @@
+{
+  "type": "indreb:cutting",
+  "duration": 180,
+  "experience": 0.5,
+  "ingredients": [
+    {
+      "tag": "forge:plates/gold"
+    }
+  ],
+  "result": {
+    "count": 3,
+    "item": "indreb:gold_cable"
+  },
+  "tick_energy_cost": 8
+}

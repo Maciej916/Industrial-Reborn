@@ -33,7 +33,7 @@ public class ScreenTransformer extends IndRebScreen<MenuTransformer> {
     @Override
     public void updateData() {
         super.updateData();
-        entity.setTransformerMode(TransformerMode.getModeFromId(menu.getData().get(0)));
+        entity.setTransformerMode(TransformerMode.getMode(menu.getData().get(0)));
     }
 
     @Override

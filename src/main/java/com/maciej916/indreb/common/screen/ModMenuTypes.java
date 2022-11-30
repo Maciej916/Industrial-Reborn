@@ -9,7 +9,6 @@ import com.maciej916.indreb.common.block.impl.generator.geo_generator.MenuGeoGen
 import com.maciej916.indreb.common.block.impl.generator.reactor.nuclear_reactor.MenuNuclearReactor;
 import com.maciej916.indreb.common.block.impl.generator.semifluid_generator.MenuSemifluidGenerator;
 import com.maciej916.indreb.common.block.impl.generator.solar_panel.MenuSolarPanel;
-import com.maciej916.indreb.common.block.impl.machines.standard.alloy_smelter.MenuAlloySmelter;
 import com.maciej916.indreb.common.block.impl.machines.basic.canning_machine.MenuCanningMachine;
 import com.maciej916.indreb.common.block.impl.machines.basic.compressor.MenuCompressor;
 import com.maciej916.indreb.common.block.impl.machines.basic.crusher.MenuCrusher;
@@ -17,12 +16,14 @@ import com.maciej916.indreb.common.block.impl.machines.basic.electric_furnace.Me
 import com.maciej916.indreb.common.block.impl.machines.basic.extractor.MenuExtractor;
 import com.maciej916.indreb.common.block.impl.machines.basic.extruder.MenuExtruder;
 import com.maciej916.indreb.common.block.impl.machines.basic.fluid_enricher.MenuFluidEnricher;
+import com.maciej916.indreb.common.block.impl.machines.basic.metal_former.MenuMetalFormer;
 import com.maciej916.indreb.common.block.impl.machines.basic.recycler.MenuRecycler;
 import com.maciej916.indreb.common.block.impl.machines.basic.sawmill.MenuSawmill;
 import com.maciej916.indreb.common.block.impl.machines.simple.iron_furnace.MenuIronFurnace;
 import com.maciej916.indreb.common.block.impl.machines.simple.simple_compressor.MenuSimpleCompressor;
 import com.maciej916.indreb.common.block.impl.machines.simple.simple_crusher.MenuSimpleCrusher;
 import com.maciej916.indreb.common.block.impl.machines.simple.simple_extractor.MenuSimpleExtractor;
+import com.maciej916.indreb.common.block.impl.machines.standard.alloy_smelter.MenuAlloySmelter;
 import com.maciej916.indreb.common.block.impl.transformer.MenuTransformer;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.MenuType;
@@ -65,12 +66,14 @@ public final class ModMenuTypes {
     public static final RegistryObject<MenuType<MenuCanningMachine>> CANNING_MACHINE = registerMenuType(MenuCanningMachine::new, "canning_machine");
     public static final RegistryObject<MenuType<MenuFluidEnricher>> FLUID_ENRICHER = registerMenuType(MenuFluidEnricher::new, "fluid_enricher");
     public static final RegistryObject<MenuType<MenuRecycler>> RECYCLER = registerMenuType(MenuRecycler::new, "recycler");
+    public static final RegistryObject<MenuType<MenuMetalFormer>> METAL_FORMER = registerMenuType(MenuMetalFormer::new, "metal_former");
+
     public static final RegistryObject<MenuType<MenuAlloySmelter>> ALLOY_SMELTER = registerMenuType(MenuAlloySmelter::new, "alloy_smelter");
 
 
 //    public static final RegistryObject<MenuType<MenuFermenter>> FERMENTER = registerMenuType("fermenter",  MenuFermenter::new);
 //    public static final RegistryObject<MenuType<MenuOreWashingPlant>> ORE_WASHING_PLANT = registerMenuType("ore_washing_plant",  MenuOreWashingPlant::new);
-//    public static final RegistryObject<MenuType<MenuMetalFormer>> METAL_FORMER = registerMenuType("metal_former",  MenuMetalFormer::new);
+
 //
 //    public static final RegistryObject<MenuType<MenuMatterFabricator>> MATTER_FABRICATOR = registerMenuType("matter_fabricator",  MenuMatterFabricator::new);
 //    public static final RegistryObject<MenuType<MenuThermalCentrifuge>> THERMAL_CENTRIFUGE = registerMenuType("thermal_centrifuge",  MenuThermalCentrifuge::new);

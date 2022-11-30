@@ -1,0 +1,15 @@
+{
+  "type": "indreb:extruding",
+  "duration": 180,
+  "experience": 0.5,
+  "ingredients": [
+    {
+      "tag": "forge:ingots/gold"
+    }
+  ],
+  "result": {
+    "count": 3,
+    "item": "indreb:gold_cable"
+  },
+  "tick_energy_cost": 8
+}

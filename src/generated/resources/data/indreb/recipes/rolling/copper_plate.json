@@ -1,0 +1,14 @@
+{
+  "type": "indreb:rolling",
+  "duration": 180,
+  "experience": 0.5,
+  "ingredients": [
+    {
+      "tag": "forge:ingots/copper"
+    }
+  ],
+  "result": {
+    "item": "indreb:copper_plate"
+  },
+  "tick_energy_cost": 8
+}

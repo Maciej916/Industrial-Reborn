@@ -4,22 +4,31 @@ import com.maciej916.indreb.common.api.block.IndRebEntityBlock;
 import com.maciej916.indreb.common.api.multiblock.MultiBlockTools;
 import com.maciej916.indreb.common.block.impl.generator.reactor.BlockEntityReactorPart;
 import com.maciej916.indreb.common.block.impl.generator.reactor.nuclear_reactor.BlockNuclearReactor;
+import com.maciej916.indreb.common.enums.EnumLang;
 import com.maciej916.indreb.common.multiblock.reactor.IReactorPart;
 import com.maciej916.indreb.common.multiblock.reactor.ReactorMultiBlock;
 import com.maciej916.indreb.common.multiblock.reactor.ReactorPartIndex;
 import com.maciej916.indreb.common.tag.ModBlockTags;
 import com.maciej916.indreb.common.util.BlockStateHelper;
 import com.maciej916.indreb.common.util.BlockUtil;
+import com.maciej916.indreb.common.util.TextComponentUtil;
 import com.maciej916.indreb.common.util.wrench.WrenchHelper;
+import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
+import net.minecraft.network.chat.Component;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
 import org.jetbrains.annotations.Nullable;
+
+import java.util.List;
 
 public class BlockReactorChamber extends IndRebEntityBlock implements IReactorPart {
 
@@ -65,6 +74,14 @@ public class BlockReactorChamber extends IndRebEntityBlock implements IReactorPa
         }
 
         super.onRemove(oldState, level, blockPos, newState, isMoving);
+    }
+
+    @Override
+    public void appendHoverText(ItemStack pStack, @javax.annotation.Nullable BlockGetter pLevel, List<Component> pTooltip, TooltipFlag pFlag) {
+        pTooltip.add(TextComponentUtil.build(
+                Component.translatable(EnumLang.MULTIBLOK_PART.getTranslationKey()).withStyle(ChatFormatting.GRAY),
+                Component.literal(" 3x3x3").withStyle(ChatFormatting.DARK_GRAY)
+        ));
     }
 
 }

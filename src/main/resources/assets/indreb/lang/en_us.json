@@ -505,6 +505,7 @@
   "tooltip.indreb.core_heat": "Core Heat: %s",
   "tooltip.indreb.reactor_play_pause": "Start / Stop The Reactor",
   "tooltip.indreb.heat": "Heat: %s",
+  "tooltip.indreb.multiblok_part": "Multiblock part:",
 
   "_comment": "Upgrade",
   "item.indreb.overclocker_upgrade": "Overclocker Upgrade",

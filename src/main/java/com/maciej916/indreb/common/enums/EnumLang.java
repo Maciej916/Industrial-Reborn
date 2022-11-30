@@ -32,6 +32,7 @@ public enum EnumLang {
     CABLE_UNISOLATED("cable_unisolated", "tooltip"),
     LOW("low", "tooltip"),
     HIGH("high", "tooltip"),
+    MULTIBLOK_PART("multiblok_part", "tooltip"),
 
     HEAT("heat", "gui"),
     ARMOUR("armour", "gui"),

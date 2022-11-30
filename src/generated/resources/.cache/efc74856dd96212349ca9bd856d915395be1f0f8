@@ -1,4 +1,4 @@
-// 1.19.2	2022-11-30T14:56:40.215016	Item Models: indreb
+// 1.19.2	2022-11-30T18:56:33.5592731	Item Models: indreb
 ea6f48b249d5595c0bc20e39b977fa8fad0ed868 assets/indreb/models/item/acid_hazard_sign_block.json
 4df0fe2021d7b228332497f5c7d711b40f082510 assets/indreb/models/item/advanced_alloy.json
 df0888ae05d095b7dbd4b54b411496df8d853b49 assets/indreb/models/item/advanced_battery.json
@@ -215,6 +215,7 @@ d410692e439b73d4ac10371e7d4ff920ed5d3179 assets/indreb/models/item/lv_transforme
 49b75fa1b4bcded7efea11cbc4602817f58bce5d assets/indreb/models/item/magic_hazard_sign_block.json
 eef4f0cab4731409a2d2fb176f2514fe6f6916f0 assets/indreb/models/item/medium_coolant_cell.json
 caca55b827fb8a4af77150ec30140cb6423a7d6c assets/indreb/models/item/memory_card.json
+09dc5d8d751b28b2f98fc82adf181ee2a0b810fc assets/indreb/models/item/metal_former.json
 ad9b3b1eed95c2a51c286c8f4808b889cb179d0b assets/indreb/models/item/mfe.json
 b6b081956ae7b2bd7dda47bafa3477fe1288386a assets/indreb/models/item/mfsu.json
 156fd91797160791c853cdde72ab2e2074d55931 assets/indreb/models/item/mining_drill.json

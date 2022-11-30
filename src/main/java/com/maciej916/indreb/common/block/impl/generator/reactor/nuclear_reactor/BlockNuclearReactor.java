@@ -108,5 +108,10 @@ public class BlockNuclearReactor extends BaseMachineBlock implements IReactorPar
                 Component.literal(" - ").withStyle(ChatFormatting.GRAY),
                 EnergyTier.SUPER.getLang().getTranslationComponent().withStyle(EnergyTier.SUPER.getColor())
         ));
+
+        pTooltip.add(TextComponentUtil.build(
+                Component.translatable(EnumLang.MULTIBLOK_PART.getTranslationKey()).withStyle(ChatFormatting.GRAY),
+                Component.literal(" 3x3x3").withStyle(ChatFormatting.DARK_GRAY)
+        ));
     }
 }

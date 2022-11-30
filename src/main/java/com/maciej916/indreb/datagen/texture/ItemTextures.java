@@ -493,6 +493,7 @@ public class ItemTextures extends ItemModelProvider {
         createWithBlock(ModItems.CANNING_MACHINE, "canning_machine");
         createWithBlock(ModItems.FLUID_ENRICHER, "fluid_enricher");
         createWithBlock(ModItems.RECYCLER, "recycler");
+        createWithBlock(ModItems.METAL_FORMER, "metal_former");
 
     }
 

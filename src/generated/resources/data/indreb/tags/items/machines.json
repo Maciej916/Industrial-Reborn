@@ -9,6 +9,7 @@
     "indreb:canning_machine",
     "indreb:fluid_enricher",
     "indreb:recycler",
+    "indreb:metal_former",
     "indreb:alloy_smelter"
   ]
 }

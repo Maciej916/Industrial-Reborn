@@ -3,14 +3,8 @@ package com.maciej916.indreb.common.item.impl.tool;
 import com.maciej916.indreb.IndReb;
 import com.maciej916.indreb.common.api.blockentity.interfaces.IIndRebBlockEntity;
 import com.maciej916.indreb.common.api.energy.BasicEnergyStorage;
-import com.maciej916.indreb.common.api.energy.interfaces.IEnergyStorage;
 import com.maciej916.indreb.common.api.enums.EnergyType;
-import com.maciej916.indreb.common.api.interfaces.block.IBlockCable;
 import com.maciej916.indreb.common.api.item.base.BaseItem;
-import com.maciej916.indreb.common.capability.ModCapabilities;
-import com.maciej916.indreb.common.energy.EnergyNetwork;
-import com.maciej916.indreb.common.energy.interfaces.IEnergyCore;
-import com.maciej916.indreb.common.util.CapabilityUtil;
 import com.maciej916.indreb.common.util.TextComponentUtil;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
@@ -56,41 +50,41 @@ public class IEMeter extends BaseItem {
 
             if (player != null && player.isShiftKeyDown()) {
                 BlockState blockState = level.getBlockState(pos);
-                if (blockState.getBlock() instanceof IBlockCable) {
-                    IEnergyCore capCore = CapabilityUtil.getCapabilityHelper(level, ModCapabilities.ENERGY_CORE).getValue();
-                    if (capCore != null) {
-                        EnergyNetwork network = capCore.getNetworks().getNetwork(pos);
-                        if (network != null) {
-                            int generators = 0;
-                            int machines = 0;
-                            int batteries = 0;
-                            for (BlockPos elPos : network.getElectrics()) {
-                                BlockEntity entity = level.getBlockEntity(elPos);
-                                IEnergyStorage cap = CapabilityUtil.getCapabilityHelper(entity, ModCapabilities.ENERGY, null).getValue();
-                                if (cap != null) {
-                                    generators += cap.energyType() == EnergyType.EXTRACT ? 1 : 0;
-                                    machines += cap.energyType() == EnergyType.RECEIVE ? 1 : 0;
-                                    batteries += cap.energyType() == EnergyType.BOTH ? 1 : 0;
-                                }
-                            }
-
-                            ChatFormatting color = network.getEnergyTier().getColor();
-                            player.displayClientMessage(Component.literal("====================================").withStyle(ChatFormatting.GRAY), false);
-                            player.displayClientMessage(Component.translatable("ie." + IndReb.MODID + ".network_info"), false);
-                            player.displayClientMessage(Component.literal(""), false);
-                            player.displayClientMessage(Component.translatable("tooltip." + IndReb.MODID + ".current_voltage", network.getEnergyFlowing() != null ? Component.translatable(network.getEnergyFlowing().getLang().getTranslationKey()).withStyle(network.getEnergyFlowing().getColor()) : Component.literal("-")), false);
-                            player.displayClientMessage(Component.translatable("tooltip." + IndReb.MODID + ".power_tier", Component.translatable(network.getEnergyTier().getLang().getTranslationKey()).withStyle(color)), false);
-                            player.displayClientMessage(Component.translatable("tooltip." + IndReb.MODID + ".transfer", Component.translatable(TextComponentUtil.getFormattedLong(network.getEnergyTier().getBasicTransfer()) + " IE/t").withStyle(color)), false);
-                            player.displayClientMessage(Component.translatable("ie." + IndReb.MODID + ".connected_generators",Component.literal(String.valueOf(generators)).withStyle(color)), false);
-                            player.displayClientMessage(Component.translatable("ie." + IndReb.MODID + ".connected_machines",Component.literal(String.valueOf(machines)).withStyle(color)), false);
-                            player.displayClientMessage(Component.translatable("ie." + IndReb.MODID + ".connected_batteries",Component.literal(String.valueOf(batteries)).withStyle(color)), false);
-                            player.displayClientMessage(Component.translatable("tooltip." + IndReb.MODID + ".stored_capacity",Component.literal(TextComponentUtil.getFormattedLong(network.energyStored()) + " IE").withStyle(color),Component.literal(TextComponentUtil.getFormattedLong(network.maxEnergy()) + " IE").withStyle(color)), false);
-                            player.displayClientMessage(Component.literal("====================================").withStyle(ChatFormatting.GRAY), false);
-
-                            return InteractionResult.SUCCESS;
-                        }
-                    }
-                }
+//                if (blockState.getBlock() instanceof IBlockCable) {
+//                    IEnergyCore capCore = CapabilityUtil.getCapabilityHelper(level, ModCapabilities.ENERGY_CORE).getValue();
+//                    if (capCore != null) {
+//                        EnergyNetwork network = capCore.getNetworks().getNetwork(pos);
+//                        if (network != null) {
+//                            int generators = 0;
+//                            int machines = 0;
+//                            int batteries = 0;
+//                            for (BlockPos elPos : network.getElectrics()) {
+//                                BlockEntity entity = level.getBlockEntity(elPos);
+//                                IEnergyStorage cap = CapabilityUtil.getCapabilityHelper(entity, ModCapabilities.ENERGY, null).getValue();
+//                                if (cap != null) {
+//                                    generators += cap.energyType() == EnergyType.EXTRACT ? 1 : 0;
+//                                    machines += cap.energyType() == EnergyType.RECEIVE ? 1 : 0;
+//                                    batteries += cap.energyType() == EnergyType.BOTH ? 1 : 0;
+//                                }
+//                            }
+//
+//                            ChatFormatting color = network.getEnergyTier().getColor();
+//                            player.displayClientMessage(Component.literal("====================================").withStyle(ChatFormatting.GRAY), false);
+//                            player.displayClientMessage(Component.translatable("ie." + IndReb.MODID + ".network_info"), false);
+//                            player.displayClientMessage(Component.literal(""), false);
+//                            player.displayClientMessage(Component.translatable("tooltip." + IndReb.MODID + ".current_voltage", network.getEnergyFlowing() != null ? Component.translatable(network.getEnergyFlowing().getLang().getTranslationKey()).withStyle(network.getEnergyFlowing().getColor()) : Component.literal("-")), false);
+//                            player.displayClientMessage(Component.translatable("tooltip." + IndReb.MODID + ".power_tier", Component.translatable(network.getEnergyTier().getLang().getTranslationKey()).withStyle(color)), false);
+//                            player.displayClientMessage(Component.translatable("tooltip." + IndReb.MODID + ".transfer", Component.translatable(TextComponentUtil.getFormattedLong(network.getEnergyTier().getBasicTransfer()) + " IE/t").withStyle(color)), false);
+//                            player.displayClientMessage(Component.translatable("ie." + IndReb.MODID + ".connected_generators",Component.literal(String.valueOf(generators)).withStyle(color)), false);
+//                            player.displayClientMessage(Component.translatable("ie." + IndReb.MODID + ".connected_machines",Component.literal(String.valueOf(machines)).withStyle(color)), false);
+//                            player.displayClientMessage(Component.translatable("ie." + IndReb.MODID + ".connected_batteries",Component.literal(String.valueOf(batteries)).withStyle(color)), false);
+//                            player.displayClientMessage(Component.translatable("tooltip." + IndReb.MODID + ".stored_capacity",Component.literal(TextComponentUtil.getFormattedLong(network.energyStored()) + " IE").withStyle(color),Component.literal(TextComponentUtil.getFormattedLong(network.maxEnergy()) + " IE").withStyle(color)), false);
+//                            player.displayClientMessage(Component.literal("====================================").withStyle(ChatFormatting.GRAY), false);
+//
+//                            return InteractionResult.SUCCESS;
+//                        }
+//                    }
+//                }
 
                 BlockEntity blockEntity = level.getBlockEntity(pos);
                 if (blockEntity instanceof IIndRebBlockEntity indRebBlockEntity) {

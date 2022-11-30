@@ -12,7 +12,6 @@ import com.maciej916.indreb.common.block.impl.generator.geo_generator.ScreenGeoG
 import com.maciej916.indreb.common.block.impl.generator.reactor.nuclear_reactor.ScreenNuclearReactor;
 import com.maciej916.indreb.common.block.impl.generator.semifluid_generator.ScreenSemifluidGenerator;
 import com.maciej916.indreb.common.block.impl.generator.solar_panel.ScreenSolarPanel;
-import com.maciej916.indreb.common.block.impl.machines.standard.alloy_smelter.ScreenAlloySmelter;
 import com.maciej916.indreb.common.block.impl.machines.basic.canning_machine.ScreenCanningMachine;
 import com.maciej916.indreb.common.block.impl.machines.basic.compressor.ScreenCompressor;
 import com.maciej916.indreb.common.block.impl.machines.basic.crusher.ScreenCrusher;
@@ -20,12 +19,14 @@ import com.maciej916.indreb.common.block.impl.machines.basic.electric_furnace.Sc
 import com.maciej916.indreb.common.block.impl.machines.basic.extractor.ScreenExtractor;
 import com.maciej916.indreb.common.block.impl.machines.basic.extruder.ScreenExtruder;
 import com.maciej916.indreb.common.block.impl.machines.basic.fluid_enricher.ScreenFluidEnricher;
+import com.maciej916.indreb.common.block.impl.machines.basic.metal_former.ScreenMetalFormer;
 import com.maciej916.indreb.common.block.impl.machines.basic.recycler.ScreenRecycler;
 import com.maciej916.indreb.common.block.impl.machines.basic.sawmill.ScreenSawmill;
 import com.maciej916.indreb.common.block.impl.machines.simple.iron_furnace.ScreenIronFurnace;
 import com.maciej916.indreb.common.block.impl.machines.simple.simple_compressor.ScreenSimpleCompressor;
 import com.maciej916.indreb.common.block.impl.machines.simple.simple_crusher.ScreenSimpleCrusher;
 import com.maciej916.indreb.common.block.impl.machines.simple.simple_extractor.ScreenSimpleextractor;
+import com.maciej916.indreb.common.block.impl.machines.standard.alloy_smelter.ScreenAlloySmelter;
 import com.maciej916.indreb.common.block.impl.transformer.ScreenTransformer;
 import com.maciej916.indreb.common.client.keys.ModKeys;
 import com.maciej916.indreb.common.client.renderer.EnergyInfoRenderer;
@@ -108,7 +109,7 @@ public final class ClientModEventSubscriber {
 			MenuScreens.register(ModMenuTypes.CANNING_MACHINE.get(), ScreenCanningMachine::new);
 			MenuScreens.register(ModMenuTypes.FLUID_ENRICHER.get(), ScreenFluidEnricher::new);
 			MenuScreens.register(ModMenuTypes.RECYCLER.get(), ScreenRecycler::new);
-
+			MenuScreens.register(ModMenuTypes.METAL_FORMER.get(), ScreenMetalFormer::new);
 
 			MenuScreens.register(ModMenuTypes.ALLOY_SMELTER.get(), ScreenAlloySmelter::new);
 
@@ -119,7 +120,7 @@ public final class ClientModEventSubscriber {
 //			MenuScreens.register(ModMenuTypes.PATTERN_STORAGE.get(), ScreenPatternStorage::new);
 //			MenuScreens.register(ModMenuTypes.SCANNER.get(), ScreenScanner::new);
 //			MenuScreens.register(ModMenuTypes.REPLICATOR.get(), ScreenReplicator::new);
-//			MenuScreens.register(ModMenuTypes.METAL_FORMER.get(), ScreenMetalFormer::new);
+
 
 			ItemProperties.register(ModItems.BATTERY.get(), new ResourceLocation(IndReb.MODID, "charge_ratio"), (stack, level, living, id) -> BaseElectricItem.getChargeRatioModel(stack));
 			ItemProperties.register(ModItems.ADVANCED_BATTERY.get(), new ResourceLocation(IndReb.MODID, "charge_ratio"), (stack, level, living, id) -> BaseElectricItem.getChargeRatioModel(stack));

@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "indreb:block/machine/basic/metal_former/metal_former_bottom",
+    "east": "indreb:block/machine/basic/metal_former/metal_former_side",
+    "north": "indreb:block/machine/basic/metal_former/metal_former_front",
+    "particle": "indreb:block/machine/basic/metal_former/metal_former_front",
+    "south": "indreb:block/machine/basic/metal_former/metal_former_side",
+    "up": "indreb:block/machine/basic/metal_former/metal_former_top",
+    "west": "indreb:block/machine/basic/metal_former/metal_former_side"
+  }
+}
