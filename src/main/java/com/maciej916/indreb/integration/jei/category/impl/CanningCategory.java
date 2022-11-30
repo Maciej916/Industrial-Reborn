@@ -10,6 +10,7 @@ import com.maciej916.indreb.integration.jei.category.AbstractRecipeCategory;
 import com.mojang.blaze3d.vertex.PoseStack;
 import mezz.jei.api.constants.VanillaTypes;
 import mezz.jei.api.gui.builder.IRecipeLayoutBuilder;
+import mezz.jei.api.gui.builder.IRecipeSlotBuilder;
 import mezz.jei.api.gui.drawable.IDrawableAnimated;
 import mezz.jei.api.gui.ingredient.IRecipeSlotsView;
 import mezz.jei.api.helpers.IGuiHelper;
@@ -47,14 +48,16 @@ public class CanningCategory extends AbstractRecipeCategory<CanningRecipe> {
         this.energy = guiHelper.drawableBuilder(JEI, 249, 0, 7, 37).buildAnimated(200, IDrawableAnimated.StartDirection.TOP, true);
 
         IngredientCount ingredientCount = recipe.getIngredientCount();
-        IngredientCountStack firstIngredient = ingredientCount.getIngredientStack(0);
-        IngredientCountStack secondIngredient = ingredientCount.getIngredientStack(1);
+        for (int i = 0; i < ingredientCount.getSize(); i++) {
+            IngredientCountStack countStack = ingredientCount.getIngredientStack(i);
+            IRecipeSlotBuilder slot = switch (i) {
+                case 0 -> builder.addSlot(RecipeIngredientRole.INPUT, 8, 19);
+                default -> builder.addSlot(RecipeIngredientRole.INPUT, 46, 19);
+            };
 
-        List<ItemStack> firstItems = Stream.of(firstIngredient.ingredient().getItems()).peek(itemStack -> itemStack.setCount(firstIngredient.getCount())).toList();
-        List<ItemStack> secondItems = Stream.of(secondIngredient.ingredient().getItems()).peek(itemStack -> itemStack.setCount(secondIngredient.getCount())).toList();
-
-        builder.addSlot(RecipeIngredientRole.INPUT, 8, 19).addItemStacks(firstItems);
-        builder.addSlot(RecipeIngredientRole.INPUT, 46, 19).addItemStacks(secondItems);
+            List<ItemStack> items = Stream.of(countStack.ingredient().getItems()).peek(itemStack -> itemStack.setCount(countStack.getCount())).toList();
+            slot.addItemStacks(items);
+        }
 
         builder.addSlot(RecipeIngredientRole.OUTPUT, 103, 19).addItemStack(recipe.getResultItem());
     }

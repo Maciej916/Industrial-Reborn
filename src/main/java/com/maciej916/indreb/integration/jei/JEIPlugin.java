@@ -40,6 +40,9 @@ import com.maciej916.indreb.common.block.impl.machines.simple.simple_crusher.Scr
 import com.maciej916.indreb.common.block.impl.machines.simple.simple_extractor.BlockEntitySimpleExtractor;
 import com.maciej916.indreb.common.block.impl.machines.simple.simple_extractor.MenuSimpleExtractor;
 import com.maciej916.indreb.common.block.impl.machines.simple.simple_extractor.ScreenSimpleextractor;
+import com.maciej916.indreb.common.block.impl.machines.standard.alloy_smelter.BlockEntityAlloySmelter;
+import com.maciej916.indreb.common.block.impl.machines.standard.alloy_smelter.MenuAlloySmelter;
+import com.maciej916.indreb.common.block.impl.machines.standard.alloy_smelter.ScreenAlloySmelter;
 import com.maciej916.indreb.common.item.ModItems;
 import com.maciej916.indreb.common.recipe.ModRecipeType;
 import com.maciej916.indreb.common.recipe.impl.*;
@@ -80,7 +83,8 @@ public class JEIPlugin implements IModPlugin {
     public static final RecipeType<RecyclingRecipe> RECYCLING_TYPE = new RecipeType<>(RecyclingCategory.UID, RecyclingRecipe.class);
 
 
-//    public static final RecipeType<AlloySmeltingRecipe> ALLOY_SMELTING_TYPE = new RecipeType<>(AlloySmeltingCategory.UID, AlloySmeltingRecipe.class);
+    public static final RecipeType<AlloySmeltingRecipe> ALLOY_SMELTING_TYPE = new RecipeType<>(AlloySmeltingCategory.UID, AlloySmeltingRecipe.class);
+
 //    public static final RecipeType<OreWashingRecipe> ORE_WASHING_TYPE = new RecipeType<>(OreWashingCateggory.UID, OreWashingRecipe.class);
 //    public static final RecipeType<ThermalCentrifugingRecipe> THERMAL_CENTRIFUGING_TYPE = new RecipeType<>(ThermalCentrifugingCategory.UID, ThermalCentrifugingRecipe.class);
 //    public static final RecipeType<ScannerRecipe> SCANNER_TYPE = new RecipeType<>(ScannerCategory.UID, ScannerRecipe.class);
@@ -112,7 +116,7 @@ public class JEIPlugin implements IModPlugin {
         registration.addRecipeCatalyst(new ItemStack(ModBlocks.FLUID_ENRICHER.get()), FLUID_ENRICHING_TYPE);
         registration.addRecipeCatalyst(new ItemStack(ModBlocks.RECYCLER.get()), RECYCLING_TYPE);
 
-//        registration.addRecipeCatalyst(new ItemStack(ModBlocks.ALLOY_SMELTER.get()), ALLOY_SMELTING_TYPE);
+        registration.addRecipeCatalyst(new ItemStack(ModBlocks.ALLOY_SMELTER.get()), ALLOY_SMELTING_TYPE);
 
 
 //        registration.addRecipeCatalyst(new ItemStack(ModBlocks.ORE_WASHING_PLANT.get()), ORE_WASHING_TYPE);
@@ -134,7 +138,8 @@ public class JEIPlugin implements IModPlugin {
         registration.addRecipeCategories(new FluidEnrichingCategory(ScreenHelper));
         registration.addRecipeCategories(new RecyclingCategory(ScreenHelper));
 
-//        registration.addRecipeCategories(new AlloySmeltingCategory(ScreenHelper));
+        registration.addRecipeCategories(new AlloySmeltingCategory(ScreenHelper));
+
 //        registration.addRecipeCategories(new OreWashingCateggory(ScreenHelper));
 //        registration.addRecipeCategories(new ThermalCentrifugingCategory(ScreenHelper));
 //        registration.addRecipeCategories(new ScannerCategory(ScreenHelper));
@@ -162,7 +167,8 @@ public class JEIPlugin implements IModPlugin {
         registration.addRecipes(FLUID_ENRICHING_TYPE, recipeManager.getAllRecipesFor(ModRecipeType.FLUID_ENRICHING.get()));
         registration.addRecipes(RECYCLING_TYPE, recipeManager.getAllRecipesFor(ModRecipeType.RECYCLING.get()));
 
-//        registration.addRecipes(ALLOY_SMELTING_TYPE, recipeManager.getAllRecipesFor(ModRecipeType.ALLOY_SMELTING.get()));
+        registration.addRecipes(ALLOY_SMELTING_TYPE, recipeManager.getAllRecipesFor(ModRecipeType.ALLOY_SMELTING.get()));
+
 //        registration.addRecipes(ORE_WASHING_TYPE, recipeManager.getAllRecipesFor(ModRecipeType.ORE_WASHING.get()));
 //        registration.addRecipes(THERMAL_CENTRIFUGING_TYPE, recipeManager.getAllRecipesFor(ModRecipeType.THERMAL_CENTRIFUGING.get()));
 //        registration.addRecipes(SCANNER_TYPE, recipeManager.getAllRecipesFor(ModRecipeType.SCANNER.get()));
@@ -195,8 +201,8 @@ public class JEIPlugin implements IModPlugin {
         registration.addRecipeClickArea(ScreenFluidEnricher.class, 82, 35, 24, 16, FLUID_ENRICHING_TYPE);
         registration.addRecipeClickArea(ScreenRecycler.class, 71, 35, 24, 16, RECYCLING_TYPE);
 
+        registration.addRecipeClickArea(ScreenAlloySmelter.class, 82, 33, 24, 16, ALLOY_SMELTING_TYPE);
 
-//        registration.addRecipeClickArea(ScreenAlloySmelter.class, 82, 33, 24, 16, ALLOY_SMELTING_TYPE);
 //        registration.addRecipeClickArea(ScreenOreWashingPlant.class, 90, 32, 19, 19, ORE_WASHING_TYPE);
 //        registration.addRecipeClickArea(ScreenThermalCentrifuge.class, 82, 33, 24, 16, THERMAL_CENTRIFUGING_TYPE);
 //        registration.addRecipeClickArea(ScreenScanner.class, 7, 15, 61, 9, SCANNER_TYPE);
@@ -224,8 +230,7 @@ public class JEIPlugin implements IModPlugin {
         registration.addRecipeTransferHandler(MenuFluidEnricher.class, ModMenuTypes.FLUID_ENRICHER.get(), FLUID_ENRICHING_TYPE, BlockEntityFluidEnricher.INPUT_SLOT, 1, BlockEntityFluidEnricher.DRAIN_DOWN, 36);
         registration.addRecipeTransferHandler(MenuRecycler.class, ModMenuTypes.RECYCLER.get(), RECYCLING_TYPE, BlockEntityRecycler.INPUT_SLOT, 1, BlockEntityRecycler.OUTPUT_SLOT, 36);
 
-
-//        registration.addRecipeTransferHandler(MenuAlloySmelter.class, ModMenuTypes.ALLOY_SMELTER.get(), ALLOY_SMELTING_TYPE, BlockEntityAlloySmelter.INPUT_SLOT_0, 3, 0, 37);
+        registration.addRecipeTransferHandler(MenuAlloySmelter.class, ModMenuTypes.ALLOY_SMELTER.get(), ALLOY_SMELTING_TYPE, BlockEntityAlloySmelter.INPUT_SLOT_0, 3, BlockEntityAlloySmelter.OUTPUT_SLOT, 36);
 
 //        registration.addRecipeTransferHandler(MenuOreWashingPlant.class, ModMenuTypes.ORE_WASHING_PLANT.get(), ORE_WASHING_TYPE, BlockEntityRecycler.INPUT_SLOT, 1, 1, 37);
 //        registration.addRecipeTransferHandler(MenuThermalCentrifuge.class, ModMenuTypes.THERMAL_CENTRIFUGE.get(), THERMAL_CENTRIFUGING_TYPE, BlockEntityThermalCentrifuge.INPUT_SLOT, 1, 1, 37);

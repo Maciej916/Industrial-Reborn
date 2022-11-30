@@ -12,6 +12,8 @@ import com.maciej916.indreb.common.api.enums.InventorySlotType;
 import com.maciej916.indreb.common.api.fluid.FluidStorage;
 import com.maciej916.indreb.common.api.slot.BaseSlot;
 import com.maciej916.indreb.common.api.slot.ElectricSlot;
+import com.maciej916.indreb.common.api.top.BaseOneProbeInfo;
+import com.maciej916.indreb.common.api.top.impl.ProbeInfoFluidBar;
 import com.maciej916.indreb.common.api.util.Progress;
 import com.maciej916.indreb.common.blockentity.ModBlockEntities;
 import com.maciej916.indreb.common.config.impl.ServerConfig;
@@ -112,7 +114,6 @@ public class BlockEntitySemifluidGenerator extends IndRebBlockEntity implements 
             if (getEnergyStorage().generateEnergy(ServerConfig.semifluid_generator_tick_generate.get(), true) == ServerConfig.semifluid_generator_tick_generate.get() && fuelStorage.takeFluid(1, true) == 1) {
                 fuelStorage.takeFluid(1, false);
                 getEnergyStorage().generateEnergy(ServerConfig.semifluid_generator_tick_generate.get(), false);
-                getEnergyStorage().updateGenerated(ServerConfig.semifluid_generator_tick_generate.get());
                 activeState = true;
             }
 
@@ -189,5 +190,14 @@ public class BlockEntitySemifluidGenerator extends IndRebBlockEntity implements 
     @Override
     public void setStoredFluids(List<FluidStack> fluids) {
         this.fuelStorage.setFluid(fluids.get(0));
+    }
+
+    @Override
+    public List<BaseOneProbeInfo> addProbeInfo(List<BaseOneProbeInfo> oneProbeInfo) {
+        super.addProbeInfo(oneProbeInfo);
+
+        oneProbeInfo.add(new ProbeInfoFluidBar(fuelStorage));
+
+        return oneProbeInfo;
     }
 }

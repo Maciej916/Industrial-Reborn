@@ -83,7 +83,6 @@ public class BlockEntitySolarPanel extends IndRebBlockEntity implements IBlockEn
         int maxGenerate = Math.min(getEnergyStorage().maxEnergy() - getEnergyStorage().energyStored(), getEnergyStorage().generateEnergy((int) progressAmount.currentProgress(), true));
         if (maxGenerate > 0) {
             getEnergyStorage().generateEnergy(maxGenerate, false);
-            getEnergyStorage().updateGenerated(maxGenerate);
             activeState = true;
         }
     }

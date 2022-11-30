@@ -15,6 +15,7 @@ public enum GuiSprite {
     ROLLING(24,18,0, 194, 24,18,25, 194, 0, 0),
     CUTTING(24,18,0, 213, 24,18,25, 213, 0, 0),
 
+    HEAT_VERTICAL(60,9,117, 20, 56,5,117, 30, 2, 2),
     ELECTRIC_VERTICAL(18,49,0, 0, 10,41,19, 0, 4, 4),
     ELECTRIC_HORIZONTAL(49,18,30, 0, 41,10,30, 19, 4, 4),
 

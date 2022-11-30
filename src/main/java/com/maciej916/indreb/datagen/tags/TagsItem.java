@@ -317,6 +317,7 @@ public class TagsItem extends ItemTagsProvider {
                 .add(ModItems.CANNING_MACHINE.get())
                 .add(ModItems.FLUID_ENRICHER.get())
                 .add(ModItems.RECYCLER.get())
+                .add(ModItems.ALLOY_SMELTER.get())
 
         ;
 

@@ -123,7 +123,6 @@ public abstract class StandardMachineBlockEntity extends IndRebBlockEntity imple
                         activeState = true;
                         progressRecipe.incProgress(1);
                         getEnergyStorage().consumeEnergy(energyCost, false);
-                        getEnergyStorage().updateConsumed(energyCost);
                     }
 
                     if (progressRecipe.isCurrentAboveEqualMax()) {

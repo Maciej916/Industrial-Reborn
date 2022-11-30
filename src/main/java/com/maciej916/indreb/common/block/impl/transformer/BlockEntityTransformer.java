@@ -145,4 +145,8 @@ public class BlockEntityTransformer extends IndRebBlockEntity implements IBlockE
         setBlockUpdated();
     }
 
+    @Override
+    public boolean showEnergyInfoProbe() {
+        return false;
+    }
 }

@@ -94,7 +94,6 @@ public class BlockEntityGenerator extends IndRebBlockEntity implements IHasCoold
                     activeState = true;
                     progressBurn.decProgress(1);
                     getEnergyStorage().generateEnergy(ServerConfig.generator_tick_generate.get(), false);
-                    getEnergyStorage().updateGenerated(ServerConfig.generator_tick_generate.get());
                 } else {
                     activeState = false;
                     progressBurn.resetProgress();

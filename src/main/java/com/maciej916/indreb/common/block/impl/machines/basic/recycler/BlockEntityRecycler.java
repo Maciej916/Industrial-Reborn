@@ -129,7 +129,7 @@ public class BlockEntityRecycler extends IndRebBlockEntity implements IHasExp, I
             }
 
             progressRecipe.setProgressMax(getUpgradesDuration(recipe.getDuration()));
-            int energyCost = getUpgradesEnergyCost(ServerConfig.electric_furnace_tick_usage.get());
+            int energyCost = getUpgradesEnergyCost(recipe.getTickEnergyCost());
 
             if (canWork()) {
                 if (inputStack.getCount() >= inputCount) {
@@ -137,7 +137,6 @@ public class BlockEntityRecycler extends IndRebBlockEntity implements IHasExp, I
                         activeState = true;
                         progressRecipe.incProgress(1);
                         getEnergyStorage().consumeEnergy(energyCost, false);
-                        getEnergyStorage().updateConsumed(energyCost);
                     }
 
                     if (progressRecipe.isCurrentAboveEqualMax()) {
@@ -208,7 +207,7 @@ public class BlockEntityRecycler extends IndRebBlockEntity implements IHasExp, I
 
     private final Map<Direction, LazyOptional<WrappedHandler>> itemCapabilities = Map.of(
             Direction.UP, LazyOptional.of(() -> new WrappedHandler(getBaseStorage(), (i) -> false, (i, stack) -> getBaseStorage().isItemValid(i, stack))),
-            Direction.DOWN, LazyOptional.of(() -> new WrappedHandler(getBaseStorage(), (i) -> false, (i, stack) -> false)),
+            Direction.DOWN, LazyOptional.of(() -> new WrappedHandler(getBaseStorage(), (i) -> i == OUTPUT_SLOT, (i, stack) -> false)),
             Direction.NORTH, LazyOptional.of(() -> new WrappedHandler(getBaseStorage(), (i) -> false, (i, stack) -> getBaseStorage().isItemValid(i, stack))),
             Direction.SOUTH, LazyOptional.of(() -> new WrappedHandler(getBaseStorage(), (i) -> false, (i, stack) -> getBaseStorage().isItemValid(i, stack))),
             Direction.EAST, LazyOptional.of(() -> new WrappedHandler(getBaseStorage(), (i) -> false, (i, stack) -> getBaseStorage().isItemValid(i, stack))),

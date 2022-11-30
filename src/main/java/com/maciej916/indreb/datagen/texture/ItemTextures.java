@@ -55,6 +55,7 @@ public class ItemTextures extends ItemModelProvider {
         registerChargePad();
         registerTransformer();
         registerBasicMachines();
+        registerStandardMachines();
     }
 
     protected void registerOres() {
@@ -495,6 +496,9 @@ public class ItemTextures extends ItemModelProvider {
 
     }
 
+    private void registerStandardMachines() {
+        createWithBlock(ModItems.ALLOY_SMELTER, "alloy_smelter");
+    }
 
 
 

@@ -38,8 +38,8 @@ public class TextComponentUtil {
         return hasDecimal ? (truncated / 10d) + suffix : (truncated / 10) + suffix;
     }
 
-    public static String getFormattedStorageUnit(float energy) {
-        return format((long) energy);
+    public static String getFormattedStorageUnit(float value) {
+        return format((long) value);
     }
 
     public static String getFormattedLong(float energy) {

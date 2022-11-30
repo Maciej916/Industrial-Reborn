@@ -1,11 +1,14 @@
 package com.maciej916.indreb.common.block.impl.generator.reactor.nuclear_reactor;
 
+import com.maciej916.indreb.IndReb;
 import com.maciej916.indreb.common.api.blockentity.IndRebBlockEntity;
 import com.maciej916.indreb.common.api.enums.EnergyTier;
 import com.maciej916.indreb.common.api.enums.EnergyType;
 import com.maciej916.indreb.common.api.enums.GuiSlotBg;
 import com.maciej916.indreb.common.api.enums.InventorySlotType;
 import com.maciej916.indreb.common.api.slot.BaseSlot;
+import com.maciej916.indreb.common.api.top.BaseOneProbeInfo;
+import com.maciej916.indreb.common.api.top.impl.ProbeInfoSimpleText;
 import com.maciej916.indreb.common.blockentity.ModBlockEntities;
 import com.maciej916.indreb.common.capability.ModCapabilities;
 import com.maciej916.indreb.common.capability.reactor.IReactorComponentCapability;
@@ -21,6 +24,7 @@ import com.maciej916.indreb.common.util.StackHandlerHelper;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
@@ -34,6 +38,7 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class BlockEntityNuclearReactor extends IndRebBlockEntity {
 
@@ -224,9 +229,12 @@ public class BlockEntityNuclearReactor extends IndRebBlockEntity {
 
         if (reactor.getCurrentIEOutput() > 0 && !reactor.isFluid()) {
             int generateEnergy = getEnergyStorage().generateEnergy(reactor.getCurrentIEOutput() / 20, true);
+
             if (generateEnergy > 0) {
                 getEnergyStorage().generateEnergy(generateEnergy, false);
             }
+
+            getEnergyStorage().setLastGenerated((reactor.getCurrentIEOutput() / 20));
         }
     }
 
@@ -298,5 +306,25 @@ public class BlockEntityNuclearReactor extends IndRebBlockEntity {
 
     public Reactor getReactor() {
         return reactor;
+    }
+
+    @Override
+    public boolean showEnergyBarProbe() {
+        return false;
+    }
+
+    @Override
+    public List<BaseOneProbeInfo> addProbeInfo(List<BaseOneProbeInfo> oneProbeInfo) {
+        super.addProbeInfo(oneProbeInfo);
+
+        oneProbeInfo.add(new ProbeInfoSimpleText(Component.translatable("tooltip." + IndReb.MODID + ".core_heat", reactor.getPercentProgressString() + "%")));
+
+        if (reactor.isFluid()) {
+            oneProbeInfo.add(new ProbeInfoSimpleText(Component.translatable("gui." + IndReb.MODID + ".output_mode", reactor.getVentedHeat() + " HU/s")));
+        } else {
+            oneProbeInfo.add(new ProbeInfoSimpleText(Component.translatable("gui." + IndReb.MODID + ".output_mode", (reactor.getCurrentIEOutput() / 20) + " IE/t")));
+        }
+
+        return oneProbeInfo;
     }
 }

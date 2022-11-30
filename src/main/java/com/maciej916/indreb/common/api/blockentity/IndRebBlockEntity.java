@@ -12,6 +12,10 @@ import com.maciej916.indreb.common.api.interfaces.item.IItemUpgrade;
 import com.maciej916.indreb.common.api.item.base.BaseUpgradeItem;
 import com.maciej916.indreb.common.api.slot.BaseSlot;
 import com.maciej916.indreb.common.api.slot.ElectricSlot;
+import com.maciej916.indreb.common.api.top.BaseOneProbeInfo;
+import com.maciej916.indreb.common.api.top.IHasProbeInfo;
+import com.maciej916.indreb.common.api.top.impl.ProbeInfoEnergyBar;
+import com.maciej916.indreb.common.api.top.impl.ProbeInfoEnergyInfo;
 import com.maciej916.indreb.common.capability.ModCapabilities;
 import com.maciej916.indreb.common.capability.item.BaseItemStackHandler;
 import com.maciej916.indreb.common.capability.item.ElectricItemStackHandler;
@@ -64,7 +68,7 @@ import java.util.*;
 
 import static com.maciej916.indreb.common.api.enums.UpgradeType.*;
 
-public class IndRebBlockEntity extends BaseBlockEntity implements IIndRebBlockEntity, IBlockEntityChunkSync, MenuProvider {
+public class IndRebBlockEntity extends BaseBlockEntity implements IIndRebBlockEntity, IBlockEntityChunkSync, MenuProvider, IHasProbeInfo {
 
     private BasicEnergyStorage energyStorage;
     protected final LazyOptional<IEnergyStorage> energyStorageCap = LazyOptional.of(() -> energyStorage);
@@ -791,6 +795,34 @@ public class IndRebBlockEntity extends BaseBlockEntity implements IIndRebBlockEn
 
     public int getUpgradesEnergyCost(int tickEnergyCost) {
         return (int) energyUsageFactor * tickEnergyCost;
+    }
+
+    public int getRedstonePower() {
+        if (level == null) return 0;
+        int power = level.getDirectSignalTo(getBlockPos());
+        return invertRedstone ? 15 - power : power;
+    }
+
+    public int getTickCounter() {
+        return tickCounter;
+    }
+
+    public boolean showEnergyBarProbe() {
+        return true;
+    }
+
+   public boolean showEnergyInfoProbe() {
+        return true;
+    }
+
+    public List<BaseOneProbeInfo> addProbeInfo(List<BaseOneProbeInfo> oneProbeInfo) {
+        if (energyStorage != null && showEnergyBarProbe()) oneProbeInfo.add(new ProbeInfoEnergyBar(energyStorage));
+        if (energyStorage != null && showEnergyInfoProbe()) oneProbeInfo.add(new ProbeInfoEnergyInfo(energyStorage));
+        return oneProbeInfo;
+    }
+
+    public List<BaseOneProbeInfo> getProbeInfo() {
+        return addProbeInfo(new ArrayList<>());
     }
 
     /* THIS CAN BE IMPROVED WITH CAPABILITIES */

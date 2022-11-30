@@ -88,18 +88,11 @@ public class RecyclingCategory extends AbstractRecipeCategory<RecyclingRecipe> {
         int resultSize = recipe.getResultItem().getCount();
         List<ItemStack> resultItems = new ArrayList<>();
         if (resultSize > 1) {
-
             for (int i = resultSize; i >= 1; i--) {
                 ItemStack newStack = recipe.getResultItem();
                 newStack.setCount(i);
                 resultItems.add(newStack);
             }
-
-//            for (int i = 1; i <= resultSize; i++) {
-//                ItemStack newStack = recipe.getResultItem();
-//                newStack.setCount(i);
-//                resultItems.add(newStack);
-//            }
         } else {
             resultItems.add(recipe.getResultItem());
         }

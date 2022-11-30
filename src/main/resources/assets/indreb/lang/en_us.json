@@ -25,7 +25,6 @@
 
   "gui.indreb.progress": "Progress %s/%s",
   "gui.indreb.fuelBurnTimeProgress": "Fuel burn time %s/%s",
-  "gui.indreb.heat": "Heat: %s",
   "gui.indreb.temperature": "Temp: %s",
   "gui.indreb.armour": "Armour",
   "gui.indreb.waste": "Waste: %s",
@@ -503,9 +502,9 @@
   "tooltip.indreb.single_run": "Single Run",
   "tooltip.indreb.repeat_run": "Repeat Run",
   "tooltip.indreb.durability": "Durability: %s/%s",
-  "tooltip.indreb.core_temperature": "Core Temperature: %s",
+  "tooltip.indreb.core_heat": "Core Heat: %s",
   "tooltip.indreb.reactor_play_pause": "Start / Stop The Reactor",
-
+  "tooltip.indreb.heat": "Heat: %s",
 
   "_comment": "Upgrade",
   "item.indreb.overclocker_upgrade": "Overclocker Upgrade",

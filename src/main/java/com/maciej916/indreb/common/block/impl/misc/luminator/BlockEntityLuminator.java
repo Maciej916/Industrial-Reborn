@@ -22,7 +22,6 @@ public class BlockEntityLuminator extends IndRebBlockEntity implements IBlockEnt
         if (getEnergyStorage().energyStored() > 0) {
             activeState = true;
             getEnergyStorage().consumeEnergy(1, false);
-            getEnergyStorage().updateConsumed(1);
         }
     }
 

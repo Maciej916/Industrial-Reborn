@@ -23,7 +23,7 @@ public class GuiReactorTempVar extends BaseProgressWidget {
     @Override
     public void renderToolTip(Screen screen, PoseStack pPoseStack, int pMouseX, int pMouseY) {
         if (isHoveredOrFocused()) {
-            screen.renderTooltip(pPoseStack, Component.translatable("tooltip." + IndReb.MODID + ".core_temperature", getProgress().getPercentProgressString() + "%"), pMouseX, pMouseY);
+            screen.renderTooltip(pPoseStack, Component.translatable("tooltip." + IndReb.MODID + ".core_heat", getProgress().getPercentProgressString() + "%"), pMouseX, pMouseY);
         }
         super.renderToolTip(screen, pPoseStack, pMouseX, pMouseY);
     }

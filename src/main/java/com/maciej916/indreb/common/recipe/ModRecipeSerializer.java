@@ -22,7 +22,7 @@ public final class ModRecipeSerializer {
     public static final RegistryObject<RecipeSerializer<RecyclingRecipe>> RECYCLING = SERIALIZERS.register("recycling", () -> RecyclingRecipe.SERIALIZER);
 
 
-//    public static final RegistryObject<RecipeSerializer<AlloySmeltingRecipe>> ALLOY_SMELTING = SERIALIZERS.register("alloy_smelting", () -> AlloySmeltingRecipe.SERIALIZER);
+    public static final RegistryObject<RecipeSerializer<AlloySmeltingRecipe>> ALLOY_SMELTING = SERIALIZERS.register("alloy_smelting", () -> AlloySmeltingRecipe.SERIALIZER);
 
 
 //    public static final RegistryObject<RecipeSerializer<ScrapBoxRecipe>> SCRAP_BOX = SERIALIZERS.register("scrap_box", () -> ScrapBoxRecipe.SERIALIZER);

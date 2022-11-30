@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "indreb:block/machine/standard/alloy_smelter/alloy_smelter_bottom",
+    "east": "indreb:block/machine/standard/alloy_smelter/alloy_smelter_side",
+    "north": "indreb:block/machine/standard/alloy_smelter/alloy_smelter_front_active",
+    "particle": "indreb:block/machine/standard/alloy_smelter/alloy_smelter_front_active",
+    "south": "indreb:block/machine/standard/alloy_smelter/alloy_smelter_side",
+    "up": "indreb:block/machine/standard/alloy_smelter/alloy_smelter_top",
+    "west": "indreb:block/machine/standard/alloy_smelter/alloy_smelter_side"
+  }
+}

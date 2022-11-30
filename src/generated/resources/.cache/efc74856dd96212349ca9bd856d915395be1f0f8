@@ -1,4 +1,4 @@
-// 1.19.2	2022-11-29T12:53:41.5770836	Item Models: indreb
+// 1.19.2	2022-11-30T14:56:40.215016	Item Models: indreb
 ea6f48b249d5595c0bc20e39b977fa8fad0ed868 assets/indreb/models/item/acid_hazard_sign_block.json
 4df0fe2021d7b228332497f5c7d711b40f082510 assets/indreb/models/item/advanced_alloy.json
 df0888ae05d095b7dbd4b54b411496df8d853b49 assets/indreb/models/item/advanced_battery.json
@@ -13,6 +13,7 @@ bed067be898523d338f34c45c1036a428b3acc14 assets/indreb/models/item/advanced_mach
 9d10dfdafc52852f0bda2d2847c06dd5c6ba7685 assets/indreb/models/item/advanced_pulling_upgrade.json
 4677828e10d80507be4f442a007583a355b51c55 assets/indreb/models/item/advanced_solar_panel.json
 ed6b8eca16d26c2705959c904fb13a89f3982ada assets/indreb/models/item/advanced_transporter.json
+d499f456c9f5545d141ca266665dcd080c2065f9 assets/indreb/models/item/alloy_smelter.json
 26c3c85ff11e4b28b9e0e378bade13f7c460a4ba assets/indreb/models/item/basic_machine_casing.json
 863cac72d985690fc1db3146ca24542356e0a1e4 assets/indreb/models/item/basic_transporter.json
 1af90c605676cd2f27d905e64450999adf038a94 assets/indreb/models/item/battery.json

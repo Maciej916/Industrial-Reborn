@@ -1,6 +1,7 @@
 package com.maciej916.indreb.common.block.impl.generator.reactor;
 
 import com.maciej916.indreb.common.api.blockentity.IndRebBlockEntity;
+import com.maciej916.indreb.common.api.top.BaseOneProbeInfo;
 import com.maciej916.indreb.common.block.impl.generator.reactor.nuclear_reactor.BlockEntityNuclearReactor;
 import com.maciej916.indreb.common.block.impl.generator.reactor.nuclear_reactor.BlockNuclearReactor;
 import com.maciej916.indreb.common.blockentity.ModBlockEntities;
@@ -15,6 +16,8 @@ import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.util.LazyOptional;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+
+import java.util.List;
 
 public class BlockEntityReactorPart extends IndRebBlockEntity {
 
@@ -38,5 +41,20 @@ public class BlockEntityReactorPart extends IndRebBlockEntity {
         }
 
         return LazyOptional.empty();
+    }
+
+    @Override
+    public List<BaseOneProbeInfo> addProbeInfo(List<BaseOneProbeInfo> oneProbeInfo) {
+        BlockState state = getBlockState();
+        if (state.getValue(BlockStateHelper.REACTOR_PART) != ReactorPartIndex.UNFORMED) {
+            BlockPos controllerPos = BlockNuclearReactor.getControllerPos(level, getBlockPos());
+            if (controllerPos != null) {
+                BlockEntity entity = level.getBlockEntity(controllerPos);
+                if (entity instanceof BlockEntityNuclearReactor entityNuclearReactor) {
+                    oneProbeInfo.addAll(entityNuclearReactor.getProbeInfo());
+                }
+            }
+        }
+        return oneProbeInfo;
     }
 }

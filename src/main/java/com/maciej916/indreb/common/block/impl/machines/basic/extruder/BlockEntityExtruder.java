@@ -14,6 +14,8 @@ import com.maciej916.indreb.common.api.slot.BaseSlot;
 import com.maciej916.indreb.common.api.slot.DisabledSlot;
 import com.maciej916.indreb.common.api.slot.ElectricSlot;
 import com.maciej916.indreb.common.api.slot.OutputSlot;
+import com.maciej916.indreb.common.api.top.BaseOneProbeInfo;
+import com.maciej916.indreb.common.api.top.impl.ProbeInfoFluidBar;
 import com.maciej916.indreb.common.api.util.Progress;
 import com.maciej916.indreb.common.blockentity.ModBlockEntities;
 import com.maciej916.indreb.common.config.impl.ServerConfig;
@@ -122,7 +124,7 @@ public class BlockEntityExtruder extends IndRebBlockEntity implements IHasExp, I
             }
 
             progressRecipe.setProgressMax(getUpgradesDuration(recipe.getDuration()));
-            int energyCost = getUpgradesEnergyCost(ServerConfig.electric_furnace_tick_usage.get());
+            int energyCost = getUpgradesEnergyCost(recipe.getTickEnergyCost());
 
             if (canWork()) {
                 if (
@@ -134,7 +136,6 @@ public class BlockEntityExtruder extends IndRebBlockEntity implements IHasExp, I
                     activeState = true;
                     progressRecipe.incProgress(1);
                     getEnergyStorage().consumeEnergy(energyCost, false);
-                    getEnergyStorage().updateConsumed(energyCost);
                 }
 
                 if (progressRecipe.isCurrentAboveEqualMax()) {
@@ -304,10 +305,19 @@ public class BlockEntityExtruder extends IndRebBlockEntity implements IHasExp, I
         this.secondTank.setFluid(fluids.get(1));
     }
 
-
     // NEED SOUND
     @Override
     public SoundEvent getSoundEvent() {
         return ModSounds.EXTRACTOR.get();
+    }
+
+    @Override
+    public List<BaseOneProbeInfo> addProbeInfo(List<BaseOneProbeInfo> oneProbeInfo) {
+        super.addProbeInfo(oneProbeInfo);
+
+        oneProbeInfo.add(new ProbeInfoFluidBar(firstTank));
+        oneProbeInfo.add(new ProbeInfoFluidBar(secondTank));
+
+        return oneProbeInfo;
     }
 }

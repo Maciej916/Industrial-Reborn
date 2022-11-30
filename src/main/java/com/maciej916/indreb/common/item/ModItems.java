@@ -162,6 +162,9 @@ public final class ModItems {
     public static final RegistryObject<Item> FLUID_ENRICHER = fromBlockElectric(ModBlocks.FLUID_ENRICHER);
     public static final RegistryObject<Item> RECYCLER = fromBlockElectric(ModBlocks.RECYCLER);
 
+
+    public static final RegistryObject<Item> ALLOY_SMELTER = fromBlockElectric(ModBlocks.ALLOY_SMELTER);
+
 // add tags
 
 

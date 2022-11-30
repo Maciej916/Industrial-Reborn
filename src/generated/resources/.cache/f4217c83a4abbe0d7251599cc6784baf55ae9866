@@ -1,7 +1,8 @@
-// 1.19.2	2022-11-29T01:23:39.0804753	Block States: indreb
+// 1.19.2	2022-11-30T14:56:40.2104999	Block States: indreb
 95b7796b1e598d400659dbc96f12d1f0d72cda55 assets/indreb/blockstates/acid_hazard_sign_block.json
 b0fdc040f5b7b7c6b701f4aed0ac0308e145cfc9 assets/indreb/blockstates/advanced_machine_casing.json
 9385543a17f96635caee1886dc56a82587c77604 assets/indreb/blockstates/advanced_solar_panel.json
+d1f8fb779e03ef2bbec46bcc277dce26177a1495 assets/indreb/blockstates/alloy_smelter.json
 ede056cfd6bd08522821b85649466a4b503b7295 assets/indreb/blockstates/basic_machine_casing.json
 1f4f97d22f2d6a945ecdf1b9d351c3dffbe27543 assets/indreb/blockstates/battery_box.json
 d01285be186c5510eaeb6a8080b7d230f50ca340 assets/indreb/blockstates/bio_hazard_sign_block.json
@@ -111,6 +112,8 @@ af28076cbda63c994101f14bc549c35f01f42594 assets/indreb/blockstates/yellow_stripe
 d9205fcdb57554b3ddc82fd9d3e5bb728c13c91d assets/indreb/models/block/advanced_machine_casing.json
 2c456498d891d17f3f5fda7649f53e558f6956b2 assets/indreb/models/block/advanced_solar_panel.json
 91f5915cf20a99ac3f1ea69e1feab5549dfbaeb7 assets/indreb/models/block/advanced_solar_panel_active.json
+8fab599f5600e28cb78e2222c198170c0a3a0e3d assets/indreb/models/block/alloy_smelter.json
+15f8cd470c81bfa8bf5c127d164351e582fdb590 assets/indreb/models/block/alloy_smelter_active.json
 70cdca251a5cf25d9cb20414a61af6256ab683ca assets/indreb/models/block/basic_machine_casing.json
 1a5a6a518775d7acc9b722f3f6190831f3a98c28 assets/indreb/models/block/battery_box.json
 e7097b7257858a1752a868ff3c8c090853f158e7 assets/indreb/models/block/bio_hazard_sign_block.json

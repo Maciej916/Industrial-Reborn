@@ -15,6 +15,7 @@ import com.maciej916.indreb.common.screen.ModMenuTypes;
 import com.maciej916.indreb.common.sound.ModSounds;
 import com.maciej916.indreb.common.world.ModConfiguredFeatures;
 import com.maciej916.indreb.common.world.ModPlacedFeatures;
+import com.maciej916.indreb.integration.top.TOPPlugin;
 import com.mojang.logging.LogUtils;
 import mcjty.theoneprobe.TheOneProbe;
 import net.minecraftforge.common.MinecraftForge;
@@ -64,7 +65,7 @@ public class IndReb {
         ModNetworking.init();
 
         if (ModList.get().isLoaded(TheOneProbe.MODID)) {
-//            TOPPlugin.registerCompatibility();
+            TOPPlugin.registerCompatibility();
         }
     }
 }

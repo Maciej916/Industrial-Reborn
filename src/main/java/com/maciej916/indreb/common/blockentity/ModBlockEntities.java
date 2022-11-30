@@ -10,6 +10,7 @@ import com.maciej916.indreb.common.block.impl.generator.reactor.BlockEntityReact
 import com.maciej916.indreb.common.block.impl.generator.reactor.nuclear_reactor.BlockEntityNuclearReactor;
 import com.maciej916.indreb.common.block.impl.generator.semifluid_generator.BlockEntitySemifluidGenerator;
 import com.maciej916.indreb.common.block.impl.generator.solar_panel.BlockEntitySolarPanel;
+import com.maciej916.indreb.common.block.impl.machines.standard.alloy_smelter.BlockEntityAlloySmelter;
 import com.maciej916.indreb.common.block.impl.machines.basic.canning_machine.BlockEntityCanningMachine;
 import com.maciej916.indreb.common.block.impl.machines.basic.compressor.BlockEntityCompressor;
 import com.maciej916.indreb.common.block.impl.machines.basic.crusher.BlockEntityCrusher;
@@ -71,6 +72,7 @@ public final class ModBlockEntities {
     public static final RegistryObject<BlockEntityType<BlockEntityCanningMachine>> CANNING_MACHINE = BLOCK_ENTITIES.register("canning_machine", () -> BlockEntityType.Builder.of(BlockEntityCanningMachine::new, ModBlocks.CANNING_MACHINE.get()).build(null));
     public static final RegistryObject<BlockEntityType<BlockEntityFluidEnricher>> FLUID_ENRICHER = BLOCK_ENTITIES.register("fluid_enricher", () -> BlockEntityType.Builder.of(BlockEntityFluidEnricher::new, ModBlocks.FLUID_ENRICHER.get()).build(null));
     public static final RegistryObject<BlockEntityType<BlockEntityRecycler>> RECYCLER = BLOCK_ENTITIES.register("recycler", () -> BlockEntityType.Builder.of(BlockEntityRecycler::new, ModBlocks.RECYCLER.get()).build(null));
+    public static final RegistryObject<BlockEntityType<BlockEntityAlloySmelter>> ALLOY_SMELTER = BLOCK_ENTITIES.register("alloy_smelter", () -> BlockEntityType.Builder.of(BlockEntityAlloySmelter::new, ModBlocks.ALLOY_SMELTER.get()).build(null));
 
 
 

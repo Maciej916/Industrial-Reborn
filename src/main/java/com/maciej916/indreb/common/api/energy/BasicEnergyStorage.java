@@ -98,6 +98,24 @@ public class BasicEnergyStorage implements IEnergyStorage, IBaseProgress, INBTSe
         }
     }
 
+    @Override
+    public int generateEnergy(int amount, boolean simulate) {
+        int value = IEnergyStorage.super.generateEnergy(amount, simulate);
+        if (!simulate) {
+            updateGenerated(value);
+        }
+        return value;
+    }
+
+    @Override
+    public int consumeEnergy(int amount, boolean simulate) {
+        int value = IEnergyStorage.super.consumeEnergy(amount, simulate);
+        if (!simulate) {
+            updateConsumed(value);
+        }
+        return value;
+    }
+
     public int totalGenerated() {
         return totalGenerated;
     }
@@ -186,5 +204,21 @@ public class BasicEnergyStorage implements IEnergyStorage, IBaseProgress, INBTSe
     @Override
     public float getProgressMax() {
         return maxEnergy;
+    }
+
+    @Override
+    public String toString() {
+        return "BasicEnergyStorage{" +
+                "energyStored=" + energyStored +
+                ", maxEnergy=" + maxEnergy +
+                ", energyType=" + energyType +
+                ", energyTier=" + energyTier +
+                ", origEnergy=" + origEnergy +
+                ", origTier=" + origTier +
+                ", lastGenerated=" + lastGenerated +
+                ", totalGenerated=" + totalGenerated +
+                ", lastConsumed=" + lastConsumed +
+                ", totalConsumed=" + totalConsumed +
+                '}';
     }
 }

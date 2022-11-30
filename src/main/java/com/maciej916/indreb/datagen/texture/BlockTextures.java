@@ -48,6 +48,7 @@ public class BlockTextures extends BlockStateProvider {
         registerChargePad();
         registerTransformer();
         registerBasicMachines();
+        registerStandardMachines();
     }
 
     private void registerOres() {
@@ -211,6 +212,11 @@ public class BlockTextures extends BlockStateProvider {
         createActiveHorizontal(ModBlocks.CANNING_MACHINE, "machine/basic/canning_machine/canning_machine", "_bottom", "_bottom", "_top", "_top", "_front", "_front_active", "_side", "_side", "_side", "_side", "_side", "_side");
         createActiveHorizontal(ModBlocks.FLUID_ENRICHER, "machine/basic/fluid_enricher/fluid_enricher", "_bottom", "_bottom", "_top", "_top", "_front", "_front_active", "_back", "_back", "_leftright", "_leftright_active", "_leftright", "_leftright_active");
         createActiveHorizontal(ModBlocks.RECYCLER, "machine/basic/recycler/recycler", "_bottom", "_bottom", "_top", "_top_active", "_front", "_front_active", "_side", "_side", "_side", "_side", "_side", "_side");
+
+    }
+
+    private void registerStandardMachines() {
+        createActiveHorizontal(ModBlocks.ALLOY_SMELTER, "machine/standard/alloy_smelter/alloy_smelter", "_bottom", "_bottom", "_top", "_top", "_front", "_front_active", "_side", "_side", "_side", "_side", "_side", "_side");
 
     }
 

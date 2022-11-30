@@ -64,7 +64,9 @@ public interface IEnergyStorage {
 
     default int consumeEnergy(final int amount, boolean simulate) {
         int energy = Math.min(energyStored(), amount);
-        if (!simulate && energy > 0) setEnergy(energyStored() - energy);
+        if (!simulate && energy > 0) {
+            setEnergy(energyStored() - energy);
+        }
         return energy;
     }
 
