@@ -15,6 +15,7 @@ import com.maciej916.indreb.common.blockentity.ModBlockEntities;
 import com.maciej916.indreb.common.config.impl.ServerConfig;
 import com.maciej916.indreb.common.recipe.ModRecipeType;
 import com.maciej916.indreb.common.recipe.impl.AlloySmeltingRecipe;
+import com.maciej916.indreb.common.sound.ModSounds;
 import com.maciej916.indreb.common.util.BlockStateHelper;
 import com.maciej916.indreb.common.util.StackHandlerHelper;
 import com.maciej916.indreb.common.util.WrappedHandler;
@@ -281,10 +282,9 @@ public class BlockEntityAlloySmelter extends IndRebBlockEntity implements IHasEx
         return List.of(UpgradeType.OVERCLOCKER, UpgradeType.TRANSFORMER, UpgradeType.ENERGY_STORAGE, UpgradeType.EJECTOR, UpgradeType.PULLING, UpgradeType.REDSTONE_SIGNAL_INVERTER);
     }
 
-    // TODO: Sound for alloy smelter
     @Override
     public SoundEvent getSoundEvent() {
-        return null;
+        return ModSounds.ALLOY_SMELTER.get();
     }
 
     public void initRecipes() {
@@ -309,10 +309,5 @@ public class BlockEntityAlloySmelter extends IndRebBlockEntity implements IHasEx
     private boolean canWork() {
         final ItemStack outputStack = getBaseStorage().getStackInSlot(OUTPUT_SLOT);
         return outputStack.isEmpty() || (outputStack.getCount() + recipe.getResultItem().getCount() <= outputStack.getMaxStackSize() && recipe.getResultItem().getItem() == outputStack.getItem());
-    }
-
-
-    public void addProbeInfo() {
-
     }
 }

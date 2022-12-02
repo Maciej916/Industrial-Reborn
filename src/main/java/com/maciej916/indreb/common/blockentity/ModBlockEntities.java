@@ -25,6 +25,7 @@ import com.maciej916.indreb.common.block.impl.machines.simple.iron_furnace.Block
 import com.maciej916.indreb.common.block.impl.machines.simple.simple_compressor.BlockEntitySimpleCompressor;
 import com.maciej916.indreb.common.block.impl.machines.simple.simple_crusher.BlockEntitySimpleCrusher;
 import com.maciej916.indreb.common.block.impl.machines.simple.simple_extractor.BlockEntitySimpleExtractor;
+import com.maciej916.indreb.common.block.impl.machines.standard.fermenter.BlockEntityFermenter;
 import com.maciej916.indreb.common.block.impl.misc.luminator.BlockEntityLuminator;
 import com.maciej916.indreb.common.block.impl.transformer.BlockEntityTransformer;
 import net.minecraft.world.level.block.entity.BlockEntityType;
@@ -76,6 +77,7 @@ public final class ModBlockEntities {
     public static final RegistryObject<BlockEntityType<BlockEntityMetalFormer>> METAL_FORMER = BLOCK_ENTITIES.register("metal_former", () -> BlockEntityType.Builder.of(BlockEntityMetalFormer::new, ModBlocks.METAL_FORMER.get()).build(null));
 
     public static final RegistryObject<BlockEntityType<BlockEntityAlloySmelter>> ALLOY_SMELTER = BLOCK_ENTITIES.register("alloy_smelter", () -> BlockEntityType.Builder.of(BlockEntityAlloySmelter::new, ModBlocks.ALLOY_SMELTER.get()).build(null));
+    public static final RegistryObject<BlockEntityType<BlockEntityFermenter>> FERMENTER = BLOCK_ENTITIES.register("fermenter", () -> BlockEntityType.Builder.of(BlockEntityFermenter::new, ModBlocks.FERMENTER.get()).build(null));
 
 
 

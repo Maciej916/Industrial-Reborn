@@ -1,4 +1,4 @@
-// 1.19.2	2022-11-30T18:56:33.5592731	Item Models: indreb
+// 1.19.2	2022-12-02T14:11:21.2722095	Item Models: indreb
 ea6f48b249d5595c0bc20e39b977fa8fad0ed868 assets/indreb/models/item/acid_hazard_sign_block.json
 4df0fe2021d7b228332497f5c7d711b40f082510 assets/indreb/models/item/advanced_alloy.json
 df0888ae05d095b7dbd4b54b411496df8d853b49 assets/indreb/models/item/advanced_battery.json
@@ -146,6 +146,7 @@ a7a97f41285580c0d605be1595b919923076eb0b assets/indreb/models/item/energy_storag
 7b382ca707cf13fb440fbcea863a01d24707a4fd assets/indreb/models/item/explosion_hazard_sign_block.json
 acd92817d7ea622684bf40076f9eca4bdcc12f3b assets/indreb/models/item/extractor.json
 2c6b24a60f080e0c0c11cf81a759b2b79b502e81 assets/indreb/models/item/extruder.json
+bbac6bf2202391558b32391da0042921533c4f1e assets/indreb/models/item/fermenter.json
 4f5743cd253934b43ef3233fb25f50d1150ca5f9 assets/indreb/models/item/fertilizer.json
 90a33448cd123cd5239a1e5bb837c44a232e00b8 assets/indreb/models/item/fire_hazard_sign_block.json
 410a368aab6f020d2276b94159985752b25d6469 assets/indreb/models/item/fluid_ejector_upgrade.json

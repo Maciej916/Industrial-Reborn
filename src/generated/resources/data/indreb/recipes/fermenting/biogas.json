@@ -1,0 +1,19 @@
+{
+  "type": "indreb:fermenting",
+  "duration": 600,
+  "experience": 1.5,
+  "fluid_input": {
+    "amount": 1000,
+    "fluid": "indreb:biomass"
+  },
+  "fluid_output": {
+    "amount": 200,
+    "fluid": "indreb:biogas"
+  },
+  "tick_energy_cost": 8,
+  "tick_waste_increase": 1.0,
+  "waste_duration": 1400,
+  "waste_output": {
+    "item": "indreb:fertilizer"
+  }
+}

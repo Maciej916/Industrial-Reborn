@@ -140,10 +140,10 @@ public class BlockEntityUtil {
                 if (fluidStorage.fillFluid(fluid, true) == fluid.getAmount()) {
                     fluidStorage.fillFluid(fluid, false);
                     cap.drain(fluid.getAmount(), IFluidHandler.FluidAction.EXECUTE);
-                    player.addItem(cap.getContainer());
 
                     if (!player.isCreative()) {
                         stack.shrink(1);
+                        player.addItem(cap.getContainer());
                     }
                     return true;
                 }

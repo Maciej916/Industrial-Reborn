@@ -320,6 +320,7 @@ public class TagsItem extends ItemTagsProvider {
                 .add(ModItems.METAL_FORMER.get())
 
                 .add(ModItems.ALLOY_SMELTER.get())
+                .add(ModItems.FERMENTER.get())
 
         ;
 

@@ -1,4 +1,4 @@
-// 1.19.2	2022-11-30T18:56:33.565975	Block States: indreb
+// 1.19.2	2022-12-02T14:11:21.2651853	Block States: indreb
 95b7796b1e598d400659dbc96f12d1f0d72cda55 assets/indreb/blockstates/acid_hazard_sign_block.json
 b0fdc040f5b7b7c6b701f4aed0ac0308e145cfc9 assets/indreb/blockstates/advanced_machine_casing.json
 9385543a17f96635caee1886dc56a82587c77604 assets/indreb/blockstates/advanced_solar_panel.json
@@ -40,6 +40,7 @@ de8cb655af4750bf09b0cc93c25bedfeca921fb3 assets/indreb/blockstates/deepslate_lea
 26a69aaee214a2de46efd1a7a9bef3ee7432595e assets/indreb/blockstates/explosion_hazard_sign_block.json
 852dd316c1a82a53eacf82b85ca2236a9d669929 assets/indreb/blockstates/extractor.json
 a08a983a615deaebda5b8aea48e44fccebb404bd assets/indreb/blockstates/extruder.json
+4ee26c990343c28c8f417297d42e04ff9bc831f6 assets/indreb/blockstates/fermenter.json
 862762f2a458ee022196d09b713ee10db59cf01c assets/indreb/blockstates/fire_hazard_sign_block.json
 624e112277048c61feaeadd350ed58acc8021bc8 assets/indreb/blockstates/fluid_enricher.json
 7758979007d3d508703b50d703c85ff04046c4ee assets/indreb/blockstates/frost_hazard_sign_block.json
@@ -162,6 +163,8 @@ f7563a39f13e5780c6bdcfdd24d4421e7e2ba8e4 assets/indreb/models/block/extractor.js
 6bcce6dca5c0bdcf473df4c8748b883a9b0b30f6 assets/indreb/models/block/extractor_active.json
 ec5d0f0e94582d5662e296abf2fb994f7ae99789 assets/indreb/models/block/extruder.json
 fb780f1e6988e7a599a6fd7e816ab3d1c87006ed assets/indreb/models/block/extruder_active.json
+5b92d2bbe0917cc931689b4e70a91332a62b3ac8 assets/indreb/models/block/fermenter.json
+510ab5e67ef209a47a6f42ee8c10c5e0f5029e23 assets/indreb/models/block/fermenter_active.json
 19b328ef7a82c9e1298a073617ac505a60505813 assets/indreb/models/block/fire_hazard_sign_block.json
 ae5cf5d225144f4d655b4e675044e9c34d8925ee assets/indreb/models/block/fluid_enricher.json
 ac5e022db1aa56875ae93d90421f35dd434df773 assets/indreb/models/block/fluid_enricher_active.json

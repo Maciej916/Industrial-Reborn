@@ -165,6 +165,7 @@ public final class ModItems {
 
 
     public static final RegistryObject<Item> ALLOY_SMELTER = fromBlockElectric(ModBlocks.ALLOY_SMELTER);
+    public static final RegistryObject<Item> FERMENTER = fromBlockElectric(ModBlocks.FERMENTER);
 
 // add tags
 

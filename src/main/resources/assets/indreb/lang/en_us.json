@@ -457,6 +457,7 @@
   "jei.indreb.extruding": "Extruding",
   "jei.indreb.rolling": "Rolling",
   "jei.indreb.cutting": "Cutting",
+  "jei.indreb.fermenting": "Fermenting",
 
   "jei.indreb.chance": "Chance: %s",
   "jei.indreb.chance_to_get": "Chance to get at least one item: %s",

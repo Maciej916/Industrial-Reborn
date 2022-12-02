@@ -28,6 +28,7 @@ public final class ModRecipeType {
 
 
     public static final RegistryObject<RecipeType<AlloySmeltingRecipe>> ALLOY_SMELTING = registerType("alloy_smelting");
+    public static final RegistryObject<RecipeType<FermentingRecipe>> FERMENTING = registerType("fermenting");
 
 
 //    public static final RegistryObject<RecipeType<OreWashingRecipe>> ORE_WASHING = registerType("ore_washing");

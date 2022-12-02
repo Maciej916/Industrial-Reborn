@@ -65,10 +65,9 @@ public final class ServerConfig {
 	public static ForgeConfigSpec.IntValue fluid_enricher_fluid_capacity;
 
 	public static ForgeConfigSpec.IntValue fermenter_energy_capacity;
-	public static ForgeConfigSpec.IntValue fermenter_biomass_capacity;
-	public static ForgeConfigSpec.IntValue fermenter_biogas_capacity;
+	public static ForgeConfigSpec.IntValue fermenter_fluid_input_capacity;
+	public static ForgeConfigSpec.IntValue fermenter_fluid_output_capacity;
 	public static ForgeConfigSpec.IntValue fermenter_heat_cost;
-	public static ForgeConfigSpec.IntValue fermenter_tick_usage;
 
 	public static ForgeConfigSpec.IntValue fluid_cell_capacity;
 	public static ForgeConfigSpec.IntValue foam_sprayer_capacity;
@@ -175,15 +174,14 @@ public final class ServerConfig {
 
 		builder.push("standard_machines");
 		alloy_smelter_energy_capacity = builder.defineInRange("alloy_smelter_energy_capacity", 2400, 1, Integer.MAX_VALUE);
-		alloy_smelter_heat_cost = builder.defineInRange("alloy_smelter_energy_heat_cost", 50, 1, Integer.MAX_VALUE);
+		alloy_smelter_heat_cost = builder.defineInRange("alloy_smelter_energy_heat_cost", 48, 1, Integer.MAX_VALUE);
 		builder.pop();
 
 		builder.push("fermenter");
 		fermenter_energy_capacity = builder.defineInRange("fermenter_energy_capacity", 2400, 1, Integer.MAX_VALUE);
-		fermenter_biomass_capacity = builder.defineInRange("fermenter_biomass_capacity", 10000, 1, Integer.MAX_VALUE);
-		fermenter_biogas_capacity = builder.defineInRange("fermenter_biogas_capacity", 2000, 1, Integer.MAX_VALUE);
-		fermenter_heat_cost = builder.defineInRange("fermenter_heat_cost", 50, 1, Integer.MAX_VALUE);
-		fermenter_tick_usage = builder.defineInRange("fermenter_tick_usage", 10, 1, Integer.MAX_VALUE);
+		fermenter_fluid_input_capacity = builder.defineInRange("fermenter_fluid_input_capacity", 10000, 1, Integer.MAX_VALUE);
+		fermenter_fluid_output_capacity = builder.defineInRange("fermenter_fluid_output_capacity", 4000, 1, Integer.MAX_VALUE);
+		fermenter_heat_cost = builder.defineInRange("fermenter_heat_cost", 48, 1, Integer.MAX_VALUE);
 		builder.pop();
 
 		builder.push("cell");

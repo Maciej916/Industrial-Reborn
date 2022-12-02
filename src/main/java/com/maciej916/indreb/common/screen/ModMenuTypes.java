@@ -24,6 +24,7 @@ import com.maciej916.indreb.common.block.impl.machines.simple.simple_compressor.
 import com.maciej916.indreb.common.block.impl.machines.simple.simple_crusher.MenuSimpleCrusher;
 import com.maciej916.indreb.common.block.impl.machines.simple.simple_extractor.MenuSimpleExtractor;
 import com.maciej916.indreb.common.block.impl.machines.standard.alloy_smelter.MenuAlloySmelter;
+import com.maciej916.indreb.common.block.impl.machines.standard.fermenter.MenuFermenter;
 import com.maciej916.indreb.common.block.impl.transformer.MenuTransformer;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.MenuType;
@@ -69,9 +70,8 @@ public final class ModMenuTypes {
     public static final RegistryObject<MenuType<MenuMetalFormer>> METAL_FORMER = registerMenuType(MenuMetalFormer::new, "metal_former");
 
     public static final RegistryObject<MenuType<MenuAlloySmelter>> ALLOY_SMELTER = registerMenuType(MenuAlloySmelter::new, "alloy_smelter");
+    public static final RegistryObject<MenuType<MenuFermenter>> FERMENTER = registerMenuType(MenuFermenter::new, "fermenter");
 
-
-//    public static final RegistryObject<MenuType<MenuFermenter>> FERMENTER = registerMenuType("fermenter",  MenuFermenter::new);
 //    public static final RegistryObject<MenuType<MenuOreWashingPlant>> ORE_WASHING_PLANT = registerMenuType("ore_washing_plant",  MenuOreWashingPlant::new);
 
 //

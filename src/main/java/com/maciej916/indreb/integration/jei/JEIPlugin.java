@@ -46,6 +46,7 @@ import com.maciej916.indreb.common.block.impl.machines.simple.simple_extractor.S
 import com.maciej916.indreb.common.block.impl.machines.standard.alloy_smelter.BlockEntityAlloySmelter;
 import com.maciej916.indreb.common.block.impl.machines.standard.alloy_smelter.MenuAlloySmelter;
 import com.maciej916.indreb.common.block.impl.machines.standard.alloy_smelter.ScreenAlloySmelter;
+import com.maciej916.indreb.common.block.impl.machines.standard.fermenter.ScreenFermenter;
 import com.maciej916.indreb.common.item.ModItems;
 import com.maciej916.indreb.common.recipe.ModRecipeType;
 import com.maciej916.indreb.common.recipe.impl.*;
@@ -90,6 +91,7 @@ public class JEIPlugin implements IModPlugin {
 
 
     public static final RecipeType<AlloySmeltingRecipe> ALLOY_SMELTING_TYPE = new RecipeType<>(AlloySmeltingCategory.UID, AlloySmeltingRecipe.class);
+    public static final RecipeType<FermentingRecipe> FERMENTING_TYPE = new RecipeType<>(FermentingCategory.UID, FermentingRecipe.class);
 
 //    public static final RecipeType<OreWashingRecipe> ORE_WASHING_TYPE = new RecipeType<>(OreWashingCateggory.UID, OreWashingRecipe.class);
 //    public static final RecipeType<ThermalCentrifugingRecipe> THERMAL_CENTRIFUGING_TYPE = new RecipeType<>(ThermalCentrifugingCategory.UID, ThermalCentrifugingRecipe.class);
@@ -121,6 +123,7 @@ public class JEIPlugin implements IModPlugin {
         registration.addRecipeCatalyst(new ItemStack(ModBlocks.METAL_FORMER.get()), ROLLING_TYPE, CUTTING_TYPE, EXTRUDING_TYPE);
 
         registration.addRecipeCatalyst(new ItemStack(ModBlocks.ALLOY_SMELTER.get()), ALLOY_SMELTING_TYPE);
+        registration.addRecipeCatalyst(new ItemStack(ModBlocks.FERMENTER.get()), FERMENTING_TYPE);
 
 
 //        registration.addRecipeCatalyst(new ItemStack(ModBlocks.ORE_WASHING_PLANT.get()), ORE_WASHING_TYPE);
@@ -146,6 +149,7 @@ public class JEIPlugin implements IModPlugin {
 
 
         registration.addRecipeCategories(new AlloySmeltingCategory(ScreenHelper));
+        registration.addRecipeCategories(new FermentingCategory(ScreenHelper));
 
 //        registration.addRecipeCategories(new OreWashingCateggory(ScreenHelper));
 //        registration.addRecipeCategories(new ThermalCentrifugingCategory(ScreenHelper));
@@ -177,6 +181,7 @@ public class JEIPlugin implements IModPlugin {
         registration.addRecipes(EXTRUDING_TYPE, recipeManager.getAllRecipesFor(ModRecipeType.EXTRUDING.get()));
 
         registration.addRecipes(ALLOY_SMELTING_TYPE, recipeManager.getAllRecipesFor(ModRecipeType.ALLOY_SMELTING.get()));
+        registration.addRecipes(FERMENTING_TYPE, recipeManager.getAllRecipesFor(ModRecipeType.FERMENTING.get()));
 
 //        registration.addRecipes(ORE_WASHING_TYPE, recipeManager.getAllRecipesFor(ModRecipeType.ORE_WASHING.get()));
 //        registration.addRecipes(THERMAL_CENTRIFUGING_TYPE, recipeManager.getAllRecipesFor(ModRecipeType.THERMAL_CENTRIFUGING.get()));
@@ -209,6 +214,7 @@ public class JEIPlugin implements IModPlugin {
         registration.addRecipeClickArea(ScreenMetalFormer.class, 71, 34, 24, 18, ROLLING_TYPE, CUTTING_TYPE, EXTRUDING_TYPE);
 
         registration.addRecipeClickArea(ScreenAlloySmelter.class, 82, 33, 24, 16, ALLOY_SMELTING_TYPE);
+        registration.addRecipeClickArea(ScreenFermenter.class, 76, 35, 24, 16, FERMENTING_TYPE);
 
 //        registration.addRecipeClickArea(ScreenOreWashingPlant.class, 90, 32, 19, 19, ORE_WASHING_TYPE);
 //        registration.addRecipeClickArea(ScreenThermalCentrifuge.class, 82, 33, 24, 16, THERMAL_CENTRIFUGING_TYPE);

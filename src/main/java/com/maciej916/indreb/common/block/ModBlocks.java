@@ -37,6 +37,7 @@ import com.maciej916.indreb.common.block.impl.machines.simple.iron_furnace.Block
 import com.maciej916.indreb.common.block.impl.machines.simple.simple_compressor.BlockSimpleCompressor;
 import com.maciej916.indreb.common.block.impl.machines.simple.simple_crusher.BlockSimpleCrusher;
 import com.maciej916.indreb.common.block.impl.machines.simple.simple_extractor.BlockSimpleExtractor;
+import com.maciej916.indreb.common.block.impl.machines.standard.fermenter.BlockFermenter;
 import com.maciej916.indreb.common.block.impl.misc.luminator.BlockLuminator;
 import com.maciej916.indreb.common.block.impl.reinforced.*;
 import com.maciej916.indreb.common.block.impl.transformer.BlockTransformer;
@@ -189,6 +190,7 @@ public final class ModBlocks {
 
 
     public static final RegistryObject<Block> ALLOY_SMELTER = registerBlock("alloy_smelter", BlockAlloySmelter::new);
+    public static final RegistryObject<Block> FERMENTER = registerBlock("fermenter", BlockFermenter::new);
 
 
 

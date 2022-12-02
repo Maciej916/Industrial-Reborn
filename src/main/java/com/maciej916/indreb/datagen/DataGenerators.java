@@ -44,5 +44,6 @@ public class DataGenerators {
         generator.addProvider(event.includeServer(), new ExtrudingRecipeProvider(generator));
 
         generator.addProvider(event.includeServer(), new AlloySmeltingRecipeProvider(generator));
+        generator.addProvider(event.includeServer(), new FermentingRecipeProvider(generator));
     }
 }

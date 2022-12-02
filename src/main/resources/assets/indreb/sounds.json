@@ -143,6 +143,22 @@
     ]
   },
 
+  "tile.alloy_smelter": {
+    "sounds": [
+      {
+        "name": "indreb:alloy_smelter"
+      }
+    ]
+  },
+
+  "tile.fermenter": {
+    "sounds": [
+      {
+        "name": "indreb:fermenter"
+      }
+    ]
+  },
+
   "item.treetap": {
     "sounds": [
       {

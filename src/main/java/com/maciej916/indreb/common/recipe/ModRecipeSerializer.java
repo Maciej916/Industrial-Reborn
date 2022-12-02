@@ -25,6 +25,7 @@ public final class ModRecipeSerializer {
     public static final RegistryObject<RecipeSerializer<ExtrudingRecipe>> EXTRUDING = SERIALIZERS.register("extruding", () -> ExtrudingRecipe.SERIALIZER);
 
     public static final RegistryObject<RecipeSerializer<AlloySmeltingRecipe>> ALLOY_SMELTING = SERIALIZERS.register("alloy_smelting", () -> AlloySmeltingRecipe.SERIALIZER);
+    public static final RegistryObject<RecipeSerializer<FermentingRecipe>> FERMENTING = SERIALIZERS.register("fermenting", () -> FermentingRecipe.SERIALIZER);
 
 
 //    public static final RegistryObject<RecipeSerializer<ScrapBoxRecipe>> SCRAP_BOX = SERIALIZERS.register("scrap_box", () -> ScrapBoxRecipe.SERIALIZER);

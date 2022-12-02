@@ -33,6 +33,8 @@ public final class ModSounds {
     public static final RegistryObject<SoundEvent> REPLICATOR = registerSound("tile.replicator");
     public static final RegistryObject<SoundEvent> SCANNER = registerSound("tile.scanner");
     public static final RegistryObject<SoundEvent> THERMAL_CENTRIFUGE = registerSound("tile.thermal_centrifuge");
+    public static final RegistryObject<SoundEvent> ALLOY_SMELTER = registerSound("tile.alloy_smelter");
+    public static final RegistryObject<SoundEvent> FERMENTER = registerSound("tile.fermenter");
 
     public static final RegistryObject<SoundEvent> TREETAP = registerSound("item.treetap");
     public static final RegistryObject<SoundEvent> WRENCH = registerSound("item.wrench");
