@@ -1,0 +1,15 @@
+{
+  "type": "indreb:scrap_box",
+  "duration": 10,
+  "experience": 0.0,
+  "ingredients": [
+    {
+      "item": "indreb:scrap_box"
+    }
+  ],
+  "result": {
+    "item": "minecraft:sweet_berries"
+  },
+  "tick_energy_cost": 1,
+  "weight": 0.8
+}

@@ -60,6 +60,7 @@ public class GuiUtil {
     }
 
     public static DecimalFormat DECIMAL_FORMAT_1 = new DecimalFormat("0.0");
+    public static DecimalFormat DECIMAL_FORMAT_2 = new DecimalFormat("0.000");
     public static String DEGREE_SYMBOL = String.valueOf(((char) 0x00B0));
 
 }

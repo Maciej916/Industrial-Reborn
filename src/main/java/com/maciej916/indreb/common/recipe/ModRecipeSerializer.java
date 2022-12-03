@@ -30,8 +30,7 @@ public final class ModRecipeSerializer {
     public static final RegistryObject<RecipeSerializer<ThermalCentrifugingRecipe>> THERMAL_CENTRIFUGING = SERIALIZERS.register("thermal_centrifuging", () -> ThermalCentrifugingRecipe.SERIALIZER);
 
 
-
-//    public static final RegistryObject<RecipeSerializer<ScrapBoxRecipe>> SCRAP_BOX = SERIALIZERS.register("scrap_box", () -> ScrapBoxRecipe.SERIALIZER);
+    public static final RegistryObject<RecipeSerializer<ScrapBoxRecipe>> SCRAP_BOX = SERIALIZERS.register("scrap_box", () -> ScrapBoxRecipe.SERIALIZER);
 
 
 //    public static final RegistryObject<RecipeSerializer<ScannerRecipe>> SCANNER = SERIALIZERS.register("scanner", () -> ScannerRecipe.SERIALIZER);

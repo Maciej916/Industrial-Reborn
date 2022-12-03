@@ -134,6 +134,21 @@ public final class ModItems {
     public static final RegistryObject<Item> HV_CABLE_INSULATED = fromBlock(ModBlocks.HV_CABLE_INSULATED);
     public static final RegistryObject<Item> GLASS_FIBRE_CABLE = fromBlock(ModBlocks.GLASS_FIBRE_CABLE);
 
+    public static final RegistryObject<Item> BATTERY_BOX = fromBlockElectric(ModBlocks.BATTERY_BOX);
+    public static final RegistryObject<Item> CESU = fromBlockElectric(ModBlocks.CESU);
+    public static final RegistryObject<Item> MFE = fromBlockElectric(ModBlocks.MFE);
+    public static final RegistryObject<Item> MFSU = fromBlockElectric(ModBlocks.MFSU);
+
+    public static final RegistryObject<Item> CHARGE_PAD_BATTERY_BOX = fromBlockElectric(ModBlocks.CHARGE_PAD_BATTERY_BOX);
+    public static final RegistryObject<Item> CHARGE_PAD_CESU = fromBlockElectric(ModBlocks.CHARGE_PAD_CESU);
+    public static final RegistryObject<Item> CHARGE_PAD_MFE = fromBlockElectric(ModBlocks.CHARGE_PAD_MFE);
+    public static final RegistryObject<Item> CHARGE_PAD_MFSU = fromBlockElectric(ModBlocks.CHARGE_PAD_MFSU);
+
+    public static final RegistryObject<Item> LV_TRANSFORMER = fromBlock(ModBlocks.LV_TRANSFORMER);
+    public static final RegistryObject<Item> MV_TRANSFORMER = fromBlock(ModBlocks.MV_TRANSFORMER);
+    public static final RegistryObject<Item> HV_TRANSFORMER = fromBlock(ModBlocks.HV_TRANSFORMER);
+    public static final RegistryObject<Item> EV_TRANSFORMER = fromBlock(ModBlocks.EV_TRANSFORMER);
+
     public static final RegistryObject<Item> SIMPLE_CRUSHER = fromBlock(ModBlocks.SIMPLE_CRUSHER);
     public static final RegistryObject<Item> SIMPLE_COMPRESSOR = fromBlock(ModBlocks.SIMPLE_COMPRESSOR);
     public static final RegistryObject<Item> SIMPLE_EXTRACTOR = fromBlock(ModBlocks.SIMPLE_EXTRACTOR);
@@ -163,7 +178,6 @@ public final class ModItems {
     public static final RegistryObject<Item> RECYCLER = fromBlockElectric(ModBlocks.RECYCLER);
     public static final RegistryObject<Item> METAL_FORMER = fromBlockElectric(ModBlocks.METAL_FORMER);
 
-
     public static final RegistryObject<Item> ALLOY_SMELTER = fromBlockElectric(ModBlocks.ALLOY_SMELTER);
     public static final RegistryObject<Item> FERMENTER = fromBlockElectric(ModBlocks.FERMENTER);
     public static final RegistryObject<Item> ORE_WASHING_PLANT = fromBlockElectric(ModBlocks.ORE_WASHING_PLANT);
@@ -172,21 +186,6 @@ public final class ModItems {
 // add tags
 
 
-
-    public static final RegistryObject<Item> BATTERY_BOX = fromBlockElectric(ModBlocks.BATTERY_BOX);
-    public static final RegistryObject<Item> CESU = fromBlockElectric(ModBlocks.CESU);
-    public static final RegistryObject<Item> MFE = fromBlockElectric(ModBlocks.MFE);
-    public static final RegistryObject<Item> MFSU = fromBlockElectric(ModBlocks.MFSU);
-
-    public static final RegistryObject<Item> CHARGE_PAD_BATTERY_BOX = fromBlockElectric(ModBlocks.CHARGE_PAD_BATTERY_BOX);
-    public static final RegistryObject<Item> CHARGE_PAD_CESU = fromBlockElectric(ModBlocks.CHARGE_PAD_CESU);
-    public static final RegistryObject<Item> CHARGE_PAD_MFE = fromBlockElectric(ModBlocks.CHARGE_PAD_MFE);
-    public static final RegistryObject<Item> CHARGE_PAD_MFSU = fromBlockElectric(ModBlocks.CHARGE_PAD_MFSU);
-
-    public static final RegistryObject<Item> LV_TRANSFORMER = fromBlock(ModBlocks.LV_TRANSFORMER);
-    public static final RegistryObject<Item> MV_TRANSFORMER = fromBlock(ModBlocks.MV_TRANSFORMER);
-    public static final RegistryObject<Item> HV_TRANSFORMER = fromBlock(ModBlocks.HV_TRANSFORMER);
-    public static final RegistryObject<Item> EV_TRANSFORMER = fromBlock(ModBlocks.EV_TRANSFORMER);
 
     public static final RegistryObject<Item> RAW_TIN = registerItem("raw_tin", MaterialItem::new);
     public static final RegistryObject<Item> RAW_LEAD = registerItem("raw_lead", MaterialItem::new);

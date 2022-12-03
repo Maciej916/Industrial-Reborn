@@ -100,11 +100,11 @@ public class JEIPlugin implements IModPlugin {
     public static final RecipeType<OreWashingRecipe> ORE_WASHING_TYPE = new RecipeType<>(OreWashingCategory.UID, OreWashingRecipe.class);
     public static final RecipeType<ThermalCentrifugingRecipe> THERMAL_CENTRIFUGING_TYPE = new RecipeType<>(ThermalCentrifugingCategory.UID, ThermalCentrifugingRecipe.class);
 
+    public static final RecipeType<ScrapBoxRecipe> SCRAP_BOX_TYPE = new RecipeType<>(ScrapBoxCategory.UID, ScrapBoxRecipe.class);
 
 
 
 //    public static final RecipeType<ScannerRecipe> SCANNER_TYPE = new RecipeType<>(ScannerCategory.UID, ScannerRecipe.class);
-//    public static final RecipeType<ScrapBoxRecipe> SCRAP_BOX_TYPE = new RecipeType<>(ScrapBoxCategory.UID, ScrapBoxRecipe.class);
 
     @Override
     public ResourceLocation getPluginUid() {
@@ -154,16 +154,15 @@ public class JEIPlugin implements IModPlugin {
         registration.addRecipeCategories(new CuttingCategory(ScreenHelper));
         registration.addRecipeCategories(new ExtrudingCategory(ScreenHelper));
 
-
         registration.addRecipeCategories(new AlloySmeltingCategory(ScreenHelper));
         registration.addRecipeCategories(new FermentingCategory(ScreenHelper));
         registration.addRecipeCategories(new OreWashingCategory(ScreenHelper));
         registration.addRecipeCategories(new ThermalCentrifugingCategory(ScreenHelper));
 
-
+        registration.addRecipeCategories(new ScrapBoxCategory(ScreenHelper));
 
 //        registration.addRecipeCategories(new ScannerCategory(ScreenHelper));
-//        registration.addRecipeCategories(new ScrapBoxCategory(ScreenHelper));
+
 
     }
 
@@ -193,10 +192,10 @@ public class JEIPlugin implements IModPlugin {
         registration.addRecipes(ORE_WASHING_TYPE, recipeManager.getAllRecipesFor(ModRecipeType.ORE_WASHING.get()));
         registration.addRecipes(THERMAL_CENTRIFUGING_TYPE, recipeManager.getAllRecipesFor(ModRecipeType.THERMAL_CENTRIFUGING.get()));
 
-
+        registration.addRecipes(SCRAP_BOX_TYPE, recipeManager.getAllRecipesFor(ModRecipeType.SCRAP_BOX.get()));
 
 //        registration.addRecipes(SCANNER_TYPE, recipeManager.getAllRecipesFor(ModRecipeType.SCANNER.get()));
-//        registration.addRecipes(SCRAP_BOX_TYPE, recipeManager.getAllRecipesFor(ModRecipeType.SCRAP_BOX.get()));
+
 
         sw.stop();
         LOGGER.info("Loaded jei recipe integration in {}", sw);
