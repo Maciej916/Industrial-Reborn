@@ -12,6 +12,7 @@
     "indreb:metal_former",
     "indreb:alloy_smelter",
     "indreb:fermenter",
+    "indreb:ore_washing_plant",
     "indreb:thermal_centrifuge"
   ]
 }

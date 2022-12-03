@@ -26,6 +26,7 @@ import com.maciej916.indreb.common.block.impl.machines.simple.simple_compressor.
 import com.maciej916.indreb.common.block.impl.machines.simple.simple_crusher.BlockEntitySimpleCrusher;
 import com.maciej916.indreb.common.block.impl.machines.simple.simple_extractor.BlockEntitySimpleExtractor;
 import com.maciej916.indreb.common.block.impl.machines.standard.fermenter.BlockEntityFermenter;
+import com.maciej916.indreb.common.block.impl.machines.standard.ore_washing_plant.BlockEntityOreWashingPlant;
 import com.maciej916.indreb.common.block.impl.machines.standard.thermal_centrifuge.BlockEntityThermalCentrifuge;
 import com.maciej916.indreb.common.block.impl.misc.luminator.BlockEntityLuminator;
 import com.maciej916.indreb.common.block.impl.transformer.BlockEntityTransformer;
@@ -77,8 +78,11 @@ public final class ModBlockEntities {
     public static final RegistryObject<BlockEntityType<BlockEntityRecycler>> RECYCLER = BLOCK_ENTITIES.register("recycler", () -> BlockEntityType.Builder.of(BlockEntityRecycler::new, ModBlocks.RECYCLER.get()).build(null));
     public static final RegistryObject<BlockEntityType<BlockEntityMetalFormer>> METAL_FORMER = BLOCK_ENTITIES.register("metal_former", () -> BlockEntityType.Builder.of(BlockEntityMetalFormer::new, ModBlocks.METAL_FORMER.get()).build(null));
 
+    /* STANDARD MACHINES */
+
     public static final RegistryObject<BlockEntityType<BlockEntityAlloySmelter>> ALLOY_SMELTER = BLOCK_ENTITIES.register("alloy_smelter", () -> BlockEntityType.Builder.of(BlockEntityAlloySmelter::new, ModBlocks.ALLOY_SMELTER.get()).build(null));
     public static final RegistryObject<BlockEntityType<BlockEntityFermenter>> FERMENTER = BLOCK_ENTITIES.register("fermenter", () -> BlockEntityType.Builder.of(BlockEntityFermenter::new, ModBlocks.FERMENTER.get()).build(null));
+    public static final RegistryObject<BlockEntityType<BlockEntityOreWashingPlant>> ORE_WASHING_PLANT = BLOCK_ENTITIES.register("ore_washing_plant", () -> BlockEntityType.Builder.of(BlockEntityOreWashingPlant::new, ModBlocks.ORE_WASHING_PLANT.get()).build(null));
     public static final RegistryObject<BlockEntityType<BlockEntityThermalCentrifuge>> THERMAL_CENTRIFUGE = BLOCK_ENTITIES.register("thermal_centrifuge", () -> BlockEntityType.Builder.of(BlockEntityThermalCentrifuge::new, ModBlocks.THERMAL_CENTRIFUGE.get()).build(null));
 
 

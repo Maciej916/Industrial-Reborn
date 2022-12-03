@@ -1,0 +1,20 @@
+{
+  "type": "indreb:ore_washing",
+  "chance_result": [],
+  "duration": 500,
+  "experience": 0.1,
+  "fluid_input": {
+    "amount": 500,
+    "fluid": "minecraft:water"
+  },
+  "ingredients": [
+    {
+      "tag": "forge:raw_materials/iron"
+    }
+  ],
+  "result": {
+    "count": 2,
+    "item": "indreb:purified_iron"
+  },
+  "tick_energy_cost": 16
+}

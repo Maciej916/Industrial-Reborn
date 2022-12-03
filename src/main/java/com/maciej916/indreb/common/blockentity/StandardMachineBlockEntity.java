@@ -138,8 +138,6 @@ public abstract class StandardMachineBlockEntity extends IndRebBlockEntity imple
                             }
                         }
                     }
-
-                    activeState = true;
                 }
             }
         }

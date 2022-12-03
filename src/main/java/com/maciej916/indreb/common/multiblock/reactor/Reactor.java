@@ -99,11 +99,6 @@ public class Reactor implements INBTSerializable<CompoundTag>, IBaseProgress, IG
      * @param adjustment the adjustment amount (negative values decrease the max heat).
      */
     public void adjustMaxHeat(final double adjustment) {
-
-        System.out.println("adjustMaxHeat");
-        System.out.println(adjustment);
-        System.out.println(maxHeat);
-
         maxHeat += adjustment;
     }
 

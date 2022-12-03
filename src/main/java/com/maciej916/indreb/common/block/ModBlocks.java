@@ -38,6 +38,7 @@ import com.maciej916.indreb.common.block.impl.machines.simple.simple_compressor.
 import com.maciej916.indreb.common.block.impl.machines.simple.simple_crusher.BlockSimpleCrusher;
 import com.maciej916.indreb.common.block.impl.machines.simple.simple_extractor.BlockSimpleExtractor;
 import com.maciej916.indreb.common.block.impl.machines.standard.fermenter.BlockFermenter;
+import com.maciej916.indreb.common.block.impl.machines.standard.ore_washing_plant.BlockOreWashingPlant;
 import com.maciej916.indreb.common.block.impl.machines.standard.thermal_centrifuge.BlockThermalCentrifuge;
 import com.maciej916.indreb.common.block.impl.misc.luminator.BlockLuminator;
 import com.maciej916.indreb.common.block.impl.reinforced.*;
@@ -189,9 +190,9 @@ public final class ModBlocks {
     public static final RegistryObject<Block> RECYCLER = registerBlock("recycler", BlockRecycler::new);
     public static final RegistryObject<Block> METAL_FORMER = registerBlock("metal_former", BlockMetalFormer::new);
 
-
     public static final RegistryObject<Block> ALLOY_SMELTER = registerBlock("alloy_smelter", BlockAlloySmelter::new);
     public static final RegistryObject<Block> FERMENTER = registerBlock("fermenter", BlockFermenter::new);
+    public static final RegistryObject<Block> ORE_WASHING_PLANT = registerBlock("ore_washing_plant", BlockOreWashingPlant::new);
     public static final RegistryObject<Block> THERMAL_CENTRIFUGE = registerBlock("thermal_centrifuge", BlockThermalCentrifuge::new);
 
 

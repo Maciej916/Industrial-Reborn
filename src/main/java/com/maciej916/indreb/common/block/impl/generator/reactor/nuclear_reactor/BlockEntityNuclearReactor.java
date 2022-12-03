@@ -204,10 +204,6 @@ public class BlockEntityNuclearReactor extends IndRebBlockEntity {
                 }
             }
 
-            System.out.println(reactor.getCurrentHeat());
-            System.out.println(reactor.getMaxHeat());
-
-
             if (reactor.getEnabled()) {
                 if (reactor.getCurrentHeat() >= reactor.getMaxHeat()) {
                     reactor.explodeReactor((ServerLevel) level, getBlockPos(), totalRodCount);

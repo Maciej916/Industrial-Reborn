@@ -1,0 +1,26 @@
+{
+  "type": "indreb:ore_washing",
+  "chance_result": [
+    {
+      "chance": 100.0,
+      "count": 1,
+      "item": "indreb:stone_dust"
+    }
+  ],
+  "duration": 500,
+  "experience": 0.1,
+  "fluid_input": {
+    "amount": 750,
+    "fluid": "minecraft:water"
+  },
+  "ingredients": [
+    {
+      "tag": "forge:ores/silver"
+    }
+  ],
+  "result": {
+    "count": 3,
+    "item": "indreb:purified_silver"
+  },
+  "tick_energy_cost": 16
+}

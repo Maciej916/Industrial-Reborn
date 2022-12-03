@@ -1,4 +1,4 @@
-// 1.19.2	2022-12-02T14:24:31.1243456	Item Models: indreb
+// 1.19.2	2022-12-03T21:24:49.168977	Item Models: indreb
 ea6f48b249d5595c0bc20e39b977fa8fad0ed868 assets/indreb/models/item/acid_hazard_sign_block.json
 4df0fe2021d7b228332497f5c7d711b40f082510 assets/indreb/models/item/advanced_alloy.json
 df0888ae05d095b7dbd4b54b411496df8d853b49 assets/indreb/models/item/advanced_battery.json
@@ -235,6 +235,7 @@ ed346b44600a4432e614c00895d991ab8bcb6ae3 assets/indreb/models/item/noise_hazard_
 c51bc56233700b0672d5cd0ae3c28cee4869ef9f assets/indreb/models/item/nuclear_reactor.json
 bf096d6f89a49bfcb187a1a83a69a62b5e3e4fbf assets/indreb/models/item/nuka_cola.json
 5df624abaf086aed21df9635c44deba7b3a5237b assets/indreb/models/item/nuke.json
+56f2d465a9cc094316fcd11e05378db49a5b65ad assets/indreb/models/item/ore_washing_plant.json
 9ce7ced65b4861262c0559d01fce38529a1c51cd assets/indreb/models/item/overclocked_heat_vent.json
 2fc1fa4addb187ad06e420524d115b326c3da849 assets/indreb/models/item/overclocker_upgrade.json
 db7e8af8d547be016d559e7d17641f9ccfb62912 assets/indreb/models/item/painter.json

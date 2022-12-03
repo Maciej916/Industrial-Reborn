@@ -28,6 +28,7 @@ import com.maciej916.indreb.common.block.impl.machines.simple.simple_crusher.Scr
 import com.maciej916.indreb.common.block.impl.machines.simple.simple_extractor.ScreenSimpleextractor;
 import com.maciej916.indreb.common.block.impl.machines.standard.alloy_smelter.ScreenAlloySmelter;
 import com.maciej916.indreb.common.block.impl.machines.standard.fermenter.ScreenFermenter;
+import com.maciej916.indreb.common.block.impl.machines.standard.ore_washing_plant.ScreenOreWashingPlant;
 import com.maciej916.indreb.common.block.impl.machines.standard.thermal_centrifuge.ScreenThermalCentrifuge;
 import com.maciej916.indreb.common.block.impl.transformer.ScreenTransformer;
 import com.maciej916.indreb.common.client.keys.ModKeys;
@@ -116,9 +117,8 @@ public final class ClientModEventSubscriber {
 			MenuScreens.register(ModMenuTypes.ALLOY_SMELTER.get(), ScreenAlloySmelter::new);
 			MenuScreens.register(ModMenuTypes.FERMENTER.get(), ScreenFermenter::new);
 			MenuScreens.register(ModMenuTypes.THERMAL_CENTRIFUGE.get(), ScreenThermalCentrifuge::new);
+			MenuScreens.register(ModMenuTypes.ORE_WASHING_PLANT.get(), ScreenOreWashingPlant::new);
 
-
-//			MenuScreens.register(ModMenuTypes.ORE_WASHING_PLANT.get(), ScreenOreWashingPlant::new);
 //			MenuScreens.register(ModMenuTypes.MATTER_FABRICATOR.get(), ScreenMatterFabricator::new);
 
 //			MenuScreens.register(ModMenuTypes.PATTERN_STORAGE.get(), ScreenPatternStorage::new);

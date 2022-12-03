@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "indreb:block/machine/standard/ore_washing_plant/ore_washing_plant_bottom",
+    "east": "indreb:block/machine/standard/ore_washing_plant/ore_washing_plant_leftright",
+    "north": "indreb:block/machine/standard/ore_washing_plant/ore_washing_plant_front",
+    "particle": "indreb:block/machine/standard/ore_washing_plant/ore_washing_plant_front",
+    "south": "indreb:block/machine/standard/ore_washing_plant/ore_washing_plant_back",
+    "up": "indreb:block/machine/standard/ore_washing_plant/ore_washing_plant_top",
+    "west": "indreb:block/machine/standard/ore_washing_plant/ore_washing_plant_leftright"
+  }
+}
