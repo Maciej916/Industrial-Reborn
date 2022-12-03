@@ -1,0 +1,18 @@
+{
+  "type": "indreb:thermal_centrifuging",
+  "chance_result": [],
+  "duration": 500,
+  "experience": 0.1,
+  "ingredients": [
+    {
+      "count": 3,
+      "tag": "forge:raw_materials/copper"
+    }
+  ],
+  "result": {
+    "count": 8,
+    "item": "indreb:copper_chunk"
+  },
+  "temperature": 1085.0,
+  "tick_energy_cost": 46
+}

@@ -14,9 +14,15 @@ public interface IBaseProgress {
     default String getProgressString() {
         return String.valueOf(currentProgress());
     }
+
+    default String getCurrentProgressString() {
+        return df.format(currentProgress());
+    }
+
     default String getPercentProgressString() {
         return df.format(getPercentProgress());
     }
+
     default float getPercentProgress() {
         if (currentProgress() <= 0 || getProgressMax() <= 0) return 0;
         return (currentProgress() / getProgressMax())  * 100;

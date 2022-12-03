@@ -315,14 +315,18 @@ public class BlockEntityNuclearReactor extends IndRebBlockEntity {
 
     @Override
     public List<BaseOneProbeInfo> addProbeInfo(List<BaseOneProbeInfo> oneProbeInfo) {
-        super.addProbeInfo(oneProbeInfo);
+        BlockState state = getBlockState();
+        if (state.getValue(BlockStateHelper.REACTOR_PART) != ReactorPartIndex.UNFORMED) {
+            super.addProbeInfo(oneProbeInfo);
 
-        oneProbeInfo.add(new ProbeInfoSimpleText(Component.translatable("tooltip." + IndReb.MODID + ".core_heat", reactor.getPercentProgressString() + "%")));
+            oneProbeInfo.add(new ProbeInfoSimpleText(Component.translatable("tooltip." + IndReb.MODID + ".core_heat", reactor.getPercentProgressString() + "%")));
 
-        if (reactor.isFluid()) {
-            oneProbeInfo.add(new ProbeInfoSimpleText(Component.translatable("gui." + IndReb.MODID + ".output_mode", reactor.getVentedHeat() + " HU/s")));
-        } else {
-            oneProbeInfo.add(new ProbeInfoSimpleText(Component.translatable("gui." + IndReb.MODID + ".output_mode", (reactor.getCurrentIEOutput() / 20) + " IE/t")));
+            if (reactor.isFluid()) {
+                oneProbeInfo.add(new ProbeInfoSimpleText(Component.translatable("gui." + IndReb.MODID + ".output_mode", reactor.getVentedHeat() + " HU/s")));
+            } else {
+                oneProbeInfo.add(new ProbeInfoSimpleText(Component.translatable("gui." + IndReb.MODID + ".output_mode", (reactor.getCurrentIEOutput() / 20) + " IE/t")));
+            }
+
         }
 
         return oneProbeInfo;

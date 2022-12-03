@@ -11,6 +11,7 @@
     "indreb:recycler",
     "indreb:metal_former",
     "indreb:alloy_smelter",
-    "indreb:fermenter"
+    "indreb:fermenter",
+    "indreb:thermal_centrifuge"
   ]
 }

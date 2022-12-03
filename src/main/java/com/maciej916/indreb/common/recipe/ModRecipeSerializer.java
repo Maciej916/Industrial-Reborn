@@ -26,11 +26,11 @@ public final class ModRecipeSerializer {
 
     public static final RegistryObject<RecipeSerializer<AlloySmeltingRecipe>> ALLOY_SMELTING = SERIALIZERS.register("alloy_smelting", () -> AlloySmeltingRecipe.SERIALIZER);
     public static final RegistryObject<RecipeSerializer<FermentingRecipe>> FERMENTING = SERIALIZERS.register("fermenting", () -> FermentingRecipe.SERIALIZER);
-
+    public static final RegistryObject<RecipeSerializer<ThermalCentrifugingRecipe>> THERMAL_CENTRIFUGING = SERIALIZERS.register("thermal_centrifuging", () -> ThermalCentrifugingRecipe.SERIALIZER);
 
 //    public static final RegistryObject<RecipeSerializer<ScrapBoxRecipe>> SCRAP_BOX = SERIALIZERS.register("scrap_box", () -> ScrapBoxRecipe.SERIALIZER);
 //    public static final RegistryObject<RecipeSerializer<OreWashingRecipe>> ORE_WASHING = SERIALIZERS.register("ore_washing", () -> OreWashingRecipe.SERIALIZER);
-//    public static final RegistryObject<RecipeSerializer<ThermalCentrifugingRecipe>> THERMAL_CENTRIFUGING = SERIALIZERS.register("thermal_centrifuging", () -> ThermalCentrifugingRecipe.SERIALIZER);
+
 //    public static final RegistryObject<RecipeSerializer<ScannerRecipe>> SCANNER = SERIALIZERS.register("scanner", () -> ScannerRecipe.SERIALIZER);
 
 //

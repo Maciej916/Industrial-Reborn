@@ -1,0 +1,23 @@
+{
+  "type": "indreb:thermal_centrifuging",
+  "chance_result": [
+    {
+      "chance": 100.0,
+      "count": 1,
+      "item": "indreb:stone_dust"
+    }
+  ],
+  "duration": 500,
+  "experience": 0.1,
+  "ingredients": [
+    {
+      "tag": "forge:ores/lead"
+    }
+  ],
+  "result": {
+    "count": 4,
+    "item": "indreb:lead_chunk"
+  },
+  "temperature": 327.0,
+  "tick_energy_cost": 46
+}

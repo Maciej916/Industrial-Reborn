@@ -1,4 +1,4 @@
-// 1.19.2	2022-12-02T14:11:21.2722095	Item Models: indreb
+// 1.19.2	2022-12-02T14:24:31.1243456	Item Models: indreb
 ea6f48b249d5595c0bc20e39b977fa8fad0ed868 assets/indreb/models/item/acid_hazard_sign_block.json
 4df0fe2021d7b228332497f5c7d711b40f082510 assets/indreb/models/item/advanced_alloy.json
 df0888ae05d095b7dbd4b54b411496df8d853b49 assets/indreb/models/item/advanced_battery.json
@@ -334,6 +334,7 @@ b481f82b12801d0caa819e08d64496d9feb9eed5 assets/indreb/models/item/steel_ingot.j
 61877bdfc62a1fd0922cdccebdbb03417b674a04 assets/indreb/models/item/sticky_resin.json
 c1c4577b82173aa17bb143278938a2a89cf85b5d assets/indreb/models/item/stone_dust.json
 eaffa1d0b9f8e9b74897e2bb70bfe9ebbbafecb3 assets/indreb/models/item/sulfur_dust.json
+45b8a1dda0a529719d41254f0ebbc384be581fee assets/indreb/models/item/thermal_centrifuge.json
 e666b55cf348902736142a92b4c0b5f538a90eac assets/indreb/models/item/thick_neutron_reflector.json
 53fb030313ac7db87ccee050e7e6355072677e02 assets/indreb/models/item/tin_block.json
 953ae43c6117c981be2aec55141b9fe0ce3bf37e assets/indreb/models/item/tin_cable.json

@@ -321,6 +321,7 @@ public class TagsItem extends ItemTagsProvider {
 
                 .add(ModItems.ALLOY_SMELTER.get())
                 .add(ModItems.FERMENTER.get())
+                .add(ModItems.THERMAL_CENTRIFUGE.get())
 
         ;
 

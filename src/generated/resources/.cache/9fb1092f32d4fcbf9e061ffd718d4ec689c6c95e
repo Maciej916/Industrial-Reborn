@@ -1,13 +1,3 @@
-// 1.19.2	2022-12-02T14:11:21.2884869	Recipes
-80c4284d475bf3fe961f7c45f16c2bd860516a28 data/indreb/advancements/recipes/cutting/chain.json
-35a45d70377911cd8d5ff4600b92b7bf4258046d data/indreb/advancements/recipes/cutting/copper_cable.json
-b9a594e579366225a8335cb4b895890fb1228340 data/indreb/advancements/recipes/cutting/gold_cable.json
-d231cd5a322426ef55cc48bf1c595d5080cadc00 data/indreb/advancements/recipes/cutting/hv_cable.json
-311da72401ec6132ab5c6208196c35d4f61be4d8 data/indreb/advancements/recipes/cutting/iron_bars.json
-189cb35ca0a5814c0c52b87e3a5cc54c4a12e68a data/indreb/advancements/recipes/cutting/tin_cable.json
-3167dd43f246b9eee836f130b5c22da8354d440c data/indreb/recipes/cutting/chain.json
-319a136cea2fa964d48ae7e05cfed3c71c8f9d08 data/indreb/recipes/cutting/copper_cable.json
-1c0cfe16290c5be0ab571a34b70e67f8679e1757 data/indreb/recipes/cutting/gold_cable.json
-4475c22a9f807ac0d1325fa2b524debddc8f3efc data/indreb/recipes/cutting/hv_cable.json
-a3e68e97ab10b8c75061ece2957bb5cd93f765ac data/indreb/recipes/cutting/iron_bars.json
-df91f2db48a7b8de6c0ea0eadb5acc939c0c9560 data/indreb/recipes/cutting/tin_cable.json
+// 1.19.2	2022-12-02T22:21:39.3479923	Recipes
+2c96ce30b477c2284b953cd9dbfcbfb5d5a0ae67 data/indreb/advancements/recipes/fermenting/biogas.json
+7486b15c2356e0d5bbced85cfc7e5716ccd13b3e data/indreb/recipes/fermenting/biogas.json

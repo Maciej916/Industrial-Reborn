@@ -6,6 +6,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Font;
 import net.minecraft.network.chat.MutableComponent;
 
+import java.text.DecimalFormat;
 import java.util.function.Consumer;
 
 public class GuiUtil {
@@ -57,5 +58,8 @@ public class GuiUtil {
         int left = (width / 2) + x - (int) (getFont().width(component) * scale) / 2;
         renderScaled(poseStack, component.getString(), left, y, scale, color, shadow);
     }
+
+    public static DecimalFormat DECIMAL_FORMAT_1 = new DecimalFormat("0.0");
+    public static String DEGREE_SYMBOL = String.valueOf(((char) 0x00B0));
 
 }

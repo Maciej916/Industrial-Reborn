@@ -219,6 +219,8 @@ public class BlockTextures extends BlockStateProvider {
     private void registerStandardMachines() {
         createActiveHorizontal(ModBlocks.ALLOY_SMELTER, "machine/standard/alloy_smelter/alloy_smelter", "_bottom", "_bottom", "_top", "_top", "_front", "_front_active", "_side", "_side", "_side", "_side", "_side", "_side");
         createActiveHorizontal(ModBlocks.FERMENTER, "machine/standard/fermenter/fermenter", "_bottom", "_bottom", "_top", "_top", "_front", "_front_active", "_back", "_back", "_leftright", "_leftright_active", "_leftright", "_leftright_active");
+        createActiveHorizontal(ModBlocks.THERMAL_CENTRIFUGE, "machine/standard/thermal_centrifuge/thermal_centrifuge", "_bottom", "_bottom", "_top", "_top", "_front", "_front_active", "_back", "_back", "_leftright", "_leftright_active", "_leftright", "_leftright_active");
+
     }
 
 

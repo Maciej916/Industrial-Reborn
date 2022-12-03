@@ -11,14 +11,13 @@ import net.minecraftforge.items.wrapper.InvWrapper;
 import org.jetbrains.annotations.Nullable;
 
 public class IndRebContainerMenu extends AbstractContainerMenu {
-    // CREDIT GOES TO: diesieben07 | https://github.com/diesieben07/SevenCommons
-    private static final int HOTBAR_SLOT_COUNT = 9;
-    private static final int PLAYER_INVENTORY_ROW_COUNT = 3;
-    private static final int PLAYER_INVENTORY_COLUMN_COUNT = 9;
-    private static final int PLAYER_INVENTORY_SLOT_COUNT = PLAYER_INVENTORY_COLUMN_COUNT * PLAYER_INVENTORY_ROW_COUNT;
-    private static final int VANILLA_SLOT_COUNT = HOTBAR_SLOT_COUNT + PLAYER_INVENTORY_SLOT_COUNT;
-    private static final int VANILLA_FIRST_SLOT_INDEX = 0;
-    private static final int TE_INVENTORY_FIRST_SLOT_INDEX = VANILLA_FIRST_SLOT_INDEX + VANILLA_SLOT_COUNT;
+//    private static final int HOTBAR_SLOT_COUNT = 9;
+//    private static final int PLAYER_INVENTORY_ROW_COUNT = 3;
+//    private static final int PLAYER_INVENTORY_COLUMN_COUNT = 9;
+//    private static final int PLAYER_INVENTORY_SLOT_COUNT = PLAYER_INVENTORY_COLUMN_COUNT * PLAYER_INVENTORY_ROW_COUNT;
+//    private static final int VANILLA_SLOT_COUNT = HOTBAR_SLOT_COUNT + PLAYER_INVENTORY_SLOT_COUNT;
+//    private static final int VANILLA_FIRST_SLOT_INDEX = 0;
+//    private static final int TE_INVENTORY_FIRST_SLOT_INDEX = VANILLA_FIRST_SLOT_INDEX + VANILLA_SLOT_COUNT;
 
     private final IndRebBlockEntity entity;
     private final Player player;
@@ -43,7 +42,6 @@ public class IndRebContainerMenu extends AbstractContainerMenu {
         if (getEntity().hasUpgradesStorage()) getEntity().getUpgradesStorage().getSlotHandler().forEach(this::addSlot);
 
         addPlayerInventory();
-
     }
 
     public IndRebBlockEntity getEntity() {
@@ -82,19 +80,18 @@ public class IndRebContainerMenu extends AbstractContainerMenu {
 //        ItemStack sourceStack = sourceSlot.getItem();
 //        ItemStack copyOfSourceStack = sourceStack.copy();
 //
-//        if (index < TE_INVENTORY_FIRST_SLOT_INDEX + TE_INVENTORY_SLOT_COUNT) {
-//            if (!moveItemStackTo(sourceStack, VANILLA_FIRST_SLOT_INDEX, VANILLA_FIRST_SLOT_INDEX + VANILLA_SLOT_COUNT, false)) {
+//        if (index < VANILLA_FIRST_SLOT_INDEX + VANILLA_SLOT_COUNT) {
+//            if (!moveItemStackTo(sourceStack, TE_INVENTORY_FIRST_SLOT_INDEX, TE_INVENTORY_FIRST_SLOT_INDEX + TE_INVENTORY_SLOT_COUNT, false)) {
 //                return ItemStack.EMPTY;
 //            }
-//        } else if (index < VANILLA_FIRST_SLOT_INDEX + VANILLA_SLOT_COUNT) {
-//            if (!moveItemStackTo(sourceStack, TE_INVENTORY_FIRST_SLOT_INDEX, TE_INVENTORY_FIRST_SLOT_INDEX + TE_INVENTORY_SLOT_COUNT, false)) {
+//        } else if (index < TE_INVENTORY_FIRST_SLOT_INDEX + TE_INVENTORY_SLOT_COUNT) {
+//            if (!moveItemStackTo(sourceStack, VANILLA_FIRST_SLOT_INDEX, VANILLA_FIRST_SLOT_INDEX + VANILLA_SLOT_COUNT, false)) {
 //                return ItemStack.EMPTY;
 //            }
 //        } else {
 //            System.out.println("Invalid slotIndex:" + index);
 //            return ItemStack.EMPTY;
 //        }
-//
 //
 //        if (sourceStack.getCount() == 0) {
 //            sourceSlot.set(ItemStack.EMPTY);

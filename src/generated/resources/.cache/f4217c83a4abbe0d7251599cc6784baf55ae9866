@@ -1,4 +1,4 @@
-// 1.19.2	2022-12-02T14:11:21.2651853	Block States: indreb
+// 1.19.2	2022-12-02T14:24:31.1299289	Block States: indreb
 95b7796b1e598d400659dbc96f12d1f0d72cda55 assets/indreb/blockstates/acid_hazard_sign_block.json
 b0fdc040f5b7b7c6b701f4aed0ac0308e145cfc9 assets/indreb/blockstates/advanced_machine_casing.json
 9385543a17f96635caee1886dc56a82587c77604 assets/indreb/blockstates/advanced_solar_panel.json
@@ -104,6 +104,7 @@ e3e2fa763b401dde7e157e1b1c21637af8bdc972 assets/indreb/blockstates/simple_extrac
 c33521d5a609e5fff5f652b526aafdff63d6e67a assets/indreb/blockstates/smooth_reinforced_stone.json
 069726ea6d8b02d844665939df30d5537e4a95f8 assets/indreb/blockstates/solar_panel.json
 4b514cb3ba447f4feb33d8d3fc1f5b349990b2a0 assets/indreb/blockstates/steel_block.json
+84a79e79f22367788ff9f7fbd3f3569816bc3937 assets/indreb/blockstates/thermal_centrifuge.json
 4aeeabddc90a64e998ba1dccb3a6c87a0fb2f68a assets/indreb/blockstates/tin_block.json
 cdc7b273b014ed2c73ccd7c084825d4316e90b8e assets/indreb/blockstates/tin_ore.json
 fa9ec9be1a472c86466056853b8e4aad1c0a3e5f assets/indreb/blockstates/uranium_block.json
@@ -284,6 +285,8 @@ c8c887d098f578531460352c76ea2c03e93fc1ce assets/indreb/models/block/simple_extra
 0fb8d9db542167fd8203db3ec3c779718b3cf645 assets/indreb/models/block/solar_panel.json
 5525d17c786f505471e8e5e8b1dcf67809ae46c4 assets/indreb/models/block/solar_panel_active.json
 d139f337f6a2908314e4afa0c315218c0a04e41a assets/indreb/models/block/steel_block.json
+93b68146b736d28a6d9ef584bac177f6e8272e50 assets/indreb/models/block/thermal_centrifuge.json
+af92887f0746608b143c49dee331fd0da0164678 assets/indreb/models/block/thermal_centrifuge_active.json
 d91f1b086c980869df8e5b15779dfb131ef2f2bd assets/indreb/models/block/tin_block.json
 df6b1d04addde59eed20300a79815936c2ab90df assets/indreb/models/block/tin_ore.json
 5ab1165623a878f22f36a18fbc2e7f092aa24f4f assets/indreb/models/block/uranium_block.json

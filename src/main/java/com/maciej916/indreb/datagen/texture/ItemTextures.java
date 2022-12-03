@@ -500,6 +500,8 @@ public class ItemTextures extends ItemModelProvider {
     private void registerStandardMachines() {
         createWithBlock(ModItems.ALLOY_SMELTER, "alloy_smelter");
         createWithBlock(ModItems.FERMENTER, "fermenter");
+        createWithBlock(ModItems.THERMAL_CENTRIFUGE, "thermal_centrifuge");
+
     }
 
 

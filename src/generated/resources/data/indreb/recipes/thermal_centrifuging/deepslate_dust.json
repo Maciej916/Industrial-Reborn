@@ -1,0 +1,17 @@
+{
+  "type": "indreb:thermal_centrifuging",
+  "chance_result": [],
+  "duration": 100,
+  "experience": 0.0,
+  "ingredients": [
+    {
+      "item": "minecraft:cobbled_deepslate"
+    }
+  ],
+  "result": {
+    "count": 2,
+    "item": "indreb:deepslate_dust"
+  },
+  "temperature": 100.0,
+  "tick_energy_cost": 46
+}

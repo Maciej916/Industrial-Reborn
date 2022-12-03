@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "indreb:block/machine/standard/thermal_centrifuge/thermal_centrifuge_bottom",
+    "east": "indreb:block/machine/standard/thermal_centrifuge/thermal_centrifuge_leftright_active",
+    "north": "indreb:block/machine/standard/thermal_centrifuge/thermal_centrifuge_front_active",
+    "particle": "indreb:block/machine/standard/thermal_centrifuge/thermal_centrifuge_front_active",
+    "south": "indreb:block/machine/standard/thermal_centrifuge/thermal_centrifuge_back",
+    "up": "indreb:block/machine/standard/thermal_centrifuge/thermal_centrifuge_top",
+    "west": "indreb:block/machine/standard/thermal_centrifuge/thermal_centrifuge_leftright_active"
+  }
+}
