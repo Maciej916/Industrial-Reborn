@@ -21,14 +21,15 @@ public class ScreenSolarPanel extends IndRebScreen<MenuSolarPanel> {
     public void initElements() {
         super.initElements();
 
-        addRenderableOnlyWidget(new LightProgressWidget(this, 43, 29, entity.progressAmount));
+        addRenderableOnlyWidget(new LightProgressWidget(this, 43, 29, entity.progressActive));
         addRenderableOnlyWidget(new SolarPanelTextWidget(this, 23, 51, entity.progressAmount));
     }
 
     @Override
     public void updateData() {
         super.updateData();
-        entity.progressAmount.setContainerDataBoth(menu.getData().get(0), menu.getData().get(1));
+        menu.getContainerData().updateProgressFloatData(0, entity.progressAmount);
+        menu.getContainerData().updateProgressIntData(1, entity.progressActive);
     }
 
     @Override

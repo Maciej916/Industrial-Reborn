@@ -57,7 +57,7 @@ public class FluidStorage extends FluidTank implements IFluidStorage, IBaseProgr
     }
 
     @Override
-    public float currentProgress() {
+    public float getCurrentProgress() {
         return fluid.getAmount();
     }
 

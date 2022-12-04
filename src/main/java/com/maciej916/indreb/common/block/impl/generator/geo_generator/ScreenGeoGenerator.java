@@ -23,13 +23,12 @@ public class ScreenGeoGenerator extends IndRebScreen<MenuGeoGenerator> {
 
         addRenderableOnlyWidget(new GuiProgressFillWidget(this, 62, 40, entity.progressFill));
         addRenderableOnlyWidget(new GuiFluidStorageVerticalLargeWidget(this, 80, 19, entity.lavaStorage));
-
     }
 
     @Override
     public void updateData() {
         super.updateData();
-        entity.progressFill.setContainerDataBoth(menu.getData().get(2), menu.getData().get(3));
+        menu.getContainerData().updateProgressIntData(0, entity.progressFill);
     }
 
     @Override

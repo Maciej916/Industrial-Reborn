@@ -45,7 +45,7 @@ public class AlloySmeltingCategory extends AbstractRecipeCategory<AlloySmeltingR
 
     @Override
     public void setRecipe(IRecipeLayoutBuilder builder, AlloySmeltingRecipe recipe, IFocusGroup focuses) {
-        this.progress = guiHelper.drawableBuilder(PROCESS, 25, 0, 24, 16).buildAnimated(recipe.getDuration(), IDrawableAnimated.StartDirection.LEFT, false);
+        this.progress = guiHelper.drawableBuilder(PROCESS, 26, 0, 24, 16).buildAnimated(recipe.getDuration(), IDrawableAnimated.StartDirection.LEFT, false);
         this.energy = guiHelper.drawableBuilder(JEI, 249, 0, 7, 37).buildAnimated(200, IDrawableAnimated.StartDirection.TOP, true);
         this.fire = guiHelper.drawableBuilder(PROCESS, 67, 0, 16,  16).buildAnimated(100, IDrawableAnimated.StartDirection.BOTTOM, false);
 

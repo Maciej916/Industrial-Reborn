@@ -186,7 +186,7 @@ public class Reactor implements INBTSerializable<CompoundTag>, IBaseProgress, IG
     }
 
     @Override
-    public float currentProgress() {
+    public float getCurrentProgress() {
         return currentHeat;
     }
 

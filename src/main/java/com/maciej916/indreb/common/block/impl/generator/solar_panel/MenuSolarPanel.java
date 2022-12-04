@@ -12,10 +12,11 @@ import net.minecraft.world.inventory.SimpleContainerData;
 public class MenuSolarPanel extends IndRebContainerMenu {
 
     public MenuSolarPanel(int containerId, Inventory playerInventory, FriendlyByteBuf extraData) {
-        this((IndRebBlockEntity) playerInventory.player.level.getBlockEntity(extraData.readBlockPos()), containerId, playerInventory, playerInventory.player, new SimpleContainerData(BlockEntitySolarPanel.SYNC_DATA_SLOTS));
+        this((IndRebBlockEntity) playerInventory.player.level.getBlockEntity(extraData.readBlockPos()), containerId, playerInventory, playerInventory.player, new SimpleContainerData(0));
     }
 
     public MenuSolarPanel(IndRebBlockEntity entity, int containerId, Inventory playerInventory, Player player, ContainerData data) {
         super(ModMenuTypes.SOLAR_PANEL.get(), entity, containerId, playerInventory, player, data);
     }
+
 }

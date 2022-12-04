@@ -3,7 +3,7 @@ package com.maciej916.indreb.common.screen.widget.progress;
 import com.maciej916.indreb.common.api.enums.GuiSprite;
 import com.maciej916.indreb.common.api.interfaces.screen.IGuiHelper;
 import com.maciej916.indreb.common.api.screen.widget.BaseProgressWidget;
-import com.maciej916.indreb.common.block.impl.machines.basic.metal_former.BlockEntityMetalFormer;
+import com.maciej916.indreb.common.block.impl.machine.basic.metal_former.BlockEntityMetalFormer;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.Minecraft;
 

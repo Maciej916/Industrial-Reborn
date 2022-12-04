@@ -10,7 +10,7 @@ import com.maciej916.indreb.common.api.enums.GuiSlotBg;
 import com.maciej916.indreb.common.api.enums.InventorySlotType;
 import com.maciej916.indreb.common.api.slot.BaseSlot;
 import com.maciej916.indreb.common.api.slot.ElectricSlot;
-import com.maciej916.indreb.common.api.util.Progress;
+import com.maciej916.indreb.common.api.util.ProgressFloat;
 import com.maciej916.indreb.common.blockentity.ModBlockEntities;
 import com.maciej916.indreb.common.config.impl.ServerConfig;
 import com.maciej916.indreb.common.sound.ModSounds;
@@ -24,7 +24,7 @@ import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
-import net.minecraft.world.inventory.ContainerData;
+import net.minecraft.world.inventory.SimpleContainerData;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.RecipeType;
@@ -41,42 +41,15 @@ import java.util.Map;
 
 public class BlockEntityGenerator extends IndRebBlockEntity implements IHasCooldown, IBlockEntityEnergy, IHasSound {
 
-    public static final int SYNC_DATA_SLOTS = 3;
-    protected final ContainerData data;
-
     public static final int INPUT_SLOT = 0;
 
-    public Progress progressBurn = new Progress();
+    public ProgressFloat progressBurn = new ProgressFloat();
 
     public BlockEntityGenerator(BlockPos pos, BlockState blockState) {
         super(ModBlockEntities.GENERATOR.get(), pos, blockState);
         createEnergyStorage(0, ServerConfig.generator_energy_capacity.get(), EnergyType.EXTRACT, EnergyTier.BASIC);
-        this.data = new ContainerData() {
-            @Override
-            public int get(int index) {
-                return switch (index) {
-                    case 0 -> BlockEntityGenerator.this.getCooldown();
-                    case 1 -> BlockEntityGenerator.this.progressBurn.getContainerDataCurrent();
-                    case 2 -> BlockEntityGenerator.this.progressBurn.getContainerDataMax();
 
-                    default -> 0;
-                };
-            }
-
-            @Override
-            public void set(int index, int value) {
-                switch (index) {
-                    case 0 -> BlockEntityGenerator.this.setCooldown(value);
-                    case 1 -> BlockEntityGenerator.this.progressBurn.setContainerDataCurrent(value);
-                    case 2 -> BlockEntityGenerator.this.progressBurn.setContainerDataMax(value);
-                }
-            }
-
-            @Override
-            public int getCount() {
-                return SYNC_DATA_SLOTS;
-            }
-        };
+        this.containerData.syncProgressFloat(0, this.progressBurn);
     }
 
     @Override
@@ -90,7 +63,7 @@ public class BlockEntityGenerator extends IndRebBlockEntity implements IHasCoold
         if (getCooldown() == 0) {
             final ItemStack inputStack = getBaseStorage().getStackInSlot(INPUT_SLOT);
             if (getEnergyStorage().generateEnergy(ServerConfig.generator_tick_generate.get(), true) == ServerConfig.generator_tick_generate.get()) {
-                if (progressBurn.currentProgress() > 0) {
+                if (progressBurn.getCurrentProgress() > 0) {
                     activeState = true;
                     progressBurn.decProgress(1);
                     getEnergyStorage().generateEnergy(ServerConfig.generator_tick_generate.get(), false);
@@ -109,7 +82,7 @@ public class BlockEntityGenerator extends IndRebBlockEntity implements IHasCoold
                 }
             }
 
-            if (activeState && progressBurn.currentProgress() > 0 && getEnergyStorage().generateEnergy(ServerConfig.generator_tick_generate.get(), true) < ServerConfig.generator_tick_generate.get()) {
+            if (activeState && progressBurn.getCurrentProgress() > 0 && getEnergyStorage().generateEnergy(ServerConfig.generator_tick_generate.get(), true) < ServerConfig.generator_tick_generate.get()) {
                 setCooldown(10);
             }
         }
@@ -118,7 +91,7 @@ public class BlockEntityGenerator extends IndRebBlockEntity implements IHasCoold
     @Nullable
     @Override
     public AbstractContainerMenu createMenu(int containerId, Inventory playerInventory, Player player) {
-        return new MenuGenerator(this, containerId, playerInventory, player, data);
+        return new MenuGenerator(this, containerId, playerInventory, player, new SimpleContainerData(0));
     }
 
     @Override

@@ -24,7 +24,7 @@ import static com.maciej916.indreb.IndReb.MODID;
 public class FermentingRecipeBuilder {
 
     private FluidStack fluidInput;
-    private FluidStack fluidOutput;
+    private final FluidStack fluidOutput;
 
     private final int wasteDuration;
     private final float tickWasteIncrease;

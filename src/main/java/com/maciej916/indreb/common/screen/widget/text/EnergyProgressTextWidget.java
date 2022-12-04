@@ -27,7 +27,7 @@ public class EnergyProgressTextWidget extends BaseWidget {
 
     @Override
     public void renderButton(PoseStack pPoseStack, int pMouseX, int pMouseY, float pPartialTicks) {
-        MutableComponent component = Component.translatable("gui." + IndReb.MODID + ".energy", TextComponentUtil.getFormattedStorageUnit(progress.currentProgress()), TextComponentUtil.getFormattedStorageUnit(progress.getProgressMax()));
+        MutableComponent component = Component.translatable("gui." + IndReb.MODID + ".energy", TextComponentUtil.getFormattedStorageUnit(progress.getCurrentProgress()), TextComponentUtil.getFormattedStorageUnit(progress.getProgressMax()));
         GuiUtil.renderScaled(pPoseStack, component.getString(), getX(), getY(), scale, color, shadow);
         super.renderButton(pPoseStack, pMouseX, pMouseY, pPartialTicks);
     }

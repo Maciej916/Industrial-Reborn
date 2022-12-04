@@ -26,7 +26,7 @@ public class ScreenGenerator extends IndRebScreen<MenuGenerator> {
     @Override
     public void updateData() {
         super.updateData();
-        entity.progressBurn.setContainerDataBoth(menu.getData().get(1), menu.getData().get(2));
+        menu.getContainerData().updateProgressFloatData(0, entity.progressBurn);
     }
 
     @Override

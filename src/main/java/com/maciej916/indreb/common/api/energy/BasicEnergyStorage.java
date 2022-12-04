@@ -197,7 +197,7 @@ public class BasicEnergyStorage implements IEnergyStorage, IBaseProgress, INBTSe
     }
 
     @Override
-    public float currentProgress() {
+    public float getCurrentProgress() {
         return energyStored;
     }
 
@@ -221,4 +221,5 @@ public class BasicEnergyStorage implements IEnergyStorage, IBaseProgress, INBTSe
                 ", totalConsumed=" + totalConsumed +
                 '}';
     }
+
 }

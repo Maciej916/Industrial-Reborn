@@ -103,8 +103,8 @@ public class FermentingRecipe extends BaseRecipe {
 
         @Override
         public void toNetwork(FriendlyByteBuf buffer, FermentingRecipe recipe) {
-            buffer.writeFluidStack(recipe.fluidInput);
-            buffer.writeFluidStack(recipe.fluidOutput);
+            buffer.writeFluidStack(recipe.getFluidInput());
+            buffer.writeFluidStack(recipe.getFluidOutput());
             buffer.writeInt(recipe.getWasteDuration());
             buffer.writeFloat(recipe.getTickWasteIncrease());
             buffer.writeItemStack(recipe.getWasteOutput(), false);

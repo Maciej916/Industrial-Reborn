@@ -37,11 +37,11 @@ public class ScreenNuclearReactor extends IndRebScreen<MenuNuclearReactor> {
     @Override
     public void updateData() {
         super.updateData();
-        entity.getReactor().setEnabled(menu.getData().get(0) == 1);
-        entity.getReactor().setVentedHeat(menu.getData().get(1));
-        entity.getReactor().setCurrentIEOutput(menu.getData().get(2));
-        entity.getReactor().setCurrentHeat(menu.getData().get(3));
-        entity.getReactor().setMaxHeat(menu.getData().get(4));
+        entity.getReactor().setEnabled(menu.getContainerData().getBoolData(0));
+        entity.getReactor().setVentedHeat(menu.getContainerData().getIntData(1));
+        entity.getReactor().setCurrentIEOutput(menu.getContainerData().getIntData(2));
+        entity.getReactor().setCurrentHeat(menu.getContainerData().getIntData(3));
+        entity.getReactor().setMaxHeat(menu.getContainerData().getIntData(4));
     }
 
     @Override

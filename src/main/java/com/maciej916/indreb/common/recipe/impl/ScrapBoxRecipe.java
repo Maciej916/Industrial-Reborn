@@ -38,7 +38,7 @@ public class ScrapBoxRecipe extends BaseRecipe {
 
     public String getDropChance() {
         float chance = (weight / totalWeight) * 100;
-        return chance < 0.001 ? "<0.001" : GuiUtil.DECIMAL_FORMAT_2.format(chance);
+        return chance < 0.001 ? "<0.001" : GuiUtil.DECIMAL_FORMAT_3.format(chance);
     }
 
     public ItemStack getDrop() {

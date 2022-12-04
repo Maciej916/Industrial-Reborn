@@ -10,6 +10,8 @@ import com.maciej916.indreb.common.api.enums.UpgradeType;
 import com.maciej916.indreb.common.api.interfaces.block.IStateActive;
 import com.maciej916.indreb.common.api.interfaces.item.IItemUpgrade;
 import com.maciej916.indreb.common.api.item.base.BaseUpgradeItem;
+import com.maciej916.indreb.common.api.screen.data.CustomContainerData;
+import com.maciej916.indreb.common.api.screen.data.interfaces.IContainerData;
 import com.maciej916.indreb.common.api.slot.BaseSlot;
 import com.maciej916.indreb.common.api.slot.ElectricSlot;
 import com.maciej916.indreb.common.api.top.BaseOneProbeInfo;
@@ -68,7 +70,7 @@ import java.util.*;
 
 import static com.maciej916.indreb.common.api.enums.UpgradeType.*;
 
-public class IndRebBlockEntity extends BaseBlockEntity implements IIndRebBlockEntity, IBlockEntityChunkSync, MenuProvider, IHasProbeInfo {
+public class IndRebBlockEntity extends BaseBlockEntity implements IIndRebBlockEntity, IBlockEntityChunkSync, MenuProvider, IHasProbeInfo, IContainerData {
 
     private BasicEnergyStorage energyStorage;
     protected final LazyOptional<IEnergyStorage> energyStorageCap = LazyOptional.of(() -> energyStorage);
@@ -83,6 +85,8 @@ public class IndRebBlockEntity extends BaseBlockEntity implements IIndRebBlockEn
     private final LazyOptional<IUpgradesItemStackHandler> upgradesStorageCap = LazyOptional.of(() -> upgradesStorage);
 
     public Set<Integer> baseSlotsChangedForTick = new HashSet<>();
+
+    protected final CustomContainerData containerData = new CustomContainerData();
 
     protected boolean isStateActive = false;
     protected boolean hasCooldown = false;
@@ -164,6 +168,10 @@ public class IndRebBlockEntity extends BaseBlockEntity implements IIndRebBlockEn
 
         if (hasSound) {
             soundEvent = ((IHasSound) this).getSoundEvent();
+        }
+
+        if (hasCooldown) {
+           containerData.syncInt(-1, () -> cooldown);
         }
     }
 
@@ -1021,5 +1029,10 @@ public class IndRebBlockEntity extends BaseBlockEntity implements IIndRebBlockEn
                 }
             }
         }
+    }
+
+    @Override
+    public CustomContainerData getContainerData() {
+        return this.containerData;
     }
 }

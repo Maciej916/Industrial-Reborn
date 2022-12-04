@@ -14,7 +14,7 @@ import com.maciej916.indreb.common.api.slot.BaseSlot;
 import com.maciej916.indreb.common.api.slot.ElectricSlot;
 import com.maciej916.indreb.common.api.top.BaseOneProbeInfo;
 import com.maciej916.indreb.common.api.top.impl.ProbeInfoFluidBar;
-import com.maciej916.indreb.common.api.util.Progress;
+import com.maciej916.indreb.common.api.util.ProgressInt;
 import com.maciej916.indreb.common.blockentity.ModBlockEntities;
 import com.maciej916.indreb.common.config.impl.ServerConfig;
 import com.maciej916.indreb.common.network.ModNetworking;
@@ -29,7 +29,7 @@ import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
-import net.minecraft.world.inventory.ContainerData;
+import net.minecraft.world.inventory.SimpleContainerData;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.Fluids;
@@ -47,13 +47,10 @@ import java.util.List;
 
 public class BlockEntityGeoGenerator extends IndRebBlockEntity implements IBlockEntityFluid, IHasCooldown, IBlockEntityEnergy, IHasSound {
 
-    public static final int SYNC_DATA_SLOTS = 4;
-    protected final ContainerData data;
-
     public static final int FILL_UP = 0;
     public static final int FILL_DOWN = 1;
 
-    public Progress progressFill = new Progress(0, 1);
+    public ProgressInt progressFill = new ProgressInt(0, 1);
     public FluidStorage lavaStorage = new FluidStorage(ServerConfig.geo_generator_lava_capacity.get(), (fluidStack -> fluidStack.getFluid() == Fluids.LAVA)) {
         @Override
         public void updated() {
@@ -65,34 +62,8 @@ public class BlockEntityGeoGenerator extends IndRebBlockEntity implements IBlock
     public BlockEntityGeoGenerator(BlockPos pos, BlockState blockState) {
         super(ModBlockEntities.GEO_GENERATOR.get(), pos, blockState);
         createEnergyStorage(0, ServerConfig.geo_generator_energy_capacity.get(), EnergyType.EXTRACT, EnergyTier.BASIC);
-        this.data = new ContainerData() {
-            @Override
-            public int get(int index) {
-                return switch (index) {
-                    case 0 -> BlockEntityGeoGenerator.this.getCooldown();
-                    case 1 -> BlockEntityGeoGenerator.this.activeState ? 1 : 0;
-                    case 2 -> BlockEntityGeoGenerator.this.progressFill.getContainerDataCurrent();
-                    case 3 -> BlockEntityGeoGenerator.this.progressFill.getContainerDataMax();
 
-                    default -> 0;
-                };
-            }
-
-            @Override
-            public void set(int index, int value) {
-                switch (index) {
-                    case 0 -> BlockEntityGeoGenerator.this.setCooldown(value);
-                    case 1 -> BlockEntityGeoGenerator.this.activeState = value == 1;
-                    case 2 -> BlockEntityGeoGenerator.this.progressFill.setContainerDataCurrent(value);
-                    case 3 -> BlockEntityGeoGenerator.this.progressFill.setContainerDataMax(value);
-                }
-            }
-
-            @Override
-            public int getCount() {
-                return SYNC_DATA_SLOTS;
-            }
-        };
+        this.containerData.syncProgressInt(0, this.progressFill);
     }
 
     @Override
@@ -126,7 +97,7 @@ public class BlockEntityGeoGenerator extends IndRebBlockEntity implements IBlock
     @Nullable
     @Override
     public AbstractContainerMenu createMenu(int containerId, Inventory playerInventory, Player player) {
-        return new MenuGeoGenerator(this, containerId, playerInventory, player, data);
+        return new MenuGeoGenerator(this, containerId, playerInventory, player, new SimpleContainerData(0));
     }
 
     @Override

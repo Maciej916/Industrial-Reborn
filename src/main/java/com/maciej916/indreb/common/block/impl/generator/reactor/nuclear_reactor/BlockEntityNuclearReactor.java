@@ -29,7 +29,7 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
-import net.minecraft.world.inventory.ContainerData;
+import net.minecraft.world.inventory.SimpleContainerData;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.common.capabilities.Capability;
@@ -42,45 +42,17 @@ import java.util.List;
 
 public class BlockEntityNuclearReactor extends IndRebBlockEntity {
 
-    public static final int SYNC_DATA_SLOTS = 5;
-    protected final ContainerData data;
-
     private final Reactor reactor = new Reactor();
 
     public BlockEntityNuclearReactor(BlockPos pos, BlockState blockState) {
         super(ModBlockEntities.NUCLEAR_REACTOR.get(), pos, blockState);
         createEnergyStorage(0, 0, EnergyType.EXTRACT, EnergyTier.BASIC);
-        this.data = new ContainerData() {
-            @Override
-            public int get(int index) {
-                return switch (index) {
-                    case 0 -> BlockEntityNuclearReactor.this.getReactor().getEnabled() ? 1 : 0;
-                    case 1 -> BlockEntityNuclearReactor.this.getReactor().getVentedHeat();
-                    case 2 -> BlockEntityNuclearReactor.this.getReactor().getCurrentIEOutput();
-                    case 3 -> BlockEntityNuclearReactor.this.getReactor().getCurrentHeat();
-                    case 4 -> BlockEntityNuclearReactor.this.getReactor().getMaxHeat();
 
-                    default -> 0;
-                };
-            }
-
-            @Override
-            public void set(int index, int value) {
-                switch (index) {
-                    case 0 -> BlockEntityNuclearReactor.this.getReactor().setEnabled(value == 1);
-                    case 1 -> BlockEntityNuclearReactor.this.getReactor().setVentedHeat(value);
-                    case 2 -> BlockEntityNuclearReactor.this.getReactor().setCurrentIEOutput(value);
-                    case 3 -> BlockEntityNuclearReactor.this.getReactor().setCurrentHeat(value);
-                    case 4 -> BlockEntityNuclearReactor.this.getReactor().setMaxHeat(value);
-
-                }
-            }
-
-            @Override
-            public int getCount() {
-                return SYNC_DATA_SLOTS;
-            }
-        };
+        this.containerData.syncBool(0, () -> getReactor().getEnabled());
+        this.containerData.syncInt(1, () -> getReactor().getVentedHeat());
+        this.containerData.syncInt(2, () -> getReactor().getCurrentIEOutput());
+        this.containerData.syncInt(3, () -> getReactor().getCurrentHeat());
+        this.containerData.syncInt(4, () -> getReactor().getMaxHeat());
     }
 
     @Override
@@ -236,7 +208,7 @@ public class BlockEntityNuclearReactor extends IndRebBlockEntity {
 
     @Override
     public AbstractContainerMenu createMenu(int containerId, Inventory playerInventory, Player player) {
-        return new MenuNuclearReactor(this, containerId, playerInventory, player, data);
+        return new MenuNuclearReactor(this, containerId, playerInventory, player, new SimpleContainerData(0));
     }
 
     @Override

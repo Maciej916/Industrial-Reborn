@@ -4,7 +4,7 @@ import java.text.DecimalFormat;
 
 public interface IBaseProgress {
 
-    float currentProgress();
+    float getCurrentProgress();
     float getProgressMax();
 
     /* FORMATTING */
@@ -12,11 +12,11 @@ public interface IBaseProgress {
     DecimalFormat df = new DecimalFormat("0.00");
 
     default String getProgressString() {
-        return String.valueOf(currentProgress());
+        return String.valueOf(getCurrentProgress());
     }
 
     default String getCurrentProgressString() {
-        return df.format(currentProgress());
+        return df.format(getCurrentProgress());
     }
 
     default String getPercentProgressString() {
@@ -24,8 +24,8 @@ public interface IBaseProgress {
     }
 
     default float getPercentProgress() {
-        if (currentProgress() <= 0 || getProgressMax() <= 0) return 0;
-        return (currentProgress() / getProgressMax())  * 100;
+        if (getCurrentProgress() <= 0 || getProgressMax() <= 0) return 0;
+        return (getCurrentProgress() / getProgressMax())  * 100;
     }
 
 }

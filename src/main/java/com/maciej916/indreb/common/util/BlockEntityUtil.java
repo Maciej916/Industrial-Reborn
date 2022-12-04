@@ -1,7 +1,7 @@
 package com.maciej916.indreb.common.util;
 
 import com.maciej916.indreb.common.api.fluid.FluidStorage;
-import com.maciej916.indreb.common.api.util.Progress;
+import com.maciej916.indreb.common.api.util.ProgressInt;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.InteractionHand;
@@ -43,12 +43,12 @@ public class BlockEntityUtil {
 
     /* TODO: FILL AND DRAIN CAN BE IMPROVED */
 
-    public static boolean fillTank(Progress progress, FluidStorage fluidStorage, ItemStackHandler itemStackHandler, int upSlot, int downSlot) {
+    public static boolean fillTank(ProgressInt progress, FluidStorage fluidStorage, ItemStackHandler itemStackHandler, int upSlot, int downSlot) {
 
         final ItemStack fillBucketUp = itemStackHandler.getStackInSlot(upSlot);
         final ItemStack fillBucketDown = itemStackHandler.getStackInSlot(downSlot);
 
-        if (progress.currentProgress() == 0) {
+        if (progress.getCurrentProgress() == 0) {
             if (!fillBucketUp.isEmpty() && fillBucketDown.getCount() + 1 <= fillBucketDown.getMaxStackSize()) {
 
                 ItemStack newStack = fillBucketUp.copy();
@@ -83,12 +83,12 @@ public class BlockEntityUtil {
         return false;
     }
 
-    public static boolean drainTank(Progress progress, FluidStorage fluidStorage, ItemStackHandler itemStackHandler, int slotUp, int slotDown) {
+    public static boolean drainTank(ProgressInt progress, FluidStorage fluidStorage, ItemStackHandler itemStackHandler, int slotUp, int slotDown) {
 
         final ItemStack drainBucketUp = itemStackHandler.getStackInSlot(slotUp);
         final ItemStack drainBucketDown = itemStackHandler.getStackInSlot(slotDown);
 
-        if (progress.currentProgress() == 0) {
+        if (progress.getCurrentProgress() == 0) {
             if (!drainBucketUp.isEmpty() && drainBucketDown.getCount() + 1 <= drainBucketDown.getMaxStackSize()) {
                 ItemStack stack = drainBucketUp.copy();
                 stack.setCount(1);

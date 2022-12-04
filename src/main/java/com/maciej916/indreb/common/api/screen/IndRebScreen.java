@@ -30,7 +30,7 @@ public class IndRebScreen <T extends IndRebContainerMenu> extends WidgetScreen<T
 
     public void updateData() {
         if (getEntity() instanceof IHasCooldown cooldown) {
-            cooldown.setCooldown(menu.getData().get(0));
+            cooldown.setCooldown(menu.getContainerData().getIntData(-1));
         }
     }
 

@@ -39,7 +39,7 @@ public class FluidExtrudingCategory extends AbstractRecipeCategory<FluidExtrudin
 
     @Override
     public void setRecipe(IRecipeLayoutBuilder builder, FluidExtrudingRecipe recipe, IFocusGroup focuses) {
-        this.progress = guiHelper.drawableBuilder(PROCESS, 25, 51, 24, 16).buildAnimated(recipe.getDuration(), IDrawableAnimated.StartDirection.LEFT, false);
+        this.progress = guiHelper.drawableBuilder(PROCESS, 26, 51, 24, 16).buildAnimated(recipe.getDuration(), IDrawableAnimated.StartDirection.LEFT, false);
         this.energy = guiHelper.drawableBuilder(JEI, 249, 0, 7, 37).buildAnimated(200, IDrawableAnimated.StartDirection.TOP, true);
 
         builder.addSlot(RecipeIngredientRole.CATALYST, 11, 12)

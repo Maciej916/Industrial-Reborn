@@ -8,7 +8,8 @@ import com.maciej916.indreb.common.api.enums.GuiSlotBg;
 import com.maciej916.indreb.common.api.enums.InventorySlotType;
 import com.maciej916.indreb.common.api.slot.ElectricSlot;
 import com.maciej916.indreb.common.api.tier.SolarPanelTier;
-import com.maciej916.indreb.common.api.util.Progress;
+import com.maciej916.indreb.common.api.util.ProgressFloat;
+import com.maciej916.indreb.common.api.util.ProgressInt;
 import com.maciej916.indreb.common.blockentity.ModBlockEntities;
 import com.maciej916.indreb.common.sound.ModSounds;
 import net.minecraft.core.BlockPos;
@@ -18,7 +19,7 @@ import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
-import net.minecraft.world.inventory.ContainerData;
+import net.minecraft.world.inventory.SimpleContainerData;
 import net.minecraft.world.level.block.state.BlockState;
 import org.jetbrains.annotations.Nullable;
 
@@ -26,44 +27,21 @@ import java.util.ArrayList;
 
 public class BlockEntitySolarPanel extends IndRebBlockEntity implements IBlockEntityEnergy, IHasSound {
 
-    public static final int SYNC_DATA_SLOTS = 2;
-    protected final ContainerData data;
-
     SolarPanelTier tier;
-    public Progress progressAmount;
+    public ProgressInt progressActive = new ProgressInt(0, 2);
+    public ProgressFloat progressAmount;
 
     public BlockEntitySolarPanel(BlockPos pos, BlockState blockState) {
         super(ModBlockEntities.SOLAR_PANEL.get(), pos, blockState);
 
         BlockSolarPanel block = (BlockSolarPanel) getBlock();
         this.tier = block.getSolarTier();
-        this.progressAmount = new Progress(0, tier.getDayGenerate());
+        this.progressAmount = new ProgressFloat(0, tier.getDayGenerate());
 
         createEnergyStorage(0, tier.getEnergyCapacity(), EnergyType.EXTRACT, tier.getEnergyTier());
-        this.data = new ContainerData() {
-            @Override
-            public int get(int index) {
-                return switch (index) {
-                    case 0 -> BlockEntitySolarPanel.this.progressAmount.getContainerDataCurrent();
-                    case 1 -> BlockEntitySolarPanel.this.progressAmount.getContainerDataMax();
 
-                    default -> 0;
-                };
-            }
-
-            @Override
-            public void set(int index, int value) {
-                switch (index) {
-                    case 0 -> BlockEntitySolarPanel.this.progressAmount.setContainerDataCurrent(value);
-                    case 1 -> BlockEntitySolarPanel.this.progressAmount.setContainerDataMax(value);
-                }
-            }
-
-            @Override
-            public int getCount() {
-                return SYNC_DATA_SLOTS;
-            }
-        };
+        this.containerData.syncProgressFloat(0, this.progressAmount);
+        this.containerData.syncProgressInt(1, this.progressActive);
     }
 
     @Override
@@ -71,16 +49,19 @@ public class BlockEntitySolarPanel extends IndRebBlockEntity implements IBlockEn
         if (level != null && level.canSeeSky(getBlockPos())) {
             if (level.isDay() && !level.isThundering()) {
                 progressAmount.setCurrentProgress(tier.getDayGenerate());
+                progressActive.setCurrentProgress(2);
             }
 
             if (!level.isDay() || level.isThundering() || level.isRaining()) {
                 progressAmount.setCurrentProgress(tier.getNightGenerate());
+                progressActive.setCurrentProgress(tier.getNightGenerate() > 0 ? 1 : 0);
             }
         } else {
             progressAmount.setCurrentProgress(0);
+            progressActive.setCurrentProgress(0);
         }
 
-        int maxGenerate = Math.min(getEnergyStorage().maxEnergy() - getEnergyStorage().energyStored(), getEnergyStorage().generateEnergy((int) progressAmount.currentProgress(), true));
+        int maxGenerate = Math.min(getEnergyStorage().maxEnergy() - getEnergyStorage().energyStored(), getEnergyStorage().generateEnergy((int) progressAmount.getCurrentProgress(), true));
         if (maxGenerate > 0) {
             getEnergyStorage().generateEnergy(maxGenerate, false);
             activeState = true;
@@ -90,7 +71,7 @@ public class BlockEntitySolarPanel extends IndRebBlockEntity implements IBlockEn
     @Nullable
     @Override
     public AbstractContainerMenu createMenu(int containerId, Inventory playerInventory, Player player) {
-        return new MenuSolarPanel(this, containerId, playerInventory, player, data);
+        return new MenuSolarPanel(this, containerId, playerInventory, player, new SimpleContainerData(0));
     }
 
     @Override
@@ -119,12 +100,14 @@ public class BlockEntitySolarPanel extends IndRebBlockEntity implements IBlockEn
     public void load(CompoundTag tag) {
         super.load(tag);
         this.progressAmount.deserializeNBT(tag.getCompound("progressAmount"));
+        this.progressActive.deserializeNBT(tag.getCompound("progressActive"));
     }
 
     @Override
     protected void saveAdditional(CompoundTag tag) {
         super.saveAdditional(tag);
         tag.put("progressAmount", this.progressAmount.serializeNBT());
+        tag.put("progressActive", this.progressActive.serializeNBT());
     }
 
     @Override

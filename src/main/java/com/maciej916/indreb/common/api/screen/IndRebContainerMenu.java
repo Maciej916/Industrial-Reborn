@@ -1,6 +1,8 @@
 package com.maciej916.indreb.common.api.screen;
 
 import com.maciej916.indreb.common.api.blockentity.IndRebBlockEntity;
+import com.maciej916.indreb.common.api.screen.data.CustomContainerData;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.*;
@@ -10,6 +12,8 @@ import net.minecraftforge.items.SlotItemHandler;
 import net.minecraftforge.items.wrapper.InvWrapper;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.HashSet;
+
 public class IndRebContainerMenu extends AbstractContainerMenu {
 //    private static final int HOTBAR_SLOT_COUNT = 9;
 //    private static final int PLAYER_INVENTORY_ROW_COUNT = 3;
@@ -18,6 +22,10 @@ public class IndRebContainerMenu extends AbstractContainerMenu {
 //    private static final int VANILLA_SLOT_COUNT = HOTBAR_SLOT_COUNT + PLAYER_INVENTORY_SLOT_COUNT;
 //    private static final int VANILLA_FIRST_SLOT_INDEX = 0;
 //    private static final int TE_INVENTORY_FIRST_SLOT_INDEX = VANILLA_FIRST_SLOT_INDEX + VANILLA_SLOT_COUNT;
+
+
+    private final HashSet<ServerPlayer> listeners = new HashSet<>();
+    private final CustomContainerData containerData;
 
     private final IndRebBlockEntity entity;
     private final Player player;
@@ -34,6 +42,28 @@ public class IndRebContainerMenu extends AbstractContainerMenu {
         this.playerInventory = new InvWrapper(playerInventory);
         this.init();
         addDataSlots(data);
+        this.containerData = entity.getContainerData();
+    }
+
+    public void addContainerListener(Player player) {
+        listeners.add((ServerPlayer) player);
+        containerData.broadcastToPlayer((ServerPlayer) player, containerId);
+    }
+
+    public void removeContainerListener(Player player) {
+        listeners.remove((ServerPlayer) player);
+    }
+
+    @Override
+    public void broadcastChanges() {
+        if (listeners.size() > 0) containerData.broadcastChanges(listeners, containerId);
+        super.broadcastChanges();
+    }
+
+    @Override
+    public void broadcastFullState() {
+        if (listeners.size() > 0) containerData.broadcastFullState(listeners, containerId);
+        super.broadcastFullState();
     }
 
     public void init() {
@@ -58,6 +88,10 @@ public class IndRebContainerMenu extends AbstractContainerMenu {
 
     public ContainerData getData() {
         return data;
+    }
+
+    public CustomContainerData getContainerData() {
+        return containerData;
     }
 
     @Override

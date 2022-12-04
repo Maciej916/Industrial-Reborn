@@ -11,14 +11,13 @@ import com.maciej916.indreb.common.api.slot.BaseSlot;
 import com.maciej916.indreb.common.api.slot.BonusSlot;
 import com.maciej916.indreb.common.api.slot.ElectricSlot;
 import com.maciej916.indreb.common.api.slot.OutputSlot;
-import com.maciej916.indreb.common.api.util.Progress;
+import com.maciej916.indreb.common.api.util.ProgressFloat;
 import com.maciej916.indreb.common.util.BlockStateHelper;
 import com.maciej916.indreb.common.util.StackHandlerHelper;
 import com.maciej916.indreb.common.util.WrappedHandler;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.world.inventory.ContainerData;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.level.block.entity.BlockEntityType;
@@ -36,14 +35,11 @@ import java.util.Optional;
 
 public abstract class StandardMachineBlockEntity extends IndRebBlockEntity implements IHasExp, IHasUpgrades, IBlockEntityEnergy {
 
-    public static final int SYNC_DATA_SLOTS = 2;
-    protected final ContainerData data;
-
     public static final int INPUT_SLOT = 0;
     public static final int OUTPUT_SLOT = 1;
     public static final int BONUS_SLOT = 2;
 
-    public Progress progressRecipe = new Progress();
+    public ProgressFloat progressRecipe = new ProgressFloat();
 
     private BaseChanceRecipe recipe;
 
@@ -53,30 +49,8 @@ public abstract class StandardMachineBlockEntity extends IndRebBlockEntity imple
     public StandardMachineBlockEntity(BlockEntityType<?> type, BlockPos pos, BlockState blockState, int energyCapacity) {
         super(type, pos, blockState);
         createEnergyStorage(0, energyCapacity, EnergyType.RECEIVE, EnergyTier.BASIC);
-        this.data = new ContainerData() {
-            @Override
-            public int get(int index) {
-                return switch (index) {
-                    case 0 -> StandardMachineBlockEntity.this.progressRecipe.getContainerDataCurrent();
-                    case 1 -> StandardMachineBlockEntity.this.progressRecipe.getContainerDataMax();
 
-                    default -> 0;
-                };
-            }
-
-            @Override
-            public void set(int index, int value) {
-                switch (index) {
-                    case 0 -> StandardMachineBlockEntity.this.progressRecipe.setContainerDataCurrent(value);
-                    case 1 -> StandardMachineBlockEntity.this.progressRecipe.setContainerDataMax(value);
-                }
-            }
-
-            @Override
-            public int getCount() {
-                return SYNC_DATA_SLOTS;
-            }
-        };
+        this.containerData.syncProgressFloat(0, this.progressRecipe);
     }
 
     @Override
@@ -105,7 +79,7 @@ public abstract class StandardMachineBlockEntity extends IndRebBlockEntity imple
         }
 
         if (recipe != null) {
-            if (progressRecipe.currentProgress() == -1) {
+            if (progressRecipe.getCurrentProgress() == -1) {
                 progressRecipe.setData(0, recipe.getDuration());
             }
 

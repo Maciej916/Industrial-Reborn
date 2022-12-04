@@ -1,6 +1,6 @@
 package com.maciej916.indreb.common.network.packet;
 
-import com.maciej916.indreb.common.block.impl.machines.basic.extruder.BlockEntityExtruder;
+import com.maciej916.indreb.common.block.impl.machine.basic.extruder.BlockEntityExtruder;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.server.level.ServerPlayer;

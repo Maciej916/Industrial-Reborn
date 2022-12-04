@@ -12,7 +12,7 @@ import net.minecraft.world.inventory.SimpleContainerData;
 public class MenuNuclearReactor extends IndRebContainerMenu {
 
     public MenuNuclearReactor(int containerId, Inventory playerInventory, FriendlyByteBuf extraData) {
-        this((IndRebBlockEntity) playerInventory.player.level.getBlockEntity(extraData.readBlockPos()), containerId, playerInventory, playerInventory.player, new SimpleContainerData(BlockEntityNuclearReactor.SYNC_DATA_SLOTS));
+        this((IndRebBlockEntity) playerInventory.player.level.getBlockEntity(extraData.readBlockPos()), containerId, playerInventory, playerInventory.player, new SimpleContainerData(0));
     }
 
     public MenuNuclearReactor(IndRebBlockEntity entity, int containerId, Inventory playerInventory, Player player, ContainerData data) {

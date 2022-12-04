@@ -12,7 +12,7 @@ import net.minecraft.world.inventory.SimpleContainerData;
 public class MenuSemifluidGenerator extends IndRebContainerMenu {
 
     public MenuSemifluidGenerator(int containerId, Inventory playerInventory, FriendlyByteBuf extraData) {
-        this((IndRebBlockEntity) playerInventory.player.level.getBlockEntity(extraData.readBlockPos()), containerId, playerInventory, playerInventory.player, new SimpleContainerData(BlockEntitySemifluidGenerator.SYNC_DATA_SLOTS));
+        this((IndRebBlockEntity) playerInventory.player.level.getBlockEntity(extraData.readBlockPos()), containerId, playerInventory, playerInventory.player, new SimpleContainerData(0));
     }
 
     public MenuSemifluidGenerator(IndRebBlockEntity entity, int containerId, Inventory playerInventory, Player player, ContainerData data) {

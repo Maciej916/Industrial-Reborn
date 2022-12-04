@@ -9,14 +9,13 @@ import com.maciej916.indreb.common.api.recipe.interfaces.IBaseRecipe;
 import com.maciej916.indreb.common.api.slot.BaseSlot;
 import com.maciej916.indreb.common.api.slot.BonusSlot;
 import com.maciej916.indreb.common.api.slot.OutputSlot;
-import com.maciej916.indreb.common.api.util.Progress;
+import com.maciej916.indreb.common.api.util.ProgressFloat;
 import com.maciej916.indreb.common.util.BlockStateHelper;
 import com.maciej916.indreb.common.util.StackHandlerHelper;
 import com.maciej916.indreb.common.util.WrappedHandler;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.world.inventory.ContainerData;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.item.crafting.RecipeType;
@@ -36,16 +35,13 @@ import java.util.Optional;
 
 public abstract class SimpleMachineBlockEntity extends IndRebBlockEntity implements IHasExp {
 
-    public static final int SYNC_DATA_SLOTS = 4;
-    protected final ContainerData data;
-
     public static final int FUEL_SLOT = 0;
     public static final int INPUT_SLOT = 1;
     public static final int OUTPUT_SLOT = 2;
     public static final int BONUS_SLOT = 3;
 
-    public Progress progressBurn = new Progress();
-    public Progress progressRecipe = new Progress();
+    public ProgressFloat progressBurn = new ProgressFloat();
+    public ProgressFloat progressRecipe = new ProgressFloat();
 
     private BaseChanceRecipe recipe;
 
@@ -54,34 +50,9 @@ public abstract class SimpleMachineBlockEntity extends IndRebBlockEntity impleme
 
     public SimpleMachineBlockEntity(BlockEntityType<?> type, BlockPos pos, BlockState blockState) {
         super(type, pos, blockState);
-        this.data = new ContainerData() {
-            @Override
-            public int get(int index) {
-                return switch (index) {
-                    case 0 -> SimpleMachineBlockEntity.this.progressBurn.getContainerDataCurrent();
-                    case 1 -> SimpleMachineBlockEntity.this.progressBurn.getContainerDataMax();
-                    case 2 -> SimpleMachineBlockEntity.this.progressRecipe.getContainerDataCurrent();
-                    case 3 -> SimpleMachineBlockEntity.this.progressRecipe.getContainerDataMax();
 
-                    default -> 0;
-                };
-            }
-
-            @Override
-            public void set(int index, int value) {
-                switch (index) {
-                    case 0 -> SimpleMachineBlockEntity.this.progressBurn.setContainerDataCurrent(value);
-                    case 1 -> SimpleMachineBlockEntity.this.progressBurn.setContainerDataMax(value);
-                    case 2 -> SimpleMachineBlockEntity.this.progressRecipe.setContainerDataCurrent(value);
-                    case 3 -> SimpleMachineBlockEntity.this.progressRecipe.setContainerDataMax(value);
-                }
-            }
-
-            @Override
-            public int getCount() {
-                return SYNC_DATA_SLOTS;
-            }
-        };
+        this.containerData.syncProgressFloat(0, this.progressBurn);
+        this.containerData.syncProgressFloat(1, this.progressRecipe);
     }
 
     @Override
@@ -111,7 +82,7 @@ public abstract class SimpleMachineBlockEntity extends IndRebBlockEntity impleme
         }
 
         if (recipe != null) {
-            if (progressRecipe.currentProgress() == -1) {
+            if (progressRecipe.getCurrentProgress() == -1) {
                 progressRecipe.setData(0, recipe.getDuration() * 1.20f);
             }
 
@@ -120,7 +91,7 @@ public abstract class SimpleMachineBlockEntity extends IndRebBlockEntity impleme
                 rolledChance = true;
             }
 
-            if (canWork() && progressBurn.currentProgress() > 0) {
+            if (canWork() && progressBurn.getCurrentProgress() > 0) {
                 if (inputStack.getCount() >= recipe.getIngredientCount().getIngredientsCount().get(0)) {
                     progressRecipe.incProgress(1);
 
@@ -146,7 +117,7 @@ public abstract class SimpleMachineBlockEntity extends IndRebBlockEntity impleme
         }
 
         if (canWork()) {
-            if (progressBurn.currentProgress() > 0) {
+            if (progressBurn.getCurrentProgress() > 0) {
                 progressBurn.decProgress(1);
             } else {
                 final ItemStack fuelStack = getBaseStorage().getStackInSlot(FUEL_SLOT);
@@ -157,7 +128,7 @@ public abstract class SimpleMachineBlockEntity extends IndRebBlockEntity impleme
                 }
             }
 
-            if (progressBurn.currentProgress() > 0) {
+            if (progressBurn.getCurrentProgress() > 0) {
                 activeState = true;
             }
         }

@@ -31,6 +31,7 @@ public class ModNetworking {
         INSTANCE.registerMessage(nextID(), PacketTransformerMode.class, PacketTransformerMode::toBytes, PacketTransformerMode::new, PacketTransformerMode::handle);
         INSTANCE.registerMessage(nextID(), PacketExtruderRecipe.class, PacketExtruderRecipe::toBytes, PacketExtruderRecipe::new, PacketExtruderRecipe::handle);
         INSTANCE.registerMessage(nextID(), PacketMetalFormerMode.class, PacketMetalFormerMode::toBytes, PacketMetalFormerMode::new, PacketMetalFormerMode::handle);
+        INSTANCE.registerMessage(nextID(), PacketContainerDataSync.class, PacketContainerDataSync::toBytes, PacketContainerDataSync::new, PacketContainerDataSync::handle);
 
 //        INSTANCE.registerMessage(nextID(), PacketReqSyncEnergy.class, PacketReqSyncEnergy::toBytes, PacketReqSyncEnergy::new, PacketReqSyncEnergy::handle);
 //        INSTANCE.registerMessage(nextID(), PacketSyncEnergy.class, PacketSyncEnergy::toBytes, PacketSyncEnergy::new, PacketSyncEnergy::handle);
