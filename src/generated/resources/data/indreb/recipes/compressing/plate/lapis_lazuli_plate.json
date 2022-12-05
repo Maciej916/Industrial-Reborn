@@ -5,6 +5,7 @@
   "experience": 0.0,
   "ingredients": [
     {
+      "count": 9,
       "tag": "forge:dusts/lapis"
     }
   ],

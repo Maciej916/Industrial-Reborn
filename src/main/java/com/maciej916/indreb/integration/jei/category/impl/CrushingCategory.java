@@ -50,7 +50,7 @@ public class CrushingCategory extends AbstractRecipeCategory<CrushingRecipe> {
 
     @Override
     public void setRecipe(IRecipeLayoutBuilder builder, CrushingRecipe recipe, IFocusGroup focuses) {
-        this.progress = guiHelper.drawableBuilder(PROCESS, 26, 17, 24, 16).buildAnimated(recipe.getDuration(), IDrawableAnimated.StartDirection.LEFT, false);
+        this.progress = guiHelper.drawableBuilder(PROCESS, 25, 17, 24, 16).buildAnimated(recipe.getDuration(), IDrawableAnimated.StartDirection.LEFT, false);
         this.energy = guiHelper.drawableBuilder(JEI, 249, 0, 7, 37).buildAnimated(200, IDrawableAnimated.StartDirection.TOP, true);
 
         IngredientCount ingredientCount = recipe.getIngredientCount();

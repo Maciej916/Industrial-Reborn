@@ -9,6 +9,7 @@ import com.maciej916.indreb.common.block.impl.generator.geo_generator.MenuGeoGen
 import com.maciej916.indreb.common.block.impl.generator.reactor.nuclear_reactor.MenuNuclearReactor;
 import com.maciej916.indreb.common.block.impl.generator.semifluid_generator.MenuSemifluidGenerator;
 import com.maciej916.indreb.common.block.impl.generator.solar_panel.MenuSolarPanel;
+import com.maciej916.indreb.common.block.impl.machine.advanced.matter_fabricator.MenuMatterFabricator;
 import com.maciej916.indreb.common.block.impl.machine.basic.canning_machine.MenuCanningMachine;
 import com.maciej916.indreb.common.block.impl.machine.basic.compressor.MenuCompressor;
 import com.maciej916.indreb.common.block.impl.machine.basic.crusher.MenuCrusher;
@@ -76,8 +77,7 @@ public final class ModMenuTypes {
     public static final RegistryObject<MenuType<MenuThermalCentrifuge>> THERMAL_CENTRIFUGE = registerMenuType(MenuThermalCentrifuge::new, "thermal_centrifuge");
     public static final RegistryObject<MenuType<MenuOreWashingPlant>> ORE_WASHING_PLANT = registerMenuType(MenuOreWashingPlant::new, "ore_washing_plant");
 
-
-//    public static final RegistryObject<MenuType<MenuMatterFabricator>> MATTER_FABRICATOR = registerMenuType("matter_fabricator",  MenuMatterFabricator::new);
+    public static final RegistryObject<MenuType<MenuMatterFabricator>> MATTER_FABRICATOR = registerMenuType(MenuMatterFabricator::new, "matter_fabricator");
 
 //    public static final RegistryObject<MenuType<MenuPatternStorage>> PATTERN_STORAGE = registerMenuType("pattern_storage",  MenuPatternStorage::new);
 //    public static final RegistryObject<MenuType<MenuScanner>> SCANNER = registerMenuType("scanner",  MenuScanner::new);

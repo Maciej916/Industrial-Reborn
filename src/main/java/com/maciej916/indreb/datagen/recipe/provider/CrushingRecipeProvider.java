@@ -20,7 +20,7 @@ public class CrushingRecipeProvider extends RecipeProvider {
 
     @Override
     protected void buildCraftingRecipes(Consumer<FinishedRecipe> consumer) {
-        CrushingRecipeBuilder.builder(Items.BLAZE_POWDER,5)
+        CrushingRecipeBuilder.builder(Items.BLAZE_POWDER,3)
                 .setIngredient(Items.BLAZE_ROD, 1)
                 .setExperience(0.1F)
                 .setGroup("crushing")
@@ -48,7 +48,7 @@ public class CrushingRecipeProvider extends RecipeProvider {
                 .save(consumer, "redstone_block_redstone");
 
         CrushingRecipeBuilder.builder(Items.GUNPOWDER,1)
-                .setIngredient(Items.FLINT, 1)
+                .setIngredient(Items.FLINT, 3)
                 .setExperience(0.1F)
                 .setGroup("crushing")
                 .addCriterion("flint", InventoryChangeTrigger.TriggerInstance.hasItems(Items.FLINT))
@@ -67,7 +67,7 @@ public class CrushingRecipeProvider extends RecipeProvider {
                 .addCriterion("smooth_quartz", InventoryChangeTrigger.TriggerInstance.hasItems(Items.SMOOTH_QUARTZ))
                 .save(consumer, "smooth_quartz_quartz");
 
-        CrushingRecipeBuilder.builder(Items.SUGAR,1)
+        CrushingRecipeBuilder.builder(Items.SUGAR,2)
                 .setIngredient(Items.SUGAR_CANE, 1)
                 .setExperience(0.1F)
                 .setGroup("crushing")
@@ -131,14 +131,14 @@ public class CrushingRecipeProvider extends RecipeProvider {
 
         CrushingRecipeBuilder.builder(Items.COBBLESTONE,1)
                 .setIngredient(Items.STONE, 1)
-                .addChanceResult(ModItems.STONE_DUST, 1, 50)
+                .addChanceResult(ModItems.STONE_DUST, 1, 25)
                 .setGroup("crushing/stones")
                 .addCriterion("stone", InventoryChangeTrigger.TriggerInstance.hasItems(Items.STONE))
                 .save(consumer, "stone_cobblestone");
 
         CrushingRecipeBuilder.builder(Items.COBBLED_DEEPSLATE,1)
                 .setIngredient(Items.DEEPSLATE, 1)
-                .addChanceResult(ModItems.DEEPSLATE_DUST, 1, 50)
+                .addChanceResult(ModItems.DEEPSLATE_DUST, 1, 25)
                 .setGroup("crushing/stones")
                 .addCriterion("deepslate", InventoryChangeTrigger.TriggerInstance.hasItems(Items.DEEPSLATE))
                 .save(consumer, "deepslate_cobbled_deepslate");

@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "indreb:block/machine/advanced/matter_fabricator/matter_fabricator_bottom",
+    "east": "indreb:block/machine/advanced/matter_fabricator/matter_fabricator_side",
+    "north": "indreb:block/machine/advanced/matter_fabricator/matter_fabricator_front_active",
+    "particle": "indreb:block/machine/advanced/matter_fabricator/matter_fabricator_front_active",
+    "south": "indreb:block/machine/advanced/matter_fabricator/matter_fabricator_side",
+    "up": "indreb:block/machine/advanced/matter_fabricator/matter_fabricator_top",
+    "west": "indreb:block/machine/advanced/matter_fabricator/matter_fabricator_side"
+  }
+}

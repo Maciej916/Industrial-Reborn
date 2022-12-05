@@ -183,6 +183,8 @@ public final class ModItems {
     public static final RegistryObject<Item> ORE_WASHING_PLANT = fromBlockElectric(ModBlocks.ORE_WASHING_PLANT);
     public static final RegistryObject<Item> THERMAL_CENTRIFUGE = fromBlockElectric(ModBlocks.THERMAL_CENTRIFUGE);
 
+    public static final RegistryObject<Item> MATTER_FABRICATOR = fromBlockElectric(ModBlocks.MATTER_FABRICATOR);
+
 // add tags
 
 

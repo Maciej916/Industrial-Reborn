@@ -32,6 +32,7 @@ public final class ModRecipeType {
     public static final RegistryObject<RecipeType<ThermalCentrifugingRecipe>> THERMAL_CENTRIFUGING = registerType("thermal_centrifuging");
 
     public static final RegistryObject<RecipeType<ScrapBoxRecipe>> SCRAP_BOX = registerType("scrap_box");
+    public static final RegistryObject<RecipeType<MatterAmplifierRecipe>> MATTER_AMPLIFIER = registerType("matter_amplifier");
 
 //    public static final RegistryObject<RecipeType<ScannerRecipe>> SCANNER = registerType("scanner");
 

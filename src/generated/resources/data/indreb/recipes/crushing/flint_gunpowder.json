@@ -5,6 +5,7 @@
   "experience": 0.1,
   "ingredients": [
     {
+      "count": 3,
       "item": "minecraft:flint"
     }
   ],

@@ -33,7 +33,7 @@ public class ExtrudingRecipeProvider extends RecipeProvider {
                 .addCriterion("iron_plate", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.FLUID_CELL.get()))
                 .save(consumer, "fuel_rod");
 
-        ExtrudingRecipeBuilder.builder(ModItems.TIN_CABLE, 3)
+        ExtrudingRecipeBuilder.builder(ModItems.TIN_CABLE, 2)
                 .setIngredient(ModItemTags.FORGE_INGOTS_TIN, 1)
                 .setExperience(0.5F)
                 .setGroup("extruding")
@@ -47,14 +47,14 @@ public class ExtrudingRecipeProvider extends RecipeProvider {
                 .addCriterion("copper_cable", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.COPPER_CABLE.get()))
                 .save(consumer, "copper_cable");
 
-        ExtrudingRecipeBuilder.builder(ModItems.HV_CABLE, 4)
+        ExtrudingRecipeBuilder.builder(ModItems.HV_CABLE, 2)
                 .setIngredient(ModItemTags.FORGE_INGOTS_IRON, 1)
                 .setExperience(0.5F)
                 .setGroup("extruding")
                 .addCriterion("iron_plate", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.IRON_PLATE.get()))
                 .save(consumer, "hv_cable");
 
-        ExtrudingRecipeBuilder.builder(ModItems.GOLD_CABLE, 3)
+        ExtrudingRecipeBuilder.builder(ModItems.GOLD_CABLE, 2)
                 .setIngredient(ModItemTags.FORGE_INGOTS_GOLD, 1)
                 .setExperience(0.5F)
                 .setGroup("extruding")

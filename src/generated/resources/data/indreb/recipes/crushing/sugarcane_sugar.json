@@ -9,6 +9,7 @@
     }
   ],
   "result": {
+    "count": 2,
     "item": "minecraft:sugar"
   },
   "tick_energy_cost": 8

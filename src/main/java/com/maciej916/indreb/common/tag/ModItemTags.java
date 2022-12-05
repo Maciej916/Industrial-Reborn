@@ -36,6 +36,7 @@ public final class ModItemTags {
     public static final TagKey<Item> FORGE_BONES = create("forge", "bones");
     public static final TagKey<Item> FORGE_SAND = create("forge", "sand");
     public static final TagKey<Item> FORGE_GRAVEL = create("forge", "gravel");
+    public static final TagKey<Item> FORGE_SLIMEBALLS = create("forge", "slimeballs");
 
     public static final TagKey<Item> FORGE_ORE_TIN = create("forge", "ores/tin");
     public static final TagKey<Item> FORGE_ORE_SILVER = create("forge", "ores/silver");

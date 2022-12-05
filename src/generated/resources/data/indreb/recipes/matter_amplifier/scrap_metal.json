@@ -1,0 +1,9 @@
+{
+  "type": "indreb:matter_amplifier",
+  "amplified_amount": 10000,
+  "ingredients": [
+    {
+      "item": "indreb:scrap_metal"
+    }
+  ]
+}

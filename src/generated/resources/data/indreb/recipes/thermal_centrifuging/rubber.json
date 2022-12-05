@@ -1,0 +1,16 @@
+{
+  "type": "indreb:thermal_centrifuging",
+  "chance_result": [],
+  "duration": 150,
+  "experience": 0.5,
+  "ingredients": [
+    {
+      "tag": "forge:slimeballs"
+    }
+  ],
+  "result": {
+    "item": "indreb:rubber"
+  },
+  "temperature": 55.0,
+  "tick_energy_cost": 46
+}

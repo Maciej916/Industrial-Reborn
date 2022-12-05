@@ -156,8 +156,6 @@ public class BasicEnergyStorage implements IEnergyStorage, IBaseProgress, INBTSe
     @Override
     public void setEnergyType(EnergyType type) {
         this.energyType = type;
-
-        System.out.println("setEnergyType");
         updated();
     }
 

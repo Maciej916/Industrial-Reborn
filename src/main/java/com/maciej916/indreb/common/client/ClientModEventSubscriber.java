@@ -12,6 +12,7 @@ import com.maciej916.indreb.common.block.impl.generator.geo_generator.ScreenGeoG
 import com.maciej916.indreb.common.block.impl.generator.reactor.nuclear_reactor.ScreenNuclearReactor;
 import com.maciej916.indreb.common.block.impl.generator.semifluid_generator.ScreenSemifluidGenerator;
 import com.maciej916.indreb.common.block.impl.generator.solar_panel.ScreenSolarPanel;
+import com.maciej916.indreb.common.block.impl.machine.advanced.matter_fabricator.ScreenMatterFabricator;
 import com.maciej916.indreb.common.block.impl.machine.basic.canning_machine.ScreenCanningMachine;
 import com.maciej916.indreb.common.block.impl.machine.basic.compressor.ScreenCompressor;
 import com.maciej916.indreb.common.block.impl.machine.basic.crusher.ScreenCrusher;
@@ -119,7 +120,7 @@ public final class ClientModEventSubscriber {
 			MenuScreens.register(ModMenuTypes.THERMAL_CENTRIFUGE.get(), ScreenThermalCentrifuge::new);
 			MenuScreens.register(ModMenuTypes.ORE_WASHING_PLANT.get(), ScreenOreWashingPlant::new);
 
-//			MenuScreens.register(ModMenuTypes.MATTER_FABRICATOR.get(), ScreenMatterFabricator::new);
+			MenuScreens.register(ModMenuTypes.MATTER_FABRICATOR.get(), ScreenMatterFabricator::new);
 
 //			MenuScreens.register(ModMenuTypes.PATTERN_STORAGE.get(), ScreenPatternStorage::new);
 //			MenuScreens.register(ModMenuTypes.SCANNER.get(), ScreenScanner::new);

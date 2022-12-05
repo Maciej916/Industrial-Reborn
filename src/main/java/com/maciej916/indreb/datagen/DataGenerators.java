@@ -49,5 +49,6 @@ public class DataGenerators {
         generator.addProvider(event.includeServer(), new ThermalCentrifugingProvider(generator));
 
         generator.addProvider(event.includeServer(), new ScrapBoxProvider(generator));
+        generator.addProvider(event.includeServer(), new MatterAmplifierProvider(generator));
     }
 }

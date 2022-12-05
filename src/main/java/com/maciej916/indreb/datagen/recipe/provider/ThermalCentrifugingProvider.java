@@ -150,7 +150,7 @@ public class ThermalCentrifugingProvider extends RecipeProvider {
 
         ThermalCentrifugingBuilder.builder(ModItems.STONE_DUST, 2)
                 .setIngredient(Items.COBBLESTONE, 1)
-                .setTemperature(50)
+                .setTemperature(80)
                 .setDuration(100)
                 .addCriterion("cobblestone", InventoryChangeTrigger.TriggerInstance.hasItems(Items.COBBLESTONE))
                 .setGroup("thermal_centrifuging")
@@ -163,6 +163,15 @@ public class ThermalCentrifugingProvider extends RecipeProvider {
                 .addCriterion("cobblestone", InventoryChangeTrigger.TriggerInstance.hasItems(Items.COBBLED_DEEPSLATE))
                 .setGroup("thermal_centrifuging")
                 .save(consumer,"deepslate_dust");
-                
+
+        ThermalCentrifugingBuilder.builder(ModItems.RUBBER, 1)
+                .setIngredient(ModItemTags.FORGE_SLIMEBALLS, 1)
+                .setTemperature(55)
+                .setDuration(150)
+                .setExperience(0.5f)
+                .addCriterion("slime_ball", InventoryChangeTrigger.TriggerInstance.hasItems(Items.SLIME_BALL))
+                .setGroup("thermal_centrifuging")
+                .save(consumer,"rubber");
+
     }
 }

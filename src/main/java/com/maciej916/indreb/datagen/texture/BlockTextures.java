@@ -49,6 +49,7 @@ public class BlockTextures extends BlockStateProvider {
         registerTransformer();
         registerBasicMachines();
         registerStandardMachines();
+        registerAdvancedMachines();
     }
 
     private void registerOres() {
@@ -221,6 +222,11 @@ public class BlockTextures extends BlockStateProvider {
         createActiveHorizontal(ModBlocks.FERMENTER, "machine/standard/fermenter/fermenter", "_bottom", "_bottom", "_top", "_top", "_front", "_front_active", "_back", "_back", "_leftright", "_leftright_active", "_leftright", "_leftright_active");
         createActiveHorizontal(ModBlocks.ORE_WASHING_PLANT, "machine/standard/ore_washing_plant/ore_washing_plant", "_bottom", "_bottom", "_top", "_top", "_front", "_front_active", "_back", "_back", "_leftright", "_leftright_active", "_leftright", "_leftright_active");
         createActiveHorizontal(ModBlocks.THERMAL_CENTRIFUGE, "machine/standard/thermal_centrifuge/thermal_centrifuge", "_bottom", "_bottom", "_top", "_top", "_front", "_front_active", "_back", "_back", "_leftright", "_leftright_active", "_leftright", "_leftright_active");
+
+    }
+
+    private void registerAdvancedMachines() {
+        createActiveHorizontal(ModBlocks.MATTER_FABRICATOR, "machine/advanced/matter_fabricator/matter_fabricator", "_bottom", "_bottom", "_top", "_top", "_front", "_front_active", "_side", "_side", "_side", "_side", "_side", "_side");
 
     }
 

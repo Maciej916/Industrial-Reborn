@@ -1,4 +1,4 @@
-// 1.19.2	2022-12-04T00:30:32.9275077	Industrial Reborn Tags
+// 1.19.2	2022-12-05T16:43:46.298698	Industrial Reborn Tags
 dd5c5c1032bad3ac0f62d30456f9fd001142ce84 data/forge/tags/items/dusts/coal.json
 273a096d0c0bcf058ce031391d0910e6095a1c1f data/forge/tags/items/dusts/copper.json
 22bdb5c82051b049a9392cb4c901bce0f9ad1ae8 data/forge/tags/items/dusts/deepslate.json
@@ -52,7 +52,7 @@ acf321e6453b5ca5f02c3663e797e0db30203b0b data/indreb/tags/items/electric_items.j
 ebf939c885e5c4fdbc1086f04fb7c3e4fdb8443e data/indreb/tags/items/generators.json
 afbb1abd14136ece8f249ade335c1c6490a90bc9 data/indreb/tags/items/helmet.json
 87636a3d5811734534d63f5299f83bd4e0e75a13 data/indreb/tags/items/leggings.json
-e48990b6b5385ea840e2a9f191f2cca78a996198 data/indreb/tags/items/machines.json
+4ff6271eafc9fbb8fd0583a7750d9b194b85a9f4 data/indreb/tags/items/machines.json
 91a1e1d10ba71ba471e5aa16a8c848ba19432a2f data/indreb/tags/items/reactor_component.json
 5f9f2f3fb83bc9b02132c5cc56248ff800631ea2 data/indreb/tags/items/reactor_fusion.json
 41242355178c53326aace0936b6887b3e24f8a0c data/indreb/tags/items/transformers.json

@@ -209,7 +209,7 @@ public class CompressingRecipeProvider extends RecipeProvider {
                 .save(consumer,"glowstone_dust_glowstone");
 
         CompressingRecipeBuilder.builder(Items.BLAZE_ROD, 1)
-                .setIngredient(Items.BLAZE_POWDER, 5)
+                .setIngredient(Items.BLAZE_POWDER, 3)
                 .addCriterion("blaze_powder", InventoryChangeTrigger.TriggerInstance.hasItems(Items.BLAZE_POWDER))
                 .setGroup("compressing/items")
                 .save(consumer,"blaze_powder_blaze_rod");
@@ -239,18 +239,6 @@ public class CompressingRecipeProvider extends RecipeProvider {
                 .addCriterion("energium_dust", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.ENERGIUM_DUST.get()))
                 .setGroup("compressing/dust")
                 .save(consumer,"energium_dust");
-
-        CompressingRecipeBuilder.builder(Items.STONE, 1)
-                .setIngredient(ModItems.STONE_DUST, 4)
-                .addCriterion("stone", InventoryChangeTrigger.TriggerInstance.hasItems(Items.STONE))
-                .setGroup("compressing/dust")
-                .save(consumer,"stone");
-
-        CompressingRecipeBuilder.builder(Items.DEEPSLATE, 1)
-                .setIngredient(ModItems.DEEPSLATE_DUST, 4)
-                .addCriterion("deepslate", InventoryChangeTrigger.TriggerInstance.hasItems(Items.DEEPSLATE))
-                .setGroup("compressing/dust")
-                .save(consumer,"deepslate");
 
         CompressingRecipeBuilder.builder(ModItems.IRIDIUM, 1)
                 .setIngredient(ModItems.IRIDIUM_SHARD, 9)
@@ -341,7 +329,7 @@ public class CompressingRecipeProvider extends RecipeProvider {
                 .save(consumer,"red_sandstone");
 
         CompressingRecipeBuilder.builder(ModItems.LAPIS_LAZULI_PLATE, 1)
-                .setIngredient(ItemTags.create(new ResourceLocation("forge", "dusts/lapis")), 1)
+                .setIngredient(ItemTags.create(new ResourceLocation("forge", "dusts/lapis")), 9)
                 .addCriterion("lapis_lazuli_dust", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.LAPIS_LAZULI_DUST.get()))
                 .setGroup("compressing/plate")
                 .save(consumer,"lapis_lazuli_plate");

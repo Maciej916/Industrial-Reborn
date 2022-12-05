@@ -10,6 +10,7 @@ import com.maciej916.indreb.common.block.impl.generator.reactor.BlockEntityReact
 import com.maciej916.indreb.common.block.impl.generator.reactor.nuclear_reactor.BlockEntityNuclearReactor;
 import com.maciej916.indreb.common.block.impl.generator.semifluid_generator.BlockEntitySemifluidGenerator;
 import com.maciej916.indreb.common.block.impl.generator.solar_panel.BlockEntitySolarPanel;
+import com.maciej916.indreb.common.block.impl.machine.advanced.matter_fabricator.BlockEntityMatterFabricator;
 import com.maciej916.indreb.common.block.impl.machine.basic.metal_former.BlockEntityMetalFormer;
 import com.maciej916.indreb.common.block.impl.machine.standard.alloy_smelter.BlockEntityAlloySmelter;
 import com.maciej916.indreb.common.block.impl.machine.basic.canning_machine.BlockEntityCanningMachine;
@@ -85,7 +86,9 @@ public final class ModBlockEntities {
     public static final RegistryObject<BlockEntityType<BlockEntityOreWashingPlant>> ORE_WASHING_PLANT = BLOCK_ENTITIES.register("ore_washing_plant", () -> BlockEntityType.Builder.of(BlockEntityOreWashingPlant::new, ModBlocks.ORE_WASHING_PLANT.get()).build(null));
     public static final RegistryObject<BlockEntityType<BlockEntityThermalCentrifuge>> THERMAL_CENTRIFUGE = BLOCK_ENTITIES.register("thermal_centrifuge", () -> BlockEntityType.Builder.of(BlockEntityThermalCentrifuge::new, ModBlocks.THERMAL_CENTRIFUGE.get()).build(null));
 
+    /* ADVANCED MACHINES */
 
+    public static final RegistryObject<BlockEntityType<BlockEntityMatterFabricator>> MATTER_FABRICATOR = BLOCK_ENTITIES.register("matter_fabricator", () -> BlockEntityType.Builder.of(BlockEntityMatterFabricator::new, ModBlocks.MATTER_FABRICATOR.get()).build(null));
 
 
     public static void register(IEventBus eventBus) {

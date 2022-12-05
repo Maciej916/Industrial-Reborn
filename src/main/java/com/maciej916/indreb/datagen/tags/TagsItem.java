@@ -324,6 +324,8 @@ public class TagsItem extends ItemTagsProvider {
                 .add(ModItems.ORE_WASHING_PLANT.get())
                 .add(ModItems.THERMAL_CENTRIFUGE.get())
 
+                .add(ModItems.MATTER_FABRICATOR.get())
+
         ;
 
         /* TRANSFORMERS */

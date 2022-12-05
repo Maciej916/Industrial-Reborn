@@ -5,6 +5,7 @@ import com.maciej916.indreb.IndReb;
 import com.maciej916.indreb.common.api.screen.WidgetScreen;
 import com.maciej916.indreb.common.api.screen.WidgetScreenHandler;
 import com.maciej916.indreb.common.block.ModBlocks;
+import com.maciej916.indreb.common.block.impl.machine.advanced.matter_fabricator.ScreenMatterFabricator;
 import com.maciej916.indreb.common.block.impl.machine.basic.canning_machine.BlockEntityCanningMachine;
 import com.maciej916.indreb.common.block.impl.machine.basic.canning_machine.MenuCanningMachine;
 import com.maciej916.indreb.common.block.impl.machine.basic.canning_machine.ScreenCanningMachine;
@@ -101,6 +102,7 @@ public class JEIPlugin implements IModPlugin {
     public static final RecipeType<ThermalCentrifugingRecipe> THERMAL_CENTRIFUGING_TYPE = new RecipeType<>(ThermalCentrifugingCategory.UID, ThermalCentrifugingRecipe.class);
 
     public static final RecipeType<ScrapBoxRecipe> SCRAP_BOX_TYPE = new RecipeType<>(ScrapBoxCategory.UID, ScrapBoxRecipe.class);
+    public static final RecipeType<MatterAmplifierRecipe> MATTER_AMPLIFIER_TYPE = new RecipeType<>(MatterAmplifierCategory.UID, MatterAmplifierRecipe.class);
 
 
 
@@ -135,6 +137,8 @@ public class JEIPlugin implements IModPlugin {
         registration.addRecipeCatalyst(new ItemStack(ModBlocks.THERMAL_CENTRIFUGE.get()), THERMAL_CENTRIFUGING_TYPE);
         registration.addRecipeCatalyst(new ItemStack(ModBlocks.ORE_WASHING_PLANT.get()), ORE_WASHING_TYPE);
 
+        registration.addRecipeCatalyst(new ItemStack(ModBlocks.MATTER_FABRICATOR.get()), MATTER_AMPLIFIER_TYPE);
+
     }
 
     @Override
@@ -160,6 +164,7 @@ public class JEIPlugin implements IModPlugin {
         registration.addRecipeCategories(new ThermalCentrifugingCategory(ScreenHelper));
 
         registration.addRecipeCategories(new ScrapBoxCategory(ScreenHelper));
+        registration.addRecipeCategories(new MatterAmplifierCategory(ScreenHelper));
 
 //        registration.addRecipeCategories(new ScannerCategory(ScreenHelper));
 
@@ -193,6 +198,7 @@ public class JEIPlugin implements IModPlugin {
         registration.addRecipes(THERMAL_CENTRIFUGING_TYPE, recipeManager.getAllRecipesFor(ModRecipeType.THERMAL_CENTRIFUGING.get()));
 
         registration.addRecipes(SCRAP_BOX_TYPE, recipeManager.getAllRecipesFor(ModRecipeType.SCRAP_BOX.get()));
+        registration.addRecipes(MATTER_AMPLIFIER_TYPE, recipeManager.getAllRecipesFor(ModRecipeType.MATTER_AMPLIFIER.get()));
 
 //        registration.addRecipes(SCANNER_TYPE, recipeManager.getAllRecipesFor(ModRecipeType.SCANNER.get()));
 
@@ -226,6 +232,7 @@ public class JEIPlugin implements IModPlugin {
         registration.addRecipeClickArea(ScreenFermenter.class, 76, 35, 24, 16, FERMENTING_TYPE);
         registration.addRecipeClickArea(ScreenOreWashingPlant.class, 90, 32, 19, 19, ORE_WASHING_TYPE);
         registration.addRecipeClickArea(ScreenThermalCentrifuge.class, 73, 33, 24, 16, THERMAL_CENTRIFUGING_TYPE);
+        registration.addRecipeClickArea(ScreenMatterFabricator.class, 56, 34, 70, 11, MATTER_AMPLIFIER_TYPE);
 
 
 

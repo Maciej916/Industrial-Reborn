@@ -1,0 +1,9 @@
+{
+  "type": "indreb:matter_amplifier",
+  "amplified_amount": 150000,
+  "ingredients": [
+    {
+      "item": "minecraft:netherite_scrap"
+    }
+  ]
+}

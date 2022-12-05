@@ -1,4 +1,4 @@
-// 1.19.2	2022-12-03T21:24:49.1549052	Block States: indreb
+// 1.19.2	2022-12-05T15:56:32.6776832	Block States: indreb
 95b7796b1e598d400659dbc96f12d1f0d72cda55 assets/indreb/blockstates/acid_hazard_sign_block.json
 b0fdc040f5b7b7c6b701f4aed0ac0308e145cfc9 assets/indreb/blockstates/advanced_machine_casing.json
 9385543a17f96635caee1886dc56a82587c77604 assets/indreb/blockstates/advanced_solar_panel.json
@@ -57,6 +57,7 @@ df8f5f88d100ee2ddbeb238f94ca6e134fad90d3 assets/indreb/blockstates/lead_ore.json
 38eb7fa3a85bcfab09a3ffa5a4ace5d295aa2427 assets/indreb/blockstates/luminator.json
 ff2e3041f66b53e0b9a369155467870b449894c0 assets/indreb/blockstates/lv_transformer.json
 e5bfa6174b06e577ee5b9ee642fd3aeac929a968 assets/indreb/blockstates/magic_hazard_sign_block.json
+5610ef0a2d1d0bb89b666c842d61563eee8b6feb assets/indreb/blockstates/matter_fabricator.json
 5a6bb377c6a375fb40c37d04b238a4160b6576ce assets/indreb/blockstates/metal_former.json
 b75a6b66025ad7841a788a66ec59ea41aab25460 assets/indreb/blockstates/mfe.json
 e50634c1afdf9434d7c08f5787631caf3b2b361f assets/indreb/blockstates/mfsu.json
@@ -192,6 +193,8 @@ acf69294c5feacd95493ab06b534d5c05dbe48bb assets/indreb/models/block/iron_gate_wa
 69f7ebc193e17316a5514c39a54364600828e34c assets/indreb/models/block/lead_ore.json
 196842767f7cff45ea93cd33c68823f8341ff6b8 assets/indreb/models/block/lv_transformer.json
 1ef2422a476ca1b8890874c3d475f178865cad46 assets/indreb/models/block/magic_hazard_sign_block.json
+7cc8a17e7297a3740cd7e685e7df357f483d71c0 assets/indreb/models/block/matter_fabricator.json
+f9eaadaa0d66cf3ac218146bce5d0f0d4d8b5bc1 assets/indreb/models/block/matter_fabricator_active.json
 0d37cccd884dab20ed108a63de7f987a74b9f5ce assets/indreb/models/block/metal_former.json
 70759979f17cf5fe52c9582b479f70f4afda40e7 assets/indreb/models/block/metal_former_active.json
 b33b1c60de03bc3566634d1308e963de3d6042e5 assets/indreb/models/block/mfe.json

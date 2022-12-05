@@ -27,14 +27,14 @@ public class CuttingRecipeProvider extends RecipeProvider {
                 .addCriterion("tin_plate", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.TIN_PLATE.get()))
                 .save(consumer, "tin_cable");
 
-        CuttingRecipeBuilder.builder(ModItems.COPPER_CABLE, 2)
+        CuttingRecipeBuilder.builder(ModItems.COPPER_CABLE, 3)
                 .setIngredient(ModItemTags.FORGE_PLATES_COPPER, 1)
                 .setExperience(0.5F)
                 .setGroup("cutting")
                 .addCriterion("copper_cable", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.COPPER_CABLE.get()))
                 .save(consumer, "copper_cable");
 
-        CuttingRecipeBuilder.builder(ModItems.HV_CABLE, 4)
+        CuttingRecipeBuilder.builder(ModItems.HV_CABLE, 3)
                 .setIngredient(ModItemTags.FORGE_PLATES_IRON, 1)
                 .setExperience(0.5F)
                 .setGroup("cutting")

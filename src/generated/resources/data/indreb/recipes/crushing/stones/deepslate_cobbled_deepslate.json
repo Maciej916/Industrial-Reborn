@@ -2,7 +2,7 @@
   "type": "indreb:crushing",
   "chance_result": [
     {
-      "chance": 50.0,
+      "chance": 25.0,
       "count": 1,
       "item": "indreb:deepslate_dust"
     }

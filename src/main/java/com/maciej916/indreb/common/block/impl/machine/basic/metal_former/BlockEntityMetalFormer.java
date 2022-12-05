@@ -85,7 +85,7 @@ public class BlockEntityMetalFormer extends IndRebBlockEntity implements IHasExp
                 progressRecipe.setData(0, recipe.getDuration());
             }
 
-            progressRecipe.setProgressMax(getUpgradesDuration(recipe.getDuration()));
+            progressRecipe.setProgressMax(getUpgradesDuration(recipe.getDuration()) * 1.5f);
             int energyCost = getUpgradesEnergyCost(recipe.getTickEnergyCost());
 
             if (canWork()) {

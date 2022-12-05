@@ -56,6 +56,7 @@ public class ItemTextures extends ItemModelProvider {
         registerTransformer();
         registerBasicMachines();
         registerStandardMachines();
+        registerAdvancedMachines();
     }
 
     protected void registerOres() {
@@ -502,6 +503,12 @@ public class ItemTextures extends ItemModelProvider {
         createWithBlock(ModItems.FERMENTER, "fermenter");
         createWithBlock(ModItems.ORE_WASHING_PLANT, "ore_washing_plant");
         createWithBlock(ModItems.THERMAL_CENTRIFUGE, "thermal_centrifuge");
+
+    }
+
+    private void registerAdvancedMachines() {
+        createWithBlock(ModItems.MATTER_FABRICATOR, "matter_fabricator");
+
 
     }
 
