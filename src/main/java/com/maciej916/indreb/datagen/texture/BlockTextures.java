@@ -50,6 +50,7 @@ public class BlockTextures extends BlockStateProvider {
         registerBasicMachines();
         registerStandardMachines();
         registerAdvancedMachines();
+        registerSuperMachines();
     }
 
     private void registerOres() {
@@ -227,6 +228,11 @@ public class BlockTextures extends BlockStateProvider {
 
     private void registerAdvancedMachines() {
         createActiveHorizontal(ModBlocks.MATTER_FABRICATOR, "machine/advanced/matter_fabricator/matter_fabricator", "_bottom", "_bottom", "_top", "_top", "_front", "_front_active", "_side", "_side", "_side", "_side", "_side", "_side");
+
+    }
+
+    private void registerSuperMachines() {
+        createActiveHorizontal(ModBlocks.SCANNER, "machine/super/scanner/scanner", "_bottom", "_bottom", "_top", "_top", "_front", "_front_active", "_side", "_side", "_side", "_side", "_side", "_side");
 
     }
 

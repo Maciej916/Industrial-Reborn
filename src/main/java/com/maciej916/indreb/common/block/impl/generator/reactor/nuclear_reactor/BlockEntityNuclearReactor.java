@@ -2,6 +2,7 @@ package com.maciej916.indreb.common.block.impl.generator.reactor.nuclear_reactor
 
 import com.maciej916.indreb.IndReb;
 import com.maciej916.indreb.common.api.blockentity.IndRebBlockEntity;
+import com.maciej916.indreb.common.api.blockentity.interfaces.IHasSound;
 import com.maciej916.indreb.common.api.enums.EnergyTier;
 import com.maciej916.indreb.common.api.enums.EnergyType;
 import com.maciej916.indreb.common.api.enums.GuiSlotBg;
@@ -17,6 +18,7 @@ import com.maciej916.indreb.common.multiblock.reactor.Reactor;
 import com.maciej916.indreb.common.multiblock.reactor.ReactorPartIndex;
 import com.maciej916.indreb.common.network.ModNetworking;
 import com.maciej916.indreb.common.network.packet.PacketPlayPauseReactor;
+import com.maciej916.indreb.common.sound.ModSounds;
 import com.maciej916.indreb.common.tag.ModItemTags;
 import com.maciej916.indreb.common.util.BlockStateHelper;
 import com.maciej916.indreb.common.util.CapabilityUtil;
@@ -26,6 +28,7 @@ import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
@@ -40,7 +43,7 @@ import org.jetbrains.annotations.Nullable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BlockEntityNuclearReactor extends IndRebBlockEntity {
+public class BlockEntityNuclearReactor extends IndRebBlockEntity implements IHasSound {
 
     private final Reactor reactor = new Reactor();
 
@@ -111,8 +114,6 @@ public class BlockEntityNuclearReactor extends IndRebBlockEntity {
                     }
                 }
             }
-
-            activeState = reactor.getEnabled() && totalRodCount > 0;
 
             for (int row = 0; row < 6; row++) {
                 for (int col = 0; col < 9; col++) {
@@ -201,6 +202,8 @@ public class BlockEntityNuclearReactor extends IndRebBlockEntity {
             if (generateEnergy > 0) {
                 getEnergyStorage().generateEnergy(generateEnergy, false);
             }
+
+            activeState = reactor.getEnabled();
 
             getEnergyStorage().setLastGenerated((reactor.getCurrentIEOutput() / 20));
         }
@@ -298,5 +301,10 @@ public class BlockEntityNuclearReactor extends IndRebBlockEntity {
         }
 
         return oneProbeInfo;
+    }
+
+    @Override
+    public SoundEvent getSoundEvent() {
+        return ModSounds.NUCLEAR_REACTOR.get();
     }
 }

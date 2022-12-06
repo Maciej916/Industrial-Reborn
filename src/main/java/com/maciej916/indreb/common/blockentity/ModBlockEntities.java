@@ -10,6 +10,7 @@ import com.maciej916.indreb.common.block.impl.generator.reactor.BlockEntityReact
 import com.maciej916.indreb.common.block.impl.generator.reactor.nuclear_reactor.BlockEntityNuclearReactor;
 import com.maciej916.indreb.common.block.impl.generator.semifluid_generator.BlockEntitySemifluidGenerator;
 import com.maciej916.indreb.common.block.impl.generator.solar_panel.BlockEntitySolarPanel;
+import com.maciej916.indreb.common.block.impl.machine.t_super.scanner.BlockEntityScanner;
 import com.maciej916.indreb.common.block.impl.machine.advanced.matter_fabricator.BlockEntityMatterFabricator;
 import com.maciej916.indreb.common.block.impl.machine.basic.metal_former.BlockEntityMetalFormer;
 import com.maciej916.indreb.common.block.impl.machine.standard.alloy_smelter.BlockEntityAlloySmelter;
@@ -89,6 +90,10 @@ public final class ModBlockEntities {
     /* ADVANCED MACHINES */
 
     public static final RegistryObject<BlockEntityType<BlockEntityMatterFabricator>> MATTER_FABRICATOR = BLOCK_ENTITIES.register("matter_fabricator", () -> BlockEntityType.Builder.of(BlockEntityMatterFabricator::new, ModBlocks.MATTER_FABRICATOR.get()).build(null));
+
+    /* SUPER MACHINES */
+
+    public static final RegistryObject<BlockEntityType<BlockEntityScanner>> SCANNER = BLOCK_ENTITIES.register("scanner", () -> BlockEntityType.Builder.of(BlockEntityScanner::new, ModBlocks.SCANNER.get()).build(null));
 
 
     public static void register(IEventBus eventBus) {

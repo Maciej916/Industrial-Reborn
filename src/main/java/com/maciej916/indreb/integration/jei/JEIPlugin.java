@@ -54,6 +54,7 @@ import com.maciej916.indreb.common.block.impl.machine.standard.ore_washing_plant
 import com.maciej916.indreb.common.block.impl.machine.standard.thermal_centrifuge.BlockEntityThermalCentrifuge;
 import com.maciej916.indreb.common.block.impl.machine.standard.thermal_centrifuge.MenuThermalCentrifuge;
 import com.maciej916.indreb.common.block.impl.machine.standard.thermal_centrifuge.ScreenThermalCentrifuge;
+import com.maciej916.indreb.common.block.impl.machine.t_super.scanner.ScreenScanner;
 import com.maciej916.indreb.common.item.ModItems;
 import com.maciej916.indreb.common.recipe.ModRecipeType;
 import com.maciej916.indreb.common.recipe.impl.*;
@@ -101,12 +102,11 @@ public class JEIPlugin implements IModPlugin {
     public static final RecipeType<OreWashingRecipe> ORE_WASHING_TYPE = new RecipeType<>(OreWashingCategory.UID, OreWashingRecipe.class);
     public static final RecipeType<ThermalCentrifugingRecipe> THERMAL_CENTRIFUGING_TYPE = new RecipeType<>(ThermalCentrifugingCategory.UID, ThermalCentrifugingRecipe.class);
 
+    public static final RecipeType<ScanningRecipe> SCANNING_TYPE = new RecipeType<>(ScanningCategory.UID, ScanningRecipe.class);
+
     public static final RecipeType<ScrapBoxRecipe> SCRAP_BOX_TYPE = new RecipeType<>(ScrapBoxCategory.UID, ScrapBoxRecipe.class);
     public static final RecipeType<MatterAmplifierRecipe> MATTER_AMPLIFIER_TYPE = new RecipeType<>(MatterAmplifierCategory.UID, MatterAmplifierRecipe.class);
 
-
-
-//    public static final RecipeType<ScannerRecipe> SCANNER_TYPE = new RecipeType<>(ScannerCategory.UID, ScannerRecipe.class);
 
     @Override
     public ResourceLocation getPluginUid() {
@@ -137,6 +137,8 @@ public class JEIPlugin implements IModPlugin {
         registration.addRecipeCatalyst(new ItemStack(ModBlocks.THERMAL_CENTRIFUGE.get()), THERMAL_CENTRIFUGING_TYPE);
         registration.addRecipeCatalyst(new ItemStack(ModBlocks.ORE_WASHING_PLANT.get()), ORE_WASHING_TYPE);
 
+        registration.addRecipeCatalyst(new ItemStack(ModBlocks.SCANNER.get()), SCANNING_TYPE);
+
         registration.addRecipeCatalyst(new ItemStack(ModBlocks.MATTER_FABRICATOR.get()), MATTER_AMPLIFIER_TYPE);
 
     }
@@ -163,11 +165,10 @@ public class JEIPlugin implements IModPlugin {
         registration.addRecipeCategories(new OreWashingCategory(ScreenHelper));
         registration.addRecipeCategories(new ThermalCentrifugingCategory(ScreenHelper));
 
+        registration.addRecipeCategories(new ScanningCategory(ScreenHelper));
+
         registration.addRecipeCategories(new ScrapBoxCategory(ScreenHelper));
         registration.addRecipeCategories(new MatterAmplifierCategory(ScreenHelper));
-
-//        registration.addRecipeCategories(new ScannerCategory(ScreenHelper));
-
 
     }
 
@@ -197,10 +198,10 @@ public class JEIPlugin implements IModPlugin {
         registration.addRecipes(ORE_WASHING_TYPE, recipeManager.getAllRecipesFor(ModRecipeType.ORE_WASHING.get()));
         registration.addRecipes(THERMAL_CENTRIFUGING_TYPE, recipeManager.getAllRecipesFor(ModRecipeType.THERMAL_CENTRIFUGING.get()));
 
+        registration.addRecipes(SCANNING_TYPE, recipeManager.getAllRecipesFor(ModRecipeType.SCANNING.get()));
+
         registration.addRecipes(SCRAP_BOX_TYPE, recipeManager.getAllRecipesFor(ModRecipeType.SCRAP_BOX.get()));
         registration.addRecipes(MATTER_AMPLIFIER_TYPE, recipeManager.getAllRecipesFor(ModRecipeType.MATTER_AMPLIFIER.get()));
-
-//        registration.addRecipes(SCANNER_TYPE, recipeManager.getAllRecipesFor(ModRecipeType.SCANNER.get()));
 
 
         sw.stop();
@@ -234,14 +235,12 @@ public class JEIPlugin implements IModPlugin {
         registration.addRecipeClickArea(ScreenThermalCentrifuge.class, 73, 33, 24, 16, THERMAL_CENTRIFUGING_TYPE);
         registration.addRecipeClickArea(ScreenMatterFabricator.class, 56, 34, 70, 11, MATTER_AMPLIFIER_TYPE);
 
+        registration.addRecipeClickArea(ScreenScanner.class, 7, 15, 61, 9, SCANNING_TYPE);
+        registration.addRecipeClickArea(ScreenScanner.class, 51, 15, 18, 9, SCANNING_TYPE);
+        registration.addRecipeClickArea(ScreenScanner.class, 7, 24, 18, 26, SCANNING_TYPE);
+        registration.addRecipeClickArea(ScreenScanner.class, 51, 24, 18, 26, SCANNING_TYPE);
+        registration.addRecipeClickArea(ScreenScanner.class, 7, 50, 61, 9, SCANNING_TYPE);
 
-
-//        registration.addRecipeClickArea(ScreenScanner.class, 7, 15, 61, 9, SCANNER_TYPE);
-//        registration.addRecipeClickArea(ScreenScanner.class, 51, 15, 18, 9, SCANNER_TYPE);
-//        registration.addRecipeClickArea(ScreenScanner.class, 7, 24, 18, 26, SCANNER_TYPE);
-//        registration.addRecipeClickArea(ScreenScanner.class, 51, 24, 18, 26, SCANNER_TYPE);
-//        registration.addRecipeClickArea(ScreenScanner.class, 7, 50, 61, 9, SCANNER_TYPE);
-//
 
     }
 

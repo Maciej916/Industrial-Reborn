@@ -1,0 +1,31 @@
+{
+  "display": {
+    "icon": {
+      "item": "indreb:wrench"
+    },
+    "title": {
+      "translate": "advancements.indreb.title.wrench"
+    },
+    "description": {
+      "translate": "advancements.indreb.description.wrench"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false
+  },
+  "parent": "indreb:hammer",
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:wrench"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

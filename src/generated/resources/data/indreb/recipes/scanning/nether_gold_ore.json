@@ -1,0 +1,15 @@
+{
+  "type": "indreb:scanning",
+  "duration": 600,
+  "experience": 5.0,
+  "ingredients": [
+    {
+      "item": "minecraft:nether_gold_ore"
+    }
+  ],
+  "replication": {
+    "energy_cost": 32,
+    "matter_cost": 167
+  },
+  "tick_energy_cost": 256
+}

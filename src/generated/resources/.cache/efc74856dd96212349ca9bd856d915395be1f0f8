@@ -1,4 +1,4 @@
-// 1.19.2	2022-12-05T15:56:32.6912739	Item Models: indreb
+// 1.19.2	2022-12-06T15:19:05.2300994	Item Models: indreb
 ea6f48b249d5595c0bc20e39b977fa8fad0ed868 assets/indreb/models/item/acid_hazard_sign_block.json
 4df0fe2021d7b228332497f5c7d711b40f082510 assets/indreb/models/item/advanced_alloy.json
 df0888ae05d095b7dbd4b54b411496df8d853b49 assets/indreb/models/item/advanced_battery.json
@@ -313,6 +313,7 @@ c73803b608a5e77e4751c1bd83f7727ef427ed24 assets/indreb/models/item/rubber_slab.j
 cbcc158f77bce46b2dfc8986f58c34631377a561 assets/indreb/models/item/rubber_wood.json
 2aa10e4ad90dc627c5968d641fd1e3425c0f444c assets/indreb/models/item/sawdust.json
 bb3fd8f2d484a7760557c13d066e8ffeb7297509 assets/indreb/models/item/sawmill.json
+38170b039eddb2f7ef60ca7668164cf445d8fa5c assets/indreb/models/item/scanner.json
 a3e09ab73b29d14af1053295b96ca5c370a696a7 assets/indreb/models/item/scrap.json
 104e5a7fbf6aebe94cb7ca07ef3371d27737b991 assets/indreb/models/item/scrap_box.json
 e6baa8fb80050f6cf3713d8243fb888faa2fbcf7 assets/indreb/models/item/scrap_metal.json

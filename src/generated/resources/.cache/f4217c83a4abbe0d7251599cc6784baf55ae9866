@@ -1,4 +1,4 @@
-// 1.19.2	2022-12-05T15:56:32.6776832	Block States: indreb
+// 1.19.2	2022-12-06T15:19:05.2245856	Block States: indreb
 95b7796b1e598d400659dbc96f12d1f0d72cda55 assets/indreb/blockstates/acid_hazard_sign_block.json
 b0fdc040f5b7b7c6b701f4aed0ac0308e145cfc9 assets/indreb/blockstates/advanced_machine_casing.json
 9385543a17f96635caee1886dc56a82587c77604 assets/indreb/blockstates/advanced_solar_panel.json
@@ -97,6 +97,7 @@ c916e0e14d136ed4bc6261c519861b49781386a8 assets/indreb/blockstates/rubber_planks
 063c2c14d50c8bfe24571b77c4b4dd58d9facf1c assets/indreb/blockstates/rubber_trap_door.json
 bb24d27982acfca5a12503756c8e6e576f37779a assets/indreb/blockstates/rubber_wood.json
 ce3d490d7899074e9dd3f376b91ccfa815fdf230 assets/indreb/blockstates/sawmill.json
+86a0a448514d3b9cc498547f4fe0b2dfd9944e5f assets/indreb/blockstates/scanner.json
 8744c10743a5b1f6de85dfbfc7af23a3696012c7 assets/indreb/blockstates/semifluid_generator.json
 dcf7b5512f30bcea36c3f2f6801e7a21dc1f46db assets/indreb/blockstates/silver_block.json
 fec00e8f97f66bab132d194ce6936a584ca6b7eb assets/indreb/blockstates/silver_ore.json
@@ -277,6 +278,8 @@ d7715c3e32e2fc3dad35d491356a1b36fbef27d9 assets/indreb/models/block/rubber_trap_
 558c53a0ec955187013b724122959a35837ce717 assets/indreb/models/block/rubber_wood.json
 22713bf26f1c1bf36a95bd151e5fc2c01480f5b6 assets/indreb/models/block/sawmill.json
 9ea5fdccda89e1c5730fbae1985f21a741bdb0d9 assets/indreb/models/block/sawmill_active.json
+38c121d935e955d4b017e917c58bed7ea89b752f assets/indreb/models/block/scanner.json
+f2f88fa3c69a0efa3918f68890e1c8d2c0e7b324 assets/indreb/models/block/scanner_active.json
 51348fa925912f9139440fd0110e50d872a2b71a assets/indreb/models/block/semifluid_generator.json
 4fe8d476c3167c11249194d11dcb41b7b388877e assets/indreb/models/block/semifluid_generator_active.json
 481f88448a2c22d621203f97c65d10022f0bb229 assets/indreb/models/block/silver_block.json

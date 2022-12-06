@@ -14,6 +14,7 @@
     "indreb:fermenter",
     "indreb:ore_washing_plant",
     "indreb:thermal_centrifuge",
-    "indreb:matter_fabricator"
+    "indreb:matter_fabricator",
+    "indreb:scanner"
   ]
 }

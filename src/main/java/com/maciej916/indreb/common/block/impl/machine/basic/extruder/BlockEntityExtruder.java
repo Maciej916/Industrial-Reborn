@@ -244,7 +244,7 @@ public class BlockEntityExtruder extends IndRebBlockEntity implements IHasExp, I
         if (level != null) {
             this.recipe = Objects.requireNonNullElseGet(recipes, () -> level.getRecipeManager().getAllRecipesFor(ModRecipeType.FLUID_EXTRUDING.get())).get(index);
             getBaseStorage().setStackInSlot(RECIPE_SLOT, this.recipe.getResultItem());
-            progressRecipe.setBoth(-1);
+            progressRecipe.resetProgress();
         }
     }
 
@@ -260,7 +260,7 @@ public class BlockEntityExtruder extends IndRebBlockEntity implements IHasExp, I
 
             setRecipe(newIndex);
             this.recipeIndex = newIndex;
-            this.progressRecipe.setBoth(-1);
+            this.progressRecipe.resetProgress();
         }
     }
 

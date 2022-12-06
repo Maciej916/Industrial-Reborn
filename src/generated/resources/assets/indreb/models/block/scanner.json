@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "indreb:block/machine/super/scanner/scanner_bottom",
+    "east": "indreb:block/machine/super/scanner/scanner_side",
+    "north": "indreb:block/machine/super/scanner/scanner_front",
+    "particle": "indreb:block/machine/super/scanner/scanner_front",
+    "south": "indreb:block/machine/super/scanner/scanner_side",
+    "up": "indreb:block/machine/super/scanner/scanner_top",
+    "west": "indreb:block/machine/super/scanner/scanner_side"
+  }
+}

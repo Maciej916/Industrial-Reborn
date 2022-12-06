@@ -1,0 +1,20 @@
+{
+  "display": {
+    "icon": {
+      "item": "indreb:nuke"
+    },
+    "title": "Industrial Reborn",
+    "description": {
+      "translate": "advancements.indreb.description"
+    },
+    "frame": "task",
+    "show_toast": false,
+    "announce_to_chat": false,
+    "background": "indreb:textures/block/sheet/rubber_block.png"
+  },
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

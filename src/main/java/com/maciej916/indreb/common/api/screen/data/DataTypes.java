@@ -5,7 +5,8 @@ public enum DataTypes {
     PROGRESS_FLOAT(2),
     PROGRESS_INT(3),
     BOOL(4),
-    INT(5);
+    INT(5),
+    ITEM_STACK(6);
 
     private final int id;
 

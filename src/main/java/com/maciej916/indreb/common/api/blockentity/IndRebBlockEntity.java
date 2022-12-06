@@ -85,6 +85,7 @@ public class IndRebBlockEntity extends BaseBlockEntity implements IIndRebBlockEn
     private final LazyOptional<IUpgradesItemStackHandler> upgradesStorageCap = LazyOptional.of(() -> upgradesStorage);
 
     public Set<Integer> baseSlotsChangedForTick = new HashSet<>();
+    private final Set<Integer> baseSlotsChangedAfterTick = new HashSet<>();
 
     protected final CustomContainerData containerData = new CustomContainerData();
 
@@ -235,7 +236,7 @@ public class IndRebBlockEntity extends BaseBlockEntity implements IIndRebBlockEn
     }
 
     public void onBaseStorageContentsChanged(int slot) {
-        baseSlotsChangedForTick.add(slot);
+        baseSlotsChangedAfterTick.add(slot);
     }
 
     public int getBaseStorageSlotLimit(int slot) {
@@ -428,6 +429,10 @@ public class IndRebBlockEntity extends BaseBlockEntity implements IIndRebBlockEn
         shouldUpdateState = false;
         activeState = false;
 
+        baseSlotsChangedForTick.clear();
+        baseSlotsChangedForTick.addAll(baseSlotsChangedAfterTick);
+        baseSlotsChangedAfterTick.clear();
+
         if (hasEnergyStorage()) {
             getEnergyStorage().updateGenerated(0);
             getEnergyStorage().updateConsumed(0);
@@ -451,7 +456,6 @@ public class IndRebBlockEntity extends BaseBlockEntity implements IIndRebBlockEn
         }
 
         setActiveState(activeState);
-        baseSlotsChangedForTick.clear();
     }
 
     @Override

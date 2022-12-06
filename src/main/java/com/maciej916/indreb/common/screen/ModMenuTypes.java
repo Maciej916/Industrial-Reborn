@@ -9,6 +9,7 @@ import com.maciej916.indreb.common.block.impl.generator.geo_generator.MenuGeoGen
 import com.maciej916.indreb.common.block.impl.generator.reactor.nuclear_reactor.MenuNuclearReactor;
 import com.maciej916.indreb.common.block.impl.generator.semifluid_generator.MenuSemifluidGenerator;
 import com.maciej916.indreb.common.block.impl.generator.solar_panel.MenuSolarPanel;
+import com.maciej916.indreb.common.block.impl.machine.t_super.scanner.MenuScanner;
 import com.maciej916.indreb.common.block.impl.machine.advanced.matter_fabricator.MenuMatterFabricator;
 import com.maciej916.indreb.common.block.impl.machine.basic.canning_machine.MenuCanningMachine;
 import com.maciej916.indreb.common.block.impl.machine.basic.compressor.MenuCompressor;
@@ -79,8 +80,10 @@ public final class ModMenuTypes {
 
     public static final RegistryObject<MenuType<MenuMatterFabricator>> MATTER_FABRICATOR = registerMenuType(MenuMatterFabricator::new, "matter_fabricator");
 
+    public static final RegistryObject<MenuType<MenuScanner>> SCANNER = registerMenuType(MenuScanner::new, "scanner");
+
 //    public static final RegistryObject<MenuType<MenuPatternStorage>> PATTERN_STORAGE = registerMenuType("pattern_storage",  MenuPatternStorage::new);
-//    public static final RegistryObject<MenuType<MenuScanner>> SCANNER = registerMenuType("scanner",  MenuScanner::new);
+
 //    public static final RegistryObject<MenuType<MenuReplicator>> REPLICATOR = registerMenuType("replicator",  MenuReplicator::new);
 
     private static <T extends AbstractContainerMenu> RegistryObject<MenuType<T>> registerMenuType(IContainerFactory<T> factory, String name) {

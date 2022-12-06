@@ -107,6 +107,9 @@
   "block.indreb.raw_uranium_block": "Raw Uranium Block",
   "block.indreb.raw_silver_block": "Raw Silver Block",
 
+  "block.indreb.resin_block": "Resin Block",
+  "block.indreb.rubber_block": "Rubber Block",
+
   "block.indreb.basic_machine_casing": "Basic Machine Casing",
   "block.indreb.advanced_machine_casing": "Advanced Machine Casing",
 
@@ -453,7 +456,7 @@
   "jei.indreb.fluid_enriching": "Fluid Enriching",
   "jei.indreb.ore_washing": "Ore Washing",
   "jei.indreb.thermal_centrifuging": "Thermal Centrifuging",
-  "jei.indreb.scanner": "Scanner",
+  "jei.indreb.scanning": "Scanning",
   "jei.indreb.extruding": "Extruding",
   "jei.indreb.rolling": "Rolling",
   "jei.indreb.cutting": "Cutting",
@@ -575,6 +578,19 @@
   "system.indreb.reactor_failed": "Failed to break multiblock",
 
 
+  "_comment": "Advancements",
+
+  "advancements.indreb.description": "The place where the fun begins",
+  "advancements.indreb.title.sticky": "Sticky Hands",
+  "advancements.indreb.description.sticky": "Am I sticky or is something sticky?",
+  "advancements.indreb.title.rubber": "Getting Rubber",
+  "advancements.indreb.description.rubber": "Acquire Rubber",
+  "advancements.indreb.title.hammer": "Basic Tools",
+  "advancements.indreb.description.hammer": "Craft a Hammer",
+  "advancements.indreb.title.cutter": "Better than Shears",
+  "advancements.indreb.description.cutter": "Craft a Cutter",
+  "advancements.indreb.title.wrench": "Wrench",
+  "advancements.indreb.description.wrench": "Craft a Wrench",
 
 
   "test.indreb.test": "%s"

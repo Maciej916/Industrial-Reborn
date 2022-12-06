@@ -8,6 +8,7 @@ import com.maciej916.indreb.common.capability.item.interfaces.IElectricItemStack
 import com.maciej916.indreb.common.capability.item.interfaces.IUpgradesItemStackHandler;
 import com.maciej916.indreb.common.capability.player.IPlayerCapability;
 import com.maciej916.indreb.common.capability.reactor.IReactorComponentCapability;
+import com.maciej916.indreb.common.capability.scanner.IScannerResult;
 import com.maciej916.indreb.common.energy.interfaces.IEnergyCore;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.capabilities.CapabilityManager;
@@ -28,7 +29,7 @@ public class ModCapabilities {
     public static final Capability<IPlayerCapability> PLAYER_CAPABILITY = CapabilityManager.get(new CapabilityToken<>(){});
     public static final Capability<IEntityCapability> ENTITY_CAPABILITY = CapabilityManager.get(new CapabilityToken<>(){});
 
-//    public static final Capability<IScannerResult> SCANNER_RESULT = CapabilityManager.get(new CapabilityToken<>(){});
+    public static final Capability<IScannerResult> SCANNER_RESULT = CapabilityManager.get(new CapabilityToken<>(){});
     public static final Capability<IReactorComponentCapability> REACTOR_ITEM = CapabilityManager.get(new CapabilityToken<>(){});
 
     @SubscribeEvent
@@ -44,7 +45,7 @@ public class ModCapabilities {
         event.register(IPlayerCapability.class);
         event.register(IEntityCapability.class);
 
-//        event.register(IScannerResult.class);
+        event.register(IScannerResult.class);
         event.register(IReactorComponentCapability.class);
     }
 }

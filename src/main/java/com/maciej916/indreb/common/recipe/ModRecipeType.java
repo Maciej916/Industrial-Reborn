@@ -31,13 +31,11 @@ public final class ModRecipeType {
     public static final RegistryObject<RecipeType<OreWashingRecipe>> ORE_WASHING = registerType("ore_washing");
     public static final RegistryObject<RecipeType<ThermalCentrifugingRecipe>> THERMAL_CENTRIFUGING = registerType("thermal_centrifuging");
 
+    public static final RegistryObject<RecipeType<ScanningRecipe>> SCANNING = registerType("scanning");
+
     public static final RegistryObject<RecipeType<ScrapBoxRecipe>> SCRAP_BOX = registerType("scrap_box");
     public static final RegistryObject<RecipeType<MatterAmplifierRecipe>> MATTER_AMPLIFIER = registerType("matter_amplifier");
 
-//    public static final RegistryObject<RecipeType<ScannerRecipe>> SCANNER = registerType("scanner");
-
-//
-//    public static final RegistryObject<RecipeType<AdvancedShapedRecipe>> ADVANCED_SHAPED = registerType("advanced_shaped");
 
     private static <T extends Recipe<?>> RegistryObject<RecipeType<T>> registerType(final String key) {
         return RECIPE_TYPES.register(key, () -> new RecipeType<>() {

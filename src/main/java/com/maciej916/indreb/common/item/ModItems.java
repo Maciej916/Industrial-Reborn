@@ -185,6 +185,8 @@ public final class ModItems {
 
     public static final RegistryObject<Item> MATTER_FABRICATOR = fromBlockElectric(ModBlocks.MATTER_FABRICATOR);
 
+    public static final RegistryObject<Item> SCANNER = fromBlockElectric(ModBlocks.SCANNER);
+
 // add tags
 
 

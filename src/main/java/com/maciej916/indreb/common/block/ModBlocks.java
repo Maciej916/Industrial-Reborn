@@ -22,6 +22,7 @@ import com.maciej916.indreb.common.block.impl.generator.solar_panel.BlockSolarPa
 import com.maciej916.indreb.common.block.impl.iron.BlockIronFence;
 import com.maciej916.indreb.common.block.impl.iron.BlockIronGate;
 import com.maciej916.indreb.common.block.impl.iron.BlockIronScaffolding;
+import com.maciej916.indreb.common.block.impl.machine.t_super.scanner.BlockScanner;
 import com.maciej916.indreb.common.block.impl.machine.advanced.matter_fabricator.BlockMatterFabricator;
 import com.maciej916.indreb.common.block.impl.machine.basic.metal_former.BlockMetalFormer;
 import com.maciej916.indreb.common.block.impl.machine.standard.alloy_smelter.BlockAlloySmelter;
@@ -197,6 +198,8 @@ public final class ModBlocks {
     public static final RegistryObject<Block> THERMAL_CENTRIFUGE = registerBlock("thermal_centrifuge", BlockThermalCentrifuge::new);
 
     public static final RegistryObject<Block> MATTER_FABRICATOR = registerBlock("matter_fabricator", BlockMatterFabricator::new);
+
+    public static final RegistryObject<Block> SCANNER = registerBlock("scanner", BlockScanner::new);
 
 
 

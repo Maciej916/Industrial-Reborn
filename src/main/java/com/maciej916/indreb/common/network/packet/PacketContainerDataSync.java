@@ -3,10 +3,7 @@ package com.maciej916.indreb.common.network.packet;
 import com.maciej916.indreb.common.api.screen.IndRebContainerMenu;
 import com.maciej916.indreb.common.api.screen.data.interfaces.DataSync;
 import com.maciej916.indreb.common.api.screen.data.DataTypes;
-import com.maciej916.indreb.common.api.screen.data.sync.SyncBoolean;
-import com.maciej916.indreb.common.api.screen.data.sync.SyncInteger;
-import com.maciej916.indreb.common.api.screen.data.sync.SyncProgressFloat;
-import com.maciej916.indreb.common.api.screen.data.sync.SyncProgressInt;
+import com.maciej916.indreb.common.api.screen.data.sync.*;
 import com.maciej916.indreb.common.proxy.ModProxy;
 import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.network.FriendlyByteBuf;
@@ -47,6 +44,10 @@ public class PacketContainerDataSync {
 
             if (DataTypes.getFromId(dataType) == DataTypes.INT) {
                 dataSync = new SyncInteger();
+            }
+
+            if (DataTypes.getFromId(dataType) == DataTypes.ITEM_STACK) {
+                dataSync = new SyncItemStack();
             }
 
             // Add more types

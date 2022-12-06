@@ -83,7 +83,7 @@ public abstract class SimpleMachineBlockEntity extends IndRebBlockEntity impleme
 
         if (recipe != null) {
             if (progressRecipe.getCurrentProgress() == -1) {
-                progressRecipe.setData(0, recipe.getDuration() * 1.20f);
+                progressRecipe.setData(0, recipe.getDuration() * 1.50f);
             }
 
             if (!rolledChance) {

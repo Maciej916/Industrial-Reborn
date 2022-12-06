@@ -126,7 +126,7 @@ public class BlockEntityMatterFabricator extends IndRebBlockEntity implements IH
 
             if (progressRecipe.isCurrentAboveEqualMax()) {
                 firstTank.fillFluid(new FluidStack(Matter.STILL_FLUID, ServerConfig.matter_fabricator_produce_run.get()), false);
-                progressRecipe.setBoth(-1);
+                progressRecipe.resetProgress();
             }
         }
     }

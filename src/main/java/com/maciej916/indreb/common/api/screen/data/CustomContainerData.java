@@ -2,15 +2,13 @@ package com.maciej916.indreb.common.api.screen.data;
 
 import com.google.common.base.Supplier;
 import com.maciej916.indreb.common.api.screen.data.interfaces.DataSync;
-import com.maciej916.indreb.common.api.screen.data.sync.SyncBoolean;
-import com.maciej916.indreb.common.api.screen.data.sync.SyncInteger;
-import com.maciej916.indreb.common.api.screen.data.sync.SyncProgressFloat;
-import com.maciej916.indreb.common.api.screen.data.sync.SyncProgressInt;
+import com.maciej916.indreb.common.api.screen.data.sync.*;
 import com.maciej916.indreb.common.api.util.ProgressFloat;
 import com.maciej916.indreb.common.api.util.ProgressInt;
 import com.maciej916.indreb.common.network.ModNetworking;
 import com.maciej916.indreb.common.network.packet.PacketContainerDataSync;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.item.ItemStack;
 
 import java.util.HashMap;
 import java.util.HashSet;
@@ -49,6 +47,11 @@ public class CustomContainerData {
         data.put(dataSlot, new SyncBoolean(value));
     }
 
+    public void syncStack(int dataSlot, Supplier<ItemStack> value) {
+        checkDataSlot(dataSlot);
+        data.put(dataSlot, new SyncItemStack(value));
+    }
+
     public void updateProgressFloatData(int dataSlot, ProgressFloat progressFloat) {
         if (data.get(dataSlot) instanceof SyncProgressFloat progress) {
             progressFloat.setData(progress.getCurrentProgress(), progress.getProgressMax());
@@ -77,6 +80,13 @@ public class CustomContainerData {
         return false;
     }
 
+    public ItemStack getItemStackData(int dataSlot) {
+        if (data.get(dataSlot) instanceof SyncItemStack syncItemStack) {
+            return syncItemStack.getStaValue();
+        }
+
+        return ItemStack.EMPTY;
+    }
 
 
 

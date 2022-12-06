@@ -249,7 +249,7 @@ public class BlockEntityMetalFormer extends IndRebBlockEntity implements IHasExp
         }
 
         setBlockUpdated();
-        progressRecipe.setBoth(-1);
+        progressRecipe.resetProgress();
     }
 
     public MetalFormerMode getMode() {

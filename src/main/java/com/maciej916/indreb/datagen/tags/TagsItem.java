@@ -326,6 +326,8 @@ public class TagsItem extends ItemTagsProvider {
 
                 .add(ModItems.MATTER_FABRICATOR.get())
 
+                .add(ModItems.SCANNER.get())
+
         ;
 
         /* TRANSFORMERS */

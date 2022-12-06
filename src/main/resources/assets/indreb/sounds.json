@@ -159,6 +159,14 @@
     ]
   },
 
+  "tile.nuclear_reactor": {
+    "sounds": [
+      {
+        "name": "indreb:nuclear_reactor"
+      }
+    ]
+  },
+
   "item.treetap": {
     "sounds": [
       {

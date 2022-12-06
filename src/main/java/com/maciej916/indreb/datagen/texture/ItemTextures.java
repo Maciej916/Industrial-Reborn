@@ -57,6 +57,7 @@ public class ItemTextures extends ItemModelProvider {
         registerBasicMachines();
         registerStandardMachines();
         registerAdvancedMachines();
+        registerSuperMachines();
     }
 
     protected void registerOres() {
@@ -508,6 +509,12 @@ public class ItemTextures extends ItemModelProvider {
 
     private void registerAdvancedMachines() {
         createWithBlock(ModItems.MATTER_FABRICATOR, "matter_fabricator");
+
+
+    }
+
+    private void registerSuperMachines() {
+        createWithBlock(ModItems.SCANNER, "scanner");
 
 
     }
