@@ -14,6 +14,11 @@
             "items": [
               "minecraft:lapis_ore"
             ]
+          },
+          {
+            "items": [
+              "minecraft:deepslate_lapis_ore"
+            ]
           }
         ]
       },

@@ -8,6 +8,11 @@
             "items": [
               "minecraft:copper_ore"
             ]
+          },
+          {
+            "items": [
+              "minecraft:deepslate_copper_ore"
+            ]
           }
         ]
       },

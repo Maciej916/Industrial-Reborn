@@ -1,4 +1,4 @@
-// 1.19.2	2022-12-06T22:13:27.9393538	Block States: indreb
+// 1.19.2	2022-12-07T13:15:08.922853	Block States: indreb
 95b7796b1e598d400659dbc96f12d1f0d72cda55 assets/indreb/blockstates/acid_hazard_sign_block.json
 b0fdc040f5b7b7c6b701f4aed0ac0308e145cfc9 assets/indreb/blockstates/advanced_machine_casing.json
 9385543a17f96635caee1886dc56a82587c77604 assets/indreb/blockstates/advanced_solar_panel.json
@@ -84,6 +84,7 @@ ac7437fba432bd5cb14db7b809803995c92d6944 assets/indreb/blockstates/recycler.json
 743388ec332764c90077147d9de888dbeaa573bb assets/indreb/blockstates/reinforced_stone_brick_wall.json
 88234ec065315ab48445a5aad3fdf1f0ac819f0a assets/indreb/blockstates/reinforced_stone_slab.json
 dbf38e51226afe3b61eb614a19423fe18c56f71a assets/indreb/blockstates/reinforced_stone_stairs.json
+51e12c955fac72e287497d36710608ff61f62507 assets/indreb/blockstates/replicator.json
 8bc43248e0bb194f1d2c9d5d23aeefc34893dcf7 assets/indreb/blockstates/resin_block.json
 8895195f63b7dc142613183d925de87449a6a4aa assets/indreb/blockstates/rubber_block.json
 5509949be86fb85deaf647b2ba6c75a4cf670dca assets/indreb/blockstates/rubber_door.json
@@ -108,6 +109,7 @@ e3e2fa763b401dde7e157e1b1c21637af8bdc972 assets/indreb/blockstates/simple_extrac
 c33521d5a609e5fff5f652b526aafdff63d6e67a assets/indreb/blockstates/smooth_reinforced_stone.json
 069726ea6d8b02d844665939df30d5537e4a95f8 assets/indreb/blockstates/solar_panel.json
 4b514cb3ba447f4feb33d8d3fc1f5b349990b2a0 assets/indreb/blockstates/steel_block.json
+2b530561f9e9ce5d8fc4d7470dc2034edfb637df assets/indreb/blockstates/teleport_anchor.json
 84a79e79f22367788ff9f7fbd3f3569816bc3937 assets/indreb/blockstates/thermal_centrifuge.json
 4aeeabddc90a64e998ba1dccb3a6c87a0fb2f68a assets/indreb/blockstates/tin_block.json
 cdc7b273b014ed2c73ccd7c084825d4316e90b8e assets/indreb/blockstates/tin_ore.json
@@ -246,6 +248,8 @@ e673ca39bdc6feabf03329edaf03cf7801768393 assets/indreb/models/block/reinforced_s
 ee77798f075720a14d8179e8c703fccd0073271d assets/indreb/models/block/reinforced_stone_stairs.json
 2e8cf41b933a8d82a362ae47b43b6e829605669d assets/indreb/models/block/reinforced_stone_stairs_inner.json
 812c15d858f7cde22f5cb2d45e88c6c9b3c8385e assets/indreb/models/block/reinforced_stone_stairs_outer.json
+e177f98cd5eec9960949e3170a456987f5ec5b5e assets/indreb/models/block/replicator.json
+1bff9ae01cb82b0cf9cd877f6aaad4f147dd323a assets/indreb/models/block/replicator_active.json
 183a228520e05dd76f2149c5801d99c1a0dfad09 assets/indreb/models/block/resin_block.json
 2e1f32fd6165ec5a96573156a013634759d198d6 assets/indreb/models/block/rubber_block.json
 175735b811ea9b6e24088ad82f3866d0ed1b3592 assets/indreb/models/block/rubber_door_bottom_left.json
@@ -296,6 +300,7 @@ c8c887d098f578531460352c76ea2c03e93fc1ce assets/indreb/models/block/simple_extra
 0fb8d9db542167fd8203db3ec3c779718b3cf645 assets/indreb/models/block/solar_panel.json
 5525d17c786f505471e8e5e8b1dcf67809ae46c4 assets/indreb/models/block/solar_panel_active.json
 d139f337f6a2908314e4afa0c315218c0a04e41a assets/indreb/models/block/steel_block.json
+998514c2477c8d48aef35284898ca98f664b4666 assets/indreb/models/block/teleport_anchor.json
 93b68146b736d28a6d9ef584bac177f6e8272e50 assets/indreb/models/block/thermal_centrifuge.json
 af92887f0746608b143c49dee331fd0da0164678 assets/indreb/models/block/thermal_centrifuge_active.json
 d91f1b086c980869df8e5b15779dfb131ef2f2bd assets/indreb/models/block/tin_block.json

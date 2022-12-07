@@ -4,7 +4,7 @@
   "experience": 5.0,
   "ingredients": [
     {
-      "item": "minecraft:lapis_ore"
+      "tag": "forge:ores/lapis"
     }
   ],
   "replication": {

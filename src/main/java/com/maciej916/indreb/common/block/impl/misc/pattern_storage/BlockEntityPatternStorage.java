@@ -5,6 +5,7 @@ import com.maciej916.indreb.common.api.enums.GuiSlotBg;
 import com.maciej916.indreb.common.api.enums.InventorySlotType;
 import com.maciej916.indreb.common.api.slot.BaseSlot;
 import com.maciej916.indreb.common.api.slot.DisabledSlot;
+import com.maciej916.indreb.common.block.impl.machine.t_super.replicator.BlockEntityReplicator;
 import com.maciej916.indreb.common.blockentity.ModBlockEntities;
 import com.maciej916.indreb.common.capability.ModCapabilities;
 import com.maciej916.indreb.common.capability.scanner.IScannerResult;
@@ -38,10 +39,10 @@ public class BlockEntityPatternStorage extends IndRebBlockEntity {
     public static final int INPUT_SLOT = 0;
     public static final int MEMORY_SLOT = 1;
 
-    public ArrayList<ScannerResult> scannerResultMap = new ArrayList<>();
+    protected ArrayList<ScannerResult> scannerResultMap = new ArrayList<>();
     protected ScannerResult result = new ScannerResult();
-    public int currentPattern = 0;
-    public int patternsStored = 0;
+    protected int currentPattern = 0;
+    protected int patternsStored = 0;
 
     public BlockEntityPatternStorage(BlockPos pos, BlockState blockState) {
         super(ModBlockEntities.PATTERN_STORAGE.get(), pos, blockState);
@@ -127,6 +128,10 @@ public class BlockEntityPatternStorage extends IndRebBlockEntity {
         updatePatterns();
         setBlockUpdated();
         updateShowedPattern();
+    }
+
+    public ArrayList<ScannerResult> getScannerResultMap() {
+        return scannerResultMap;
     }
 
     public int getPatternsStored() {
@@ -236,9 +241,9 @@ public class BlockEntityPatternStorage extends IndRebBlockEntity {
         for (Direction direction : Constants.DIRECTIONS) {
             BlockPos offsetPos = getBlockPos().relative(direction);
             BlockEntity dirTile = getLevel().getBlockEntity(offsetPos);
-//            if (dirTile instanceof BlockEntityReplicator bePatternStorage) {
-//                bePatternStorage.updatePatterns();
-//            }
+            if (dirTile instanceof BlockEntityReplicator entityReplicator) {
+                entityReplicator.updatePatterns();
+            }
         }
     }
 

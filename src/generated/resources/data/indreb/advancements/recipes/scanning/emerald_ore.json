@@ -8,6 +8,11 @@
             "items": [
               "minecraft:emerald_ore"
             ]
+          },
+          {
+            "items": [
+              "minecraft:deepslate_emerald_ore"
+            ]
           }
         ]
       },

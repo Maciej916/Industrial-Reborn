@@ -12,25 +12,26 @@ import com.maciej916.indreb.common.block.impl.generator.geo_generator.ScreenGeoG
 import com.maciej916.indreb.common.block.impl.generator.reactor.nuclear_reactor.ScreenNuclearReactor;
 import com.maciej916.indreb.common.block.impl.generator.semifluid_generator.ScreenSemifluidGenerator;
 import com.maciej916.indreb.common.block.impl.generator.solar_panel.ScreenSolarPanel;
-import com.maciej916.indreb.common.block.impl.machine.advanced.matter_fabricator.ScreenMatterFabricator;
-import com.maciej916.indreb.common.block.impl.machine.basic.canning_machine.ScreenCanningMachine;
-import com.maciej916.indreb.common.block.impl.machine.basic.compressor.ScreenCompressor;
-import com.maciej916.indreb.common.block.impl.machine.basic.crusher.ScreenCrusher;
-import com.maciej916.indreb.common.block.impl.machine.basic.electric_furnace.ScreenElectricFurnace;
-import com.maciej916.indreb.common.block.impl.machine.basic.extractor.ScreenExtractor;
-import com.maciej916.indreb.common.block.impl.machine.basic.extruder.ScreenExtruder;
-import com.maciej916.indreb.common.block.impl.machine.basic.fluid_enricher.ScreenFluidEnricher;
-import com.maciej916.indreb.common.block.impl.machine.basic.metal_former.ScreenMetalFormer;
-import com.maciej916.indreb.common.block.impl.machine.basic.recycler.ScreenRecycler;
-import com.maciej916.indreb.common.block.impl.machine.basic.sawmill.ScreenSawmill;
-import com.maciej916.indreb.common.block.impl.machine.simple.iron_furnace.ScreenIronFurnace;
-import com.maciej916.indreb.common.block.impl.machine.simple.simple_compressor.ScreenSimpleCompressor;
-import com.maciej916.indreb.common.block.impl.machine.simple.simple_crusher.ScreenSimpleCrusher;
-import com.maciej916.indreb.common.block.impl.machine.simple.simple_extractor.ScreenSimpleextractor;
-import com.maciej916.indreb.common.block.impl.machine.standard.alloy_smelter.ScreenAlloySmelter;
-import com.maciej916.indreb.common.block.impl.machine.standard.fermenter.ScreenFermenter;
-import com.maciej916.indreb.common.block.impl.machine.standard.ore_washing_plant.ScreenOreWashingPlant;
-import com.maciej916.indreb.common.block.impl.machine.standard.thermal_centrifuge.ScreenThermalCentrifuge;
+import com.maciej916.indreb.common.block.impl.machine.t_advanced.matter_fabricator.ScreenMatterFabricator;
+import com.maciej916.indreb.common.block.impl.machine.t_basic.canning_machine.ScreenCanningMachine;
+import com.maciej916.indreb.common.block.impl.machine.t_basic.compressor.ScreenCompressor;
+import com.maciej916.indreb.common.block.impl.machine.t_basic.crusher.ScreenCrusher;
+import com.maciej916.indreb.common.block.impl.machine.t_basic.electric_furnace.ScreenElectricFurnace;
+import com.maciej916.indreb.common.block.impl.machine.t_basic.extractor.ScreenExtractor;
+import com.maciej916.indreb.common.block.impl.machine.t_basic.extruder.ScreenExtruder;
+import com.maciej916.indreb.common.block.impl.machine.t_basic.fluid_enricher.ScreenFluidEnricher;
+import com.maciej916.indreb.common.block.impl.machine.t_basic.metal_former.ScreenMetalFormer;
+import com.maciej916.indreb.common.block.impl.machine.t_basic.recycler.ScreenRecycler;
+import com.maciej916.indreb.common.block.impl.machine.t_basic.sawmill.ScreenSawmill;
+import com.maciej916.indreb.common.block.impl.machine.t_simple.iron_furnace.ScreenIronFurnace;
+import com.maciej916.indreb.common.block.impl.machine.t_simple.simple_compressor.ScreenSimpleCompressor;
+import com.maciej916.indreb.common.block.impl.machine.t_simple.simple_crusher.ScreenSimpleCrusher;
+import com.maciej916.indreb.common.block.impl.machine.t_simple.simple_extractor.ScreenSimpleextractor;
+import com.maciej916.indreb.common.block.impl.machine.t_standard.alloy_smelter.ScreenAlloySmelter;
+import com.maciej916.indreb.common.block.impl.machine.t_standard.fermenter.ScreenFermenter;
+import com.maciej916.indreb.common.block.impl.machine.t_standard.ore_washing_plant.ScreenOreWashingPlant;
+import com.maciej916.indreb.common.block.impl.machine.t_standard.thermal_centrifuge.ScreenThermalCentrifuge;
+import com.maciej916.indreb.common.block.impl.machine.t_super.replicator.ScreenReplicator;
 import com.maciej916.indreb.common.block.impl.machine.t_super.scanner.ScreenScanner;
 import com.maciej916.indreb.common.block.impl.misc.pattern_storage.ScreenPatternStorage;
 import com.maciej916.indreb.common.block.impl.transformer.ScreenTransformer;
@@ -125,10 +126,11 @@ public final class ClientModEventSubscriber {
 			MenuScreens.register(ModMenuTypes.MATTER_FABRICATOR.get(), ScreenMatterFabricator::new);
 
 			MenuScreens.register(ModMenuTypes.SCANNER.get(), ScreenScanner::new);
+			MenuScreens.register(ModMenuTypes.REPLICATOR.get(), ScreenReplicator::new);
 
 			MenuScreens.register(ModMenuTypes.PATTERN_STORAGE.get(), ScreenPatternStorage::new);
 
-//			MenuScreens.register(ModMenuTypes.REPLICATOR.get(), ScreenReplicator::new);
+
 
 
 			ItemProperties.register(ModItems.BATTERY.get(), new ResourceLocation(IndReb.MODID, "charge_ratio"), (stack, level, living, id) -> BaseElectricItem.getChargeRatioModel(stack));

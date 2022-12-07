@@ -10,26 +10,27 @@ import com.maciej916.indreb.common.block.impl.generator.reactor.BlockEntityReact
 import com.maciej916.indreb.common.block.impl.generator.reactor.nuclear_reactor.BlockEntityNuclearReactor;
 import com.maciej916.indreb.common.block.impl.generator.semifluid_generator.BlockEntitySemifluidGenerator;
 import com.maciej916.indreb.common.block.impl.generator.solar_panel.BlockEntitySolarPanel;
+import com.maciej916.indreb.common.block.impl.machine.t_super.replicator.BlockEntityReplicator;
 import com.maciej916.indreb.common.block.impl.machine.t_super.scanner.BlockEntityScanner;
-import com.maciej916.indreb.common.block.impl.machine.advanced.matter_fabricator.BlockEntityMatterFabricator;
-import com.maciej916.indreb.common.block.impl.machine.basic.metal_former.BlockEntityMetalFormer;
-import com.maciej916.indreb.common.block.impl.machine.standard.alloy_smelter.BlockEntityAlloySmelter;
-import com.maciej916.indreb.common.block.impl.machine.basic.canning_machine.BlockEntityCanningMachine;
-import com.maciej916.indreb.common.block.impl.machine.basic.compressor.BlockEntityCompressor;
-import com.maciej916.indreb.common.block.impl.machine.basic.crusher.BlockEntityCrusher;
-import com.maciej916.indreb.common.block.impl.machine.basic.electric_furnace.BlockEntityElectricFurnace;
-import com.maciej916.indreb.common.block.impl.machine.basic.extractor.BlockEntityExtractor;
-import com.maciej916.indreb.common.block.impl.machine.basic.extruder.BlockEntityExtruder;
-import com.maciej916.indreb.common.block.impl.machine.basic.fluid_enricher.BlockEntityFluidEnricher;
-import com.maciej916.indreb.common.block.impl.machine.basic.recycler.BlockEntityRecycler;
-import com.maciej916.indreb.common.block.impl.machine.basic.sawmill.BlockEntitySawmill;
-import com.maciej916.indreb.common.block.impl.machine.simple.iron_furnace.BlockEntityIronFurnace;
-import com.maciej916.indreb.common.block.impl.machine.simple.simple_compressor.BlockEntitySimpleCompressor;
-import com.maciej916.indreb.common.block.impl.machine.simple.simple_crusher.BlockEntitySimpleCrusher;
-import com.maciej916.indreb.common.block.impl.machine.simple.simple_extractor.BlockEntitySimpleExtractor;
-import com.maciej916.indreb.common.block.impl.machine.standard.fermenter.BlockEntityFermenter;
-import com.maciej916.indreb.common.block.impl.machine.standard.ore_washing_plant.BlockEntityOreWashingPlant;
-import com.maciej916.indreb.common.block.impl.machine.standard.thermal_centrifuge.BlockEntityThermalCentrifuge;
+import com.maciej916.indreb.common.block.impl.machine.t_advanced.matter_fabricator.BlockEntityMatterFabricator;
+import com.maciej916.indreb.common.block.impl.machine.t_basic.metal_former.BlockEntityMetalFormer;
+import com.maciej916.indreb.common.block.impl.machine.t_standard.alloy_smelter.BlockEntityAlloySmelter;
+import com.maciej916.indreb.common.block.impl.machine.t_basic.canning_machine.BlockEntityCanningMachine;
+import com.maciej916.indreb.common.block.impl.machine.t_basic.compressor.BlockEntityCompressor;
+import com.maciej916.indreb.common.block.impl.machine.t_basic.crusher.BlockEntityCrusher;
+import com.maciej916.indreb.common.block.impl.machine.t_basic.electric_furnace.BlockEntityElectricFurnace;
+import com.maciej916.indreb.common.block.impl.machine.t_basic.extractor.BlockEntityExtractor;
+import com.maciej916.indreb.common.block.impl.machine.t_basic.extruder.BlockEntityExtruder;
+import com.maciej916.indreb.common.block.impl.machine.t_basic.fluid_enricher.BlockEntityFluidEnricher;
+import com.maciej916.indreb.common.block.impl.machine.t_basic.recycler.BlockEntityRecycler;
+import com.maciej916.indreb.common.block.impl.machine.t_basic.sawmill.BlockEntitySawmill;
+import com.maciej916.indreb.common.block.impl.machine.t_simple.iron_furnace.BlockEntityIronFurnace;
+import com.maciej916.indreb.common.block.impl.machine.t_simple.simple_compressor.BlockEntitySimpleCompressor;
+import com.maciej916.indreb.common.block.impl.machine.t_simple.simple_crusher.BlockEntitySimpleCrusher;
+import com.maciej916.indreb.common.block.impl.machine.t_simple.simple_extractor.BlockEntitySimpleExtractor;
+import com.maciej916.indreb.common.block.impl.machine.t_standard.fermenter.BlockEntityFermenter;
+import com.maciej916.indreb.common.block.impl.machine.t_standard.ore_washing_plant.BlockEntityOreWashingPlant;
+import com.maciej916.indreb.common.block.impl.machine.t_standard.thermal_centrifuge.BlockEntityThermalCentrifuge;
 import com.maciej916.indreb.common.block.impl.misc.luminator.BlockEntityLuminator;
 import com.maciej916.indreb.common.block.impl.misc.pattern_storage.BlockEntityPatternStorage;
 import com.maciej916.indreb.common.block.impl.transformer.BlockEntityTransformer;
@@ -95,6 +96,7 @@ public final class ModBlockEntities {
     /* SUPER MACHINES */
 
     public static final RegistryObject<BlockEntityType<BlockEntityScanner>> SCANNER = BLOCK_ENTITIES.register("scanner", () -> BlockEntityType.Builder.of(BlockEntityScanner::new, ModBlocks.SCANNER.get()).build(null));
+    public static final RegistryObject<BlockEntityType<BlockEntityReplicator>> REPLICATOR = BLOCK_ENTITIES.register("replicator", () -> BlockEntityType.Builder.of(BlockEntityReplicator::new, ModBlocks.REPLICATOR.get()).build(null));
 
     /* MISC */
 

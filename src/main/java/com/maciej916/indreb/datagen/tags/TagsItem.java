@@ -327,8 +327,10 @@ public class TagsItem extends ItemTagsProvider {
                 .add(ModItems.MATTER_FABRICATOR.get())
 
                 .add(ModItems.SCANNER.get())
+                .add(ModItems.REPLICATOR.get())
 
                 .add(ModItems.PATTERN_STORAGE.get())
+                .add(ModItems.TELEPORT_ANCHOR.get())
 
         ;
 

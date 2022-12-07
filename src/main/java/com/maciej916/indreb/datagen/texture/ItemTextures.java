@@ -318,6 +318,7 @@ public class ItemTextures extends ItemModelProvider {
     private void registerMisc() {
         createWithBlock(ModItems.LUMINATOR, "luminator");
         createWithBlock(ModItems.PATTERN_STORAGE, "pattern_storage");
+        createWithBlock(ModItems.TELEPORT_ANCHOR, "teleport_anchor");
 
     }
 
@@ -516,6 +517,7 @@ public class ItemTextures extends ItemModelProvider {
 
     private void registerSuperMachines() {
         createWithBlock(ModItems.SCANNER, "scanner");
+        createWithBlock(ModItems.REPLICATOR, "replicator");
 
 
     }

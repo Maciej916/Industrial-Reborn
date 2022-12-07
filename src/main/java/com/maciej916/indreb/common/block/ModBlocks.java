@@ -22,26 +22,27 @@ import com.maciej916.indreb.common.block.impl.generator.solar_panel.BlockSolarPa
 import com.maciej916.indreb.common.block.impl.iron.BlockIronFence;
 import com.maciej916.indreb.common.block.impl.iron.BlockIronGate;
 import com.maciej916.indreb.common.block.impl.iron.BlockIronScaffolding;
+import com.maciej916.indreb.common.block.impl.machine.t_super.replicator.BlockReplicator;
 import com.maciej916.indreb.common.block.impl.machine.t_super.scanner.BlockScanner;
-import com.maciej916.indreb.common.block.impl.machine.advanced.matter_fabricator.BlockMatterFabricator;
-import com.maciej916.indreb.common.block.impl.machine.basic.metal_former.BlockMetalFormer;
-import com.maciej916.indreb.common.block.impl.machine.standard.alloy_smelter.BlockAlloySmelter;
-import com.maciej916.indreb.common.block.impl.machine.basic.canning_machine.BlockCanningMachine;
-import com.maciej916.indreb.common.block.impl.machine.basic.compressor.BlockCompressor;
-import com.maciej916.indreb.common.block.impl.machine.basic.crusher.BlockCrusher;
-import com.maciej916.indreb.common.block.impl.machine.basic.electric_furnace.BlockElectricFurnace;
-import com.maciej916.indreb.common.block.impl.machine.basic.extractor.BlockExtractor;
-import com.maciej916.indreb.common.block.impl.machine.basic.extruder.BlockExtruder;
-import com.maciej916.indreb.common.block.impl.machine.basic.fluid_enricher.BlockFluidEnricher;
-import com.maciej916.indreb.common.block.impl.machine.basic.recycler.BlockRecycler;
-import com.maciej916.indreb.common.block.impl.machine.basic.sawmill.BlockSawmill;
-import com.maciej916.indreb.common.block.impl.machine.simple.iron_furnace.BlockIronFurnace;
-import com.maciej916.indreb.common.block.impl.machine.simple.simple_compressor.BlockSimpleCompressor;
-import com.maciej916.indreb.common.block.impl.machine.simple.simple_crusher.BlockSimpleCrusher;
-import com.maciej916.indreb.common.block.impl.machine.simple.simple_extractor.BlockSimpleExtractor;
-import com.maciej916.indreb.common.block.impl.machine.standard.fermenter.BlockFermenter;
-import com.maciej916.indreb.common.block.impl.machine.standard.ore_washing_plant.BlockOreWashingPlant;
-import com.maciej916.indreb.common.block.impl.machine.standard.thermal_centrifuge.BlockThermalCentrifuge;
+import com.maciej916.indreb.common.block.impl.machine.t_advanced.matter_fabricator.BlockMatterFabricator;
+import com.maciej916.indreb.common.block.impl.machine.t_basic.metal_former.BlockMetalFormer;
+import com.maciej916.indreb.common.block.impl.machine.t_standard.alloy_smelter.BlockAlloySmelter;
+import com.maciej916.indreb.common.block.impl.machine.t_basic.canning_machine.BlockCanningMachine;
+import com.maciej916.indreb.common.block.impl.machine.t_basic.compressor.BlockCompressor;
+import com.maciej916.indreb.common.block.impl.machine.t_basic.crusher.BlockCrusher;
+import com.maciej916.indreb.common.block.impl.machine.t_basic.electric_furnace.BlockElectricFurnace;
+import com.maciej916.indreb.common.block.impl.machine.t_basic.extractor.BlockExtractor;
+import com.maciej916.indreb.common.block.impl.machine.t_basic.extruder.BlockExtruder;
+import com.maciej916.indreb.common.block.impl.machine.t_basic.fluid_enricher.BlockFluidEnricher;
+import com.maciej916.indreb.common.block.impl.machine.t_basic.recycler.BlockRecycler;
+import com.maciej916.indreb.common.block.impl.machine.t_basic.sawmill.BlockSawmill;
+import com.maciej916.indreb.common.block.impl.machine.t_simple.iron_furnace.BlockIronFurnace;
+import com.maciej916.indreb.common.block.impl.machine.t_simple.simple_compressor.BlockSimpleCompressor;
+import com.maciej916.indreb.common.block.impl.machine.t_simple.simple_crusher.BlockSimpleCrusher;
+import com.maciej916.indreb.common.block.impl.machine.t_simple.simple_extractor.BlockSimpleExtractor;
+import com.maciej916.indreb.common.block.impl.machine.t_standard.fermenter.BlockFermenter;
+import com.maciej916.indreb.common.block.impl.machine.t_standard.ore_washing_plant.BlockOreWashingPlant;
+import com.maciej916.indreb.common.block.impl.machine.t_standard.thermal_centrifuge.BlockThermalCentrifuge;
 import com.maciej916.indreb.common.block.impl.misc.luminator.BlockLuminator;
 import com.maciej916.indreb.common.block.impl.misc.pattern_storage.BlockPatternStorage;
 import com.maciej916.indreb.common.block.impl.reinforced.*;
@@ -201,9 +202,11 @@ public final class ModBlocks {
     public static final RegistryObject<Block> MATTER_FABRICATOR = registerBlock("matter_fabricator", BlockMatterFabricator::new);
 
     public static final RegistryObject<Block> SCANNER = registerBlock("scanner", BlockScanner::new);
+    public static final RegistryObject<Block> REPLICATOR = registerBlock("replicator", BlockReplicator::new);
 
 
     public static final RegistryObject<Block> PATTERN_STORAGE = registerBlock("pattern_storage", BlockPatternStorage::new);
+    public static final RegistryObject<Block> TELEPORT_ANCHOR = registerBlock("teleport_anchor", BlockWIP::new);
 
 
 

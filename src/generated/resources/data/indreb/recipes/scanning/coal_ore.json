@@ -4,7 +4,7 @@
   "experience": 5.0,
   "ingredients": [
     {
-      "item": "minecraft:coal_ore"
+      "tag": "forge:ores/coal"
     }
   ],
   "replication": {

@@ -45,6 +45,11 @@ public final class ModItemTags {
     public static final TagKey<Item> FORGE_ORE_GOLD = create("forge", "ores/gold");
     public static final TagKey<Item> FORGE_ORE_COPPER = create("forge", "ores/copper");
     public static final TagKey<Item> FORGE_ORE_IRON = create("forge", "ores/iron");
+    public static final TagKey<Item> FORGE_ORE_REDSTONE = create("forge", "ores/redstone");
+    public static final TagKey<Item> FORGE_ORE_EMERALD = create("forge", "ores/emerald");
+    public static final TagKey<Item> FORGE_ORE_LAPIS = create("forge", "ores/lapis");
+    public static final TagKey<Item> FORGE_ORE_DIAMOND = create("forge", "ores/diamond");
+    public static final TagKey<Item> FORGE_ORE_COAL = create("forge", "ores/coal");
 
     public static final TagKey<Item> FORGE_STORAGE_BLOCKS_RAW_TIN = create("forge", "storage_blocks/raw_tin");
     public static final TagKey<Item> FORGE_STORAGE_BLOCKS_RAW_SILVER = create("forge", "storage_blocks/raw_silver");

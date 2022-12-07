@@ -9,25 +9,26 @@ import com.maciej916.indreb.common.block.impl.generator.geo_generator.MenuGeoGen
 import com.maciej916.indreb.common.block.impl.generator.reactor.nuclear_reactor.MenuNuclearReactor;
 import com.maciej916.indreb.common.block.impl.generator.semifluid_generator.MenuSemifluidGenerator;
 import com.maciej916.indreb.common.block.impl.generator.solar_panel.MenuSolarPanel;
-import com.maciej916.indreb.common.block.impl.machine.advanced.matter_fabricator.MenuMatterFabricator;
-import com.maciej916.indreb.common.block.impl.machine.basic.canning_machine.MenuCanningMachine;
-import com.maciej916.indreb.common.block.impl.machine.basic.compressor.MenuCompressor;
-import com.maciej916.indreb.common.block.impl.machine.basic.crusher.MenuCrusher;
-import com.maciej916.indreb.common.block.impl.machine.basic.electric_furnace.MenuElectricFurnace;
-import com.maciej916.indreb.common.block.impl.machine.basic.extractor.MenuExtractor;
-import com.maciej916.indreb.common.block.impl.machine.basic.extruder.MenuExtruder;
-import com.maciej916.indreb.common.block.impl.machine.basic.fluid_enricher.MenuFluidEnricher;
-import com.maciej916.indreb.common.block.impl.machine.basic.metal_former.MenuMetalFormer;
-import com.maciej916.indreb.common.block.impl.machine.basic.recycler.MenuRecycler;
-import com.maciej916.indreb.common.block.impl.machine.basic.sawmill.MenuSawmill;
-import com.maciej916.indreb.common.block.impl.machine.simple.iron_furnace.MenuIronFurnace;
-import com.maciej916.indreb.common.block.impl.machine.simple.simple_compressor.MenuSimpleCompressor;
-import com.maciej916.indreb.common.block.impl.machine.simple.simple_crusher.MenuSimpleCrusher;
-import com.maciej916.indreb.common.block.impl.machine.simple.simple_extractor.MenuSimpleExtractor;
-import com.maciej916.indreb.common.block.impl.machine.standard.alloy_smelter.MenuAlloySmelter;
-import com.maciej916.indreb.common.block.impl.machine.standard.fermenter.MenuFermenter;
-import com.maciej916.indreb.common.block.impl.machine.standard.ore_washing_plant.MenuOreWashingPlant;
-import com.maciej916.indreb.common.block.impl.machine.standard.thermal_centrifuge.MenuThermalCentrifuge;
+import com.maciej916.indreb.common.block.impl.machine.t_advanced.matter_fabricator.MenuMatterFabricator;
+import com.maciej916.indreb.common.block.impl.machine.t_basic.canning_machine.MenuCanningMachine;
+import com.maciej916.indreb.common.block.impl.machine.t_basic.compressor.MenuCompressor;
+import com.maciej916.indreb.common.block.impl.machine.t_basic.crusher.MenuCrusher;
+import com.maciej916.indreb.common.block.impl.machine.t_basic.electric_furnace.MenuElectricFurnace;
+import com.maciej916.indreb.common.block.impl.machine.t_basic.extractor.MenuExtractor;
+import com.maciej916.indreb.common.block.impl.machine.t_basic.extruder.MenuExtruder;
+import com.maciej916.indreb.common.block.impl.machine.t_basic.fluid_enricher.MenuFluidEnricher;
+import com.maciej916.indreb.common.block.impl.machine.t_basic.metal_former.MenuMetalFormer;
+import com.maciej916.indreb.common.block.impl.machine.t_basic.recycler.MenuRecycler;
+import com.maciej916.indreb.common.block.impl.machine.t_basic.sawmill.MenuSawmill;
+import com.maciej916.indreb.common.block.impl.machine.t_simple.iron_furnace.MenuIronFurnace;
+import com.maciej916.indreb.common.block.impl.machine.t_simple.simple_compressor.MenuSimpleCompressor;
+import com.maciej916.indreb.common.block.impl.machine.t_simple.simple_crusher.MenuSimpleCrusher;
+import com.maciej916.indreb.common.block.impl.machine.t_simple.simple_extractor.MenuSimpleExtractor;
+import com.maciej916.indreb.common.block.impl.machine.t_standard.alloy_smelter.MenuAlloySmelter;
+import com.maciej916.indreb.common.block.impl.machine.t_standard.fermenter.MenuFermenter;
+import com.maciej916.indreb.common.block.impl.machine.t_standard.ore_washing_plant.MenuOreWashingPlant;
+import com.maciej916.indreb.common.block.impl.machine.t_standard.thermal_centrifuge.MenuThermalCentrifuge;
+import com.maciej916.indreb.common.block.impl.machine.t_super.replicator.MenuReplicator;
 import com.maciej916.indreb.common.block.impl.machine.t_super.scanner.MenuScanner;
 import com.maciej916.indreb.common.block.impl.misc.pattern_storage.MenuPatternStorage;
 import com.maciej916.indreb.common.block.impl.transformer.MenuTransformer;
@@ -82,10 +83,10 @@ public final class ModMenuTypes {
     public static final RegistryObject<MenuType<MenuMatterFabricator>> MATTER_FABRICATOR = registerMenuType(MenuMatterFabricator::new, "matter_fabricator");
 
     public static final RegistryObject<MenuType<MenuScanner>> SCANNER = registerMenuType(MenuScanner::new, "scanner");
+    public static final RegistryObject<MenuType<MenuReplicator>> REPLICATOR = registerMenuType(MenuReplicator::new, "replicator");
 
     public static final RegistryObject<MenuType<MenuPatternStorage>> PATTERN_STORAGE = registerMenuType(MenuPatternStorage::new, "pattern_storage");
 
-//    public static final RegistryObject<MenuType<MenuReplicator>> REPLICATOR = registerMenuType("replicator",  MenuReplicator::new);
 
     private static <T extends AbstractContainerMenu> RegistryObject<MenuType<T>> registerMenuType(IContainerFactory<T> factory, String name) {
         return MENUS.register(name, () -> IForgeMenuType.create(factory));

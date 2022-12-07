@@ -1,6 +1,7 @@
 package com.maciej916.indreb.common.block.impl.machine.t_super.scanner;
 
 import com.maciej916.indreb.common.api.blockentity.IndRebBlockEntity;
+import com.maciej916.indreb.common.api.blockentity.interfaces.IHasExp;
 import com.maciej916.indreb.common.api.blockentity.interfaces.IHasSound;
 import com.maciej916.indreb.common.api.energy.interfaces.IBlockEntityEnergy;
 import com.maciej916.indreb.common.api.enums.EnergyTier;
@@ -48,7 +49,7 @@ import org.jetbrains.annotations.Nullable;
 import java.util.ArrayList;
 import java.util.Optional;
 
-public class BlockEntityScanner extends IndRebBlockEntity implements IBlockEntityEnergy, IHasSound {
+public class BlockEntityScanner extends IndRebBlockEntity implements IBlockEntityEnergy, IHasSound, IHasExp {
 
     public static final int INPUT_SLOT = 0;
     public static final int MEMORY_SLOT = 1;

@@ -36,16 +36,10 @@ public class ModNetworking {
         INSTANCE.registerMessage(nextID(), PacketScannerSaveScan.class, PacketScannerSaveScan::toBytes, PacketScannerSaveScan::new, PacketScannerSaveScan::handle);
         INSTANCE.registerMessage(nextID(), PacketPatternStoragePage.class, PacketPatternStoragePage::toBytes, PacketPatternStoragePage::new, PacketPatternStoragePage::handle);
         INSTANCE.registerMessage(nextID(), PacketPatternStorageAction.class, PacketPatternStorageAction::toBytes, PacketPatternStorageAction::new, PacketPatternStorageAction::handle);
+        INSTANCE.registerMessage(nextID(), PacketReplicatorPage.class, PacketReplicatorPage::toBytes, PacketReplicatorPage::new, PacketReplicatorPage::handle);
+        INSTANCE.registerMessage(nextID(), PacketReplicatorStop.class, PacketReplicatorStop::toBytes, PacketReplicatorStop::new, PacketReplicatorStop::handle);
+        INSTANCE.registerMessage(nextID(), PacketReplicatorRun.class, PacketReplicatorRun::toBytes, PacketReplicatorRun::new, PacketReplicatorRun::handle);
 
-
-
-//        INSTANCE.registerMessage(nextID(), PacketReqSyncEnergy.class, PacketReqSyncEnergy::toBytes, PacketReqSyncEnergy::new, PacketReqSyncEnergy::handle);
-//        INSTANCE.registerMessage(nextID(), PacketSyncEnergy.class, PacketSyncEnergy::toBytes, PacketSyncEnergy::new, PacketSyncEnergy::handle);
-//        INSTANCE.registerMessage(nextID(), PacketReplicatorPage.class, PacketReplicatorPage::toBytes, PacketReplicatorPage::new, PacketReplicatorPage::handle);
-//        INSTANCE.registerMessage(nextID(), PacketReplicatorStop.class, PacketReplicatorStop::toBytes, PacketReplicatorStop::new, PacketReplicatorStop::handle);
-//        INSTANCE.registerMessage(nextID(), PacketReplicatorSingleRun.class, PacketReplicatorSingleRun::toBytes, PacketReplicatorSingleRun::new, PacketReplicatorSingleRun::handle);
-//        INSTANCE.registerMessage(nextID(), PacketReplicatorRepeatRun.class, PacketReplicatorRepeatRun::toBytes, PacketReplicatorRepeatRun::new, PacketReplicatorRepeatRun::handle);
-//        INSTANCE.registerMessage(nextID(), PacketMetalFormerChangeMode.class, PacketMetalFormerChangeMode::toBytes, PacketMetalFormerChangeMode::new, PacketMetalFormerChangeMode::handle);
     }
 
     public static <MSG> void sendToServer(MSG message) {

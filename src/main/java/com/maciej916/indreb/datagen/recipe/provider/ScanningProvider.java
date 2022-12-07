@@ -1,6 +1,7 @@
 package com.maciej916.indreb.datagen.recipe.provider;
 
 import com.maciej916.indreb.common.item.ModItems;
+import com.maciej916.indreb.common.tag.ModItemTags;
 import com.maciej916.indreb.datagen.recipe.builder.ScanningRecipeBuilder;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.data.DataGenerator;
@@ -60,22 +61,16 @@ public class ScanningProvider extends RecipeProvider {
         ScanningRecipeBuilder.builder(Items.SAND).setExperience(5F).setMatterCost(15).addCriterion("sand", InventoryChangeTrigger.TriggerInstance.hasItems(Items.SAND)).save(consumer,"sand");
         ScanningRecipeBuilder.builder(Items.RED_SAND).setExperience(5F).setMatterCost(16).addCriterion("red_sand", InventoryChangeTrigger.TriggerInstance.hasItems(Items.RED_SAND)).save(consumer,"red_sand");
         ScanningRecipeBuilder.builder(Items.GRAVEL).setExperience(5F).setMatterCost(52).addCriterion("gravel", InventoryChangeTrigger.TriggerInstance.hasItems(Items.GRAVEL)).save(consumer,"gravel");
-        ScanningRecipeBuilder.builder(Items.COAL_ORE).setExperience(5F).setMatterCost(33).addCriterion("coal_ore", InventoryChangeTrigger.TriggerInstance.hasItems(Items.COAL_ORE)).save(consumer,"coal_ore");
-        ScanningRecipeBuilder.builder(Items.DEEPSLATE_COAL_ORE).setExperience(33).setMatterCost(33).addCriterion("deepslate_coal_ore", InventoryChangeTrigger.TriggerInstance.hasItems(Items.DEEPSLATE_COAL_ORE)).save(consumer,"deepslate_coal_ore");
-        ScanningRecipeBuilder.builder(Items.IRON_ORE).setExperience(5F).setMatterCost(72).addCriterion("iron_ore", InventoryChangeTrigger.TriggerInstance.hasItems(Items.IRON_ORE)).save(consumer,"iron_ore");
-        ScanningRecipeBuilder.builder(Items.DEEPSLATE_IRON_ORE).setExperience(5F).setMatterCost(72).addCriterion("deepslate_iron_ore", InventoryChangeTrigger.TriggerInstance.hasItems(Items.DEEPSLATE_IRON_ORE)).save(consumer,"deepslate_iron_ore");
-        ScanningRecipeBuilder.builder(Items.COPPER_ORE).setExperience(5F).setMatterCost(131).addCriterion("copper_ore", InventoryChangeTrigger.TriggerInstance.hasItems(Items.COPPER_ORE)).save(consumer,"copper_ore");
-        ScanningRecipeBuilder.builder(Items.DEEPSLATE_COPPER_ORE).setExperience(5F).setMatterCost(131).addCriterion("deepslate_copper_ore", InventoryChangeTrigger.TriggerInstance.hasItems(Items.DEEPSLATE_COPPER_ORE)).save(consumer,"deepslate_copper_ore");
-        ScanningRecipeBuilder.builder(Items.GOLD_ORE).setExperience(5F).setMatterCost(140).addCriterion("gold_ore", InventoryChangeTrigger.TriggerInstance.hasItems(Items.GOLD_ORE)).save(consumer,"gold_ore");
-        ScanningRecipeBuilder.builder(Items.DEEPSLATE_GOLD_ORE).setExperience(5F).setMatterCost(140).addCriterion("deepslate_gold_ore", InventoryChangeTrigger.TriggerInstance.hasItems(Items.DEEPSLATE_GOLD_ORE)).save(consumer,"deepslate_gold_ore");
-        ScanningRecipeBuilder.builder(Items.REDSTONE_ORE).setExperience(5F).setMatterCost(51).addCriterion("redstone_ore", InventoryChangeTrigger.TriggerInstance.hasItems(Items.REDSTONE_ORE)).save(consumer,"redstone_ore");
-        ScanningRecipeBuilder.builder(Items.DEEPSLATE_REDSTONE_ORE).setExperience(5F).setMatterCost(51).addCriterion("deepslate_redstone_ore", InventoryChangeTrigger.TriggerInstance.hasItems(Items.DEEPSLATE_REDSTONE_ORE)).save(consumer,"deepslate_redstone_ore");
-        ScanningRecipeBuilder.builder(Items.EMERALD_ORE).setExperience(5F).setMatterCost(525).addCriterion("emerald_ore", InventoryChangeTrigger.TriggerInstance.hasItems(Items.EMERALD_ORE)).save(consumer,"emerald_ore");
-        ScanningRecipeBuilder.builder(Items.DEEPSLATE_EMERALD_ORE).setExperience(5F).setMatterCost(525).addCriterion("deepslate_emerald_ore", InventoryChangeTrigger.TriggerInstance.hasItems(Items.DEEPSLATE_EMERALD_ORE)).save(consumer,"deepslate_emerald_ore");
-        ScanningRecipeBuilder.builder(Items.LAPIS_ORE).setExperience(5F).setMatterCost(68).addCriterion("lapis_ore", InventoryChangeTrigger.TriggerInstance.hasItems(Items.LAPIS_ORE)).save(consumer, "lapis_ore");
-        ScanningRecipeBuilder.builder(Items.DEEPSLATE_LAPIS_ORE).setExperience(5F).setMatterCost(68).addCriterion("deepslate_lapis_ore", InventoryChangeTrigger.TriggerInstance.hasItems(Items.DEEPSLATE_LAPIS_ORE)).save(consumer,"deepslate_lapis_ore");
-        ScanningRecipeBuilder.builder(Items.DIAMOND_ORE).setExperience(5F).setMatterCost(389).addCriterion("asd", InventoryChangeTrigger.TriggerInstance.hasItems(Items.DIAMOND_ORE)).save(consumer,"asd");
-        ScanningRecipeBuilder.builder(Items.DEEPSLATE_DIAMOND_ORE).setExperience(5F).setMatterCost(389).addCriterion("deepslate_diamond_ore", InventoryChangeTrigger.TriggerInstance.hasItems(Items.DEEPSLATE_DIAMOND_ORE)).save(consumer,"deepslate_diamond_ore");
+
+        ScanningRecipeBuilder.builder(ModItemTags.FORGE_ORE_COAL).setExperience(5F).setMatterCost(33).addCriterion("coal_ore", InventoryChangeTrigger.TriggerInstance.hasItems(Items.COAL_ORE, Items.DEEPSLATE_COAL_ORE)).save(consumer,"coal_ore");
+        ScanningRecipeBuilder.builder(ModItemTags.FORGE_ORE_IRON).setExperience(5F).setMatterCost(72).addCriterion("iron_ore", InventoryChangeTrigger.TriggerInstance.hasItems(Items.IRON_ORE, Items.DEEPSLATE_IRON_ORE)).save(consumer,"iron_ore");
+        ScanningRecipeBuilder.builder(ModItemTags.FORGE_ORE_COPPER).setExperience(5F).setMatterCost(131).addCriterion("copper_ore", InventoryChangeTrigger.TriggerInstance.hasItems(Items.COPPER_ORE, Items.DEEPSLATE_COPPER_ORE)).save(consumer,"copper_ore");
+        ScanningRecipeBuilder.builder(ModItemTags.FORGE_ORE_GOLD).setExperience(5F).setMatterCost(140).addCriterion("gold_ore", InventoryChangeTrigger.TriggerInstance.hasItems(Items.GOLD_ORE, Items.DEEPSLATE_GOLD_ORE)).save(consumer,"gold_ore");
+        ScanningRecipeBuilder.builder(ModItemTags.FORGE_ORE_REDSTONE).setExperience(5F).setMatterCost(51).addCriterion("redstone_ore", InventoryChangeTrigger.TriggerInstance.hasItems(Items.REDSTONE_ORE, Items.DEEPSLATE_REDSTONE_ORE)).save(consumer,"redstone_ore");
+        ScanningRecipeBuilder.builder(ModItemTags.FORGE_ORE_EMERALD).setExperience(5F).setMatterCost(525).addCriterion("emerald_ore", InventoryChangeTrigger.TriggerInstance.hasItems(Items.EMERALD_ORE, Items.DEEPSLATE_EMERALD_ORE)).save(consumer,"emerald_ore");
+        ScanningRecipeBuilder.builder(ModItemTags.FORGE_ORE_LAPIS).setExperience(5F).setMatterCost(68).addCriterion("lapis_ore", InventoryChangeTrigger.TriggerInstance.hasItems(Items.LAPIS_ORE, Items.DEEPSLATE_LAPIS_ORE)).save(consumer, "lapis_ore");
+        ScanningRecipeBuilder.builder(ModItemTags.FORGE_ORE_DIAMOND).setExperience(5F).setMatterCost(389).addCriterion("diamond_ore", InventoryChangeTrigger.TriggerInstance.hasItems(Items.DIAMOND_ORE, Items.DEEPSLATE_DIAMOND_ORE)).save(consumer,"asd");
+
         ScanningRecipeBuilder.builder(Items.NETHER_GOLD_ORE).setExperience(5F).setMatterCost(167).addCriterion("nether_gold_ore", InventoryChangeTrigger.TriggerInstance.hasItems(Items.NETHER_GOLD_ORE)).save(consumer,"nether_gold_ore");
         ScanningRecipeBuilder.builder(Items.NETHER_QUARTZ_ORE).setExperience(5F).setMatterCost(59).addCriterion("nether_quartz_ore", InventoryChangeTrigger.TriggerInstance.hasItems(Items.NETHER_QUARTZ_ORE)).save(consumer,"nether_quartz_ore");
         ScanningRecipeBuilder.builder(Items.ANCIENT_DEBRIS).setExperience(5F).setMatterCost(1863).addCriterion("ancient_debris", InventoryChangeTrigger.TriggerInstance.hasItems(Items.ANCIENT_DEBRIS)).save(consumer,"ancient_debris");
@@ -83,9 +78,10 @@ public class ScanningProvider extends RecipeProvider {
 
 
 
-        ScanningRecipeBuilder.builder(ModItems.SCRAP.get()).setExperience(5F).setMatterCost(17).addCriterion("scrap", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.SCRAP.get())).save(consumer,"scrap");
-        ScanningRecipeBuilder.builder(ModItems.COAL_DUST.get()).setExperience(5F).setMatterCost(24).addCriterion("coal_dust", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.COAL_DUST.get())).save(consumer,"coal_dust");
-        ScanningRecipeBuilder.builder(ModItems.FLUID_CELL.get()).setExperience(5F).setMatterCost(41).addCriterion("fluid_cell", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.COAL_DUST.get())).save(consumer,"fluid_cell");
+        ScanningRecipeBuilder.builder(ModItems.SCRAP).setExperience(5F).setMatterCost(17).addCriterion("scrap", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.SCRAP.get())).save(consumer,"scrap");
+        ScanningRecipeBuilder.builder(ModItems.COAL_DUST).setExperience(5F).setMatterCost(24).addCriterion("coal_dust", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.COAL_DUST.get())).save(consumer,"coal_dust");
+        ScanningRecipeBuilder.builder(ModItems.FLUID_CELL).setExperience(5F).setMatterCost(41).addCriterion("fluid_cell", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.COAL_DUST.get())).save(consumer,"fluid_cell");
+        ScanningRecipeBuilder.builder(ModItems.IRIDIUM_SHARD).setExperience(5F).setMatterCost(2000).addCriterion("IRIDIUM_SHARD", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.IRIDIUM_SHARD.get())).save(consumer,"iridium_shard");
 
 
 

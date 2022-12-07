@@ -186,8 +186,10 @@ public final class ModItems {
     public static final RegistryObject<Item> MATTER_FABRICATOR = fromBlockElectric(ModBlocks.MATTER_FABRICATOR);
 
     public static final RegistryObject<Item> SCANNER = fromBlockElectric(ModBlocks.SCANNER);
+    public static final RegistryObject<Item> REPLICATOR = fromBlockElectric(ModBlocks.REPLICATOR);
 
     public static final RegistryObject<Item> PATTERN_STORAGE = fromBlockElectric(ModBlocks.PATTERN_STORAGE);
+    public static final RegistryObject<Item> TELEPORT_ANCHOR = fromBlockElectric(ModBlocks.TELEPORT_ANCHOR);
 
 
 

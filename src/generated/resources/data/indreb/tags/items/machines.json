@@ -16,6 +16,8 @@
     "indreb:thermal_centrifuge",
     "indreb:matter_fabricator",
     "indreb:scanner",
-    "indreb:pattern_storage"
+    "indreb:replicator",
+    "indreb:pattern_storage",
+    "indreb:teleport_anchor"
   ]
 }

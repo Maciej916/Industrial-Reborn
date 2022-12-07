@@ -1,12 +1,17 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "asd": {
+    "diamond_ore": {
       "conditions": {
         "items": [
           {
             "items": [
               "minecraft:diamond_ore"
+            ]
+          },
+          {
+            "items": [
+              "minecraft:deepslate_diamond_ore"
             ]
           }
         ]
@@ -22,7 +27,7 @@
   },
   "requirements": [
     [
-      "asd",
+      "diamond_ore",
       "has_the_recipe"
     ]
   ],

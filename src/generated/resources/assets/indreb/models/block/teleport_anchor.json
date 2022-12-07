@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "bottom": "indreb:block/misc/teleport_anchor/teleport_anchor_bottom",
+    "side": "indreb:block/misc/teleport_anchor/teleport_anchor_side",
+    "top": "indreb:block/misc/teleport_anchor/teleport_anchor_top"
+  }
+}

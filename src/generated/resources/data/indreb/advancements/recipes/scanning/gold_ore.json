@@ -8,6 +8,11 @@
             "items": [
               "minecraft:gold_ore"
             ]
+          },
+          {
+            "items": [
+              "minecraft:deepslate_gold_ore"
+            ]
           }
         ]
       },

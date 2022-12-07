@@ -8,6 +8,11 @@
             "items": [
               "minecraft:coal_ore"
             ]
+          },
+          {
+            "items": [
+              "minecraft:deepslate_coal_ore"
+            ]
           }
         ]
       },

@@ -170,6 +170,7 @@ public class BlockTextures extends BlockStateProvider {
         createLuminator(ModBlocks.LUMINATOR, "misc/luminator/luminator");
 
         createHorizontal(ModBlocks.PATTERN_STORAGE, "misc/pattern_storage/pattern_storage", "_bottom", "_top", "_front", "_side", "_side", "_side");
+        createBottomTop(ModBlocks.TELEPORT_ANCHOR, "misc/teleport_anchor/teleport_anchor");
     }
 
     private void registerExplosives() {
@@ -234,6 +235,7 @@ public class BlockTextures extends BlockStateProvider {
 
     private void registerSuperMachines() {
         createActiveHorizontal(ModBlocks.SCANNER, "machine/super/scanner/scanner", "_bottom", "_bottom", "_top", "_top", "_front", "_front_active", "_side", "_side", "_side", "_side", "_side", "_side");
+        createActiveHorizontal(ModBlocks.REPLICATOR, "machine/super/replicator/replicator", "_bottom", "_bottom", "_top", "_top_active", "_front", "_front_active", "_back", "_back_active", "_left", "_left_active", "_right", "_right_active");
 
     }
 
@@ -619,6 +621,15 @@ public class BlockTextures extends BlockStateProvider {
         });
     }
 
+    private void createBottomTop(RegistryObject<Block> block, String path) {
+        simpleBlock(block.get(), models().cubeBottomTop(block.getId().getPath(),
+                new ResourceLocation(IndReb.MODID, "block/" + path + "_side"),
+                new ResourceLocation(IndReb.MODID, "block/" + path + "_bottom"),
+                new ResourceLocation(IndReb.MODID, "block/" + path + "_top")
+        ));
+    }
+
+
 
 
 
@@ -830,13 +841,6 @@ public class BlockTextures extends BlockStateProvider {
         });
     }
 
-    private void createBottomTop(Block block, String category, String name) {
-        simpleBlock(block, models().cubeBottomTop(name,
-                new ResourceLocation(IndReb.MODID, "block/" + category + "/" + name + "_side"),
-                new ResourceLocation(IndReb.MODID, "block/" + category + "/" + name + "_bottom"),
-                new ResourceLocation(IndReb.MODID, "block/" + category + "/" + name + "_top")
-        ));
-    }
 
     private void createTransformer(Block block, String name) {
         orientedBlock(block, state -> cubeWithParticle(name, new ResourceLocation(IndReb.MODID, "block/transformer/" + name + "_side"), new ResourceLocation(IndReb.MODID, "block/transformer/" + name + "_side"), new ResourceLocation(IndReb.MODID, "block/transformer/" + name + "_front"), new ResourceLocation(IndReb.MODID, "block/transformer/" + name + "_side"), new ResourceLocation(IndReb.MODID, "block/transformer/" + name + "_side"), new ResourceLocation(IndReb.MODID, "block/transformer/" + name + "_side")), BlockStateHelper.FACING_PROPERTY);

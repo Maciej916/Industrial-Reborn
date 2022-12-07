@@ -1,4 +1,4 @@
-// 1.19.2	2022-12-07T11:13:21.1182549	Item Models: indreb
+// 1.19.2	2022-12-07T13:15:08.9011744	Item Models: indreb
 ea6f48b249d5595c0bc20e39b977fa8fad0ed868 assets/indreb/models/item/acid_hazard_sign_block.json
 4df0fe2021d7b228332497f5c7d711b40f082510 assets/indreb/models/item/advanced_alloy.json
 df0888ae05d095b7dbd4b54b411496df8d853b49 assets/indreb/models/item/advanced_battery.json
@@ -293,6 +293,7 @@ c22b7ae2305b4167170276dda5a129f2d6ab0144 assets/indreb/models/item/reinforced_st
 e9c2d66744979ac8b4b50de93b853d4e51bf1d3f assets/indreb/models/item/reinforced_stone_brick_wall.json
 6a579b7e72ed47f8d7523aa4319a2dda45e55707 assets/indreb/models/item/reinforced_stone_slab.json
 8f893840896c6ee1b6f5026ff35321833f89d17f assets/indreb/models/item/reinforced_stone_stairs.json
+280423d063429e4f339f4199b276da4f853208ab assets/indreb/models/item/replicator.json
 dca314529af98de672fbe20c68e85c73e23b666d assets/indreb/models/item/resin_block.json
 386f973b5549d89a1fd205f56f6a04cafa67a331 assets/indreb/models/item/resin_sheet.json
 4db79121a075eb705aae412b6d92b453407bf8ea assets/indreb/models/item/rsh_condensator.json
@@ -338,6 +339,7 @@ b481f82b12801d0caa819e08d64496d9feb9eed5 assets/indreb/models/item/steel_ingot.j
 61877bdfc62a1fd0922cdccebdbb03417b674a04 assets/indreb/models/item/sticky_resin.json
 c1c4577b82173aa17bb143278938a2a89cf85b5d assets/indreb/models/item/stone_dust.json
 eaffa1d0b9f8e9b74897e2bb70bfe9ebbbafecb3 assets/indreb/models/item/sulfur_dust.json
+b65bd1677d2893000f43801770bff921b17ea170 assets/indreb/models/item/teleport_anchor.json
 45b8a1dda0a529719d41254f0ebbc384be581fee assets/indreb/models/item/thermal_centrifuge.json
 e666b55cf348902736142a92b4c0b5f538a90eac assets/indreb/models/item/thick_neutron_reflector.json
 53fb030313ac7db87ccee050e7e6355072677e02 assets/indreb/models/item/tin_block.json

@@ -4,7 +4,7 @@
   "experience": 5.0,
   "ingredients": [
     {
-      "item": "minecraft:emerald_ore"
+      "tag": "forge:ores/emerald"
     }
   ],
   "replication": {
