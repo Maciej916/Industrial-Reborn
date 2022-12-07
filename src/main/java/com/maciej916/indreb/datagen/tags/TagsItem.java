@@ -328,6 +328,8 @@ public class TagsItem extends ItemTagsProvider {
 
                 .add(ModItems.SCANNER.get())
 
+                .add(ModItems.PATTERN_STORAGE.get())
+
         ;
 
         /* TRANSFORMERS */

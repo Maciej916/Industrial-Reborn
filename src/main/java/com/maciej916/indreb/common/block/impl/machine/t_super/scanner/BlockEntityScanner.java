@@ -11,6 +11,7 @@ import com.maciej916.indreb.common.api.recipe.interfaces.IBaseRecipe;
 import com.maciej916.indreb.common.api.slot.BaseSlot;
 import com.maciej916.indreb.common.api.slot.ElectricSlot;
 import com.maciej916.indreb.common.api.util.ProgressFloat;
+import com.maciej916.indreb.common.block.impl.misc.pattern_storage.BlockEntityPatternStorage;
 import com.maciej916.indreb.common.blockentity.ModBlockEntities;
 import com.maciej916.indreb.common.capability.ModCapabilities;
 import com.maciej916.indreb.common.capability.scanner.IScannerResult;
@@ -70,23 +71,6 @@ public class BlockEntityScanner extends IndRebBlockEntity implements IBlockEntit
         this.containerData.syncInt(4, () -> result.getMatterCost());
         this.containerData.syncInt(5, () -> result.getEnergyCost());
     }
-
-//    @Override
-//    public void tickClient() {
-//        ItemStack inputStack = getBaseStorage().getStackInSlot(INPUT_SLOT);
-//
-//        if (inputStack.isEmpty() && recipe != null && mode.getId() < 4) {
-//            recipe = null;
-//            result = new ScannerResult();
-//        }
-//
-//        if (recipe == null || (result != null && result.getResultStack().getItem() != inputStack.getItem())) {
-//            recipe = getRecipe(inputStack).orElse(null);
-//            if (recipe != null) {
-//                result = new ScannerResult(inputStack.copy(), recipe.getMatterCost(), recipe.getEnergyCost());
-//            }
-//        }
-//    }
 
     @Override
     public void tickWork() {
@@ -268,15 +252,15 @@ public class BlockEntityScanner extends IndRebBlockEntity implements IBlockEntit
             for (Direction direction : Constants.DIRECTIONS) {
                 BlockPos offsetPos = getBlockPos().relative(direction);
                 BlockEntity dirTile = getLevel().getBlockEntity(offsetPos);
-//                if (dirTile instanceof BlockEntityPatternStorage bePatternStorage) {
-//                    if (!bePatternStorage.hasScannerResult(result.getResultStack())) {
-//                        bePatternStorage.addScannerResult(result);
-//                        success = true;
-//                        break;
-//                    } else {
-//                        alreadyStored = true;
-//                    }
-//                }
+                if (dirTile instanceof BlockEntityPatternStorage bePatternStorage) {
+                    if (!bePatternStorage.hasScannerResult(result.getResultStack())) {
+                        bePatternStorage.addScannerResult(result);
+                        success = true;
+                        break;
+                    } else {
+                        alreadyStored = true;
+                    }
+                }
             }
         }
 

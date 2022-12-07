@@ -317,6 +317,7 @@ public class ItemTextures extends ItemModelProvider {
 
     private void registerMisc() {
         createWithBlock(ModItems.LUMINATOR, "luminator");
+        createWithBlock(ModItems.PATTERN_STORAGE, "pattern_storage");
 
     }
 

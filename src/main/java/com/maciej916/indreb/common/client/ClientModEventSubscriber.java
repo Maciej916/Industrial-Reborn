@@ -12,7 +12,6 @@ import com.maciej916.indreb.common.block.impl.generator.geo_generator.ScreenGeoG
 import com.maciej916.indreb.common.block.impl.generator.reactor.nuclear_reactor.ScreenNuclearReactor;
 import com.maciej916.indreb.common.block.impl.generator.semifluid_generator.ScreenSemifluidGenerator;
 import com.maciej916.indreb.common.block.impl.generator.solar_panel.ScreenSolarPanel;
-import com.maciej916.indreb.common.block.impl.machine.t_super.scanner.ScreenScanner;
 import com.maciej916.indreb.common.block.impl.machine.advanced.matter_fabricator.ScreenMatterFabricator;
 import com.maciej916.indreb.common.block.impl.machine.basic.canning_machine.ScreenCanningMachine;
 import com.maciej916.indreb.common.block.impl.machine.basic.compressor.ScreenCompressor;
@@ -32,6 +31,8 @@ import com.maciej916.indreb.common.block.impl.machine.standard.alloy_smelter.Scr
 import com.maciej916.indreb.common.block.impl.machine.standard.fermenter.ScreenFermenter;
 import com.maciej916.indreb.common.block.impl.machine.standard.ore_washing_plant.ScreenOreWashingPlant;
 import com.maciej916.indreb.common.block.impl.machine.standard.thermal_centrifuge.ScreenThermalCentrifuge;
+import com.maciej916.indreb.common.block.impl.machine.t_super.scanner.ScreenScanner;
+import com.maciej916.indreb.common.block.impl.misc.pattern_storage.ScreenPatternStorage;
 import com.maciej916.indreb.common.block.impl.transformer.ScreenTransformer;
 import com.maciej916.indreb.common.client.keys.ModKeys;
 import com.maciej916.indreb.common.client.renderer.EnergyInfoRenderer;
@@ -125,7 +126,7 @@ public final class ClientModEventSubscriber {
 
 			MenuScreens.register(ModMenuTypes.SCANNER.get(), ScreenScanner::new);
 
-//			MenuScreens.register(ModMenuTypes.PATTERN_STORAGE.get(), ScreenPatternStorage::new);
+			MenuScreens.register(ModMenuTypes.PATTERN_STORAGE.get(), ScreenPatternStorage::new);
 
 //			MenuScreens.register(ModMenuTypes.REPLICATOR.get(), ScreenReplicator::new);
 

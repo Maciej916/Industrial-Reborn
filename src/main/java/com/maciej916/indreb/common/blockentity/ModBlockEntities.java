@@ -31,6 +31,7 @@ import com.maciej916.indreb.common.block.impl.machine.standard.fermenter.BlockEn
 import com.maciej916.indreb.common.block.impl.machine.standard.ore_washing_plant.BlockEntityOreWashingPlant;
 import com.maciej916.indreb.common.block.impl.machine.standard.thermal_centrifuge.BlockEntityThermalCentrifuge;
 import com.maciej916.indreb.common.block.impl.misc.luminator.BlockEntityLuminator;
+import com.maciej916.indreb.common.block.impl.misc.pattern_storage.BlockEntityPatternStorage;
 import com.maciej916.indreb.common.block.impl.transformer.BlockEntityTransformer;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -94,6 +95,10 @@ public final class ModBlockEntities {
     /* SUPER MACHINES */
 
     public static final RegistryObject<BlockEntityType<BlockEntityScanner>> SCANNER = BLOCK_ENTITIES.register("scanner", () -> BlockEntityType.Builder.of(BlockEntityScanner::new, ModBlocks.SCANNER.get()).build(null));
+
+    /* MISC */
+
+    public static final RegistryObject<BlockEntityType<BlockEntityPatternStorage>> PATTERN_STORAGE = BLOCK_ENTITIES.register("pattern_storage", () -> BlockEntityType.Builder.of(BlockEntityPatternStorage::new, ModBlocks.PATTERN_STORAGE.get()).build(null));
 
 
     public static void register(IEventBus eventBus) {

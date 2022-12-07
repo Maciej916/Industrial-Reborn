@@ -9,7 +9,6 @@ import com.maciej916.indreb.common.block.impl.generator.geo_generator.MenuGeoGen
 import com.maciej916.indreb.common.block.impl.generator.reactor.nuclear_reactor.MenuNuclearReactor;
 import com.maciej916.indreb.common.block.impl.generator.semifluid_generator.MenuSemifluidGenerator;
 import com.maciej916.indreb.common.block.impl.generator.solar_panel.MenuSolarPanel;
-import com.maciej916.indreb.common.block.impl.machine.t_super.scanner.MenuScanner;
 import com.maciej916.indreb.common.block.impl.machine.advanced.matter_fabricator.MenuMatterFabricator;
 import com.maciej916.indreb.common.block.impl.machine.basic.canning_machine.MenuCanningMachine;
 import com.maciej916.indreb.common.block.impl.machine.basic.compressor.MenuCompressor;
@@ -29,6 +28,8 @@ import com.maciej916.indreb.common.block.impl.machine.standard.alloy_smelter.Men
 import com.maciej916.indreb.common.block.impl.machine.standard.fermenter.MenuFermenter;
 import com.maciej916.indreb.common.block.impl.machine.standard.ore_washing_plant.MenuOreWashingPlant;
 import com.maciej916.indreb.common.block.impl.machine.standard.thermal_centrifuge.MenuThermalCentrifuge;
+import com.maciej916.indreb.common.block.impl.machine.t_super.scanner.MenuScanner;
+import com.maciej916.indreb.common.block.impl.misc.pattern_storage.MenuPatternStorage;
 import com.maciej916.indreb.common.block.impl.transformer.MenuTransformer;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.MenuType;
@@ -82,7 +83,7 @@ public final class ModMenuTypes {
 
     public static final RegistryObject<MenuType<MenuScanner>> SCANNER = registerMenuType(MenuScanner::new, "scanner");
 
-//    public static final RegistryObject<MenuType<MenuPatternStorage>> PATTERN_STORAGE = registerMenuType("pattern_storage",  MenuPatternStorage::new);
+    public static final RegistryObject<MenuType<MenuPatternStorage>> PATTERN_STORAGE = registerMenuType(MenuPatternStorage::new, "pattern_storage");
 
 //    public static final RegistryObject<MenuType<MenuReplicator>> REPLICATOR = registerMenuType("replicator",  MenuReplicator::new);
 

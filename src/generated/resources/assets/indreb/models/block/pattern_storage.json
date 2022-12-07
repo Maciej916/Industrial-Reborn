@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "indreb:block/misc/pattern_storage/pattern_storage_bottom",
+    "east": "indreb:block/misc/pattern_storage/pattern_storage_side",
+    "north": "indreb:block/misc/pattern_storage/pattern_storage_front",
+    "particle": "indreb:block/misc/pattern_storage/pattern_storage_front",
+    "south": "indreb:block/misc/pattern_storage/pattern_storage_side",
+    "up": "indreb:block/misc/pattern_storage/pattern_storage_top",
+    "west": "indreb:block/misc/pattern_storage/pattern_storage_side"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "indreb:block/pattern_storage",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "indreb:block/pattern_storage"
+    },
+    "facing=south": {
+      "model": "indreb:block/pattern_storage",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "indreb:block/pattern_storage",
+      "y": 270
+    }
+  }
+}

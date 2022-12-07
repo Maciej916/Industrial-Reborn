@@ -169,6 +169,7 @@ public class BlockTextures extends BlockStateProvider {
     private void registerMisc() {
         createLuminator(ModBlocks.LUMINATOR, "misc/luminator/luminator");
 
+        createHorizontal(ModBlocks.PATTERN_STORAGE, "misc/pattern_storage/pattern_storage", "_bottom", "_top", "_front", "_side", "_side", "_side");
     }
 
     private void registerExplosives() {
@@ -599,6 +600,11 @@ public class BlockTextures extends BlockStateProvider {
         orientedBlock(block.get(), state -> modelFile, BlockStateHelper.FACING_PROPERTY);
     }
 
+
+    public void createHorizontal(RegistryObject<Block> block, String path, String down, String up, String front, String back, String left, String right) {
+        BlockModelBuilder notActive = cubeWithParticle(block.getId().getPath(), new ResourceLocation(IndReb.MODID, "block/" + path + down), new ResourceLocation(IndReb.MODID, "block/" + path + up), new ResourceLocation(IndReb.MODID, "block/" + path + front), new ResourceLocation(IndReb.MODID, "block/" + path + back), new ResourceLocation(IndReb.MODID, "block/" + path + left), new ResourceLocation(IndReb.MODID, "block/" + path + right));
+        orientedBlock(block.get(), state -> notActive);
+    }
 
     public void createActiveHorizontal(RegistryObject<Block> block, String path, String down, String downActive, String up, String upActive, String front, String frontActive, String back, String backActive, String left, String leftActive, String right, String rightActive) {
         BlockModelBuilder notActive = cubeWithParticle(block.getId().getPath(), new ResourceLocation(IndReb.MODID, "block/" + path + down), new ResourceLocation(IndReb.MODID, "block/" + path + up), new ResourceLocation(IndReb.MODID, "block/" + path + front), new ResourceLocation(IndReb.MODID, "block/" + path + back), new ResourceLocation(IndReb.MODID, "block/" + path + left), new ResourceLocation(IndReb.MODID, "block/" + path + right));

@@ -1,4 +1,4 @@
-// 1.19.2	2022-12-06T15:19:05.2300994	Item Models: indreb
+// 1.19.2	2022-12-07T11:13:21.1182549	Item Models: indreb
 ea6f48b249d5595c0bc20e39b977fa8fad0ed868 assets/indreb/models/item/acid_hazard_sign_block.json
 4df0fe2021d7b228332497f5c7d711b40f082510 assets/indreb/models/item/advanced_alloy.json
 df0888ae05d095b7dbd4b54b411496df8d853b49 assets/indreb/models/item/advanced_battery.json
@@ -256,6 +256,7 @@ e28eaf6dc9b9a51e1cc668c6fc9c71b31e7a660a assets/indreb/models/item/painter_light
 ed9343ab4c791f7bd0c8399bfaf2484387fa0c19 assets/indreb/models/item/painter_red.json
 ac5e982db4c2c76663b75203d1e0dfaa9c3b75d9 assets/indreb/models/item/painter_white.json
 0eebe62185d3f3496575487fe77d954c8d0d1371 assets/indreb/models/item/painter_yellow.json
+b29dac12ec5c8ff2d1e6d1179f4c004ce50d3168 assets/indreb/models/item/pattern_storage.json
 c157c9614d289ab36857cceecf932aa9db15dada assets/indreb/models/item/power_unit.json
 d65e8e6ac5823b9de2b2a3daaf0cf0515617b82f assets/indreb/models/item/pulling_upgrade.json
 4cc37dbf73c30223e241c00edd83e3ad394866b2 assets/indreb/models/item/purified_copper.json

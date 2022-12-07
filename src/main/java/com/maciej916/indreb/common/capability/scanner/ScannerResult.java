@@ -62,4 +62,13 @@ public class ScannerResult implements INBTSerializable<CompoundTag> {
         this.energyCost = nbt.getInt("energyCost");
         this.matterCost = nbt.getInt("matterCost");
     }
+
+    @Override
+    public String toString() {
+        return "ScannerResult{" +
+                "result=" + result +
+                ", matterCost=" + matterCost +
+                ", energyCost=" + energyCost +
+                '}';
+    }
 }

@@ -79,8 +79,8 @@ public class ScanningRecipe extends BaseRecipe {
         @Override
         public void toNetwork(FriendlyByteBuf buffer, ScanningRecipe recipe) {
             recipe.getIngredientCount().toNetwork(buffer);
-            buffer.writeFloat(recipe.getMatterCost());
-            buffer.writeFloat(recipe.getEnergyCost());
+            buffer.writeInt(recipe.getMatterCost());
+            buffer.writeInt(recipe.getEnergyCost());
             buffer.writeInt(recipe.getDuration());
             buffer.writeInt(recipe.getTickEnergyCost());
             buffer.writeFloat(recipe.getExperience());

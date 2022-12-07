@@ -50,8 +50,8 @@ public class TextComponentUtil {
         return df.format(energy);
     }
 
-    public static String getFormattedStorageUnit(float energy, boolean isShiftDown) {
-        return !isShiftDown ? format((long) energy) : getFormattedLong(energy);
+    public static String getFormattedStorageUnit(float energy, boolean showMoreDetails) {
+        return !showMoreDetails ? format((long) energy) : getFormattedLong(energy);
     }
 
     public static MutableComponent build(MutableComponent... components) {

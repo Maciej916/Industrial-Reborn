@@ -187,6 +187,10 @@ public final class ModItems {
 
     public static final RegistryObject<Item> SCANNER = fromBlockElectric(ModBlocks.SCANNER);
 
+    public static final RegistryObject<Item> PATTERN_STORAGE = fromBlockElectric(ModBlocks.PATTERN_STORAGE);
+
+
+
 // add tags
 
 

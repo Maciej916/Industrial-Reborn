@@ -34,15 +34,13 @@ public class ModNetworking {
         INSTANCE.registerMessage(nextID(), PacketContainerDataSync.class, PacketContainerDataSync::toBytes, PacketContainerDataSync::new, PacketContainerDataSync::handle);
         INSTANCE.registerMessage(nextID(), PacketScannerCleanScan.class, PacketScannerCleanScan::toBytes, PacketScannerCleanScan::new, PacketScannerCleanScan::handle);
         INSTANCE.registerMessage(nextID(), PacketScannerSaveScan.class, PacketScannerSaveScan::toBytes, PacketScannerSaveScan::new, PacketScannerSaveScan::handle);
+        INSTANCE.registerMessage(nextID(), PacketPatternStoragePage.class, PacketPatternStoragePage::toBytes, PacketPatternStoragePage::new, PacketPatternStoragePage::handle);
+        INSTANCE.registerMessage(nextID(), PacketPatternStorageAction.class, PacketPatternStorageAction::toBytes, PacketPatternStorageAction::new, PacketPatternStorageAction::handle);
+
 
 
 //        INSTANCE.registerMessage(nextID(), PacketReqSyncEnergy.class, PacketReqSyncEnergy::toBytes, PacketReqSyncEnergy::new, PacketReqSyncEnergy::handle);
 //        INSTANCE.registerMessage(nextID(), PacketSyncEnergy.class, PacketSyncEnergy::toBytes, PacketSyncEnergy::new, PacketSyncEnergy::handle);
-
-//        INSTANCE.registerMessage(nextID(), PacketScannerCleanScan.class, PacketScannerCleanScan::toBytes, PacketScannerCleanScan::new, PacketScannerCleanScan::handle);
-//        INSTANCE.registerMessage(nextID(), PacketScannerSaveScan.class, PacketScannerSaveScan::toBytes, PacketScannerSaveScan::new, PacketScannerSaveScan::handle);
-//        INSTANCE.registerMessage(nextID(), PacketPatternStoragePage.class, PacketPatternStoragePage::toBytes, PacketPatternStoragePage::new, PacketPatternStoragePage::handle);
-//        INSTANCE.registerMessage(nextID(), PacketPatternStorageAction.class, PacketPatternStorageAction::toBytes, PacketPatternStorageAction::new, PacketPatternStorageAction::handle);
 //        INSTANCE.registerMessage(nextID(), PacketReplicatorPage.class, PacketReplicatorPage::toBytes, PacketReplicatorPage::new, PacketReplicatorPage::handle);
 //        INSTANCE.registerMessage(nextID(), PacketReplicatorStop.class, PacketReplicatorStop::toBytes, PacketReplicatorStop::new, PacketReplicatorStop::handle);
 //        INSTANCE.registerMessage(nextID(), PacketReplicatorSingleRun.class, PacketReplicatorSingleRun::toBytes, PacketReplicatorSingleRun::new, PacketReplicatorSingleRun::handle);

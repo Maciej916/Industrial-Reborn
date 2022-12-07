@@ -1,4 +1,4 @@
-// 1.19.2	2022-12-06T15:19:05.2245856	Block States: indreb
+// 1.19.2	2022-12-06T22:13:27.9393538	Block States: indreb
 95b7796b1e598d400659dbc96f12d1f0d72cda55 assets/indreb/blockstates/acid_hazard_sign_block.json
 b0fdc040f5b7b7c6b701f4aed0ac0308e145cfc9 assets/indreb/blockstates/advanced_machine_casing.json
 9385543a17f96635caee1886dc56a82587c77604 assets/indreb/blockstates/advanced_solar_panel.json
@@ -66,6 +66,7 @@ bad0a99d03419c45011173f31b1513722026c89a assets/indreb/blockstates/noise_hazard_
 a732f973ddba73eeedd0650bc6fbce0e21358d41 assets/indreb/blockstates/nuclear_reactor.json
 e707b70f7676685e3b5e9910f7d2ab85f4da63cf assets/indreb/blockstates/nuke.json
 5e232b382d2d90b361a74402d34f52f275ca6631 assets/indreb/blockstates/ore_washing_plant.json
+63abecef978a71630a097b792d866f6df53cf063 assets/indreb/blockstates/pattern_storage.json
 75fe92e1ec7b6b357ea304da167903a7e9138924 assets/indreb/blockstates/quantum_solar_panel.json
 91551c44bd2ddf788e0db48e36bc68709beefe74 assets/indreb/blockstates/radioactive_hazard_sign_block.json
 81370a179b513fdaff77ae5056566f974f10e4f5 assets/indreb/blockstates/raw_lead_block.json
@@ -207,6 +208,7 @@ d4f1e374b3e287f3d00ae04910617c1f31470fa5 assets/indreb/models/block/noise_hazard
 d68a7d1f6a79ea6e3f7929fc5e82c4997959d32c assets/indreb/models/block/nuke.json
 44c4b68db2c71ea690bb4e6fd4accb539ddc82b0 assets/indreb/models/block/ore_washing_plant.json
 f6ffa9c2d4a95190ee2e2d227aebe275c21816c2 assets/indreb/models/block/ore_washing_plant_active.json
+f1ac9b54b6a7a2a6a1a23617921ba38494a30e46 assets/indreb/models/block/pattern_storage.json
 4242c45d42f237ea331096d54315a0fbd834af73 assets/indreb/models/block/quantum_solar_panel.json
 5cbf059a4b679b2a3af9b0d8397d120918072c58 assets/indreb/models/block/quantum_solar_panel_active.json
 de9f1dbe5de5d1d007491974f3da57f8a3c2fbd1 assets/indreb/models/block/radioactive_hazard_sign_block.json

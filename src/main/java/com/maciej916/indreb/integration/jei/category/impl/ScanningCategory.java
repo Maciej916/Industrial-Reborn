@@ -66,8 +66,8 @@ public class ScanningCategory extends AbstractRecipeCategory<ScanningRecipe> {
         }
 
         GuiUtil.renderScaled(poseStack, Component.translatable("gui." + IndReb.MODID + ".scanner.replication_cost").getString(), 67, 18, 0.65f, 0x00a200, false);
-        GuiUtil.renderScaled(poseStack, Component.translatable("gui." + IndReb.MODID + ".scanner.matter_cost").getString() + " " + TextComponentUtil.getFormattedStorageUnit(recipe.getMatterCost()) + " mB", 67, 25, 0.65f, 0x00a200, false);
-        GuiUtil.renderScaled(poseStack, Component.translatable("gui." + IndReb.MODID + ".scanner.energy_cost").getString() + " " + TextComponentUtil.getFormattedStorageUnit(recipe.getEnergyCost()) + " IE", 67, 32, 0.65f, 0x00a200, false);
+        GuiUtil.renderScaled(poseStack, Component.translatable("gui." + IndReb.MODID + ".scanner.matter_cost").getString() + " " + TextComponentUtil.getFormattedStorageUnit(recipe.getMatterCost(), true) + " mB", 67, 25, 0.65f, 0x00a200, false);
+        GuiUtil.renderScaled(poseStack, Component.translatable("gui." + IndReb.MODID + ".scanner.energy_cost").getString() + " " + TextComponentUtil.getFormattedStorageUnit(recipe.getEnergyCost(), true) + " IE", 67, 32, 0.65f, 0x00a200, false);
 
         GuiUtil.renderScaled(poseStack, recipe.getTickEnergyCost() + " IE/T", 0, 48, 0.75f, 0x7E7E7E, false);
     }

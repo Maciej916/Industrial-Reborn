@@ -43,6 +43,7 @@ import com.maciej916.indreb.common.block.impl.machine.standard.fermenter.BlockFe
 import com.maciej916.indreb.common.block.impl.machine.standard.ore_washing_plant.BlockOreWashingPlant;
 import com.maciej916.indreb.common.block.impl.machine.standard.thermal_centrifuge.BlockThermalCentrifuge;
 import com.maciej916.indreb.common.block.impl.misc.luminator.BlockLuminator;
+import com.maciej916.indreb.common.block.impl.misc.pattern_storage.BlockPatternStorage;
 import com.maciej916.indreb.common.block.impl.reinforced.*;
 import com.maciej916.indreb.common.block.impl.transformer.BlockTransformer;
 import com.maciej916.indreb.common.block.impl.wood.*;
@@ -200,6 +201,9 @@ public final class ModBlocks {
     public static final RegistryObject<Block> MATTER_FABRICATOR = registerBlock("matter_fabricator", BlockMatterFabricator::new);
 
     public static final RegistryObject<Block> SCANNER = registerBlock("scanner", BlockScanner::new);
+
+
+    public static final RegistryObject<Block> PATTERN_STORAGE = registerBlock("pattern_storage", BlockPatternStorage::new);
 
 
 
