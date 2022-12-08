@@ -195,12 +195,12 @@ public class TagsBlock extends BlockTagsProvider {
                 .add(ModBlocks.FROST_HAZARD_SIGN_BLOCK.get())
                 .add(ModBlocks.NOISE_HAZARD_SIGN_BLOCK.get())
 
-                .add(ModBlocks.BATTERY_BOX.get())
+//                .add(ModBlocks.BATTERY_BOX.get())
                 .add(ModBlocks.CESU.get())
                 .add(ModBlocks.MFE.get())
                 .add(ModBlocks.MFSU.get())
 
-                .add(ModBlocks.CHARGE_PAD_BATTERY_BOX.get())
+//                .add(ModBlocks.CHARGE_PAD_BATTERY_BOX.get())
                 .add(ModBlocks.CHARGE_PAD_CESU.get())
                 .add(ModBlocks.CHARGE_PAD_MFE.get())
                 .add(ModBlocks.CHARGE_PAD_MFSU.get())

@@ -1,4 +1,4 @@
-// 1.19.2	2022-12-08T09:30:41.7395742	Industrial Reborn Tags
+// 1.19.2	2022-12-08T12:32:40.3431861	Industrial Reborn Tags
 584f27d5cda6624a90c02ee64a9dc93732656a81 data/forge/tags/blocks/ores/lead.json
 dc8b618ddd7161b490823aeb59e2df19f25dfe73 data/forge/tags/blocks/ores/silver.json
 0dac5adaf00177f4341412a4b9cc76d1d41929eb data/forge/tags/blocks/ores/tin.json
@@ -22,7 +22,7 @@ d3f6e174ad9717d5ab1643dbf9dec8879d1e7323 data/minecraft/tags/blocks/mineable/hoe
 80bf61a4507a2181d89942d97d806c0452dbba8b data/minecraft/tags/blocks/mineable/pickaxe.json
 30a0160a6d0c2c693f56a1f87bf443cd873f1800 data/minecraft/tags/blocks/mineable/shovel.json
 7ae20b615e5b2785ea26af96541375aa659239e5 data/minecraft/tags/blocks/needs_iron_tool.json
-e3649c4f925997deda58f36c77c9c4797d57eca6 data/minecraft/tags/blocks/needs_stone_tool.json
+fdf47642d0e85265f32ea9ffe94dde6201bccc0a data/minecraft/tags/blocks/needs_stone_tool.json
 84e809d7677b635e87e57220ab5773721c7899d6 data/minecraft/tags/blocks/planks.json
 2ec23d538dde9c5663e2df4ef67e6c503b747048 data/minecraft/tags/blocks/pressure_plates.json
 14f4b241ac8c05fc1064ca0af226f43f7f9b1c5b data/minecraft/tags/blocks/saplings.json

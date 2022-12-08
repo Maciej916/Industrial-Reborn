@@ -29,7 +29,7 @@ public class BlockItemElectric extends IndRebBlockItem {
 
         CompoundTag tag = itemStack.getOrCreateTag();
         if (tag.get("BlockEntityTag") instanceof CompoundTag ct) {
-            int energy = ct.getInt("energy");
+            int energy = ct.getInt("energy_stored");
             if (energy > 0) {
                 if (getBlock() instanceof IElectricMachine bem) {
                     EnergyTier energyTier = bem.getEnergyTier();
@@ -42,4 +42,6 @@ public class BlockItemElectric extends IndRebBlockItem {
             }
         }
     }
+
+
 }

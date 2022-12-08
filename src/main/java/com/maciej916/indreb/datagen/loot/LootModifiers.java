@@ -9,8 +9,8 @@ import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
 import net.minecraftforge.common.data.GlobalLootModifierProvider;
 import net.minecraftforge.common.loot.LootTableIdCondition;
 
-public class LootModifier extends GlobalLootModifierProvider {
-    public LootModifier(DataGenerator gen) {
+public class LootModifiers extends GlobalLootModifierProvider {
+    public LootModifiers(DataGenerator gen) {
         super(gen, IndReb.MODID);
     }
 

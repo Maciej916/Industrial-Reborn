@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "indreb:hv_cable"
+        }
+      ],
+      "name": "hv_cable",
+      "rolls": 1.0
+    }
+  ]
+}

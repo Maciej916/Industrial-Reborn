@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "indreb:teleport_anchor"
+        }
+      ],
+      "name": "teleport_anchor",
+      "rolls": 1.0
+    }
+  ]
+}

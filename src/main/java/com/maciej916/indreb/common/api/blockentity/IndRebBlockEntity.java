@@ -668,6 +668,10 @@ public class IndRebBlockEntity extends BaseBlockEntity implements IIndRebBlockEn
 
         if (energyStorage != null) {
             this.energyStorage.deserializeNBT(tag.getCompound("energy"));
+
+            if (tag.contains("energy_stored")) {
+                energyStorage.setEnergy(tag.getInt("energy_stored"));
+            }
         }
 
         if (baseStorage != null) {

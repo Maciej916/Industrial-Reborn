@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "indreb:raw_tin_block"
+        }
+      ],
+      "name": "raw_tin_block",
+      "rolls": 1.0
+    }
+  ]
+}

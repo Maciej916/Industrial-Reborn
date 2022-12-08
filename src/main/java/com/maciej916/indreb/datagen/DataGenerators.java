@@ -1,6 +1,7 @@
 package com.maciej916.indreb.datagen;
 
-import com.maciej916.indreb.datagen.loot.LootModifier;
+import com.maciej916.indreb.datagen.loot.LootModifiers;
+import com.maciej916.indreb.datagen.loot.LootTables;
 import com.maciej916.indreb.datagen.recipe.provider.*;
 import com.maciej916.indreb.datagen.tags.TagsBlock;
 import com.maciej916.indreb.datagen.tags.TagsItem;
@@ -25,9 +26,7 @@ public class DataGenerators {
         generator.addProvider(event.includeServer(), blockTags);
         generator.addProvider(event.includeServer(), new TagsItem(generator, blockTags, event.getExistingFileHelper()));
 
-        generator.addProvider(event.includeServer(), new LootModifier(generator));
-
-
+        generator.addProvider(event.includeServer(), new LootModifiers(generator));
 
         /* RECIPES */
 
@@ -52,5 +51,10 @@ public class DataGenerators {
 
         generator.addProvider(event.includeServer(), new ScrapBoxProvider(generator));
         generator.addProvider(event.includeServer(), new MatterAmplifierProvider(generator));
+
+        /* LOOT TABLES */
+
+        generator.addProvider(event.includeServer(), new LootTables(generator));
+
     }
 }

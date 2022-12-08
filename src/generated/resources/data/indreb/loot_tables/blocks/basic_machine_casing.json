@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "indreb:basic_machine_casing"
+        }
+      ],
+      "name": "basic_machine_casing",
+      "rolls": 1.0
+    }
+  ]
+}

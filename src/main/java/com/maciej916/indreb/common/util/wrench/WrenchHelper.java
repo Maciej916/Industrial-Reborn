@@ -13,13 +13,13 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Rotation;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraftforge.registries.ForgeRegistries;
 
 import java.util.HashMap;
 import java.util.List;
@@ -135,13 +135,11 @@ public class WrenchHelper {
     public static void dismantleBlock(BlockState state, Level world, BlockPos pos, BlockEntity be) {
         if (world instanceof ServerLevel serverLevel) {
             ItemStack drop = new ItemStack(state.getBlock());
-            CompoundTag tag = drop.getOrCreateTag();
             if (be instanceof IIndRebBlockEntity irb) {
                 if (irb.hasEnergyStorage()) {
                     CompoundTag newTag = new CompoundTag();
-                    newTag.putString("id", ForgeRegistries.ITEMS.getKey(drop.getItem()).toString());
-                    newTag.putInt("energy", irb.getEnergyStorage().energyStored());
-                    tag.put("BlockEntityTag", newTag);
+                    newTag.putInt("energy_stored", irb.getEnergyStorage().energyStored());
+                    BlockItem.setBlockEntityData(drop, be.getType(), newTag);
                 }
             }
             Block.popResource(serverLevel, pos, drop);

@@ -1,0 +1,38 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "function": "minecraft:copy_name",
+              "source": "block_entity"
+            },
+            {
+              "type": "indreb:charge_pad",
+              "entries": [
+                {
+                  "type": "minecraft:dynamic",
+                  "name": "minecraft:contents"
+                }
+              ],
+              "function": "minecraft:set_contents"
+            }
+          ],
+          "name": "indreb:charge_pad_battery_box",
+          "weight": 80
+        },
+        {
+          "type": "minecraft:item",
+          "name": "indreb:battery_box",
+          "weight": 20
+        }
+      ],
+      "name": "charge_pad_battery_box",
+      "rolls": 1.0
+    }
+  ]
+}

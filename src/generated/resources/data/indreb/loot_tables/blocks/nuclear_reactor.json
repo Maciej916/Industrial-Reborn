@@ -1,0 +1,38 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "function": "minecraft:copy_name",
+              "source": "block_entity"
+            },
+            {
+              "type": "indreb:nuclear_reactor",
+              "entries": [
+                {
+                  "type": "minecraft:dynamic",
+                  "name": "minecraft:contents"
+                }
+              ],
+              "function": "minecraft:set_contents"
+            }
+          ],
+          "name": "indreb:nuclear_reactor",
+          "weight": 80
+        },
+        {
+          "type": "minecraft:item",
+          "name": "indreb:basic_machine_casing",
+          "weight": 20
+        }
+      ],
+      "name": "nuclear_reactor",
+      "rolls": 1.0
+    }
+  ]
+}
