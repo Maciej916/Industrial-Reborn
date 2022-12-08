@@ -62,14 +62,14 @@ import net.minecraftforge.registries.RegistryObject;
 public final class ModBlocks {
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, IndReb.MODID);
 
-    public static final RegistryObject<Block> TIN_ORE = registerBlock("tin_ore", () -> new BlockOre(Material.STONE, 3f, 5F));
-    public static final RegistryObject<Block> DEEPSLATE_TIN_ORE = registerBlock("deepslate_tin_ore", () -> new BlockOre(Material.STONE, 3f, 6F));
-    public static final RegistryObject<Block> LEAD_ORE = registerBlock("lead_ore", () -> new BlockOre(Material.STONE, 3f, 5F));
-    public static final RegistryObject<Block> DEEPSLATE_LEAD_ORE = registerBlock("deepslate_lead_ore", () -> new BlockOre(Material.STONE, 3f, 6F));
-    public static final RegistryObject<Block> URANIUM_ORE = registerBlock("uranium_ore", () -> new BlockOre(Material.STONE, 3f, 5F));
-    public static final RegistryObject<Block> DEEPSLATE_URANIUM_ORE = registerBlock("deepslate_uranium_ore", () -> new BlockOre(Material.STONE, 3f, 6F));
-    public static final RegistryObject<Block> SILVER_ORE = registerBlock("silver_ore", () -> new BlockOre(Material.STONE, 3f, 5F));
-    public static final RegistryObject<Block> DEEPSLATE_SILVER_ORE = registerBlock("deepslate_silver_ore", () -> new BlockOre(Material.STONE, 3f, 6F));
+    public static final RegistryObject<Block> TIN_ORE = registerBlock("tin_ore", () -> new BlockOre(Material.STONE, 3f, 5F, SoundType.STONE));
+    public static final RegistryObject<Block> DEEPSLATE_TIN_ORE = registerBlock("deepslate_tin_ore", () -> new BlockOre(Material.STONE, 3f, 6F, SoundType.DEEPSLATE));
+    public static final RegistryObject<Block> LEAD_ORE = registerBlock("lead_ore", () -> new BlockOre(Material.STONE, 3f, 5F, SoundType.STONE));
+    public static final RegistryObject<Block> DEEPSLATE_LEAD_ORE = registerBlock("deepslate_lead_ore", () -> new BlockOre(Material.STONE, 3f, 6F, SoundType.DEEPSLATE));
+    public static final RegistryObject<Block> URANIUM_ORE = registerBlock("uranium_ore", () -> new BlockOre(Material.STONE, 3f, 5F, SoundType.STONE));
+    public static final RegistryObject<Block> DEEPSLATE_URANIUM_ORE = registerBlock("deepslate_uranium_ore", () -> new BlockOre(Material.STONE, 3f, 6F, SoundType.DEEPSLATE));
+    public static final RegistryObject<Block> SILVER_ORE = registerBlock("silver_ore", () -> new BlockOre(Material.STONE, 3f, 5F, SoundType.STONE));
+    public static final RegistryObject<Block> DEEPSLATE_SILVER_ORE = registerBlock("deepslate_silver_ore", () -> new BlockOre(Material.STONE, 3f, 6F, SoundType.DEEPSLATE));
 
     public static final RegistryObject<Block> RAW_TIN_BLOCK = registerBlock("raw_tin_block", () -> new BlockResource(Material.METAL, 1f, 3f, SoundType.METAL));
     public static final RegistryObject<Block> RAW_LEAD_BLOCK = registerBlock("raw_lead_block", () -> new BlockResource(Material.METAL, 1f, 3f, SoundType.METAL));
@@ -203,7 +203,6 @@ public final class ModBlocks {
 
     public static final RegistryObject<Block> SCANNER = registerBlock("scanner", BlockScanner::new);
     public static final RegistryObject<Block> REPLICATOR = registerBlock("replicator", BlockReplicator::new);
-
 
     public static final RegistryObject<Block> PATTERN_STORAGE = registerBlock("pattern_storage", BlockPatternStorage::new);
     public static final RegistryObject<Block> TELEPORT_ANCHOR = registerBlock("teleport_anchor", BlockWIP::new);

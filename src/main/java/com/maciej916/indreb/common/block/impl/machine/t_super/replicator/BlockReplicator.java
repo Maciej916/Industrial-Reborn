@@ -6,13 +6,17 @@ import com.maciej916.indreb.common.block.ModBlocks;
 import com.maciej916.indreb.common.config.impl.ServerConfig;
 import com.maciej916.indreb.common.enums.EnumLang;
 import com.maciej916.indreb.common.util.BlockEntityUtil;
+import com.maciej916.indreb.common.util.BlockStateHelper;
 import com.maciej916.indreb.common.util.Constants;
 import com.maciej916.indreb.common.util.TextComponentUtil;
+import com.mojang.math.Vector3f;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.particles.DustParticleOptions;
 import net.minecraft.network.chat.Component;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
@@ -24,11 +28,16 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
+import net.minecraft.world.phys.Vec3;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
 public class BlockReplicator extends BaseElectricMachineBlock {
+
+    public static final Vector3f PARTICLE_COLOR = new Vector3f(Vec3.fromRGB24(0XA1800e7c));
 
     public BlockReplicator() {
         super(EnergyTier.SUPER,6, 0);
@@ -52,6 +61,17 @@ public class BlockReplicator extends BaseElectricMachineBlock {
                 Component.translatable(EnumLang.CAPACITY.getTranslationKey()).withStyle(ChatFormatting.GRAY),
                 Component.translatable(EnumLang.POWER.getTranslationKey(), TextComponentUtil.getFormattedStorageUnit(ServerConfig.replicator_energy_capacity.get(), Screen.hasShiftDown())).withStyle(getEnergyTier().getColor())
         ));
+    }
+
+    @OnlyIn(Dist.CLIENT)
+    @Override
+    public void animateTick(BlockState stateIn, Level level, BlockPos pos, RandomSource rand) {
+        if (stateIn.getValue(BlockStateHelper.ACTIVE_PROPERTY)) {
+            double d0 = (double)pos.getX() + 0.5D;
+            double d1 = (double)pos.getY() + 1.05d;
+            double d2 = (double)pos.getZ() + 0.5D;
+            level.addParticle(new DustParticleOptions(PARTICLE_COLOR, 1.0F), d0, d1, d2, 0.0D, 0.0D, 0.0D);
+        }
     }
 
     @Override

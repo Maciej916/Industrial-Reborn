@@ -2,6 +2,7 @@ package com.maciej916.indreb.common.api.block;
 
 import com.maciej916.indreb.common.api.interfaces.item.IPainter;
 import com.maciej916.indreb.common.sound.ModSounds;
+import com.maciej916.indreb.common.util.RenderUtils;
 import com.mojang.math.Vector3f;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -23,18 +24,6 @@ import java.util.Random;
 
 public class BlockFoamWall extends Block {
 
-    public static float getRed(int color) {
-        return (color >> 16 & 0xFF) / 255.0F;
-    }
-
-    public static float getGreen(int color) {
-        return (color >> 8 & 0xFF) / 255.0F;
-    }
-
-    public static float getBlue(int color) {
-        return (color & 0xFF) / 255.0F;
-    }
-
     public BlockFoamWall(MaterialColor color) {
         super(Block.Properties.of(Material.STONE, color).strength(5.0F, 4.0F).sound(SoundType.STONE));
     }
@@ -51,9 +40,7 @@ public class BlockFoamWall extends Block {
                 Direction dir = blockHitResult.getDirection();
 
                 int rgbColor = painter.getColor().calculateRGBColor(MaterialColor.Brightness.NORMAL);
-
-//                Vector3f COLOR = new Vector3f(Vec3.fromRGB24(rgbColor));
-                Vector3f COLOR = new Vector3f(getBlue(rgbColor), getGreen(rgbColor), getRed(rgbColor));
+                Vector3f COLOR = new Vector3f(RenderUtils.getBlue(rgbColor), RenderUtils.getGreen(rgbColor), RenderUtils.getRed(rgbColor));
                 for(int i = 0; i < 5; i++) {
                     double x,y,z;
                     if (dir == Direction.UP || dir == Direction.DOWN) {

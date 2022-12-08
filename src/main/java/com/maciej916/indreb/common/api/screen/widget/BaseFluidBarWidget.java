@@ -3,6 +3,7 @@ package com.maciej916.indreb.common.api.screen.widget;
 import com.maciej916.indreb.IndReb;
 import com.maciej916.indreb.common.api.fluid.FluidStorage;
 import com.maciej916.indreb.common.api.interfaces.screen.IGuiHelper;
+import com.maciej916.indreb.common.util.RenderUtils;
 import com.maciej916.indreb.common.util.SpriteUtil;
 import com.maciej916.indreb.common.util.TextComponentUtil;
 import com.mojang.blaze3d.systems.RenderSystem;
@@ -17,8 +18,6 @@ import net.minecraft.world.level.material.Fluids;
 import net.minecraftforge.client.extensions.common.IClientFluidTypeExtensions;
 import net.minecraftforge.fluids.capability.templates.FluidTank;
 import org.jetbrains.annotations.NotNull;
-
-import static com.maciej916.indreb.common.util.GuiUtil.*;
 
 public abstract class BaseFluidBarWidget extends BaseWidget {
 
@@ -56,7 +55,7 @@ public abstract class BaseFluidBarWidget extends BaseWidget {
 
             int color = IClientFluidTypeExtensions.of(fluidStorage.getFluid().getFluid()).getTintColor();
 
-            RenderSystem.setShaderColor(getRed(color), getGreen(color), getBlue(color), getAlpha(color));
+            RenderSystem.setShaderColor(RenderUtils.getRed(color), RenderUtils.getGreen(color), RenderUtils.getBlue(color), RenderUtils.getAlpha(color));
 
             RenderSystem.setShaderTexture(0, InventoryMenu.BLOCK_ATLAS);
             TextureAtlasSprite icon = SpriteUtil.getFluidSprite(fluidStorage.getFluid());

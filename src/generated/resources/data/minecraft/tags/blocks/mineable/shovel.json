@@ -1,0 +1,10 @@
+{
+  "values": [
+    "indreb:resin_block",
+    "indreb:resin_sheet",
+    "indreb:rubber_block",
+    "indreb:rubber_sheet",
+    "indreb:construction_foam",
+    "indreb:reinforced_construction_foam"
+  ]
+}

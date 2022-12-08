@@ -1,0 +1,20 @@
+{
+  "values": [
+    "indreb:uranium_ore",
+    "indreb:deepslate_tin_ore",
+    "indreb:deepslate_lead_ore",
+    "indreb:deepslate_uranium_ore",
+    "indreb:deepslate_silver_ore",
+    "indreb:raw_uranium_block",
+    "indreb:uranium_block",
+    "indreb:steel_block",
+    "indreb:reinforced_glass",
+    "indreb:reinforced_stone",
+    "indreb:reinforced_stone_slab",
+    "indreb:reinforced_stone_stairs",
+    "indreb:reinforced_stone_bricks",
+    "indreb:smooth_reinforced_stone",
+    "indreb:reinforced_stone_brick_wall",
+    "indreb:reinforced_door"
+  ]
+}

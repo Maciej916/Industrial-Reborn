@@ -1,0 +1,16 @@
+{
+  "values": [
+    "indreb:rubber_log",
+    "indreb:rubber_wood",
+    "indreb:rubber_planks",
+    "indreb:rubber_stairs",
+    "indreb:rubber_slab",
+    "indreb:rubber_plate",
+    "indreb:rubber_fence",
+    "indreb:rubber_gate",
+    "indreb:rubber_door",
+    "indreb:rubber_trap_door",
+    "indreb:battery_box",
+    "indreb:charge_pad_battery_box"
+  ]
+}
