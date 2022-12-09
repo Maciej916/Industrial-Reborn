@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "indreb/block/raw",
+  "key": {
+    "r": {
+      "tag": "forge:raw_materials/lead"
+    }
+  },
+  "pattern": [
+    "rrr",
+    "rrr",
+    "rrr"
+  ],
+  "result": {
+    "item": "indreb:raw_lead_block"
+  }
+}

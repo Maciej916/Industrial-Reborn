@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "indreb/reinforced_stone",
+  "key": {
+    "a": {
+      "item": "indreb:advanced_alloy"
+    },
+    "g": {
+      "item": "minecraft:glass"
+    },
+    "r": {
+      "item": "indreb:reinforced_stone"
+    }
+  },
+  "pattern": [
+    "rgr",
+    "aga",
+    "rgr"
+  ],
+  "result": {
+    "count": 6,
+    "item": "indreb:reinforced_glass"
+  }
+}

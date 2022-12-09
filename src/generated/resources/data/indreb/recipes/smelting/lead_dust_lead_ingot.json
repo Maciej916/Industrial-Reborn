@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "cookingtime": 200,
+  "experience": 0.8,
+  "ingredient": {
+    "tag": "forge:dusts/lead"
+  },
+  "result": "indreb:lead_ingot"
+}

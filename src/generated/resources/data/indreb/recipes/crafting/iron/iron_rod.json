@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "indreb/iron",
+  "key": {
+    "i": {
+      "tag": "forge:ingots/iron"
+    }
+  },
+  "pattern": [
+    "i  ",
+    "i  "
+  ],
+  "result": {
+    "count": 4,
+    "item": "indreb:iron_rod"
+  }
+}

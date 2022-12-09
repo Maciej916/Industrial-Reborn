@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "indreb/items/bronze",
+  "key": {
+    "r": {
+      "item": "indreb:rubber"
+    },
+    "w": {
+      "item": "minecraft:white_wool"
+    }
+  },
+  "pattern": [
+    "r r",
+    "r r",
+    "rwr"
+  ],
+  "result": {
+    "item": "indreb:rubber_boots"
+  }
+}

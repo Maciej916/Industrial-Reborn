@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "indreb/generator",
+  "key": {
+    "a": {
+      "item": "indreb:advanced_alloy"
+    },
+    "c": {
+      "item": "indreb:advanced_circuit"
+    },
+    "g": {
+      "item": "indreb:generator"
+    },
+    "m": {
+      "item": "indreb:reactor_chamber"
+    }
+  },
+  "pattern": [
+    "aca",
+    "mmm",
+    "aga"
+  ],
+  "result": {
+    "item": "indreb:nuclear_reactor"
+  }
+}

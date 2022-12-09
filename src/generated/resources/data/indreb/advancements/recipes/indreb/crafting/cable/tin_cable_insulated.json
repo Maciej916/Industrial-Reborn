@@ -1,0 +1,47 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "indreb:crafting/cable/tin_cable_insulated"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "rubber": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:rubber"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "tin_cable": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:tin_cable"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "rubber",
+      "tin_cable",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "indreb:crafting/cable/tin_cable_insulated"
+    ]
+  }
+}

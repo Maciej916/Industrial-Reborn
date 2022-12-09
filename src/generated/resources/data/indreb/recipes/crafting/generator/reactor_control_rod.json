@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "indreb/generator",
+  "key": {
+    "a": {
+      "item": "indreb:advanced_alloy"
+    },
+    "c": {
+      "item": "indreb:reactor_chamber"
+    },
+    "r": {
+      "item": "indreb:fuel_rod"
+    }
+  },
+  "pattern": [
+    "ara",
+    "rcr",
+    "ara"
+  ],
+  "result": {
+    "item": "indreb:reactor_control_rod"
+  }
+}

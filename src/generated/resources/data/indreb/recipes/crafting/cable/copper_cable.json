@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "indreb/cable",
+  "ingredients": [
+    {
+      "item": "indreb:cutter"
+    },
+    {
+      "tag": "forge:plates/copper"
+    }
+  ],
+  "result": {
+    "count": 2,
+    "item": "indreb:copper_cable"
+  }
+}

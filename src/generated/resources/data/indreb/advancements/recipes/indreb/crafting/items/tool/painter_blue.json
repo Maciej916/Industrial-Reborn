@@ -1,0 +1,47 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "blue_dye": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:blue_dye"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "indreb:crafting/items/tool/painter_blue"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "painter": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:painter"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "painter",
+      "blue_dye",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "indreb:crafting/items/tool/painter_blue"
+    ]
+  }
+}

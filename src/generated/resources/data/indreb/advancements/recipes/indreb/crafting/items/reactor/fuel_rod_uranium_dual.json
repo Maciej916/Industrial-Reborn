@@ -1,0 +1,47 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "fuel_rod_uranium": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:fuel_rod_uranium"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "indreb:crafting/items/reactor/fuel_rod_uranium_dual"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "iron_plate": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:iron_plate"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "iron_plate",
+      "fuel_rod_uranium",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "indreb:crafting/items/reactor/fuel_rod_uranium_dual"
+    ]
+  }
+}

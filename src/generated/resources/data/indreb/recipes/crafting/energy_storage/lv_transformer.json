@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "indreb/transformer",
+  "key": {
+    "b": {
+      "tag": "forge:plates/bronze"
+    },
+    "c": {
+      "item": "indreb:copper_cable_insulated"
+    },
+    "o": {
+      "item": "indreb:coil"
+    },
+    "p": {
+      "tag": "minecraft:planks"
+    }
+  },
+  "pattern": [
+    "pcp",
+    "bob",
+    "pcp"
+  ],
+  "result": {
+    "item": "indreb:lv_transformer"
+  }
+}

@@ -1,0 +1,86 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "advanced_alloy": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:advanced_alloy"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "advanced_circuit": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:advanced_circuit"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "advanced_machine_casing": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:advanced_machine_casing"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "indreb:crafting/generator/advanced_solar_panel"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "reinforced_glass": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:reinforced_glass"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "solar_panel": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:solar_panel"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "reinforced_glass",
+      "advanced_alloy",
+      "solar_panel",
+      "advanced_circuit",
+      "advanced_machine_casing",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "indreb:crafting/generator/advanced_solar_panel"
+    ]
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "indreb/items/bronze",
+  "key": {
+    "b": {
+      "tag": "forge:ingots/bronze"
+    },
+    "s": {
+      "tag": "forge:rods/wooden"
+    }
+  },
+  "pattern": [
+    "bbb",
+    " s ",
+    " s "
+  ],
+  "result": {
+    "item": "indreb:bronze_pickaxe"
+  }
+}

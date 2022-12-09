@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "indreb/machines/basic",
+  "key": {
+    "C": {
+      "item": "indreb:basic_machine_casing"
+    },
+    "c": {
+      "item": "indreb:simple_compressor"
+    },
+    "s": {
+      "tag": "forge:cobblestone"
+    },
+    "x": {
+      "item": "indreb:electronic_circuit"
+    }
+  },
+  "pattern": [
+    "scs",
+    "sCs",
+    "sxs"
+  ],
+  "result": {
+    "item": "indreb:compressor"
+  }
+}

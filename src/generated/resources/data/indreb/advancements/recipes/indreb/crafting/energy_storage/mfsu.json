@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "indreb:crafting/energy_storage/mfsu"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "lapotron_crystal": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:lapotron_crystal"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "lapotron_crystal",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "indreb:crafting/energy_storage/mfsu"
+    ]
+  }
+}

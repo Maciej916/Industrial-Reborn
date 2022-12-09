@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "indreb/items/tool",
+  "key": {
+    "p": {
+      "tag": "minecraft:planks"
+    }
+  },
+  "pattern": [
+    " p ",
+    "ppp",
+    "p  "
+  ],
+  "result": {
+    "item": "indreb:treetap"
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "indreb:smelting/lead_ore_lead_ingot"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "lead_ore": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:lead_ore"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "lead_ore",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "indreb:smelting/lead_ore_lead_ingot"
+    ]
+  }
+}

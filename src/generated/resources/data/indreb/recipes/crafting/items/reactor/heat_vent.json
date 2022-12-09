@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "indreb/items/reactor",
+  "key": {
+    "b": {
+      "item": "minecraft:iron_bars"
+    },
+    "e": {
+      "item": "indreb:electric_motor"
+    },
+    "i": {
+      "tag": "forge:plates/iron"
+    }
+  },
+  "pattern": [
+    "bib",
+    "iei",
+    "bib"
+  ],
+  "result": {
+    "item": "indreb:heat_vent"
+  }
+}

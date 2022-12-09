@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:blasting",
+  "cookingtime": 100,
+  "experience": 0.6,
+  "ingredient": {
+    "tag": "forge:raw_materials/silver"
+  },
+  "result": "indreb:silver_ingot"
+}

@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "indreb/items/crop",
+  "ingredients": [
+    {
+      "item": "indreb:fertilizer"
+    },
+    {
+      "item": "minecraft:bone_meal"
+    }
+  ],
+  "result": {
+    "count": 2,
+    "item": "indreb:fertilizer"
+  }
+}

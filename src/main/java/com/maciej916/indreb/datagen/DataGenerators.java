@@ -2,7 +2,11 @@ package com.maciej916.indreb.datagen;
 
 import com.maciej916.indreb.datagen.loot.LootModifiers;
 import com.maciej916.indreb.datagen.loot.LootTables;
-import com.maciej916.indreb.datagen.recipe.provider.*;
+import com.maciej916.indreb.datagen.recipe.provider.BlastingRecipeProvider;
+import com.maciej916.indreb.datagen.recipe.provider.SmeltingRecipeProvider;
+import com.maciej916.indreb.datagen.recipe.provider.StonecuttingRecipeProvider;
+import com.maciej916.indreb.datagen.recipe.provider.crafting.*;
+import com.maciej916.indreb.datagen.recipe.provider.custom.*;
 import com.maciej916.indreb.datagen.tags.TagsBlock;
 import com.maciej916.indreb.datagen.tags.TagsItem;
 import com.maciej916.indreb.datagen.texture.BlockTextures;
@@ -51,6 +55,42 @@ public class DataGenerators {
 
         generator.addProvider(event.includeServer(), new ScrapBoxProvider(generator));
         generator.addProvider(event.includeServer(), new MatterAmplifierProvider(generator));
+
+        generator.addProvider(event.includeServer(), new SmeltingRecipeProvider(generator));
+        generator.addProvider(event.includeServer(), new BlastingRecipeProvider(generator));
+        generator.addProvider(event.includeServer(), new StonecuttingRecipeProvider(generator));
+
+        generator.addProvider(event.includeServer(), new ReinforcedStoneProvider(generator));
+        generator.addProvider(event.includeServer(), new ConstructionFoamProvider(generator));
+        generator.addProvider(event.includeServer(), new BlockProvider(generator));
+        generator.addProvider(event.includeServer(), new CasingProvider(generator));
+        generator.addProvider(event.includeServer(), new IronProvider(generator));
+        generator.addProvider(event.includeServer(), new WoodProvider(generator));
+        generator.addProvider(event.includeServer(), new DecorationProvider(generator));
+        generator.addProvider(event.includeServer(), new ExplosiveProvider(generator));
+        generator.addProvider(event.includeServer(), new CableProvider(generator));
+        generator.addProvider(event.includeServer(), new MiscProvider(generator));
+        generator.addProvider(event.includeServer(), new EnergyStorageProvider(generator));
+        generator.addProvider(event.includeServer(), new GenerattorProvider(generator));
+        generator.addProvider(event.includeServer(), new MachinesSimpleProvider(generator));
+        generator.addProvider(event.includeServer(), new MachinesBasicProvider(generator));
+        generator.addProvider(event.includeServer(), new MachinesStandardProvider(generator));
+        generator.addProvider(event.includeServer(), new MachinesAdvancedProvider(generator));
+        generator.addProvider(event.includeServer(), new MachinesSuperProvider(generator));
+
+        generator.addProvider(event.includeServer(), new ItemsReactorProvider(generator));
+        generator.addProvider(event.includeServer(), new ItemsUpgradeProvider(generator));
+        generator.addProvider(event.includeServer(), new ItemsCanProvider(generator));
+        generator.addProvider(event.includeServer(), new ItemsToolProvider(generator));
+        generator.addProvider(event.includeServer(), new ItemsPainterProvider(generator));
+        generator.addProvider(event.includeServer(), new ItemsElectricProvider(generator));
+        generator.addProvider(event.includeServer(), new ItemsCropProvider(generator));
+        generator.addProvider(event.includeServer(), new ItemsBasicProvider(generator));
+        generator.addProvider(event.includeServer(), new ItemsCircuitProvider(generator));
+        generator.addProvider(event.includeServer(), new ItemsStorageProvider(generator));
+        generator.addProvider(event.includeServer(), new ItemsHammerProvider(generator));
+        generator.addProvider(event.includeServer(), new ItemsArmourProvider(generator));
+
 
         /* LOOT TABLES */
 

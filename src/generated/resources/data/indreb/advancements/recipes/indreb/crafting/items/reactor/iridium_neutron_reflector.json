@@ -1,0 +1,60 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "copper_plate": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:copper_plate"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "indreb:crafting/items/reactor/iridium_neutron_reflector"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "iridium_plate": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:iridium_plate"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "neutron_reflector": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:neutron_reflector"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "copper_plate",
+      "iridium_plate",
+      "neutron_reflector",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "indreb:crafting/items/reactor/iridium_neutron_reflector"
+    ]
+  }
+}

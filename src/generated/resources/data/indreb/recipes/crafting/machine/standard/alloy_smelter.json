@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "indreb/machines/standard",
+  "key": {
+    "b": {
+      "item": "indreb:basic_machine_casing"
+    },
+    "e": {
+      "item": "indreb:advanced_circuit"
+    },
+    "f": {
+      "item": "indreb:electric_furnace"
+    },
+    "h": {
+      "item": "indreb:heat_conductor"
+    }
+  },
+  "pattern": [
+    " e ",
+    "fbf",
+    " h "
+  ],
+  "result": {
+    "item": "indreb:alloy_smelter"
+  }
+}

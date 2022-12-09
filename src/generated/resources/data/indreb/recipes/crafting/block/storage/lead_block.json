@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "indreb/block/storage",
+  "key": {
+    "r": {
+      "tag": "forge:ingots/lead"
+    }
+  },
+  "pattern": [
+    "rrr",
+    "rrr",
+    "rrr"
+  ],
+  "result": {
+    "item": "indreb:lead_block"
+  }
+}

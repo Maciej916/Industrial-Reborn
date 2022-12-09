@@ -1,0 +1,47 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "indreb:crafting/items/upgrade/redstone_signal_inverter_upgrade"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "lever": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:lever"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "tin_plate": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:tin_plate"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "lever",
+      "tin_plate",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "indreb:crafting/items/upgrade/redstone_signal_inverter_upgrade"
+    ]
+  }
+}

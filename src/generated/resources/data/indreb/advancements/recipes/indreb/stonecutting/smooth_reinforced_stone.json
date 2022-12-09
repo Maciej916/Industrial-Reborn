@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "indreb:stonecutting/smooth_reinforced_stone"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "smooth_reinforced_stone": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:smooth_reinforced_stone"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "smooth_reinforced_stone",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "indreb:stonecutting/smooth_reinforced_stone"
+    ]
+  }
+}

@@ -1,0 +1,86 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "advanced_machine_casing": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:advanced_machine_casing"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "coil": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:coil"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "electric_motor": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:electric_motor"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "indreb:crafting/machine/standard/thermal_centrifuge"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "heat_conductor": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:heat_conductor"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "iron_plate": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:iron_plate"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "iron_plate",
+      "advanced_machine_casing",
+      "heat_conductor",
+      "coil",
+      "electric_motor",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "indreb:crafting/machine/standard/thermal_centrifuge"
+    ]
+  }
+}

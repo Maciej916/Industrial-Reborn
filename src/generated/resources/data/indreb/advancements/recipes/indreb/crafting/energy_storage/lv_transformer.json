@@ -1,0 +1,73 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "bronze_plate": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:bronze_plate"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "coil": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:coil"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "copper_cable_insulated": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:copper_cable_insulated"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "indreb:crafting/energy_storage/lv_transformer"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "oak_planks": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:oak_planks"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "oak_planks",
+      "copper_cable_insulated",
+      "coil",
+      "bronze_plate",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "indreb:crafting/energy_storage/lv_transformer"
+    ]
+  }
+}

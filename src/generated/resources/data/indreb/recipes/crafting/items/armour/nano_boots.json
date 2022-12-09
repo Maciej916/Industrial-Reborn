@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "indreb/items/nano",
+  "key": {
+    "c": {
+      "item": "indreb:carbon_plate"
+    },
+    "e": {
+      "item": "indreb:energy_crystal"
+    }
+  },
+  "pattern": [
+    "c c",
+    "cec"
+  ],
+  "result": {
+    "item": "indreb:nano_boots"
+  }
+}

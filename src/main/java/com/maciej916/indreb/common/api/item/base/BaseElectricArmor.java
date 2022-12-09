@@ -102,7 +102,6 @@ public abstract class BaseElectricArmor extends ArmorItem implements IElectricIt
             list.add(new ItemStack(this));
         } else if (allowedIn(tab)) {
             list.add(new ItemStack(this));
-
             ItemStack full = new ItemStack(this);
             IEnergyStorage cap = CapabilityUtil.getCapabilityHelper(full, ModCapabilities.ENERGY).getValue();
             if (cap != null) {

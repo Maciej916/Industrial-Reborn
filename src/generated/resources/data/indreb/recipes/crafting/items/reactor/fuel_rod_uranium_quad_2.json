@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "indreb/items/reactor",
+  "key": {
+    "c": {
+      "tag": "forge:plates/copper"
+    },
+    "i": {
+      "tag": "forge:plates/iron"
+    },
+    "r": {
+      "item": "indreb:fuel_rod_uranium"
+    }
+  },
+  "pattern": [
+    "rir",
+    "cic",
+    "rir"
+  ],
+  "result": {
+    "item": "indreb:fuel_rod_uranium_quad"
+  }
+}

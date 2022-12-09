@@ -1,0 +1,60 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "advanced_battery": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:advanced_battery"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "charging_battery": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:charging_battery"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "indreb:crafting/items/tool/advanced_charging_battery"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "heat_exchanger": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:heat_exchanger"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "heat_exchanger",
+      "advanced_battery",
+      "charging_battery",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "indreb:crafting/items/tool/advanced_charging_battery"
+    ]
+  }
+}

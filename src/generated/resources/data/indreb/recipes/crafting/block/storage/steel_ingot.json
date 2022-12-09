@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "indreb/block/storage",
+  "ingredients": [
+    {
+      "tag": "forge:storage_blocks/steel"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "item": "indreb:steel_ingot"
+  }
+}

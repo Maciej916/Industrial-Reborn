@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "indreb/items/reactor",
+  "key": {
+    "i": {
+      "tag": "forge:plates/iron"
+    },
+    "r": {
+      "item": "indreb:fuel_rod_uranium"
+    }
+  },
+  "pattern": [
+    "rir"
+  ],
+  "result": {
+    "item": "indreb:fuel_rod_uranium_dual"
+  }
+}

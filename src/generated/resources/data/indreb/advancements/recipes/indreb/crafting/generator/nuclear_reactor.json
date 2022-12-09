@@ -1,0 +1,73 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "advanced_alloy": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:advanced_alloy"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "advanced_circuit": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:advanced_circuit"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "generator": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:generator"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "indreb:crafting/generator/nuclear_reactor"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "reactor_chamber": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:reactor_chamber"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "advanced_circuit",
+      "advanced_alloy",
+      "reactor_chamber",
+      "generator",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "indreb:crafting/generator/nuclear_reactor"
+    ]
+  }
+}

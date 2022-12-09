@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "indreb/super",
+  "key": {
+    "g": {
+      "item": "indreb:reinforced_glass"
+    },
+    "h": {
+      "item": "indreb:hv_transformer"
+    },
+    "m": {
+      "item": "indreb:mfe"
+    },
+    "s": {
+      "item": "indreb:reinforced_stone"
+    },
+    "t": {
+      "item": "indreb:teleport_anchor"
+    }
+  },
+  "pattern": [
+    "gsg",
+    "ttt",
+    "hmh"
+  ],
+  "result": {
+    "item": "indreb:replicator"
+  }
+}

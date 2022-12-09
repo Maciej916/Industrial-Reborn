@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "indreb:blasting/silver_ore_silver_ingot"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "silver_ore": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:silver_ore"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "silver_ore",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "indreb:blasting/silver_ore_silver_ingot"
+    ]
+  }
+}

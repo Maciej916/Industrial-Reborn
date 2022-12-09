@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "indreb:smelting/silver_dust_silver_ingot"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "silver_dust": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:silver_dust"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "silver_dust",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "indreb:smelting/silver_dust_silver_ingot"
+    ]
+  }
+}

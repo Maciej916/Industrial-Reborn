@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "indreb:crafting/reinforced_stone/reinforced_stone_slab"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "reinforced_stone": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:reinforced_stone"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "reinforced_stone",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "indreb:crafting/reinforced_stone/reinforced_stone_slab"
+    ]
+  }
+}

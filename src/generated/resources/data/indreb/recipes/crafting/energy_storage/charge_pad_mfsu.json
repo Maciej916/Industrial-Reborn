@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "indreb/charge_pad",
+  "key": {
+    "b": {
+      "item": "indreb:mfsu"
+    },
+    "e": {
+      "item": "indreb:advanced_circuit"
+    },
+    "p": {
+      "item": "minecraft:stone_pressure_plate"
+    },
+    "r": {
+      "item": "indreb:rubber"
+    }
+  },
+  "pattern": [
+    "epe",
+    "rbr"
+  ],
+  "result": {
+    "item": "indreb:charge_pad_mfsu"
+  }
+}

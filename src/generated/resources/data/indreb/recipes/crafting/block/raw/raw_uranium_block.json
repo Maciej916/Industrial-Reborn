@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "indreb/block/raw",
+  "key": {
+    "r": {
+      "tag": "forge:raw_materials/uranium"
+    }
+  },
+  "pattern": [
+    "rrr",
+    "rrr",
+    "rrr"
+  ],
+  "result": {
+    "item": "indreb:raw_uranium_block"
+  }
+}

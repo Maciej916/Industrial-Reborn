@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "indreb/items/electric",
+  "key": {
+    "a": {
+      "item": "indreb:advanced_battery"
+    },
+    "c": {
+      "item": "indreb:mining_drill"
+    },
+    "d": {
+      "tag": "forge:gems/diamond"
+    }
+  },
+  "pattern": [
+    " d ",
+    "dcd",
+    " a "
+  ],
+  "result": {
+    "item": "indreb:diamond_drill"
+  }
+}

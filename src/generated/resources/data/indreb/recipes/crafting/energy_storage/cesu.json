@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "indreb/energy_storage",
+  "key": {
+    "b": {
+      "item": "indreb:advanced_battery"
+    },
+    "c": {
+      "item": "indreb:copper_cable"
+    },
+    "p": {
+      "tag": "forge:plates/bronze"
+    }
+  },
+  "pattern": [
+    "pcp",
+    "bbb",
+    "ppp"
+  ],
+  "result": {
+    "item": "indreb:cesu"
+  }
+}

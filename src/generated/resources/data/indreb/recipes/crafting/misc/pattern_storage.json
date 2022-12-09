@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "indreb/misc",
+  "key": {
+    "a": {
+      "item": "indreb:basic_machine_casing"
+    },
+    "c": {
+      "item": "indreb:advanced_circuit"
+    },
+    "m": {
+      "item": "indreb:memory_card"
+    },
+    "r": {
+      "item": "indreb:reinforced_stone"
+    },
+    "s": {
+      "tag": "forge:chests/wooden"
+    }
+  },
+  "pattern": [
+    "rrr",
+    "mam",
+    "scs"
+  ],
+  "result": {
+    "item": "indreb:pattern_storage"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "indreb/advanced",
+  "key": {
+    "a": {
+      "item": "indreb:advanced_machine_casing"
+    },
+    "c": {
+      "item": "indreb:advanced_circuit"
+    },
+    "g": {
+      "item": "minecraft:glowstone_dust"
+    },
+    "l": {
+      "item": "indreb:lapotron_crystal"
+    }
+  },
+  "pattern": [
+    "gcg",
+    "ala",
+    "gcg"
+  ],
+  "result": {
+    "item": "indreb:matter_fabricator"
+  }
+}

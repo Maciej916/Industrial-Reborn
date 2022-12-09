@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "indreb/wood/rubber",
+  "ingredients": [
+    {
+      "item": "indreb:rubber_log"
+    }
+  ],
+  "result": {
+    "count": 4,
+    "item": "indreb:rubber_planks"
+  }
+}

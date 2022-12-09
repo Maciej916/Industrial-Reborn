@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "indreb/block/rubber",
+  "key": {
+    "r": {
+      "item": "indreb:rubber"
+    }
+  },
+  "pattern": [
+    "rr ",
+    "rr "
+  ],
+  "result": {
+    "item": "indreb:rubber_block"
+  }
+}

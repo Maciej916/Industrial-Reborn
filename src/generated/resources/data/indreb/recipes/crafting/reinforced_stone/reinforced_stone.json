@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "indreb/reinforced_stone",
+  "ingredients": [
+    {
+      "item": "indreb:reinforced_construction_foam"
+    },
+    {
+      "item": "minecraft:gravel"
+    },
+    {
+      "item": "minecraft:gravel"
+    },
+    {
+      "item": "minecraft:gravel"
+    }
+  ],
+  "result": {
+    "item": "indreb:reinforced_stone"
+  }
+}

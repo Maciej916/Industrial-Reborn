@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "indreb/decoration/sign",
+  "key": {
+    "b": {
+      "tag": "forge:dyes/black"
+    },
+    "c": {
+      "item": "indreb:basic_machine_casing"
+    },
+    "y": {
+      "tag": "forge:dyes/yellow"
+    }
+  },
+  "pattern": [
+    "b  ",
+    "yc ",
+    "   "
+  ],
+  "result": {
+    "item": "indreb:noise_hazard_sign_block"
+  }
+}

@@ -142,7 +142,7 @@
   "block.indreb.reinforced_stone_stairs": "Reinforced Stone Stairs",
   "block.indreb.reinforced_stone_bricks": "Reinforced Stone Bricks",
   "block.indreb.reinforced_stone_brick_wall": "Reinforced Stone Brick Wall",
-  "block.indreb.smooth_reinforced_stone": "Smooth Reinforced Doors",
+  "block.indreb.smooth_reinforced_stone": "Smooth Reinforced Stone",
   "block.indreb.reinforced_door": "Reinforced Door",
 
   "block.indreb.yellow_stripes_block_left": "Yellow Stripes Block (Left)",
@@ -177,6 +177,7 @@
   "block.indreb.rubber_gate": "Rubber Gate",
   "block.indreb.rubber_door": "Rubber Door",
   "block.indreb.rubber_trap_door": "Rubber Trap Door",
+  "block.indreb.rubber_plate": "Rubber Plate",
 
 
   "_comment": "Cable",

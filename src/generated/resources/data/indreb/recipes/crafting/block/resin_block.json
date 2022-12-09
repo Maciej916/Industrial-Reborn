@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "indreb/block/resin",
+  "key": {
+    "r": {
+      "item": "indreb:sticky_resin"
+    }
+  },
+  "pattern": [
+    "rr ",
+    "rr "
+  ],
+  "result": {
+    "item": "indreb:resin_block"
+  }
+}

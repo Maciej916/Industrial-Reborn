@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "indreb/items/crafting",
+  "key": {
+    "c": {
+      "tag": "forge:dusts/coal"
+    }
+  },
+  "pattern": [
+    "cc ",
+    "cc "
+  ],
+  "result": {
+    "item": "indreb:carbon_fibers"
+  }
+}

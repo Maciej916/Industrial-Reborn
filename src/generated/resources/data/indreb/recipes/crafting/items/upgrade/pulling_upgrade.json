@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "indreb/items/upgrade",
+  "key": {
+    "p": {
+      "item": "minecraft:sticky_piston"
+    },
+    "t": {
+      "tag": "forge:plates/tin"
+    }
+  },
+  "pattern": [
+    "t t",
+    " p ",
+    "t t"
+  ],
+  "result": {
+    "item": "indreb:pulling_upgrade"
+  }
+}

@@ -9,7 +9,7 @@ import net.minecraft.world.entity.EquipmentSlot;
 public class NanoArmor extends BaseElectricArmor {
 
     public NanoArmor(EquipmentSlot slot) {
-        super(CustomArmorMaterial.NANO, slot, new Properties(), 0, 1000000, EnergyType.RECEIVE, EnergyTier.ADVANCED);
+        super(CustomArmorMaterial.NANO, slot, new Properties(), 0, 100000, EnergyType.RECEIVE, EnergyTier.ADVANCED);
     }
 
 }

@@ -61,7 +61,7 @@ public final class ModItemTags {
     public static final TagKey<Item> FORGE_STORAGE_BLOCKS_URANIUM = create("forge", "storage_blocks/uranium");
     public static final TagKey<Item> FORGE_STORAGE_BLOCKS_LEAD = create("forge", "storage_blocks/lead");
     public static final TagKey<Item> FORGE_STORAGE_BLOCKS_STEEL = create("forge", "storage_blocks/steel");
-    public static final TagKey<Item> FORGE_STORAGE_BLOCKS_BRONZE = create("forge", "storage_blocks/steel");
+    public static final TagKey<Item> FORGE_STORAGE_BLOCKS_BRONZE = create("forge", "storage_blocks/bronze");
 
     public static final TagKey<Item> FORGE_RAW_MATERIALS_TIN = create("forge", "raw_materials/tin");
     public static final TagKey<Item> FORGE_RAW_MATERIALS_SILVER = create("forge", "raw_materials/silver");
@@ -101,6 +101,9 @@ public final class ModItemTags {
     public static final TagKey<Item> FORGE_DUSTS_STONE = create("forge", "dusts/stone");
     public static final TagKey<Item> FORGE_DUSTS_DEEPSLATE = create("forge", "dusts/deepslate");
     public static final TagKey<Item> FORGE_DUSTS_SULFUR = create("forge", "dusts/sulfur");
+    public static final TagKey<Item> FORGE_DUSTS_URANIUM = create("forge", "dusts/uranium");
+    public static final TagKey<Item> FORGE_DUSTS_SILVER = create("forge", "dusts/silver");
+    public static final TagKey<Item> FORGE_DUSTS_IRON = create("forge", "dusts/iron");
 
     public static final TagKey<Item> FORGE_RODS_IRON = create("forge", "rods/iron");
     public static final TagKey<Item> FORGE_RODS_ALL_METALS = create("forge", "rods/all_metals");
@@ -110,6 +113,15 @@ public final class ModItemTags {
     public static final TagKey<Item> FORGE_GEMS_DIAMOND = create("forge", "gems/diamond");
     public static final TagKey<Item> FORGE_GEMS_EMERALD = create("forge", "gems/emerald");
     public static final TagKey<Item> FORGE_GEMS_AMETHYST = create("forge", "gems/amethyst");
+
+    public static final TagKey<Item> FORGE_DYES_YELLOW = create("forge", "dyes/yellow");
+    public static final TagKey<Item> FORGE_DYES_BLACK = create("forge", "dyes/black");
+    public static final TagKey<Item> FORGE_DYES_BLUE = create("forge", "dyes/blue");
+    public static final TagKey<Item> FORGE_DYES_LIME = create("forge", "dyes/lime");
+
+    public static final TagKey<Item> FORGE_CHESTS_WOODEN = create("forge", "chests/wooden");
+    public static final TagKey<Item> FORGE_STONE = create("forge", "stone");
+    public static final TagKey<Item> FORGE_COBBLESTONE = create("forge", "cobblestone");
 
 
 

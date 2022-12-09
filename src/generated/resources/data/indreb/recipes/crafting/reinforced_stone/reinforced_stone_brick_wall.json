@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "indreb/reinforced_stone",
+  "key": {
+    "r": {
+      "item": "indreb:reinforced_stone"
+    }
+  },
+  "pattern": [
+    "rrr",
+    "rrr"
+  ],
+  "result": {
+    "count": 6,
+    "item": "indreb:reinforced_stone_brick_wall"
+  }
+}

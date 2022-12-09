@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "indreb/items/storage",
+  "key": {
+    "t": {
+      "tag": "forge:plates/tin"
+    }
+  },
+  "pattern": [
+    "t t",
+    "ttt"
+  ],
+  "result": {
+    "count": 4,
+    "item": "indreb:empty_can"
+  }
+}

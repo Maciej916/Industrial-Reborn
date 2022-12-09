@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "indreb/reinforced_stone",
+  "key": {
+    "g": {
+      "item": "indreb:reinforced_glass"
+    },
+    "l": {
+      "item": "indreb:advanced_alloy"
+    },
+    "r": {
+      "item": "indreb:reinforced_stone"
+    }
+  },
+  "pattern": [
+    "rg ",
+    "rl ",
+    "rr "
+  ],
+  "result": {
+    "item": "indreb:reinforced_door"
+  }
+}

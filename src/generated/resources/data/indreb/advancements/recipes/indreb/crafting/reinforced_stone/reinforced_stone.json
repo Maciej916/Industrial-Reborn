@@ -1,0 +1,47 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "gravel": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:gravel"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "indreb:crafting/reinforced_stone/reinforced_stone"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "reinforced_construction_foam": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:reinforced_construction_foam"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "reinforced_construction_foam",
+      "gravel",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "indreb:crafting/reinforced_stone/reinforced_stone"
+    ]
+  }
+}

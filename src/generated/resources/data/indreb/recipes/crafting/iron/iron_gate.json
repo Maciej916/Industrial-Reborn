@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "indreb/iron",
+  "key": {
+    "i": {
+      "tag": "forge:plates/iron"
+    },
+    "r": {
+      "tag": "forge:rods/iron"
+    }
+  },
+  "pattern": [
+    "rir",
+    "rir"
+  ],
+  "result": {
+    "item": "indreb:iron_gate"
+  }
+}

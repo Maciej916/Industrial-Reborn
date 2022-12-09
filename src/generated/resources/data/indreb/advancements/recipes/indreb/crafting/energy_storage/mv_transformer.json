@@ -1,0 +1,73 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "advanced_battery": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:advanced_battery"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "electronic_circuit": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:electronic_circuit"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "gold_cable_insulated": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:gold_cable_insulated"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "indreb:crafting/energy_storage/mv_transformer"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "lv_transformer": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:lv_transformer"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "gold_cable_insulated",
+      "lv_transformer",
+      "electronic_circuit",
+      "advanced_battery",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "indreb:crafting/energy_storage/mv_transformer"
+    ]
+  }
+}

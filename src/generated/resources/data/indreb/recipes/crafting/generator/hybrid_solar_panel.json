@@ -1,0 +1,32 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "indreb/generator",
+  "key": {
+    "a": {
+      "item": "indreb:carbon_plate"
+    },
+    "c": {
+      "item": "indreb:advanced_circuit"
+    },
+    "e": {
+      "item": "indreb:energy_crystal"
+    },
+    "l": {
+      "item": "minecraft:lapis_block"
+    },
+    "p": {
+      "item": "indreb:iridium_plate"
+    },
+    "s": {
+      "item": "indreb:advanced_solar_panel"
+    }
+  },
+  "pattern": [
+    "ala",
+    "psp",
+    "cec"
+  ],
+  "result": {
+    "item": "indreb:hybrid_solar_panel"
+  }
+}

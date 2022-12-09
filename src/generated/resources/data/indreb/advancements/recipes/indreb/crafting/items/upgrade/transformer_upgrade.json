@@ -1,0 +1,73 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "electronic_circuit": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:electronic_circuit"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "glass": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:glass"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "gold_cable_insulated": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:gold_cable_insulated"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "indreb:crafting/items/upgrade/transformer_upgrade"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "mv_transformer": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:mv_transformer"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "glass",
+      "gold_cable_insulated",
+      "mv_transformer",
+      "electronic_circuit",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "indreb:crafting/items/upgrade/transformer_upgrade"
+    ]
+  }
+}

@@ -1,0 +1,86 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "indreb:crafting/machine/super/replicator"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "hv_transformer": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:hv_transformer"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "mfe": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:mfe"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "reinforced_glass": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:reinforced_glass"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "reinforced_stone": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:reinforced_stone"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "teleport_anchor": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:teleport_anchor"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "reinforced_glass",
+      "reinforced_stone",
+      "teleport_anchor",
+      "hv_transformer",
+      "mfe",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "indreb:crafting/machine/super/replicator"
+    ]
+  }
+}

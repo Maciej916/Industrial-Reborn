@@ -1,0 +1,73 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "advanced_circuit": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:advanced_circuit"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "indreb:crafting/energy_storage/charge_pad_mfsu"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "mfsu": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:mfsu"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "rubber": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:rubber"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "stone_pressure_plate": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:stone_pressure_plate"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "advanced_circuit",
+      "stone_pressure_plate",
+      "rubber",
+      "mfsu",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "indreb:crafting/energy_storage/charge_pad_mfsu"
+    ]
+  }
+}

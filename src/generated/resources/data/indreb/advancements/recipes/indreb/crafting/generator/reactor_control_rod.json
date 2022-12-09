@@ -1,0 +1,60 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "advanced_alloy": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:advanced_alloy"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "fuel_rod": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:fuel_rod"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "indreb:crafting/generator/reactor_control_rod"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "reactor_chamber": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:reactor_chamber"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "reactor_chamber",
+      "advanced_alloy",
+      "fuel_rod",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "indreb:crafting/generator/reactor_control_rod"
+    ]
+  }
+}

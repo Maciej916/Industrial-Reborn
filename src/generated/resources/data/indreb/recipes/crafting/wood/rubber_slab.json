@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "indreb/wood/rubber",
+  "key": {
+    "p": {
+      "item": "indreb:rubber_planks"
+    }
+  },
+  "pattern": [
+    "ppp"
+  ],
+  "result": {
+    "count": 6,
+    "item": "indreb:rubber_slab"
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "indreb:blasting/lead_dust_lead_ingot"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "lead_dust": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:lead_dust"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "lead_dust",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "indreb:blasting/lead_dust_lead_ingot"
+    ]
+  }
+}

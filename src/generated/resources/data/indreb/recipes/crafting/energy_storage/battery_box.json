@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "indreb/energy_storage",
+  "key": {
+    "B": {
+      "item": "indreb:battery"
+    },
+    "C": {
+      "item": "indreb:copper_cable_insulated"
+    },
+    "p": {
+      "tag": "minecraft:planks"
+    }
+  },
+  "pattern": [
+    "pCp",
+    "BBB",
+    "ppp"
+  ],
+  "result": {
+    "item": "indreb:battery_box"
+  }
+}

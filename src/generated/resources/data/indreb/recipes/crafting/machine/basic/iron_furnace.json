@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "indreb/machines/basic",
+  "key": {
+    "f": {
+      "item": "minecraft:furnace"
+    },
+    "i": {
+      "tag": "forge:plates/iron"
+    }
+  },
+  "pattern": [
+    "iii",
+    "ifi",
+    "iii"
+  ],
+  "result": {
+    "item": "indreb:iron_furnace"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "indreb/casing",
+  "key": {
+    "a": {
+      "item": "indreb:advanced_alloy"
+    },
+    "b": {
+      "item": "indreb:basic_machine_casing"
+    },
+    "c": {
+      "item": "indreb:carbon_plate"
+    },
+    "s": {
+      "tag": "forge:plates/steel"
+    }
+  },
+  "pattern": [
+    "sas",
+    "cbc",
+    "sas"
+  ],
+  "result": {
+    "item": "indreb:advanced_machine_casing"
+  }
+}

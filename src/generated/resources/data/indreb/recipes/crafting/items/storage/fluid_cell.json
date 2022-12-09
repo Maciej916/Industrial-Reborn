@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "indreb/items/storage",
+  "key": {
+    "g": {
+      "item": "minecraft:glass_pane"
+    },
+    "t": {
+      "tag": "forge:plates/tin"
+    }
+  },
+  "pattern": [
+    " t ",
+    "tgt",
+    " t "
+  ],
+  "result": {
+    "count": 4,
+    "item": "indreb:fluid_cell"
+  }
+}

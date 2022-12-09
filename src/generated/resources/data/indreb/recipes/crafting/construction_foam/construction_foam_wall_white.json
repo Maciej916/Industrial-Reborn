@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "indreb/construction_foam",
+  "ingredients": [
+    {
+      "item": "indreb:construction_foam"
+    },
+    {
+      "item": "minecraft:sand"
+    },
+    {
+      "item": "minecraft:sand"
+    },
+    {
+      "item": "minecraft:sand"
+    }
+  ],
+  "result": {
+    "item": "indreb:construction_foam_wall_white"
+  }
+}

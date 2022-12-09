@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "indreb/block/storage",
+  "key": {
+    "r": {
+      "tag": "forge:ingots/silver"
+    }
+  },
+  "pattern": [
+    "rrr",
+    "rrr",
+    "rrr"
+  ],
+  "result": {
+    "item": "indreb:silver_block"
+  }
+}

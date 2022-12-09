@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "indreb:smelting/iron_dust_iron_ingot"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "iron_dust": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:iron_dust"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "iron_dust",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "indreb:smelting/iron_dust_iron_ingot"
+    ]
+  }
+}

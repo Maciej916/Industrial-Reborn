@@ -1,0 +1,60 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "electric_motor": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:electric_motor"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "indreb:crafting/items/upgrade/fluid_pulling_upgrade"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "tin_plate": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:tin_plate"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "treetap": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:treetap"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "tin_plate",
+      "electric_motor",
+      "treetap",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "indreb:crafting/items/upgrade/fluid_pulling_upgrade"
+    ]
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "indreb/items/reactor",
+  "key": {
+    "c": {
+      "tag": "forge:plates/copper"
+    },
+    "h": {
+      "item": "indreb:heat_exchanger"
+    }
+  },
+  "pattern": [
+    "ccc",
+    "chc",
+    "ccc"
+  ],
+  "result": {
+    "item": "indreb:reactor_heat_exchanger"
+  }
+}

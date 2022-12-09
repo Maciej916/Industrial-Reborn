@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "indreb/items/reactor",
+  "key": {
+    "b": {
+      "tag": "forge:plates/copper"
+    },
+    "c": {
+      "tag": "forge:dusts/coal"
+    },
+    "t": {
+      "tag": "forge:dusts/tin"
+    }
+  },
+  "pattern": [
+    "tct",
+    "cbc",
+    "tct"
+  ],
+  "result": {
+    "item": "indreb:neutron_reflector"
+  }
+}

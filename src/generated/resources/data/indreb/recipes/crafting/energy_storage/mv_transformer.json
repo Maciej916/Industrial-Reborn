@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "indreb/transformer",
+  "key": {
+    "a": {
+      "item": "indreb:advanced_battery"
+    },
+    "b": {
+      "item": "indreb:lv_transformer"
+    },
+    "e": {
+      "item": "indreb:electronic_circuit"
+    },
+    "g": {
+      "item": "indreb:gold_cable_insulated"
+    }
+  },
+  "pattern": [
+    " g ",
+    "eba",
+    " g "
+  ],
+  "result": {
+    "item": "indreb:mv_transformer"
+  }
+}

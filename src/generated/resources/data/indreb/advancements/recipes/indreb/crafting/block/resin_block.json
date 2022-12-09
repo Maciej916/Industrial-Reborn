@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "indreb:crafting/block/resin_block"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "sticky_resin": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:sticky_resin"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "sticky_resin",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "indreb:crafting/block/resin_block"
+    ]
+  }
+}

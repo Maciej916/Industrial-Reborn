@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "indreb/block/raw",
+  "ingredients": [
+    {
+      "item": "indreb:raw_silver_block"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "item": "indreb:raw_silver"
+  }
+}

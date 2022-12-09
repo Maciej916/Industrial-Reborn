@@ -1,0 +1,32 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "indreb/items/electric",
+  "key": {
+    "a": {
+      "item": "indreb:charging_energy_crystal"
+    },
+    "b": {
+      "item": "indreb:basic_transporter"
+    },
+    "c": {
+      "item": "indreb:advanced_circuit"
+    },
+    "g": {
+      "item": "indreb:reinforced_glass"
+    },
+    "h": {
+      "item": "indreb:glass_fibre_cable"
+    },
+    "p": {
+      "tag": "forge:plates/tin"
+    }
+  },
+  "pattern": [
+    "pgp",
+    "cbc",
+    "hah"
+  ],
+  "result": {
+    "item": "indreb:advanced_transporter"
+  }
+}

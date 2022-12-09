@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "indreb/items/circuit",
+  "key": {
+    "c": {
+      "item": "indreb:copper_cable_insulated"
+    },
+    "i": {
+      "tag": "forge:ingots/iron"
+    },
+    "r": {
+      "item": "minecraft:redstone"
+    }
+  },
+  "pattern": [
+    "ccc",
+    "rir",
+    "ccc"
+  ],
+  "result": {
+    "item": "indreb:electronic_circuit"
+  }
+}

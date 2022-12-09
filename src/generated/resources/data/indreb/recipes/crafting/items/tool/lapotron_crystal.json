@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "indreb/items/electric",
+  "key": {
+    "a": {
+      "item": "indreb:advanced_circuit"
+    },
+    "e": {
+      "item": "indreb:energy_crystal"
+    },
+    "l": {
+      "tag": "forge:plates/lapis"
+    }
+  },
+  "pattern": [
+    "lal",
+    "lel",
+    "lal"
+  ],
+  "result": {
+    "item": "indreb:lapotron_crystal"
+  }
+}

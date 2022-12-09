@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "indreb/iron",
+  "key": {
+    "i": {
+      "tag": "forge:plates/iron"
+    },
+    "r": {
+      "tag": "forge:rods/iron"
+    }
+  },
+  "pattern": [
+    "iri",
+    "iri"
+  ],
+  "result": {
+    "count": 6,
+    "item": "indreb:iron_fence"
+  }
+}

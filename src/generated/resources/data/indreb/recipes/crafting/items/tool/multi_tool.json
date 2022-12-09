@@ -1,0 +1,35 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "indreb/items/electric",
+  "key": {
+    "a": {
+      "item": "indreb:advanced_alloy"
+    },
+    "c": {
+      "item": "indreb:carbon_plate"
+    },
+    "e": {
+      "item": "indreb:energy_crystal"
+    },
+    "h": {
+      "item": "indreb:electric_hoe"
+    },
+    "i": {
+      "item": "indreb:advanced_circuit"
+    },
+    "t": {
+      "item": "indreb:electric_treetap"
+    },
+    "w": {
+      "item": "indreb:electric_wrench"
+    }
+  },
+  "pattern": [
+    "ctc",
+    "aea",
+    "wih"
+  ],
+  "result": {
+    "item": "indreb:multi_tool"
+  }
+}

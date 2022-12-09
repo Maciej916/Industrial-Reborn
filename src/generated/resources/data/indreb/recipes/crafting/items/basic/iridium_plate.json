@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "indreb/items/crafting",
+  "key": {
+    "a": {
+      "item": "indreb:advanced_alloy"
+    },
+    "d": {
+      "tag": "forge:gems/diamond"
+    },
+    "i": {
+      "item": "indreb:iridium"
+    }
+  },
+  "pattern": [
+    "iai",
+    "ada",
+    "iai"
+  ],
+  "result": {
+    "item": "indreb:iridium_plate"
+  }
+}

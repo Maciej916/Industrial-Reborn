@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "indreb/generator",
+  "key": {
+    "a": {
+      "item": "indreb:advanced_alloy"
+    },
+    "c": {
+      "item": "indreb:advanced_circuit"
+    },
+    "g": {
+      "item": "indreb:reinforced_glass"
+    },
+    "m": {
+      "item": "indreb:advanced_machine_casing"
+    },
+    "s": {
+      "item": "indreb:solar_panel"
+    }
+  },
+  "pattern": [
+    "ggg",
+    "asa",
+    "cmc"
+  ],
+  "result": {
+    "item": "indreb:advanced_solar_panel"
+  }
+}

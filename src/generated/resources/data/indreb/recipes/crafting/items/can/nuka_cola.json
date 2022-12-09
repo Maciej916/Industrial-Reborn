@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "indreb/items/can",
+  "key": {
+    "c": {
+      "item": "indreb:empty_can"
+    },
+    "d": {
+      "tag": "forge:dyes/blue"
+    },
+    "s": {
+      "item": "minecraft:sugar"
+    }
+  },
+  "pattern": [
+    "sss",
+    "cdd"
+  ],
+  "result": {
+    "item": "indreb:nuka_cola"
+  }
+}

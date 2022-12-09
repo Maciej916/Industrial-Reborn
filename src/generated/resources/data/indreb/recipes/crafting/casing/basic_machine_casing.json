@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "indreb/casing",
+  "key": {
+    "i": {
+      "tag": "forge:plates/iron"
+    },
+    "r": {
+      "item": "indreb:rubber"
+    }
+  },
+  "pattern": [
+    "iii",
+    "iri",
+    "iii"
+  ],
+  "result": {
+    "item": "indreb:basic_machine_casing"
+  }
+}

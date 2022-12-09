@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "indreb/items/tool",
+  "key": {
+    "C": {
+      "tag": "forge:ingots/copper"
+    }
+  },
+  "pattern": [
+    "C C",
+    "CCC",
+    " C "
+  ],
+  "result": {
+    "item": "indreb:wrench"
+  }
+}

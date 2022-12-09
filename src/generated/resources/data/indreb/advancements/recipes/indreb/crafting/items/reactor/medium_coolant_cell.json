@@ -1,0 +1,47 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "indreb:crafting/items/reactor/medium_coolant_cell"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "small_coolant_cell": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:small_coolant_cell"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "tin_plate": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:tin_plate"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "tin_plate",
+      "small_coolant_cell",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "indreb:crafting/items/reactor/medium_coolant_cell"
+    ]
+  }
+}

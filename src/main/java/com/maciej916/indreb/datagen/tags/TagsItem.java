@@ -99,6 +99,9 @@ public class TagsItem extends ItemTagsProvider {
         tag(ModItemTags.FORGE_DUSTS_STONE).add(ModItems.STONE_DUST.get());
         tag(ModItemTags.FORGE_DUSTS_DEEPSLATE).add(ModItems.DEEPSLATE_DUST.get());
         tag(ModItemTags.FORGE_DUSTS_SULFUR).add(ModItems.SULFUR_DUST.get());
+        tag(ModItemTags.FORGE_DUSTS_URANIUM).add(ModItems.URANIUM_DUST.get());
+        tag(ModItemTags.FORGE_DUSTS_SILVER).add(ModItems.SILVER_DUST.get());
+        tag(ModItemTags.FORGE_DUSTS_IRON).add(ModItems.IRON_DUST.get());
 
         /* RODS */
 

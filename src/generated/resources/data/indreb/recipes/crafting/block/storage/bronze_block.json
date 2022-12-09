@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "indreb/block/storage",
+  "key": {
+    "r": {
+      "tag": "forge:ingots/bronze"
+    }
+  },
+  "pattern": [
+    "rrr",
+    "rrr",
+    "rrr"
+  ],
+  "result": {
+    "item": "indreb:bronze_block"
+  }
+}

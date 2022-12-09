@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "indreb/explosive",
+  "key": {
+    "a": {
+      "item": "indreb:advanced_circuit"
+    },
+    "n": {
+      "item": "indreb:iridium_neutron_reflector"
+    },
+    "t": {
+      "item": "indreb:industrial_tnt"
+    }
+  },
+  "pattern": [
+    "tat",
+    "ntn",
+    "tat"
+  ],
+  "result": {
+    "item": "indreb:nuke"
+  }
+}

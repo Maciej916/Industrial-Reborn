@@ -1,0 +1,47 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "indreb:crafting/explosive/industrial_tnt_2"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "sulfur_dust": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:sulfur_dust"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "tnt": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:tnt"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "sulfur_dust",
+      "tnt",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "indreb:crafting/explosive/industrial_tnt_2"
+    ]
+  }
+}

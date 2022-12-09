@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "indreb/explosive",
+  "key": {
+    "f": {
+      "tag": "forge:dusts/sulfur"
+    },
+    "t": {
+      "item": "minecraft:tnt"
+    }
+  },
+  "pattern": [
+    "fff",
+    "ttt",
+    "fff"
+  ],
+  "result": {
+    "count": 2,
+    "item": "indreb:industrial_tnt"
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "bronze_plate": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:bronze_plate"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "indreb:crafting/items/tool/wind_meter"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "small_power_unit": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:small_power_unit"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "tin_plate": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:tin_plate"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "tin_plate",
+      "bronze_plate",
+      "small_power_unit",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "indreb:crafting/items/tool/wind_meter"
+    ]
+  }
+}

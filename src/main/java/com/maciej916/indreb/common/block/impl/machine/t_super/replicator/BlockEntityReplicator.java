@@ -165,11 +165,6 @@ public class BlockEntityReplicator extends IndRebBlockEntity implements IBlockEn
     }
 
     @Override
-    public int getBaseStorageSlotLimit(int slot) {
-        return 1;
-    }
-
-    @Override
     public ArrayList<BaseSlot> addBaseSlots(ArrayList<BaseSlot> slots) {
         slots.add(new BaseSlot(FILL_UP, 8, 19, 7, 18, InventorySlotType.INPUT, GuiSlotBg.NORMAL));
         slots.add(new BaseSlot(FILL_DOWN, 8, 50, 7, 49, InventorySlotType.INPUT, GuiSlotBg.NORMAL));
