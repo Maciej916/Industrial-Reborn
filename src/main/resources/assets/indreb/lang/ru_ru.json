@@ -1,13 +1,14 @@
-{
+  {
 
   "_comment": "Global",
   "itemGroup.indreb": "Industrial Reborn",
-
   "indreb.generic": "%s",
+
 
   "_comment": "Energy",
   "energy.indreb.power": "%s IE",
   "energy.indreb.power_tick": "%s IE/т.",
+
 
   "_comment": "Tier",
   "tier.indreb.basic": "Базовый",
@@ -17,6 +18,7 @@
   "tier.indreb.ultra": "Ультра",
   "tier.indreb.creative": "Творческий",
 
+
   "_comment": "GUI",
   "gui.indreb.energy": "%s / %s IE",
   "gui.indreb.fluid": "%s: %s / %s мВ",
@@ -24,25 +26,48 @@
 
   "gui.indreb.progress": "Прогресс %s/%s",
   "gui.indreb.fuelBurnTimeProgress": "Время сжигания топлива %s/%s",
-  "gui.indreb.heat": "Нагрев: %s",
-  "gui.indreb.temperature": "Температура: %s",
+  "gui.indreb.temperature": "Темп. %s",
   "gui.indreb.armour": "Броня",
   "gui.indreb.waste": "Отходы: %s",
+  "gui.indreb.output_mode": "Выход: %s",
 
   "gui.indreb.can_operate_in": "Может работать в %ss",
   "gui.indreb.can_operate": "Машина готова!",
 
+  "gui.indreb.scanner.replication_cost": "Требуется:",
+  "gui.indreb.scanner.replication_empty": "Пусто",
+  "gui.indreb.scanner.item": "Название:",
+  "gui.indreb.scanner.matter_cost": "Материя:",
+  "gui.indreb.scanner.energy_cost": "Энергия:",
+  "gui.indreb.scanner.no_power": "Ошибка: Нет питания",
+  "gui.indreb.scanner.idle": "Просто...",
+  "gui.indreb.scanner.no_storage": "Ошибка: Нет места.",
+  "gui.indreb.scanner.progress": "Ход сканирования: %s",
+  "gui.indreb.scanner.result": "Сканирование завершено",
+  "gui.indreb.scanner.already_recorded": "Ошибка: Уже сохранено",
+  "gui.indreb.scanner.transfer_no_storage": "Ошибка: Нет места.",
+  "gui.indreb.replicator.waiting": "Ожидание...",
+  "gui.indreb.replicator.single_run": "> Прогресс: %s",
+  "gui.indreb.replicator.repeat_run": ">> Прогресс: %s",
+
   "_comment": "Block",
   "block.indreb.generator": "Генератор",
   "block.indreb.geo_generator": "Геотермальный генератор",
-  "block.indreb.solar_generator": "Солнечная панель",
-  "block.indreb.advanced_solar_generator": "Улучшенная солнечная панель",
-  "block.indreb.hybrid_solar_generator": "Гибридная солнечная панель",
-  "block.indreb.quantum_solar_generator": "Квантовая солнечная панель",
+  "block.indreb.solar_panel": "Солнечная панель",
+  "block.indreb.advanced_solar_panel": "Улучшенная солнечная панель",
+  "block.indreb.hybrid_solar_panel": "Гибридная солнечная панель",
+  "block.indreb.quantum_solar_panel": "Квантовая солнечная панель",
   "block.indreb.crystalline_generator": "Кристаллический генератор",
   "block.indreb.semifluid_generator": "Полужидкостный генератор",
+  "block.indreb.nuclear_reactor": "Ядерный реактор",
+  "block.indreb.reactor_chamber": "Реакторная камера",
+  "block.indreb.reactor_control_rod": "Стержень управления реактором",
+  "block.indreb.reactor_frame": "Рамка реактора",
 
   "block.indreb.iron_furnace": "Железная печь",
+  "block.indreb.simple_crusher": "Примитивная дробилка",
+  "block.indreb.simple_compressor": "Примитивный компрессор",
+  "block.indreb.simple_extractor": "Примитивный экстрактоор",
   "block.indreb.electric_furnace": "Электрическая печь",
   "block.indreb.crusher": "Дробилка",
   "block.indreb.compressor": "Компрессор",
@@ -58,8 +83,9 @@
   "block.indreb.thermal_centrifuge": "Термальная центрифуга",
   "block.indreb.scanner": "Сканер",
   "block.indreb.replicator": "Репликатор",
-  "block.indreb.teleporter": "Телепортер",
+  "block.indreb.teleport_anchor": "Якорь телепортации",
   "block.indreb.pattern_storage": "Шаблонохранитель",
+  "block.indreb.metal_former": "Формовщик металла",
 
   "block.indreb.tin_ore": "Оловянная руда",
   "block.indreb.deepslate_tin_ore": "Оловоносный глубинный сланец",
@@ -75,12 +101,21 @@
   "block.indreb.silver_block": "Серебряный блок",
   "block.indreb.steel_block": "Стальной блок",
   "block.indreb.lead_block": "Свинцовый блок",
+  "block.indreb.uranium_block": "Урановый блок",
+
+  "block.indreb.raw_tin_block": "Блок рудного олова",
+  "block.indreb.raw_lead_block": "Блок рудного свинца",
+  "block.indreb.raw_uranium_block": "Блок рудного урана",
+  "block.indreb.raw_silver_block": "Блок рудного серебра",
+
+  "block.indreb.resin_block": "Блок резины",
+  "block.indreb.rubber_block": "Блок латекса",
 
   "block.indreb.basic_machine_casing": "Основной корпус машины",
   "block.indreb.advanced_machine_casing": "Улучшенный корпус машины",
 
-  "block.indreb.resin_sheet": "Лист латекса",
-  "block.indreb.rubber_sheet": "Резиновый лист",
+  "block.indreb.resin_sheet": "Латексный ковёр",
+  "block.indreb.rubber_sheet": "Резиновый ковёр",
 
   "block.indreb.construction_foam": "Строительная пена",
   "block.indreb.reinforced_construction_foam": "Укреплённая строительная пена",
@@ -106,13 +141,30 @@
   "block.indreb.reinforced_stone": "Укреплённый камень",
   "block.indreb.reinforced_stone_slab": "Плита из укреплённого камня",
   "block.indreb.reinforced_stone_stairs": "Ступеньки из укреплённого камня",
+  "block.indreb.reinforced_stone_bricks": "Кирпичи из укреплённого камня",
+  "block.indreb.reinforced_stone_brick_wall": "Стена из кирпичей укреплённого камня",
+  "block.indreb.smooth_reinforced_stone": "Гладкий укреплённый камень",
+  "block.indreb.reinforced_door": "Укреплённая дверь",
+
+  "block.indreb.yellow_stripes_block_left": "Блок с жёлтыми полосками (Лево)",
+  "block.indreb.yellow_stripes_block_right": "Блок с жёлтыми полосками (Право)",
+  "block.indreb.radioactive_hazard_sign_block": "Блок знака радиоактивной опасности",
+  "block.indreb.bio_hazard_sign_block": "Блок знака биологической опасности",
+  "block.indreb.explosion_hazard_sign_block": "Блок знака взрывоопасности",
+  "block.indreb.fire_hazard_sign_block": "Блок знака пожарной опасности",
+  "block.indreb.acid_hazard_sign_block": "Блок знака кислотной опасности",
+  "block.indreb.magic_hazard_sign_block": "Блок знака магической опасности",
+  "block.indreb.frost_hazard_sign_block": "Блок знака замерзания",
+  "block.indreb.noise_hazard_sign_block": "Блок знака шумовой опасности",
 
   "block.indreb.iron_scaffolding": "Железные леса",
   "block.indreb.iron_fence": "Железный забор",
+  "block.indreb.iron_gate": "Железная калитка",
 
   "block.indreb.luminator": "Электролампа",
   "block.indreb.recycler": "Утилизатор",
   "block.indreb.fermenter": "Ферментер",
+
 
   "_comment": "Rubber Wood",
   "block.indreb.rubber_sapling": "Саженец гевеи",
@@ -120,8 +172,13 @@
   "block.indreb.rubber_leaves": "Листва гевеи",
   "block.indreb.rubber_wood": "Гевея",
   "block.indreb.rubber_log": "Бревно гевеи",
-  "block.indreb.rubber_stairs": "Ступеньки из досок гевеи ",
-  "block.indreb.rubber_slab": "Плита из досок гевеи",
+  "block.indreb.rubber_stairs": "Ступеньки из гевеи",
+  "block.indreb.rubber_slab": "Плита из гевеи",
+  "block.indreb.rubber_fence": "Забор из гевеи",
+  "block.indreb.rubber_gate": "Калитка из гевеи",
+  "block.indreb.rubber_door": "Дверь из гевеи",
+  "block.indreb.rubber_trap_door": "Люк из гевеи",
+  "block.indreb.rubber_plate": "Нажимная плита из гевеи",
 
 
   "_comment": "Cable",
@@ -131,16 +188,17 @@
   "block.indreb.copper_cable_insulated": "Изолированный медный провод",
   "block.indreb.gold_cable": "Золотой провод",
   "block.indreb.gold_cable_insulated": "Изолированный золотой провод",
-  "block.indreb.gold_cable_insulated": "Изолированный золотой провод",
   "block.indreb.hv_cable": "Высоковольтный кабель",
   "block.indreb.hv_cable_insulated": "Изолированный высоковольтный кабель",
   "block.indreb.glass_fibre_cable": "Стекловолоконный провод",
+
 
   "_comment": "Transformer",
   "block.indreb.lv_transformer": "Трансформатор НН",
   "block.indreb.mv_transformer": "Трансформатор СН",
   "block.indreb.hv_transformer": "Трансформатор ВН",
   "block.indreb.ev_transformer": "Трансформатор СВН",
+
 
   "_comment": "Item",
   "item.indreb.sticky_resin": "Латекс",
@@ -149,9 +207,10 @@
   "item.indreb.sulfur_dust": "Серная пыль",
   "item.indreb.mud_pile": "Кучка грязи",
   "item.indreb.memory_card": "Карта памяти",
+  "item.indreb.lapis_lazuli_dust": "Лазуритовая пыль",
 
   "item.indreb.basic_transporter": "Базовый транспортёр",
-  "item.indreb.advanced_transporter": "Улучшенный транспортёр ",
+  "item.indreb.advanced_transporter": "Улучшенный транспортёр",
 
   "item.indreb.raw_tin": "Рудное олово",
   "item.indreb.raw_lead": "Рудный свинец",
@@ -174,6 +233,7 @@
   "item.indreb.bronze_plate": "Бронзовая пластина",
   "item.indreb.steel_plate": "Стальная пластина",
   "item.indreb.iridium_plate": "Иридиевая пластина",
+  "item.indreb.lapis_lazuli_plate": "Лазуритовая пластина",
 
   "item.indreb.coal_dust": "Угольная пыль",
   "item.indreb.diamond_dust": "Алмазная пыль",
@@ -260,9 +320,8 @@
   "item.indreb.multi_tool": "Универсальный гаечный ключ",
   "item.indreb.coil": "Катушка",
   "item.indreb.electric_motor": "Электромотор",
-  "item.indreb.tin_can": "Консервная банка",
-  "item.indreb.filled_tin_can": "Заполненная консервная банка",
   "item.indreb.scrap": "Утильсырьё",
+  "item.indreb.scrap_metal": "Металлолом",
   "item.indreb.scrap_box": "Коробка утильсырья",
   "item.indreb.bio_chaff": "Отходы",
   "item.indreb.foam_powder": "Сжатая строительная пена",
@@ -270,10 +329,23 @@
   "item.indreb.fertilizer": "Удобрение",
   "item.indreb.heat_conductor": "Теплопровод",
 
+  "item.indreb.empty_can": "Пустая консервная банка",
+  "item.indreb.canned_food": "Консервы",
+  "item.indreb.canned_chorus_fruit": "Консервированный хорус",
+  "item.indreb.canned_golden_apple": "Консервированные золотые яблоки",
+  "item.indreb.canned_enchanted_golden_apple": "Консервированные зачарованные золотые яблоки",
+  "item.indreb.canned_poison": "Консервированная ядовитая еда",
+  "item.indreb.canned_hunger": "Консервированная испорченная еда",
+
+  "item.indreb.nuka_cola": "Нюка-Кола",
+  "item.indreb.sprunk": "Спринк",
+  "item.indreb.energy_drink": "Энергетический коктейль",
+
   "item.indreb.treetap": "Краник",
   "item.indreb.wrench": "Ключ",
   "item.indreb.hammer": "Молот",
   "item.indreb.cutter": "Кусачки",
+  "item.indreb.tool_box": "Инструментальный ящик",
 
   "item.indreb.charging_battery": "Зарядка аккумулятора",
   "item.indreb.advanced_charging_battery": "Зарядка улучшенного аккумулятора",
@@ -339,11 +411,13 @@
   "item.indreb.uranium_chunk": "Урановый кусок",
   "item.indreb.silver_chunk": "Серебряный кусок",
 
+
   "_comment": "Battery Box",
   "block.indreb.battery_box": "Энергохранилище",
   "block.indreb.cesu": "МЭСН",
   "block.indreb.mfe": "МФЭ",
   "block.indreb.mfsu": "МФСУ",
+
 
   "_comment": "Charge Pad",
   "block.indreb.charge_pad_battery_box": "Заряжающая плита (Энергохранилище)",
@@ -351,8 +425,10 @@
   "block.indreb.charge_pad_mfe": "Заряжающая плита (МФЭ)",
   "block.indreb.charge_pad_mfsu": "Заряжающая плита (МФСУ)",
 
+
   "_comment": "Energy Converter",
   "block.indreb.wooden_energy_converter": "Преобразователь энергии из дерева",
+
 
   "_comment": "Fluid",
   "fluid_type.indreb.construction_foam": "Строительная пена",
@@ -360,28 +436,37 @@
   "fluid_type.indreb.coolant": "Хладагент",
   "fluid_type.indreb.biomass": "Жидкая биомасса",
   "fluid_type.indreb.biogas": "Биогаз",
-  "fluid_type.indreb.matter": "Матенрия",
+  "fluid_type.indreb.matter": "Материя",
   "fluid_type.indreb.sulfuric_acid": "Серная кислота",
 
+
   "_comment": "Explosive",
-  "block.indreb.industrial_tnt": "Промышленный ТНТ",
+  "block.indreb.industrial_tnt": "Промышленный динамит",
   "block.indreb.nuke": "Ядерная бомба",
+
 
   "_comment": "JEI",
   "jei.indreb.crushing": "Дробление",
   "jei.indreb.compressing": "Сжатие",
   "jei.indreb.extracting": "Извлечение",
   "jei.indreb.sawing": "Резка",
-  "jei.indreb.extruding": "Экструзия",
+  "jei.indreb.fluid_extruding": "Выдавливание жидкости",
   "jei.indreb.alloy_smelting": "Сплавление",
   "jei.indreb.recycling": "Переработка",
   "jei.indreb.scrap_box": "Коробка утильсырья",
   "jei.indreb.canning": "Наполнение",
   "jei.indreb.fluid_enriching": "Обогащение жидкости",
   "jei.indreb.ore_washing": "Промывание руды",
-  "jei.indreb.thermal_centrifuging": "Термоцентрирование",
+  "jei.indreb.thermal_centrifuging": "Термическое центрифугирование",
+  "jei.indreb.scanning": "Сканирование",
+  "jei.indreb.extruding": "Выдавливание",
+  "jei.indreb.rolling": "Прокатка",
+  "jei.indreb.cutting": "Резка",
+  "jei.indreb.fermenting": "Ферментация",
+  "jei.indreb.matter_amplifier": "Усилитель материи",
 
   "jei.indreb.chance": "Шанс: %s",
+  "jei.indreb.chance_to_get": "Шанс получить хотя бы один предмет: %s",
 
   "_comment": "TOP",
   "top.indreb.current_voltage": "Текущее напряжение: %s",
@@ -396,9 +481,9 @@
   "gui.indreb.text_amplifier": "Усилитель:",
   "gui.indreb.supported_upgrades": "Поддерживаемые улучшения",
 
+
   "_comment": "Tooltip",
   "tooltip.indreb.wip": "В разработке!",
-
   "tooltip.indreb.current_voltage": "Текущее напряжение: %s",
   "tooltip.indreb.power_tier": "Энергоуровень: %s",
   "tooltip.indreb.generate": "Производит: %s",
@@ -413,8 +498,21 @@
   "tooltip.indreb.stored_capacity": "Хранится: %s Ёмкость: %s",
   "tooltip.indreb.low": "Низкий энергоуровень: %s",
   "tooltip.indreb.high": "Высокий энергоуровень: %s",
-
   "tooltip.indreb.cable_unisolated": "Этот кабель может убить электрическим током!",
+  "tooltip.indreb.clear_pattern": "Очистить результат сканирования",
+  "tooltip.indreb.save_pattern": "Сохранить результат сканирования",
+  "tooltip.indreb.last_pattern": "Предыдущий шаблон",
+  "tooltip.indreb.next_pattern": "Следующий шаблон",
+  "tooltip.indreb.export_memory": "Экспорт шаблона на карту памяти",
+  "tooltip.indreb.import_memory": "Импорт шаблона из карты памяти",
+  "tooltip.indreb.stop_replication": "Остановить репликацию",
+  "tooltip.indreb.single_run": "Одиночный запуск",
+  "tooltip.indreb.repeat_run": "Повторный запуск",
+  "tooltip.indreb.durability": "Прочность: %s/%s",
+  "tooltip.indreb.core_heat": "Нагрев ядра: %s",
+  "tooltip.indreb.reactor_play_pause": "Запуск/остановка реактора",
+  "tooltip.indreb.heat": "Нагрев: %s",
+  "tooltip.indreb.multiblok_part": "Мульти-блочная часть:",
 
   "_comment": "Upgrade",
   "item.indreb.overclocker_upgrade": "Улучшение Ускоритель",
@@ -457,6 +555,7 @@
   "mode.indreb.2": "Заряжать предметы, которые не в руках",
   "mode.indreb.3": "Заряжать удерживаемые предметы",
 
+
   "_comment": "IE Meter",
   "ie.indreb.desc": "Читает информацию о кабельных сетях и электрических блоках",
   "ie.indreb.network_info": "Информация об энергетической сети",
@@ -469,8 +568,32 @@
   "ie.indreb.last_consumed": "Потребление: %s",
   "ie.indreb.total_consumed": "Всего потреблено: %s",
 
+
   "_comment": "Keys",
   "key.indreb.night_vision": "Переключение ночного видения",
+
+
+  "_comment": "System",
+  "system.indreb.reactor_formed": "Собранный ядерный реактор",
+  "system.indreb.reactor_broken": "Разобранный ядерный реактор",
+  "system.indreb.reactor_not_valid": "Это не действительный реакторный мульти-блок",
+  "system.indreb.reactor_failed": "Не удалось разбить мульти-блок",
+
+
+  "_comment": "Advancements",
+
+  "advancements.indreb.description": "Место, где начинается веселье",
+  "advancements.indreb.title.sticky": "Липкие руки",
+  "advancements.indreb.description.sticky": "Я прилип или что-то прилипло?",
+  "advancements.indreb.title.rubber": "Получение резины",
+  "advancements.indreb.description.rubber": "Получите резину",
+  "advancements.indreb.title.hammer": "Основные инструменты",
+  "advancements.indreb.description.hammer": "Создайте молот",
+  "advancements.indreb.title.cutter": "Лучше, чем ножницы",
+  "advancements.indreb.description.cutter": "Создайте кусачки",
+  "advancements.indreb.title.wrench": "Ключ!",
+  "advancements.indreb.description.wrench": "Создайте ключ!",
+
 
   "test.indreb.test": "%s"
 }
