@@ -36,6 +36,8 @@ public final class ModRecipeType {
     public static final RegistryObject<RecipeType<ScrapBoxRecipe>> SCRAP_BOX = registerType("scrap_box");
     public static final RegistryObject<RecipeType<MatterAmplifierRecipe>> MATTER_AMPLIFIER = registerType("matter_amplifier");
 
+    public static final RegistryObject<RecipeType<ElectricCraftingRecipe>> ELECTRIC_CRAFTING = registerType("electric_crafting");
+
 
     private static <T extends Recipe<?>> RegistryObject<RecipeType<T>> registerType(final String key) {
         return RECIPE_TYPES.register(key, () -> new RecipeType<>() {

@@ -7,6 +7,7 @@ import com.maciej916.indreb.common.capability.item.interfaces.IBaseItemStackHand
 import com.maciej916.indreb.common.capability.item.interfaces.IElectricItemStackHandler;
 import com.maciej916.indreb.common.capability.item.interfaces.IUpgradesItemStackHandler;
 import com.maciej916.indreb.common.capability.player.IPlayerCapability;
+import com.maciej916.indreb.common.capability.radiation.IRadiationCapability;
 import com.maciej916.indreb.common.capability.reactor.IReactorComponentCapability;
 import com.maciej916.indreb.common.capability.scanner.IScannerResult;
 import com.maciej916.indreb.common.energy.interfaces.IEnergyCore;
@@ -31,6 +32,7 @@ public class ModCapabilities {
 
     public static final Capability<IScannerResult> SCANNER_RESULT = CapabilityManager.get(new CapabilityToken<>(){});
     public static final Capability<IReactorComponentCapability> REACTOR_ITEM = CapabilityManager.get(new CapabilityToken<>(){});
+    public static final Capability<IRadiationCapability> RADIATION = CapabilityManager.get(new CapabilityToken<>(){});
 
     @SubscribeEvent
     public void registerCapabilities(RegisterCapabilitiesEvent event) {
@@ -47,5 +49,6 @@ public class ModCapabilities {
 
         event.register(IScannerResult.class);
         event.register(IReactorComponentCapability.class);
+        event.register(IRadiationCapability.class);
     }
 }

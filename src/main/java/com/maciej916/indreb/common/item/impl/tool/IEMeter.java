@@ -44,6 +44,7 @@ public class IEMeter extends BaseItem {
     @Override
     public InteractionResult useOn(UseOnContext context) {
         Level level = context.getLevel();
+
         if (!level.isClientSide()) {
             BlockPos pos = context.getClickedPos();
             Player player = context.getPlayer();

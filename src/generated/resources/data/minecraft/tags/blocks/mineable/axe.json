@@ -10,6 +10,8 @@
     "indreb:rubber_gate",
     "indreb:rubber_door",
     "indreb:rubber_trap_door",
+    "indreb:stripped_rubber_log",
+    "indreb:stripped_rubber_wood",
     "indreb:battery_box",
     "indreb:charge_pad_battery_box"
   ]

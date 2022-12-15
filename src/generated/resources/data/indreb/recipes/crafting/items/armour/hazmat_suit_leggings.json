@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "indreb/items/hazmat",
+  "key": {
+    "l": {
+      "item": "minecraft:leather_leggings"
+    },
+    "o": {
+      "tag": "forge:dyes/orange"
+    },
+    "p": {
+      "item": "indreb:radiation_shielding"
+    },
+    "w": {
+      "tag": "minecraft:wool"
+    }
+  },
+  "pattern": [
+    "owo",
+    "plp",
+    "w w"
+  ],
+  "result": {
+    "item": "indreb:hazmat_suit_leggings"
+  }
+}

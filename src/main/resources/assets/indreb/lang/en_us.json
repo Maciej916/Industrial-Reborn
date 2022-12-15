@@ -178,7 +178,8 @@
   "block.indreb.rubber_door": "Rubber Door",
   "block.indreb.rubber_trap_door": "Rubber Trap Door",
   "block.indreb.rubber_plate": "Rubber Plate",
-
+  "block.indreb.stripped_rubber_wood": "Stripped Rubber Wood",
+  "block.indreb.stripped_rubber_log": "Stripped Rubber Log",
 
   "_comment": "Cable",
   "block.indreb.tin_cable": "Tin Cable",
@@ -207,6 +208,8 @@
   "item.indreb.mud_pile": "Mud Pile",
   "item.indreb.memory_card": "Memory Card",
   "item.indreb.lapis_lazuli_dust": "Lapis Lazuli Dust",
+  "item.indreb.bioplastic": "Bioplastic",
+  "item.indreb.radiation_shielding": "Radiation Shielding",
 
   "item.indreb.basic_transporter": "Basic Transporter",
   "item.indreb.advanced_transporter": "Advanced Transporter",
@@ -410,6 +413,12 @@
   "item.indreb.uranium_chunk": "Uranium Chunk",
   "item.indreb.silver_chunk": "Silver Chunk",
 
+  "item.indreb.geiger_counter": "Geiger Counter",
+  "item.indreb.hazmat_suit_helmet": "Hazmat Suit Helmet",
+  "item.indreb.hazmat_suit_chestplate": "Hazmat Suit Chestplate",
+  "item.indreb.hazmat_suit_leggings": "Hazmat Suit Leggings",
+  "item.indreb.hazmat_suit_boots": "Hazmat Suit Boots",
+
 
   "_comment": "Battery Box",
   "block.indreb.battery_box": "Battery Box",
@@ -512,6 +521,11 @@
   "tooltip.indreb.reactor_play_pause": "Start / Stop The Reactor",
   "tooltip.indreb.heat": "Heat: %s",
   "tooltip.indreb.multiblok_part": "Multiblock part:",
+  "tooltip.indreb.radiation": "Radiation: %s",
+  "tooltip.indreb.radiation_remove": "Radiation Removal: %s",
+  "tooltip.indreb.radiation_protection": "Radiation Protection",
+  "tooltip.indreb.env_radiation": "Environment rads:",
+  "tooltip.indreb.player_radiation": "Player rads:",
 
   "_comment": "Upgrade",
   "item.indreb.overclocker_upgrade": "Overclocker Upgrade",

@@ -1,5 +1,6 @@
 package com.maciej916.indreb;
 
+import com.maciej916.indreb.common.attributes.ModAttributes;
 import com.maciej916.indreb.common.block.ModBlocks;
 import com.maciej916.indreb.common.blockentity.ModBlockEntities;
 import com.maciej916.indreb.common.config.ModConfig;
@@ -38,12 +39,12 @@ public class IndReb {
         ModBlocks.register(modEventBus);
         ModItems.register(modEventBus);
         ModFluids.register(modEventBus);
+        ModAttributes.register(modEventBus);
 
         ModBlockEntities.register(modEventBus);
         ModMenuTypes.register(modEventBus);
 
         ModEntityTypes.register(modEventBus);
-
 
         ModRecipeType.register(modEventBus);
         ModRecipeSerializer.register(modEventBus);
@@ -68,4 +69,5 @@ public class IndReb {
             TOPPlugin.registerCompatibility();
         }
     }
+
 }

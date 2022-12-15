@@ -2,7 +2,15 @@ package com.maciej916.indreb.common.config.impl;
 
 import net.minecraftforge.common.ForgeConfigSpec;
 
+import java.util.List;
+import java.util.Objects;
+import java.util.function.Predicate;
+
 public final class ServerConfig {
+
+	private static final Predicate<Object> listValidator = (Objects::nonNull);
+
+	public static ForgeConfigSpec.ConfigValue<List<? extends String>> radiation_foods;
 
 	public static ForgeConfigSpec.IntValue basic_tier_transfer;
 	public static ForgeConfigSpec.IntValue standard_tier_transfer;
@@ -94,7 +102,10 @@ public final class ServerConfig {
 
 		builder.pop();
 
-
+		builder.push("radiation");
+		List<String> list = List.of("minecraft:golden_carrot,-0.00125", "minecraft:golden_apple,-0.4", "minecraft:enchanted_golden_apple,-4", "indreb:canned_golden_apple,-0.1", "indreb:canned_enchanted_golden_apple,-1");
+		radiation_foods = builder.comment("Foods that can remove or add radiation (double), example modid:item,-rads").defineList("radiation_foods", () -> list, listValidator);
+		builder.pop();
 
 		builder.push("tier_transfer");
 		basic_tier_transfer = builder.defineInRange("basic_tier_transfer", 32, 1, Integer.MAX_VALUE);

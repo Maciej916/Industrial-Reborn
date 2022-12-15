@@ -1,13 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_the_recipe": {
-      "conditions": {
-        "recipe": "indreb:crafting/items/circuit/electronic_circuit"
-      },
-      "trigger": "minecraft:recipe_unlocked"
-    },
-    "item": {
+    "copper_cable_insulated": {
       "conditions": {
         "items": [
           {
@@ -18,11 +12,17 @@
         ]
       },
       "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "indreb:crafting/items/circuit/electronic_circuit"
+      },
+      "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "item",
+      "copper_cable_insulated",
       "has_the_recipe"
     ]
   ],

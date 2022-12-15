@@ -84,7 +84,9 @@ public final class ModBlocks {
     public static final RegistryObject<Block> BRONZE_BLOCK = registerBlock("bronze_block", () -> new BlockResource(Material.METAL, 1f, 3f, SoundType.METAL));
 
     public static final RegistryObject<Block> RUBBER_LOG = registerBlock("rubber_log", RubberLog::new);
+    public static final RegistryObject<Block> STRIPPED_RUBBER_LOG = registerBlock("stripped_rubber_log", StrippedRubberLog::new);
     public static final RegistryObject<Block> RUBBER_WOOD = registerBlock("rubber_wood", RubberWood::new);
+    public static final RegistryObject<Block> STRIPPED_RUBBER_WOOD = registerBlock("stripped_rubber_wood", StrippedRubberWood::new);
     public static final RegistryObject<Block> RUBBER_LEAVES = registerBlock("rubber_leaves", RubberLeaves::new);
     public static final RegistryObject<Block> RUBBER_PLANKS = registerBlock("rubber_planks", RubberPlanks::new);
     public static final RegistryObject<Block> RUBBER_SAPLING = registerBlock("rubber_sapling", () -> new RubberSapling(new RubberTreeGrower()));

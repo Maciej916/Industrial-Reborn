@@ -1,4 +1,4 @@
-// 1.19.2	2022-12-09T10:04:16.3338178	Industrial Reborn Tags
+// 1.19.2	2022-12-15T16:08:05.8096442	Industrial Reborn Tags
 dd5c5c1032bad3ac0f62d30456f9fd001142ce84 data/forge/tags/items/dusts/coal.json
 273a096d0c0bcf058ce031391d0910e6095a1c1f data/forge/tags/items/dusts/copper.json
 22bdb5c82051b049a9392cb4c901bce0f9ad1ae8 data/forge/tags/items/dusts/deepslate.json
@@ -12,6 +12,7 @@ d3350d24559a3f9dc1a610fdf6926fe0d8402766 data/forge/tags/items/dusts/stone.json
 10a84ba93e34ca3ab1bec0adc1c113acf838a4da data/forge/tags/items/dusts/sulfur.json
 af85402e2ac33db80b83024b6213c2be8072ea0f data/forge/tags/items/dusts/tin.json
 aedf8682614a4bf6ef771be46a3ad7df38f62894 data/forge/tags/items/dusts/uranium.json
+ebdeee6ce263b5808dcabda95693ab937818cfc3 data/forge/tags/items/dusts/wood.json
 b2ae9a3f7c813d57eb38513c4e9c3c8b0de15170 data/forge/tags/items/ingots/bronze.json
 52e802b0aca60f40d558446da0aa0e15aa76aa89 data/forge/tags/items/ingots/lead.json
 fd303e7390bbfb85ee8ec80e973f217ec551f003 data/forge/tags/items/ingots/silver.json
@@ -49,13 +50,13 @@ a19c14fa53625593856519164ede0d61ab58a53b data/forge/tags/items/plates/iridium.js
 b5cb5d33eec3d87c73c8ea43c6b5c48cb195671f data/indreb/tags/items/basic_machine_sign.json
 4795866f128768e3ee1ef03302426b7c1f31dcd7 data/indreb/tags/items/battery.json
 4458d9ccaf00af4691a2c2ba683e562e3a4ff66a data/indreb/tags/items/battery_boxex.json
-ac3445a2adee4b6a73b200e14d436e05073b09fe data/indreb/tags/items/boots.json
+8a6e6402488953f62978ca15627016dca5c42ea2 data/indreb/tags/items/boots.json
 56580d85e9323ad06402ffd14b9d5abed0c81392 data/indreb/tags/items/canned_food.json
-9c25ffa1c31b3e227282a8ca858322af4ca80afb data/indreb/tags/items/chestplate.json
+fe1b35f95228eaa3c960ff357c0ce31a9b577f3c data/indreb/tags/items/chestplate.json
 acf321e6453b5ca5f02c3663e797e0db30203b0b data/indreb/tags/items/electric_items.json
 ebf939c885e5c4fdbc1086f04fb7c3e4fdb8443e data/indreb/tags/items/generators.json
-afbb1abd14136ece8f249ade335c1c6490a90bc9 data/indreb/tags/items/helmet.json
-87636a3d5811734534d63f5299f83bd4e0e75a13 data/indreb/tags/items/leggings.json
+e13493be84350b6fd9e28fdb205161a2f021fb11 data/indreb/tags/items/helmet.json
+a96ba9f0c35ca6126b5d990da7631006144cb50d data/indreb/tags/items/leggings.json
 a268b01150c3486c191667d2090e6421026f3437 data/indreb/tags/items/machines.json
 91a1e1d10ba71ba471e5aa16a8c848ba19432a2f data/indreb/tags/items/reactor_component.json
 5f9f2f3fb83bc9b02132c5cc56248ff800631ea2 data/indreb/tags/items/reactor_fusion.json
@@ -64,3 +65,4 @@ a268b01150c3486c191667d2090e6421026f3437 data/indreb/tags/items/machines.json
 41aab4bd4ba7ff6deec60ae9fa1abf796a7f81f4 data/indreb/tags/items/upgrade.json
 57a8d5d73e0405783d2136871a1b053ed776652f data/indreb/tags/items/wrench.json
 d3f6e174ad9717d5ab1643dbf9dec8879d1e7323 data/minecraft/tags/items/leaves.json
+84e809d7677b635e87e57220ab5773721c7899d6 data/minecraft/tags/items/planks.json

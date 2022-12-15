@@ -32,6 +32,9 @@ public class TagsBlock extends BlockTagsProvider {
 
         tag(BlockTags.LOGS)
                 .add(ModBlocks.RUBBER_LOG.get())
+                .add(ModBlocks.STRIPPED_RUBBER_LOG.get())
+                .add(ModBlocks.RUBBER_WOOD.get())
+                .add(ModBlocks.STRIPPED_RUBBER_WOOD.get())
         ;
 
         tag(BlockTags.PLANKS)
@@ -159,6 +162,8 @@ public class TagsBlock extends BlockTagsProvider {
                 .add(ModBlocks.RUBBER_GATE.get())
                 .add(ModBlocks.RUBBER_DOOR.get())
                 .add(ModBlocks.RUBBER_TRAP_DOOR.get())
+                .add(ModBlocks.STRIPPED_RUBBER_LOG.get())
+                .add(ModBlocks.STRIPPED_RUBBER_WOOD.get())
 
                 .add(ModBlocks.BATTERY_BOX.get())
                 .add(ModBlocks.CHARGE_PAD_BATTERY_BOX.get())

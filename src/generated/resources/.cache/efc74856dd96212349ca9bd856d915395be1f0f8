@@ -1,4 +1,4 @@
-// 1.19.2	2022-12-07T13:15:08.9011744	Item Models: indreb
+// 1.19.2	2022-12-15T12:04:02.2325114	Item Models: indreb
 ea6f48b249d5595c0bc20e39b977fa8fad0ed868 assets/indreb/models/item/acid_hazard_sign_block.json
 4df0fe2021d7b228332497f5c7d711b40f082510 assets/indreb/models/item/advanced_alloy.json
 df0888ae05d095b7dbd4b54b411496df8d853b49 assets/indreb/models/item/advanced_battery.json
@@ -58,6 +58,7 @@ b77246117c81832d539feedbcdec1362203e9a9c assets/indreb/models/item/battery/lapot
 6cedc75e341efd70636440aa48510097859e62df assets/indreb/models/item/battery/lapotron_crystal_3.json
 49ac420c2266aa9d18aca4265e3aa5c537924d92 assets/indreb/models/item/battery/lapotron_crystal_4.json
 b7b7c10b86c02f5aff94c7dacbe95bc1951def4a assets/indreb/models/item/battery_box.json
+80de3dfe5ff2db844507dabb24da5c14eaccb6d8 assets/indreb/models/item/bioplastic.json
 88176f28e0a2b118d131e21e4e174b9fa253ff1c assets/indreb/models/item/bio_chaff.json
 95a2c2b1e84bec9287b9fef1d69d3a1d3cb93682 assets/indreb/models/item/bio_hazard_sign_block.json
 42c70becdf130ad536d7b3f4b50744bc050a604f assets/indreb/models/item/bronze_axe.json
@@ -168,6 +169,7 @@ cf9455728c5a1df8a4f8fe3f15795a27ee49e584 assets/indreb/models/item/fuel_rod_uran
 ca2b05c7e81fa8d47ff31ae2f5e0ca29c1db57e0 assets/indreb/models/item/fuel_rod_uranium_dual_depleted.json
 5f8111f4dc2f107734d025f7f241290d51ff4df9 assets/indreb/models/item/fuel_rod_uranium_quad.json
 3d8095a71b768f72afefa4d67559dfd2b9543640 assets/indreb/models/item/fuel_rod_uranium_quad_depleted.json
+e51902a09cb6ffcfb162dc6ec9c486cafdab8e6a assets/indreb/models/item/geiger_counter.json
 d7af7f9a3f1b9c070baee5d11d4b06beaa6483d9 assets/indreb/models/item/generator.json
 61c9f7eece2902c2d4e281247e46827367efceae assets/indreb/models/item/geo_generator.json
 d0af675c3b7401f1cdb4923c88d8e3c489bc6b5e assets/indreb/models/item/glass_fibre_cable.json
@@ -177,6 +179,10 @@ d5b0daad6362dacdc520354be422a5879d3e6d32 assets/indreb/models/item/gold_cable_in
 2b4cd18bba5fac76203990c15d45db2bbd813f32 assets/indreb/models/item/gold_dust.json
 5f17c98adc3436db6d4290820eee0d0f0c26c150 assets/indreb/models/item/gold_plate.json
 fdb60cea3d4c9e3083c1bd7b8b0eab88157cc281 assets/indreb/models/item/hammer.json
+6cbba999021d78798ef8671872ed65537911475e assets/indreb/models/item/hazmat_suit_boots.json
+301c33cad8c9f1037054814bdd7aafc04f9cfaa3 assets/indreb/models/item/hazmat_suit_chestplate.json
+453529a919756f5716342bd31f36d7d13fea896d assets/indreb/models/item/hazmat_suit_helmet.json
+fb4cb059f563271995ad8783e946f7c388916941 assets/indreb/models/item/hazmat_suit_leggings.json
 a33310408ce91e8b812146365ce2e98034a3d6e1 assets/indreb/models/item/heating_cell.json
 7dc09bbfa3361d77ec265ca743d4b801dc92ca78 assets/indreb/models/item/heat_capacity_reactor_plating.json
 10f24ab66d2c4e59e150e4d8b3227c08060c304a assets/indreb/models/item/heat_conductor.json
@@ -267,6 +273,7 @@ da40dabd6d34276573da6fc7b2ed660764c1d67b assets/indreb/models/item/purified_silv
 698557646c6afecce786d1347eac93aef5ae3cf8 assets/indreb/models/item/purified_tin.json
 ea1efa0601bc957b103a85ca871f50965b5d219b assets/indreb/models/item/purified_uranium.json
 a5b5e0c41218c3a46d271a77ce303a34cbb4377b assets/indreb/models/item/quantum_solar_panel.json
+20901d8fefe33f9f5f5c6d5f5ea2c5266283d84d assets/indreb/models/item/radiation_shielding.json
 a6200729ab738fb63e47e3943cb69c199220989b assets/indreb/models/item/radioactive_hazard_sign_block.json
 4b2c04b5dfb92befde56e171cf0cd4a86814d564 assets/indreb/models/item/raw_lead.json
 807053f450ada25d9cd8d3ba2dd7b483a1c63604 assets/indreb/models/item/raw_lead_block.json
@@ -338,6 +345,8 @@ b481f82b12801d0caa819e08d64496d9feb9eed5 assets/indreb/models/item/steel_ingot.j
 9328cf7f14f21f4a850f9fc5584b26c8f6a20fd2 assets/indreb/models/item/steel_plate.json
 61877bdfc62a1fd0922cdccebdbb03417b674a04 assets/indreb/models/item/sticky_resin.json
 c1c4577b82173aa17bb143278938a2a89cf85b5d assets/indreb/models/item/stone_dust.json
+76be4469e4fc4b6d3d307e988c6c7ca3e4b60f70 assets/indreb/models/item/stripped_rubber_log.json
+63eac66e00d57625da2ab5e3a3039342defa92ae assets/indreb/models/item/stripped_rubber_wood.json
 eaffa1d0b9f8e9b74897e2bb70bfe9ebbbafecb3 assets/indreb/models/item/sulfur_dust.json
 b65bd1677d2893000f43801770bff921b17ea170 assets/indreb/models/item/teleport_anchor.json
 45b8a1dda0a529719d41254f0ebbc384be581fee assets/indreb/models/item/thermal_centrifuge.json

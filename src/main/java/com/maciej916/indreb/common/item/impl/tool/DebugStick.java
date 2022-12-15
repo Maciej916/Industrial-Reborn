@@ -42,4 +42,10 @@ public class DebugStick extends IEMeter {
     public Rarity getRarity(ItemStack pStack) {
         return Rarity.EPIC;
     }
+
+    @Override
+    public int getMaxStackSize(ItemStack stack) {
+        return 64;
+    }
+
 }

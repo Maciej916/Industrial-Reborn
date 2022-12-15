@@ -12,6 +12,7 @@ import com.maciej916.indreb.common.api.top.BaseOneProbeInfo;
 import com.maciej916.indreb.common.api.top.impl.ProbeInfoSimpleText;
 import com.maciej916.indreb.common.blockentity.ModBlockEntities;
 import com.maciej916.indreb.common.capability.ModCapabilities;
+import com.maciej916.indreb.common.capability.radiation.IHasRadiation;
 import com.maciej916.indreb.common.capability.reactor.IReactorComponentCapability;
 import com.maciej916.indreb.common.item.ModItems;
 import com.maciej916.indreb.common.multiblock.reactor.Reactor;
@@ -43,8 +44,9 @@ import org.jetbrains.annotations.Nullable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BlockEntityNuclearReactor extends IndRebBlockEntity implements IHasSound {
+public class BlockEntityNuclearReactor extends IndRebBlockEntity implements IHasSound, IHasRadiation {
 
+    private int totalRodCount = 0;
     private final Reactor reactor = new Reactor();
 
     public BlockEntityNuclearReactor(BlockPos pos, BlockState blockState) {
@@ -105,7 +107,6 @@ public class BlockEntityNuclearReactor extends IndRebBlockEntity implements IHas
             reactor.clearVentedHeat();
             reactor.clearIEOutput();
 
-            int totalRodCount = 0;
             for (int row = 0; row < 6; row++) {
                 for (int col = 0; col < 9; col++) {
                     IReactorComponentCapability component = reactor.getComponentAt(row, col);
@@ -148,30 +149,28 @@ public class BlockEntityNuclearReactor extends IndRebBlockEntity implements IHas
                 }
             }
 
-            if (reactor.getEnabled()) {
-                for (int row = 0; row < 6; row++) {
-                    for (int col = 0; col < 9; col++) {
-                        IReactorComponentCapability component = reactor.getComponentAt(row, col);
-                        if (component != null) {
-                            if (component.isBroken()) {
-                                float random = level.getRandom().nextFloat();
-                                if (random <= 0.25f && component.getRodCount() > 0) {
-                                    ItemStack newStack = getBaseStorage().getStackInSlot(component.getSlotId()).copy();
-                                    if (newStack.getItem() == ModItems.FUEL_ROD_URANIUM.get()) {
-                                        newStack = new ItemStack(ModItems.FUEL_ROD_URANIUM.get());
-                                    } else if (newStack.getItem() == ModItems.FUEL_ROD_URANIUM_DUAL.get()) {
-                                        newStack = new ItemStack(ModItems.FUEL_ROD_URANIUM_DUAL_DEPLETED.get());
-                                    } else if (newStack.getItem() == ModItems.FUEL_ROD_URANIUM_QUAD.get()) {
-                                        newStack = new ItemStack(ModItems.FUEL_ROD_URANIUM_QUAD_DEPLETED.get());
-                                    }
-
-                                    getBaseStorage().setStackInSlot(component.getSlotId(), newStack);
-                                } else {
-                                    StackHandlerHelper.shrinkStack(getBaseStorage(), component.getSlotId(), 1);
+            for (int row = 0; row < 6; row++) {
+                for (int col = 0; col < 9; col++) {
+                    IReactorComponentCapability component = reactor.getComponentAt(row, col);
+                    if (component != null) {
+                        if (component.isBroken()) {
+                            float random = level.getRandom().nextFloat();
+                            if (random <= 0.25f && component.getRodCount() > 0) {
+                                ItemStack newStack = getBaseStorage().getStackInSlot(component.getSlotId()).copy();
+                                if (newStack.getItem() == ModItems.FUEL_ROD_URANIUM.get()) {
+                                    newStack = new ItemStack(ModItems.FUEL_ROD_URANIUM.get());
+                                } else if (newStack.getItem() == ModItems.FUEL_ROD_URANIUM_DUAL.get()) {
+                                    newStack = new ItemStack(ModItems.FUEL_ROD_URANIUM_DUAL_DEPLETED.get());
+                                } else if (newStack.getItem() == ModItems.FUEL_ROD_URANIUM_QUAD.get()) {
+                                    newStack = new ItemStack(ModItems.FUEL_ROD_URANIUM_QUAD_DEPLETED.get());
                                 }
 
-                                reactor.setComponentAt(row, col, null, component.getSlotId());
+                                getBaseStorage().setStackInSlot(component.getSlotId(), newStack);
+                            } else {
+                                StackHandlerHelper.shrinkStack(getBaseStorage(), component.getSlotId(), 1);
                             }
+
+                            reactor.setComponentAt(row, col, null, component.getSlotId());
                         }
                     }
                 }
@@ -306,5 +305,29 @@ public class BlockEntityNuclearReactor extends IndRebBlockEntity implements IHas
     @Override
     public SoundEvent getSoundEvent() {
         return ModSounds.NUCLEAR_REACTOR.get();
+    }
+
+    public int getTotalRodCount() {
+        return totalRodCount;
+    }
+
+    @Override
+    public double getAddRads() {
+        double rads = 0;
+
+        BlockState state = getBlockState();
+        if (state.getValue(BlockStateHelper.REACTOR_PART) != ReactorPartIndex.UNFORMED) {
+            for (int slotId = 0; slotId < 54; slotId++) {
+                ItemStack stack = getBaseStorage().getStackInSlot(slotId);
+                if (!stack.isEmpty()) {
+                    if (stack.getItem() instanceof IHasRadiation hasRadiation) {
+                        rads += hasRadiation.getAddRads();
+                    }
+                }
+            }
+        }
+
+        float coreHeatPercent = getReactor().getPercentProgress() / 60;
+        return coreHeatPercent * rads;
     }
 }

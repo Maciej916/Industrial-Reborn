@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "indreb/items/tool",
+  "key": {
+    "b": {
+      "item": "indreb:bioplastic"
+    },
+    "c": {
+      "item": "indreb:carbon_plate"
+    },
+    "o": {
+      "tag": "forge:plates/copper"
+    },
+    "r": {
+      "item": "minecraft:redstone"
+    },
+    "s": {
+      "tag": "forge:plates/steel"
+    }
+  },
+  "pattern": [
+    "bos",
+    "crc",
+    "crc"
+  ],
+  "result": {
+    "item": "indreb:geiger_counter"
+  }
+}

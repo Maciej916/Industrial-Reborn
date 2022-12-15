@@ -1,0 +1,86 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "bioplastic": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:bioplastic"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "carbon_plate": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:carbon_plate"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "copper_plate": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:copper_plate"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "indreb:crafting/items/tool/geiger_counter"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "redstone": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:redstone"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "steel_plate": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:steel_plate"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "redstone",
+      "steel_plate",
+      "copper_plate",
+      "bioplastic",
+      "carbon_plate",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "indreb:crafting/items/tool/geiger_counter"
+    ]
+  }
+}

@@ -112,10 +112,10 @@ public class ItemsBasicProvider extends RecipeProvider {
                 .pattern("ccc")
                 .pattern("cic")
                 .pattern("ccc")
-                .define('i', ModItemTags.FORGE_INGOTS_IRON)
+                .define('i', ModItemTags.FORGE_RODS_IRON)
                 .define('c', ModBlocks.COPPER_CABLE.get())
                 .group(MODID + "/items/crafting")
-                .unlockedBy("diamond", InventoryChangeTrigger.TriggerInstance.hasItems(Items.IRON_INGOT))
+                .unlockedBy("iron_rod", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.IRON_ROD.get()))
                 .unlockedBy("copper_cable", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.COPPER_CABLE.get()))
                 .save(consumer, saveResource("coil"));
 
@@ -123,11 +123,11 @@ public class ItemsBasicProvider extends RecipeProvider {
                 .pattern(" t ")
                 .pattern("cic")
                 .pattern(" t ")
-                .define('i', ModItemTags.FORGE_INGOTS_IRON)
+                .define('i', ModItemTags.FORGE_RODS_IRON)
                 .define('c', ModItems.COIL.get())
                 .define('t', ItemTags.create(new ResourceLocation("forge", "plates/tin")))
                 .group(MODID + "/items/crafting")
-                .unlockedBy("diamond", InventoryChangeTrigger.TriggerInstance.hasItems(Items.IRON_INGOT))
+                .unlockedBy("iron_rod", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.IRON_ROD.get()))
                 .unlockedBy("coil", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.COIL.get()))
                 .unlockedBy("tin_plate", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.TIN_PLATE.get()))
                 .save(consumer, saveResource("electric_motor"));
@@ -185,6 +185,21 @@ public class ItemsBasicProvider extends RecipeProvider {
                 .group(MODID + "/items/crafting")
                 .unlockedBy("mud_pile", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.MUD_PILE.get()))
                 .save(consumer, saveResource("mud"));
-        
+
+        ShapedRecipeBuilder.shaped(ModItems.RADIATION_SHIELDING.get(), 2)
+                .pattern("bbb")
+                .pattern("lrl")
+                .pattern("ccc")
+                .define('b', ModItems.BIOPLASTIC.get())
+                .define('r', ModItems.REACTOR_PLATING.get())
+                .define('c', ModItems.CARBON_PLATE.get())
+                .define('l', ModItemTags.FORGE_PLATES_LEAD)
+                .group(MODID + "/items/crafting")
+                .unlockedBy("bioplastic", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.BIOPLASTIC.get()))
+                .unlockedBy("reactor_plating", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.REACTOR_PLATING.get()))
+                .unlockedBy("carbon_plate", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.CARBON_PLATE.get()))
+                .unlockedBy("lead_plate", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.LEAD_PLATE.get()))
+                .save(consumer, saveResource("radiation_shielding"));
+
     }
 }

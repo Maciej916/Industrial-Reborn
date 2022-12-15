@@ -2,6 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "group": "indreb/items/nano",
   "key": {
+    "b": {
+      "item": "indreb:rubber_boots"
+    },
     "c": {
       "item": "indreb:carbon_plate"
     },
@@ -10,7 +13,7 @@
     }
   },
   "pattern": [
-    "c c",
+    "cbc",
     "cec"
   ],
   "result": {

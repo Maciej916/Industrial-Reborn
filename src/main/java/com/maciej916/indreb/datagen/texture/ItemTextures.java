@@ -162,6 +162,8 @@ public class ItemTextures extends ItemModelProvider {
         createWithBlock(ModItems.RUBBER_FENCE, "rubber_fence");
         createGeneratedTexture(ModItems.RUBBER_DOOR, "rubber_wood/rubber_door");
         createWithBlock(ModItems.RUBBER_TRAP_DOOR, "rubber_trap_door_bottom");
+        createWithBlock(ModItems.STRIPPED_RUBBER_WOOD, "stripped_rubber_wood");
+        createWithBlock(ModItems.STRIPPED_RUBBER_LOG, "stripped_rubber_log");
     }
 
     private void registerIron() {
@@ -256,6 +258,8 @@ public class ItemTextures extends ItemModelProvider {
         createGeneratedTexture(ModItems.SCRAP, "crafting/scrap");
         createGeneratedTexture(ModItems.SCRAP_METAL, "crafting/scrap_metal");
         createGeneratedTexture(ModItems.SCRAP_BOX, "crafting/scrap_box");
+        createGeneratedTexture(ModItems.BIOPLASTIC, "crafting/bioplastic");
+        createGeneratedTexture(ModItems.RADIATION_SHIELDING, "crafting/radiation_shielding");
     }
 
     protected void registerResource() {
@@ -352,6 +356,7 @@ public class ItemTextures extends ItemModelProvider {
         createHandheldTexture(ModItems.BRONZE_PICKAXE, "tool/bronze_pickaxe");
         createHandheldTexture(ModItems.BRONZE_SHOVEL, "tool/bronze_shovel");
         createHandheldTexture(ModItems.BRONZE_SWORD, "tool/bronze_sword");
+        createGeneratedTexture(ModItems.GEIGER_COUNTER, "tool/geiger_counter");
     }
 
     protected void registerElectricTools() {
@@ -385,6 +390,11 @@ public class ItemTextures extends ItemModelProvider {
         createGeneratedTexture(ModItems.NANO_CHESTPLATE, "armor/nano_chestplate");
         createGeneratedTexture(ModItems.NANO_LEGGINGS, "armor/nano_leggings");
         createGeneratedTexture(ModItems.NANO_BOOTS, "armor/nano_boots");
+
+        createGeneratedTexture(ModItems.HAZMAT_SUIT_HELMET, "armor/hazmat_suit_helmet");
+        createGeneratedTexture(ModItems.HAZMAT_SUIT_CHESTPLATE, "armor/hazmat_suit_chestplate");
+        createGeneratedTexture(ModItems.HAZMAT_SUIT_LEGGINGS, "armor/hazmat_suit_leggings");
+        createGeneratedTexture(ModItems.HAZMAT_SUIT_BOOTS, "armor/hazmat_suit_boots");
     }
 
     protected void registerExplosive() {

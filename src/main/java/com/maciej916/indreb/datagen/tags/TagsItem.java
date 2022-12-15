@@ -45,6 +45,12 @@ public class TagsItem extends ItemTagsProvider {
                 .add(ModItems.DEEPSLATE_SILVER_ORE.get())
         ;
 
+        /* PLANKS */
+
+        tag(ItemTags.PLANKS)
+                .add(ModItems.RUBBER_PLANKS.get())
+        ;
+
         /* RAW STORAGE BLOCKS */
 
         tag(ModItemTags.FORGE_STORAGE_BLOCKS_RAW_TIN).add(ModItems.RAW_TIN_BLOCK.get());
@@ -102,6 +108,7 @@ public class TagsItem extends ItemTagsProvider {
         tag(ModItemTags.FORGE_DUSTS_URANIUM).add(ModItems.URANIUM_DUST.get());
         tag(ModItemTags.FORGE_DUSTS_SILVER).add(ModItems.SILVER_DUST.get());
         tag(ModItemTags.FORGE_DUSTS_IRON).add(ModItems.IRON_DUST.get());
+        tag(ModItemTags.FORGE_DUSTS_WOOD).add(ModItems.SAWDUST.get());
 
         /* RODS */
 
@@ -128,6 +135,7 @@ public class TagsItem extends ItemTagsProvider {
                 .add(ModItems.NANO_HELMET.get())
                 .add(ModItems.BRONZE_HELMET.get())
                 .add(ModItems.NIGHTVISION_GOGGLES.get())
+                .add(ModItems.HAZMAT_SUIT_HELMET.get())
         ;
 
         /* CHESTPLATE */
@@ -135,6 +143,7 @@ public class TagsItem extends ItemTagsProvider {
         tag(ModItemTags.CHESTPLATE)
                 .add(ModItems.NANO_CHESTPLATE.get())
                 .add(ModItems.BRONZE_CHESTPLATE.get())
+                .add(ModItems.HAZMAT_SUIT_CHESTPLATE.get())
         ;
 
         /* LEGGINGS */
@@ -142,6 +151,7 @@ public class TagsItem extends ItemTagsProvider {
         tag(ModItemTags.LEGGINGS)
                 .add(ModItems.NANO_LEGGINGS.get())
                 .add(ModItems.BRONZE_LEGGINGS.get())
+                .add(ModItems.HAZMAT_SUIT_LEGGINGS.get())
         ;
 
         /* BOOTS */
@@ -150,6 +160,7 @@ public class TagsItem extends ItemTagsProvider {
                 .add(ModItems.NANO_BOOTS.get())
                 .add(ModItems.BRONZE_BOOTS.get())
                 .add(ModItems.RUBBER_BOOTS.get())
+                .add(ModItems.HAZMAT_SUIT_BOOTS.get())
         ;
 
         /* REACTOR COMPONENTS */

@@ -1,9 +1,11 @@
 package com.maciej916.indreb.common.capability.reactor;
 
 import com.maciej916.indreb.common.multiblock.reactor.Reactor;
+import net.minecraft.world.item.ItemStack;
 
 public interface IReactorComponentCapability {
 
+    ItemStack getItemStack();
     void addToReactor(Reactor parent, int row, int col, int slotId);
     void removeFromReactor();
     int getSlotId();

@@ -2,6 +2,7 @@ package com.maciej916.indreb.common.block.impl.machine.t_basic.electric_furnace;
 
 import com.maciej916.indreb.common.api.blockentity.IndRebBlockEntity;
 import com.maciej916.indreb.common.api.blockentity.interfaces.IHasExp;
+import com.maciej916.indreb.common.api.blockentity.interfaces.IHasSound;
 import com.maciej916.indreb.common.api.blockentity.interfaces.IHasUpgrades;
 import com.maciej916.indreb.common.api.energy.interfaces.IBlockEntityEnergy;
 import com.maciej916.indreb.common.api.enums.*;
@@ -11,12 +12,14 @@ import com.maciej916.indreb.common.api.slot.OutputSlot;
 import com.maciej916.indreb.common.api.util.ProgressFloat;
 import com.maciej916.indreb.common.blockentity.ModBlockEntities;
 import com.maciej916.indreb.common.config.impl.ServerConfig;
+import com.maciej916.indreb.common.sound.ModSounds;
 import com.maciej916.indreb.common.util.BlockStateHelper;
 import com.maciej916.indreb.common.util.StackHandlerHelper;
 import com.maciej916.indreb.common.util.WrappedHandler;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
@@ -38,7 +41,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
-public class BlockEntityElectricFurnace extends IndRebBlockEntity implements IHasExp, IHasUpgrades, IBlockEntityEnergy {
+public class BlockEntityElectricFurnace extends IndRebBlockEntity implements IHasExp, IHasUpgrades, IBlockEntityEnergy, IHasSound {
 
     public static final int INPUT_SLOT = 0;
     public static final int OUTPUT_SLOT = 1;
@@ -195,4 +198,8 @@ public class BlockEntityElectricFurnace extends IndRebBlockEntity implements IHa
         return !inputStack.isEmpty() && (outputStack.isEmpty() || (outputStack.getCount() + recipe.getResultItem().getCount() <= outputStack.getMaxStackSize() && recipe.getResultItem().getItem() == outputStack.getItem()));
     }
 
+    @Override
+    public SoundEvent getSoundEvent() {
+        return ModSounds.ELECTRIC_FURNACE.get();
+    }
 }

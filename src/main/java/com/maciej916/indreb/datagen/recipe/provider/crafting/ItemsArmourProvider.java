@@ -9,6 +9,7 @@ import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Items;
 
 import java.util.function.Consumer;
@@ -123,16 +124,67 @@ public class ItemsArmourProvider extends RecipeProvider {
                 .unlockedBy("carbon_plate", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.CARBON_PLATE.get()))
                 .unlockedBy("energy_crystal", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.ENERGY_CRYSTAL.get()))
                 .save(consumer, saveResource("nano_leggings"));
-        
+
         ShapedRecipeBuilder.shaped(ModItems.NANO_BOOTS.get())
-                .pattern("c c")
+                .pattern("cbc")
                 .pattern("cec")
                 .define('c', ModItems.CARBON_PLATE.get())
                 .define('e', ModItems.ENERGY_CRYSTAL.get())
+                .define('b', ModItems.RUBBER_BOOTS.get())
                 .group(MODID + "/items/nano")
                 .unlockedBy("carbon_plate", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.CARBON_PLATE.get()))
                 .unlockedBy("energy_crystal", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.ENERGY_CRYSTAL.get()))
+                .unlockedBy("rubber_boots", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.RUBBER_BOOTS.get()))
                 .save(consumer, saveResource("nano_boots"));
+
+
+        ShapedRecipeBuilder.shaped(ModItems.HAZMAT_SUIT_HELMET.get())
+                .pattern("owo")
+                .pattern("plp")
+                .pattern("wsw")
+                .define('o', ModItemTags.FORGE_DYES_ORANGE)
+                .define('w', ItemTags.WOOL)
+                .define('p', ModItems.RADIATION_SHIELDING.get())
+                .define('l', Items.LEATHER_HELMET)
+                .define('s', ModItemTags.FORGE_PLATES_STEEL)
+                .group(MODID + "/items/hazmat")
+                .unlockedBy("radiation_shielding", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.RADIATION_SHIELDING.get()))
+                .save(consumer, saveResource("hazmat_suit_helmet"));
+
+        ShapedRecipeBuilder.shaped(ModItems.HAZMAT_SUIT_CHESTPLATE.get())
+                .pattern("wpw")
+                .pattern("olo")
+                .pattern("pwp")
+                .define('o', ModItemTags.FORGE_DYES_ORANGE)
+                .define('w', ItemTags.WOOL)
+                .define('p', ModItems.RADIATION_SHIELDING.get())
+                .define('l', Items.LEATHER_CHESTPLATE)
+                .group(MODID + "/items/hazmat")
+                .unlockedBy("radiation_shielding", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.RADIATION_SHIELDING.get()))
+                .save(consumer, saveResource("hazmat_suit_chestplate"));
+
+        ShapedRecipeBuilder.shaped(ModItems.HAZMAT_SUIT_LEGGINGS.get())
+                .pattern("owo")
+                .pattern("plp")
+                .pattern("w w")
+                .define('o', ModItemTags.FORGE_DYES_ORANGE)
+                .define('w', ItemTags.WOOL)
+                .define('p', ModItems.RADIATION_SHIELDING.get())
+                .define('l', Items.LEATHER_LEGGINGS)
+                .group(MODID + "/items/hazmat")
+                .unlockedBy("radiation_shielding", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.RADIATION_SHIELDING.get()))
+                .save(consumer, saveResource("hazmat_suit_leggings"));
+
+        ShapedRecipeBuilder.shaped(ModItems.HAZMAT_SUIT_BOOTS.get())
+                .pattern("pop")
+                .pattern("wlw")
+                .define('o', ModItemTags.FORGE_DYES_BLACK)
+                .define('p', ModItems.RADIATION_SHIELDING.get())
+                .define('l', Items.LEATHER_BOOTS)
+                .define('w', ItemTags.WOOL)
+                .group(MODID + "/items/hazmat")
+                .unlockedBy("radiation_shielding", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.RADIATION_SHIELDING.get()))
+                .save(consumer, saveResource("hazmat_suit_boots"));
 
 
     }

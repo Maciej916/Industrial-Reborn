@@ -4,15 +4,18 @@ import com.maciej916.indreb.IndReb;
 import com.maciej916.indreb.common.api.blockentity.interfaces.IBlockEntityChunkSync;
 import com.maciej916.indreb.common.capability.ModCapabilities;
 import com.maciej916.indreb.common.capability.entity.EntityCapability;
-import com.maciej916.indreb.common.capability.player.IPlayerCapability;
 import com.maciej916.indreb.common.capability.player.PlayerCapability;
+import com.maciej916.indreb.common.capability.radiation.IHasRadiation;
+import com.maciej916.indreb.common.capability.radiation.RadiationCapability;
 import com.maciej916.indreb.common.energy.EnergyCore;
 import com.maciej916.indreb.common.energy.interfaces.IEnergyCore;
+import de.maxhenkel.pipez.corelib.death.PlayerDeathEvent;
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraftforge.event.AttachCapabilitiesEvent;
@@ -50,15 +53,33 @@ public final class ForgeEventSubscriber {
         }
     }
 
+
+    @SubscribeEvent
+    public static void blockEntityCapabilities(AttachCapabilitiesEvent<BlockEntity> event) {
+
+    }
+
+    @SubscribeEvent
+    public static void itemStackCapabilities(AttachCapabilitiesEvent<ItemStack> event) {
+        if (event.getObject().getItem() instanceof IHasRadiation hasRadiation) {
+            event.addCapability(new ResourceLocation(IndReb.MODID, "radiation"), new RadiationCapability(hasRadiation));
+        }
+    }
+
     @SubscribeEvent
     public static void playerTick(TickEvent.PlayerTickEvent event) {
         Player player = event.player;
-        player.getCapability(ModCapabilities.PLAYER_CAPABILITY).ifPresent(IPlayerCapability::tick);
+        player.getCapability(ModCapabilities.PLAYER_CAPABILITY).ifPresent(iPlayerCapability -> iPlayerCapability.tick(player));
     }
 
     @SubscribeEvent
     public static void playerClone(PlayerEvent.Clone event) {
         event.getOriginal().getCapability(ModCapabilities.PLAYER_CAPABILITY).ifPresent(oldCapability -> event.getOriginal().getCapability(ModCapabilities.PLAYER_CAPABILITY).ifPresent(newCapability -> newCapability.clone(oldCapability)));
+    }
+
+    @SubscribeEvent
+    public static void playerDeath(PlayerDeathEvent event) {
+      event.getPlayer().getCapability(ModCapabilities.PLAYER_CAPABILITY).ifPresent(cap -> cap.death(event.getSource()));
     }
 
     @SubscribeEvent

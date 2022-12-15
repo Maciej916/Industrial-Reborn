@@ -173,5 +173,14 @@ public class ThermalCentrifugingProvider extends RecipeProvider {
                 .setGroup("thermal_centrifuging")
                 .save(consumer,"rubber");
 
+        ThermalCentrifugingBuilder.builder(ModItems.BIOPLASTIC, 1)
+                .setIngredient(ModItems.BIO_CHAFF, 2)
+                .setTemperature(250)
+                .setDuration(200)
+                .setExperience(1.5f)
+                .addCriterion("bio_chaff", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.BIO_CHAFF.get()))
+                .setGroup("thermal_centrifuging")
+                .save(consumer,"bioplastic");
+
     }
 }

@@ -90,7 +90,7 @@ public class CableProvider extends RecipeProvider {
                 .unlockedBy("hv_cable", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.HV_CABLE.get()))
                 .save(consumer, saveResource("hv_cable_insulated"));
 
-        ShapedRecipeBuilder.shaped(ModBlocks.GLASS_FIBRE_CABLE.get())
+        ShapedRecipeBuilder.shaped(ModBlocks.GLASS_FIBRE_CABLE.get(),6)
                 .pattern("ggg")
                 .pattern("ese")
                 .pattern("ggg")

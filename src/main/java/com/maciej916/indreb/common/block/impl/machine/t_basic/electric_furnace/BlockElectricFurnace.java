@@ -12,8 +12,6 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.chat.Component;
-import net.minecraft.sounds.SoundEvents;
-import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
@@ -45,9 +43,6 @@ public class BlockElectricFurnace extends BaseElectricMachineBlock {
             double d0 = (double)pos.getX() + 0.5D;
             double d1 = (double)pos.getY();
             double d2 = (double)pos.getZ() + 0.5D;
-            if (rand.nextDouble() < 0.1D) {
-                level.playLocalSound(d0, d1, d2, SoundEvents.FURNACE_FIRE_CRACKLE, SoundSource.BLOCKS, 1.0F, 1.0F, false);
-            }
 
             Direction direction = this.getDirection(stateIn);
             Direction.Axis direction$axis = direction.getAxis();

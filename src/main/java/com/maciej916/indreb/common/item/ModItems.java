@@ -55,7 +55,9 @@ public final class ModItems {
     public static final RegistryObject<Item> BRONZE_BLOCK = fromBlock(ModBlocks.BRONZE_BLOCK);
 
     public static final RegistryObject<Item> RUBBER_LOG = fromBlock(ModBlocks.RUBBER_LOG);
+    public static final RegistryObject<Item> STRIPPED_RUBBER_LOG = fromBlock(ModBlocks.STRIPPED_RUBBER_LOG);
     public static final RegistryObject<Item> RUBBER_WOOD = fromBlock(ModBlocks.RUBBER_WOOD);
+    public static final RegistryObject<Item> STRIPPED_RUBBER_WOOD = fromBlock(ModBlocks.STRIPPED_RUBBER_WOOD);
     public static final RegistryObject<Item> RUBBER_LEAVES = fromBlock(ModBlocks.RUBBER_LEAVES);
     public static final RegistryObject<Item> RUBBER_PLANKS = fromBlock(ModBlocks.RUBBER_PLANKS);
     public static final RegistryObject<Item> RUBBER_SAPLING = fromBlock(ModBlocks.RUBBER_SAPLING);
@@ -277,6 +279,7 @@ public final class ModItems {
     public static final RegistryObject<Item> IRIDIUM = registerItem("iridium", MaterialItemRare::new);
 
     public static final RegistryObject<Item> IRON_ROD = registerItem("iron_rod", MaterialItem::new);
+    public static final RegistryObject<Item> BIOPLASTIC = registerItem("bioplastic", MaterialItem::new);
 
     public static final RegistryObject<Item> FERTILIZER = registerItem("fertilizer", Fertilizer::new);
 
@@ -410,25 +413,30 @@ public final class ModItems {
     public static final RegistryObject<Item> IRIDIUM_NEUTRON_REFLECTOR = registerItem("iridium_neutron_reflector", () -> new ReflectorItem(1, 1));
 
     public static final RegistryObject<Item> FUEL_ROD = registerItem("fuel_rod", MaterialItem::new);
-    public static final RegistryObject<Item> FUEL_ROD_URANIUM = registerItem("fuel_rod_uranium", () -> new FuelRodItem(20000, 1, 100, 2, 1, false));
-    public static final RegistryObject<Item> FUEL_ROD_URANIUM_DUAL = registerItem("fuel_rod_uranium_dual", () -> new FuelRodItem(20000, 1, 200, 4, 2, false));
-    public static final RegistryObject<Item> FUEL_ROD_URANIUM_QUAD = registerItem("fuel_rod_uranium_quad", () -> new FuelRodItem(20000, 1, 400, 8, 4, false));
-    public static final RegistryObject<Item> FUEL_ROD_URANIUM_DEPLETED = registerItem("fuel_rod_uranium_depleted", DepletedFuelRodItem::new);
-    public static final RegistryObject<Item> FUEL_ROD_URANIUM_DUAL_DEPLETED = registerItem("fuel_rod_uranium_dual_depleted", DepletedFuelRodItem::new);
-    public static final RegistryObject<Item> FUEL_ROD_URANIUM_QUAD_DEPLETED = registerItem("fuel_rod_uranium_quad_depleted", DepletedFuelRodItem::new);
+    public static final RegistryObject<Item> FUEL_ROD_URANIUM = registerItem("fuel_rod_uranium", () -> new FuelRodItem(20000, 1, 100, 2, 1, false, 0.4  * 10e-6));
+    public static final RegistryObject<Item> FUEL_ROD_URANIUM_DUAL = registerItem("fuel_rod_uranium_dual", () -> new FuelRodItem(20000, 1, 200, 4, 2, false, 0.8  * 10e-6));
+    public static final RegistryObject<Item> FUEL_ROD_URANIUM_QUAD = registerItem("fuel_rod_uranium_quad", () -> new FuelRodItem(20000, 1, 400, 8, 4, false, 1.6  * 10e-6));
+    public static final RegistryObject<Item> FUEL_ROD_URANIUM_DEPLETED = registerItem("fuel_rod_uranium_depleted", () -> new DepletedFuelRodItem(0.4  * 10e-6));
+    public static final RegistryObject<Item> FUEL_ROD_URANIUM_DUAL_DEPLETED = registerItem("fuel_rod_uranium_dual_depleted", () -> new DepletedFuelRodItem(0.8 * 10e-6));
+    public static final RegistryObject<Item> FUEL_ROD_URANIUM_QUAD_DEPLETED = registerItem("fuel_rod_uranium_quad_depleted", () -> new DepletedFuelRodItem(1.6 * 10e-6));
 
-    public static final RegistryObject<Item> FUEL_ROD_MOX = registerItem("fuel_rod_mox", () -> new FuelRodItem(10000, 1, 200, 4, 2, true));
-    public static final RegistryObject<Item> FUEL_ROD_MOX_DUAL = registerItem("fuel_rod_mox_dual", () -> new FuelRodItem(10000, 1, 400, 8, 4, true));
-    public static final RegistryObject<Item> FUEL_ROD_MOX_QUAD = registerItem("fuel_rod_mox_quad", () -> new FuelRodItem(10000, 1, 400, 8, 4, true));
-    public static final RegistryObject<Item> FUEL_ROD_MOX_DEPLETED = registerItem("fuel_rod_mox_depleted", DepletedFuelRodItem::new);
-    public static final RegistryObject<Item> FUEL_ROD_MOX_DUAL_DEPLETED = registerItem("fuel_rod_mox_dual_depleted", DepletedFuelRodItem::new);
-    public static final RegistryObject<Item> FUEL_ROD_MOX_QUAD_DEPLETED = registerItem("fuel_rod_mox_quad_depleted", DepletedFuelRodItem::new);
+    public static final RegistryObject<Item> FUEL_ROD_MOX = registerItem("fuel_rod_mox", () -> new FuelRodItem(10000, 1, 200, 4, 2, true, 12.9 * 10e-6));
+    public static final RegistryObject<Item> FUEL_ROD_MOX_DUAL = registerItem("fuel_rod_mox_dual", () -> new FuelRodItem(10000, 1, 400, 8, 4, true, 25.8 * 10e-6));
+    public static final RegistryObject<Item> FUEL_ROD_MOX_QUAD = registerItem("fuel_rod_mox_quad", () -> new FuelRodItem(10000, 1, 400, 8, 4, true, 51.6 * 10e-6));
+    public static final RegistryObject<Item> FUEL_ROD_MOX_DEPLETED = registerItem("fuel_rod_mox_depleted", () -> new DepletedFuelRodItem(12.9 * 10e-6));
+    public static final RegistryObject<Item> FUEL_ROD_MOX_DUAL_DEPLETED = registerItem("fuel_rod_mox_dual_depleted", () -> new DepletedFuelRodItem(25.8 * 10e-6));
+    public static final RegistryObject<Item> FUEL_ROD_MOX_QUAD_DEPLETED = registerItem("fuel_rod_mox_quad_depleted", () -> new DepletedFuelRodItem(51.6 * 10e-6));
 
     public static final RegistryObject<Item> HEATING_CELL = registerItem("heating_cell", WIPItem::new);
 
+    public static final RegistryObject<Item> GEIGER_COUNTER = registerItem("geiger_counter", GeigerCounter::new);
 
+    public static final RegistryObject<Item> HAZMAT_SUIT_HELMET = registerItem("hazmat_suit_helmet", () -> new HazmatArmor(EquipmentSlot.HEAD, 2));
+    public static final RegistryObject<Item> HAZMAT_SUIT_CHESTPLATE = registerItem("hazmat_suit_chestplate", () -> new HazmatArmor(EquipmentSlot.CHEST, 4));
+    public static final RegistryObject<Item> HAZMAT_SUIT_LEGGINGS = registerItem("hazmat_suit_leggings", () -> new HazmatArmor(EquipmentSlot.LEGS, 3));
+    public static final RegistryObject<Item> HAZMAT_SUIT_BOOTS = registerItem("hazmat_suit_boots", () -> new HazmatArmor(EquipmentSlot.FEET, 2));
 
-
+    public static final RegistryObject<Item> RADIATION_SHIELDING = registerItem("radiation_shielding", MaterialItem::new);
 
     public static <B extends Block> RegistryObject<Item> fromBlock(RegistryObject<B> block) {
         return fromBlock(block, Rarity.COMMON);

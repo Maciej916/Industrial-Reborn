@@ -130,6 +130,7 @@ public class BlockTextures extends BlockStateProvider {
         createFenceBlock(ModBlocks.RUBBER_FENCE, "rubber_wood/rubber_planks");
         createDoorBlock(ModBlocks.RUBBER_DOOR, "rubber_wood/rubber_door");
         createTrapDoorBlock(ModBlocks.RUBBER_TRAP_DOOR, "rubber_wood/rubber_trap_door", true);
+        createCubeAll(ModBlocks.STRIPPED_RUBBER_WOOD, "rubber_wood/stripped_rubber_log_side");
     }
 
     private void registerIron() {

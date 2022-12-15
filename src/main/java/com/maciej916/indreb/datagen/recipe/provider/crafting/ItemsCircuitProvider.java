@@ -33,10 +33,10 @@ public class ItemsCircuitProvider extends RecipeProvider {
                 .pattern("rir")
                 .pattern("ccc")
                 .define('c', ModBlocks.COPPER_CABLE_INSULATED.get())
-                .define('i', ModItemTags.FORGE_INGOTS_IRON)
+                .define('i', ModItemTags.FORGE_PLATES_IRON)
                 .define('r', Items.REDSTONE)
                 .group(MODID + "/items/circuit")
-                .unlockedBy("item", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.COPPER_CABLE_INSULATED.get()))
+                .unlockedBy("copper_cable_insulated", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.COPPER_CABLE_INSULATED.get()))
                 .save(consumer, saveResource("electronic_circuit"));
 
         ShapedRecipeBuilder.shaped(ModItems.ADVANCED_CIRCUIT.get())
@@ -48,6 +48,7 @@ public class ItemsCircuitProvider extends RecipeProvider {
                 .define('g', Items.GLOWSTONE_DUST)
                 .define('r', Items.REDSTONE)
                 .group(MODID + "/items/circuit")
+                .unlockedBy("copper_cable_insulated", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.COPPER_CABLE_INSULATED.get()))
                 .unlockedBy("item", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.COPPER_CABLE_INSULATED.get()))
                 .save(consumer, saveResource("advanced_circuit"));
 

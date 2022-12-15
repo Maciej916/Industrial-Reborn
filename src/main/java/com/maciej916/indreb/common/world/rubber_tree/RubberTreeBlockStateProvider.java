@@ -1,6 +1,5 @@
 package com.maciej916.indreb.common.world.rubber_tree;
 
-import com.maciej916.indreb.common.block.ModBlocks;
 import com.maciej916.indreb.common.util.BlockStateHelper;
 import net.minecraft.core.BlockPos;
 import net.minecraft.util.RandomSource;
@@ -15,6 +14,7 @@ public class RubberTreeBlockStateProvider extends SimpleStateProvider {
 
     @Override
     public BlockState getState(RandomSource random, BlockPos blockPos) {
+        BlockState thisState = super.getState(random, blockPos);
 
         if (random != null) {
             boolean wet = false;
@@ -25,11 +25,11 @@ public class RubberTreeBlockStateProvider extends SimpleStateProvider {
                 } else {
                     dry = true;
                 }
-                return ModBlocks.RUBBER_LOG.get().defaultBlockState().setValue(BlockStateHelper.WET_PROPERTY, wet).setValue(BlockStateHelper.DRY_PROPERTY, dry);
+                return thisState.setValue(BlockStateHelper.WET_PROPERTY, wet).setValue(BlockStateHelper.DRY_PROPERTY, dry);
             }
         }
 
-        return super.getState(random, blockPos);
+        return thisState;
     }
 
 }

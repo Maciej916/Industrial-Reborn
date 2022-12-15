@@ -1,6 +1,18 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
+    "copper_cable_insulated": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:copper_cable_insulated"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
     "has_the_recipe": {
       "conditions": {
         "recipe": "indreb:crafting/items/circuit/advanced_circuit"
@@ -22,6 +34,7 @@
   },
   "requirements": [
     [
+      "copper_cable_insulated",
       "item",
       "has_the_recipe"
     ]

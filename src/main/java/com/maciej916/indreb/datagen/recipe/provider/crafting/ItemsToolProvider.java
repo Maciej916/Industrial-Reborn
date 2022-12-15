@@ -54,17 +54,17 @@ public class ItemsToolProvider extends RecipeProvider {
                 .define('i', ModItemTags.FORGE_INGOTS_IRON)
                 .define('S', ModItemTags.FORGE_RODS_WOODEN)
                 .group(MODID + "/items/tool")
-                .unlockedBy("item", InventoryChangeTrigger.TriggerInstance.hasItems(Items.IRON_INGOT))
+                .unlockedBy("iron_ingot", InventoryChangeTrigger.TriggerInstance.hasItems(Items.IRON_INGOT))
                 .save(consumer, saveResource("hammer"));
 
         ShapedRecipeBuilder.shaped(ModItems.CUTTER.get())
                 .pattern("p p")
                 .pattern(" p ")
                 .pattern("i i")
-                .define('i', ModItemTags.FORGE_INGOTS_IRON)
+                .define('i', ModItemTags.FORGE_RODS_WOODEN)
                 .define('p', ModItemTags.FORGE_PLATES_IRON)
                 .group(MODID + "/items/tool")
-                .unlockedBy("item", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.IRON_ROD.get()))
+                .unlockedBy("iron_plate", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.IRON_PLATE.get()))
                 .save(consumer, saveResource("cutter"));
 
         ShapedRecipeBuilder.shaped(ModItems.BRONZE_AXE.get())
@@ -141,6 +141,22 @@ public class ItemsToolProvider extends RecipeProvider {
                 .unlockedBy("bronze_plate", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.BRONZE_PLATE.get()))
                 .save(consumer, saveResource("tool_box"));
 
+        ShapedRecipeBuilder.shaped(ModItems.GEIGER_COUNTER.get())
+                .pattern("bos")
+                .pattern("crc")
+                .pattern("crc")
+                .define('r', Items.REDSTONE)
+                .define('s', ModItemTags.FORGE_PLATES_STEEL)
+                .define('o', ModItemTags.FORGE_PLATES_COPPER)
+                .define('b', ModItems.BIOPLASTIC.get())
+                .define('c', ModItems.CARBON_PLATE.get())
+                .group(MODID + "/items/tool")
+                .unlockedBy("redstone", InventoryChangeTrigger.TriggerInstance.hasItems(Items.REDSTONE))
+                .unlockedBy("steel_plate", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.STEEL_PLATE.get()))
+                .unlockedBy("copper_plate", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.COPPER_PLATE.get()))
+                .unlockedBy("bioplastic", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.BIOPLASTIC.get()))
+                .unlockedBy("carbon_plate", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.CARBON_PLATE.get()))
+                .save(consumer, saveResource("geiger_counter"));
 
 
     }

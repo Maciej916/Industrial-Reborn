@@ -8,4 +8,5 @@ public class EnergyStorageItem extends BaseElectricItem {
     public EnergyStorageItem(int energyStored, int maxEnergy, EnergyType energyType, EnergyTier energyTier) {
         super(new Properties(), energyStored, maxEnergy, energyType, energyTier);
     }
+
 }

@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "indreb/items/hazmat",
+  "key": {
+    "l": {
+      "item": "minecraft:leather_helmet"
+    },
+    "o": {
+      "tag": "forge:dyes/orange"
+    },
+    "p": {
+      "item": "indreb:radiation_shielding"
+    },
+    "s": {
+      "tag": "forge:plates/steel"
+    },
+    "w": {
+      "tag": "minecraft:wool"
+    }
+  },
+  "pattern": [
+    "owo",
+    "plp",
+    "wsw"
+  ],
+  "result": {
+    "item": "indreb:hazmat_suit_helmet"
+  }
+}

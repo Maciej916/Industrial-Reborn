@@ -7,12 +7,12 @@
       },
       "trigger": "minecraft:recipe_unlocked"
     },
-    "item": {
+    "iron_plate": {
       "conditions": {
         "items": [
           {
             "items": [
-              "indreb:iron_rod"
+              "indreb:iron_plate"
             ]
           }
         ]
@@ -22,7 +22,7 @@
   },
   "requirements": [
     [
-      "item",
+      "iron_plate",
       "has_the_recipe"
     ]
   ],

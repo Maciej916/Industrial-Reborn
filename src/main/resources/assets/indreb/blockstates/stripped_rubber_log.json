@@ -1,0 +1,7 @@
+{
+    "variants": {
+        "axis=y":  { "model": "indreb:block/stripped_rubber_log" },
+        "axis=z":   { "model": "indreb:block/stripped_rubber_log", "x": 90 },
+        "axis=x":   { "model": "indreb:block/stripped_rubber_log", "x": 90, "y": 90 }
+    }
+}

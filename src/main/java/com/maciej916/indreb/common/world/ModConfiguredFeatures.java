@@ -49,6 +49,7 @@ public class ModConfiguredFeatures {
                             new TwoLayersFeatureSize(1, 0, 1)
                     ).ignoreVines().build()));
 
+
     public static final RegistryObject<ConfiguredFeature<?, ?>> RUBBER_TREE_SPAWN =
             CONFIGURED_FEATURES.register("rubber_tree_spawn", () -> new ConfiguredFeature<>(Feature.RANDOM_SELECTOR,
                     new RandomFeatureConfiguration(List.of(new WeightedPlacedFeature(

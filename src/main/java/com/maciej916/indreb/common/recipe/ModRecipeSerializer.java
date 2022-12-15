@@ -36,8 +36,8 @@ public final class ModRecipeSerializer {
 
 
 
-//
-//    public static final RegistryObject<RecipeSerializer<AdvancedShapedRecipe>> ADVANCED_SHAPED = SERIALIZERS.register("advanced_shaped", () -> AdvancedShapedRecipe.SERIALIZER);
+    public static final RegistryObject<RecipeSerializer<ElectricCraftingRecipe>> ELECTRIC_CRAFTING = SERIALIZERS.register("electric_crafting", () -> ElectricCraftingRecipe.SERIALIZER);
+    public static final RegistryObject<RecipeSerializer<AdvancedShapedRecipe>> ADVANCED_SHAPED = SERIALIZERS.register("advanced_shaped", () -> AdvancedShapedRecipe.SERIALIZER);
 
     public static void register(IEventBus eventBus) {
         SERIALIZERS.register(eventBus);

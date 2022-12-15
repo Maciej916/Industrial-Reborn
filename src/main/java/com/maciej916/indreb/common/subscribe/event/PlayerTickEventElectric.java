@@ -14,7 +14,7 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
 @Mod.EventBusSubscriber(modid = IndReb.MODID, bus = Mod.EventBusSubscriber.Bus.FORGE)
-public class PlayerTickEvent {
+public class PlayerTickEventElectric {
 
     public static final DamageSource ELECTRICITY = new DamageSource("electricity");
 

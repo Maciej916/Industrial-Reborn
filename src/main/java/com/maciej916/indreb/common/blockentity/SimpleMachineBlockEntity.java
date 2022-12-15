@@ -116,10 +116,10 @@ public abstract class SimpleMachineBlockEntity extends IndRebBlockEntity impleme
             }
         }
 
-        if (canWork()) {
-            if (progressBurn.getCurrentProgress() > 0) {
-                progressBurn.decProgress(1);
-            } else {
+        if (progressBurn.getCurrentProgress() > 0) {
+            progressBurn.decProgress(1);
+        } else {
+            if (canWork()) {
                 final ItemStack fuelStack = getBaseStorage().getStackInSlot(FUEL_SLOT);
                 if (recipe != null) {
                     int burnTime = ForgeHooks.getBurnTime(fuelStack, RecipeType.SMELTING);
@@ -127,10 +127,10 @@ public abstract class SimpleMachineBlockEntity extends IndRebBlockEntity impleme
                     StackHandlerHelper.shrinkStack(getBaseStorage(), FUEL_SLOT, 1);
                 }
             }
+        }
 
-            if (progressBurn.getCurrentProgress() > 0) {
-                activeState = true;
-            }
+        if (progressBurn.getCurrentProgress() > 0) {
+            activeState = true;
         }
 
     }

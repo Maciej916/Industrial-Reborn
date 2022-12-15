@@ -167,6 +167,38 @@
     ]
   },
 
+  "tile.electric_furnace": {
+    "sounds": [
+      {
+        "name": "indreb:electric_furnace"
+      }
+    ]
+  },
+
+  "tile.simple_crusher": {
+    "sounds": [
+      {
+        "name": "indreb:simple_crusher"
+      }
+    ]
+  },
+
+  "tile.simple_compressor": {
+    "sounds": [
+      {
+        "name": "indreb:simple_compressor"
+      }
+    ]
+  },
+
+  "tile.simple_extractor": {
+    "sounds": [
+      {
+        "name": "indreb:simple_extractor"
+      }
+    ]
+  },
+
   "item.treetap": {
     "sounds": [
       {

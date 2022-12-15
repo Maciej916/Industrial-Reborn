@@ -3,7 +3,7 @@
   "group": "indreb/items/tool",
   "key": {
     "i": {
-      "tag": "forge:ingots/iron"
+      "tag": "forge:rods/wooden"
     },
     "p": {
       "tag": "forge:plates/iron"

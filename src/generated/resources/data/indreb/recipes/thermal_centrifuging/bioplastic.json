@@ -1,0 +1,17 @@
+{
+  "type": "indreb:thermal_centrifuging",
+  "chance_result": [],
+  "duration": 200,
+  "experience": 1.5,
+  "ingredients": [
+    {
+      "count": 2,
+      "item": "indreb:bio_chaff"
+    }
+  ],
+  "result": {
+    "item": "indreb:bioplastic"
+  },
+  "temperature": 250.0,
+  "tick_energy_cost": 46
+}

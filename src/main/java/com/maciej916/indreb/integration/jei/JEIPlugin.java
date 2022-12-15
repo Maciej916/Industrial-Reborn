@@ -2,6 +2,7 @@ package com.maciej916.indreb.integration.jei;
 
 import com.google.common.base.Stopwatch;
 import com.maciej916.indreb.IndReb;
+import com.maciej916.indreb.common.api.energy.interfaces.IEnergyStorage;
 import com.maciej916.indreb.common.api.screen.WidgetScreen;
 import com.maciej916.indreb.common.api.screen.WidgetScreenHandler;
 import com.maciej916.indreb.common.block.ModBlocks;
@@ -55,6 +56,7 @@ import com.maciej916.indreb.common.block.impl.machine.t_standard.thermal_centrif
 import com.maciej916.indreb.common.block.impl.machine.t_standard.thermal_centrifuge.MenuThermalCentrifuge;
 import com.maciej916.indreb.common.block.impl.machine.t_standard.thermal_centrifuge.ScreenThermalCentrifuge;
 import com.maciej916.indreb.common.block.impl.machine.t_super.scanner.ScreenScanner;
+import com.maciej916.indreb.common.capability.ModCapabilities;
 import com.maciej916.indreb.common.item.ModItems;
 import com.maciej916.indreb.common.recipe.ModRecipeType;
 import com.maciej916.indreb.common.recipe.impl.*;
@@ -66,18 +68,28 @@ import mezz.jei.api.constants.RecipeTypes;
 import mezz.jei.api.constants.VanillaTypes;
 import mezz.jei.api.helpers.IGuiHelper;
 import mezz.jei.api.helpers.IJeiHelpers;
+import mezz.jei.api.ingredients.subtypes.IIngredientSubtypeInterpreter;
+import mezz.jei.api.ingredients.subtypes.UidContext;
 import mezz.jei.api.recipe.RecipeType;
 import mezz.jei.api.registration.*;
 import mezz.jei.api.runtime.IIngredientManager;
 import net.minecraft.client.Minecraft;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.RecipeManager;
 import net.minecraft.world.level.Level;
+import net.minecraftforge.fluids.FluidStack;
+import net.minecraftforge.fluids.FluidUtil;
+import net.minecraftforge.fluids.capability.IFluidHandlerItem;
+import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.RegistryObject;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.util.Collection;
 import java.util.List;
+import java.util.Optional;
 
 @JeiPlugin
 public class JEIPlugin implements IModPlugin {
@@ -204,7 +216,6 @@ public class JEIPlugin implements IModPlugin {
         registration.addRecipes(SCRAP_BOX_TYPE, recipeManager.getAllRecipesFor(ModRecipeType.SCRAP_BOX.get()));
         registration.addRecipes(MATTER_AMPLIFIER_TYPE, recipeManager.getAllRecipesFor(ModRecipeType.MATTER_AMPLIFIER.get()));
 
-
         sw.stop();
         LOGGER.info("Loaded jei recipe integration in {}", sw);
     }
@@ -270,39 +281,69 @@ public class JEIPlugin implements IModPlugin {
 
     }
 
+    private static final IIngredientSubtypeInterpreter<ItemStack> INDREB_NBT_INTERPRETER = (stack, context) -> {
+        if (context == UidContext.Ingredient && stack.hasTag()) {
+            String nbtRepresentation = getEnergyComponent(stack);
+            nbtRepresentation = addInterpretation(nbtRepresentation, getFluidComponent(stack));
+            return nbtRepresentation;
+        }
+        return IIngredientSubtypeInterpreter.NONE;
+    };
+
+
+    private static String getEnergyComponent(ItemStack stack) {
+        Optional<IEnergyStorage> capability = stack.getCapability(ModCapabilities.ENERGY).resolve();
+        if (capability.isPresent()) {
+            IEnergyStorage energyHandlerItem = capability.get();
+            String component = "";
+
+            if (energyHandlerItem.energyStored() == energyHandlerItem.maxEnergy()) {
+                component = addInterpretation(component, "filled");
+            } else {
+                component = addInterpretation(component, "empty");
+            }
+
+            return component;
+        }
+        return IIngredientSubtypeInterpreter.NONE;
+    }
+
+    private static String getFluidComponent(ItemStack stack) {
+        Optional<IFluidHandlerItem> cap = FluidUtil.getFluidHandler(stack).resolve();
+        if (cap.isPresent()) {
+            IFluidHandlerItem handler = cap.get();
+            String component = "";
+            for (int tank = 0, tanks = handler.getTanks(); tank < tanks; tank++) {
+                FluidStack fluidStack = handler.getFluidInTank(tank);
+                if (!fluidStack.isEmpty()) {
+                    component = addInterpretation(component, ForgeRegistries.FLUIDS.getKey(fluidStack.getFluid()).toString());
+                } else if (tanks > 1) {
+                    component = addInterpretation(component, "empty");
+                }
+            }
+            return component;
+        }
+        return IIngredientSubtypeInterpreter.NONE;
+    }
+
+    private static String addInterpretation(String nbtRepresentation, String component) {
+        return nbtRepresentation.isEmpty() ? component : nbtRepresentation + ":" + component;
+    }
+    public static void registerItemSubtypes(ISubtypeRegistration registry, Collection<RegistryObject<Item>> itemProviders) {
+        for (RegistryObject<Item> itemRegistryObject : itemProviders) {
+            Item item = itemRegistryObject.get();
+            ItemStack itemStack = new ItemStack(item);
+            if (
+                    itemStack.getCapability(ModCapabilities.ENERGY).isPresent() ||
+                    FluidUtil.getFluidHandler(itemStack).isPresent()
+            ) {
+                registry.registerSubtypeInterpreter(VanillaTypes.ITEM_STACK, item, INDREB_NBT_INTERPRETER);
+            }
+        }
+    }
+
     @Override
-    public void registerItemSubtypes(ISubtypeRegistration registration) {
-
-        registration.useNbtForSubtypes(ModItems.NANO_SABER.get());
-        registration.useNbtForSubtypes(ModItems.NANO_HELMET.get());
-        registration.useNbtForSubtypes(ModItems.NANO_CHESTPLATE.get());
-        registration.useNbtForSubtypes(ModItems.NANO_LEGGINGS.get());
-        registration.useNbtForSubtypes(ModItems.NANO_BOOTS.get());
-
-        registration.useNbtForSubtypes(ModItems.FLUID_CELL.get());
-        registration.useNbtForSubtypes(ModItems.FOAM_SPRAYER.get());
-
-        registration.useNbtForSubtypes(ModItems.ELECTRIC_HOE.get());
-        registration.useNbtForSubtypes(ModItems.ELECTRIC_WRENCH.get());
-        registration.useNbtForSubtypes(ModItems.ELECTRIC_TREETAP.get());
-        registration.useNbtForSubtypes(ModItems.MULTI_TOOL.get());
-
-        registration.useNbtForSubtypes(ModItems.MINING_DRILL.get());
-        registration.useNbtForSubtypes(ModItems.DIAMOND_DRILL.get());
-        registration.useNbtForSubtypes(ModItems.IRIDIUM_DRILL.get());
-
-        registration.useNbtForSubtypes(ModItems.CHAINSAW.get());
-        registration.useNbtForSubtypes(ModItems.DIAMOND_CHAINSAW.get());
-        registration.useNbtForSubtypes(ModItems.IRIDIUM_CHAINSAW.get());
-
-        registration.useNbtForSubtypes(ModItems.BATTERY.get());
-        registration.useNbtForSubtypes(ModItems.ADVANCED_BATTERY.get());
-        registration.useNbtForSubtypes(ModItems.ENERGY_CRYSTAL.get());
-        registration.useNbtForSubtypes(ModItems.LAPOTRON_CRYSTAL.get());
-
-        registration.useNbtForSubtypes(ModItems.CHARGING_BATTERY.get());
-        registration.useNbtForSubtypes(ModItems.CHARGING_ADVANCED_BATTERY.get());
-        registration.useNbtForSubtypes(ModItems.CHARGING_ENERGY_CRYSTAL.get());
-        registration.useNbtForSubtypes(ModItems.CHARGING_LAPOTRON_CRYSTAL.get());
+    public void registerItemSubtypes(ISubtypeRegistration registry) {
+        registerItemSubtypes(registry, ModItems.ITEMS.getEntries());
     }
 }

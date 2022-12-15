@@ -104,6 +104,7 @@ public final class ModItemTags {
     public static final TagKey<Item> FORGE_DUSTS_URANIUM = create("forge", "dusts/uranium");
     public static final TagKey<Item> FORGE_DUSTS_SILVER = create("forge", "dusts/silver");
     public static final TagKey<Item> FORGE_DUSTS_IRON = create("forge", "dusts/iron");
+    public static final TagKey<Item> FORGE_DUSTS_WOOD = create("forge", "dusts/wood");
 
     public static final TagKey<Item> FORGE_RODS_IRON = create("forge", "rods/iron");
     public static final TagKey<Item> FORGE_RODS_ALL_METALS = create("forge", "rods/all_metals");
@@ -114,6 +115,7 @@ public final class ModItemTags {
     public static final TagKey<Item> FORGE_GEMS_EMERALD = create("forge", "gems/emerald");
     public static final TagKey<Item> FORGE_GEMS_AMETHYST = create("forge", "gems/amethyst");
 
+    public static final TagKey<Item> FORGE_DYES_ORANGE = create("forge", "dyes/orange");
     public static final TagKey<Item> FORGE_DYES_YELLOW = create("forge", "dyes/yellow");
     public static final TagKey<Item> FORGE_DYES_BLACK = create("forge", "dyes/black");
     public static final TagKey<Item> FORGE_DYES_BLUE = create("forge", "dyes/blue");

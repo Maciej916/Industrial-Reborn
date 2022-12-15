@@ -16,6 +16,9 @@ public enum CustomArmorMaterial implements ArmorMaterial {
     BRONZE("bronze", 15, new int[]{3, 6, 7, 3}, 9, SoundEvents.ARMOR_EQUIP_IRON, 1.0F, 0.0F,
             () -> Ingredient.of(ModItemTags.FORGE_INGOTS_BRONZE)),
 
+    HAZMAT("hazmat", 15, new int[]{2, 5, 6, 2}, 4, SoundEvents.ARMOR_EQUIP_LEATHER, 0.0F, 0.0F,
+            () -> Ingredient.of(ModItems.RUBBER.get())),
+
     RUBBER("rubber", 15, new int[]{0, 0, 0, 3}, 9, SoundEvents.ARMOR_EQUIP_IRON, 2.0F, 0.0F,
             () -> Ingredient.of(ModItems.RUBBER.get())),
 

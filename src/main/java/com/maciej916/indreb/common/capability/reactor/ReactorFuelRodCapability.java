@@ -99,8 +99,8 @@ public class ReactorFuelRodCapability extends ReactorComponentCapability {
         if (moxStyle) {
             energy *= (1 + 4.0 * parent.getCurrentHeat() / parent.getMaxHeat());
         }
-        minEUGenerated = Math.min(minEUGenerated, energy);
-        maxEUGenerated = Math.max(maxEUGenerated, energy);
+        minIEGenerated = Math.min(minIEGenerated, energy);
+        maxIEGenerated = Math.max(maxIEGenerated, energy);
         currentEUGenerated = energy;
         parent.addEUOutput(energy);
         applyDamage(1);

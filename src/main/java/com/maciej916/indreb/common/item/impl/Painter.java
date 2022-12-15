@@ -3,6 +3,7 @@ package com.maciej916.indreb.common.item.impl;
 import com.maciej916.indreb.common.api.interfaces.item.IPainter;
 import com.maciej916.indreb.common.api.item.base.ToolItem;
 import com.maciej916.indreb.common.block.ModBlocks;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.MaterialColor;
@@ -45,4 +46,8 @@ public class Painter extends ToolItem implements IPainter {
         return COLOR_TO_BLOCK.get(color).get().defaultBlockState();
     }
 
+    @Override
+    public boolean hasCraftingRemainingItem(ItemStack stack) {
+        return false;
+    }
 }

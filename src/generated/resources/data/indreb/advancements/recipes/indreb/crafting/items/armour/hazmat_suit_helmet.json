@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "indreb:crafting/items/armour/hazmat_suit_helmet"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "radiation_shielding": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:radiation_shielding"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "radiation_shielding",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "indreb:crafting/items/armour/hazmat_suit_helmet"
+    ]
+  }
+}

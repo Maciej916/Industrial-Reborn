@@ -5,6 +5,7 @@ import com.maciej916.indreb.common.api.energy.interfaces.IEnergyStorage;
 import com.maciej916.indreb.common.api.interfaces.block.IStateAxis;
 import com.maciej916.indreb.common.api.interfaces.block.IStateRubberLog;
 import com.maciej916.indreb.common.api.interfaces.item.IElectricItem;
+import com.maciej916.indreb.common.block.ModBlocks;
 import com.maciej916.indreb.common.item.ModItems;
 import com.maciej916.indreb.common.sound.ModSounds;
 import com.maciej916.indreb.common.tag.ModItemTags;
@@ -21,6 +22,7 @@ import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.BlockPlaceContext;
+import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Rotation;
@@ -29,6 +31,8 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.Material;
 import net.minecraft.world.level.material.MaterialColor;
 import net.minecraft.world.phys.BlockHitResult;
+import net.minecraftforge.common.ToolAction;
+import net.minecraftforge.common.ToolActions;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.Random;
@@ -57,7 +61,6 @@ public class RubberLog extends IndRebBlock implements IStateRubberLog, IStateAxi
     public BlockState getStateForPlacement(BlockPlaceContext pContext) {
         return this.defaultBlockState().setValue(BlockStateHelper.AXIS_PROPERTY, pContext.getClickedFace().getAxis());
     }
-
 
     @Override
     public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult trace) {
@@ -120,5 +123,15 @@ public class RubberLog extends IndRebBlock implements IStateRubberLog, IStateAxi
             }
         }
         super.randomTick(pState, pLevel, pPos, pRandom);
+    }
+
+    @Override
+    public @Nullable BlockState getToolModifiedState(BlockState state, UseOnContext context, ToolAction toolAction, boolean simulate) {
+
+        if (toolAction == ToolActions.AXE_STRIP) {
+            return ModBlocks.STRIPPED_RUBBER_LOG.get().defaultBlockState().setValue(BlockStateHelper.AXIS_PROPERTY, state.getValue(BlockStateHelper.AXIS_PROPERTY));
+        }
+
+        return super.getToolModifiedState(state, context, toolAction, simulate);
     }
 }

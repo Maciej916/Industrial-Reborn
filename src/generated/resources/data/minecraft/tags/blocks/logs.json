@@ -1,5 +1,8 @@
 {
   "values": [
-    "indreb:rubber_log"
+    "indreb:rubber_log",
+    "indreb:stripped_rubber_log",
+    "indreb:rubber_wood",
+    "indreb:stripped_rubber_wood"
   ]
 }

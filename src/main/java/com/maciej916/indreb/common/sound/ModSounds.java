@@ -22,6 +22,10 @@ public final class ModSounds {
     public static final RegistryObject<SoundEvent> SEMIFLUID_GENERATOR = registerSound("tile.semifluid_generator");
     public static final RegistryObject<SoundEvent> CHARGE_PAD = registerSound("tile.charge_pad");
 
+    public static final RegistryObject<SoundEvent> SIMPLE_CRUSHER = registerSound("tile.simple_crusher");
+    public static final RegistryObject<SoundEvent> SIMPLE_COMPRESSOR = registerSound("tile.simple_compressor");
+    public static final RegistryObject<SoundEvent> SIMPLE_EXTRACTOR = registerSound("tile.simple_extractor");
+
     public static final RegistryObject<SoundEvent> CRUSHER = registerSound("tile.crusher");
     public static final RegistryObject<SoundEvent> COMPRESSOR = registerSound("tile.compressor");
     public static final RegistryObject<SoundEvent> EXTRACTOR = registerSound("tile.extractor");
@@ -36,6 +40,7 @@ public final class ModSounds {
     public static final RegistryObject<SoundEvent> THERMAL_CENTRIFUGE = registerSound("tile.thermal_centrifuge");
     public static final RegistryObject<SoundEvent> ALLOY_SMELTER = registerSound("tile.alloy_smelter");
     public static final RegistryObject<SoundEvent> FERMENTER = registerSound("tile.fermenter");
+    public static final RegistryObject<SoundEvent> ELECTRIC_FURNACE = registerSound("tile.electric_furnace");
 
     public static final RegistryObject<SoundEvent> TREETAP = registerSound("item.treetap");
     public static final RegistryObject<SoundEvent> WRENCH = registerSound("item.wrench");

@@ -30,12 +30,25 @@
         "recipe": "indreb:crafting/items/armour/nano_boots"
       },
       "trigger": "minecraft:recipe_unlocked"
+    },
+    "rubber_boots": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indreb:rubber_boots"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
     }
   },
   "requirements": [
     [
       "carbon_plate",
       "energy_crystal",
+      "rubber_boots",
       "has_the_recipe"
     ]
   ],
