@@ -12,6 +12,7 @@ import com.maciej916.indreb.common.energy.interfaces.IEnergyCore;
 import de.maxhenkel.pipez.corelib.death.PlayerDeathEvent;
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
@@ -69,7 +70,9 @@ public final class ForgeEventSubscriber {
     @SubscribeEvent
     public static void playerTick(TickEvent.PlayerTickEvent event) {
         Player player = event.player;
-        player.getCapability(ModCapabilities.PLAYER_CAPABILITY).ifPresent(iPlayerCapability -> iPlayerCapability.tick(player));
+        if (!player.getLevel().isClientSide()) {
+            player.getCapability(ModCapabilities.PLAYER_CAPABILITY).ifPresent(iPlayerCapability -> iPlayerCapability.tickServer((ServerPlayer) player));
+        }
     }
 
     @SubscribeEvent

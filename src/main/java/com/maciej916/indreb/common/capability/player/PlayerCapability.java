@@ -1,11 +1,15 @@
 package com.maciej916.indreb.common.capability.player;
 
 import com.maciej916.indreb.common.capability.ModCapabilities;
+import com.maciej916.indreb.common.item.impl.GeigerCounter;
+import com.maciej916.indreb.common.network.ModNetworking;
+import com.maciej916.indreb.common.network.packet.PacketRadiationSync;
 import com.maciej916.indreb.common.util.RadiationHelper;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.damagesource.DamageSource;
-import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.capabilities.ICapabilitySerializable;
 import net.minecraftforge.common.util.LazyOptional;
@@ -17,6 +21,7 @@ public class PlayerCapability implements IPlayerCapability, ICapabilitySerializa
     private final LazyOptional<IPlayerCapability> playerCap = LazyOptional.of(() -> this);
     private boolean nightVision = false;
 
+    private boolean radsChanged = false;
     private double radsLevel = 0;
     private double playerRads = 0;
     private int radiationImmune = 0;
@@ -44,7 +49,11 @@ public class PlayerCapability implements IPlayerCapability, ICapabilitySerializa
 
     @Override
     public void setRadsLevel(double radiationLevel) {
-        this.radsLevel = Math.max(0, radiationLevel);
+        double newRads = Math.max(0, radiationLevel);
+        if (this.playerRads != newRads) {
+            radsChanged = true;
+        }
+        this.radsLevel = newRads;
 
         if (radiationLevel > 0) {
             double radsResistance = getRadsResistance();
@@ -66,21 +75,25 @@ public class PlayerCapability implements IPlayerCapability, ICapabilitySerializa
     }
 
     @Override
-    public void setPlayerRads(double playerContamination) {
-        this.playerRads = Math.min(playerContamination, RadiationHelper.PLAYER_MAX_RADIATION);
+    public void setPlayerRads(double playerRads) {
+        double newRads = Math.min(playerRads, RadiationHelper.PLAYER_MAX_RADIATION);
+        if (this.playerRads != newRads) {
+            radsChanged = true;
+        }
+        this.playerRads = newRads;
     }
 
     @Override
     public void addPlayerRads(double radiationLevel) {
         if (radiationImmune == 0 && radiationLevel > 0) {
-            playerRads = Math.min(playerRads + radiationLevel, RadiationHelper.PLAYER_MAX_RADIATION);
+            setPlayerRads(Math.min(playerRads + radiationLevel, RadiationHelper.PLAYER_MAX_RADIATION));
         }
     }
 
     @Override
     public void removePlayerRads(double radiationLevel) {
         if (radiationImmune == 0 && radiationLevel > 0) {
-            playerRads = Math.max(playerRads - radiationLevel, 0);
+            setPlayerRads(Math.max(playerRads - radiationLevel, 0));
         }
     }
 
@@ -90,13 +103,21 @@ public class PlayerCapability implements IPlayerCapability, ICapabilitySerializa
     }
 
     @Override
-    public void setRadsProtection(int radiationProtection) {
-        this.radiationProtection = radiationProtection;
+    public void setRadsProtection(int newRadsProtection) {
+        if (this.radiationProtection != newRadsProtection) {
+            radsChanged = true;
+        }
+
+        this.radiationProtection = newRadsProtection;
     }
 
     @Override
-    public void setArmourSlots(int armourSlots) {
-        this.armourSlots = armourSlots;
+    public void setArmourSlots(int newArmourSlots) {
+        if (this.armourSlots != newArmourSlots) {
+            radsChanged = true;
+        }
+
+        this.armourSlots = newArmourSlots;
     }
 
     @Override
@@ -105,12 +126,24 @@ public class PlayerCapability implements IPlayerCapability, ICapabilitySerializa
     }
 
     @Override
-    public void tick(Player player) {
+    public void setRadiationImmune(int amount) {
+
+        if (radiationImmune != amount) {
+            radsChanged = true;
+        }
+
+        radiationImmune = amount;
+    }
+
+    @Override
+    public void tickServer(ServerPlayer player) {
+        radsChanged = false;
+
         if (radiationImmune > 0) {
-            radiationImmune--;
+            setRadiationImmune(radiationImmune - 1);
         } else {
             if (playerRads > 0) {
-                playerRads = Math.max(playerRads - RadiationHelper.PLAYER_RADIATION_DECAY, 0);
+                setPlayerRads(Math.max(playerRads - RadiationHelper.PLAYER_RADIATION_DECAY, 0));
             }
         }
 
@@ -120,6 +153,7 @@ public class PlayerCapability implements IPlayerCapability, ICapabilitySerializa
 //        }
 
 
+        syncRads(player);
     }
 
     @NotNull
@@ -144,6 +178,25 @@ public class PlayerCapability implements IPlayerCapability, ICapabilitySerializa
     public void death(DamageSource damageSource) {
         if (damageSource == RadiationHelper.RADIATION) {
             radiationImmune = RadiationHelper.RADIATION_IMMUNE_TIME;
+        }
+    }
+
+    public void syncRads(ServerPlayer player) {
+        if (radsChanged) {
+            if (player.getLevel().getGameTime() % 20 == 0) {
+                boolean geigerFound = false;
+                for (int i = 0; i < player.getInventory().getContainerSize(); i++) {
+                    ItemStack itemStack = player.getInventory().getItem(i);
+                    if (itemStack.getItem() instanceof GeigerCounter) {
+                        geigerFound = true;
+                        break;
+                    }
+                }
+
+                if (geigerFound) {
+                    ModNetworking.sendToPlayer(player, new PacketRadiationSync(this));
+                }
+            }
         }
     }
 

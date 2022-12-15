@@ -9,6 +9,7 @@ import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
@@ -44,5 +45,28 @@ public class GeigerCounter extends ToolItem {
         }
 
         return super.use(level, player, interactionHand);
+    }
+
+    @Override
+    public void inventoryTick(ItemStack stack, Level level, Entity entity, int slotId, boolean isSelected) {
+
+        if (!level.isClientSide()) {
+            if (entity instanceof Player player) {
+                int firstFound = 0;
+                for (int i = 0; i < 9; i++) {
+                    ItemStack itemStack = player.getInventory().getItem(i);
+                    if (itemStack.getItem() instanceof GeigerCounter) {
+                        firstFound = i;
+                        break;
+                    }
+                }
+
+                if (firstFound == slotId) {
+                    RadiationHelper.playGeigerSound(level, player);
+                }
+            }
+        }
+
+        super.inventoryTick(stack, level, entity, slotId, isSelected);
     }
 }

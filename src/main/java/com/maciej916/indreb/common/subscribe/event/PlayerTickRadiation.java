@@ -35,7 +35,7 @@ public class PlayerTickRadiation {
                 double radiationRemove = 0;
                 int radiationProtection = 0;
 
-                List<Entity> entities = level.getEntities(null, player.getBoundingBox().inflate(40));
+                List<Entity> entities = level.getEntities(null, player.getBoundingBox().inflate(50));
                 for (Entity entity: entities) {
                     if (entity instanceof ItemEntity itemEntity) {
                         ItemStack stack = itemEntity.getItem();

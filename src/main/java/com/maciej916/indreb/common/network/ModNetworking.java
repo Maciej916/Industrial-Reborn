@@ -39,6 +39,7 @@ public class ModNetworking {
         INSTANCE.registerMessage(nextID(), PacketReplicatorPage.class, PacketReplicatorPage::toBytes, PacketReplicatorPage::new, PacketReplicatorPage::handle);
         INSTANCE.registerMessage(nextID(), PacketReplicatorStop.class, PacketReplicatorStop::toBytes, PacketReplicatorStop::new, PacketReplicatorStop::handle);
         INSTANCE.registerMessage(nextID(), PacketReplicatorRun.class, PacketReplicatorRun::toBytes, PacketReplicatorRun::new, PacketReplicatorRun::handle);
+        INSTANCE.registerMessage(nextID(), PacketRadiationSync.class, PacketRadiationSync::toBytes, PacketRadiationSync::new, PacketRadiationSync::handle);
 
     }
 

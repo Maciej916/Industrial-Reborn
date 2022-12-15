@@ -2,8 +2,8 @@ package com.maciej916.indreb.common.capability.player;
 
 import com.maciej916.indreb.common.util.GuiUtil;
 import com.maciej916.indreb.common.util.RadiationHelper;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.damagesource.DamageSource;
-import net.minecraft.world.entity.player.Player;
 
 public interface IPlayerCapability {
 
@@ -24,6 +24,7 @@ public interface IPlayerCapability {
     void setArmourSlots(int armourSlots);
 
     int getRadiationImmune();
+    void setRadiationImmune(int amount);
     default boolean isRadsImmune() {
         return getRadiationImmune() > 0;
     }
@@ -44,7 +45,7 @@ public interface IPlayerCapability {
         return GuiUtil.DECIMAL_FORMAT_2.format(getRadsPercentage());
     }
 
-    void tick(Player player);
+    void tickServer(ServerPlayer player);
     void clone(IPlayerCapability capability);
     void death(DamageSource damageSource);
 

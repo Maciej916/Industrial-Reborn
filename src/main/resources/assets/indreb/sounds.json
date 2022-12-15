@@ -231,6 +231,13 @@
     ]
   },
 
+  "item.geiger": {
+    "sounds": [
+      {
+        "name": "indreb:geiger"
+      }
+    ]
+  },
 
   "player.night_vision": {
     "sounds": [

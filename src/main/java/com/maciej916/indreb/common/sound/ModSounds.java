@@ -46,6 +46,7 @@ public final class ModSounds {
     public static final RegistryObject<SoundEvent> WRENCH = registerSound("item.wrench");
     public static final RegistryObject<SoundEvent> ELECTRIC_WRENCH = registerSound("item.electric_wrench");
     public static final RegistryObject<SoundEvent> PAINTER = registerSound("item.painter");
+    public static final RegistryObject<SoundEvent> GEIGER = registerSound("item.geiger");
 
     public static final RegistryObject<SoundEvent> NIGHT_VISION = registerSound("player.night_vision");
 
