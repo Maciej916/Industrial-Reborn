@@ -74,7 +74,7 @@ public class Fertilizer extends BaseItem {
                     if (bonemealableblock.isBonemealSuccess(level, level.random, blockPos, blockstate)) {
                         bonemealableblock.performBonemeal((ServerLevel) level, level.random, blockPos, blockstate);
                     }
-                    if (!level.isClientSide && level.random.nextInt(3) == 0) {
+                    if (!level.isClientSide && level.random.nextInt(2) == 0) {
                         itemStack.shrink(1);
                     }
 
@@ -143,7 +143,7 @@ public class Fertilizer extends BaseItem {
                         }
                     }
                 }
-                if (!level.isClientSide && level.random.nextInt(3) == 0) {
+                if (!level.isClientSide && level.random.nextInt(2) == 0) {
                     itemStack.shrink(1);
                 }
                 return true;
