@@ -404,7 +404,7 @@ public class ItemTextures extends ItemModelProvider {
 
     private void registerSimpleMachines() {
         createWithBlock(ModItems.IRON_FURNACE, "iron_furnace");
-        createWithBlock(ModItems.SIMPLE_CRUSHER, "simple_extractor");
+        createWithBlock(ModItems.SIMPLE_CRUSHER, "simple_crusher");
         createWithBlock(ModItems.SIMPLE_COMPRESSOR, "simple_compressor");
         createWithBlock(ModItems.SIMPLE_EXTRACTOR, "simple_extractor");
     }
