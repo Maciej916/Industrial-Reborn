@@ -17,9 +17,9 @@ import java.util.function.Consumer;
 
 import static com.maciej916.indreb.IndReb.MODID;
 
-public class GenerattorProvider extends RecipeProvider {
+public class GeneratorProvider extends RecipeProvider {
 
-    public GenerattorProvider(DataGenerator generatorIn) {
+    public GeneratorProvider(DataGenerator generatorIn) {
         super(generatorIn);
     }
 
@@ -167,7 +167,7 @@ public class GenerattorProvider extends RecipeProvider {
                 .unlockedBy("lead_plate", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.LEAD_PLATE.get()))
                 .save(consumer, saveResource("reactor_chamber"));
 
-        ShapedRecipeBuilder.shaped(ModBlocks.REACTOR_FRAME.get())
+        ShapedRecipeBuilder.shaped(ModBlocks.REACTOR_FRAME.get(), 2)
                 .pattern("ala")
                 .pattern("lbl")
                 .pattern("ala")

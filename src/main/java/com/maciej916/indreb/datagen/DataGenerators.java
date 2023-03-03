@@ -71,7 +71,7 @@ public class DataGenerators {
         generator.addProvider(event.includeServer(), new CableProvider(generator));
         generator.addProvider(event.includeServer(), new MiscProvider(generator));
         generator.addProvider(event.includeServer(), new EnergyStorageProvider(generator));
-        generator.addProvider(event.includeServer(), new GenerattorProvider(generator));
+        generator.addProvider(event.includeServer(), new GeneratorProvider(generator));
         generator.addProvider(event.includeServer(), new MachinesSimpleProvider(generator));
         generator.addProvider(event.includeServer(), new MachinesBasicProvider(generator));
         generator.addProvider(event.includeServer(), new MachinesStandardProvider(generator));
