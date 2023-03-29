@@ -1,9 +1,12 @@
 {
-  "parent": "minecraft:block/orientable_with_bottom",
+  "parent": "minecraft:block/cube",
   "textures": {
-    "bottom": "indreb:block/machine/simple/simple_compressor/simple_compressor_bottom",
-    "front": "indreb:block/machine/simple/simple_compressor/simple_compressor_front_active",
-    "side": "indreb:block/machine/simple/simple_compressor/simple_compressor_side",
-    "top": "indreb:block/machine/simple/simple_compressor/simple_compressor_top"
+    "down": "indreb:block/machine/simple/simple_compressor/simple_compressor_bottom",
+    "east": "indreb:block/machine/simple/simple_compressor/simple_compressor_side",
+    "north": "indreb:block/machine/simple/simple_compressor/simple_compressor_front_active",
+    "particle": "indreb:block/machine/simple/simple_compressor/simple_compressor_front_active",
+    "south": "indreb:block/machine/simple/simple_compressor/simple_compressor_side",
+    "up": "indreb:block/machine/simple/simple_compressor/simple_compressor_top",
+    "west": "indreb:block/machine/simple/simple_compressor/simple_compressor_side"
   }
 }

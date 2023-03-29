@@ -103,7 +103,10 @@ public final class ServerConfig {
 		builder.pop();
 
 		builder.push("radiation");
-		List<String> list = List.of("minecraft:golden_carrot,-0.00125", "minecraft:golden_apple,-0.4", "minecraft:enchanted_golden_apple,-4", "indreb:canned_golden_apple,-0.1", "indreb:canned_enchanted_golden_apple,-1");
+
+//		List<String> list = List.of("minecraft:golden_carrot,-0.390", "minecraft:golden_apple,-12.5", "minecraft:enchanted_golden_apple,-100", "indreb:canned_golden_apple,-3.125", "indreb:canned_enchanted_golden_apple,-25");
+//		List<String> list = List.of("minecraft:golden_carrot,-0.00125", "minecraft:golden_apple,-0.4", "minecraft:enchanted_golden_apple,-4", "indreb:canned_golden_apple,-0.1", "indreb:canned_enchanted_golden_apple,-1");
+		List<String> list = List.of("minecraft:golden_carrot,-0.0125", "minecraft:golden_apple,-4", "minecraft:enchanted_golden_apple,-40", "indreb:canned_golden_apple,-1", "indreb:canned_enchanted_golden_apple,-10");
 		radiation_foods = builder.comment("Foods that can remove or add radiation (double), example modid:item,-rads").defineList("radiation_foods", () -> list, listValidator);
 		builder.pop();
 

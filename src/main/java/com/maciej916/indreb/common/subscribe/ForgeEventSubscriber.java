@@ -9,7 +9,6 @@ import com.maciej916.indreb.common.capability.radiation.IHasRadiation;
 import com.maciej916.indreb.common.capability.radiation.RadiationCapability;
 import com.maciej916.indreb.common.energy.EnergyCore;
 import com.maciej916.indreb.common.energy.interfaces.IEnergyCore;
-import de.maxhenkel.pipez.corelib.death.PlayerDeathEvent;
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
@@ -21,6 +20,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraftforge.event.AttachCapabilitiesEvent;
 import net.minecraftforge.event.TickEvent;
+import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.event.level.ChunkWatchEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -81,8 +81,10 @@ public final class ForgeEventSubscriber {
     }
 
     @SubscribeEvent
-    public static void playerDeath(PlayerDeathEvent event) {
-      event.getPlayer().getCapability(ModCapabilities.PLAYER_CAPABILITY).ifPresent(cap -> cap.death(event.getSource()));
+    public static void playerDeath(LivingDeathEvent event) {
+        if (event.getEntity() instanceof Player player) {
+            player.getCapability(ModCapabilities.PLAYER_CAPABILITY).ifPresent(cap -> cap.death(event.getSource()));
+        }
     }
 
     @SubscribeEvent

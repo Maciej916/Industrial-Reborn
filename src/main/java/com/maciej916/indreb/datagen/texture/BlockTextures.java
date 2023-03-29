@@ -181,9 +181,9 @@ public class BlockTextures extends BlockStateProvider {
 
     private void registerSimpleMachines() {
         createFrontActive(ModBlocks.IRON_FURNACE, "machine/simple/iron_furnace/iron_furnace");
-        createFrontActive(ModBlocks.SIMPLE_CRUSHER, "machine/simple/simple_crusher/simple_crusher");
-        createFrontActive(ModBlocks.SIMPLE_COMPRESSOR, "machine/simple/simple_compressor/simple_compressor");
-        createFrontActive(ModBlocks.SIMPLE_EXTRACTOR, "machine/simple/simple_extractor/simple_extractor");
+        createActiveHorizontal(ModBlocks.SIMPLE_CRUSHER, "machine/simple/simple_crusher/simple_crusher", "_bottom", "_bottom", "_top", "_top_active", "_front", "_front_active", "_side", "_side", "_side", "_side", "_side", "_side");
+        createActiveHorizontal(ModBlocks.SIMPLE_COMPRESSOR, "machine/simple/simple_compressor/simple_compressor", "_bottom", "_bottom", "_top", "_top", "_front", "_front_active", "_side", "_side", "_side", "_side", "_side", "_side");
+        createActiveHorizontal(ModBlocks.SIMPLE_EXTRACTOR, "machine/simple/simple_extractor/simple_extractor", "_bottom", "_bottom", "_top", "_top", "_front", "_front_active", "_back", "_back", "_leftright", "_leftright_active", "_leftright", "_leftright_active");
     }
 
     private void registerEnergyStorage() {

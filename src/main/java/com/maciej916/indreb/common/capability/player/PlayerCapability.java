@@ -1,6 +1,7 @@
 package com.maciej916.indreb.common.capability.player;
 
 import com.maciej916.indreb.common.capability.ModCapabilities;
+import com.maciej916.indreb.common.effects.ModEffects;
 import com.maciej916.indreb.common.item.impl.GeigerCounter;
 import com.maciej916.indreb.common.network.ModNetworking;
 import com.maciej916.indreb.common.network.packet.PacketRadiationSync;
@@ -9,6 +10,7 @@ import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.capabilities.ICapabilitySerializable;
@@ -139,19 +141,24 @@ public class PlayerCapability implements IPlayerCapability, ICapabilitySerializa
     public void tickServer(ServerPlayer player) {
         radsChanged = false;
 
-        if (radiationImmune > 0) {
-            setRadiationImmune(radiationImmune - 1);
+        if (getRadiationImmune() > 0) {
+            setRadiationImmune(getRadiationImmune() - 1);
         } else {
-            if (playerRads > 0) {
-                setPlayerRads(Math.max(playerRads - RadiationHelper.PLAYER_RADIATION_DECAY, 0));
+            if (getPlayerRads() > 0) {
+                setPlayerRads(Math.max(getPlayerRads() - RadiationHelper.PLAYER_RADIATION_DECAY, 0));
             }
         }
 
-
-//        if (radiation_player_rads_fatal && !player.isCreative() && !player.isSpectator() && !playerRads.isImmune() && playerRads.isFatal()) {
-//            player.attackEntityFrom(DamageSources.FATAL_RADS, Float.MAX_VALUE);
-//        }
-
+        if (getRadiationImmune() == 0 && getPlayerRads() > 0) {
+            double radsPercent = getRadsPercentage();
+            int ampl = radsPercent <= 25 ? 0 : radsPercent <= 50 ? 1 : radsPercent <= 75 ? 3 : 4;
+            if (radsPercent >= 1) {
+                if (!player.hasEffect(ModEffects.RADIATION.get())) {
+                    MobEffectInstance instance = new MobEffectInstance(ModEffects.RADIATION.get(), 400, ampl, false, true, true);
+                    player.addEffect(instance);
+                }
+            }
+        }
 
         syncRads(player);
     }

@@ -19,8 +19,6 @@ public final class ModAttributes {
     public final static UUID RADIATION_PROTECTION_MODIFIER = UUID.randomUUID();
 
 
-
-
     public static void register(IEventBus eventBus) {
         ATTRIBUTES.register(eventBus);
     }

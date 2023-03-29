@@ -13,6 +13,9 @@ import net.minecraft.world.level.Explosion;
 import net.minecraftforge.common.util.INBTSerializable;
 import net.minecraftforge.items.ItemStackHandler;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Reactor implements INBTSerializable<CompoundTag>, IBaseProgress, IGetEnabled {
 
     private final IReactorComponentCapability[][] grid = new IReactorComponentCapability[6][9];
@@ -216,8 +219,20 @@ public class Reactor implements INBTSerializable<CompoundTag>, IBaseProgress, IG
             }
         }
 
-//        level.destroyBlock(pos, false);
-        level.explode(null, pos.getX() + 0.5D, pos.getY() + 0.5D, pos.getZ() + 0.5D, explosionPower, false, Explosion.BlockInteraction.DESTROY);
+        List<BlockPos> exPos = new ArrayList<>();
+
+        for (int x = -2; x <= 2; x = x+2) {
+            for (int y = -2; y <= 2; y = y+2) {
+                for (int z = -2; z <= 2; z = z+2) {
+                    BlockPos newPos = pos.offset(x, y, z);
+                    exPos.add(newPos);
+                }
+            }
+        }
+
+        for (BlockPos expPos: exPos) {
+            level.explode(null, expPos.getX() + 0.5D, expPos.getY() + 0.5D, expPos.getZ() + 0.5D, explosionPower / totalRodCount, false, Explosion.BlockInteraction.DESTROY);
+        }
     }
 
     public void initComponents(ItemStackHandler stackHandler) {

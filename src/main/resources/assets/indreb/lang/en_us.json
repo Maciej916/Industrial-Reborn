@@ -607,6 +607,8 @@
   "advancements.indreb.title.wrench": "Wrench",
   "advancements.indreb.description.wrench": "Craft a Wrench",
 
+  "_comment": "Effects",
+  "effect.indreb.radiation": "Radiation",
 
   "test.indreb.test": "%s"
 }

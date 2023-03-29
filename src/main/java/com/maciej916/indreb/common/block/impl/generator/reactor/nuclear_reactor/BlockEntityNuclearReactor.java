@@ -327,7 +327,15 @@ public class BlockEntityNuclearReactor extends IndRebBlockEntity implements IHas
             }
         }
 
-        float coreHeatPercent = getReactor().getPercentProgress() / 60;
+        float coreHeatPercent = getReactor().getPercentProgress() / 5;
+
+
+        System.out.println(getReactor().getPercentProgress());
+
+        if (getReactor().getPercentProgress() >= 99) {
+            return rads * 1000;
+        }
+
         return coreHeatPercent * rads;
     }
 }

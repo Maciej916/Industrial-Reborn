@@ -22,7 +22,7 @@ public class RadiationHelper {
 
     public static final HashMap<Item, Double> RADIATION_FOOD = new HashMap<>();
     public static final double LOWEST_RADIATION = 0.000000000000001D;
-    public static final double PLAYER_MAX_RADIATION = 10D;
+    public static final double PLAYER_MAX_RADIATION = 200D;
     public static final double RADIATION_DECAY = (0.1  * 10e-6);
     public static final double PLAYER_RADIATION_DECAY = 0.0000005D;
     public static final int RADIATION_IMMUNE_TIME = 2400;
@@ -62,7 +62,7 @@ public class RadiationHelper {
 
             for (int i = 0; i < loops; i++) {
                 if (player.getRandom().nextFloat() <= 0.5f) {
-                    level.playSound(null, player.getX(), player.getY(), player.getZ(), ModSounds.GEIGER.get(), SoundSource.PLAYERS, 1f, Math.min(0.9f + (float) (player.getRandom().nextInt(1) * (1.1f - 0.9f)), 1.1f));
+                    level.playSound(null, player.getX(), player.getY(), player.getZ(), ModSounds.GEIGER.get(), SoundSource.PLAYERS, 1f, Math.min(0.9f + (player.getRandom().nextInt(1) * (1.1f - 0.9f)), 1.1f));
                 }
             }
         });
